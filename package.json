@@ -1,17 +1,30 @@
 {
   "name": "aphrodite-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
+  "main": "index.js",
+  "description": "UI framework from ingresse.com",
   "dependencies": {
+    "emotion": "^9.2.12",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-emotion": "^9.2.12",
     "react-scripts": "2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "docz": "^0.12.5",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docz": "docz dev",
+    "docz:build": "docz build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +34,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
+  ],
+  "authors": [
+    "Ingresse",
+    "Udimberto Silvestre Junior"
+  ],
+  "workspaces": [
+    "src/*"
   ]
 }

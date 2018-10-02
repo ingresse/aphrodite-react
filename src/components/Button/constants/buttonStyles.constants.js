@@ -1,0 +1,24 @@
+/* Button Styles */
+export const BUTTON_STYLES = {
+    display: 'inline-block',
+    width  : 'auto',
+    margin : 0,
+    padding: '0 20px',
+
+    cursor : 'pointer',
+
+    outline: 0,
+    border : '1px solid',
+
+    fontSize: '16px',
+
+    minWidth: '140px',
+
+    borderRadius: '25px',
+
+    textTransform: 'uppercase',
+
+    '&:hover,&:focus,&:active,&:disabled': {
+        outline: 0,
+    },
+};
