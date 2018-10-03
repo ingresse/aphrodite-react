@@ -2,6 +2,7 @@
 export default {
     title      : 'APHRODITE',
     base       : '/aphrodite-react/',
+    dest       : './docs/',
     src        : './src/',
     htmlContext: {
         head: {

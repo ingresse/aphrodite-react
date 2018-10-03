@@ -33,10 +33,11 @@
     },
     "menu": [],
     "ordering": "descending",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "repository": null,
     "native": false,
     "base": "/aphrodite-react/",
+    "dest": "./docs/",
     "src": "./src/",
     "htmlContext": {
       "head": {
