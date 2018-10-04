@@ -1,9 +1,13 @@
 {
   "name": "aphrodite-react",
   "version": "0.1.1",
-  "private": true,
-  "main": "index.js",
+  "main": "dist/index.js",
+  "license": "MIT",
   "description": "UI framework from ingresse.com",
+  "peerDependencies": {
+    "react": ">=16.5.2",
+    "react-dom": ">=16.5.2"
+  },
   "dependencies": {
     "emotion": "^9.2.12",
     "prop-types": "^15.6.2",
@@ -13,18 +17,26 @@
     "react-scripts": "2.0.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
     "docz": "^0.12.5",
     "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0"
+    "enzyme-adapter-react-16": "^1.5.0",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start:app": "react-scripts start",
+    "build:app": "react-scripts build",
     "eject": "react-scripts eject",
-    "docz": "docz dev",
-    "docz:build": "docz build"
+    "test": "react-scripts test",
+    "docz": "docz build",
+    "start": "docz dev",
+    "build": "npm run docz && rimraf dist && NODE_ENV=production babel src --out-dir dist --ignore \"src/setupTests.js\",\"src/**/*.test.js\",\"src/**/*.test.jsx\",\"src/**/**/*.test.jsx\",\"src/*.mdx\",\"src/**/*.mdx\",\"src/**/**/*.mdx\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,8 +50,5 @@
   "authors": [
     "Ingresse",
     "Udimberto Silvestre Junior"
-  ],
-  "workspaces": [
-    "src/*"
   ]
 }

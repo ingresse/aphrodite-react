@@ -7,7 +7,7 @@
 /coverage
 
 # documentation
-./docz/cache
+.docz/cache
 
 # production
 /build
