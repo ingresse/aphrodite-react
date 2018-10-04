@@ -18,6 +18,8 @@ export const BUTTON_STYLES = {
 
     textTransform: 'uppercase',
 
+    userSelect: 'none',
+
     '&:hover,&:focus,&:active,&:disabled': {
         outline: 0,
     },

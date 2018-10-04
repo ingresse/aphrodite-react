@@ -36,6 +36,7 @@
     "test": "react-scripts test",
     "docz": "docz build",
     "start": "docz dev",
+    "dev": "npm run start",
     "build": "npm run docz && rimraf dist && NODE_ENV=production babel src --out-dir dist --ignore \"src/setupTests.js\",\"src/**/*.test.js\",\"src/**/*.test.jsx\",\"src/**/**/*.test.jsx\",\"src/*.mdx\",\"src/**/*.mdx\",\"src/**/**/*.mdx\""
   },
   "eslintConfig": {

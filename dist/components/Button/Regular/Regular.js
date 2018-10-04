@@ -42,9 +42,15 @@ var StyledButton =
   target: "e1bfgx1g0"
 })(function (props) {
   return _objectSpread({}, props.styles, {
-    borderColor: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
     color: props.color && props.color !== 'white' ? _constants.COLORS.WHITE : _constants.COLORS.BLACK,
-    background: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY
+    background: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
+    borderColor: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
+    '&:disabled': {
+      cursor: 'not-allowed',
+      color: _constants.COLORS.GREY,
+      background: _constants.COLORS.LIGHT_GREY,
+      borderColor: _constants.COLORS.LIGHT_GREY
+    }
   });
 });
 /* Component */

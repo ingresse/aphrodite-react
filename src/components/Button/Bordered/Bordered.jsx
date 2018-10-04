@@ -12,6 +12,12 @@ const StyledButton = styled('button')(props => ({
     borderColor: (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
     color      : (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
     background : 'transparent',
+
+    '&:disabled': {
+        cursor     : 'not-allowed',
+        color      : COLORS.GREY,
+        borderColor: COLORS.GREY,
+    },
 }));
 
 /* Component */

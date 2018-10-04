@@ -9,9 +9,16 @@ import { COLORS } from '../../../constants';
 const StyledButton = styled('button')(props => ({
     ...props.styles,
 
-    borderColor: (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
     color      : (props.color && props.color !== 'white' ? COLORS.WHITE : COLORS.BLACK),
     background : (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
+    borderColor: (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
+
+    '&:disabled': {
+        cursor     : 'not-allowed',
+        color      : COLORS.GREY,
+        background : COLORS.LIGHT_GREY,
+        borderColor: COLORS.LIGHT_GREY,
+    },
 }));
 
 /* Component */

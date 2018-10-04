@@ -18,6 +18,7 @@ var BUTTON_STYLES = {
   minWidth: '140px',
   borderRadius: '25px',
   textTransform: 'uppercase',
+  userSelect: 'none',
   '&:hover,&:focus,&:active,&:disabled': {
     outline: 0
   }

@@ -44,7 +44,12 @@ var StyledButton =
   return _objectSpread({}, props.styles, {
     borderColor: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
     color: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
-    background: 'transparent'
+    background: 'transparent',
+    '&:disabled': {
+      cursor: 'not-allowed',
+      color: _constants.COLORS.GREY,
+      borderColor: _constants.COLORS.GREY
+    }
   });
 });
 /* Component */

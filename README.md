@@ -1,4 +1,4 @@
-# Aphrodite
+# Aphrodite React
 ### UI framework from ingresse.com
 
 A front-end framework with Ingresse styles, using `React` 16.
@@ -38,16 +38,17 @@ _
 
 ## Development
 ```
-yarn docz
+yarn dev
 ```
 
 _
 
 
-## Build Documentation
+## Build
 ```
-yarn docz:build
+yarn build
 ```
+Distribution files will be in `dist` folder.
 
 _
 
