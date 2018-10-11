@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /* Constants */
-import { BUTTON_STYLES as STYLES } from './constants';
+import { BUTTON_STYLES as STYLES} from './constants';
+import { MEDIA_QUERIES } from '../../constants';
 
 /* Nested Components */
 import Bordered from './Bordered/Bordered';
@@ -12,49 +13,51 @@ import Regular from './Regular/Regular';
 /* Component */
 class Button extends React.Component {
     render() {
-        const { block, bordered, size } = this.props;
-        let styles = Object.assign({}, STYLES);
+        const { block, bordered, size, styles } = this.props;
+        let _styles = Object.assign({}, STYLES);
 
         if (block) {
-            styles.display = 'block';
-            styles.width   = '100%';
+            _styles.display = 'block';
+            _styles.width   = '100%';
         }
 
         switch (size) {
             case 'xs':
-                styles.fontSize   = '9px';
-                styles.minHeight  = '20px';
-                styles.lineHeight = '18px';
-                styles['@media (max-width: 767px)'] = {
+                _styles.fontSize   = '9px';
+                _styles.minHeight  = '20px';
+                _styles.lineHeight = '18px';
+                _styles[MEDIA_QUERIES.XS] = {
                     minHeight : '30px',
                     lineHeight: '28px',
                 };
                 break;
 
             case 'sm':
-                styles.fontSize   = '13px';
-                styles.minHeight  = '30px';
-                styles.lineHeight = '28px';
-                styles['@media (max-width: 767px)'] = {
+                _styles.fontSize   = '13px';
+                _styles.minHeight  = '30px';
+                _styles.lineHeight = '28px';
+                _styles[MEDIA_QUERIES.XS] = {
                     minHeight : '40px',
                     lineHeight: '38px',
                 };
                 break;
 
             default:
-                styles.minHeight  = '40px';
-                styles.lineHeight = '38px';
-                styles['@media (max-width: 767px)'] = {
+                _styles.minHeight  = '40px';
+                _styles.lineHeight = '38px';
+                _styles[MEDIA_QUERIES.XS] = {
                     minHeight : '50px',
                     lineHeight: '48px',
                 };
         }
 
+        _styles = Object.assign(_styles, styles);
+
         if (bordered) {
-            return (<Bordered styles={styles} {...this.props} />);
+            return (<Bordered {...this.props} styles={_styles} />);
         }
 
-        return (<Regular styles={styles} {...this.props} />);
+        return (<Regular {...this.props} styles={_styles} />);
     }
 }
 

@@ -1,8 +1,9 @@
 {
-  "app.js": "/aphrodite-react/static/js/app.90134ebc.js",
-  "index.js": "/aphrodite-react/static/js/index.b08238ea.js",
-  "components-button-button.js": "/aphrodite-react/static/js/components-button-button.524e7864.js",
-  "vendors.js": "/aphrodite-react/static/js/vendors.575afc31.js",
-  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.aa6bf30e95bcfb462a9d.js",
+  "vendors.js": "/aphrodite-react/static/js/vendors.556dd207.js",
+  "app.js": "/aphrodite-react/static/js/app.70da6e9f.js",
+  "index.js": "/aphrodite-react/static/js/index.e368ed28.js",
+  "components-button-button.js": "/aphrodite-react/static/js/components-button-button.2c059a3b.js",
+  "components-label-button-label-button.js": "/aphrodite-react/static/js/components-label-button-label-button.8b7b0785.js",
+  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.0babc942e8d8884adde6.js",
   "index.html": "/aphrodite-react/index.html"
 }

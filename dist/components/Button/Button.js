@@ -11,6 +11,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _constants = require("./constants");
 
+var _constants2 = require("../../constants");
+
 var _Bordered = _interopRequireDefault(require("./Bordered/Bordered"));
 
 var _Regular = _interopRequireDefault(require("./Regular/Regular"));
@@ -55,53 +57,57 @@ function (_React$Component) {
       var _this$props = this.props,
           block = _this$props.block,
           bordered = _this$props.bordered,
-          size = _this$props.size;
-      var styles = Object.assign({}, _constants.BUTTON_STYLES);
+          size = _this$props.size,
+          styles = _this$props.styles;
+
+      var _styles = Object.assign({}, _constants.BUTTON_STYLES);
 
       if (block) {
-        styles.display = 'block';
-        styles.width = '100%';
+        _styles.display = 'block';
+        _styles.width = '100%';
       }
 
       switch (size) {
         case 'xs':
-          styles.fontSize = '9px';
-          styles.minHeight = '20px';
-          styles.lineHeight = '18px';
-          styles['@media (max-width: 767px)'] = {
+          _styles.fontSize = '9px';
+          _styles.minHeight = '20px';
+          _styles.lineHeight = '18px';
+          _styles[_constants2.MEDIA_QUERIES.XS] = {
             minHeight: '30px',
             lineHeight: '28px'
           };
           break;
 
         case 'sm':
-          styles.fontSize = '13px';
-          styles.minHeight = '30px';
-          styles.lineHeight = '28px';
-          styles['@media (max-width: 767px)'] = {
+          _styles.fontSize = '13px';
+          _styles.minHeight = '30px';
+          _styles.lineHeight = '28px';
+          _styles[_constants2.MEDIA_QUERIES.XS] = {
             minHeight: '40px',
             lineHeight: '38px'
           };
           break;
 
         default:
-          styles.minHeight = '40px';
-          styles.lineHeight = '38px';
-          styles['@media (max-width: 767px)'] = {
+          _styles.minHeight = '40px';
+          _styles.lineHeight = '38px';
+          _styles[_constants2.MEDIA_QUERIES.XS] = {
             minHeight: '50px',
             lineHeight: '48px'
           };
       }
 
+      _styles = Object.assign(_styles, styles);
+
       if (bordered) {
-        return _react.default.createElement(_Bordered.default, _extends({
-          styles: styles
-        }, this.props));
+        return _react.default.createElement(_Bordered.default, _extends({}, this.props, {
+          styles: _styles
+        }));
       }
 
-      return _react.default.createElement(_Regular.default, _extends({
-        styles: styles
-      }, this.props));
+      return _react.default.createElement(_Regular.default, _extends({}, this.props, {
+        styles: _styles
+      }));
     }
   }]);
 
