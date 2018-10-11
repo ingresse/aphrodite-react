@@ -1,0 +1,105 @@
+---
+name : Label Button
+menu : Components
+route: /components/label-button
+---
+
+import { Playground, PropsTable } from 'docz';
+import { LabelButton } from '../';
+
+# Button as Label
+A button acting as a label to a checkbox input.
+
+## Properties
+<PropsTable of={LabelButton} />
+
+<Playground>
+    <form>
+        <div>
+            <LabelButton
+                value="myFirstCheckbox"
+                onChange={
+                    (event) => {
+                        console.log('checkbox 1 changed: ', event);
+                    }
+                }>
+                Checkbox 1
+            </LabelButton>
+            <LabelButton
+                checked={true}
+                value="mySecondCheckbox"
+                onChange={
+                    (event) => {
+                        console.log('checkbox 2 changed: ', event);
+                    }
+                }>
+                Checkbox 2
+            </LabelButton>
+        </div>
+        <br />
+        <div>
+            <LabelButton
+                disabled={true}
+                value="myThirdCheckbox"
+                onChange={
+                    (event) => {
+                        console.log('checkbox 3 changed: ', event);
+                    }
+                }>
+                Checkbox Disabled
+            </LabelButton>
+            <LabelButton
+                checked={true}
+                disabled={true}
+                value="myFourthCheckbox"
+                onChange={
+                    (event) => {
+                        console.log('checkbox 4 changed: ', event);
+                    }
+                }>
+                Checkbox Checked Disabled
+            </LabelButton>
+        </div>
+    </form>
+</Playground>
+
+## Colors
+
+<Playground>
+    <LabelButton color="yellow">
+        Yellow
+    </LabelButton>
+    <LabelButton color="orange">
+        Orange
+    </LabelButton>
+    <LabelButton color="orange_red">
+        Orange Red
+    </LabelButton>
+    <LabelButton color="red">
+        Red
+    </LabelButton>
+    <LabelButton color="purple">
+        Purple
+    </LabelButton>
+    <LabelButton>
+        Blue
+    </LabelButton>
+    <LabelButton color="green">
+        Green
+    </LabelButton>
+    <LabelButton color="black">
+        Black
+    </LabelButton>
+    <LabelButton color="white">
+        White
+    </LabelButton>
+</Playground>
+
+## Block
+
+<Playground>
+    <LabelButton block>
+        Block
+        <div>Test</div>
+    </LabelButton>
+</Playground>

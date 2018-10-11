@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.COLORS = void 0;
+
+/* Color Base */
 var _COLORS = {
   BLACK: 'rgb(45, 45, 45)',
   // #2D2D2D
@@ -19,12 +21,12 @@ var _COLORS = {
   // #9DA6AD
   DARK_GREY: 'rgb(122, 128, 133)',
   // #7A8085
-  ORANGE: 'rgb(252, 163, 17)',
-  // #FCA311
-  LIGHT_ORANGE: 'rgb(255, 141, 80)',
-  // #FF8D50
   YELLOW: 'rgb(255, 198, 30)',
   // #FFC61E
+  ORANGE: 'rgb(252, 163, 17)',
+  // #FCA311
+  ORANGE_RED: 'rgb(255, 141, 80)',
+  // #FF8D50
   RED: 'rgb(241, 51, 53)',
   // #F13335
   GREEN: 'rgb(96,198,89)',
@@ -36,6 +38,8 @@ var _COLORS = {
   LIGHT_PINK: 'rgb(248, 130, 184)' // #F882B8
 
 };
+/* Export */
+
 var COLORS = Object.assign({}, _COLORS, {
   PRIMARY: _COLORS.BLUE,
   SECONDARY: _COLORS.ORANGE,

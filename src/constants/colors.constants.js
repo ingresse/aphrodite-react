@@ -1,4 +1,4 @@
-
+/* Color Base */
 const _COLORS = {
     BLACK: 'rgb(45, 45, 45)',           // #2D2D2D
     WHITE: 'rgb(255, 255, 255)',        // #FFFFFF
@@ -11,9 +11,9 @@ const _COLORS = {
     GREY      : 'rgb(157, 166, 173)',   // #9DA6AD
     DARK_GREY : 'rgb(122, 128, 133)',   // #7A8085
 
-    ORANGE      : 'rgb(252, 163, 17)',   // #FCA311
-    LIGHT_ORANGE: 'rgb(255, 141, 80)',   // #FF8D50
     YELLOW      : 'rgb(255, 198, 30)',   // #FFC61E
+    ORANGE      : 'rgb(252, 163, 17)',   // #FCA311
+    ORANGE_RED  : 'rgb(255, 141, 80)',   // #FF8D50
     RED         : 'rgb(241, 51, 53)',    // #F13335
     GREEN       : 'rgb(96,198,89)',      // #60C659
     BLUE        : 'rgb(0, 165, 219)',    // #00A5DB
@@ -21,6 +21,7 @@ const _COLORS = {
     LIGHT_PINK  : 'rgb(248, 130, 184)',  // #F882B8
 };
 
+/* Export */
 export const COLORS = Object.assign({}, _COLORS, {
     PRIMARY  : _COLORS.BLUE,
     SECONDARY: _COLORS.ORANGE,
