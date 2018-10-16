@@ -13,12 +13,27 @@ import Regular from './Regular/Regular';
 /* Component */
 class Button extends React.Component {
     render() {
-        const { block, bordered, size, styles } = this.props;
+        const { block, radius, rounded, bordered, size, styles } = this.props;
         let _styles = Object.assign({}, STYLES);
 
+        /* Block style */
         if (block) {
             _styles.display = 'block';
             _styles.width   = '100%';
+        }
+
+        /* Customized Radius */
+        if (radius || typeof radius === 'number') {
+            _styles.borderRadius = radius + '';
+
+            if (!_styles.borderRadius.includes('px')) {
+                _styles.borderRadius += 'px';
+            }
+        }
+
+        /* Rounded Radius */
+        if (rounded) {
+            _styles.borderRadius = '8px';
         }
 
         switch (size) {
@@ -67,6 +82,7 @@ Button.defaultProps = {
     disabled: false,
     color   : 'primary',
     bordered: false,
+    radius  : 25,
     block   : false,
     size    : '',
 };
@@ -95,6 +111,17 @@ Button.propTypes = {
     * Should the Button be bordered?
     */
     bordered: PropTypes.bool,
+
+    /**
+    * Customized Border Radius
+    */
+    radius: PropTypes.number,
+
+    /**
+     * Border Radius variation to '8px'
+     * Overwrites 'radius' property
+     */
+    Rounded: PropTypes.bool,
 
     /**
     * Should the Button be block?

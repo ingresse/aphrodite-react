@@ -115,6 +115,11 @@
         },
         {
           "depth": 2,
+          "slug": "roundend--customized-radius",
+          "value": "Roundend & Customized Radius"
+        },
+        {
+          "depth": 2,
           "slug": "block",
           "value": "Block"
         },
@@ -122,38 +127,6 @@
           "depth": 2,
           "slug": "disabled",
           "value": "Disabled"
-        }
-      ]
-    },
-    "components/LabelButton/LabelButton.mdx": {
-      "name": "Label Button",
-      "menu": "Components",
-      "route": "/components/label-button",
-      "id": "180617494590163d18d508f40e9aafcf",
-      "filepath": "components/LabelButton/LabelButton.mdx",
-      "link": null,
-      "slug": "components-label-button-label-button",
-      "order": 0,
-      "headings": [
-        {
-          "depth": 1,
-          "slug": "button-as-label",
-          "value": "Button as Label"
-        },
-        {
-          "depth": 2,
-          "slug": "properties",
-          "value": "Properties"
-        },
-        {
-          "depth": 2,
-          "slug": "colors",
-          "value": "Colors"
-        },
-        {
-          "depth": 2,
-          "slug": "block",
-          "value": "Block"
         }
       ]
     }

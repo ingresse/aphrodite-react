@@ -56,15 +56,35 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           block = _this$props.block,
+          radius = _this$props.radius,
+          rounded = _this$props.rounded,
           bordered = _this$props.bordered,
           size = _this$props.size,
           styles = _this$props.styles;
 
       var _styles = Object.assign({}, _constants.BUTTON_STYLES);
+      /* Block style */
+
 
       if (block) {
         _styles.display = 'block';
         _styles.width = '100%';
+      }
+      /* Customized Radius */
+
+
+      if (radius || typeof radius === 'number') {
+        _styles.borderRadius = radius + '';
+
+        if (!_styles.borderRadius.includes('px')) {
+          _styles.borderRadius += 'px';
+        }
+      }
+      /* Rounded Radius */
+
+
+      if (rounded) {
+        _styles.borderRadius = '8px';
       }
 
       switch (size) {
@@ -121,6 +141,7 @@ Button.defaultProps = {
   disabled: false,
   color: 'primary',
   bordered: false,
+  radius: 25,
   block: false,
   size: ''
 };
@@ -148,6 +169,17 @@ Button.propTypes = {
   * Should the Button be bordered?
   */
   bordered: _propTypes.default.bool,
+
+  /**
+  * Customized Border Radius
+  */
+  radius: _propTypes.default.number,
+
+  /**
+   * Border Radius variation to '8px'
+   * Overwrites 'radius' property
+   */
+  Rounded: _propTypes.default.bool,
 
   /**
   * Should the Button be block?

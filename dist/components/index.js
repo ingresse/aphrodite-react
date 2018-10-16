@@ -9,15 +9,15 @@ Object.defineProperty(exports, "Button", {
     return _Button.default;
   }
 });
-Object.defineProperty(exports, "LabelButton", {
+Object.defineProperty(exports, "Scrollable", {
   enumerable: true,
   get: function get() {
-    return _LabelButton.default;
+    return _Scrollable.default;
   }
 });
 
 var _Button = _interopRequireDefault(require("./Button/Button"));
 
-var _LabelButton = _interopRequireDefault(require("./LabelButton/LabelButton"));
+var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
