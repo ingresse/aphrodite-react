@@ -10,7 +10,8 @@ export const BUTTON_STYLES = {
     outline: 0,
     border : '1px solid',
 
-    fontSize: '16px',
+    fontSize  : '16px',
+    fontWeight: 500,
 
     minWidth: '140px',
 

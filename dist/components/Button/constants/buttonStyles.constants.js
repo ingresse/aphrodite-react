@@ -15,6 +15,7 @@ var BUTTON_STYLES = {
   outline: 0,
   border: '1px solid',
   fontSize: '16px',
+  fontWeight: 500,
   minWidth: '140px',
   borderRadius: '25px',
   textTransform: 'uppercase',
