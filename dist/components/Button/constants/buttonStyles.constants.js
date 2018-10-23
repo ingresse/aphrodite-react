@@ -20,6 +20,7 @@ var BUTTON_STYLES = {
   borderRadius: '25px',
   textTransform: 'uppercase',
   userSelect: 'none',
+  transition: 'background .15s linear, border-color .15s linear, text-shadow .15s linear, color .15s linear',
   '&:hover,&:focus,&:active,&:disabled': {
     outline: 0
   }

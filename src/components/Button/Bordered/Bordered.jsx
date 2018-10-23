@@ -1,6 +1,7 @@
 /* Packages */
 import React from 'react';
 import styled from 'react-emotion';
+const color = require('tinycolor2');
 
 /* Constants */
 import { COLORS } from '../../../constants';
@@ -12,6 +13,11 @@ const StyledButton = styled('button')(props => ({
     borderColor: (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
     color      : (props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY),
     background : 'transparent',
+
+    '&:hover,&:focus,&:active': {
+        borderColor: color(props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY).darken().toString(),
+        color      : color(props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY).darken().toString(),
+    },
 
     '&:disabled': {
         cursor     : 'not-allowed',

@@ -14,7 +14,8 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.12",
-    "react-scripts": "2.0.3"
+    "react-scripts": "2.0.3",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

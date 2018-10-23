@@ -35,6 +35,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var color = require('tinycolor2');
+/* Constants */
+
+
 /* Styled */
 var StyledButton =
 /*#__PURE__*/
@@ -45,6 +49,11 @@ var StyledButton =
     color: props.color && props.color !== 'white' ? _constants.COLORS.WHITE : _constants.COLORS.BLACK,
     background: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
     borderColor: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
+    '&:hover,&:focus,&:active': {
+      borderColor: color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(5).toString(),
+      background: color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(5).toString(),
+      textShadow: "0 0 2px ".concat(color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(15).toString())
+    },
     '&:disabled': {
       cursor: 'not-allowed',
       color: _constants.COLORS.GREY,
