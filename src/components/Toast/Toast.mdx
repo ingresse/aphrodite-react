@@ -1,0 +1,21 @@
+---
+name : Toast
+menu : Components
+route: /components/toast
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Button } from '../';
+import { Toast } from '../';
+
+# Toast
+
+## Properties
+<PropsTable of={Toast} />
+
+## Timeout
+
+<Playground>
+    <Toast className="static" message="The message toast"  visible={true} timeout={300}/>
+</Playground>
+
