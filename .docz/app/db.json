@@ -36,6 +36,7 @@
     "version": "0.1.2",
     "repository": null,
     "native": false,
+    "codeSandbox": true,
     "base": "/aphrodite-react/",
     "dest": "./docs/",
     "src": "./src/",
@@ -127,6 +128,33 @@
           "depth": 2,
           "slug": "disabled",
           "value": "Disabled"
+        }
+      ]
+    },
+    "components/Toast/Toast.mdx": {
+      "name": "Toast",
+      "menu": "Components",
+      "route": "/components/toast",
+      "id": "365c0e636c0718fc87418d77a49a7599",
+      "filepath": "components/Toast/Toast.mdx",
+      "link": null,
+      "slug": "components-toast-toast",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "toast",
+          "value": "Toast"
+        },
+        {
+          "depth": 2,
+          "slug": "properties",
+          "value": "Properties"
+        },
+        {
+          "depth": 2,
+          "slug": "timeout",
+          "value": "Timeout"
         }
       ]
     }
