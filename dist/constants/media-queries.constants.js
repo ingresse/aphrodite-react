@@ -20,10 +20,10 @@ var MEDIA_QUERIES = {
   XL: "@media (min-width: ".concat(_.SCREEN_SIZES.XL, "px)"),
   // LESS THAN
   LT: {
-    XS: "@media (min-width: ".concat(_.SCREEN_SIZES.XS, "px)"),
-    SM: "@media (min-width: ".concat(_.SCREEN_SIZES.SM, "px)"),
-    MD: "@media (min-width: ".concat(_.SCREEN_SIZES.MD, "px)"),
-    LG: "@media (min-width: ".concat(_.SCREEN_SIZES.LG, "px)")
+    XS: "@media (max-width: ".concat(_.SCREEN_SIZES.XS - 1, "px)"),
+    SM: "@media (max-width: ".concat(_.SCREEN_SIZES.SM - 1, "px)"),
+    MD: "@media (max-width: ".concat(_.SCREEN_SIZES.MD - 1, "px)"),
+    LG: "@media (max-width: ".concat(_.SCREEN_SIZES.LG - 1, "px)")
   },
   // GREATER THAN
   GT: {

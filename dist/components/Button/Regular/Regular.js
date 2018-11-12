@@ -51,8 +51,7 @@ var StyledButton =
     borderColor: props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY,
     '&:hover,&:focus,&:active': {
       borderColor: color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(5).toString(),
-      background: color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(5).toString(),
-      textShadow: "0 0 2px ".concat(color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(15).toString())
+      background: color(props.color ? _constants.COLORS[props.color.toUpperCase()] : _constants.COLORS.PRIMARY).darken(5).toString()
     },
     '&:disabled': {
       cursor: 'not-allowed',

@@ -14,10 +14,10 @@ export const MEDIA_QUERIES = {
 
     // LESS THAN
     LT: {
-        XS: `@media (min-width: ${SCREEN_SIZES.XS}px)`,
-        SM: `@media (min-width: ${SCREEN_SIZES.SM}px)`,
-        MD: `@media (min-width: ${SCREEN_SIZES.MD}px)`,
-        LG: `@media (min-width: ${SCREEN_SIZES.LG}px)`,
+        XS: `@media (max-width: ${SCREEN_SIZES.XS - 1}px)`,
+        SM: `@media (max-width: ${SCREEN_SIZES.SM - 1}px)`,
+        MD: `@media (max-width: ${SCREEN_SIZES.MD - 1}px)`,
+        LG: `@media (max-width: ${SCREEN_SIZES.LG - 1}px)`,
     },
 
     // GREATER THAN

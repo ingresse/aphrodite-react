@@ -17,7 +17,6 @@ const StyledButton = styled('button')(props => ({
     '&:hover,&:focus,&:active': {
         borderColor: color(props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY).darken(5).toString(),
         background : color(props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY).darken(5).toString(),
-        textShadow : `0 0 2px ${color(props.color ? COLORS[props.color.toUpperCase()] : COLORS.PRIMARY).darken(15).toString()}`,
     },
 
     '&:disabled': {

@@ -1,3 +1,6 @@
+/* Plugin */
+import { css } from 'docz-plugin-css';
+
 /* Docz Custom Settings */
 export default {
     title      : 'APHRODITE',
@@ -9,7 +12,7 @@ export default {
             links: [
                 {
                     rel : 'stylesheet',
-                    href: 'https://fonts.googleapis.com/css?family=Roboto:400,600,700',
+                    href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,700',
                 },
             ],
         },
@@ -43,4 +46,8 @@ export default {
             },
         },
     },
+    plugins: [
+        css({ preprocessor: 'sass' }),
+        css({ preprocessor: 'stylus' }),
+    ],
 }

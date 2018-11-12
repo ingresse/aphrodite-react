@@ -29,6 +29,7 @@ export const COLORS = Object.assign({}, _COLORS, {
     ERROR    : _COLORS.RED,
     WARNING  : _COLORS.YELLOW,
     SUCCESS  : _COLORS.GREEN,
+    INFO    : _COLORS.BLUE,
 
     INVERSE  : _COLORS.WHITE,
 });

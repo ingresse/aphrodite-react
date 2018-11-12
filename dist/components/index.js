@@ -15,7 +15,13 @@ Object.defineProperty(exports, "Scrollable", {
     return _Scrollable.default;
   }
 });
-Object.defineProperty(exports, "Toast", {
+Object.defineProperty(exports, "ToastsContainer", {
+  enumerable: true,
+  get: function get() {
+    return _ToastsContainer.default;
+  }
+});
+Object.defineProperty(exports, "toast", {
   enumerable: true,
   get: function get() {
     return _Toast.default;
@@ -31,6 +37,8 @@ Object.defineProperty(exports, "IconClose", {
 var _Button = _interopRequireDefault(require("./Button/Button"));
 
 var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
+
+var _ToastsContainer = _interopRequireDefault(require("./Toast/ToastsContainer"));
 
 var _Toast = _interopRequireDefault(require("./Toast/Toast"));
 
