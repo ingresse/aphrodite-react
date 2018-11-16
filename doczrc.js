@@ -7,6 +7,7 @@ export default {
     base       : '/aphrodite-react/',
     dest       : './docs/',
     src        : './src/',
+    hashRouter : true,
     htmlContext: {
         head: {
             links: [

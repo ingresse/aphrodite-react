@@ -1,10 +1,12 @@
 {
-  "vendors.css": "/aphrodite-react/static/css/vendors.f4d2b33d1fd9d60f6897.css",
-  "vendors.js": "/aphrodite-react/static/js/vendors.e96e747d.js",
-  "app.js": "/aphrodite-react/static/js/app.4536fe58.js",
-  "components-button-button.js": "/aphrodite-react/static/js/components-button-button.8960b1ee.js",
-  "components-toast-toast.js": "/aphrodite-react/static/js/components-toast-toast.412fd65d.js",
-  "index.js": "/aphrodite-react/static/js/index.111327d9.js",
-  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.f4d2b33d1fd9d60f6897.js",
+  "vendors.css": "/aphrodite-react/static/css/vendors.5983494f9047cb278836.css",
+  "vendors.js": "/aphrodite-react/static/js/vendors.a0ebe15f.js",
+  "app.js": "/aphrodite-react/static/js/app.bc1fd13e.js",
+  "components-button-button.js": "/aphrodite-react/static/js/components-button-button.38c84150.js",
+  "components-number-format-number-format.js": "/aphrodite-react/static/js/components-number-format-number-format.ec934d78.js",
+  "components-placeholder-placeholder.js": "/aphrodite-react/static/js/components-placeholder-placeholder.494247b5.js",
+  "components-toast-toast.js": "/aphrodite-react/static/js/components-toast-toast.5b3917c3.js",
+  "index.js": "/aphrodite-react/static/js/index.f7db0b9d.js",
+  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.5983494f9047cb278836.js",
   "index.html": "/aphrodite-react/index.html"
 }

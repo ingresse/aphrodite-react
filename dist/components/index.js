@@ -9,6 +9,24 @@ Object.defineProperty(exports, "Button", {
     return _Button.default;
   }
 });
+Object.defineProperty(exports, "IconClose", {
+  enumerable: true,
+  get: function get() {
+    return _IconClose.default;
+  }
+});
+Object.defineProperty(exports, "NumberFormat", {
+  enumerable: true,
+  get: function get() {
+    return _NumberFormat.default;
+  }
+});
+Object.defineProperty(exports, "Placeholder", {
+  enumerable: true,
+  get: function get() {
+    return _Placeholder.default;
+  }
+});
 Object.defineProperty(exports, "Scrollable", {
   enumerable: true,
   get: function get() {
@@ -27,21 +45,19 @@ Object.defineProperty(exports, "toast", {
     return _Toast.default;
   }
 });
-Object.defineProperty(exports, "IconClose", {
-  enumerable: true,
-  get: function get() {
-    return _IconClose.default;
-  }
-});
 
 var _Button = _interopRequireDefault(require("./Button/Button"));
+
+var _IconClose = _interopRequireDefault(require("./IconClose/IconClose"));
+
+var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
+
+var _Placeholder = _interopRequireDefault(require("./Placeholder/Placeholder"));
 
 var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
 
 var _ToastsContainer = _interopRequireDefault(require("./Toast/ToastsContainer"));
 
 var _Toast = _interopRequireDefault(require("./Toast/Toast"));
-
-var _IconClose = _interopRequireDefault(require("./IconClose/IconClose"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

@@ -28,7 +28,7 @@ describe('Index', () => {
     describe('Constants', () => {
 
         test('should export the colors object', () => {
-            expect(COLORS.BLACK).to.include('rgb(42, 42, 42)');
+            expect(COLORS.BLACK).to.include('rgb(45, 45, 45)');
         });
 
     });

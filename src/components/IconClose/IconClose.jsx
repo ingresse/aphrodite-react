@@ -1,9 +1,13 @@
-/* Modules */
+/* Packages */
 import React from 'react';
+import propTypes from 'prop-types';
+
+/* Constants */
+import { COLORS } from '../../constants';
 
 const IconClose = (props) => {
     return (
-        <svg width="12px" height="12px"
+        <svg width={`${props.size}px`} height={`${props.size}px`}
             version="1.1"
             xmlns="http://www.w3.org/2000/svg">
             <g
@@ -49,8 +53,15 @@ const IconClose = (props) => {
 
 /* Component default properties */
 IconClose.defaultProps = {
-    color: '#FFFFFF',
+    color: COLORS.WHITE,
+    size : 12,
 }
+
+/* Properties Types */
+IconClose.propTypes = {
+    color: propTypes.string,
+    size : propTypes.number,
+};
 
 /* Map State to Props */
 export default IconClose;

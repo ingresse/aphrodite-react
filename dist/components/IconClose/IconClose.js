@@ -7,13 +7,19 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _constants = require("../../constants");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* Modules */
+/* Packages */
+
+/* Constants */
 var IconClose = function IconClose(props) {
   return _react.default.createElement("svg", {
-    width: "12px",
-    height: "12px",
+    width: "".concat(props.size, "px"),
+    height: "".concat(props.size, "px"),
     version: "1.1",
     xmlns: "http://www.w3.org/2000/svg"
   }, _react.default.createElement("g", {
@@ -58,9 +64,16 @@ var IconClose = function IconClose(props) {
 
 
 IconClose.defaultProps = {
-  color: '#FFFFFF'
-  /* Map State to Props */
+  color: _constants.COLORS.WHITE,
+  size: 12
+  /* Properties Types */
 
 };
+IconClose.propTypes = {
+  color: _propTypes.default.string,
+  size: _propTypes.default.number
+};
+/* Map State to Props */
+
 var _default = IconClose;
 exports.default = _default;
