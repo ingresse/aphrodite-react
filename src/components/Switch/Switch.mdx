@@ -1,0 +1,46 @@
+---
+name : Switch
+menu : Components
+route: /components/Switch
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Switch } from '../';
+
+# Switch
+#### Custom checkbox in switch format.
+
+```jsx
+import { Switch } from 'aphrodite-react';
+
+<Switch />
+```
+
+## Properties
+<PropsTable of={Switch} />
+
+## Checked
+<Playground>
+    <Switch checked={true} />
+</Playground>
+
+## Disabled
+<Playground>
+    <Switch disabled={true} />
+</Playground>
+
+## Message
+<Playground>
+    <Switch message="Your text goes here" />
+</Playground>
+
+## Right
+<Playground>
+    <Switch message="Your text goes here" right={true} />
+</Playground>
+
+## Checked & Disabled
+<Playground>
+    <Switch checked={true} disabled={true} />
+</Playground>
+
