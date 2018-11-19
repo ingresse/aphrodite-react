@@ -12,7 +12,7 @@ const StyledSwitch = styled('label')(props => ({
     ...props.styles,
 
     position  : 'relative',
-    display   : 'block',
+    display   : `${props.right ? 'inline-block' : 'block'}`,
     minHeight : '30px',
     margin    : '0',
     padding   : `${props.right ? '6px 60px 6px 0' : '6px 0 6px 60px'}`,

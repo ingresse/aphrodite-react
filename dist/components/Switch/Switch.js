@@ -53,7 +53,7 @@ var StyledSwitch =
 })(function (props) {
   return _objectSpread({}, props.styles, {
     position: 'relative',
-    display: 'block',
+    display: "".concat(props.right ? 'inline-block' : 'block'),
     minHeight: '30px',
     margin: '0',
     padding: "".concat(props.right ? '6px 60px 6px 0' : '6px 0 6px 60px'),
