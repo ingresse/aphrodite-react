@@ -1,7 +1,7 @@
 /* Packages */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import { default as Formatter } from 'react-number-format';
+import Formatter from 'react-number-format';
 
 /* Component */
 const NumberFormat = (props) => {
