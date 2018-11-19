@@ -30,6 +30,7 @@ export default {
                 lineHeight: '20px',
             },
             h1: {
+                fontFamily: '"Roboto", Helvetica, sans-serif',
                 fontWeight   : '700',
                 fontSize     : '60px',
                 lineHeight   : '60px',
