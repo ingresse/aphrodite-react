@@ -169,7 +169,7 @@ function (_React$Component) {
         id: this.props.inputId,
         type: "checkbox",
         defaultChecked: this.state.checked,
-        onChange: this.slide,
+        onChange: this.props.callback || this.slide,
         disabled: this.props.disabled
       }), _react.default.createElement("div", {
         className: "aph-switch-slide ".concat(this.state.checked ? 'active' : '')
@@ -183,6 +183,7 @@ function (_React$Component) {
 
 
 Switch.defaultProps = {
+  callback: null,
   checked: false,
   disabled: false,
   inputId: null,
@@ -193,6 +194,11 @@ Switch.defaultProps = {
 /* Properties Types */
 
 Switch.propTypes = {
+  /**
+  * Should call when input change
+  */
+  callback: _propTypes.default.func,
+
   /**
   * Should the Switch be checked?
   */

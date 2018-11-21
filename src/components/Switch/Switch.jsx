@@ -136,7 +136,7 @@ class Switch extends React.Component {
                     id={this.props.inputId}
                     type="checkbox"
                     defaultChecked={this.state.checked}
-                    onChange={this.slide}
+                    onChange={this.props.callback || this.slide}
                     disabled={this.props.disabled}
                 />
                 <div className={`aph-switch-slide ${this.state.checked ? 'active' : ''}`}></div>
@@ -148,6 +148,7 @@ class Switch extends React.Component {
 
 /* Default Properties */
 Switch.defaultProps = {
+    callback: null,
     checked : false,
     disabled: false,
     inputId : null,
@@ -158,6 +159,11 @@ Switch.defaultProps = {
 
 /* Properties Types */
 Switch.propTypes = {
+
+    /**
+    * Should call when input change
+    */
+    callback: PropTypes.func,
 
     /**
     * Should the Switch be checked?
