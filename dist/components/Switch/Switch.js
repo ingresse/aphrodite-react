@@ -54,7 +54,7 @@ var StyledSwitch =
   return _objectSpread({}, props.styles, {
     position: 'relative',
     display: 'inline-block',
-    minHeight: '30px',
+    minHeight: "".concat(props.xs ? '20px' : '30px'),
     margin: '0',
     padding: "".concat(props.right ? '6px 60px 6px 0' : '6px 0 6px 60px'),
     fontSize: '13px',
@@ -77,7 +77,7 @@ var StyledSwitch =
       ':checked': {
         backgroundColor: _constants.COLORS.GREEN,
         ':before': {
-          transform: 'translateX(20px)',
+          transform: "".concat(props.xs ? 'translateX(13px)' : 'translateX(20px)'),
           borderColor: _constants.COLORS.GREEN,
           boxShadow: '1px 0 2px -1px rgba(45,45,45,.25)'
         }
@@ -97,8 +97,8 @@ var StyledSwitch =
       ':before': {
         position: 'absolute',
         content: 'no-open-quote',
-        width: '28px',
-        height: '28px',
+        width: "".concat(props.xs ? '18px' : '28px'),
+        height: "".concat(props.xs ? '18px' : '28px'),
         top: '0',
         left: '0',
         backgroundColor: props.disabled ? _constants.COLORS.SMOKE : _constants.COLORS.WHITE,
@@ -110,14 +110,14 @@ var StyledSwitch =
       '&.active': {
         backgroundColor: props.disabled ? color(_constants.COLORS.GREEN).lighten(30).toString() : _constants.COLORS.GREEN,
         ':before': {
-          transform: 'translateX(20px)',
+          transform: "".concat(props.xs ? 'translateX(13px)' : 'translateX(20px)'),
           borderColor: props.disabled ? color(_constants.COLORS.GREEN).lighten(30).toString() : _constants.COLORS.GREEN
         }
       }
     },
     '.aph-switch-check, .aph-switch-slide': {
-      width: '50px',
-      height: '30px',
+      width: "".concat(props.xs ? '33px' : '50px'),
+      height: "".concat(props.xs ? '20px' : '30px'),
       left: '0'
     }
   });
@@ -187,7 +187,8 @@ Switch.defaultProps = {
   disabled: false,
   inputId: null,
   message: '',
-  right: false
+  right: false,
+  xs: false
 };
 /* Properties Types */
 
@@ -215,7 +216,12 @@ Switch.propTypes = {
   /**
   * Should the Switch render in righ side?
   */
-  right: _propTypes.default.bool
+  right: _propTypes.default.bool,
+
+  /**
+  * Should the Switch render small size?
+  */
+  xs: _propTypes.default.bool
 };
 var _default = Switch;
 exports.default = _default;

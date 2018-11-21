@@ -13,7 +13,7 @@ const StyledSwitch = styled('label')(props => ({
 
     position  : 'relative',
     display   : 'inline-block',
-    minHeight : '30px',
+    minHeight : `${props.xs ? '20px' : '30px'}`,
     margin    : '0',
     padding   : `${props.right ? '6px 60px 6px 0' : '6px 0 6px 60px'}`,
 
@@ -42,7 +42,7 @@ const StyledSwitch = styled('label')(props => ({
             backgroundColor: COLORS.GREEN,
 
             ':before': {
-                transform: 'translateX(20px)',
+                transform: `${props.xs ? 'translateX(13px)' : 'translateX(20px)'}`,
 
                 borderColor: COLORS.GREEN,
                 boxShadow  : '1px 0 2px -1px rgba(45,45,45,.25)',
@@ -71,8 +71,8 @@ const StyledSwitch = styled('label')(props => ({
             position: 'absolute',
             content : 'no-open-quote',
 
-            width : '28px',
-            height: '28px',
+            width : `${props.xs ? '18px' : '28px'}`,
+            height: `${props.xs ? '18px' : '28px'}`,
             top   : '0',
             left  : '0',
 
@@ -88,15 +88,15 @@ const StyledSwitch = styled('label')(props => ({
             backgroundColor: props.disabled ? color(COLORS.GREEN).lighten(30).toString() : COLORS.GREEN,
 
             ':before': {
-                transform: 'translateX(20px)',
+                transform: `${props.xs ? 'translateX(13px)' : 'translateX(20px)'}`,
                 borderColor: props.disabled ? color(COLORS.GREEN).lighten(30).toString() : COLORS.GREEN,
             }
         }
     },
 
     '.aph-switch-check, .aph-switch-slide': {
-        width : '50px',
-        height: '30px',
+        width : `${props.xs ? '33px' : '50px'}`,
+        height: `${props.xs ? '20px' : '30px'}`,
         left  : '0',
 
     },
@@ -153,6 +153,7 @@ Switch.defaultProps = {
     inputId : null,
     message : '',
     right   : false,
+    xs      : false,
 };
 
 /* Properties Types */
@@ -183,6 +184,10 @@ Switch.propTypes = {
     */
     right: PropTypes.bool,
 
+    /**
+    * Should the Switch render small size?
+    */
+    xs: PropTypes.bool,
 };
 
 export default Switch;
