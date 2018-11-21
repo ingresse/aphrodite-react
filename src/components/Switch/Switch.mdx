@@ -5,7 +5,7 @@ route: /components/Switch
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Switch } from '../';
+import { Switch, ToastsContainer, toast } from '../';
 
 # Switch
 #### Custom checkbox in switch format.
@@ -23,7 +23,18 @@ import { Switch } from 'aphrodite-react';
 <Playground>
     {() => {
         return (
-            <Switch onChange={(evt) => {evt.target.checked = !evt.target.checked}} />
+            <div>
+                <ToastsContainer styles={{top: '45px', right: '45px'}} />
+                <Switch onChange={
+                    (evt) => {
+                        if (evt.target.checked) {
+                            toast.success("Switch Activated");
+                            return;
+                        }
+                        toast.error("Switch disabled");
+                    }
+                } />
+            </div>
         )
     }}
 </Playground>
@@ -52,7 +63,6 @@ import { Switch } from 'aphrodite-react';
 <Playground>
     <Switch xs={true} />
 </Playground>
-
 
 ## Checked & Disabled
 <Playground>
