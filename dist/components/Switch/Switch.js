@@ -29,13 +29,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -63,7 +63,7 @@ var StyledSwitch =
     textTransform: 'uppercase',
     color: _constants.COLORS.DARK_GREY,
     cursor: 'pointer',
-    ':after': {
+    '&:after': {
       content: 'no-open-quote',
       display: 'block'
     },
@@ -106,13 +106,13 @@ var StyledSwitch =
         borderRadius: '3px',
         boxShadow: "1px 0 2px -1px rgba( ".concat(color(_constants.COLORS.BLACK).toString, ",.25)"),
         transition: '.1s'
-      },
-      '&.active': {
-        backgroundColor: props.disabled ? color(_constants.COLORS.GREEN).lighten(30).toString() : _constants.COLORS.GREEN,
-        ':before': {
-          transform: "".concat(props.xs ? 'translateX(13px)' : 'translateX(20px)'),
-          borderColor: props.disabled ? color(_constants.COLORS.GREEN).lighten(30).toString() : _constants.COLORS.GREEN
-        }
+      }
+    },
+    'input:checked + .aph-switch-slide': {
+      backgroundColor: props.disabled ? color(_constants.COLORS.GREEN).lighten(30).toString() : _constants.COLORS.GREEN,
+      ':before': {
+        transform: "".concat(props.xs ? 'translateX(13px)' : 'translateX(20px)'),
+        borderColor: props.disabled ? color(_constants.COLORS.GREEN).lighten(30).toString() : _constants.COLORS.GREEN
       }
     },
     '.aph-switch-check, .aph-switch-slide': {
@@ -135,29 +135,10 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Switch).call(this, props));
     _this.props = props;
-    _this.state = {
-      checked: false
-    };
-    _this.slide = _this.slide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(Switch, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var checked = this.props.checked;
-      this.setState({
-        checked: checked || false
-      });
-    }
-  }, {
-    key: "slide",
-    value: function slide() {
-      this.setState({
-        checked: !this.state.checked
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement(StyledSwitch, _extends({
@@ -168,11 +149,11 @@ function (_React$Component) {
         className: "aph-switch-check",
         id: this.props.inputId,
         type: "checkbox",
-        defaultChecked: this.state.checked,
-        onChange: this.props.callback || this.slide,
+        defaultChecked: this.props.checked,
+        onChange: this.props.onChange,
         disabled: this.props.disabled
       }), _react.default.createElement("div", {
-        className: "aph-switch-slide ".concat(this.state.checked ? 'active' : '')
+        className: "aph-switch-slide"
       }), this.props.message);
     }
   }]);
@@ -183,11 +164,11 @@ function (_React$Component) {
 
 
 Switch.defaultProps = {
-  callback: null,
   checked: false,
   disabled: false,
   inputId: null,
   message: '',
+  onChange: null,
   right: false,
   xs: false
 };
@@ -197,7 +178,7 @@ Switch.propTypes = {
   /**
   * Should call when input change
   */
-  callback: _propTypes.default.func,
+  onChange: _propTypes.default.func,
 
   /**
   * Should the Switch be checked?

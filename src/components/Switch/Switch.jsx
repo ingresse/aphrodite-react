@@ -25,7 +25,7 @@ const StyledSwitch = styled('label')(props => ({
     color : COLORS.DARK_GREY,
     cursor: 'pointer',
 
-    ':after': {
+    '&:after': {
         content: 'no-open-quote',
         display: 'block',
     },
@@ -84,13 +84,14 @@ const StyledSwitch = styled('label')(props => ({
             transition: '.1s',
         },
 
-        '&.active': {
-            backgroundColor: props.disabled ? color(COLORS.GREEN).lighten(30).toString() : COLORS.GREEN,
+    },
 
-            ':before': {
-                transform: `${props.xs ? 'translateX(13px)' : 'translateX(20px)'}`,
-                borderColor: props.disabled ? color(COLORS.GREEN).lighten(30).toString() : COLORS.GREEN,
-            }
+    'input:checked + .aph-switch-slide': {
+        backgroundColor: props.disabled ? color(COLORS.GREEN).lighten(30).toString() : COLORS.GREEN,
+
+        ':before': {
+            transform: `${props.xs ? 'translateX(13px)' : 'translateX(20px)'}`,
+            borderColor: props.disabled ? color(COLORS.GREEN).lighten(30).toString() : COLORS.GREEN,
         }
     },
 
@@ -108,26 +109,7 @@ class Switch extends React.Component {
         super(props);
 
         this.props = props;
-        this.state = {
-            checked: false
-        };
-
-        this.slide = this.slide.bind(this);
     }
-
-    componentDidMount() {
-        const { checked } = this.props;
-        this.setState({
-            checked: checked || false
-        });
-    }
-
-    slide() {
-        this.setState({
-            checked: !this.state.checked
-        });
-    }
-
     render() {
         return (
             <StyledSwitch htmlFor={this.props.inputId} {...this.props} className={`${this.props.right && 'aph-switch-right'} ${ this.props.className || '' }`}>
@@ -135,11 +117,11 @@ class Switch extends React.Component {
                     className="aph-switch-check"
                     id={this.props.inputId}
                     type="checkbox"
-                    defaultChecked={this.state.checked}
-                    onChange={this.props.callback || this.slide}
+                    defaultChecked={this.props.checked}
+                    onChange={this.props.onChange}
                     disabled={this.props.disabled}
                 />
-                <div className={`aph-switch-slide ${this.state.checked ? 'active' : ''}`}></div>
+                <div className="aph-switch-slide"></div>
                 {this.props.message}
             </StyledSwitch>
         )
@@ -148,11 +130,11 @@ class Switch extends React.Component {
 
 /* Default Properties */
 Switch.defaultProps = {
-    callback: null,
     checked : false,
     disabled: false,
     inputId : null,
     message : '',
+    onChange: null,
     right   : false,
     xs      : false,
 };
@@ -163,7 +145,7 @@ Switch.propTypes = {
     /**
     * Should call when input change
     */
-    callback: PropTypes.func,
+    onChange: PropTypes.func,
 
     /**
     * Should the Switch be checked?

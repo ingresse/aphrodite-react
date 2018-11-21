@@ -19,6 +19,15 @@ import { Switch } from 'aphrodite-react';
 ## Properties
 <PropsTable of={Switch} />
 
+## onChange
+<Playground>
+    {() => {
+        return (
+            <Switch onChange={(evt) => {evt.target.checked = !evt.target.checked}} />
+        )
+    }}
+</Playground>
+
 ## Checked
 <Playground>
     <Switch checked={true} />
@@ -31,18 +40,19 @@ import { Switch } from 'aphrodite-react';
 
 ## Message
 <Playground>
-    <Switch message="Your text goes here" />
+    <Switch message="Your message goes here" />
 </Playground>
 
 ## Right
 <Playground>
-    <Switch message="Your text goes here" right={true} />
+    <Switch message="Your message goes here" right={true} />
 </Playground>
 
 ## Small
 <Playground>
     <Switch xs={true} />
 </Playground>
+
 
 ## Checked & Disabled
 <Playground>
