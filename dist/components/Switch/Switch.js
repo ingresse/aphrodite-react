@@ -53,7 +53,7 @@ var StyledSwitch =
 })(function (props) {
   return _objectSpread({}, props.styles, {
     position: 'relative',
-    display: "".concat(props.right ? 'inline-block' : 'block'),
+    display: 'inline-block',
     minHeight: '30px',
     margin: '0',
     padding: "".concat(props.right ? '6px 60px 6px 0' : '6px 0 6px 60px'),
@@ -153,7 +153,6 @@ function (_React$Component) {
   }, {
     key: "slide",
     value: function slide() {
-      console.log('oi');
       this.setState({
         checked: !this.state.checked
       });
