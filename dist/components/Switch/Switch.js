@@ -19,6 +19,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -139,10 +141,14 @@ function (_React$Component) {
   _createClass(Switch, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(StyledSwitch, {
-        htmlFor: this.props.inputId,
+      var _props = Object.assign({}, this.props);
+
+      delete _props.onChange;
+      return _react.default.createElement(StyledSwitch, _extends({
+        htmlFor: this.props.inputId
+      }, _props, {
         className: "".concat(this.props.right && 'aph-switch-right', " ").concat(this.props.className || '')
-      }, _react.default.createElement("input", {
+      }), _react.default.createElement("input", {
         className: "aph-switch-check",
         id: this.props.inputId,
         type: "checkbox",

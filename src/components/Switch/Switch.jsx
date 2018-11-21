@@ -111,8 +111,11 @@ class Switch extends React.Component {
         this.props = props;
     }
     render() {
+        let _props = Object.assign({}, this.props);
+        delete _props.onChange;
+
         return (
-            <StyledSwitch htmlFor={this.props.inputId} className={`${this.props.right && 'aph-switch-right'} ${ this.props.className || '' }`}>
+            <StyledSwitch htmlFor={this.props.inputId} {..._props} className={`${this.props.right && 'aph-switch-right'} ${ this.props.className || '' }`}>
                 <input
                     className="aph-switch-check"
                     id={this.props.inputId}
