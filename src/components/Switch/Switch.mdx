@@ -22,12 +22,14 @@ import { Switch } from 'aphrodite-react';
 ## onChange
 <Playground>
     {() => {
+        let check = false;
         return (
             <div>
                 <ToastsContainer styles={{top: '45px', right: '45px'}} />
-                <Switch onChange={
-                    (evt) => {
-                        if (evt.target.checked) {
+                <Switch checked={check} onChange={
+                    () => {
+                        check = !check;
+                        if (check) {
                             toast.success("Switch Activated");
                             return;
                         }

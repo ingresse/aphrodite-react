@@ -1,14 +1,14 @@
 {
-  "vendors.css": "/aphrodite-react/static/css/vendors.f64114d9cc4d650ff7f5.css",
-  "vendors.js": "/aphrodite-react/static/js/vendors.5c1aef63.js",
+  "vendors.css": "/aphrodite-react/static/css/vendors.85dc712344575958ddce.css",
+  "vendors.js": "/aphrodite-react/static/js/vendors.9f73daad.js",
   "app.js": "/aphrodite-react/static/js/app.003f3a0c.js",
   "components-button-button.js": "/aphrodite-react/static/js/components-button-button.6109177f.js",
   "components-number-format-number-format.js": "/aphrodite-react/static/js/components-number-format-number-format.955fce0d.js",
   "components-placeholder-placeholder.js": "/aphrodite-react/static/js/components-placeholder-placeholder.08c7291e.js",
-  "components-switch-switch.js": "/aphrodite-react/static/js/components-switch-switch.ecba91df.js",
+  "components-switch-switch.js": "/aphrodite-react/static/js/components-switch-switch.0140ca93.js",
   "components-toast-toast.js": "/aphrodite-react/static/js/components-toast-toast.02f01e86.js",
   "index.js": "/aphrodite-react/static/js/index.8d5ac529.js",
-  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.f64114d9cc4d650ff7f5.js",
+  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.85dc712344575958ddce.js",
   "static/js/9.7af33228.js": "/aphrodite-react/static/js/9.7af33228.js",
   "index.html": "/aphrodite-react/index.html"
 }

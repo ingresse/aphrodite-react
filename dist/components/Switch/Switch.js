@@ -153,6 +153,7 @@ function (_React$Component) {
         id: this.props.inputId,
         type: "checkbox",
         defaultChecked: this.props.checked,
+        checked: this.props.checked,
         onChange: this.props.onChange,
         disabled: this.props.disabled
       }), _react.default.createElement("div", {
