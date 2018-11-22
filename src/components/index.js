@@ -1,5 +1,6 @@
 /* Export Components */
 export { default as Button } from './Button/Button';
+export { default as Icon } from './Icons/Icon';
 export { default as NumberFormat } from './NumberFormat/NumberFormat';
 export { default as Placeholder } from './Placeholder/Placeholder';
 export { default as Scrollable } from './Scrollable/Scrollable';

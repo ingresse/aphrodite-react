@@ -9,6 +9,12 @@ Object.defineProperty(exports, "Button", {
     return _Button.default;
   }
 });
+Object.defineProperty(exports, "Icon", {
+  enumerable: true,
+  get: function get() {
+    return _Icon.default;
+  }
+});
 Object.defineProperty(exports, "NumberFormat", {
   enumerable: true,
   get: function get() {
@@ -53,6 +59,8 @@ Object.defineProperty(exports, "Tooltip", {
 });
 
 var _Button = _interopRequireDefault(require("./Button/Button"));
+
+var _Icon = _interopRequireDefault(require("./Icons/Icon"));
 
 var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
 

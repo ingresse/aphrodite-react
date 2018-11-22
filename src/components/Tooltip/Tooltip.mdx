@@ -5,7 +5,8 @@ route: /components/tooltip
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Tooltip } from '../';
+import { Tooltip, Icon } from '../';
+import { COLORS } from '../../constants';
 
 # Tooltip
 #### Just an implementation of awesome library [**React Tooltip**](https://github.com/wwayne/react-tooltip), with Aphrodite's definitions.
@@ -40,6 +41,32 @@ import { Tooltip } from 'aphrodite-react';
 <Playground>
     <Tooltip tip="At the left, if fits to screen" place="left">Some text</Tooltip>
 </Playground>
+
+### SVG Icon nested
+<Playground>
+    <div>
+        TIMES
+
+        <Tooltip tip="It works?" place="top">
+            <Icon slug="times-circle" color={COLORS.ERROR} />
+        </Tooltip>
+    </div>
+    <div>
+        Question
+
+        <Tooltip tip="I don't know. Maybe..." place="right">
+            <Icon slug="question-circle" color={COLORS.WARNING} size={30} />
+        </Tooltip>
+    </div>
+    <div>
+        Info
+
+        <Tooltip tip="Well, seems legit" place="bottom">
+            <Icon slug="info-circle" color={COLORS.SUCCESS} size={40} />
+        </Tooltip>
+    </div>
+</Playground>
+
 
 ## Variations
 

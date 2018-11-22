@@ -28,6 +28,18 @@ Object.keys(_colors).forEach(function (key) {
   });
 });
 
+var _icons = require("./icons.constants");
+
+Object.keys(_icons).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _icons[key];
+    }
+  });
+});
+
 var _screenSizes = require("./screen-sizes.constants");
 
 Object.keys(_screenSizes).forEach(function (key) {
