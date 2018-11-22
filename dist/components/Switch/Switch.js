@@ -152,7 +152,6 @@ function (_React$Component) {
         className: "aph-switch-check",
         id: this.props.inputId,
         type: "checkbox",
-        defaultChecked: this.props.checked,
         checked: this.props.checked,
         onChange: this.props.onChange,
         disabled: this.props.disabled
