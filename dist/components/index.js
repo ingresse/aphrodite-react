@@ -45,6 +45,12 @@ Object.defineProperty(exports, "toast", {
     return _Toast.default;
   }
 });
+Object.defineProperty(exports, "Tooltip", {
+  enumerable: true,
+  get: function get() {
+    return _Tooltip.default;
+  }
+});
 
 var _Button = _interopRequireDefault(require("./Button/Button"));
 
@@ -59,5 +65,7 @@ var _Switch = _interopRequireDefault(require("./Switch/Switch"));
 var _ToastsContainer = _interopRequireDefault(require("./Toast/ToastsContainer"));
 
 var _Toast = _interopRequireDefault(require("./Toast/Toast"));
+
+var _Tooltip = _interopRequireDefault(require("./Tooltip/Tooltip"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

@@ -6,3 +6,4 @@ export { default as Scrollable } from './Scrollable/Scrollable';
 export { default as Switch } from './Switch/Switch';
 export { default as ToastsContainer } from './Toast/ToastsContainer';
 export { default as toast } from './Toast/Toast';
+export { default as Tooltip } from './Tooltip/Tooltip';

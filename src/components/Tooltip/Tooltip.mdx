@@ -1,0 +1,108 @@
+---
+name : Tooltip
+menu : Components
+route: /components/tooltip
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Tooltip } from '../';
+
+# Tooltip
+#### Just an implementation of awesome library [**React Tooltip**](https://github.com/wwayne/react-tooltip), with Aphrodite's definitions.
+#### So, it's just consult the [documentation](https://github.com/wwayne/react-tooltip) for more options.
+```jsx
+import { Tooltip } from 'aphrodite-react';
+
+<Tooltip tip="How you doing?!">Hover me</Tooltip>
+```
+
+## Properties
+<PropsTable of={Tooltip} />
+
+## Examples
+
+### Top
+<Playground>
+    <Tooltip tip="Placed at top of relative element/word, if fits to screen" place="top">Some text</Tooltip>
+</Playground>
+
+### Bottom
+<Playground>
+    <Tooltip tip="Placed at bottom of wrapped element" place="bottom">Some text</Tooltip>
+</Playground>
+
+### Right
+<Playground>
+    <Tooltip tip="At the right, if fits to screen" place="right">Some text</Tooltip>
+</Playground>
+
+### Left
+<Playground>
+    <Tooltip tip="At the left, if fits to screen" place="left">Some text</Tooltip>
+</Playground>
+
+## Variations
+
+### Error
+<Playground>
+    <div>
+        <Tooltip tip="Error tooltip text" type="error">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Error tooltip text" type="error" place="left">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Error tooltip text" type="error" place="right">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Error tooltip text" type="error" place="bottom">Hover me</Tooltip>
+    </div>
+</Playground>
+
+### Warning
+<Playground>
+    <div>
+        <Tooltip tip="Warning tooltip text" type="warning">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Warning tooltip text" type="warning" place="left">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Warning tooltip text" type="warning" place="right">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Warning tooltip text" type="warning" place="bottom">Hover me</Tooltip>
+    </div>
+</Playground>
+
+### Success
+<Playground>
+    <div>
+        <Tooltip tip="Success tooltip text" type="success">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Success tooltip text" type="success" place="left">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Success tooltip text" type="success" place="right">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Success tooltip text" type="success" place="bottom">Hover me</Tooltip>
+    </div>
+</Playground>
+
+### Info
+<Playground>
+    <div>
+        <Tooltip tip="Info tooltip text" type="info">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Info tooltip text" type="info" place="left">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Info tooltip text" type="info" place="right">Hover me</Tooltip>
+    </div>
+    <div>
+        <Tooltip tip="Info tooltip text" type="info" place="bottom">Hover me</Tooltip>
+    </div>
+</Playground>
