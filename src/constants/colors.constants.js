@@ -3,8 +3,8 @@ const _COLORS = {
     BLACK: 'rgb(45, 45, 45)',           // #2D2D2D
     WHITE: 'rgb(255, 255, 255)',        // #FFFFFF
 
-    SMOKE: 'rgb(248, 248, 248)',        // #F8F8F8
-
+    SMOKE     : 'rgb(248, 248, 248)',   // #F8F8F8
+    DARK_SMOKE: '#F2F2F2',              // #F2F2F2
     GREY_SMOKE: 'rgb(238, 238, 238)',   // #EEEEEE
 
     LIGHT_GREY: 'rgb(212, 215, 217)',   // #D4D7D9

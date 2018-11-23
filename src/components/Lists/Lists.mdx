@@ -1,0 +1,51 @@
+---
+name : Lists
+menu : Components
+route: /components/lists
+---
+
+import { Playground, PropsTable } from 'docz';
+import { ListGroup, ListHeader, ListItem } from '../';
+
+# Lists
+#### Organizing information with an alternative to tables.
+
+```jsx
+import { ListGroup, ListHeader, ListItem } from 'aphrodite-react';
+...
+<ListGroup>
+    <ListHeader>
+        Title
+    </ListHeader>
+    <ListItem>
+        Item One
+    </ListItem>
+    <ListItem>
+        Item Two
+    </ListItem>
+</ListGroup>
+```
+
+## Example
+<Playground>
+    <ListGroup>
+        <ListHeader>
+            Title
+        </ListHeader>
+        <ListItem>
+            Item ...
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+    </ListGroup>
+</Playground>

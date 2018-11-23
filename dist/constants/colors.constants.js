@@ -13,6 +13,8 @@ var _COLORS = {
   // #FFFFFF
   SMOKE: 'rgb(248, 248, 248)',
   // #F8F8F8
+  DARK_SMOKE: '#F2F2F2',
+  // #F2F2F2
   GREY_SMOKE: 'rgb(238, 238, 238)',
   // #EEEEEE
   LIGHT_GREY: 'rgb(212, 215, 217)',
