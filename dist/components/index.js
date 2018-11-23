@@ -9,6 +9,12 @@ Object.defineProperty(exports, "Button", {
     return _Button.default;
   }
 });
+Object.defineProperty(exports, "Container", {
+  enumerable: true,
+  get: function get() {
+    return _Container.default;
+  }
+});
 Object.defineProperty(exports, "Icon", {
   enumerable: true,
   get: function get() {
@@ -59,6 +65,8 @@ Object.defineProperty(exports, "Tooltip", {
 });
 
 var _Button = _interopRequireDefault(require("./Button/Button"));
+
+var _Container = _interopRequireDefault(require("./Grid/Container"));
 
 var _Icon = _interopRequireDefault(require("./Icons/Icon"));
 

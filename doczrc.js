@@ -23,6 +23,10 @@ export default {
             primary: '#00A5DB',
         },
         styles: {
+            container: {
+                width   : '100%',
+                maxWidth: '1440px',
+            },
             body: {
                 fontFamily: '"Roboto", Helvetica, sans-serif',
                 fontWeight: '400',

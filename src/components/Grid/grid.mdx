@@ -1,0 +1,90 @@
+---
+name : Grid
+menu : Components
+route: /components/grid
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Container } from '../';
+import { COLORS, GRID, RADIUS } from '../../constants';
+
+# Grid
+#### Align the components with Aphrodite standards
+
+```jsx
+import { Container } from 'aphrodite-react';
+...
+<Container>
+    YOUR CONTENT HERE
+</Container>
+```
+
+## Container
+#### We use to delimitate the content area, centralizing this block in the screen.
+...
+<PropsTable of={Container} />
+
+<Playground style={{ padding: '0 25px 0 20px' }}>
+    {() => {
+        const containerExample = {
+            color       : COLORS.DARK_GREY,
+            background  : COLORS.LIGHT_GREY,
+            borderRadius: (RADIUS + GRID.UNIT),
+
+            marginTop    : '20px',
+            marginBottom : '20px',
+            paddingTop   : '15px',
+            paddingBottom: '20px',
+        };
+
+        const contentExample = {
+            boxSizing   : 'border-box',
+            background  : COLORS.SMOKE,
+            borderRadius: (RADIUS + GRID.UNIT),
+
+            margin : '15px 0 0',
+            padding: '15px 20px',
+        };
+
+        return (
+            <div>
+
+                <Container xl style={containerExample}>
+                    Container <code>XL</code> maximum width is <strong>{GRID.CONTAINER.XL + GRID.UNIT}</strong>.
+                    <div style={contentExample}>
+                        And the content maximum width is <strong>{(GRID.CONTAINER.XL - GRID.PADDING) + GRID.UNIT}</strong>.
+                    </div>
+                </Container>
+
+                <Container style={containerExample}>
+                    Container <strong>DEFAULT</strong> or <code>LG</code> maximum width is <strong>{GRID.CONTAINER + GRID.UNIT}</strong>.
+                    <div style={contentExample}>
+                        And the content maximum width is <strong>{(GRID.CONTAINER - GRID.PADDING) + GRID.UNIT}</strong>.
+                    </div>
+                </Container>
+
+                <Container md style={containerExample}>
+                    Container <code>MD</code> maximum width is <strong>{GRID.CONTAINER.MD + GRID.UNIT}</strong>.
+                    <div style={contentExample}>
+                        And the content maximum width is <strong>{(GRID.CONTAINER.MD - GRID.PADDING) + GRID.UNIT}</strong>.
+                    </div>
+                </Container>
+
+                <Container sm style={containerExample}>
+                    Container <code>SM</code> maximum width is <strong>{GRID.CONTAINER.SM + GRID.UNIT}</strong>.
+                    <div style={contentExample}>
+                        And the content maximum width is <strong>{(GRID.CONTAINER.SM - GRID.PADDING) + GRID.UNIT}</strong>.
+                    </div>
+                </Container>
+
+                <Container xs style={containerExample}>
+                    Container <code>XS</code> maximum width is <strong>{GRID.CONTAINER.XS + GRID.UNIT}</strong>.
+                    <div style={contentExample}>
+                        And the content maximum width is <strong>{(GRID.CONTAINER.XS - GRID.PADDING) + GRID.UNIT}</strong>.
+                    </div>
+                </Container>
+
+            </div>
+        );
+    }}
+</Playground>
