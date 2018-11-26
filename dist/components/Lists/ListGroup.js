@@ -34,24 +34,20 @@ var AphListGroup =
     padding: 0,
     margin: 0,
     listStyle: 'none',
-    borderRadius: (props.radius || _constants.RADIUS) + _constants.GRID.UNIT,
+    borderRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + _constants.GRID.UNIT,
     boxShadow: "\n        inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n        inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n    "),
     '.aph-list__header': {
       backgroundColor: _constants.COLORS.DARK_SMOKE,
       '&:first-of-type': {
-        borderTopRightRadius: (props.radius || _constants.RADIUS) + 1 + _constants.GRID.UNIT,
-        borderTopLeftRadius: (props.radius || _constants.RADIUS) + 1 + _constants.GRID.UNIT
-      },
-      '&:last-of-type': {
-        borderBottomRightRadius: (props.radius || _constants.RADIUS) + 1 + _constants.GRID.UNIT,
-        borderBottomLeftRadius: (props.radius || _constants.RADIUS) + 1 + _constants.GRID.UNIT
+        borderTopRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT,
+        borderTopLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT
       }
     },
     '.aph-list__item': {
       backgroundColor: _constants.COLORS.SMOKE,
       '&:last-of-type': {
-        borderBottomRightRadius: (props.radius || _constants.RADIUS) + 1 + _constants.GRID.UNIT,
-        borderBottomLeftRadius: (props.radius || _constants.RADIUS) + 1 + _constants.GRID.UNIT
+        borderBottomRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT,
+        borderBottomLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT
       }
     }
   }, props.style);

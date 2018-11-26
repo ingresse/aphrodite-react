@@ -11,7 +11,11 @@ import ArrowDownCircle from './IconArrowDownCircle';
 import ArrowLeftCircle from './IconArrowLeftCircle';
 import ArrowRightCircle from './IconArrowRightCircle';
 import ArrowUpCircle from './IconArrowUpCircle';
+import Check from './IconCheck';
+import CheckCircle from './IconCheckCircle';
+import CheckThin from './IconCheckThin';
 import InfoCircle from './IconInfoCircle';
+import Pencil from './IconPencil';
 import QuestionCircle from './IconQuestionCircle';
 import TimesCircle from './IconTimesCircle';
 
@@ -22,7 +26,11 @@ const ICONS = {
     'arrow-left-circle' : ArrowLeftCircle,
     'arrow-right-circle': ArrowRightCircle,
     'arrow-up-circle'   : ArrowUpCircle,
+    'check'             : Check,
+    'check-circle'      : CheckCircle,
+    'check-thin'        : CheckThin,
     'info-circle'       : InfoCircle,
+    'pencil'            : Pencil,
     'question-circle'   : QuestionCircle,
     'times-circle'      : TimesCircle,
 };

@@ -7,13 +7,15 @@ exports.COLORS = void 0;
 
 /* Color Base */
 var _COLORS = {
+  DARK_BLACK: 'rgb(0, 0, 0)',
+  // #000000
   BLACK: 'rgb(45, 45, 45)',
   // #2D2D2D
   WHITE: 'rgb(255, 255, 255)',
   // #FFFFFF
   SMOKE: 'rgb(248, 248, 248)',
   // #F8F8F8
-  DARK_SMOKE: '#F2F2F2',
+  DARK_SMOKE: 'rgb(242, 242, 242)',
   // #F2F2F2
   GREY_SMOKE: 'rgb(238, 238, 238)',
   // #EEEEEE
@@ -40,9 +42,9 @@ var _COLORS = {
   LIGHT_PINK: 'rgb(248, 130, 184)' // #F882B8
 
 };
-/* Export */
+/* Segmented Colors */
 
-var COLORS = Object.assign({}, _COLORS, {
+var _SEGMENTED = Object.assign({}, _COLORS, {
   PRIMARY: _COLORS.BLUE,
   SECONDARY: _COLORS.ORANGE,
   ERROR: _COLORS.RED,
@@ -50,5 +52,41 @@ var COLORS = Object.assign({}, _COLORS, {
   SUCCESS: _COLORS.GREEN,
   INFO: _COLORS.BLUE,
   INVERSE: _COLORS.WHITE
+});
+/* Exporting */
+
+
+var COLORS = Object.assign({}, _SEGMENTED, {
+  /**
+   * Get an catalog color in different opacity
+   * or can apply opacity to the color from param
+   *
+   * @return {string} selected color
+   */
+  GET: function GET() {
+    var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'BLACK';
+    var opacity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+    if (!color || typeof color !== 'string') {
+      return _COLORS.BLACK;
+    }
+
+    var selected = _SEGMENTED[color.toUpperCase()];
+
+    if (!selected && !color.includes('rgb(')) {
+      return _COLORS.BLACK;
+    }
+
+    if (!selected && color.includes('rgb(')) {
+      selected = color;
+    }
+
+    if (!isNaN(opacity) && opacity >= 0 && opacity <= 1) {
+      selected = selected.replace('rgb', 'rgba');
+      selected = selected.replace(')', ", ".concat(opacity, ")"));
+    }
+
+    return selected;
+  }
 });
 exports.COLORS = COLORS;

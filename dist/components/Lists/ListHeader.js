@@ -25,7 +25,7 @@ var AphListHeader =
 (0, _reactEmotion.default)('li', {
   target: "e6irnh20"
 })(function (props) {
-  return _objectSpread({
+  return _objectSpread(_defineProperty({
     boxSizing: 'border-box',
     position: 'relative',
     overflow: 'hidden',
@@ -33,7 +33,7 @@ var AphListHeader =
     width: '100%',
     padding: _constants.GRID.PADDING / 2 + _constants.GRID.UNIT + ' ' + (_constants.GRID.PADDING + _constants.GRID.UNIT),
     margin: 0,
-    boxShadow: "\n        inset 0 0 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n        inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n    "),
+    boxShadow: "\n        inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n        inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n    "),
     '.aph-list__item': {
       margin: '0 ' + ('-' + (_constants.GRID.PADDING + _constants.GRID.UNIT)),
       '&:first-of-type': {
@@ -42,8 +42,14 @@ var AphListHeader =
       '&:last-of-type': {
         marginBottom: '-' + (_constants.GRID.PADDING / 2 + _constants.GRID.UNIT)
       }
+    },
+    '+ .aph-list__item, + .aph-list__header': {
+      boxShadow: "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        ")
     }
-  }, props.style);
+  }, _constants.MEDIA_QUERIES.LT.SM, {
+    paddingRight: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT,
+    paddingLeft: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT
+  }), props.style);
 });
 /* Component */
 

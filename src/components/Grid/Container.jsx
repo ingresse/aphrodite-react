@@ -29,7 +29,7 @@ const AphContainer = styled('div')(props => ({
     ),
 
     [MEDIA_QUERIES.LT.SM]: {
-        padding: ((GRID.PADDING / 2) + GRID.UNIT),
+        padding: ((GRID.PADDING - 5) + GRID.UNIT),
     },
 }));
 

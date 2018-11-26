@@ -1,4 +1,4 @@
-/* Export Components */
+/* Generic Components */
 export { default as Button } from './Button/Button';
 export { default as Icon } from './Icons/Icon';
 export { default as NumberFormat } from './NumberFormat/NumberFormat';
@@ -16,3 +16,6 @@ export { default as Container } from './Grid/Container';
 export { default as ListGroup } from './Lists/ListGroup';
 export { default as ListHeader } from './Lists/ListHeader';
 export { default as ListItem } from './Lists/ListItem';
+
+/* Form Components */
+export { default as Input } from './Form/Input';

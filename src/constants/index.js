@@ -6,3 +6,6 @@ export * from './icons.constants';
 export * from './radius.constants';
 export * from './screen-sizes.constants';
 export * from './media-queries.constants';
+
+/* Dependent Constants */
+export * from './form.constants';

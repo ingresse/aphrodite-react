@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'react-emotion';
 
 /* Constants */
-import { COLORS, GRID, RADIUS } from '../../constants';
+import { COLORS, GRID, MEDIA_QUERIES, RADIUS } from '../../constants';
 
 /* Wrapper styles */
 const AphListHeader = styled('li')(props => ({
@@ -16,7 +16,7 @@ const AphListHeader = styled('li')(props => ({
     margin   : 0,
 
     boxShadow: `
-        inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+        inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
         inset -1px 0 0 0 ${COLORS.LIGHT_GREY},
         inset 1px 0 0 0 ${COLORS.LIGHT_GREY},
         inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
@@ -32,6 +32,20 @@ const AphListHeader = styled('li')(props => ({
         '&:last-of-type': {
             marginBottom: ('-' + ((GRID.PADDING / 2) + GRID.UNIT)),
         },
+    },
+
+    '+ .aph-list__item, + .aph-list__header': {
+        boxShadow   : `
+            inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
+            inset -1px 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 1px 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 ${COLORS.LIGHT_GREY}
+        `,
+    },
+
+    [MEDIA_QUERIES.LT.SM]: {
+        paddingRight: ((GRID.PADDING - 5) + GRID.UNIT),
+        paddingLeft : ((GRID.PADDING - 5) + GRID.UNIT),
     },
 
     ...props.style,

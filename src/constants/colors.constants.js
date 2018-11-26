@@ -1,10 +1,11 @@
 /* Color Base */
 const _COLORS = {
-    BLACK: 'rgb(45, 45, 45)',           // #2D2D2D
-    WHITE: 'rgb(255, 255, 255)',        // #FFFFFF
+    DARK_BLACK: 'rgb(0, 0, 0)',         // #000000
+    BLACK     : 'rgb(45, 45, 45)',      // #2D2D2D
+    WHITE     : 'rgb(255, 255, 255)',   // #FFFFFF
 
     SMOKE     : 'rgb(248, 248, 248)',   // #F8F8F8
-    DARK_SMOKE: '#F2F2F2',              // #F2F2F2
+    DARK_SMOKE: 'rgb(242, 242, 242)',   // #F2F2F2
     GREY_SMOKE: 'rgb(238, 238, 238)',   // #EEEEEE
 
     LIGHT_GREY: 'rgb(212, 215, 217)',   // #D4D7D9
@@ -21,8 +22,8 @@ const _COLORS = {
     LIGHT_PINK  : 'rgb(248, 130, 184)',  // #F882B8
 };
 
-/* Export */
-export const COLORS = Object.assign({}, _COLORS, {
+/* Segmented Colors */
+const _SEGMENTED = Object.assign({}, _COLORS, {
     PRIMARY  : _COLORS.BLUE,
     SECONDARY: _COLORS.ORANGE,
 
@@ -32,4 +33,36 @@ export const COLORS = Object.assign({}, _COLORS, {
     INFO    : _COLORS.BLUE,
 
     INVERSE  : _COLORS.WHITE,
+});
+
+/* Exporting */
+export const COLORS = Object.assign({}, _SEGMENTED, {
+    /**
+     * Get an catalog color in different opacity
+     * or can apply opacity to the color from param
+     *
+     * @return {string} selected color
+     */
+    GET: (color = 'BLACK', opacity = 1) => {
+        if (!color || typeof color !== 'string') {
+            return _COLORS.BLACK;
+        }
+
+        let selected = _SEGMENTED[color.toUpperCase()];
+
+        if (!selected && !color.includes('rgb(')) {
+            return _COLORS.BLACK;
+        }
+
+        if (!selected && color.includes('rgb(')) {
+            selected = color;
+        }
+
+        if (!isNaN(opacity) && opacity >= 0 && opacity <= 1) {
+            selected = selected.replace('rgb', 'rgba');
+            selected = selected.replace(')', (`, ${opacity})`));
+        }
+
+        return selected;
+    },
 });

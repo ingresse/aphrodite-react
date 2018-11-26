@@ -87,3 +87,15 @@ Object.keys(_mediaQueries).forEach(function (key) {
     }
   });
 });
+
+var _form = require("./form.constants");
+
+Object.keys(_form).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _form[key];
+    }
+  });
+});

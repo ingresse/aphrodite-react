@@ -16,7 +16,7 @@ const AphListGroup = styled('ul')(props => ({
     margin   : 0,
     listStyle: 'none',
 
-    borderRadius: ((props.radius || RADIUS) + GRID.UNIT),
+    borderRadius: ((!isNaN(props.radius) ? props.radius : RADIUS) + GRID.UNIT),
     boxShadow   : `
         inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
         inset -1px 0 0 0 ${COLORS.LIGHT_GREY},
@@ -28,13 +28,8 @@ const AphListGroup = styled('ul')(props => ({
         backgroundColor: COLORS.DARK_SMOKE,
 
         '&:first-of-type': {
-            borderTopRightRadius: (((props.radius || RADIUS) + 1) + GRID.UNIT),
-            borderTopLeftRadius : (((props.radius || RADIUS) + 1) + GRID.UNIT),
-        },
-
-        '&:last-of-type': {
-            borderBottomRightRadius: (((props.radius || RADIUS) + 1) + GRID.UNIT),
-            borderBottomLeftRadius : (((props.radius || RADIUS) + 1) + GRID.UNIT),
+            borderTopRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
+            borderTopLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
         },
     },
 
@@ -42,8 +37,8 @@ const AphListGroup = styled('ul')(props => ({
         backgroundColor: COLORS.SMOKE,
 
         '&:last-of-type': {
-            borderBottomRightRadius: (((props.radius || RADIUS) + 1) + GRID.UNIT),
-            borderBottomLeftRadius : (((props.radius || RADIUS) + 1) + GRID.UNIT),
+            borderBottomRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
+            borderBottomLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
         },
     },
 

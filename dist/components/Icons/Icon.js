@@ -21,7 +21,15 @@ var _IconArrowRightCircle = _interopRequireDefault(require("./IconArrowRightCirc
 
 var _IconArrowUpCircle = _interopRequireDefault(require("./IconArrowUpCircle"));
 
+var _IconCheck = _interopRequireDefault(require("./IconCheck"));
+
+var _IconCheckCircle = _interopRequireDefault(require("./IconCheckCircle"));
+
+var _IconCheckThin = _interopRequireDefault(require("./IconCheckThin"));
+
 var _IconInfoCircle = _interopRequireDefault(require("./IconInfoCircle"));
+
+var _IconPencil = _interopRequireDefault(require("./IconPencil"));
 
 var _IconQuestionCircle = _interopRequireDefault(require("./IconQuestionCircle"));
 
@@ -39,7 +47,11 @@ var ICONS = {
   'arrow-left-circle': _IconArrowLeftCircle.default,
   'arrow-right-circle': _IconArrowRightCircle.default,
   'arrow-up-circle': _IconArrowUpCircle.default,
+  'check': _IconCheck.default,
+  'check-circle': _IconCheckCircle.default,
+  'check-thin': _IconCheckThin.default,
   'info-circle': _IconInfoCircle.default,
+  'pencil': _IconPencil.default,
   'question-circle': _IconQuestionCircle.default,
   'times-circle': _IconTimesCircle.default
 };
