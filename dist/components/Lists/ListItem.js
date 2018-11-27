@@ -22,7 +22,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* Wrapper styles */
 var AphListItem =
 /*#__PURE__*/
-(0, _reactEmotion.default)('li', {
+(0, _reactEmotion.default)('div', {
   target: "e6wegxb0"
 })(function (props) {
   return _objectSpread(_defineProperty({
@@ -31,11 +31,7 @@ var AphListItem =
     overflow: 'hidden',
     display: 'block',
     padding: _constants.GRID.PADDING / 2 + _constants.GRID.UNIT + ' ' + (_constants.GRID.PADDING + _constants.GRID.UNIT),
-    margin: 0,
-    boxShadow: "\n        inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n        inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n    "),
-    '+ .aph-list__item, + .aph-list__header': {
-      boxShadow: "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        ")
-    }
+    margin: 0
   }, _constants.MEDIA_QUERIES.LT.SM, {
     paddingRight: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT,
     paddingLeft: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT
@@ -45,7 +41,7 @@ var AphListItem =
 
 var ListItem = function ListItem(props) {
   return _react.default.createElement(AphListItem, _extends({}, props, {
-    className: "aph-list__item ".concat(props.className || '')
+    className: "".concat(props.header ? 'aph-list__header ' : 'aph-list__item ').concat(props.className || '')
   }), props.children);
 };
 /* Exporting */

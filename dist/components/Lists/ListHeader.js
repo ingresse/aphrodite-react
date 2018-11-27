@@ -22,7 +22,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* Wrapper styles */
 var AphListHeader =
 /*#__PURE__*/
-(0, _reactEmotion.default)('li', {
+(0, _reactEmotion.default)('div', {
   target: "e6irnh20"
 })(function (props) {
   return _objectSpread(_defineProperty({
@@ -30,22 +30,8 @@ var AphListHeader =
     position: 'relative',
     overflow: 'hidden',
     display: 'block',
-    width: '100%',
     padding: _constants.GRID.PADDING / 2 + _constants.GRID.UNIT + ' ' + (_constants.GRID.PADDING + _constants.GRID.UNIT),
-    margin: 0,
-    boxShadow: "\n        inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n        inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n    "),
-    '.aph-list__item': {
-      margin: '0 ' + ('-' + (_constants.GRID.PADDING + _constants.GRID.UNIT)),
-      '&:first-of-type': {
-        marginTop: _constants.GRID.PADDING / 2 + _constants.GRID.UNIT
-      },
-      '&:last-of-type': {
-        marginBottom: '-' + (_constants.GRID.PADDING / 2 + _constants.GRID.UNIT)
-      }
-    },
-    '+ .aph-list__item, + .aph-list__header': {
-      boxShadow: "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        ")
-    }
+    margin: 0
   }, _constants.MEDIA_QUERIES.LT.SM, {
     paddingRight: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT,
     paddingLeft: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT

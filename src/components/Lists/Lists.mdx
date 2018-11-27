@@ -11,64 +11,82 @@ import { Input, ListGroup, ListHeader, ListItem } from '../';
 #### Organizing information with an alternative to tables.
 
 ```jsx
-import { ListGroup, ListHeader, ListItem } from 'aphrodite-react';
+import { Input, ListGroup, ListItem } from 'aphrodite-react';
 ...
-<ListGroup>
-    <ListHeader>
-        Title
-    </ListHeader>
-    <ListItem>
-        Item One
-    </ListItem>
-    <ListItem>
-        Item Two
-    </ListItem>
+<ListGroup
+    radius={window.innerWidth < 768 ? 0 : 4}
+    noSideBorders={window.innerWidth < 768}>
+    <div>
+        <ListItem header>
+            <Input type="checkbox" id="firstToggle">
+                Header
+            </Input>
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+    </div>
+    <div>
+        <ListItem header>
+            <Input type="checkbox" id="secondToggle" color="#ff0000">
+                Header
+            </Input>
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+    </div>
 </ListGroup>
 ```
 
 ## Example
 <Playground style={{ fontSize: '16px', lineHeight: '20px' }}>
-    <ListGroup radius={window.innerWidth < 768 ? 0 : 4}>
-        <ListHeader>
-            <Input type="checkbox" id="firstTitle">
-                Header
-            </Input>
-        </ListHeader>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-
-        <ListHeader>
-            <Input type="checkbox" id="secondTitle">
-                Header
-            </Input>
-        </ListHeader>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
-        <ListItem>
-            Item ...
-        </ListItem>
+    <ListGroup
+        radius={window.innerWidth < 768 ? 0 : 4}
+        noSideBorders={window.innerWidth < 768}>
+        <div>
+            <ListItem header>
+                <Input type="checkbox" id="firstToggle">
+                    Header
+                </Input>
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+        </div>
+        <div>
+            <ListItem header>
+                <Input type="checkbox" id="secondToggle" color="#ff0000">
+                    Header
+                </Input>
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+        </div>
     </ListGroup>
 </Playground>

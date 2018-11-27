@@ -22,7 +22,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* Wrapper styles */
 var AphListGroup =
 /*#__PURE__*/
-(0, _reactEmotion.default)('ul', {
+(0, _reactEmotion.default)('div', {
   target: "ey9rber0"
 })(function (props) {
   return _objectSpread({
@@ -31,23 +31,40 @@ var AphListGroup =
     overflow: 'hidden',
     display: 'block',
     width: '100%',
-    padding: 0,
+    padding: props.noSideBorders ? '1px 0' : '1px',
     margin: 0,
     listStyle: 'none',
     borderRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + _constants.GRID.UNIT,
-    boxShadow: "\n        inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n        inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n        inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n    "),
-    '.aph-list__header': {
-      backgroundColor: _constants.COLORS.DARK_SMOKE,
-      '&:first-of-type': {
-        borderTopRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT,
-        borderTopLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT
+    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        ") : "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        "),
+    '.aph-list__header, .aph-list__item': {
+      boxShadow: "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        "),
+      '+ .aph-list__header, + .aph-list__item': {
+        boxShadow: "\n                inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n                inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n                inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n                inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n            ")
       }
     },
+    '.aph-list__header': {
+      backgroundColor: _constants.COLORS.DARK_SMOKE
+    },
     '.aph-list__item': {
-      backgroundColor: _constants.COLORS.SMOKE,
-      '&:last-of-type': {
-        borderBottomRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT,
-        borderBottomLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + 1 + _constants.GRID.UNIT
+      backgroundColor: _constants.COLORS.SMOKE
+    },
+    'div:first-of-type': {
+      '.aph-list__header, > .aph-list__item': {
+        '&:first-of-type': {
+          marginTop: '-1px',
+          borderTopRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) - 2 + _constants.GRID.UNIT,
+          borderTopLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) - 2 + _constants.GRID.UNIT,
+          boxShadow: "\n                    inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n                    inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n                    inset 0 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n                    inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n                ")
+        }
+      }
+    },
+    'div:last-of-type': {
+      '.aph-list__header, > .aph-list__item': {
+        '&:last-of-type': {
+          marginBottom: '-1px',
+          borderBottomRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) - 2 + _constants.GRID.UNIT,
+          borderBottomLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) - 2 + _constants.GRID.UNIT
+        }
       }
     }
   }, props.style);

@@ -6,39 +6,82 @@ import styled from 'react-emotion';
 import { COLORS, GRID, RADIUS } from '../../constants';
 
 /* Wrapper styles */
-const AphListGroup = styled('ul')(props => ({
+const AphListGroup = styled('div')(props => ({
     boxSizing: 'border-box',
     position : 'relative',
     overflow : 'hidden',
     display  : 'block',
     width    : '100%',
-    padding  : 0,
+    padding  : (props.noSideBorders ? '1px 0' : '1px'),
     margin   : 0,
     listStyle: 'none',
 
     borderRadius: ((!isNaN(props.radius) ? props.radius : RADIUS) + GRID.UNIT),
-    boxShadow   : `
-        inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
-        inset -1px 0 0 0 ${COLORS.LIGHT_GREY},
-        inset 1px 0 0 0 ${COLORS.LIGHT_GREY},
-        inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
-    `,
+    boxShadow   : (props.noSideBorders ?
+        (`
+            inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
+        `)
+        :
+        (`
+            inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
+            inset 1px 0 0 0 ${COLORS.LIGHT_GREY},
+            inset -1px 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
+        `)
+    ),
+
+    '.aph-list__header, .aph-list__item': {
+        boxShadow   : `
+            inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 ${COLORS.LIGHT_GREY}
+        `,
+
+        '+ .aph-list__header, + .aph-list__item': {
+            boxShadow   : `
+                inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
+                inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+                inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+                inset 0 0 0 0 ${COLORS.LIGHT_GREY}
+            `,
+        }
+    },
 
     '.aph-list__header': {
         backgroundColor: COLORS.DARK_SMOKE,
-
-        '&:first-of-type': {
-            borderTopRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
-            borderTopLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
-        },
     },
 
     '.aph-list__item': {
         backgroundColor: COLORS.SMOKE,
+    },
 
-        '&:last-of-type': {
-            borderBottomRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
-            borderBottomLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) + 1) + GRID.UNIT),
+    'div:first-of-type': {
+        '.aph-list__header, > .aph-list__item': {
+            '&:first-of-type': {
+                marginTop: '-1px',
+                borderTopRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
+                borderTopLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
+                boxShadow: `
+                    inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
+                    inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+                    inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+                    inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
+                `,
+            },
+        },
+    },
+
+    'div:last-of-type': {
+        '.aph-list__header, > .aph-list__item': {
+            '&:last-of-type': {
+                marginBottom: '-1px',
+                borderBottomRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
+                borderBottomLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
+            },
         },
     },
 
