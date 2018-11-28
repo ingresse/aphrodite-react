@@ -111,7 +111,7 @@ const Badge = (props) => {
     return (
         <BadgeWrapper
             {...props}
-            styles={Object.assign({}, modifier, filled)}
+            styles={Object.assign({}, modifier, filled, props.styles)}
             className={`aph-badge ${props.className || ''}`}>
             {(!props.prefix) ? null : (
                 <BadgePrefixWrapper

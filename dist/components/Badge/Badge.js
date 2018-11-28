@@ -115,7 +115,7 @@ var Badge = function Badge(props) {
   }
 
   return _react.default.createElement(BadgeWrapper, _extends({}, props, {
-    styles: Object.assign({}, modifier, filled),
+    styles: Object.assign({}, modifier, filled, props.styles),
     className: "aph-badge ".concat(props.className || '')
   }), !props.prefix ? null : _react.default.createElement(BadgePrefixWrapper, _extends({}, props.prefixProps, {
     styles: Object.assign({}, prefix, props.prefixStyles),
