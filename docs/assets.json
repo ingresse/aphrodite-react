@@ -1,8 +1,8 @@
 {
-  "vendors.css": "/aphrodite-react/static/css/vendors.e61100ef5c61e9cbd755.css",
-  "vendors.js": "/aphrodite-react/static/js/vendors.ff11b7ae.js",
-  "app.js": "/aphrodite-react/static/js/app.fbc5961c.js",
-  "components-badge-badge.js": "/aphrodite-react/static/js/components-badge-badge.6ac4571d.js",
+  "vendors.css": "/aphrodite-react/static/css/vendors.4de1c651ec8e02725b75.css",
+  "vendors.js": "/aphrodite-react/static/js/vendors.8b217ba6.js",
+  "app.js": "/aphrodite-react/static/js/app.a0fd1b93.js",
+  "components-badge-badge.js": "/aphrodite-react/static/js/components-badge-badge.24244048.js",
   "components-button-button.js": "/aphrodite-react/static/js/components-button-button.11178959.js",
   "components-grid-grid.js": "/aphrodite-react/static/js/components-grid-grid.8f7e7528.js",
   "components-icons-icons.js": "/aphrodite-react/static/js/components-icons-icons.64432139.js",
@@ -13,7 +13,7 @@
   "components-toast-toast.js": "/aphrodite-react/static/js/components-toast-toast.ea1a1d83.js",
   "components-tooltip-tooltip.js": "/aphrodite-react/static/js/components-tooltip-tooltip.40c2623c.js",
   "index.js": "/aphrodite-react/static/js/index.71ea626a.js",
-  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.e61100ef5c61e9cbd755.js",
-  "static/js/14.c43ea05e.js": "/aphrodite-react/static/js/14.c43ea05e.js",
+  "runtime~app.js": "/aphrodite-react/static/js/runtime~app.4de1c651ec8e02725b75.js",
+  "static/js/14.ba6d71ea.js": "/aphrodite-react/static/js/14.ba6d71ea.js",
   "index.html": "/aphrodite-react/index.html"
 }

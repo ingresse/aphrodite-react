@@ -36,7 +36,7 @@ var FORM = {
       '&:focus, &:active, &.error:focus, &.error:active': {
         boxShadow: "inset 0 0 2px 0 ".concat(_.COLORS.GET('DARK_BLACK', 0.6))
       }
-    }, _.MEDIA_QUERIES.XS, {
+    }, _.MEDIA_QUERIES.LT.SM, {
       height: '50px'
     }),
     CHECKBOX: {
@@ -77,7 +77,7 @@ var FORM = {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
       }
-    }, _.MEDIA_QUERIES.XS, {
+    }, _.MEDIA_QUERIES.LT.SM, {
       paddingLeft: '40px',
       '&:before': {
         width: '30px',

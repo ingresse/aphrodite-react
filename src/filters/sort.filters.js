@@ -1,13 +1,13 @@
 /* Sort Filters */
 export const sort = {
-    byProperty: (array, property) => {
+    byProperty: (array, property, reverse) => {
         array.sort((a, b) => {
             if (a[property] < b[property]) {
-                return -1;
+                return reverse ? 1 : -1;
             }
 
             if (a[property] > b[property]) {
-                return 1;
+                return reverse ? -1 : 1;
             }
 
             return 0;

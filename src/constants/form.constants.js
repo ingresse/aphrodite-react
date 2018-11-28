@@ -37,7 +37,7 @@ export const FORM = {
                 boxShadow: `inset 0 0 2px 0 ${COLORS.GET('DARK_BLACK', 0.6)}`,
             },
 
-            [MEDIA_QUERIES.XS]: {
+            [MEDIA_QUERIES.LT.SM]: {
                 height: '50px',
             },
         },
@@ -86,7 +86,7 @@ export const FORM = {
                 backgroundPosition: 'center',
             },
 
-            [MEDIA_QUERIES.XS]: {
+            [MEDIA_QUERIES.LT.SM]: {
                 paddingLeft: '40px',
 
                 '&:before': {

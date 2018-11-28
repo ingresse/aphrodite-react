@@ -102,7 +102,7 @@ const Badge = (props) => {
         let toned = (COLORS.TONES[props.color.toUpperCase()]);
 
         if (toned) {
-            prefix    = Object.assign({}, prefix, {
+            prefix = Object.assign({}, prefix, {
                 backgroundColor: toned,
             });
         }
