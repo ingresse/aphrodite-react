@@ -115,7 +115,7 @@ Button.propTypes = {
     /**
     * Customized Border Radius
     */
-    radius: PropTypes.number,
+    radius: PropTypes.any,
 
     /**
      * Border Radius variation to '8px'

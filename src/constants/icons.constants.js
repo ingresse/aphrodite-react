@@ -14,7 +14,7 @@ export const ICONS = Object.assign([
     'question-circle',
     'times-circle',
 ], {
-    encodeSvg: (reactElement) => {
+    ENCODE_SVG: (reactElement) => {
         return 'data:image/svg+xml,' + escape(ReactDOMServer.renderToStaticMarkup((reactElement)));
     },
 });

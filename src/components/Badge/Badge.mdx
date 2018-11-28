@@ -1,0 +1,113 @@
+---
+name : Badge
+menu : Components
+route: /components/badge
+---
+
+import { Playground, PropsTable } from 'docz';
+import styled from 'react-emotion';
+import { Badge } from '../';
+import { COLORS, SCREEN_SIZES } from '../../constants';
+
+# Badge
+#### Badge styled with Aphrodite definitions.
+```jsx
+import { Badge } from 'aphrodite-react';
+
+<Badge>Hello, you</Badge>
+```
+
+## Properties
+<PropsTable of={Badge} />
+
+## Basic
+<Playground>
+    <Badge>Hello, you</Badge>
+</Playground>
+
+## Variations
+<Playground>
+    {() => {
+        const comStyle = {
+            boxSizing: 'border-box',
+        };
+
+        const rowStyle = Object.assign({
+            display: 'block',
+            padding: '10px',
+        }, comStyle);
+
+        const Row = styled('div')(rowStyle);
+
+        return (
+            <Row>
+                <Row>
+                    <Badge sm>sm</Badge>
+                </Row>
+                <Row>
+                    <Badge blockXs>blockXs</Badge>
+                </Row>
+                <Row>
+                    <Badge block>block</Badge>
+                </Row>
+            </Row>
+        );
+    }}
+</Playground>
+
+## Colors
+<Playground>
+    {() => {
+        const comStyle = {
+            boxSizing: 'border-box',
+
+            '&:after': {
+                display: 'table',
+                clear  : 'both',
+                content: '" "',
+                boxSizing: 'border-box',
+            },
+        };
+
+        const rowStyle = Object.assign({
+            display: 'block',
+            margin : '10px -10px',
+        }, comStyle);
+
+        const colStyle = Object.assign({
+            display: 'block',
+            float  : 'left',
+            width  : window.innerWidth < SCREEN_SIZES.SM ? '100%' : '25%',
+            padding: '10px',
+        }, comStyle);
+
+        const Row   = styled('div')(rowStyle);
+        const Col   = styled('div')(colStyle);
+        const width = window.innerWidth < SCREEN_SIZES.SM ? '100%' : '150px';
+
+        return (
+            <Row>
+                {Object.keys(COLORS).map((COLOR_KEY) => {
+                    if (!['GET', 'FILL', 'TONES'].includes(COLOR_KEY)) {
+                        return (
+                            <Col>
+                                <Row>
+                                    <Badge width={width} color={COLOR_KEY} prefix="KEY">
+                                        {COLOR_KEY}
+                                    </Badge>
+                                </Row>
+                                <Row>
+                                    <Badge width={width} color={COLOR_KEY} prefix="KEY" sm>
+                                        {COLOR_KEY}
+                                    </Badge>
+                                </Row>
+                            </Col>
+                        );
+                    }
+
+                    return null;
+                })}
+            </Row>
+        );
+    }}
+</Playground>

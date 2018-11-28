@@ -51,7 +51,7 @@ var Input = function Input(props) {
   var AphFormWrapper = null;
   var radio = {};
 
-  var icon = _constants.ICONS.encodeSvg(_react.default.createElement(_IconCheck.default, {
+  var icon = _constants.ICONS.ENCODE_SVG(_react.default.createElement(_IconCheck.default, {
     size: 20,
     color: props.color || _constants.COLORS.PRIMARY
   }));

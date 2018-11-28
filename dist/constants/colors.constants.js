@@ -5,7 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.COLORS = void 0;
 
+/* Packages */
+var util = require('tinycolor2');
 /* Color Base */
+
+
 var _COLORS = {
   DARK_BLACK: 'rgb(0, 0, 0)',
   // #000000
@@ -33,8 +37,12 @@ var _COLORS = {
   // #FF8D50
   RED: 'rgb(241, 51, 53)',
   // #F13335
+  DARK_RED: 'rgb(196, 31, 31)',
+  // #C41F1F'
   GREEN: 'rgb(96,198,89)',
   // #60C659
+  DARK_GREEN: 'rgb(25, 174, 53)',
+  // #19AE35
   BLUE: 'rgb(0, 165, 219)',
   // #00A5DB
   PURPLE: 'rgb(172, 108, 184)',
@@ -53,10 +61,43 @@ var _SEGMENTED = Object.assign({}, _COLORS, {
   INFO: _COLORS.BLUE,
   INVERSE: _COLORS.WHITE
 });
+/* Tones */
+
+
+var _TONED = Object.assign({}, _SEGMENTED, {
+  TONES: {
+    'DARK_BLACK': _SEGMENTED.BLACK,
+    'BLACK': _SEGMENTED.DARK_BLACK,
+    'WHITE': _SEGMENTED.SMOKE,
+    'SMOKE': _SEGMENTED.LIGHT_GREY,
+    'DARK_SMOKE': _SEGMENTED.GREY_SMOKE,
+    'GREY_SMOKE': _SEGMENTED.LIGHT_GREY,
+    'LIGHT_GREY': _SEGMENTED.GREY,
+    'GREY': _SEGMENTED.DARK_GREY,
+    'DARK_GREY': _SEGMENTED.GREY,
+    'YELLOW': util(_SEGMENTED.YELLOW).darken().toString(),
+    'ORANGE': util(_SEGMENTED.ORANGE).darken().toString(),
+    'ORANGE_RED': util(_SEGMENTED.ORANGE_RED).darken().toString(),
+    'RED': _SEGMENTED.DARK_RED,
+    'DARK_RED': _SEGMENTED.RED,
+    'GREEN': _SEGMENTED.DARK_GREEN,
+    'DARK_GREEN': _SEGMENTED.GREEN,
+    'BLUE': util(_SEGMENTED.BLUE).darken().toString(),
+    'PURPLE': util(_SEGMENTED.PURPLE).darken().toString(),
+    'LIGHT_PINK': util(_SEGMENTED.LIGHT_PINK).darken().toString(),
+    'PRIMARY': util(_SEGMENTED.PRIMARY).darken().toString(),
+    'SECONDARY': util(_SEGMENTED.SECONDARY).darken().toString(),
+    'ERROR': util(_SEGMENTED.ERROR).darken().toString(),
+    'WARNING': util(_SEGMENTED.WARNING).darken().toString(),
+    'SUCCESS': util(_SEGMENTED.SUCCESS).darken().toString(),
+    'INFO': util(_SEGMENTED.INFO).darken().toString(),
+    'INVERSE': util(_SEGMENTED.WHITE).darken().toString()
+  }
+});
 /* Exporting */
 
 
-var COLORS = Object.assign({}, _SEGMENTED, {
+var COLORS = Object.assign({}, _TONED, {
   /**
    * Get an catalog color in different opacity
    * or can apply opacity to the color from param
@@ -68,13 +109,13 @@ var COLORS = Object.assign({}, _SEGMENTED, {
     var opacity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
     if (!color || typeof color !== 'string') {
-      return _COLORS.BLACK;
+      return _TONED.BLACK;
     }
 
-    var selected = _SEGMENTED[color.toUpperCase()];
+    var selected = _TONED[color.toUpperCase()];
 
     if (!selected && !color.includes('rgb(')) {
-      return _COLORS.BLACK;
+      return _TONED.BLACK;
     }
 
     if (!selected && color.includes('rgb(')) {
@@ -87,6 +128,40 @@ var COLORS = Object.assign({}, _SEGMENTED, {
     }
 
     return selected;
+  },
+
+  /**
+   * Fill
+   * apply background and color
+   *
+   * @return {object} selected color as background
+   */
+  FILL: function FILL() {
+    var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'SMOKE';
+
+    if (typeof color !== 'string') {
+      return {
+        color: _TONED.BLACK,
+        background: _TONED.SMOKE
+      };
+    }
+
+    var _color = color.toUpperCase();
+
+    var selected = _TONED[_color];
+    var inverse = ['WHITE', 'SMOKE', 'DARK_SMOKE', 'GREY_SMOKE', 'LIGHT_GREY', 'YELLOW', 'WARNING', 'INVERSE'];
+
+    if (!selected) {
+      return {
+        color: _TONED.BLACK,
+        background: _TONED.SMOKE
+      };
+    }
+
+    return {
+      color: inverse.includes(_color) ? _TONED.BLACK : _TONED.WHITE,
+      background: selected
+    };
   }
 });
 exports.COLORS = COLORS;

@@ -1,15 +1,18 @@
 /* Packages */
 import React from 'react';
 import styled from 'react-emotion';
+import propTypes from 'prop-types';
 
 /* Constants */
-import { COLORS, RADIUS } from '../../constants';
+import { COLORS, GRID, MEDIA_QUERIES, RADIUS } from '../../constants';
 
 /* Component Styles */
 const BadgeWrapper = styled('span')(props => ({
+    boxSizing    : 'border-box',
     position     : 'relative',
     display      : props.block ? 'block' : 'inline-block',
-    padding      : '6px 15px 4px',
+    minWidth     : (!isNaN(props.width) ? (parseInt(props.width, 10) + GRID.UNIT) : (props.width || null)),
+    padding      : '5px 15px',
     margin       : 0,
     minHeight    : '30px',
     verticalAlign: 'top',
@@ -17,44 +20,124 @@ const BadgeWrapper = styled('span')(props => ({
     fontSize     : '12px',
     lineHeight   : '20px',
     textTransform: 'uppercase',
-    textAlign    : 'center',
+    textAlign    : (props.prefix ? 'left' : 'center'),
 
-    color       : COLORS.WHITE,
-    background  : COLORS.LIGHT_GREY,
-    boxShadow   : COLORS.GET('DARK_BLACK', 0.2),
-    borderRadius: RADIUS,
+    boxShadow   : `0 0 1px 0 ${COLORS.GET('DARK_BLACK', 0.2)}`,
+    borderRadius: (RADIUS.XS + GRID.UNIT),
 
     '&:after': {
         display: 'table',
         clear  : 'both',
-    }
+    },
 
-    ...props.style,
+    [MEDIA_QUERIES.LT.SM]: {
+        display   : (props.blockXs ? 'block' : null),
+        fontSize  : '16px',
+        lineHeight: '20px',
+
+        paddingRight: '15px',
+        paddingLeft : '15px',
+
+        borderRadius: RADIUS.XXS + GRID.UNIT,
+    },
+
+    ...props.styles,
 }));
 
 /* Component Children Style */
 const BadgePrefixWrapper = styled('span')(props => ({
-    display: 'inline-block',
-    padding: '6px 15px 4px',
-    margin : '-6px 10px -4px -15px',
+    boxSizing: 'border-box',
+    display  : 'inline-block',
+    padding  : '5px 15px',
+    margin   : '-5px 10px -5px -15px',
+    textAlign: 'center',
 
-    borderRadius: '4px 0 0 4px',
+    borderRadius: `${RADIUS.XS + GRID.UNIT} 0 0 ${RADIUS.XS + GRID.UNIT}`,
 
-    ...props.style,
+    [MEDIA_QUERIES.LT.SM]: {
+        fontSize  : '16px',
+        lineHeight: '20px',
+
+        margin : '-10px 10px -10px -15px',
+        padding: '5px 6px',
+
+        borderRadius: `${RADIUS.XS + GRID.UNIT} 0 0 ${RADIUS.XS + GRID.UNIT}`,
+    },
+
+    ...props.styles,
 }));
 
 /* Component */
 const Badge = (props) => {
+    const filled   = COLORS.FILL(props.color);
+    const modifier = !props.sm ? {} : {
+        minHeight : '20px',
+        fontSize  : '10px',
+        lineHeight: '10px',
+
+        paddingRight: '8px',
+        paddingLeft : '8px',
+
+        borderRadius: RADIUS.XXS + GRID.UNIT,
+    };
+    let prefix = !props.sm ? {} : {
+        paddingRight: '8px',
+        paddingLeft : '8px',
+        marginLeft  : '-8px',
+        marginRight : '6px',
+        borderRadius: `${RADIUS.XXS + GRID.UNIT} 0 0 ${RADIUS.XXS + GRID.UNIT}`,
+
+        [MEDIA_QUERIES.LT.SM]: {
+            fontSize  : '16px',
+            lineHeight: '20px',
+
+            margin : '-10px 10px -10px -15px',
+            padding: '5px 8px',
+
+            borderRadius: `${RADIUS.XS + GRID.UNIT} 0 0 ${RADIUS.XS + GRID.UNIT}`,
+        },
+    };
+
+    if (props.color) {
+        let toned = (COLORS.TONES[props.color.toUpperCase()]);
+
+        if (toned) {
+            prefix    = Object.assign({}, prefix, {
+                backgroundColor: toned,
+            });
+        }
+    }
+
     return (
-        <BadgeWrapper {...props}>
+        <BadgeWrapper
+            {...props}
+            styles={Object.assign({}, modifier, filled)}
+            className={`aph-badge ${props.className || ''}`}>
             {(!props.prefix) ? null : (
-                <BadgePrefixWrapper style={props.prefixStyle}>
+                <BadgePrefixWrapper
+                    {...props.prefixProps}
+                    styles={Object.assign({}, prefix, props.prefixStyles)}
+                    className={`aph-badge__prefix ${props.prefixClassName || ''}`}>
                     {props.prefix}
                 </BadgePrefixWrapper>
             )}
             {props.children}
         </BadgeWrapper>
     );
+};
+
+/* Properties Types */
+Badge.propTypes = {
+    block  : propTypes.bool,
+    blockXs: propTypes.bool,
+    sm     : propTypes.bool,
+
+    width    : propTypes.number,
+    styles   : propTypes.object,
+    className: propTypes.string,
+
+    prefixStyles   : propTypes.object,
+    prefixClassName: propTypes.string,
 };
 
 /* Exporting */

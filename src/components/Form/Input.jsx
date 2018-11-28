@@ -29,7 +29,7 @@ const Input = (props) => {
     let AphFormMask    = null;
     let AphFormWrapper = null;
     let radio   = {};
-    let icon    = ICONS.encodeSvg(<IconCheck size={20} color={props.color || COLORS.PRIMARY} />);
+    let icon    = ICONS.ENCODE_SVG(<IconCheck size={20} color={props.color || COLORS.PRIMARY} />);
     let _props  = Object.assign({}, props);
 
     delete _props.children;
