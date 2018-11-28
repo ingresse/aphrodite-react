@@ -52,7 +52,6 @@ const StyledSwitch = styled('label')(props => ({
 
     '.aph-switch-slide': {
         position: 'absolute',
-        cursor  : `${props.disabled ? 'not-allowed' : 'pointer'}`,
 
         top   : '49%',
         bottom: '0',

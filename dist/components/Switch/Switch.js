@@ -85,7 +85,6 @@ var StyledSwitch =
     },
     '.aph-switch-slide': {
       position: 'absolute',
-      cursor: "".concat(props.disabled ? 'not-allowed' : 'pointer'),
       top: '49%',
       bottom: '0',
       right: "".concat(props.right ? 0 : 'auto'),
