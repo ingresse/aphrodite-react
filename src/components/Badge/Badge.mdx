@@ -8,6 +8,7 @@ import { Playground, PropsTable } from 'docz';
 import styled from 'react-emotion';
 import { Badge } from '../';
 import { COLORS, SCREEN_SIZES } from '../../constants';
+import { sort } from '../../filters';
 
 # Badge
 #### Badge styled with Aphrodite definitions.
@@ -87,10 +88,10 @@ import { Badge } from 'aphrodite-react';
 
         return (
             <Row>
-                {Object.keys(COLORS).map((COLOR_KEY) => {
+                {Object.keys(COLORS).map((COLOR_KEY, index) => {
                     if (!['GET', 'FILL', 'TONES'].includes(COLOR_KEY)) {
                         return (
-                            <Col>
+                            <Col key={index}>
                                 <Row>
                                     <Badge width={width} color={COLOR_KEY} prefix="KEY">
                                         {COLOR_KEY}

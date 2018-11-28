@@ -129,7 +129,7 @@ Badge.propTypes = {
   block: _propTypes.default.bool,
   blockXs: _propTypes.default.bool,
   sm: _propTypes.default.bool,
-  width: _propTypes.default.number,
+  width: _propTypes.default.any,
   styles: _propTypes.default.object,
   className: _propTypes.default.string,
   prefixStyles: _propTypes.default.object,
