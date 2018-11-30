@@ -1,9 +1,6 @@
 /* Packages */
 import React from 'react';
 
-/* Constants */
-import { COLORS } from '../../constants';
-
 /* Icon */
 const IconInfoCircle = (props) => {
     return (

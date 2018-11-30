@@ -29,6 +29,8 @@ var _IconCheckThin = _interopRequireDefault(require("./IconCheckThin"));
 
 var _IconInfoCircle = _interopRequireDefault(require("./IconInfoCircle"));
 
+var _IconLoading = _interopRequireDefault(require("./IconLoading"));
+
 var _IconPencil = _interopRequireDefault(require("./IconPencil"));
 
 var _IconQuestionCircle = _interopRequireDefault(require("./IconQuestionCircle"));
@@ -51,6 +53,7 @@ var ICONS = {
   'check-circle': _IconCheckCircle.default,
   'check-thin': _IconCheckThin.default,
   'info-circle': _IconInfoCircle.default,
+  'loading': _IconLoading.default,
   'pencil': _IconPencil.default,
   'question-circle': _IconQuestionCircle.default,
   'times-circle': _IconTimesCircle.default
@@ -90,14 +93,18 @@ var Icon = function Icon(props) {
 Icon.defaultProps = {
   slug: undefined,
   size: 20,
-  color: _constants.COLORS.PRIMARY
+  color: _constants.COLORS.PRIMARY,
+  width: undefined,
+  Height: undefined
 };
 /* Properties Types */
 
 Icon.propTypes = {
   slug: _propTypes.default.string.isRequired,
   size: _propTypes.default.number,
-  color: _propTypes.default.string
+  color: _propTypes.default.string,
+  width: _propTypes.default.number,
+  height: _propTypes.default.number
 };
 /* Exporting */
 

@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* Packagesl */
+/* Packages */
 
 /* Icon */
 var IconCheckThin = function IconCheckThin(props) {

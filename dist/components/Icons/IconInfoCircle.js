@@ -7,13 +7,9 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _constants = require("../../constants");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* Packages */
-
-/* Constants */
 
 /* Icon */
 var IconInfoCircle = function IconInfoCircle(props) {

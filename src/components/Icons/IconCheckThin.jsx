@@ -1,4 +1,4 @@
-/* Packagesl */
+/* Packages */
 import React from 'react';
 
 /* Icon */

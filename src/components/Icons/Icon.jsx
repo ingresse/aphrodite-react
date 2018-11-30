@@ -15,6 +15,7 @@ import Check from './IconCheck';
 import CheckCircle from './IconCheckCircle';
 import CheckThin from './IconCheckThin';
 import InfoCircle from './IconInfoCircle';
+import Loading from './IconLoading';
 import Pencil from './IconPencil';
 import QuestionCircle from './IconQuestionCircle';
 import TimesCircle from './IconTimesCircle';
@@ -30,6 +31,7 @@ const ICONS = {
     'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
     'info-circle'       : InfoCircle,
+    'loading'           : Loading,
     'pencil'            : Pencil,
     'question-circle'   : QuestionCircle,
     'times-circle'      : TimesCircle,
@@ -63,16 +65,20 @@ const Icon = (props) => {
 
 /* Default Properties */
 Icon.defaultProps = {
-    slug : undefined,
-    size : 20,
-    color: COLORS.PRIMARY,
+    slug  : undefined,
+    size  : 20,
+    color : COLORS.PRIMARY,
+    width : undefined,
+    Height: undefined,
 };
 
 /* Properties Types */
 Icon.propTypes = {
-    slug : propTypes.string.isRequired,
-    size : propTypes.number,
-    color: propTypes.string,
+    slug  : propTypes.string.isRequired,
+    size  : propTypes.number,
+    color : propTypes.string,
+    width : propTypes.number,
+    height: propTypes.number,
 };
 
 /* Exporting */
