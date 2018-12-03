@@ -40,23 +40,23 @@ var Placeholder = function Placeholder(props) {
     target: "ejqn05n0"
   })(_objectSpread({
     fontSize: '0px',
-    lineHeight: '0px'
-  }, props.styles, {
+    lineHeight: '0px',
+    boxSizing: 'border-box',
+    overflow: 'hidden',
     display: "".concat(props.block ? 'block' : 'inline-block'),
-    width: "".concat(props.block && props.width ? props.width + 'px' : '100%'),
+    width: "".concat(props.width ? props.width + 'px' : '100%'),
     maxWidth: "".concat(props.width ? props.width + 'px' : '100%'),
     minHeight: "".concat(props.height, "px"),
-    border: "".concat(props.border),
+    border: props.border || null,
     borderRadius: "".concat(props.radius, "px"),
     color: _constants.COLORS.LIGHT_GREY,
     background: "linear-gradient(90deg, ".concat(color(_constants.COLORS.SMOKE).toString(), ", ").concat(color(_constants.COLORS.SMOKE).darken(4).toString(), ")"),
     backgroundSize: '200% 100%',
     animation: "".concat(bgPlaceholder, " .9s ease infinite"),
     '.aph-placeholder': {
-      background: "".concat(color(_constants.COLORS.LIGHT_GREY).lighten(8).toString()),
-      backgroundSize: '200% 100%'
+      background: "linear-gradient(90deg, ".concat(color(_constants.COLORS.SMOKE).darken(2).toString(), ", ").concat(color(_constants.COLORS.SMOKE).darken(5).toString(), ")")
     }
-  }));
+  }, props.styles));
 
   var _props = Object.assign({}, props);
 

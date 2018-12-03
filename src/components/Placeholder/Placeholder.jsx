@@ -27,14 +27,15 @@ const Placeholder = (props) => {
         fontSize  : '0px',
         lineHeight: '0px',
 
-        ...props.styles,
+        boxSizing: 'border-box',
+        overflow : 'hidden',
 
         display  : `${props.block ? 'block' : 'inline-block'}`,
-        width    : `${props.block && props.width ? (props.width + 'px') : '100%' }`,
+        width    : `${props.width ? (props.width + 'px') : '100%' }`,
         maxWidth : `${props.width ? (props.width + 'px') : '100%'}`,
         minHeight: `${props.height}px`,
 
-        border      : `${props.border}`,
+        border      : (props.border || null),
         borderRadius: `${props.radius}px`,
 
         color         : COLORS.LIGHT_GREY,
@@ -44,9 +45,10 @@ const Placeholder = (props) => {
         animation: `${bgPlaceholder} .9s ease infinite`,
 
         '.aph-placeholder': {
-            background    : `${color(COLORS.LIGHT_GREY).lighten(8).toString()}`,
-            backgroundSize: '200% 100%',
-        }
+            background: `linear-gradient(90deg, ${color(COLORS.SMOKE).darken(2).toString()}, ${color(COLORS.SMOKE).darken(5).toString()})`,
+        },
+
+        ...props.styles,
     });
 
     let _props = Object.assign({}, props);
