@@ -35,7 +35,7 @@ var AphListItem =
   }, _constants.MEDIA_QUERIES.LT.SM, {
     paddingRight: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT,
     paddingLeft: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT
-  }), props.style);
+  }), props.styles);
 });
 /* Component */
 

@@ -15,7 +15,6 @@ export { default as Container } from './Grid/Container';
 
 /* List Components */
 export { default as ListGroup } from './Lists/ListGroup';
-export { default as ListHeader } from './Lists/ListHeader';
 export { default as ListItem } from './Lists/ListItem';
 
 /* Form Components */

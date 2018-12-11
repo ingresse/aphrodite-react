@@ -75,12 +75,6 @@ Object.defineProperty(exports, "ListGroup", {
     return _ListGroup.default;
   }
 });
-Object.defineProperty(exports, "ListHeader", {
-  enumerable: true,
-  get: function get() {
-    return _ListHeader.default;
-  }
-});
 Object.defineProperty(exports, "ListItem", {
   enumerable: true,
   get: function get() {
@@ -117,8 +111,6 @@ var _Tooltip = _interopRequireDefault(require("./Tooltip/Tooltip"));
 var _Container = _interopRequireDefault(require("./Grid/Container"));
 
 var _ListGroup = _interopRequireDefault(require("./Lists/ListGroup"));
-
-var _ListHeader = _interopRequireDefault(require("./Lists/ListHeader"));
 
 var _ListItem = _interopRequireDefault(require("./Lists/ListItem"));
 

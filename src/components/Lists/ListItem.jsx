@@ -19,7 +19,7 @@ const AphListItem = styled('div')(props => ({
         paddingLeft : ((GRID.PADDING - 5) + GRID.UNIT),
     },
 
-    ...props.style,
+    ...props.styles,
 }));
 
 /* Component */

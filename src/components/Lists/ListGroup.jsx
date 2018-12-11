@@ -20,8 +20,8 @@ const AphListGroup = styled('div')(props => ({
     boxShadow   : (props.noSideBorders ?
         (`
             inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
-            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
-            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+            inset 0 0 0 0 transparent,
+            inset 0 0 0 0 transparent,
             inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
         `)
         :
@@ -36,17 +36,17 @@ const AphListGroup = styled('div')(props => ({
     '.aph-list__header, .aph-list__item': {
         boxShadow   : `
             inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
-            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
-            inset 0 0 0 0 ${COLORS.LIGHT_GREY},
-            inset 0 0 0 0 ${COLORS.LIGHT_GREY}
+            inset 0 0 0 0 transparent,
+            inset 0 0 0 0 transparent,
+            inset 0 0 0 0 transparent
         `,
 
         '+ .aph-list__header, + .aph-list__item': {
             boxShadow   : `
                 inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
-                inset 0 0 0 0 ${COLORS.LIGHT_GREY},
-                inset 0 0 0 0 ${COLORS.LIGHT_GREY},
-                inset 0 0 0 0 ${COLORS.LIGHT_GREY}
+                inset 0 0 0 0 transparent,
+                inset 0 0 0 0 transparent,
+                inset 0 0 0 0 transparent
             `,
         }
     },
@@ -67,8 +67,8 @@ const AphListGroup = styled('div')(props => ({
                 borderTopLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
                 boxShadow: `
                     inset 0 -1px 0 0 ${COLORS.LIGHT_GREY},
-                    inset 0 0 0 0 ${COLORS.LIGHT_GREY},
-                    inset 0 0 0 0 ${COLORS.LIGHT_GREY},
+                    inset 0 0 0 0 transparent,
+                    inset 0 0 0 0 transparent,
                     inset 0 1px 0 0 ${COLORS.LIGHT_GREY}
                 `,
             },
@@ -85,7 +85,7 @@ const AphListGroup = styled('div')(props => ({
         },
     },
 
-    ...props.style,
+    ...props.styles,
 }));
 
 /* Component */
