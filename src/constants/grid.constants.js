@@ -3,7 +3,7 @@ export const GRID = {
     CONTAINER: Object.assign(980, {
         XS: 480,
         SM: 660,
-        MD: 780,
+        MD: 820,
         LG: 980,
         XL: 1440,
     }),

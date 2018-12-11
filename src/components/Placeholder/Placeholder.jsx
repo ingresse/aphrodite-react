@@ -31,7 +31,7 @@ const Placeholder = (props) => {
         overflow : 'hidden',
 
         display  : `${props.block ? 'block' : 'inline-block'}`,
-        width    : `${props.width ? (props.width + 'px') : '100%' }`,
+        width    : `${props.width ? (props.width + 'px') : '100%'}`,
         maxWidth : `${props.width ? (props.width + 'px') : '100%'}`,
         minHeight: `${props.height}px`,
 

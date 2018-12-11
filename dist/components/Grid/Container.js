@@ -33,7 +33,8 @@ var AphContainer =
     width: '100%',
     maxWidth: props.fluid ? '100%' : props.xs ? _constants.GRID.CONTAINER.XS + _constants.GRID.UNIT : props.sm ? _constants.GRID.CONTAINER.SM + _constants.GRID.UNIT : props.md ? _constants.GRID.CONTAINER.MD + _constants.GRID.UNIT : props.xl ? _constants.GRID.CONTAINER.XL + _constants.GRID.UNIT : _constants.GRID.CONTAINER.LG + _constants.GRID.UNIT
   }, _constants.MEDIA_QUERIES.LT.SM, {
-    padding: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT
+    paddingRight: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT,
+    paddingLeft: _constants.GRID.PADDING - 5 + _constants.GRID.UNIT
   });
 });
 /* Component it self */
