@@ -76,6 +76,18 @@ Object.keys(_screenSizes).forEach(function (key) {
   });
 });
 
+var _sizes = require("./sizes.constants");
+
+Object.keys(_sizes).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _sizes[key];
+    }
+  });
+});
+
 var _mediaQueries = require("./media-queries.constants");
 
 Object.keys(_mediaQueries).forEach(function (key) {

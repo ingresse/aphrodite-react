@@ -17,5 +17,8 @@ export { default as Container } from './Grid/Container';
 export { default as ListGroup } from './Lists/ListGroup';
 export { default as ListItem } from './Lists/ListItem';
 
+/* Dependent Components */
+export { default as Accordion } from './Accordion/Accordion';
+
 /* Form Components */
 export { default as Input } from './Form/Input';

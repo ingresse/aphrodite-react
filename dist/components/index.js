@@ -81,6 +81,12 @@ Object.defineProperty(exports, "ListItem", {
     return _ListItem.default;
   }
 });
+Object.defineProperty(exports, "Accordion", {
+  enumerable: true,
+  get: function get() {
+    return _Accordion.default;
+  }
+});
 Object.defineProperty(exports, "Input", {
   enumerable: true,
   get: function get() {
@@ -113,6 +119,8 @@ var _Container = _interopRequireDefault(require("./Grid/Container"));
 var _ListGroup = _interopRequireDefault(require("./Lists/ListGroup"));
 
 var _ListItem = _interopRequireDefault(require("./Lists/ListItem"));
+
+var _Accordion = _interopRequireDefault(require("./Accordion/Accordion"));
 
 var _Input = _interopRequireDefault(require("./Form/Input"));
 
