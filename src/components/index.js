@@ -4,6 +4,7 @@ export { default as Button } from './Button/Button';
 export { default as Icon } from './Icons/Icon';
 export { default as NumberFormat } from './NumberFormat/NumberFormat';
 export { default as Placeholder } from './Placeholder/Placeholder';
+export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as Scrollable } from './Scrollable/Scrollable';
 export { default as Switch } from './Switch/Switch';
 export { default as ToastsContainer } from './Toast/ToastsContainer';

@@ -43,6 +43,8 @@ var _COLORS = {
   // #60C659
   DARK_GREEN: 'rgb(25, 174, 53)',
   // #19AE35
+  LIGHT_BLUE: 'rgb(0, 209, 239)',
+  // #00D1EF
   BLUE: 'rgb(0, 165, 219)',
   // #00A5DB
   PURPLE: 'rgb(172, 108, 184)',

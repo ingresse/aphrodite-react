@@ -33,6 +33,12 @@ Object.defineProperty(exports, "Placeholder", {
     return _Placeholder.default;
   }
 });
+Object.defineProperty(exports, "ProgressBar", {
+  enumerable: true,
+  get: function get() {
+    return _ProgressBar.default;
+  }
+});
 Object.defineProperty(exports, "Scrollable", {
   enumerable: true,
   get: function get() {
@@ -103,6 +109,8 @@ var _Icon = _interopRequireDefault(require("./Icons/Icon"));
 var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
 
 var _Placeholder = _interopRequireDefault(require("./Placeholder/Placeholder"));
+
+var _ProgressBar = _interopRequireDefault(require("./ProgressBar/ProgressBar"));
 
 var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
 

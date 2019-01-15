@@ -1,6 +1,7 @@
 /* Packages */
 import React, { Component } from 'react';
-import styled, { keyframes } from 'react-emotion';
+import styled from '@emotion/styled'; import { keyframes } from '@emotion/core';
+
 import PropTypes from 'prop-types';
 const color = require('tinycolor2');
 

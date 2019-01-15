@@ -1,0 +1,32 @@
+---
+name : Progress Bar
+route: /components/progress-bar
+---
+
+import { Playground, PropsTable } from 'docz';
+import { ProgressBar } from '../';
+import { COLORS } from '../../constants';
+
+# Progress Bar
+```jsx
+import { COLORS, ProgressBar } from 'aphrodite-react';
+
+<ProgressBar
+    percent={70}
+    gradient={{ start: COLORS.RED, end: COLORS.ORANGE }}
+    width="460px"
+/>
+```
+
+## Properties
+<PropsTable of={ProgressBar} />
+
+## Examples
+<Playground>
+    <div>
+        <ProgressBar percent={65} />
+    </div>
+    <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+        <ProgressBar percent={70} gradient={{ start: COLORS.RED, end: COLORS.ORANGE }} width="460px" />
+    </div>
+</Playground>

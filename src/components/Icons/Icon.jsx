@@ -1,7 +1,7 @@
 /* Packages */
 import React from 'react';
 import propTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 /* Constants */
 import { COLORS } from '../../constants';

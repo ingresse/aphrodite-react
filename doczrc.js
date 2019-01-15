@@ -19,6 +19,7 @@ export default {
         },
     },
     themeConfig: {
+        mode  : 'light',
         colors: {
             primary: '#00A5DB',
         },

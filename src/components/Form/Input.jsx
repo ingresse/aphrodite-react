@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import propTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 /* Constants */
 import { COLORS, ICONS, FORM } from '../../constants';

@@ -1,7 +1,7 @@
 /* Packages */
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 /* Helper Constants */
 import { GRID, MEDIA_QUERIES, SCREEN_SIZES, SIZES } from '../../constants';

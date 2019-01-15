@@ -22,6 +22,7 @@ const _COLORS = {
     DARK_RED    : 'rgb(196, 31, 31)',    // #C41F1F'
     GREEN       : 'rgb(96,198,89)',      // #60C659
     DARK_GREEN  : 'rgb(25, 174, 53)',    // #19AE35
+    LIGHT_BLUE  : 'rgb(0, 209, 239)',    // #00D1EF
     BLUE        : 'rgb(0, 165, 219)',    // #00A5DB
     PURPLE      : 'rgb(172, 108, 184)',  // #AC6CB8
     LIGHT_PINK  : 'rgb(248, 130, 184)',  // #F882B8

@@ -1,6 +1,6 @@
 /* Packages */
 import React, { Component } from 'react';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 

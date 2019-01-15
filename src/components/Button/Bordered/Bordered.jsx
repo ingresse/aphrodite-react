@@ -1,6 +1,6 @@
 /* Packages */
 import React from 'react';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 const color = require('tinycolor2');
 
 /* Constants */
