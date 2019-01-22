@@ -65,7 +65,7 @@ class Accordion extends Component {
         } = this.props;
 
         /* Component Sizes */
-        const _iconSize   = (iconSize || (window.innerWidth > SCREEN_SIZES.SM ? 18 : 30));
+        const _iconSize   = (iconSize || (window.innerWidth > SCREEN_SIZES.SM ? 22 : 30));
         const iconColumn  = (_iconSize + (GRID.PADDING / 2) + GRID.UNIT);
 
         /* Component Styles */
@@ -98,6 +98,11 @@ class Accordion extends Component {
             ...columnStyles,
             width: iconColumn,
             lineHeight: 0,
+            margin: '-2px 0',
+
+            [MEDIA_QUERIES.LT.SM]: {
+                margin: 0,
+            },
         }));
 
         /* Component Header Content Column Styles */

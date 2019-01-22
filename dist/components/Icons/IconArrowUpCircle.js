@@ -42,9 +42,9 @@ var IconArrowUpCircle = function IconArrowUpCircle(props) {
     fillRule: "evenodd",
     fill: "none"
   }, _react.default.createElement("use", {
+    strokeWidth: "2",
     xlinkHref: "#a",
-    mask: "url(#b)",
-    strokeWidth: "3"
+    mask: "url(#b)"
   }), _react.default.createElement("path", {
     strokeWidth: "1.5",
     d: "m 17.993999,15.743696 -4.495,-4.495 -4.4929997,4.495"

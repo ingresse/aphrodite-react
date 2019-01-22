@@ -16,7 +16,7 @@ const IconArrowUpCircle = (props) => {
                 </mask>
             </defs>
             <g transform="matrix(-1 0 0 1 28.5 1.5)" strokeLinejoin="round" strokeLinecap="round" stroke={props.color} fillRule="evenodd" fill="none">
-                <use xlinkHref="#a" mask="url(#b)" strokeWidth="3" />
+                <use strokeWidth="2" xlinkHref="#a" mask="url(#b)" />
                 <path strokeWidth="1.5" d="m 17.993999,15.743696 -4.495,-4.495 -4.4929997,4.495" />
             </g>
         </svg>

@@ -19,7 +19,7 @@ const IconArrowDownCircle = (props) => {
                 </mask>
             </defs>
             <g fill="none" fillRule="evenodd" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" transform="matrix(-1 0 0 1 28.5 1.5)">
-                <use strokeWidth="3" mask="url(#b)" xlinkHref="#a" id="use14" />
+                <use strokeWidth="2" mask="url(#b)" xlinkHref="#a" id="use14" />
                 <path strokeWidth="1.5" d="m 9.006001,12.255031 4.495,4.495 4.493,-4.495" />
             </g>
         </svg>

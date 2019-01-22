@@ -40,7 +40,7 @@ var IconArrowRightCircle = function IconArrowRightCircle(props) {
     strokeLinejoin: "round",
     transform: "translate(1.5 1.5)"
   }, _react.default.createElement("use", {
-    strokeWidth: "3",
+    strokeWidth: "2",
     mask: "url(#b)",
     xlinkHref: "#a"
   }), _react.default.createElement("path", {

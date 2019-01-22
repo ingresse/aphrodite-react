@@ -16,7 +16,7 @@ const IconArrowRightCircle = (props) => {
                 </mask>
             </defs>
             <g fill="none" fillRule="evenodd" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" transform="translate(1.5 1.5)">
-                <use strokeWidth="3" mask="url(#b)" xlinkHref="#a"/>
+                <use strokeWidth="2" mask="url(#b)" xlinkHref="#a"/>
                 <path strokeWidth="1.5" d="M12 17.988l4.495-4.495L12 9"/>
             </g>
         </svg>
