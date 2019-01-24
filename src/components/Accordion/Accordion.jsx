@@ -9,6 +9,54 @@ import { GRID, MEDIA_QUERIES, SCREEN_SIZES, SIZES } from '../../constants';
 /* Helper Components */
 import { ListItem, Icon } from '../';
 
+/* Component Styles */
+const _iconSize   = (window.innerWidth > SCREEN_SIZES.SM ? 22 : 30);
+const iconColumn  = (_iconSize + (GRID.PADDING / 2) + GRID.UNIT);
+
+/* Component Styles */
+const AphAccordion = styled('div')(props => ({
+    boxSizing: 'border-box',
+    display  : 'block',
+
+    fontSize  : SIZES.MD.FONT_SIZE,
+    lineHeight: SIZES.MD.LINE_HEIGHT,
+
+    ...props.styles,
+}));
+
+/* Component Header Styles */
+const Header = styled('div')(props => ({
+    boxSizing : 'border-box',
+    display   : 'block',
+    lineHeight: 0,
+}));
+
+/* Component Header Column Styles */
+const columnStyles = {
+    boxSizing    : 'border-box',
+    display      : 'inline-block',
+    verticalAlign: 'middle',
+};
+
+/* Component Header Icon Column Styles */
+const IconColumn = styled('div')(props => ({
+    ...columnStyles,
+    width: iconColumn,
+    lineHeight: 0,
+    margin: '-2px 0',
+
+    [MEDIA_QUERIES.LT.SM]: {
+        margin: 0,
+    },
+}));
+
+/* Component Header Content Column Styles */
+const ContentColumn = styled('div')(props => ({
+    ...columnStyles,
+    width: `calc(100% - ${iconColumn})`,
+    lineHeight: '20px',
+}));
+
 /* Component */
 class Accordion extends Component {
     /**
@@ -64,56 +112,8 @@ class Accordion extends Component {
             iconStyles,
         } = this.props;
 
-        /* Component Sizes */
-        const _iconSize   = (iconSize || (window.innerWidth > SCREEN_SIZES.SM ? 22 : 30));
-        const iconColumn  = (_iconSize + (GRID.PADDING / 2) + GRID.UNIT);
-
-        /* Component Styles */
-        const AphAccordion = styled('div')(props => ({
-            boxSizing: 'border-box',
-            display  : 'block',
-
-            fontSize  : SIZES.MD.FONT_SIZE,
-            lineHeight: SIZES.MD.LINE_HEIGHT,
-
-            ...styles,
-        }));
-
-        /* Component Header Styles */
-        const Header = styled('div')(props => ({
-            boxSizing : 'border-box',
-            display   : 'block',
-            lineHeight: 0,
-        }));
-
-        /* Component Header Column Styles */
-        const columnStyles = {
-            boxSizing    : 'border-box',
-            display      : 'inline-block',
-            verticalAlign: 'middle',
-        };
-
-        /* Component Header Icon Column Styles */
-        const IconColumn = styled('div')(props => ({
-            ...columnStyles,
-            width: iconColumn,
-            lineHeight: 0,
-            margin: '-2px 0',
-
-            [MEDIA_QUERIES.LT.SM]: {
-                margin: 0,
-            },
-        }));
-
-        /* Component Header Content Column Styles */
-        const ContentColumn = styled('div')(props => ({
-            ...columnStyles,
-            width: `calc(100% - ${iconColumn})`,
-            lineHeight: '20px',
-        }));
-
         return (
-            <AphAccordion className={`aph-accordion ${className}`}>
+            <AphAccordion className={`aph-accordion ${className}`} styles={styles}>
                 <ListItem
                     {...headerProps}
                     header={headerDark ? true : false}
@@ -124,10 +124,10 @@ class Accordion extends Component {
                         <Header className="aph-accordion__header-row">
                             <IconColumn className="aph-accordion__header__col-icon">
                                 <Icon
-                                    size={_iconSize}
+                                    size={iconSize || _iconSize}
                                     slug={`arrow-${opened ? 'up' : 'down'}-circle`}
-                                    {...iconProps}
                                     styles={iconStyles}
+                                    {...iconProps}
                                 />
                             </IconColumn>
                             <ContentColumn className="aph-accordion__header__col-content">
@@ -144,8 +144,8 @@ class Accordion extends Component {
 
 /* Default Props */
 Accordion.defaultProps = {
-    opened: false,
-    header: 'Accordion Header',
+    opened   : false,
+    header   : '',
     className: '',
 };
 
