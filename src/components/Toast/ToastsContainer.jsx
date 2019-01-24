@@ -199,6 +199,7 @@ const ToastsContainer = (props = { styles: {} }) => {
                 padding     : '20px 40px 20px 20px',
                 boxShadow   : '0 0 2px 0 rgba(42, 42, 42, 0.2)',
                 borderRadius: 0,
+                maxWidth    : '100%',
             }
         },
     });
