@@ -17,7 +17,7 @@ import { Input, ListGroup, ListItem } from 'aphrodite-react';
     noSideBorders={window.innerWidth < 768}>
     <div>
         <ListItem header>
-            <Input type="checkbox" id="firstToggle">
+            <Input type="checkbox" id="firstToggle" labelRight={window.innerWidth < 768}>
                 Header
             </Input>
         </ListItem>
@@ -45,7 +45,7 @@ import { Input, ListGroup, ListItem } from 'aphrodite-react';
         noSideBorders={window.innerWidth < 768}>
         <div>
             <ListItem header>
-                <Input type="checkbox" id="firstToggle">
+                <Input type="checkbox" id="firstToggle" labelRight={window.innerWidth < 768}>
                     Header
                 </Input>
             </ListItem>

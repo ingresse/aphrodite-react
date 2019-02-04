@@ -4,7 +4,7 @@ route: /components/progress-bar
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { ProgressBar } from '../';
+import { ProgressBar, toast } from '../';
 import { COLORS } from '../../constants';
 
 # Progress Bar
@@ -12,9 +12,10 @@ import { COLORS } from '../../constants';
 import { COLORS, ProgressBar } from 'aphrodite-react';
 
 <ProgressBar
-    percent={70}
+    percentual={60}
+    animated={true}
     gradient={{ start: COLORS.RED, end: COLORS.ORANGE }}
-    width="460px"
+    width={460}
 />
 ```
 
@@ -23,10 +24,19 @@ import { COLORS, ProgressBar } from 'aphrodite-react';
 
 ## Examples
 <Playground>
-    <div>
-        <ProgressBar percent={65} />
+    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <ProgressBar percentual={20} />
     </div>
-    <div style={{ marginTop: '10px', marginBottom: '10px' }}>
-        <ProgressBar percent={70} gradient={{ start: COLORS.RED, end: COLORS.ORANGE }} width="460px" />
+    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <ProgressBar percentual={40} height={20} color={'purple'} />
+    </div>
+    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <ProgressBar percentual={60} height={30} color={'red'} />
+    </div>
+    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <ProgressBar percentual={80} height={40} animated={true} gradient={{ start: COLORS.ORANGE, end: COLORS.YELLOW }} />
+    </div>
+    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <ProgressBar percentual={100} height={50} radius={25} animated={true} gradient={{ start: COLORS.GREEN, end: COLORS.DARK_GREEN }} />
     </div>
 </Playground>

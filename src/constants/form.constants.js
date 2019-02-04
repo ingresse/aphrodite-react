@@ -29,6 +29,13 @@ export const FORM = {
             borderRadius   : RADIUS,
             boxShadow      : `inset 0 0 2px 0 ${COLORS.GET('DARK_BLACK', 0.3)}`,
 
+            borderRadius: RADIUS.XS,
+            border      : 0,
+            outline     : 0,
+
+            transition: 'box-shadow 0.15s linear',
+            willChange: 'box-shadow',
+
             '&.error': {
                 boxShadow: `inset 0 0 2px 0 ${COLORS.GET('RED', 0.3)}`
             },
@@ -63,6 +70,8 @@ export const FORM = {
             paddingLeft: '30px',
             userSelect : 'none',
 
+            WebkitTapHighlightColor: 'transparent',
+
             '&[for]': {
                 cursor: 'pointer',
             },
@@ -88,6 +97,27 @@ export const FORM = {
 
             [MEDIA_QUERIES.LT.SM]: {
                 paddingLeft: '40px',
+
+                '&:before': {
+                    width : '30px',
+                    height: '30px',
+
+                    backgroundSize: '18px',
+                },
+            },
+        },
+        CHECKBOX_MASK_RIGHT: {
+            paddingRight: '30px',
+            paddingLeft : 0,
+
+            '&:before': {
+                right: 0,
+                left : 'auto',
+            },
+
+            [MEDIA_QUERIES.LT.SM]: {
+                paddingRight: '40px',
+                paddingLeft : 0,
 
                 '&:before': {
                     width : '30px',
