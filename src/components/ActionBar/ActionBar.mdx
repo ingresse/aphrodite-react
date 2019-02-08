@@ -1,0 +1,47 @@
+---
+name : Action Bar
+route: /components/action-bar
+---
+
+import { Playground, PropsTable } from 'docz';
+import { ActionBar, Button } from '../';
+
+# Action Bar
+#### Toggle visibility of action elements
+```jsx
+import { ActionBar, Button } from 'aphrodite-react';
+
+<ActionBar
+    visible={true}
+    styles={{
+        textAlign: 'center',
+    }}>
+    <Button>My Action</Button>
+</ActionBar>
+```
+
+## Properties
+<PropsTable of={ActionBar} />
+
+## Example
+<Playground>
+    <div style={{
+            position: 'relative',
+            minHeight: '180px',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
+            borderRadius: '4px',
+            overflow: 'hidden',
+            padding : '15px 0 0',
+            textAlign: 'center',
+        }}>
+        The Page Container
+
+        <ActionBar
+            visible={true}
+            styles={{
+                position : 'absolute', // Just to fit in this example. Default: 'fixed',
+            }}>
+            <Button>My Action</Button>
+        </ActionBar>
+    </div>
+</Playground>
