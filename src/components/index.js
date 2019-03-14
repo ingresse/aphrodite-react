@@ -14,6 +14,9 @@ export { default as Tooltip } from './Tooltip/Tooltip';
 
 /* Grid Components */
 export { default as Container } from './Grid/Container';
+export { default as Row } from './Grid/Row';
+export { default as Col } from './Grid/Column';
+export { default as Column } from './Grid/Column';
 
 /* List Components */
 export { default as ListGroup } from './Lists/ListGroup';

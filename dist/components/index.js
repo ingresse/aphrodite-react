@@ -81,6 +81,24 @@ Object.defineProperty(exports, "Container", {
     return _Container.default;
   }
 });
+Object.defineProperty(exports, "Row", {
+  enumerable: true,
+  get: function get() {
+    return _Row.default;
+  }
+});
+Object.defineProperty(exports, "Col", {
+  enumerable: true,
+  get: function get() {
+    return _Column.default;
+  }
+});
+Object.defineProperty(exports, "Column", {
+  enumerable: true,
+  get: function get() {
+    return _Column.default;
+  }
+});
 Object.defineProperty(exports, "ListGroup", {
   enumerable: true,
   get: function get() {
@@ -131,6 +149,10 @@ var _Toast = _interopRequireDefault(require("./Toast/Toast"));
 var _Tooltip = _interopRequireDefault(require("./Tooltip/Tooltip"));
 
 var _Container = _interopRequireDefault(require("./Grid/Container"));
+
+var _Row = _interopRequireDefault(require("./Grid/Row"));
+
+var _Column = _interopRequireDefault(require("./Grid/Column"));
 
 var _ListGroup = _interopRequireDefault(require("./Lists/ListGroup"));
 

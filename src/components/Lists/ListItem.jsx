@@ -11,12 +11,12 @@ const AphListItem = styled('div')(props => ({
     position : 'relative',
     overflow : 'hidden',
     display  : 'block',
-    padding  : (((GRID.PADDING / 2) + GRID.UNIT) + ' ' + (GRID.PADDING + GRID.UNIT)),
+    padding  : (((GRID.CONTAINER_PADDING  / 2) + GRID.UNIT) + ' ' + (GRID.CONTAINER_PADDING  + GRID.UNIT)),
     margin   : 0,
 
     [MEDIA_QUERIES.LT.SM]: {
-        paddingRight: ((GRID.PADDING - 5) + GRID.UNIT),
-        paddingLeft : ((GRID.PADDING - 5) + GRID.UNIT),
+        paddingRight: ((GRID.CONTAINER_PADDING  - 5) + GRID.UNIT),
+        paddingLeft : ((GRID.CONTAINER_PADDING  - 5) + GRID.UNIT),
     },
 
     ...props.styles,
