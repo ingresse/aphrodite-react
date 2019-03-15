@@ -93,10 +93,13 @@ import { Container, Row, Col } from 'aphrodite-react';
 </Playground>
 
 ## Row & Column
-#### Based in the most populars UI Frameworks grid systems.
+#### Based in [FlexboxGrid](http://flexboxgrid.com/) awesome system.
 ...
 <PropsTable of={Row} />
 <PropsTable of={Col} />
+
+
+### Example usage
 
 <Playground style={{ padding: '0 20px' }}>
     {() => {
@@ -171,6 +174,83 @@ import { Container, Row, Col } from 'aphrodite-react';
                     </Col>
                     <Col xs="2" styles={columnsExample}>
                         Column xs="2"
+                    </Col>
+
+                </Row>
+            </Container>
+        );
+    }}
+</Playground>
+
+### Ordering
+
+<Playground style={{ padding: '0 20px' }}>
+    {() => {
+        // DON'T DO THIS
+        const containerExample = {
+            color       : COLORS.DARK_GREY,
+            background  : COLORS.LIGHT_GREY,
+            borderRadius: (RADIUS + GRID.UNIT),
+
+            marginTop    : '10px',
+            marginBottom : '10px',
+
+            paddingTop: '15px',
+
+            textAlign: 'center',
+        };
+
+        const rowsExample = {
+            paddingTop   : '5px',
+            paddingBottom: '5px',
+            borderRadius : (RADIUS + GRID.UNIT),
+            overflow     : 'hidden',
+        };
+
+        const columnsExample = {
+            color       : COLORS.WHITE,
+            background  : COLORS.TONES.PURPLE,
+
+            marginTop   : '5px',
+            marginBottom: '5px',
+
+
+            paddingTop   : '20px',
+            paddingBottom: '20px',
+            paddingRight : 0,
+            paddingLeft  : 0,
+
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+        };
+
+        return (
+            <Container fluid styles={containerExample}>
+                Regular
+
+                <Row alignment="center" styles={rowsExample}>
+
+                    <Col xs="12" sm="4" first="xs" last="sm" styles={columnsExample}>
+                        Column<br />xs="12" sm="4"<br />first="xs" last="sm"
+                    </Col>
+                    <Col xs="12" sm="8" first="sm" last="xs" styles={columnsExample}>
+                        Column<br />xs="12" sm="8"<br />first="sm" last="xs"
+                    </Col>
+
+                </Row>
+
+                <br />
+
+                Reverse
+
+                <Row reverse alignment="center" styles={rowsExample}>
+
+                    <Col xs="12" sm="4" first="xs" styles={columnsExample}>
+                        Column<br />xs="12" sm="4"<br />first="xs"
+                    </Col>
+
+                    <Col xs="12" sm="8" last="xs" styles={columnsExample}>
+                        Column<br />xs="12" sm="8"<br />last="xs"
                     </Col>
 
                 </Row>

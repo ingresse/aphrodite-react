@@ -22,6 +22,7 @@ export const MEDIA_QUERIES = {
 
     // GREATER THAN
     GT: {
+        XXS: `@media (min-width: 1px)`,
         XS : `@media (min-width: ${SCREEN_SIZES.XS}px)`,
         SM : `@media (min-width: ${SCREEN_SIZES.SM}px)`,
         MD : `@media (min-width: ${SCREEN_SIZES.MD}px)`,

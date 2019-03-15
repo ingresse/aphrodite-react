@@ -27,6 +27,7 @@ var MEDIA_QUERIES = {
   },
   // GREATER THAN
   GT: {
+    XXS: "@media (min-width: 1px)",
     XS: "@media (min-width: ".concat(_.SCREEN_SIZES.XS, "px)"),
     SM: "@media (min-width: ".concat(_.SCREEN_SIZES.SM, "px)"),
     MD: "@media (min-width: ".concat(_.SCREEN_SIZES.MD, "px)"),

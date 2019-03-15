@@ -25,6 +25,8 @@ const RowWrapper = styled('div')((props) => ({
     MsFlexPack    : (props.alignment || null),
     justifyContent: (props.alignment || null),
 
+    flexDirection: props.reverse ? 'row-reverse' : null,
+
     '&:before, &:after': {
         clear: 'both',
     },
