@@ -10,29 +10,74 @@ import { GRID, MEDIA_QUERIES, RADIUS } from '../../constants';
 const MARGIN = ('-' + GRID.COLUMNS_PADDING + GRID.UNIT);
 
 /* Wrapper Styles */
-const RowWrapper = styled('div')((props) => ({
-    boxSizing    : 'border-box',
-    position     : 'relative',
-    display      : 'flex',
-    flex         : '0 1 auto',
-    flexDirection: 'row',
-    flexWrap     : 'wrap',
+const RowWrapper = styled('div')((props) => {
+    const {
+        alignment,
+        vertical,
+        horizontal,
 
-    marginRight: MARGIN,
-    marginLeft : MARGIN,
+        reverse,
+        styles,
+    } = props;
 
-    WebkitBoxPack : (props.alignment || null),
-    MsFlexPack    : (props.alignment || null),
-    justifyContent: (props.alignment || null),
+    let _extraStyles = {};
 
-    flexDirection: props.reverse ? 'row-reverse' : null,
+    if (horizontal) {
+        if (horizontal === 'center' || horizontal === 'middle') {
+            _extraStyles = {
+                WebkitBoxPack : 'center',
+                MsFlexPack    : 'center',
+                justifyContent: 'center',
+            };
 
-    '&:before, &:after': {
-        clear: 'both',
-    },
+        } else {
+            _extraStyles = {
+                WebkitBoxPack : horizontal,
+                MsFlexPack    : horizontal,
+                justifyContent: `flex-${horizontal}`,
+            };
+        }
+    }
 
-    ...props.styles,
-}));
+    if (vertical) {
+        if (vertical === 'center' || vertical === 'middle') {
+            _extraStyles = Object.assign(_extraStyles, {
+                WebkitBoxAlign: 'center',
+                MsFlexAlign   : 'center',
+                alignItems    : 'center',
+            });
+
+        } else {
+            _extraStyles = Object.assign(_extraStyles, {
+                WebkitBoxAlign: vertical,
+                MsFlexAlign   : vertical,
+                alignItems    : `flex-${vertical}`,
+            });
+        }
+    }
+
+    return {
+        boxSizing    : 'border-box',
+        position     : 'relative',
+        display      : 'flex',
+        flex         : '0 1 auto',
+        flexDirection: 'row',
+        flexWrap     : 'wrap',
+
+        marginRight: MARGIN,
+        marginLeft : MARGIN,
+
+        flexDirection: reverse ? 'row-reverse' : null,
+
+        '&:before, &:after': {
+            clear: 'both',
+        },
+
+        ...styles,
+
+        ..._extraStyles,
+    };
+});
 
 /* Component */
 const Row = (props) => {
@@ -49,14 +94,16 @@ const Row = (props) => {
 
 /* Properties Types */
 Row.propTypes = {
-    styles   : propTypes.object,
-    alignment: propTypes.string,
+    styles    : propTypes.object,
+    vertical  : propTypes.string,
+    horizontal: propTypes.string,
 };
 
 /* Default Properties */
 Row.defaultProps = {
-    styles   : {},
-    alignment: '',
+    styles    : {},
+    vertical  : 'middle',
+    horizontal: 'left',
 };
 
 /* Exporting */

@@ -14,7 +14,7 @@ import { COLORS, GRID, RADIUS } from '../../constants';
 import { Container, Row, Col } from 'aphrodite-react';
 ...
 <Container>
-    <Row alignment="center">
+    <Row>
         <Col xs="12" sm="6">
             YOUR CONTENT HERE
         </Col>
@@ -141,7 +141,7 @@ import { Container, Row, Col } from 'aphrodite-react';
 
         return (
             <Container fluid styles={containerExample}>
-                <Row alignment="center" styles={rowsExample}>
+                <Row styles={rowsExample}>
 
                     <Col xs="6" sm="7" md="8" lg="9" xl="10" styles={columnsExample}>
                         Column<br />xs="6" sm="7"<br />md="8"<br />lg="9" xl="10"
@@ -228,7 +228,7 @@ import { Container, Row, Col } from 'aphrodite-react';
             <Container fluid styles={containerExample}>
                 Regular
 
-                <Row alignment="center" styles={rowsExample}>
+                <Row styles={rowsExample}>
 
                     <Col xs="12" sm="4" first="xs" last="sm" styles={columnsExample}>
                         Column<br />xs="12" sm="4"<br />first="xs" last="sm"
@@ -243,7 +243,7 @@ import { Container, Row, Col } from 'aphrodite-react';
 
                 Reverse
 
-                <Row reverse alignment="center" styles={rowsExample}>
+                <Row reverse styles={rowsExample}>
 
                     <Col xs="12" sm="4" first="xs" styles={columnsExample}>
                         Column<br />xs="12" sm="4"<br />first="xs"
@@ -251,6 +251,181 @@ import { Container, Row, Col } from 'aphrodite-react';
 
                     <Col xs="12" sm="8" last="xs" styles={columnsExample}>
                         Column<br />xs="12" sm="8"<br />last="xs"
+                    </Col>
+
+                </Row>
+            </Container>
+        );
+    }}
+</Playground>
+
+### Horizontal Alignment
+
+<Playground style={{ padding: '0 20px' }}>
+    {() => {
+        // DON'T DO THIS
+        const containerExample = {
+            color       : COLORS.DARK_GREY,
+            background  : COLORS.LIGHT_GREY,
+            borderRadius: (RADIUS + GRID.UNIT),
+
+            marginTop    : '10px',
+            marginBottom : '10px',
+
+            paddingTop: '15px',
+
+            textAlign: 'center',
+        };
+
+        const rowsExample = {
+            paddingTop   : '5px',
+            paddingBottom: '5px',
+            borderRadius : (RADIUS + GRID.UNIT),
+            overflow     : 'hidden',
+        };
+
+        const columnsExample = {
+            color       : COLORS.WHITE,
+            background  : COLORS.TONES.PURPLE,
+
+            marginTop   : '5px',
+            marginBottom: '5px',
+
+
+            paddingTop   : '20px',
+            paddingBottom: '20px',
+            paddingRight : 0,
+            paddingLeft  : 0,
+
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+        };
+
+        return (
+            <Container fluid styles={containerExample}>
+                <strong>Left</strong>, Center or Right
+
+                <Row styles={rowsExample}>
+
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+
+                </Row>
+
+                <Row horizontal="center" styles={rowsExample}>
+
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+
+                </Row>
+
+                <Row horizontal="end" styles={rowsExample}>
+
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+
+                </Row>
+            </Container>
+        );
+    }}
+</Playground>
+
+### Vertical Alignment
+
+<Playground style={{ padding: '0 20px' }}>
+    {() => {
+        // DON'T DO THIS
+        const containerExample = {
+            color       : COLORS.DARK_GREY,
+            background  : COLORS.LIGHT_GREY,
+            borderRadius: (RADIUS + GRID.UNIT),
+
+            marginTop    : '10px',
+            marginBottom : '10px',
+
+            paddingTop: '15px',
+
+            textAlign: 'center',
+        };
+
+        const rowsExample = {
+            paddingTop   : '5px',
+            paddingBottom: '5px',
+            borderRadius : (RADIUS + GRID.UNIT),
+            overflow     : 'hidden',
+        };
+
+        const columnsExample = {
+            color       : COLORS.WHITE,
+            background  : COLORS.TONES.PURPLE,
+
+            marginTop   : '5px',
+            marginBottom: '5px',
+
+
+            paddingTop   : '20px',
+            paddingBottom: '20px',
+            paddingRight : 0,
+            paddingLeft  : 0,
+
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+        };
+
+        return (
+            <Container fluid styles={containerExample}>
+                Start, <strong>Middle</strong> or End
+
+                <Row vertical="start" styles={rowsExample}>
+
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={Object.assign({ minHeight: '120px'}, columnsExample)}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+
+                </Row>
+
+                <Row styles={rowsExample}>
+
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={Object.assign({ minHeight: '120px'}, columnsExample)}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+
+                </Row>
+
+                <Row vertical="end" styles={rowsExample}>
+
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={Object.assign({ minHeight: '120px'}, columnsExample)}>
+                        Column<br />xs="4"
+                    </Col>
+                    <Col xs="4" styles={columnsExample}>
+                        Column<br />xs="4"
                     </Col>
 
                 </Row>
