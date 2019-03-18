@@ -27,6 +27,12 @@ Object.defineProperty(exports, "Icon", {
     return _Icon.default;
   }
 });
+Object.defineProperty(exports, "Img", {
+  enumerable: true,
+  get: function get() {
+    return _Img.default;
+  }
+});
 Object.defineProperty(exports, "NumberFormat", {
   enumerable: true,
   get: function get() {
@@ -131,6 +137,8 @@ var _Badge = _interopRequireDefault(require("./Badge/Badge"));
 var _Button = _interopRequireDefault(require("./Button/Button"));
 
 var _Icon = _interopRequireDefault(require("./Icons/Icon"));
+
+var _Img = _interopRequireDefault(require("./Img/Img"));
 
 var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
 

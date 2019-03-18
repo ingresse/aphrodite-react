@@ -3,6 +3,7 @@ export { default as ActionBar } from './ActionBar/ActionBar';
 export { default as Badge } from './Badge/Badge';
 export { default as Button } from './Button/Button';
 export { default as Icon } from './Icons/Icon';
+export { default as Img } from './Img/Img';
 export { default as NumberFormat } from './NumberFormat/NumberFormat';
 export { default as Placeholder } from './Placeholder/Placeholder';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
