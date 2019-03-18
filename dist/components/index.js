@@ -27,6 +27,12 @@ Object.defineProperty(exports, "Icon", {
     return _Icon.default;
   }
 });
+Object.defineProperty(exports, "Img", {
+  enumerable: true,
+  get: function get() {
+    return _Img.default;
+  }
+});
 Object.defineProperty(exports, "NumberFormat", {
   enumerable: true,
   get: function get() {
@@ -81,6 +87,24 @@ Object.defineProperty(exports, "Container", {
     return _Container.default;
   }
 });
+Object.defineProperty(exports, "Row", {
+  enumerable: true,
+  get: function get() {
+    return _Row.default;
+  }
+});
+Object.defineProperty(exports, "Col", {
+  enumerable: true,
+  get: function get() {
+    return _Column.default;
+  }
+});
+Object.defineProperty(exports, "Column", {
+  enumerable: true,
+  get: function get() {
+    return _Column.default;
+  }
+});
 Object.defineProperty(exports, "ListGroup", {
   enumerable: true,
   get: function get() {
@@ -114,6 +138,8 @@ var _Button = _interopRequireDefault(require("./Button/Button"));
 
 var _Icon = _interopRequireDefault(require("./Icons/Icon"));
 
+var _Img = _interopRequireDefault(require("./Img/Img"));
+
 var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
 
 var _Placeholder = _interopRequireDefault(require("./Placeholder/Placeholder"));
@@ -131,6 +157,10 @@ var _Toast = _interopRequireDefault(require("./Toast/Toast"));
 var _Tooltip = _interopRequireDefault(require("./Tooltip/Tooltip"));
 
 var _Container = _interopRequireDefault(require("./Grid/Container"));
+
+var _Row = _interopRequireDefault(require("./Grid/Row"));
+
+var _Column = _interopRequireDefault(require("./Grid/Column"));
 
 var _ListGroup = _interopRequireDefault(require("./Lists/ListGroup"));
 

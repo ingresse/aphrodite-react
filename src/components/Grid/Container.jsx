@@ -11,7 +11,7 @@ const AphContainer = styled('div')(props => ({
     boxSizing: 'border-box',
     display  : 'block',
     margin   : '0 auto',
-    padding  : `0 ${(GRID.PADDING + GRID.UNIT)}`,
+    padding  : `0 ${(GRID.CONTAINER_PADDING + GRID.UNIT)}`,
     width    : '100%',
 
     maxWidth : (
@@ -29,9 +29,11 @@ const AphContainer = styled('div')(props => ({
     ),
 
     [MEDIA_QUERIES.LT.SM]: {
-        paddingRight: ((GRID.PADDING - 5) + GRID.UNIT),
-        paddingLeft : ((GRID.PADDING - 5) + GRID.UNIT),
+        paddingRight: (GRID.CONTAINER_PADDING_XS + GRID.UNIT),
+        paddingLeft : (GRID.CONTAINER_PADDING_XS + GRID.UNIT),
     },
+
+    ...props.styles,
 }));
 
 /* Component it self */
@@ -47,12 +49,18 @@ const Container = (props) => {
 
 /* Properties Types */
 Container.propTypes = {
-    xs   : propTypes.bool,
-    sm   : propTypes.bool,
-    md   : propTypes.bool,
-    lg   : propTypes.bool,
-    xl   : propTypes.bool,
-    fluid: propTypes.bool,
+    xs    : propTypes.bool,
+    sm    : propTypes.bool,
+    md    : propTypes.bool,
+    lg    : propTypes.bool,
+    xl    : propTypes.bool,
+    fluid : propTypes.bool,
+    styles: propTypes.object,
+};
+
+/* Default Properties */
+Container.defaultProps = {
+    styles: {},
 };
 
 /* Exporting */

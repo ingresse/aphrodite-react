@@ -11,7 +11,7 @@ import { ListItem, Icon } from '../';
 
 /* Component Styles */
 const _iconSize   = (window.innerWidth > SCREEN_SIZES.SM ? 22 : 30);
-const iconColumn  = (_iconSize + (GRID.PADDING / 2) + GRID.UNIT);
+const iconColumn  = (_iconSize + (GRID.CONTAINER_PADDING  / 2) + GRID.UNIT);
 
 /* Component Styles */
 const AphAccordion = styled('div')(props => ({

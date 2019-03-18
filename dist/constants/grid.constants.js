@@ -5,8 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.GRID = void 0;
 
+/* Values */
+var COLUMNS = 12;
 /* Exporting */
+
 var GRID = {
+  UNIT: 'px',
+  QUERIES: ['xs', 'sm', 'md', 'lg', 'xl'],
+  CONTAINER_PADDING_XS: 15,
+  CONTAINER_PADDING: 20,
   CONTAINER: Object.assign(980, {
     XS: 480,
     SM: 660,
@@ -14,9 +21,20 @@ var GRID = {
     LG: 980,
     XL: 1440
   }),
-  COLUMNS: 12,
-  PADDING: 20,
-  UNIT: 'px',
-  QUERIES: ['xs', 'sm', 'md', 'lg', 'xl']
+  COLUMNS: COLUMNS,
+  COLUMNS_PADDING: 10,
+  COLUMNS_GET_WIDTH: function COLUMNS_GET_WIDTH(columnNumber) {
+    function getPercentual(number) {
+      return number * 10 / 12 * 10 + '%';
+    }
+
+    columnNumber = parseInt(columnNumber, 10);
+
+    if (!columnNumber || typeof columnNumber !== 'number' || columnNumber < 1 || columnNumber > COLUMNS) {
+      return null;
+    }
+
+    return getPercentual(columnNumber);
+  }
 };
 exports.GRID = GRID;
