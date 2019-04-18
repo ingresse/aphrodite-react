@@ -1,91 +1,52 @@
 ---
 name : Lists
-route: /components/lists
+menu : Organisms
+route: /organisms/lists
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Input, ListGroup, ListItem } from '../';
+import { List, ListItem } from '../';
 
 # Lists
 #### Organizing information with an alternative to tables.
 
 ```jsx
-import { Input, ListGroup, ListItem } from 'aphrodite-react';
+import { List, ListItem } from 'aphrodite-react';
+
 ...
-<ListGroup
-    radius={window.innerWidth < 768 ? 0 : 4}
-    noSideBorders={window.innerWidth < 768}>
-    <div>
-        <ListItem header>
-            <Input type="checkbox" id="firstToggle" labelRight={window.innerWidth < 768}>
-                Header
-            </Input>
+
+return (
+    <List>
+        <ListItem>
+            Ingresse
         </ListItem>
         <ListItem>
-            Item ...
-        </ListItem>
-    </div>
-    <div>
-        <ListItem header>
-            <Input type="checkbox" id="secondToggle" color="#ff0000">
-                Header
-            </Input>
+            Aphrodite
         </ListItem>
         <ListItem>
-            Item ...
+            React
         </ListItem>
-    </div>
-</ListGroup>
+    </List>
+);
 ```
 
-## Example
-<Playground style={{ fontSize: '16px', lineHeight: '20px' }}>
-    <ListGroup
-        radius={window.innerWidth < 768 ? 0 : 4}
-        noSideBorders={window.innerWidth < 768}>
-        <div>
-            <ListItem header>
-                <Input type="checkbox" id="firstToggle" labelRight={window.innerWidth < 768}>
-                    Header
-                </Input>
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-        </div>
-        <div>
-            <ListItem header>
-                <Input type="checkbox" id="secondToggle" color="#ff0000">
-                    Header
-                </Input>
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-            <ListItem>
-                Item ...
-            </ListItem>
-        </div>
-    </ListGroup>
+### LIST PROPERTIES
+<PropsTable of={List} />
+
+### LIST ITEM PROPERTIES
+<PropsTable of={ListItem} />
+
+### EXAMPLE
+<Playground style={{ fontSize: '16px', lineHeight: '20px', padding: '20px' }}>
+    <List>
+        <ListItem>
+            Ingresse
+        </ListItem>
+        <ListItem>
+            Aphrodite
+        </ListItem>
+        <ListItem>
+            React
+        </ListItem>
+    </List>
 </Playground>

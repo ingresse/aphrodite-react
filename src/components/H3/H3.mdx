@@ -1,0 +1,53 @@
+---
+name : H3
+menu : Typography
+route: /typography/H3
+---
+
+import { Playground, PropsTable } from 'docz';
+import { H3, Row, Col } from '../';
+
+# H3
+#### Typography component
+
+```jsx
+import { H3 } from 'aphrodite-react';
+...
+<H3>
+    Hello
+</H3>
+```
+
+## Properties
+<PropsTable of={H3} />
+
+## Examples
+<Playground style={{ padding: '20px' }}>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <H3 center>
+                regular
+            </H3>
+        </Col>
+        <Col xs={6} sm={4}>
+            <H3 center bold>
+                bold
+            </H3>
+        </Col>
+        <Col xs={12} sm={4}>
+            <H3 center upper>
+                upper
+            </H3>
+        </Col>
+        <Col xs={6} sm={4}>
+            <H3 center primary>
+                primary
+            </H3>
+        </Col>
+        <Col xs={6} sm={4}>
+            <H3 center secondary>
+                secondary
+            </H3>
+        </Col>
+    </Row>
+</Playground>

@@ -1,0 +1,58 @@
+---
+name : Form
+menu : Atoms
+route: /components/form
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Input, Row, Col } from '../';
+
+# Form
+#### Simple form components
+
+```jsx
+import { Input } from 'aphrodite-react';
+...
+<Input type="text" ... />
+```
+
+## Properties
+<PropsTable of={Input} />
+
+## Examples
+<Playground style={{ padding: '20px' }}>
+    <Input
+        type="text"
+        id="ExampleInputWithoutPlaceholder"
+        label="My Field Label"
+    />
+</Playground>
+
+<Playground style={{ padding: '20px' }}>
+    <Input
+        type="text"
+        id="ExampleInput"
+        placeholder="My Field Placeholder Text"
+        label="My Field Label, with Placeholder"
+    />
+</Playground>
+
+<Playground style={{ padding: '20px' }}>
+    <Row>
+        <Col xs={6} styles={{ margin: '10px 0' }}>
+            <Input
+                type="checkbox"
+                id="ExampleInputCheckbox">
+                regular checkbox
+            </Input>
+        </Col>
+        <Col xs={6} styles={{ margin: '10px 0' }}>
+            <Input
+                type="checkbox"
+                id="ExampleInputCheckboxRight"
+                right>
+                aligned checkbox
+            </Input>
+        </Col>
+    </Row>
+</Playground>

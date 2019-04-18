@@ -1,92 +1,167 @@
 /* Packages */
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Constants */
-import { COLORS, ICONS, FORM } from '../../constants';
+/* Framework Definitions */
+import { COLORS, RADIUS, SIZES } from '../../constants';
 
-/* Helper Components */
-import IconCheck from '../Icons/IconCheck';
+/* Component Variations */
+import Checkbox from './Checkbox';
 
-/* Component it self */
+/* Component Wrapper */
+const AphInputWrapperStyled = styled.div`
+    box-sizing: border-box;
+    position: relative;
+    display : block;
+`;
+
+/* Component Label */
+const AphInputLabelStyled = styled.label`
+    box-sizing: border-box;
+    position: absolute;
+    top     : calc(50% - 10px);
+    left    : 10px;
+    display : inline-block;
+    top     : 2.5px;
+
+    color: ${COLORS.DARK_GREY};
+
+    font-size  : ${SIZES.SM.FONT_SIZE};
+    line-height: ${SIZES.SM.LINE_HEIGHT};
+
+    text-transform: uppercase;
+
+    transition : color 0.25s linear;
+    will-change: color;
+`;
+
+/* Component Styles */
+const AphInputStyled = styled.input`
+    box-sizing: border-box;
+    display: block;
+    width  : 100%;
+    padding: 17.5px 10px 2.5px;
+    margin : 0;
+    min-height: 50px;
+
+    font-size  : ${SIZES.MD.FONT_SIZE};
+    line-height: ${SIZES.MD.LINE_HEIGHT};
+
+    color           : ${COLORS.BLACK};
+    background-color: ${COLORS.SMOKE};
+    border-radius   : ${RADIUS.XS}px;
+
+    border : 0;
+    outline: 0;
+
+    transition : background-color 0.25s linear, padding 0.25s linear;
+    will-change: background-color, padding;
+
+    &::placeholder {
+        opacity: 0;
+        color  : ${COLORS.GREY};
+
+        transition: opacity 0.25s linear;
+    }
+
+    &:active,
+    &:focus {
+        background-color: ${COLORS.GET('PRIMARY', 0.1)};
+
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        border : 0;
+        outline: 0;
+
+        + .aph-form-label {
+            color: ${COLORS.PRIMARY};
+        }
+    }
+
+    ${props => props.styles};
+`;
+
+/* Component Itself */
 const Input = (props) => {
-    const { labelRight, labelStyles, styles, type } = props;
+    const {
+        id,
+        className,
+        label,
+        labelProps,
+        placeholder,
+        value,
+        onChange,
+        type,
+    } = props;
 
-    if (!type || type !== 'checkbox' && type !== 'radio') {
-        /* Wrapper Control Styles */
-        let AphFormControl = styled('input')((props) =>
-            Object.assign({}, FORM.STYLES.DEFAULT, {
-                ...props.styles,
-            })
-        );
+    const inputId = `AphFormField${id || Math.random()}`;
+    const [hasValue, setHasValue] = useState(value ? true : false);
 
+    if (type === 'checkbox') {
         return (
-            <AphFormControl
+            <Checkbox
                 {...props}
-                className="aph-form__control"
+                id={id}
             />
         );
     }
 
-    let AphCheckControl = null
-    let AphFormMask     = null;
-    let AphFormWrapper  = null;
-    let radio  = {};
-    let icon   = ICONS.ENCODE_SVG(<IconCheck size={20} color={props.color || COLORS.PRIMARY} />);
-    let _props = Object.assign({}, props);
+    function handleChange(evt) {
+        const { target } = evt;
+        const inputValue = target.value;
 
-    delete _props.children;
-    delete _props.className;
+        setHasValue(inputValue ? true : false);
 
-    if (type === 'radio') {
-        radio.borderRadius = '50%';
+        if (typeof onChange === 'function') {
+            onChange(Object.assign({}, evt));
+        }
     }
-
-    AphFormWrapper = styled('div')({
-        position: 'relative',
-        display : 'block',
-        width   : '100%',
-    });
-
-    AphFormMask = styled('label')((props) =>
-        Object.assign({},
-            FORM.STYLES.CHECKBOX_MASK,
-            labelRight ? FORM.STYLES.CHECKBOX_MASK_RIGHT : {},
-            {
-                '&:before': Object.assign(
-                    FORM.STYLES.DEFAULT,
-                    FORM.STYLES.CHECKBOX_MASK['&:before'],
-                    radio,
-                    labelRight ? FORM.STYLES.CHECKBOX_MASK_RIGHT['&:before'] : {}
-                ),
-                ...labelStyles,
-            }
-        )
-    );
-
-    AphCheckControl = styled('input')((props) =>
-        Object.assign({}, FORM.STYLES.CHECKBOX, {
-            '&:checked + .aph-form__control__mask:before': {
-                backgroundImage: `url(${icon})`,
-            },
-            ...styles,
-        })
-    );
 
     return (
-        <AphFormWrapper>
-            <AphCheckControl
-                {..._props}
-                className="aph-form__control"
+        <AphInputWrapperStyled>
+            <AphInputStyled
+                {...props}
+                id={inputId}
+                value={value}
+                onChange={handleChange}
+                placeholder={(!label) ? '' : (placeholder || '')}
+                className={`aph-form-control ${className || ''} ${(placeholder || hasValue) ? 'aph-form-control--filled' : ''}`}
             />
-            <AphFormMask htmlFor={props.id}
-                  className={`aph-form__control__mask ${props.className || ''}`}>
-                {props.children}
-            </AphFormMask>
-        </AphFormWrapper>
+            {(!label && !placeholder) ? (null) : (
+                <AphInputLabelStyled
+                    {...labelProps}
+                    htmlFor={inputId}
+                    className="aph-form-label">
+                    {label || placeholder}
+                </AphInputLabelStyled>
+            )}
+        </AphInputWrapperStyled>
     );
+};
+
+/* Default Properties */
+Input.defaultProps = {
+    id        : '',
+    labelProps: {},
+    labelRight: false,
+    right     : false,
+    styles    : {},
+}
+
+/* Properties Types */
+Input.propTypes = {
+    id        : propTypes.string.isRequired,
+    labelProps: propTypes.object,
+    labelRight: propTypes.bool,
+    right     : propTypes.bool,
+    styles    : propTypes.object,
 };
 
 /* Exporting */

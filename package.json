@@ -1,21 +1,20 @@
 {
   "name": "aphrodite-react",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
   "description": "UI framework from ingresse.com",
   "peerDependencies": {
-    "react": ">=16.5.2",
-    "react-dom": ">=16.5.2"
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
   },
   "dependencies": {
     "@emotion/core": "10.0.6",
     "@emotion/styled": "10.0.6",
-    "emotion": "10.0.6",
     "node-sass": "4.10.0",
     "prop-types": "15.6.2",
-    "react": "16.5.2",
-    "react-dom": "16.5.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
     "react-number-format": "4.0.4",
     "react-toastify": "4.4.1",
     "react-tooltip": "3.9.0",
@@ -36,8 +35,9 @@
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
     "gh-pages": "^2.0.1",
-    "react-scripts": "2.0.3",
-    "rimraf": "2.6.2"
+    "react-scripts": "2.1.8",
+    "rimraf": "2.6.2",
+    "webpack": "^4.28.4"
   },
   "scripts": {
     "start:app": "react-scripts start",
@@ -59,6 +59,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "resolutions": {
+    "ansi-styles": "^3.2.0"
+  },
   "authors": [
     "Ingresse",
     "Udimberto Silvestre Junior"

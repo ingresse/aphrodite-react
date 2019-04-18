@@ -7,50 +7,41 @@ import styled from '@emotion/styled';
 import { COLORS } from '../../constants';
 
 /* Component Itself */
-const AphListItemStyled = styled.li`
+const AphListStyled = styled.ul`
     box-sizing: border-box;
 
     display: block;
     margin : 0;
-    padding: 10px;
+    padding: 0;
 
-    background-color: transparent;
-
-    transition : background-color 0.25s linear;
-    will-change: background-color;
-
-    ${props => props.hover ? {
-        '&:hover': {
-            backgroundColor: COLORS.GET('PRIMARY', 0.1),
-        }
-    } : null}
+    list-style-type: ${props => props.type || 'none'};
 
     ${props => props.styles};
 `;
 
 /* Component Itself */
-const ListItem = (props) => {
+const List = (props) => {
     const { className } = props;
 
     return (
-        <AphListItemStyled
+        <AphListStyled
             {...props}
-            className={`aph-list__item ${className || ''}`}
+            className={`aph-list ${className || ''}`}
         />
     );
 };
 
 /* Default Properties */
-ListItem.defaultProps = {
+List.defaultProps = {
     hover : false,
     styles: {},
 };
 
 /* Properties Types */
-ListItem.propTypes = {
+List.propTypes = {
     hover : propTypes.bool,
     styles: propTypes.object,
 };
 
 /* Exporting */
-export default ListItem;
+export default List;
