@@ -87,6 +87,12 @@ Object.defineProperty(exports, "Switch", {
     return _Switch.default;
   }
 });
+Object.defineProperty(exports, "Table", {
+  enumerable: true,
+  get: function get() {
+    return _Table.default;
+  }
+});
 Object.defineProperty(exports, "ToastsContainer", {
   enumerable: true,
   get: function get() {
@@ -199,6 +205,8 @@ var _ProgressBar = _interopRequireDefault(require("./ProgressBar/ProgressBar"));
 var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
 
 var _Switch = _interopRequireDefault(require("./Switch/Switch"));
+
+var _Table = _interopRequireDefault(require("./Table/Table"));
 
 var _ToastsContainer = _interopRequireDefault(require("./Toast/ToastsContainer"));
 
