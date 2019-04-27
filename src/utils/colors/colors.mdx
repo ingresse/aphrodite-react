@@ -9,10 +9,20 @@ import { Row, Col, Segment } from '../../components';
 import { colors } from '../';
 
 # Colors Utilities
-#### Useful colors utilities
+Tools to made easy the development with our colors presets.
+
+---
+
+## Usage
+#### The method `colors.get` will help you to get the desired color from Aphrodite React's Colors Palette.
+```
+colors.get('primary', 'dark', 0.1);
+```
+
+---
 
 ## Palette Shades
-<Playground style={{ padding: '20px' }}>
+<Playground>
     {() => {
         const colorItemStyles = {
             padding: '20px',
@@ -63,7 +73,7 @@ import { colors } from '../';
             <article>
                 <Row vertical="start">
                     {colorsShades.map((color, index) => (
-                        <Col xs={12} sm={6} md={3} key={`color${index}`}>
+                        <Col xs={12} sm={6} md={6} lg={3} key={`color${index}`}>
                             <Segment
                                 className="aph-color"
                                 role="button"
@@ -93,17 +103,7 @@ import { colors } from '../';
     }}
 </Playground>
 
-## Usage
-#### The method `colors.get` will help you to get the desired color from Aphrodite React Color Palette.
-
-### Signature `colors.get`
-```
-colors.get(colorKey, colorShade, colorOpacity);
-
-string: colorKey
-string: colorShade
-number: colorOpacity
-```
+---
 
 ## Example
 ```

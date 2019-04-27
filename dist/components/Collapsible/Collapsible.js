@@ -35,6 +35,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* Component Itself */
 var Collapsible = function Collapsible(props) {
+  var header = props.header,
+      headerProps = props.headerProps,
+      children = props.children,
+      disabled = props.disabled,
+      delay = props.delay;
   var wrapperRef = (0, _react.useRef)(null);
   var wrapperContentRef = (0, _react.useRef)(null);
 
@@ -53,19 +58,16 @@ var Collapsible = function Collapsible(props) {
       closeTimer = _useState6[0],
       setCloseTimer = _useState6[1];
 
-  var _useState7 = (0, _react.useState)(props.opened ? {} : {
+  var _useState7 = (0, _react.useState)(Object.assign({
+    transitionDuration: props.delay + 's'
+  }, props.opened ? null : {
     maxHeight: 0
-  }),
+  })),
       _useState8 = _slicedToArray(_useState7, 2),
       styles = _useState8[0],
       setStyles = _useState8[1];
-
-  var header = props.header,
-      headerProps = props.headerProps,
-      children = props.children,
-      disabled = props.disabled;
-  8;
   /* Custom Styles */
+
 
   var headerStyles = {
     margin: 0,
@@ -148,8 +150,11 @@ var Collapsible = function Collapsible(props) {
   }
 
   return _react.default.createElement(_.Card, _extends({}, props, {
-    className: "aph-accordion ".concat(opened ? 'active' : ''),
-    styles: Object.assign({}, props.styles, !opened ? {} : {
+    className: "aph-collapsible ".concat(opened ? 'active' : ''),
+    styles: Object.assign({
+      position: 'relative',
+      overflow: 'hidden'
+    }, props.styles, !opened ? {} : {
       padding: '10px 10px 0'
     })
   }), !header ? null : _react.default.createElement(_.H3, _extends({}, headerProps, {
@@ -169,12 +174,17 @@ var Collapsible = function Collapsible(props) {
 
 Collapsible.defaultProps = {
   opened: false,
-  styles: {}
+  delay: 0.25,
+  styles: {},
+  childrenStyles: {}
 };
 /* Properties Types */
 
 Collapsible.propTypes = {
-  opened: _propTypes.default.bool
+  opened: _propTypes.default.bool,
+  delay: _propTypes.default.number,
+  styles: _propTypes.default.object,
+  childrenStyles: _propTypes.default.object
 };
 /* Exporting */
 

@@ -5,12 +5,13 @@ import styled from '@emotion/styled';
 
 /* Helpers */
 import { COLORS, SIZES } from '../../constants';
+import { colors } from '../../utils';
 
 /* Component Styles */
 const H2Styled = styled.h2`
-    font-weight: ${props => (props.bold ? SIZES.XL.FONT_WEIGHT : SIZES.MD.FONT_WEIGHT)};
-    font-size  : 28px;
-    line-height: 30px;
+    font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
+    font-size  : ${props => (SIZES.XL.FONT_SIZE)};
+    line-height: ${props => (SIZES.XL.LINE_HEIGHT)};
 
     padding: 0;
     margin : ${props => props.margin};
@@ -18,7 +19,7 @@ const H2Styled = styled.h2`
     text-align    : ${props => (props.center ? 'center' : null)};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (props.primary ? COLORS.PRIMARY : (props.secondary ? COLORS.DARK_GREY : null))};
+    color: ${props => (props.primary ? colors.get('ocean') : (props.secondary ? colors.get('mercury') : null))};
 
     ${props => props.styles};
 `;

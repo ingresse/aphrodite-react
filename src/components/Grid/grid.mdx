@@ -4,7 +4,7 @@ menu : Grid
 route: /components/grid
 ---
 
-import { Playground, PropsTable } from 'docz';
+import { Playground, Props } from 'docz';
 import { Container, Row, Col } from '../';
 import { COLORS, GRID, RADIUS } from '../../constants';
 
@@ -26,7 +26,7 @@ import { Container, Row, Col } from 'aphrodite-react';
 ## Container
 #### We use to delimitate the content area, centralizing this block in the screen.
 ...
-<PropsTable of={Container} />
+<Props of={Container} />
 
 <Playground style={{ padding: '0 25px 0 20px' }}>
     {() => {
@@ -96,8 +96,8 @@ import { Container, Row, Col } from 'aphrodite-react';
 ## Row & Column
 #### Based in [FlexboxGrid](http://flexboxgrid.com/) awesome system.
 ...
-<PropsTable of={Row} />
-<PropsTable of={Col} />
+<Props of={Row} />
+<Props of={Col} />
 
 
 ### Example usage

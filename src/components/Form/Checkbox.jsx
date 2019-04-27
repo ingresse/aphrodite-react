@@ -3,7 +3,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 /* Constants Helpers */
-import { COLORS, ICONS, RADIUS } from '../../constants';
+import { ICONS, RADIUS } from '../../constants';
+
+/* Utils */
+import { colors } from '../../utils';
 
 /* Components Helpers */
 import IconCheckThin from '../Icons/IconCheckThin';
@@ -44,7 +47,7 @@ const AphCheckboxMaskStyled = styled.label`
         transition: background-image 0.15s ease;
 
         background-image   : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
-        background-color   : ${props => COLORS.GET((props.color ? props.color.toUpperCase() : 'PRIMARY'), 0.2)};
+        background-color   : ${props => colors.get((props.color ? props.color : 'secondary'), 'crystal')};
         background-size    : 20px;
         background-position: center;
         background-repeat  : no-repeat;
@@ -74,7 +77,7 @@ const AphCheckboxStyled = styled.input`
     }
 
     &:checked + .aph-form-control-mask:before {
-        background-image: url('${props => ICONS.ENCODE_SVG(<IconCheckThin size={30} color={props.color || COLORS.PRIMARY} />)}');
+        background-image: url('${props => ICONS.ENCODE_SVG(<IconCheckThin size={30} color={props.color || colors.get('secondary')} />)}');
     }
 `;
 

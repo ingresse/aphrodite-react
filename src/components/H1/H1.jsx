@@ -9,8 +9,9 @@ import { COLORS, SIZES } from '../../constants';
 /* Component Styles */
 const H1Styled = styled.h1`
     font-weight: ${props => (props.bold ? SIZES.XL.FONT_WEIGHT : SIZES.MD.FONT_WEIGHT)};
-    font-size  : 36px;
-    line-height: 40px;
+    font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
+    font-size  : ${props => (SIZES.XXL.FONT_SIZE)};
+    line-height: ${props => (SIZES.XXL.LINE_HEIGHT)};
 
     padding: 0;
     margin : ${props => props.margin};

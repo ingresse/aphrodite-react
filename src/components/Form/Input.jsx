@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 
 /* Framework Definitions */
 import { COLORS, RADIUS, SIZES } from '../../constants';
+import { colors } from '../../utils';
 
 /* Component Variations */
 import Checkbox from './Checkbox';
@@ -25,7 +26,7 @@ const AphInputLabelStyled = styled.label`
     display : inline-block;
     top     : 2.5px;
 
-    color: ${COLORS.DARK_GREY};
+    color: ${colors.get('mercury')};
 
     font-size  : ${SIZES.SM.FONT_SIZE};
     line-height: ${SIZES.SM.LINE_HEIGHT};
@@ -48,8 +49,8 @@ const AphInputStyled = styled.input`
     font-size  : ${SIZES.MD.FONT_SIZE};
     line-height: ${SIZES.MD.LINE_HEIGHT};
 
-    color           : ${COLORS.BLACK};
-    background-color: ${COLORS.SMOKE};
+    color           : ${colors.get('black')};
+    background-color: ${colors.get('smoke')};
     border-radius   : ${RADIUS.XS}px;
 
     border : 0;
@@ -59,19 +60,12 @@ const AphInputStyled = styled.input`
     will-change: background-color, padding;
 
     &::placeholder {
-        opacity: 0;
-        color  : ${COLORS.GREY};
-
-        transition: opacity 0.25s linear;
+        color: ${colors.get('mercury', 'light')};
     }
 
     &:active,
     &:focus {
-        background-color: ${COLORS.GET('PRIMARY', 0.1)};
-
-        &::placeholder {
-            opacity: 1;
-        }
+        background-color: ${colors.get('secondary', 'crystal')};
     }
 
     &:hover,
@@ -81,8 +75,13 @@ const AphInputStyled = styled.input`
         outline: 0;
 
         + .aph-form-label {
-            color: ${COLORS.PRIMARY};
+            color: ${colors.get('secondary')};
         }
+    }
+
+    &.disabled,
+    &:disabled {
+        background-color: ${colors.get('mercury', 'crystal')};
     }
 
     ${props => props.styles};

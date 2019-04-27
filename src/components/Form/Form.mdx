@@ -4,7 +4,7 @@ menu : Atoms
 route: /components/form
 ---
 
-import { Playground, PropsTable } from 'docz';
+import { Playground, Props } from 'docz';
 import { Input, Row, Col } from '../';
 
 # Form
@@ -17,27 +17,27 @@ import { Input } from 'aphrodite-react';
 ```
 
 ## Properties
-<PropsTable of={Input} />
+<Props of={Input} />
 
 ## Examples
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Input
         type="text"
         id="ExampleInputWithoutPlaceholder"
-        label="My Field Label"
+        label="Field Label"
     />
 </Playground>
 
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Input
         type="text"
         id="ExampleInput"
-        placeholder="My Field Placeholder Text"
-        label="My Field Label, with Placeholder"
+        label="Field Label"
+        placeholder="Field Placeholder Text"
     />
 </Playground>
 
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Row>
         <Col xs={6} styles={{ margin: '10px 0' }}>
             <Input

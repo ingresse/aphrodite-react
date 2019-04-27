@@ -1,28 +1,33 @@
 /* Exporting */
 export const SIZES = {
-    XS: {
+    XS : {
         FONT_WEIGHT: 400,
         FONT_SIZE  : '8px',
         LINE_HEIGHT: '10px',
     },
-    SM: {
+    SM : {
         FONT_WEIGHT: 400,
         FONT_SIZE  : '14px',
         LINE_HEIGHT: '20px',
     },
-    MD: {
+    MD : {
         FONT_WEIGHT: 400,
         FONT_SIZE  : '16px',
         LINE_HEIGHT: '20px',
     },
-    LG: {
+    LG : {
         FONT_WEIGHT: 700,
         FONT_SIZE  : '20px',
         LINE_HEIGHT: '20px',
     },
-    XL: {
+    XL : {
         FONT_WEIGHT: 700,
-        FONT_SIZE  : '28px',
+        FONT_SIZE: '28px',
         LINE_HEIGHT: '30px',
+    },
+    XXL: {
+        FONT_WEIGHT: 700,
+        FONT_SIZE  : '36px',
+        LINE_HEIGHT: '40px',
     },
 };

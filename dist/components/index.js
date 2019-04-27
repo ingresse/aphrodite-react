@@ -63,6 +63,18 @@ Object.defineProperty(exports, "NumberFormat", {
     return _NumberFormat.default;
   }
 });
+Object.defineProperty(exports, "P", {
+  enumerable: true,
+  get: function get() {
+    return _P.default;
+  }
+});
+Object.defineProperty(exports, "Text", {
+  enumerable: true,
+  get: function get() {
+    return _P.default;
+  }
+});
 Object.defineProperty(exports, "Placeholder", {
   enumerable: true,
   get: function get() {
@@ -79,6 +91,12 @@ Object.defineProperty(exports, "Scrollable", {
   enumerable: true,
   get: function get() {
     return _Scrollable.default;
+  }
+});
+Object.defineProperty(exports, "Segment", {
+  enumerable: true,
+  get: function get() {
+    return _Segment.default;
   }
 });
 Object.defineProperty(exports, "Switch", {
@@ -198,11 +216,15 @@ var _Img = _interopRequireDefault(require("./Img/Img"));
 
 var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
 
+var _P = _interopRequireDefault(require("./P/P"));
+
 var _Placeholder = _interopRequireDefault(require("./Placeholder/Placeholder"));
 
 var _ProgressBar = _interopRequireDefault(require("./ProgressBar/ProgressBar"));
 
 var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
+
+var _Segment = _interopRequireDefault(require("./Segment/Segment"));
 
 var _Switch = _interopRequireDefault(require("./Switch/Switch"));
 

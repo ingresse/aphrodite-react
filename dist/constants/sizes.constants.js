@@ -31,6 +31,11 @@ var SIZES = {
     FONT_WEIGHT: 700,
     FONT_SIZE: '28px',
     LINE_HEIGHT: '30px'
+  },
+  XXL: {
+    FONT_WEIGHT: 700,
+    FONT_SIZE: '36px',
+    LINE_HEIGHT: '40px'
   }
 };
 exports.SIZES = SIZES;

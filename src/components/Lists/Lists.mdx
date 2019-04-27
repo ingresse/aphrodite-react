@@ -4,7 +4,7 @@ menu : Organisms
 route: /organisms/lists
 ---
 
-import { Playground, PropsTable } from 'docz';
+import { Playground, Props } from 'docz';
 import { List, ListItem } from '../';
 
 # Lists
@@ -31,13 +31,13 @@ return (
 ```
 
 ### LIST PROPERTIES
-<PropsTable of={List} />
+<Props of={List} />
 
 ### LIST ITEM PROPERTIES
-<PropsTable of={ListItem} />
+<Props of={ListItem} />
 
 ### EXAMPLE
-<Playground style={{ fontSize: '16px', lineHeight: '20px', padding: '20px' }}>
+<Playground>
     <List>
         <ListItem>
             Ingresse

@@ -13,15 +13,20 @@ import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
 /* Component Itself */
 const Collapsible = (props) => {
+    const { header, headerProps, children, disabled, delay } = props;
+
     const wrapperRef        = useRef(null);
     const wrapperContentRef = useRef(null);
 
     const [opened, setOpened]         = useState(props.opened || false);
     const [openTimer, setOpenTimer]   = useState(null);
     const [closeTimer, setCloseTimer] = useState(null);
-    const [styles, setStyles]         = useState(props.opened ? {} : { maxHeight: 0 });
-
-    const { header, headerProps, children, disabled } = props;8
+    const [styles, setStyles]         = useState(
+        Object.assign(
+            { transitionDuration: (props.delay + 's') },
+            props.opened ? null : { maxHeight: 0 }
+        )
+    );
 
     /* Custom Styles */
     const headerStyles = {
@@ -117,9 +122,12 @@ const Collapsible = (props) => {
 
     return (
         <Card {...props}
-            className={`aph-accordion ${opened ? 'active' : ''}`}
+            className={`aph-collapsible ${opened ? 'active' : ''}`}
             styles={Object.assign(
-                {},
+                {
+                    position: 'relative',
+                    overflow: 'hidden',
+                },
                 props.styles,
                 !opened ? {} : {
                     padding: '10px 10px 0'
@@ -146,13 +154,18 @@ const Collapsible = (props) => {
 
 /* Default Properties */
 Collapsible.defaultProps = {
-    opened: false,
-    styles: {},
+    opened        : false,
+    delay         : 0.25,
+    styles        : {},
+    childrenStyles: {},
 };
 
 /* Properties Types */
 Collapsible.propTypes = {
-    opened: propTypes.bool,
+    opened        : propTypes.bool,
+    delay         : propTypes.number,
+    styles        : propTypes.object,
+    childrenStyles: propTypes.object,
 };
 
 /* Exporting */

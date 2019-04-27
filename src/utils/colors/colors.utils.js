@@ -116,6 +116,7 @@ let stock = {
     mint     : mint.original,
     oil      : oil.original,
 
+    smoke    : 'rgb(248, 248, 248)',
     white    : 'rgb(255, 255, 255)',
     black    : 'rgb(0, 0, 0)',
 };
@@ -139,9 +140,11 @@ let alias = {
  * All Colors
  */
 let all = {
-    shades: shades,
+    shades: {
+        ...shades,
+        ...alias,
+    },
 
-    ...alias,
     ...stock,
 };
 
@@ -218,7 +221,10 @@ const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
     colors = {
         ...colors,
 
-        [colorKey]: getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal),
+        shades: {
+            ...colors.shades,
+            [colorKey]: getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal),
+        },
     };
 
     return true;

@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { COLORS, RADIUS } from '../../constants';
 
 /* Component Styles */
-const CardStyled = styled.div`
+const AphCardStyled = styled.div`
     display: block;
     padding: 10px;
     border-radius: ${RADIUS.SM}px;
@@ -34,7 +34,7 @@ const Card = (props) => {
     const { className } = props;
 
     return (
-        <CardStyled
+        <AphCardStyled
             {...props}
             className={`aph-card ${className || ''}`}
         />
