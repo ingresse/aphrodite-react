@@ -44,10 +44,12 @@ const AphCheckboxMaskStyled = styled.label`
 
         border-radius: 5px;
 
-        transition: background-image 0.15s ease;
+        transition-timing-function: ease;
+        transition-duration       : 0.15s;
+        transition-property       : background-image;
 
         background-image   : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
-        background-color   : ${props => colors.get((props.color ? props.color : 'secondary'), 'crystal')};
+        background-color   : ${props => colors.get((props.color || 'secondary'), 'crystal')};
         background-size    : 20px;
         background-position: center;
         background-repeat  : no-repeat;
@@ -77,7 +79,7 @@ const AphCheckboxStyled = styled.input`
     }
 
     &:checked + .aph-form-control-mask:before {
-        background-image: url('${props => ICONS.ENCODE_SVG(<IconCheckThin size={30} color={props.color || colors.get('secondary')} />)}');
+        background-image: url('${props => ICONS.ENCODE_SVG(<IconCheckThin size={20} color={colors.get(props.color || 'secondary')} />)}');
     }
 `;
 
@@ -87,7 +89,6 @@ const Checkbox = (props) => {
     let newProps = Object.assign({}, props);
 
     delete newProps.children;
-    delete newProps.color;
 
     return (
         <AphCheckboxWrapperStyled>

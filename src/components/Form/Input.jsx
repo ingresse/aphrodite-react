@@ -3,88 +3,19 @@ import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Framework Definitions */
-import { COLORS, RADIUS, SIZES } from '../../constants';
-import { colors } from '../../utils';
-
 /* Component Variations */
 import Checkbox from './Checkbox';
+
+/* Component Helpers */
+import AphInputLabelStyled from './InputLabelStyled';
+import AphInputStyled from './InputStyled';
+import AphInputErrorMsgStyled from './InputErrorMsgStyled';
 
 /* Component Wrapper */
 const AphInputWrapperStyled = styled.div`
     box-sizing: border-box;
-    position: relative;
-    display : block;
-`;
-
-/* Component Label */
-const AphInputLabelStyled = styled.label`
-    box-sizing: border-box;
-    position: absolute;
-    top     : calc(50% - 10px);
-    left    : 10px;
-    display : inline-block;
-    top     : 2.5px;
-
-    color: ${colors.get('mercury')};
-
-    font-size  : ${SIZES.SM.FONT_SIZE};
-    line-height: ${SIZES.SM.LINE_HEIGHT};
-
-    text-transform: uppercase;
-
-    transition : color 0.25s linear;
-    will-change: color;
-`;
-
-/* Component Styles */
-const AphInputStyled = styled.input`
-    box-sizing: border-box;
-    display: block;
-    width  : 100%;
-    padding: 17.5px 10px 2.5px;
-    margin : 0;
-    min-height: 50px;
-
-    font-size  : ${SIZES.MD.FONT_SIZE};
-    line-height: ${SIZES.MD.LINE_HEIGHT};
-
-    color           : ${colors.get('black')};
-    background-color: ${colors.get('smoke')};
-    border-radius   : ${RADIUS.XS}px;
-
-    border : 0;
-    outline: 0;
-
-    transition : background-color 0.25s linear, padding 0.25s linear;
-    will-change: background-color, padding;
-
-    &::placeholder {
-        color: ${colors.get('mercury', 'light')};
-    }
-
-    &:active,
-    &:focus {
-        background-color: ${colors.get('secondary', 'crystal')};
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-        border : 0;
-        outline: 0;
-
-        + .aph-form-label {
-            color: ${colors.get('secondary')};
-        }
-    }
-
-    &.disabled,
-    &:disabled {
-        background-color: ${colors.get('mercury', 'crystal')};
-    }
-
-    ${props => props.styles};
+    position  : relative;
+    display   : block;
 `;
 
 /* Component Itself */
@@ -98,6 +29,9 @@ const Input = (props) => {
         value,
         onChange,
         type,
+        error,
+        errorMessage,
+        color,
     } = props;
 
     const inputId = `AphFormField${id || Math.random()}`;
@@ -107,11 +41,17 @@ const Input = (props) => {
         return (
             <Checkbox
                 {...props}
+                color={error ? 'error' : color}
                 id={id}
             />
         );
     }
 
+    /**
+     * Handle with input changes
+     *
+     * @param {object} evt - input change synthetic event
+     */
     function handleChange(evt) {
         const { target } = evt;
         const inputValue = target.value;
@@ -128,19 +68,23 @@ const Input = (props) => {
             <AphInputStyled
                 {...props}
                 id={inputId}
-                value={value}
                 onChange={handleChange}
-                placeholder={(!label) ? '' : (placeholder || '')}
-                className={`aph-form-control ${className || ''} ${(placeholder || hasValue) ? 'aph-form-control--filled' : ''}`}
+                className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
-            {(!label && !placeholder) ? (null) : (
+            {(!label) ? (null) : (
                 <AphInputLabelStyled
                     {...labelProps}
                     htmlFor={inputId}
-                    className="aph-form-label">
-                    {label || placeholder}
+                    className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
+                    {label}
                 </AphInputLabelStyled>
             )}
+            <AphInputErrorMsgStyled
+                htmlFor={inputId}
+                styles={!errorMessage ? null : { maxHeight: '600px' }}
+                className="aph-form-error">
+                {errorMessage || ''}
+            </AphInputErrorMsgStyled>
         </AphInputWrapperStyled>
     );
 };

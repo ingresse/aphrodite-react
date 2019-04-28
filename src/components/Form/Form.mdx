@@ -31,9 +31,53 @@ import { Input } from 'aphrodite-react';
 <Playground>
     <Input
         type="text"
+        id="ExampleInputWithPlaceholder"
+        placeholder="Field Placeholder"
+    />
+</Playground>
+
+<Playground>
+    <Input
+        type="text"
         id="ExampleInput"
         label="Field Label"
-        placeholder="Field Placeholder Text"
+        placeholder="Field Placeholder"
+    />
+</Playground>
+
+<Playground>
+    <Input
+        type="text"
+        id="ExampleInputError"
+        defaultValue="With error"
+        label="Field Label"
+        placeholder="Field Placeholder"
+        error
+    />
+</Playground>
+
+<Playground>
+    <Input
+        type="text"
+        id="ExampleInputErrorWithMsg"
+        defaultValue="With error"
+        label="Field Label"
+        placeholder="Field Placeholder"
+        error
+        errorMessage="And with error message"
+    />
+</Playground>
+
+<Playground>
+    <Input
+        type="text"
+        id="ExampleInputErrorWithMsg"
+        defaultValue="With error"
+        label="Field Label"
+        placeholder="Field Placeholder"
+        error
+        errorMessage="And with error message"
+        disabled
     />
 </Playground>
 

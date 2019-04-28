@@ -10,8 +10,6 @@ export default {
     dest       : './docs/',
     src        : './src/',
     codeSandbox: false,
-    websocketHost: '192.168.0.34',
-    websocketPort: '3000',
     htmlContext: {
         head: {
             links: [
