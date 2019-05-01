@@ -6,7 +6,7 @@ import { SIZES } from '../../constants';
 import { colors } from '../../utils';
 
 /* Component Styles */
-const AphInputErrorMsgStyled = styled.label`
+const AphFormControlErrorMsgStyled = styled.label`
     box-sizing: border-box;
     display   : block;
     padding   : 0 10px;
@@ -25,4 +25,4 @@ const AphInputErrorMsgStyled = styled.label`
 `;
 
 /* Exporting */
-export default AphInputErrorMsgStyled;
+export default AphFormControlErrorMsgStyled;

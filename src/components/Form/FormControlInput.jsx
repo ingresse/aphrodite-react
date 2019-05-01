@@ -1,22 +1,16 @@
 /* Packages */
 import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
-import styled from '@emotion/styled';
 
 /* Component Variations */
-import Checkbox from './Checkbox';
+import Checkbox from './FormControlCheckbox';
 
-/* Component Helpers */
-import AphInputLabelStyled from './InputLabelStyled';
-import AphInputStyled from './InputStyled';
-import AphInputErrorMsgStyled from './InputErrorMsgStyled';
-
-/* Component Wrapper */
-const AphInputWrapperStyled = styled.div`
-    box-sizing: border-box;
-    position  : relative;
-    display   : block;
-`;
+/* Component Helpers/Styles */
+import AphFormControlWrapperStyled  from './FormControlWrapperStyled';
+import AphFormControlLabelStyled    from './FormControlLabelStyled';
+import AphFormControlStyled         from './FormControlStyled';
+import AphFormControlButtonStyled   from './FormControlButtonStyled';
+import AphFormControlErrorMsgStyled from './FormControlErrorMsgStyled';
 
 /* Component Itself */
 const Input = (props) => {
@@ -29,12 +23,13 @@ const Input = (props) => {
         value,
         onChange,
         type,
+        btn,
         error,
         errorMessage,
         color,
     } = props;
 
-    const inputId = `AphFormField${id || Math.random()}`;
+    const inputId = `AphFormControl${id || Math.random()}`;
     const [hasValue, setHasValue] = useState(value ? true : false);
 
     if (type === 'checkbox') {
@@ -42,7 +37,7 @@ const Input = (props) => {
             <Checkbox
                 {...props}
                 color={error ? 'error' : color}
-                id={id}
+                id={inputId}
             />
         );
     }
@@ -64,28 +59,33 @@ const Input = (props) => {
     }
 
     return (
-        <AphInputWrapperStyled>
-            <AphInputStyled
+        <AphFormControlWrapperStyled>
+            <AphFormControlStyled
                 {...props}
                 id={inputId}
                 onChange={handleChange}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
             {(!label) ? (null) : (
-                <AphInputLabelStyled
+                <AphFormControlLabelStyled
                     {...labelProps}
                     htmlFor={inputId}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
-                </AphInputLabelStyled>
+                </AphFormControlLabelStyled>
             )}
-            <AphInputErrorMsgStyled
+            {(!btn) ? (null) : (
+                <AphFormControlButtonStyled
+                    {...btn}
+                />
+            )}
+            <AphFormControlErrorMsgStyled
                 htmlFor={inputId}
                 styles={!errorMessage ? null : { maxHeight: '600px' }}
                 className="aph-form-error">
                 {errorMessage || ''}
-            </AphInputErrorMsgStyled>
-        </AphInputWrapperStyled>
+            </AphFormControlErrorMsgStyled>
+        </AphFormControlWrapperStyled>
     );
 };
 
@@ -93,18 +93,16 @@ const Input = (props) => {
 Input.defaultProps = {
     id        : '',
     labelProps: {},
-    labelRight: false,
-    right     : false,
+    btn       : null,
     styles    : {},
-}
+};
 
 /* Properties Types */
 Input.propTypes = {
     id        : propTypes.string.isRequired,
     labelProps: propTypes.object,
-    labelRight: propTypes.bool,
-    right     : propTypes.bool,
-    styles    : propTypes.object,
+    btn       : propTypes.any,
+    styles    : propTypes.any,
 };
 
 /* Exporting */

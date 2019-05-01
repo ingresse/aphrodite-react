@@ -6,7 +6,7 @@ import { SIZES } from '../../constants';
 import { colors } from '../../utils';
 
 /* Component Styles */
-const AphInputLabelStyled = styled.label`
+const AphFormControlLabelStyled = styled.label`
     box-sizing: border-box;
     position  : absolute;
     top       : 15px;
@@ -30,4 +30,4 @@ const AphInputLabelStyled = styled.label`
 `;
 
 /* Exporting */
-export default AphInputLabelStyled;
+export default AphFormControlLabelStyled;

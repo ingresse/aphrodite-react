@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 
 /* Helpers */
 import { COLORS, SIZES } from '../../constants';
+import { colors } from '../../utils';
 
 /* Component Styles */
 const H1Styled = styled.h1`
@@ -19,7 +20,7 @@ const H1Styled = styled.h1`
     text-align    : ${props => (props.center ? 'center' : null)};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (props.primary ? COLORS.PRIMARY : (props.secondary ? COLORS.DARK_GREY : null))};
+    color: ${props => (props.primary ? colors.get('primary') : null)};
 
     ${props => props.styles};
 `;

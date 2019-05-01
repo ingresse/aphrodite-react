@@ -19,7 +19,7 @@ const H2Styled = styled.h2`
     text-align    : ${props => (props.center ? 'center' : null)};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (props.primary ? colors.get('ocean') : (props.secondary ? colors.get('mercury') : null))};
+    color: ${props => (props.primary ? colors.get('primary') : null)};
 
     ${props => props.styles};
 `;

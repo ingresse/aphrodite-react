@@ -1,5 +1,6 @@
 /* Packages */
 import React from 'react';
+import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Constants Helpers */
@@ -79,7 +80,12 @@ const AphCheckboxStyled = styled.input`
     }
 
     &:checked + .aph-form-control-mask:before {
-        background-image: url('${props => ICONS.ENCODE_SVG(<IconCheckThin size={20} color={colors.get(props.color || 'secondary')} />)}');
+        background-image: url('${props => ICONS.ENCODE_SVG(
+            <IconCheckThin
+                size={20}
+                color={colors.get(props.color || 'secondary')}
+            />
+        )}');
     }
 `;
 
@@ -95,6 +101,7 @@ const Checkbox = (props) => {
             <AphCheckboxStyled
                 className={`aph-form-control ${className || ''}`}
                 {...newProps}
+                type="checkbox"
             />
             <AphCheckboxMaskStyled
                 className={`aph-form-control-mask ${className || ''}`}
@@ -107,6 +114,24 @@ const Checkbox = (props) => {
             </AphCheckboxMaskStyled>
         </AphCheckboxWrapperStyled>
     );
+};
+
+/* Default Properties */
+Checkbox.defaultProps = {
+    id        : '',
+    labelProps: {},
+    labelRight: false,
+    right     : false,
+    styles    : {},
+};
+
+/* Properties Types */
+Checkbox.propTypes = {
+    id        : propTypes.string.isRequired,
+    labelProps: propTypes.object,
+    labelRight: propTypes.bool,
+    right     : propTypes.bool,
+    styles    : propTypes.any,
 };
 
 /* Exporting */

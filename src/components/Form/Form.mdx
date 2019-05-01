@@ -5,13 +5,13 @@ route: /components/form
 ---
 
 import { Playground, Props } from 'docz';
-import { Input, Row, Col } from '../';
+import { Input, Checkbox, Select, Row, Col } from '../';
 
 # Form
 #### Simple form components
 
 ```jsx
-import { Input } from 'aphrodite-react';
+import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
 ...
 <Input type="text" ... />
 ```
@@ -20,6 +20,18 @@ import { Input } from 'aphrodite-react';
 <Props of={Input} />
 
 ## Examples
+<Playground>
+    <Select
+        id="ExampleSelectWithoutPlaceholder"
+        label="Select Label"
+        defaultValue="">
+        <option></option>
+        <option value="ingresses">Ingresse's</option>
+        <option value="aphrodite">Aphrodite</option>
+        <option value="react">React</option>
+    </Select>
+</Playground>
+
 <Playground>
     <Input
         type="text"
@@ -84,19 +96,18 @@ import { Input } from 'aphrodite-react';
 <Playground>
     <Row>
         <Col xs={6} styles={{ margin: '10px 0' }}>
-            <Input
+            <Checkbox
                 type="checkbox"
-                id="ExampleInputCheckbox">
+                id="ExampleCheckbox">
                 regular checkbox
-            </Input>
+            </Checkbox>
         </Col>
         <Col xs={6} styles={{ margin: '10px 0' }}>
-            <Input
-                type="checkbox"
-                id="ExampleInputCheckboxRight"
+            <Checkbox
+                id="ExampleCheckboxRight"
                 right>
                 aligned checkbox
-            </Input>
+            </Checkbox>
         </Col>
     </Row>
 </Playground>

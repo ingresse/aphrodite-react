@@ -192,7 +192,19 @@ Object.defineProperty(exports, "Collapsible", {
 Object.defineProperty(exports, "Input", {
   enumerable: true,
   get: function get() {
-    return _Input.default;
+    return _FormControlInput.default;
+  }
+});
+Object.defineProperty(exports, "Checkbox", {
+  enumerable: true,
+  get: function get() {
+    return _FormControlCheckbox.default;
+  }
+});
+Object.defineProperty(exports, "Select", {
+  enumerable: true,
+  get: function get() {
+    return _FormControlSelect.default;
   }
 });
 
@@ -254,6 +266,10 @@ var _Accordion = _interopRequireDefault(require("./Accordion/Accordion"));
 
 var _Collapsible = _interopRequireDefault(require("./Collapsible/Collapsible"));
 
-var _Input = _interopRequireDefault(require("./Form/Input"));
+var _FormControlInput = _interopRequireDefault(require("./Form/FormControlInput"));
+
+var _FormControlCheckbox = _interopRequireDefault(require("./Form/FormControlCheckbox"));
+
+var _FormControlSelect = _interopRequireDefault(require("./Form/FormControlSelect"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
