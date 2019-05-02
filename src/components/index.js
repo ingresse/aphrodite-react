@@ -40,4 +40,3 @@ export { default as Collapsible } from './Collapsible/Collapsible';
 /* Form Components */
 export { default as Input } from './Form/FormControlInput';
 export { default as Checkbox } from './Form/FormControlCheckbox';
-export { default as Select } from './Form/FormControlSelect';

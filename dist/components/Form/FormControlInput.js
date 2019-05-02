@@ -9,6 +9,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _styled = _interopRequireDefault(require("@emotion/styled"));
+
 var _FormControlCheckbox = _interopRequireDefault(require("./FormControlCheckbox"));
 
 var _FormControlWrapperStyled = _interopRequireDefault(require("./FormControlWrapperStyled"));
@@ -49,7 +51,7 @@ var Input = function Input(props) {
       error = props.error,
       errorMessage = props.errorMessage,
       color = props.color;
-  var inputId = "AphFormControl".concat(id || Math.random());
+  var inputId = "AphFormControl".concat(id || '');
 
   var _useState = (0, _react.useState)(value ? true : false),
       _useState2 = _slicedToArray(_useState, 2),

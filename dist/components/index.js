@@ -201,12 +201,6 @@ Object.defineProperty(exports, "Checkbox", {
     return _FormControlCheckbox.default;
   }
 });
-Object.defineProperty(exports, "Select", {
-  enumerable: true,
-  get: function get() {
-    return _FormControlSelect.default;
-  }
-});
 
 var _ActionBar = _interopRequireDefault(require("./ActionBar/ActionBar"));
 
@@ -269,7 +263,5 @@ var _Collapsible = _interopRequireDefault(require("./Collapsible/Collapsible"));
 var _FormControlInput = _interopRequireDefault(require("./Form/FormControlInput"));
 
 var _FormControlCheckbox = _interopRequireDefault(require("./Form/FormControlCheckbox"));
-
-var _FormControlSelect = _interopRequireDefault(require("./Form/FormControlSelect"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

@@ -11,8 +11,6 @@ var _constants = require("../../constants");
 
 var _utils = require("../../utils");
 
-var _FormControlInput = _interopRequireDefault(require("./FormControlInput"));
-
 var _IconArrowDownCircle = _interopRequireDefault(require("../Icons/IconArrowDownCircle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -24,11 +22,10 @@ var FormControlSelect = function FormControlSelect(props) {
   var styles = "\n        height: 50px;\n        cursor: pointer;\n\n        ".concat(function (props) {
     return props.styles;
   }, ";\n    ");
-  return _react.default.createElement(_FormControlInput.default, _extends({
+  return _react.default.createElement("select", _extends({
     icon: "arrow-down"
   }, props, {
     styles: styles,
-    tag: "select",
     btn: {
       children: _react.default.createElement(_IconArrowDownCircle.default, {
         size: 10,

@@ -6,7 +6,6 @@ import { SIZES } from '../../constants';
 import { colors } from '../../utils';
 
 /* Components Helpers */
-import FormControlInput from './FormControlInput';
 import IconArrowDownCircle from '../Icons/IconArrowDownCircle';
 
 /* Component Itself */
@@ -19,11 +18,10 @@ const FormControlSelect = (props) => {
     `;
 
     return (
-        <FormControlInput
+        <select
             icon="arrow-down"
             {...props}
             styles={styles}
-            tag="select"
             btn={{
                 children: (
                     <IconArrowDownCircle

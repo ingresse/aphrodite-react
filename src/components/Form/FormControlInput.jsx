@@ -1,6 +1,7 @@
 /* Packages */
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
+import styled from '@emotion/styled';
 
 /* Component Variations */
 import Checkbox from './FormControlCheckbox';
@@ -29,7 +30,7 @@ const Input = (props) => {
         color,
     } = props;
 
-    const inputId = `AphFormControl${id || Math.random()}`;
+    const inputId = `AphFormControl${id || ''}`;
     const [hasValue, setHasValue] = useState(value ? true : false);
 
     if (type === 'checkbox') {

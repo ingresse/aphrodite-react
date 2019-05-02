@@ -5,13 +5,13 @@ route: /components/form
 ---
 
 import { Playground, Props } from 'docz';
-import { Input, Checkbox, Select, Row, Col } from '../';
+import { Input, Checkbox, Row, Col } from '../';
 
 # Form
 #### Simple form components
 
 ```jsx
-import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
+import { Input, Checkbox, TextArea } from 'aphrodite-react';
 ...
 <Input type="text" ... />
 ```
@@ -20,18 +20,6 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
 <Props of={Input} />
 
 ## Examples
-<Playground>
-    <Select
-        id="ExampleSelectWithoutPlaceholder"
-        label="Select Label"
-        defaultValue="">
-        <option></option>
-        <option value="ingresses">Ingresse's</option>
-        <option value="aphrodite">Aphrodite</option>
-        <option value="react">React</option>
-    </Select>
-</Playground>
-
 <Playground>
     <Input
         type="text"
@@ -61,7 +49,7 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
     <Input
         type="text"
         id="ExampleInputError"
-        defaultValue="With error"
+        value="With error"
         label="Field Label"
         placeholder="Field Placeholder"
         error
@@ -72,7 +60,7 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
     <Input
         type="text"
         id="ExampleInputErrorWithMsg"
-        defaultValue="With error"
+        value="With error"
         label="Field Label"
         placeholder="Field Placeholder"
         error
@@ -84,7 +72,7 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
     <Input
         type="text"
         id="ExampleInputErrorWithMsg"
-        defaultValue="With error"
+        value="With error"
         label="Field Label"
         placeholder="Field Placeholder"
         error
