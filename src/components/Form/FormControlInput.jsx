@@ -30,7 +30,7 @@ const Input = (props) => {
         color,
     } = props;
 
-    const inputId = `AphFormControl${id || ''}`;
+    const inputId = `${id || 'formControl'}`;
     const [hasValue, setHasValue] = useState(value ? true : false);
 
     if (type === 'checkbox') {

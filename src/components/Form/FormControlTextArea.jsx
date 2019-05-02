@@ -1,25 +1,17 @@
 /* Packages */
 import React, { useState } from 'react';
 
-/* Framework Definitions */
-import { SIZES } from '../../constants';
-import { colors } from '../../utils';
-
-/* Components Helpers */
-import IconArrowDownCircle from '../Icons/IconArrowDownCircle';
-
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from './FormControlWrapperStyled';
 import AphFormControlLabelStyled    from './FormControlLabelStyled';
 import AphFormControlStyled         from './FormControlStyled';
-import AphFormControlButtonStyled   from './FormControlButtonStyled';
 import AphFormControlErrorMsgStyled from './FormControlErrorMsgStyled';
 
 /* Component Styled */
-const AphFormControlSelect = AphFormControlStyled.withComponent('select');
+const AphFormControlTextArea = AphFormControlStyled.withComponent('textarea');
 
 /* Component Itself */
-const FormControlSelect = (props) => {
+const FormControlTextArea = (props) => {
     const {
         id,
         className,
@@ -38,10 +30,39 @@ const FormControlSelect = (props) => {
     const [hasValue, setHasValue] = useState(value ? true : false);
     const inputId                 = `${id || 'formControl'}`;
     const styles                  = `
-        height: 50px;
-        cursor: pointer;
+        min-width : 100%;
+        min-height: 90px;
+        padding-bottom: 10px;
 
-        ${props.styles};
+        &[rows="4"] {
+            min-height: 110px;
+        }
+
+        &[rows="5"] {
+            min-height: 130px;
+        }
+
+        &[rows="6"] {
+            min-height: 150px;
+        }
+
+        &[rows="7"] {
+            min-height: 170px;
+        }
+
+        &[rows="8"] {
+            min-height: 190px;
+        }
+
+        &[rows="9"] {
+            min-height: 210px;
+        }
+
+        &[rows="10"] {
+            min-height: 230px;
+        }
+
+        ${props => props.styles};
     `;
 
     /**
@@ -62,7 +83,7 @@ const FormControlSelect = (props) => {
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlSelect
+            <AphFormControlTextArea
                 {...props}
                 onChange={handleChange}
                 styles={styles}
@@ -75,12 +96,6 @@ const FormControlSelect = (props) => {
                     {label}
                 </AphFormControlLabelStyled>
             )}
-            <AphFormControlButtonStyled>
-                <IconArrowDownCircle
-                    size={10}
-                    color={colors.get('black')}
-                />
-            </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled
                 htmlFor={inputId}
                 styles={!errorMessage ? null : { maxHeight: '600px' }}
@@ -92,4 +107,4 @@ const FormControlSelect = (props) => {
 };
 
 /* Exporting */
-export default FormControlSelect;
+export default FormControlTextArea;

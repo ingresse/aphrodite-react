@@ -7,19 +7,11 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _constants = require("../../constants");
-
-var _utils = require("../../utils");
-
-var _IconArrowDownCircle = _interopRequireDefault(require("../Icons/IconArrowDownCircle"));
-
 var _FormControlWrapperStyled = _interopRequireDefault(require("./FormControlWrapperStyled"));
 
 var _FormControlLabelStyled = _interopRequireDefault(require("./FormControlLabelStyled"));
 
 var _FormControlStyled = _interopRequireDefault(require("./FormControlStyled"));
-
-var _FormControlButtonStyled = _interopRequireDefault(require("./FormControlButtonStyled"));
 
 var _FormControlErrorMsgStyled = _interopRequireDefault(require("./FormControlErrorMsgStyled"));
 
@@ -38,13 +30,13 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* Component Styled */
-var AphFormControlSelect = _FormControlStyled.default.withComponent('select', {
-  target: "e15dxbtw0"
+var AphFormControlTextArea = _FormControlStyled.default.withComponent('textarea', {
+  target: "eydfesu0"
 });
 /* Component Itself */
 
 
-var FormControlSelect = function FormControlSelect(props) {
+var FormControlTextArea = function FormControlTextArea(props) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -64,7 +56,9 @@ var FormControlSelect = function FormControlSelect(props) {
       setHasValue = _useState2[1];
 
   var inputId = "".concat(id || 'formControl');
-  var styles = "\n        height: 50px;\n        cursor: pointer;\n\n        ".concat(props.styles, ";\n    ");
+  var styles = "\n        min-width : 100%;\n        min-height: 90px;\n        padding-bottom: 10px;\n\n        &[rows=\"4\"] {\n            min-height: 110px;\n        }\n\n        &[rows=\"5\"] {\n            min-height: 130px;\n        }\n\n        &[rows=\"6\"] {\n            min-height: 150px;\n        }\n\n        &[rows=\"7\"] {\n            min-height: 170px;\n        }\n\n        &[rows=\"8\"] {\n            min-height: 190px;\n        }\n\n        &[rows=\"9\"] {\n            min-height: 210px;\n        }\n\n        &[rows=\"10\"] {\n            min-height: 230px;\n        }\n\n        ".concat(function (props) {
+    return props.styles;
+  }, ";\n    ");
   /**
    * Handle with input changes
    *
@@ -81,16 +75,13 @@ var FormControlSelect = function FormControlSelect(props) {
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlSelect, _extends({}, props, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlTextArea, _extends({}, props, {
     onChange: handleChange,
     styles: styles
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
     htmlFor: inputId,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), _react.default.createElement(_FormControlButtonStyled.default, null, _react.default.createElement(_IconArrowDownCircle.default, {
-    size: 10,
-    color: _utils.colors.get('black')
-  })), _react.default.createElement(_FormControlErrorMsgStyled.default, {
+  }), label), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: inputId,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -101,5 +92,5 @@ var FormControlSelect = function FormControlSelect(props) {
 /* Exporting */
 
 
-var _default = FormControlSelect;
+var _default = FormControlTextArea;
 exports.default = _default;

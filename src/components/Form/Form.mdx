@@ -5,13 +5,13 @@ route: /components/form
 ---
 
 import { Playground, Props } from 'docz';
-import { Input, Checkbox, Row, Col } from '../';
+import { Input, Checkbox, Select, TextArea, Row, Col } from '../';
 
 # Form
 #### Simple form components
 
 ```jsx
-import { Input, Checkbox, TextArea } from 'aphrodite-react';
+import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
 ...
 <Input type="text" ... />
 ```
@@ -79,6 +79,24 @@ import { Input, Checkbox, TextArea } from 'aphrodite-react';
         errorMessage="And with error message"
         disabled
     />
+</Playground>
+
+<Playground>
+    <Select
+        id="ExampleSelectWithoutPlaceholder"
+        label="Select Label">
+        <option value=""></option>
+        <option value="ingresses">Ingresse</option>
+        <option value="aphrodite">Aphrodite</option>
+        <option value="react">React</option>
+    </Select>
+</Playground>
+
+<Playground>
+    <TextArea
+        id="ExampleTextAreaWithoutPlaceholder"
+        label="TextArea Label">
+    </TextArea>
 </Playground>
 
 <Playground>

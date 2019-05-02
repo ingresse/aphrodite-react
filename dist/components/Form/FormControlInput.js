@@ -51,7 +51,7 @@ var Input = function Input(props) {
       error = props.error,
       errorMessage = props.errorMessage,
       color = props.color;
-  var inputId = "AphFormControl".concat(id || '');
+  var inputId = "".concat(id || 'formControl');
 
   var _useState = (0, _react.useState)(value ? true : false),
       _useState2 = _slicedToArray(_useState, 2),
