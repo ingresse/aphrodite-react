@@ -131,7 +131,7 @@ const AphFormSwitchContent = styled.label`
     display: block;
     width  : 100%;
 
-    word-break: break-all;
+    word-break: break-word;
 
     ${props => (!props.hasChildren) ? null : ((props.toggleAlign !== 'right') ? {
         paddingLeft: '10px',
