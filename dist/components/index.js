@@ -99,12 +99,6 @@ Object.defineProperty(exports, "Segment", {
     return _Segment.default;
   }
 });
-Object.defineProperty(exports, "Switch", {
-  enumerable: true,
-  get: function get() {
-    return _Switch.default;
-  }
-});
 Object.defineProperty(exports, "Table", {
   enumerable: true,
   get: function get() {
@@ -213,7 +207,7 @@ Object.defineProperty(exports, "TextArea", {
     return _FormControlTextArea.default;
   }
 });
-Object.defineProperty(exports, "NewSwitch", {
+Object.defineProperty(exports, "Switch", {
   enumerable: true,
   get: function get() {
     return _FormControlSwitch.default;
@@ -249,8 +243,6 @@ var _ProgressBar = _interopRequireDefault(require("./ProgressBar/ProgressBar"));
 var _Scrollable = _interopRequireDefault(require("./Scrollable/Scrollable"));
 
 var _Segment = _interopRequireDefault(require("./Segment/Segment"));
-
-var _Switch = _interopRequireDefault(require("./Switch/Switch"));
 
 var _Table = _interopRequireDefault(require("./Table/Table"));
 

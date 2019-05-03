@@ -6,7 +6,7 @@ route: /organisms/form
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Input, Checkbox, Select, TextArea, NewSwitch, Card, Segment, Row, Col } from '../';
+import { Input, Checkbox, Select, TextArea, Switch, Card, Segment, Row, Col } from '../';
 
 # Form
 #### Simple form components
@@ -16,93 +16,6 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
 ...
 <Input type="text" ... />
 ```
-
----
-
-## Switch
-<Props of={NewSwitch} />
-
-### Examples
-<Playground>
-    {() => {
-
-        const [ col, setCol ]                 = useState(4);
-        const [ text, setText ]               = useState('');
-        const [ textAlign, setTextAlign ]     = useState(false);
-        const [ textSmall, setTextSmall ]     = useState(false);
-        const [ toggleAlign, setToggleAlign ] = useState(true);
-
-        return (
-            <Segment>
-                <Row horizontal="center">
-                    <Col xs={12} sm={col}>
-                        <Card>
-                            <NewSwitch
-                                textSmall={textSmall}
-                                textAlign={textAlign ? 'right' : 'left'}
-                                toggleAlign={toggleAlign ? 'right' : 'left'}>
-                                {text}
-                            </NewSwitch>
-                        </Card>
-                    </Col>
-                </Row>
-
-                <Segment padding="40px 0">
-                    <Row horizontal="center">
-                        <Col xs={12} sm={12} md={9}>
-                            <Segment padding="10px 0">
-                                <Input
-                                    type="text"
-                                    label="Switch Label Text"
-                                    placeholder="Type something..."
-                                    onChange={(e) => setText(e.target.value)}
-                                />
-                            </Segment>
-                        </Col>
-                    </Row>
-
-                    <Row horizontal="center">
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchToggleAlign"
-                                    value={toggleAlign ? 'right' : 'left'}
-                                    defaultChecked={toggleAlign}
-                                    onChange={(e) => setToggleAlign(e.target.checked ? true : false)}>
-                                    Align toggle at right
-                                </Checkbox>
-                            </Segment>
-                        </Col>
-
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchTextAlign"
-                                    value={textAlign ? 'right' : 'left'}
-                                    defaultChecked={textAlign}
-                                    onChange={(e) => setTextAlign(e.target.checked ? true : false)}>
-                                    Align text at right
-                                </Checkbox>
-                            </Segment>
-                        </Col>
-
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchTextSmall"
-                                    value={textSmall ? true : false}
-                                    defaultChecked={textSmall}
-                                    onChange={(e) => setTextSmall(e.target.checked ? true : false)}>
-                                    Text small
-                                </Checkbox>
-                            </Segment>
-                        </Col>
-                    </Row>
-                </Segment>
-            </Segment>
-        );
-    }}
-</Playground>
 
 ---
 
@@ -217,4 +130,105 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
         id="ExampleTextAreaWithoutPlaceholder"
         label="TextArea Label">
     </TextArea>
+</Playground>
+
+---
+
+## Switch
+<Props of={Switch} />
+
+### Example
+<Playground>
+    {() => {
+
+        const [ col, setCol ]                 = useState(4);
+        const [ text, setText ]               = useState('');
+        const [ disabled, setDisabled ]       = useState(false);
+        const [ textAlign, setTextAlign ]     = useState(false);
+        const [ textSmall, setTextSmall ]     = useState(false);
+        const [ toggleAlign, setToggleAlign ] = useState(false);
+
+        return (
+            <Segment>
+                <Row horizontal="center">
+                    <Col xs={12} sm={col}>
+                        <Card>
+                            <Switch
+                                disabled={disabled}
+                                textSmall={textSmall}
+                                textAlign={textAlign ? 'right' : 'left'}
+                                toggleAlign={toggleAlign ? 'right' : 'left'}>
+                                {text}
+                            </Switch>
+                        </Card>
+                    </Col>
+                </Row>
+
+                <Segment padding="40px 0">
+                    <Row horizontal="center">
+                        <Col xs={12} sm={12} md={9}>
+                            <Segment padding="10px 0">
+                                <Input
+                                    type="text"
+                                    label="Switch Label Text"
+                                    placeholder="Type something..."
+                                    onChange={(e) => setText(e.target.value)}
+                                />
+                            </Segment>
+                        </Col>
+                    </Row>
+
+                    <Row horizontal="center">
+                        <Col xs={6} sm={6} md={3}>
+                            <Segment padding="10px 0">
+                                <Checkbox
+                                    id="switchToggleAlign"
+                                    value={toggleAlign ? 'right' : 'left'}
+                                    defaultChecked={toggleAlign}
+                                    onChange={(e) => setToggleAlign(e.target.checked ? true : false)}>
+                                    Align toggle at right
+                                </Checkbox>
+                            </Segment>
+                        </Col>
+
+                        <Col xs={6} sm={6} md={3}>
+                            <Segment padding="10px 0">
+                                <Checkbox
+                                    id="switchTextAlign"
+                                    value={textAlign ? 'right' : 'left'}
+                                    defaultChecked={textAlign}
+                                    onChange={(e) => setTextAlign(e.target.checked ? true : false)}>
+                                    Align text at right
+                                </Checkbox>
+                            </Segment>
+                        </Col>
+
+                        <Col xs={6} sm={6} md={3}>
+                            <Segment padding="10px 0">
+                                <Checkbox
+                                    id="switchTextSmall"
+                                    value={textSmall ? true : false}
+                                    defaultChecked={textSmall}
+                                    onChange={(e) => setTextSmall(e.target.checked ? true : false)}>
+                                    Text small
+                                </Checkbox>
+                            </Segment>
+                        </Col>
+
+                        <Col xs={6} sm={6} md={3}>
+                            <Segment padding="10px 0">
+                                <Checkbox
+                                    id="switchDisabled"
+                                    value={disabled ? true : false}
+                                    defaultChecked={disabled}
+                                    onChange={(e) => setDisabled(e.target.checked ? true : false)}>
+                                    Disabled
+                                </Checkbox>
+                            </Segment>
+                        </Col>
+                    </Row>
+                </Segment>
+            </Segment>
+        );
+    }}
 </Playground>

@@ -100,7 +100,7 @@ const AphFormSwitchInput = styled.input`
 
     &.disabled,
     &:disabled {
-        background-color: ${colors.get('mercury', 'dark')};
+        background-color: ${colors.get('mercury', 'light', 0.5)};
     }
 
     &:checked {
@@ -113,7 +113,7 @@ const AphFormSwitchInput = styled.input`
         }
 
         &:disabled {
-            background-color: ${colors.get('bamboo', 'light')};
+            background-color: ${colors.get('bamboo', 'light', 0.5)};
         }
     }
 

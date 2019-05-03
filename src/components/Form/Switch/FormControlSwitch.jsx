@@ -1,11 +1,12 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
+import propTypes from 'prop-types';
 
 /* Component Styles */
 import SwitchStyles from './FormControlSwitchStyles';
 
 /* Component Itself */
-const Switch = (props) => {
+const Switch = forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -32,19 +33,12 @@ const Switch = (props) => {
             textAlign={textAlign}
             textSmall={textSmall}
             toggleAlign={toggleAlign}>
-            {(children && (toggleAlign === 'right')) ? (
-                <SwitchStyles.Content
-                    htmlFor={id}
-                    hasChildren={children ? true : false}
-                    toggleAlign={toggleAlign}>
-                    {children}
-                </SwitchStyles.Content>
-            ) : (null)}
             <SwitchStyles.ToggleWrapper
                 htmlFor={id}
                 className="aph-form-switch__wrapper">
                 <SwitchStyles.Input
                     {...newProps}
+                    ref={ref}
                     id={id}
                     type="checkbox"
                     className="aph-form-switch__input"
@@ -54,21 +48,40 @@ const Switch = (props) => {
                     className="aph-form-switch__toggle"
                 />
             </SwitchStyles.ToggleWrapper>
-            {(children && (!toggleAlign || toggleAlign === 'left')) ? (
+            {(!children) ? (null) : (
                 <SwitchStyles.Content
                     htmlFor={id}
                     hasChildren={children ? true : false}
                     toggleAlign={toggleAlign}>
                     {children}
                 </SwitchStyles.Content>
-            ) : (null)}
+            )}
         </SwitchStyles.Wrapper>
     );
-};
+});
 
 /* Default Properties */
 Switch.defaultProps = {
     id: `formControlRandomID${Math.random()}`,
+
+    className: '',
+    styles   : {},
+
+    textSmall  : false,
+    textAlign  : 'left',
+    toggleAlign: 'left',
+};
+
+/* Properties Types */
+Switch.propTypes = {
+    id: propTypes.string,
+
+    className: propTypes.string,
+    styles   : propTypes.object,
+
+    textSmall  : propTypes.bool,
+    textAlign  : propTypes.string,
+    toggleAlign: propTypes.string,
 };
 
 /* Exporting */

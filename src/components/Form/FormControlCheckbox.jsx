@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -90,7 +90,7 @@ const AphCheckboxStyled = styled.input`
 `;
 
 /* Component Itself */
-const Checkbox = (props) => {
+const Checkbox = forwardRef((props, ref) => {
     const { className, children, color, id, right, labelProps, labelRight } = props;
     let newProps = Object.assign({}, props);
 
@@ -114,7 +114,7 @@ const Checkbox = (props) => {
             </AphCheckboxMaskStyled>
         </AphCheckboxWrapperStyled>
     );
-};
+});
 
 /* Default Properties */
 Checkbox.defaultProps = {
