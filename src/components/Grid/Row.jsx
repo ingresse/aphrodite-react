@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -80,17 +80,18 @@ const RowWrapper = styled('div')((props) => {
 });
 
 /* Component */
-const Row = (props) => {
+const Row = forwardRef((props, ref) => {
     const { className, children } = props;
 
     return (
         <RowWrapper
             {...props}
+            ref={ref}
             className={`aph-row ${className || ''}`}>
             {children}
         </RowWrapper>
     );
-};
+});
 
 /* Properties Types */
 Row.propTypes = {

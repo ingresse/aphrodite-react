@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 
@@ -37,15 +37,16 @@ const AphContainer = styled('div')(props => ({
 }));
 
 /* Component it self */
-const Container = (props) => {
+const Container = forwardRef((props, ref) => {
     return (
         <AphContainer
             {...props}
+            ref={ref}
             className={`aph-container ${props.className || ''}`}>
             {props.children}
         </AphContainer>
     );
-};
+});
 
 /* Properties Types */
 Container.propTypes = {

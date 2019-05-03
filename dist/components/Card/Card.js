@@ -7,11 +7,13 @@ exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _constants = require("../../constants");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,17 +24,17 @@ var AphCardStyled = (0, _styledBase.default)("div", {
   target: "ef3ubj80"
 })("display:block;padding:10px;border-radius:", _constants.RADIUS.SM, "px;color:", _constants.COLORS.BLACK, ";background:", _constants.COLORS.WHITE, ";box-shadow:0 0 5px ", _constants.COLORS.GET('BLACK', 0.25), ";transition:box-shadow 0.25s linear,padding 0.25s linear;will-change:box-shadow,padding;&.active,&:hover{box-shadow:0 0 20px ", _constants.COLORS.GET('BLACK', 0.25), ";}.aph-card{box-shadow:none !important;}", function (props) {
   return props.styles;
-}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0NhcmQvQ2FyZC5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBU2dDIiwiZmlsZSI6Ii4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0NhcmQvQ2FyZC5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBwcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5cbi8qIEZyYW1ld29yayBEZWZpbml0aW9ucyAqL1xuaW1wb3J0IHsgQ09MT1JTLCBSQURJVVMgfSBmcm9tICcuLi8uLi9jb25zdGFudHMnO1xuXG4vKiBDb21wb25lbnQgU3R5bGVzICovXG5jb25zdCBBcGhDYXJkU3R5bGVkID0gc3R5bGVkLmRpdmBcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBwYWRkaW5nOiAxMHB4O1xuICAgIGJvcmRlci1yYWRpdXM6ICR7UkFESVVTLlNNfXB4O1xuICAgIGNvbG9yICAgICAgOiAke0NPTE9SUy5CTEFDS307XG4gICAgYmFja2dyb3VuZCA6ICR7Q09MT1JTLldISVRFfTtcbiAgICBib3gtc2hhZG93IDogMCAwIDVweCAke0NPTE9SUy5HRVQoJ0JMQUNLJywgMC4yNSl9O1xuICAgIHRyYW5zaXRpb24gOiBib3gtc2hhZG93IDAuMjVzIGxpbmVhciwgcGFkZGluZyAwLjI1cyBsaW5lYXI7XG4gICAgd2lsbC1jaGFuZ2U6IGJveC1zaGFkb3csIHBhZGRpbmc7XG5cbiAgICAmLmFjdGl2ZSxcbiAgICAmOmhvdmVyIHtcbiAgICAgICAgYm94LXNoYWRvdzogMCAwIDIwcHggJHtDT0xPUlMuR0VUKCdCTEFDSycsIDAuMjUpfTtcbiAgICB9XG5cbiAgICAuYXBoLWNhcmQge1xuICAgICAgICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gICAgfVxuXG4gICAgJHtwcm9wcyA9PiBwcm9wcy5zdHlsZXN9O1xuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgQ2FyZCA9IChwcm9wcykgPT4ge1xuICAgIGNvbnN0IHsgY2xhc3NOYW1lIH0gPSBwcm9wcztcblxuICAgIHJldHVybiAoXG4gICAgICAgIDxBcGhDYXJkU3R5bGVkXG4gICAgICAgICAgICB7Li4ucHJvcHN9XG4gICAgICAgICAgICBjbGFzc05hbWU9e2BhcGgtY2FyZCAke2NsYXNzTmFtZSB8fCAnJ31gfVxuICAgICAgICAvPlxuICAgICk7XG59O1xuXG4vKiBEZWZhdWx0IFByb3BlcnRpZXMgKi9cbkNhcmQuZGVmYXVsdFByb3BzID0ge1xuICAgIHN0eWxlczoge30sXG59O1xuXG4vKiBQcm9wZXJ0aWVzIFR5cGVzICovXG5DYXJkLnByb3BUeXBlcyA9IHtcbiAgICBzdHlsZXM6IHByb3BUeXBlcy5vYmplY3QsXG59O1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IENhcmQ7XG4iXX0= */"));
+}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0NhcmQvQ2FyZC5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBU2dDIiwiZmlsZSI6Ii4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0NhcmQvQ2FyZC5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IFJlYWN0LCB7IGZvcndhcmRSZWYgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgcHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBGcmFtZXdvcmsgRGVmaW5pdGlvbnMgKi9cbmltcG9ydCB7IENPTE9SUywgUkFESVVTIH0gZnJvbSAnLi4vLi4vY29uc3RhbnRzJztcblxuLyogQ29tcG9uZW50IFN0eWxlcyAqL1xuY29uc3QgQXBoQ2FyZFN0eWxlZCA9IHN0eWxlZC5kaXZgXG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgcGFkZGluZzogMTBweDtcbiAgICBib3JkZXItcmFkaXVzOiAke1JBRElVUy5TTX1weDtcbiAgICBjb2xvciAgICAgIDogJHtDT0xPUlMuQkxBQ0t9O1xuICAgIGJhY2tncm91bmQgOiAke0NPTE9SUy5XSElURX07XG4gICAgYm94LXNoYWRvdyA6IDAgMCA1cHggJHtDT0xPUlMuR0VUKCdCTEFDSycsIDAuMjUpfTtcbiAgICB0cmFuc2l0aW9uIDogYm94LXNoYWRvdyAwLjI1cyBsaW5lYXIsIHBhZGRpbmcgMC4yNXMgbGluZWFyO1xuICAgIHdpbGwtY2hhbmdlOiBib3gtc2hhZG93LCBwYWRkaW5nO1xuXG4gICAgJi5hY3RpdmUsXG4gICAgJjpob3ZlciB7XG4gICAgICAgIGJveC1zaGFkb3c6IDAgMCAyMHB4ICR7Q09MT1JTLkdFVCgnQkxBQ0snLCAwLjI1KX07XG4gICAgfVxuXG4gICAgLmFwaC1jYXJkIHtcbiAgICAgICAgYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xuICAgIH1cblxuICAgICR7cHJvcHMgPT4gcHJvcHMuc3R5bGVzfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IENhcmQgPSBmb3J3YXJkUmVmKChwcm9wcywgcmVmKSA9PiB7XG4gICAgY29uc3QgeyBjbGFzc05hbWUgfSA9IHByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEFwaENhcmRTdHlsZWRcbiAgICAgICAgICAgIHsuLi5wcm9wc31cbiAgICAgICAgICAgIHJlZj17cmVmfVxuICAgICAgICAgICAgY2xhc3NOYW1lPXtgYXBoLWNhcmQgJHtjbGFzc05hbWUgfHwgJyd9YH1cbiAgICAgICAgLz5cbiAgICApO1xufSk7XG5cbi8qIERlZmF1bHQgUHJvcGVydGllcyAqL1xuQ2FyZC5kZWZhdWx0UHJvcHMgPSB7XG4gICAgc3R5bGVzOiB7fSxcbn07XG5cbi8qIFByb3BlcnRpZXMgVHlwZXMgKi9cbkNhcmQucHJvcFR5cGVzID0ge1xuICAgIHN0eWxlczogcHJvcFR5cGVzLm9iamVjdCxcbn07XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgQ2FyZDtcbiJdfQ== */"));
 /* Component Itself */
 
-var Card = function Card(props) {
+var Card = (0, _react.forwardRef)(function (props, ref) {
   var className = props.className;
   return _react.default.createElement(AphCardStyled, _extends({}, props, {
+    ref: ref,
     className: "aph-card ".concat(className || '')
   }));
-};
+});
 /* Default Properties */
-
 
 Card.defaultProps = {
   styles: {}

@@ -1,5 +1,5 @@
 /* Packages */
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from './FormControlWrapperStyled';
@@ -11,7 +11,7 @@ import AphFormControlErrorMsgStyled from './FormControlErrorMsgStyled';
 const AphFormControlTextArea = AphFormControlStyled.withComponent('textarea');
 
 /* Component Itself */
-const FormControlTextArea = (props) => {
+const FormControlTextArea = forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -104,7 +104,7 @@ const FormControlTextArea = (props) => {
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
-};
+});
 
 /* Exporting */
 export default FormControlTextArea;

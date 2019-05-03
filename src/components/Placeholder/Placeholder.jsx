@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled'; import { keyframes } from '@emotion/core';
 
 import propTypes from 'prop-types';
@@ -9,7 +9,7 @@ const color = require('tinycolor2');
 import { COLORS } from '../../constants';
 
 /* Component it self */
-const Placeholder = (props) => {
+const Placeholder = forwardRef((props, ref) => {
     const bgPlaceholder = keyframes`
         0% {
             background-position: 0% 50%;
@@ -57,11 +57,14 @@ const Placeholder = (props) => {
     delete _props.styles;
 
     return (
-        <StyledPlaceholder {..._props} className={`aph-placeholder ${props.className || ''}`}>
+        <StyledPlaceholder
+            {..._props}
+            ref={ref}
+            className={`aph-placeholder ${props.className || ''}`}>
             {props.children}
         </StyledPlaceholder>
     );
-}
+});
 
 /* Default Properties */
 Placeholder.defaultProps = {

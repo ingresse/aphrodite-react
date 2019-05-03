@@ -36,7 +36,7 @@ var AphFormControlTextArea = _FormControlStyled.default.withComponent('textarea'
 /* Component Itself */
 
 
-var FormControlTextArea = function FormControlTextArea(props) {
+var FormControlTextArea = (0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -88,9 +88,8 @@ var FormControlTextArea = function FormControlTextArea(props) {
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-};
+});
 /* Exporting */
-
 
 var _default = FormControlTextArea;
 exports.default = _default;

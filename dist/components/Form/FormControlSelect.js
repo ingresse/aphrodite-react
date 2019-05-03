@@ -46,7 +46,7 @@ var AphFormControlSelect = _FormControlStyled.default.withComponent('select', {
 /* Component Itself */
 
 
-var FormControlSelect = function FormControlSelect(props) {
+var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -83,6 +83,7 @@ var FormControlSelect = function FormControlSelect(props) {
   }
 
   return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlSelect, _extends({}, props, {
+    ref: ref,
     onChange: handleChange,
     styles: Object.assign({}, styles, props.styles)
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, {
@@ -100,9 +101,8 @@ var FormControlSelect = function FormControlSelect(props) {
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-};
+});
 /* Default Properties */
-
 
 FormControlSelect.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),

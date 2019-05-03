@@ -79,12 +79,12 @@ var stock = {
  */
 
 var alias = {
-  primary: tangerine,
-  secondary: ocean,
-  info: supernova,
-  success: bamboo,
-  warning: sunflower,
-  error: ruby
+  primary: Object.assign({}, tangerine),
+  secondary: Object.assign({}, ocean),
+  info: Object.assign({}, supernova),
+  success: Object.assign({}, bamboo),
+  warning: Object.assign({}, sunflower),
+  error: Object.assign({}, ruby)
 };
 /**
  * All Colors

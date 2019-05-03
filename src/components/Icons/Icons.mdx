@@ -14,7 +14,7 @@ import { ICONS } from '../../constants';
 ```jsx
 import { Icon } from 'aphrodite-react';
 ...
-<Icon slug="arrow-up-circle" size={40} color="#FF0000" />
+<Icon slug="arrow-up-circle" size={40} color="ruby" />
 ```
 
 ## Properties
@@ -26,7 +26,7 @@ import { Icon } from 'aphrodite-react';
         return ICONS.map((ICON_SLUG, INDEX) => {
             return (
                 <div key={INDEX} style={{ margin: '5px 0' }}>
-                    <Icon slug={ICON_SLUG} size={20 + ((INDEX + 1) * 5)} color={(INDEX % 2) ? '#FF0000' : ''} />
+                    <Icon slug={ICON_SLUG} size={20 + ((INDEX + 1) * 5)} color={(INDEX % 2) ? 'ruby' : ''} />
                     <span style={{ paddingLeft: '10px' }}>{ICON_SLUG}</span>
                 </div>
             );
@@ -37,13 +37,13 @@ import { Icon } from 'aphrodite-react';
 ## Width & Height
 <Playground>
     <div>
-        <Icon slug="loading" width={20} height={5} color="#FF0000" />
+        <Icon slug="loading" width={20} height={5} color="ruby" />
     </div>
     <div>
         <Icon slug="loading" width={40} height={10} />
     </div>
     <div>
-        <Icon slug="loading" width={80} height={20} color="#FF0000" />
+        <Icon slug="loading" width={80} height={20} color="ruby" />
     </div>
     <div>
         <Icon slug="loading" width={120} height={30} />

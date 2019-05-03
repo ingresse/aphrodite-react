@@ -1,12 +1,17 @@
 /* Packages */
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import propTypes from 'prop-types';
 import Formatter from 'react-number-format';
 
 /* Component */
-const NumberFormat = (props) => {
-    return <Formatter {...props} />;
-};
+const NumberFormat = forwardRef((props, ref) => {
+    return (
+        <Formatter
+            {...props}
+            ref={ref}
+        />
+    );
+});
 
 /* Default Props */
 NumberFormat.defaultProps = {

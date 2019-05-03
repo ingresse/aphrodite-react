@@ -126,13 +126,13 @@ let stock = {
  * Colors Alias
  */
 let alias = {
-    primary  : tangerine,
-    secondary: ocean,
+    primary  : Object.assign({}, tangerine),
+    secondary: Object.assign({}, ocean),
 
-    info     : supernova,
-    success  : bamboo,
-    warning  : sunflower,
-    error    : ruby,
+    info     : Object.assign({}, supernova),
+    success  : Object.assign({}, bamboo),
+    warning  : Object.assign({}, sunflower),
+    error    : Object.assign({}, ruby),
 };
 
 

@@ -1,5 +1,5 @@
 /* Packages */
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
@@ -168,7 +168,7 @@ const TooltipWrapper = styled('span')(props => ({
 }));
 
 /* Component it self */
-const Tooltip = (props) => {
+const Tooltip = forwardRef((props, ref) => {
     let customProps = Object.assign({}, props);
     customProps.id  = customProps.id || `AphTooltip${Math.random()}`;
 
@@ -176,7 +176,9 @@ const Tooltip = (props) => {
     delete customProps.tip;
 
     return (
-        <TooltipWrapper {...customProps}>
+        <TooltipWrapper
+            {...customProps}
+            ref={ref}>
             <span data-tip={props.tip}
                   data-for={customProps.id}
                   className="aph-tooltip__content">
@@ -189,7 +191,7 @@ const Tooltip = (props) => {
             />
         </TooltipWrapper>
     );
-};
+});
 
 /* Component default properties */
 Tooltip.defaultProps = {

@@ -1,22 +1,23 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Component Styles */
 import AphTableStyled from './TableStyled';
 
 /* Component Itself */
-const Table = (props) => {
+const Table = forwardRef((props, ref) => {
     const { className, children } = props;
 
     return (
         <AphTableStyled
             {...props}
+            ref={ref}
             className={`aph-table ${className || ''}`}>
             {children}
         </AphTableStyled>
     );
-};
+});
 
 /* Default Properties */
 Table.defaultProps = {

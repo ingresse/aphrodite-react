@@ -1,5 +1,5 @@
 /* Packages */
-import React, { useState, useRef } from 'react';
+import React, { forwardRef, useState, useRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Utils */
@@ -12,8 +12,10 @@ import { H3, Card } from '../';
 import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
 /* Component Itself */
-const Collapsible = (props) => {
+const Collapsible = forwardRef((props, ref) => {
     const { header, headerProps, children, disabled, delay } = props;
+
+    const timerDelay = (delay * 1000);
 
     const wrapperRef        = useRef(null);
     const wrapperContentRef = useRef(null);
@@ -62,7 +64,7 @@ const Collapsible = (props) => {
                         ...openStyles,
                         maxHeight: null
                     });
-                }, 250)
+                }, timerDelay)
             );
         }, 1);
     }
@@ -92,7 +94,7 @@ const Collapsible = (props) => {
                         ...closeStyles,
                         display: 'none'
                     });
-                }, 260)
+                }, (timerDelay + 10))
             );
         }, 10);
     }
@@ -122,6 +124,7 @@ const Collapsible = (props) => {
 
     return (
         <Card {...props}
+            ref={ref}
             className={`aph-collapsible ${opened ? 'active' : ''}`}
             styles={Object.assign(
                 {
@@ -150,7 +153,7 @@ const Collapsible = (props) => {
             </CollapsibleChildrenStyled>
         </Card>
     );
-};
+});
 
 /* Default Properties */
 Collapsible.defaultProps = {

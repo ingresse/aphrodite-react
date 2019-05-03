@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -30,16 +30,17 @@ const AphCardStyled = styled.div`
 `;
 
 /* Component Itself */
-const Card = (props) => {
+const Card = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
         <AphCardStyled
             {...props}
+            ref={ref}
             className={`aph-card ${className || ''}`}
         />
     );
-};
+});
 
 /* Default Properties */
 Card.defaultProps = {

@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -26,16 +26,17 @@ const H1Styled = styled.h1`
 `;
 
 /* Component Itself */
-const H1 = (props) => {
+const H1 = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
         <H1Styled
             {...props}
+            ref={ref}
             className={`aph-h1 ${className || ''}`}
         />
     );
-};
+});
 
 /* Default Properties */
 H1.defaultProps = {

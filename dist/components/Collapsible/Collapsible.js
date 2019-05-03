@@ -34,12 +34,13 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* Component Itself */
-var Collapsible = function Collapsible(props) {
+var Collapsible = (0, _react.forwardRef)(function (props, ref) {
   var header = props.header,
       headerProps = props.headerProps,
       children = props.children,
       disabled = props.disabled,
       delay = props.delay;
+  var timerDelay = delay * 1000;
   var wrapperRef = (0, _react.useRef)(null);
   var wrapperContentRef = (0, _react.useRef)(null);
 
@@ -96,7 +97,7 @@ var Collapsible = function Collapsible(props) {
         setStyles(_objectSpread({}, openStyles, {
           maxHeight: null
         }));
-      }, 250));
+      }, timerDelay));
     }, 1);
   }
   /**
@@ -120,7 +121,7 @@ var Collapsible = function Collapsible(props) {
         setStyles(_objectSpread({}, closeStyles, {
           display: 'none'
         }));
-      }, 260));
+      }, timerDelay + 10));
     }, 10);
   }
   /**
@@ -150,6 +151,7 @@ var Collapsible = function Collapsible(props) {
   }
 
   return _react.default.createElement(_.Card, _extends({}, props, {
+    ref: ref,
     className: "aph-collapsible ".concat(opened ? 'active' : ''),
     styles: Object.assign({
       position: 'relative',
@@ -168,9 +170,8 @@ var Collapsible = function Collapsible(props) {
   }, _react.default.createElement("div", {
     ref: wrapperContentRef
   }, children)));
-};
+});
 /* Default Properties */
-
 
 Collapsible.defaultProps = {
   opened: false,

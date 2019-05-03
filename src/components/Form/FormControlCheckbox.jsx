@@ -101,6 +101,7 @@ const Checkbox = forwardRef((props, ref) => {
             <AphCheckboxStyled
                 className={`aph-form-control ${className || ''}`}
                 {...newProps}
+                ref={ref}
                 type="checkbox"
             />
             <AphCheckboxMaskStyled

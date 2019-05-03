@@ -1,10 +1,10 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* UI Framework Utils */
-import { COLORS } from '../../constants';
+import { colors } from '../../utils';
 
 /* Component Itself */
 const AphListItemStyled = styled.li`
@@ -19,9 +19,9 @@ const AphListItemStyled = styled.li`
     transition : background-color 0.25s linear;
     will-change: background-color;
 
-    ${props => props.hover ? {
+    ${props => props.hoverable ? {
         '&:hover': {
-            backgroundColor: COLORS.GET('PRIMARY', 0.1),
+            backgroundColor: colors.get('secondary', 'crystal'),
         }
     } : null}
 
@@ -29,27 +29,28 @@ const AphListItemStyled = styled.li`
 `;
 
 /* Component Itself */
-const ListItem = (props) => {
+const ListItem = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
         <AphListItemStyled
             {...props}
+            ref={ref}
             className={`aph-list__item ${className || ''}`}
         />
     );
-};
+});
 
 /* Default Properties */
 ListItem.defaultProps = {
-    hover : false,
-    styles: {},
+    hoverable: false,
+    styles   : {},
 };
 
 /* Properties Types */
 ListItem.propTypes = {
-    hover : propTypes.bool,
-    styles: propTypes.object,
+    hoverable: propTypes.bool,
+    styles   : propTypes.object,
 };
 
 /* Exporting */

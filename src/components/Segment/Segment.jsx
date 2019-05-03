@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -33,16 +33,17 @@ const SegmentStyled = styled.div`
 `;
 
 /* Component Itself */
-const Segment = (props) => {
+const Segment = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
         <SegmentStyled
             {...props}
+            ref={ref}
             className={`aph-segment ${className || ''}`}
         />
     );
-};
+});
 
 /* Properties Types */
 Segment.propTypes = {

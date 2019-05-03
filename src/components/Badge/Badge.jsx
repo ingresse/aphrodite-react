@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 
@@ -68,7 +68,7 @@ const BadgePrefixWrapper = styled('span')(props => ({
 }));
 
 /* Component */
-const Badge = (props) => {
+const Badge = forwardRef((props, ref) => {
     const filled   = COLORS.FILL(props.color);
     const modifier = !props.sm ? {} : {
         minHeight : '20px',
@@ -124,7 +124,7 @@ const Badge = (props) => {
             {props.children}
         </BadgeWrapper>
     );
-};
+});
 
 /* Properties Types */
 Badge.propTypes = {

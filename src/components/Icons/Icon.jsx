@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -47,7 +47,7 @@ const IconWrapper = styled('span')(props => ({
 }));
 
 /* Component it self */
-const Icon = (props) => {
+const Icon = forwardRef((props, ref) => {
     const ICON = ICONS[props.slug];
 
     if (!ICON) {
@@ -58,18 +58,19 @@ const Icon = (props) => {
         <IconWrapper className="aph-icon-wrapper">
             <ICON
                 {...props}
-                color={colors.get(props.color || 'primary')}
+                ref={ref}
+                color={colors.get(props.color || 'secondary')}
                 className={`aph-icon ${props.className || ''}`}
             />
         </IconWrapper>
     );
-};
+});
 
 /* Default Properties */
 Icon.defaultProps = {
     slug  : undefined,
     size  : 20,
-    color : colors.get('primary'),
+    color : '',
     width : undefined,
     Height: undefined,
 };

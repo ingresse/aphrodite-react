@@ -1,10 +1,10 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* UI Framework Utils */
-import { COLORS } from '../../constants';
+import { RADIUS } from '../../constants';
 
 /* Component Itself */
 const AphListStyled = styled.ul`
@@ -14,32 +14,34 @@ const AphListStyled = styled.ul`
     margin : 0;
     padding: 0;
 
+    overflow: hidden;
+    border-radius: ${RADIUS.SM}px;
+
     list-style-type: ${props => props.type || 'none'};
 
     ${props => props.styles};
 `;
 
 /* Component Itself */
-const List = (props) => {
+const List = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
         <AphListStyled
             {...props}
+            ref={ref}
             className={`aph-list ${className || ''}`}
         />
     );
-};
+});
 
 /* Default Properties */
 List.defaultProps = {
-    hover : false,
     styles: {},
 };
 
 /* Properties Types */
 List.propTypes = {
-    hover : propTypes.bool,
     styles: propTypes.object,
 };
 
