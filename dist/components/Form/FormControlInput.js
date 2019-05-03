@@ -38,7 +38,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* Component Itself */
-var Input = function Input(props) {
+var Input = (0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -82,26 +82,26 @@ var Input = function Input(props) {
   }
 
   return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(_FormControlStyled.default, _extends({}, props, {
+    ref: ref,
     id: inputId,
     onChange: handleChange,
     className: "aph-form-control ".concat(!label || !label && hasValue ? 'aph-form-control--middle' : '', " ").concat(className || '')
-  })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
+  })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, {
     htmlFor: inputId,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), !btn ? null : _react.default.createElement(_FormControlButtonStyled.default, btn), _react.default.createElement(_FormControlErrorMsgStyled.default, {
+  }, label), !btn ? null : _react.default.createElement(_FormControlButtonStyled.default, btn), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: inputId,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-};
+});
 /* Default Properties */
 
-
 Input.defaultProps = {
-  id: '',
-  labelProps: {},
+  id: "formControlRandomID".concat(Math.random()),
+  label: '',
   btn: null,
   styles: {}
 };
@@ -109,8 +109,8 @@ Input.defaultProps = {
 
 Input.propTypes = {
   id: _propTypes.default.string.isRequired,
-  labelProps: _propTypes.default.object,
-  btn: _propTypes.default.any,
+  label: _propTypes.default.string,
+  btn: _propTypes.default.object,
   styles: _propTypes.default.any
 };
 /* Exporting */

@@ -1,12 +1,13 @@
 /* Packages */
 import React, { useState } from 'react';
+import propTypes from 'prop-types';
 
 /* Framework Definitions */
 import { SIZES } from '../../constants';
 import { colors } from '../../utils';
 
 /* Components Helpers */
-import IconArrowDownCircle from '../Icons/IconArrowDownCircle';
+import IconArrowDown from '../Icons/IconArrowDown';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from './FormControlWrapperStyled';
@@ -36,12 +37,9 @@ const FormControlSelect = (props) => {
     } = props;
 
     const [hasValue, setHasValue] = useState(value ? true : false);
-    const inputId                 = `${id || 'formControl'}`;
     const styles                  = `
         height: 50px;
         cursor: pointer;
-
-        ${props.styles};
     `;
 
     /**
@@ -65,30 +63,45 @@ const FormControlSelect = (props) => {
             <AphFormControlSelect
                 {...props}
                 onChange={handleChange}
-                styles={styles}
+                styles={Object.assign({}, styles, props.styles)}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled
-                    {...labelProps}
-                    htmlFor={inputId}
+                    htmlFor={id}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
                 </AphFormControlLabelStyled>
             )}
-            <AphFormControlButtonStyled>
-                <IconArrowDownCircle
-                    size={10}
+            <AphFormControlButtonStyled type="button">
+                <IconArrowDown
+                    size={30}
                     color={colors.get('black')}
                 />
             </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled
-                htmlFor={inputId}
+                htmlFor={id}
                 styles={!errorMessage ? null : { maxHeight: '600px' }}
                 className="aph-form-error">
                 {errorMessage || ''}
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
+};
+
+/* Default Properties */
+FormControlSelect.defaultProps = {
+    id    : `formControlRandomID${Math.random()}`,
+    label : '',
+    btn   : null,
+    styles: {},
+};
+
+/* Properties Types */
+FormControlSelect.propTypes = {
+    id    : propTypes.string.isRequired,
+    label : propTypes.string,
+    btn   : propTypes.object,
+    styles: propTypes.any,
 };
 
 /* Exporting */

@@ -3,10 +3,11 @@ import React from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Constants */
-import { COLORS } from '../../constants';
+/* Utilities */
+import { colors } from '../../utils';
 
 /* Components / Icons */
+import ArrowDown from './IconArrowDown';
 import ArrowDownCircle from './IconArrowDownCircle';
 import ArrowLeftCircle from './IconArrowLeftCircle';
 import ArrowRightCircle from './IconArrowRightCircle';
@@ -23,6 +24,7 @@ import TimesCircle from './IconTimesCircle';
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
 const ICONS = {
+    'arrow-down'        : ArrowDown,
     'arrow-down-circle' : ArrowDownCircle,
     'arrow-left-circle' : ArrowLeftCircle,
     'arrow-right-circle': ArrowRightCircle,
@@ -56,7 +58,7 @@ const Icon = (props) => {
         <IconWrapper className="aph-icon-wrapper">
             <ICON
                 {...props}
-                color={props.color || COLORS.PRIMARY}
+                color={colors.get(props.color || 'primary')}
                 className={`aph-icon ${props.className || ''}`}
             />
         </IconWrapper>
@@ -67,7 +69,7 @@ const Icon = (props) => {
 Icon.defaultProps = {
     slug  : undefined,
     size  : 20,
-    color : COLORS.PRIMARY,
+    color : colors.get('primary'),
     width : undefined,
     Height: undefined,
 };

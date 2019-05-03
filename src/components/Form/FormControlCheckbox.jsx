@@ -118,7 +118,7 @@ const Checkbox = (props) => {
 
 /* Default Properties */
 Checkbox.defaultProps = {
-    id        : '',
+    id        : `formControlRandomID${Math.random()}`,
     labelProps: {},
     labelRight: false,
     right     : false,

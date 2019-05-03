@@ -35,7 +35,8 @@ const FormControlStyled = styled.input`
 
     will-change: background-color, padding;
 
-    -webkit-appearance: none;
+    -webkit-appearance         : none;
+    -webkit-tap-highlight-color: transparent;
 
     &::placeholder {
         color: ${colors.get('mercury', 'light')};

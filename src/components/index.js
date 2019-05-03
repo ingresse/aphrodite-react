@@ -42,3 +42,4 @@ export { default as Input } from './Form/FormControlInput';
 export { default as Checkbox } from './Form/FormControlCheckbox';
 export { default as Select } from './Form/FormControlSelect';
 export { default as TextArea } from './Form/FormControlTextArea';
+export { default as NewSwitch } from './Form/Switch/FormControlSwitch';

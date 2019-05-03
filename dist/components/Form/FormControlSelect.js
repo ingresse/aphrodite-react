@@ -7,11 +7,13 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var _constants = require("../../constants");
 
 var _utils = require("../../utils");
 
-var _IconArrowDownCircle = _interopRequireDefault(require("../Icons/IconArrowDownCircle"));
+var _IconArrowDown = _interopRequireDefault(require("../Icons/IconArrowDown"));
 
 var _FormControlWrapperStyled = _interopRequireDefault(require("./FormControlWrapperStyled"));
 
@@ -63,8 +65,7 @@ var FormControlSelect = function FormControlSelect(props) {
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
 
-  var inputId = "".concat(id || 'formControl');
-  var styles = "\n        height: 50px;\n        cursor: pointer;\n\n        ".concat(props.styles, ";\n    ");
+  var styles = "\n        height: 50px;\n        cursor: pointer;\n    ";
   /**
    * Handle with input changes
    *
@@ -83,23 +84,41 @@ var FormControlSelect = function FormControlSelect(props) {
 
   return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlSelect, _extends({}, props, {
     onChange: handleChange,
-    styles: styles
-  })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
-    htmlFor: inputId,
+    styles: Object.assign({}, styles, props.styles)
+  })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, {
+    htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), _react.default.createElement(_FormControlButtonStyled.default, null, _react.default.createElement(_IconArrowDownCircle.default, {
-    size: 10,
+  }, label), _react.default.createElement(_FormControlButtonStyled.default, {
+    type: "button"
+  }, _react.default.createElement(_IconArrowDown.default, {
+    size: 30,
     color: _utils.colors.get('black')
   })), _react.default.createElement(_FormControlErrorMsgStyled.default, {
-    htmlFor: inputId,
+    htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
     },
     className: "aph-form-error"
   }, errorMessage || ''));
 };
-/* Exporting */
+/* Default Properties */
 
+
+FormControlSelect.defaultProps = {
+  id: "formControlRandomID".concat(Math.random()),
+  label: '',
+  btn: null,
+  styles: {}
+};
+/* Properties Types */
+
+FormControlSelect.propTypes = {
+  id: _propTypes.default.string.isRequired,
+  label: _propTypes.default.string,
+  btn: _propTypes.default.object,
+  styles: _propTypes.default.any
+};
+/* Exporting */
 
 var _default = FormControlSelect;
 exports.default = _default;

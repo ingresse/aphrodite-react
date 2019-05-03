@@ -1,5 +1,5 @@
 /* Packages */
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -14,7 +14,7 @@ import AphFormControlButtonStyled   from './FormControlButtonStyled';
 import AphFormControlErrorMsgStyled from './FormControlErrorMsgStyled';
 
 /* Component Itself */
-const Input = (props) => {
+const Input = forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -63,13 +63,13 @@ const Input = (props) => {
         <AphFormControlWrapperStyled>
             <AphFormControlStyled
                 {...props}
+                ref={ref}
                 id={inputId}
                 onChange={handleChange}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled
-                    {...labelProps}
                     htmlFor={inputId}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
@@ -88,22 +88,22 @@ const Input = (props) => {
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
-};
+});
 
 /* Default Properties */
 Input.defaultProps = {
-    id        : '',
-    labelProps: {},
-    btn       : null,
-    styles    : {},
+    id    : `formControlRandomID${Math.random()}`,
+    label : '',
+    btn   : null,
+    styles: {},
 };
 
 /* Properties Types */
 Input.propTypes = {
-    id        : propTypes.string.isRequired,
-    labelProps: propTypes.object,
-    btn       : propTypes.any,
-    styles    : propTypes.any,
+    id    : propTypes.string.isRequired,
+    label : propTypes.string,
+    btn   : propTypes.object,
+    styles: propTypes.any,
 };
 
 /* Exporting */

@@ -213,6 +213,12 @@ Object.defineProperty(exports, "TextArea", {
     return _FormControlTextArea.default;
   }
 });
+Object.defineProperty(exports, "NewSwitch", {
+  enumerable: true,
+  get: function get() {
+    return _FormControlSwitch.default;
+  }
+});
 
 var _ActionBar = _interopRequireDefault(require("./ActionBar/ActionBar"));
 
@@ -279,5 +285,7 @@ var _FormControlCheckbox = _interopRequireDefault(require("./Form/FormControlChe
 var _FormControlSelect = _interopRequireDefault(require("./Form/FormControlSelect"));
 
 var _FormControlTextArea = _interopRequireDefault(require("./Form/FormControlTextArea"));
+
+var _FormControlSwitch = _interopRequireDefault(require("./Form/Switch/FormControlSwitch"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
