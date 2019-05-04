@@ -25,6 +25,7 @@ const Input = forwardRef((props, ref) => {
         onChange,
         type,
         btn,
+        button,
         error,
         errorMessage,
         color,
@@ -60,7 +61,9 @@ const Input = forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            hasButton={(btn || button) ? true : false}
+            buttonAlign={((btn && btn.align) ? btn.align : (button && button.align) ? button.align : '')}>
             <AphFormControlStyled
                 {...props}
                 ref={ref}
@@ -75,9 +78,10 @@ const Input = forwardRef((props, ref) => {
                     {label}
                 </AphFormControlLabelStyled>
             )}
-            {(!btn) ? (null) : (
+            {(!btn && !button) ? (null) : (
                 <AphFormControlButtonStyled
                     {...btn}
+                    {...button}
                 />
             )}
             <AphFormControlErrorMsgStyled
@@ -95,6 +99,7 @@ Input.defaultProps = {
     id    : `formControlRandomID${Math.random()}`,
     label : '',
     btn   : null,
+    button: null,
     styles: {},
 };
 
@@ -103,6 +108,7 @@ Input.propTypes = {
     id    : propTypes.string.isRequired,
     label : propTypes.string,
     btn   : propTypes.object,
+    button: propTypes.object,
     styles: propTypes.any,
 };
 

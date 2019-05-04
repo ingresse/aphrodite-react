@@ -1,0 +1,36 @@
+---
+name : Card
+menu : Atoms
+route: /atoms/card
+---
+
+import { Playground, Props } from 'docz';
+import { Card, Row, Col } from '../';
+
+# Card
+#### A white block, rounded, with simple shadow effect.
+Used as base on `Collapsible` component.
+
+```jsx
+import { Card } from 'aphrodite-react';
+
+...
+
+<Card>
+    Hello
+</Card>
+```
+
+## Properties
+<Props of={Card} />
+
+## Examples
+<Playground style={{ padding: '20px' }}>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <Card>
+                A simple card
+            </Card>
+        </Col>
+    </Row>
+</Playground>

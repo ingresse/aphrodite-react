@@ -48,6 +48,7 @@ var Input = (0, _react.forwardRef)(function (props, ref) {
       onChange = props.onChange,
       type = props.type,
       btn = props.btn,
+      button = props.button,
       error = props.error,
       errorMessage = props.errorMessage,
       color = props.color;
@@ -81,7 +82,10 @@ var Input = (0, _react.forwardRef)(function (props, ref) {
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(_FormControlStyled.default, _extends({}, props, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, {
+    hasButton: btn || button ? true : false,
+    buttonAlign: btn && btn.align ? btn.align : button && button.align ? button.align : ''
+  }, _react.default.createElement(_FormControlStyled.default, _extends({}, props, {
     ref: ref,
     id: inputId,
     onChange: handleChange,
@@ -89,7 +93,7 @@ var Input = (0, _react.forwardRef)(function (props, ref) {
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, {
     htmlFor: inputId,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }, label), !btn ? null : _react.default.createElement(_FormControlButtonStyled.default, btn), _react.default.createElement(_FormControlErrorMsgStyled.default, {
+  }, label), !btn && !button ? null : _react.default.createElement(_FormControlButtonStyled.default, _extends({}, btn, button)), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: inputId,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -103,6 +107,7 @@ Input.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),
   label: '',
   btn: null,
+  button: null,
   styles: {}
 };
 /* Properties Types */
@@ -111,6 +116,7 @@ Input.propTypes = {
   id: _propTypes.default.string.isRequired,
   label: _propTypes.default.string,
   btn: _propTypes.default.object,
+  button: _propTypes.default.object,
   styles: _propTypes.default.any
 };
 /* Exporting */

@@ -4,22 +4,29 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Framework Definitions */
-import { COLORS, RADIUS } from '../../constants';
+import { RADIUS } from '../../constants';
+import { colors } from '../../utils';
 
 /* Component Styles */
 const AphCardStyled = styled.div`
+    box-sizing: border-box;
+
     display: block;
-    padding: 10px;
+    margin : ${props => props.margin || null};
+    padding: ${props => props.padding || '10px'};
+
     border-radius: ${RADIUS.SM}px;
-    color      : ${COLORS.BLACK};
-    background : ${COLORS.WHITE};
-    box-shadow : 0 0 5px ${COLORS.GET('BLACK', 0.25)};
+
+    color     : ${colors.get('black')};
+    background: ${colors.get('white')};
+    box-shadow: 0 0 5px ${colors.get('black', 'original', 0.25)};
+
     transition : box-shadow 0.25s linear, padding 0.25s linear;
     will-change: box-shadow, padding;
 
     &.active,
     &:hover {
-        box-shadow: 0 0 20px ${COLORS.GET('BLACK', 0.25)};
+        box-shadow: 0 0 20px ${colors.get('black', 'original', 0.25)};
     }
 
     .aph-card {
@@ -44,12 +51,16 @@ const Card = forwardRef((props, ref) => {
 
 /* Default Properties */
 Card.defaultProps = {
-    styles: {},
+    margin : undefined,
+    padding: '10px',
+    styles : {},
 };
 
 /* Properties Types */
 Card.propTypes = {
-    styles: propTypes.object,
+    margin : propTypes.string,
+    padding: propTypes.string,
+    styles : propTypes.object,
 };
 
 /* Exporting */

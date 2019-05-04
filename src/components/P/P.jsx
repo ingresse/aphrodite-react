@@ -19,7 +19,7 @@ const PStyled = styled.h1`
     text-align    : ${props => (props.center ? 'center' : null)};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (props.primary ? colors.get('primary') : null)};
+    color: ${props => (props.link ? colors.get('secondary') : null)};
 
     ${props => props.styles};
 `;
