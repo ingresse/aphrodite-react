@@ -270,13 +270,13 @@ var _Accordion = _interopRequireDefault(require("./Accordion/Accordion"));
 
 var _Collapsible = _interopRequireDefault(require("./Collapsible/Collapsible"));
 
-var _FormControlInput = _interopRequireDefault(require("./Form/FormControlInput"));
+var _FormControlInput = _interopRequireDefault(require("./Form/Input/FormControlInput"));
 
-var _FormControlCheckbox = _interopRequireDefault(require("./Form/FormControlCheckbox"));
+var _FormControlCheckbox = _interopRequireDefault(require("./Form/Checkbox/FormControlCheckbox"));
 
-var _FormControlSelect = _interopRequireDefault(require("./Form/FormControlSelect"));
+var _FormControlSelect = _interopRequireDefault(require("./Form/Select/FormControlSelect"));
 
-var _FormControlTextArea = _interopRequireDefault(require("./Form/FormControlTextArea"));
+var _FormControlTextArea = _interopRequireDefault(require("./Form/TextArea/FormControlTextArea"));
 
 var _FormControlSwitch = _interopRequireDefault(require("./Form/Switch/FormControlSwitch"));
 

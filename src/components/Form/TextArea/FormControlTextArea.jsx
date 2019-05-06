@@ -1,26 +1,17 @@
 /* Packages */
 import React, { forwardRef, useState } from 'react';
-import propTypes from 'prop-types';
-
-/* Framework Definitions */
-import { SIZES } from '../../constants';
-import { colors } from '../../utils';
-
-/* Components Helpers */
-import IconArrowDown from '../Icons/IconArrowDown';
 
 /* Component Helpers/Styles */
-import AphFormControlWrapperStyled  from './FormControlWrapperStyled';
-import AphFormControlLabelStyled    from './FormControlLabelStyled';
-import AphFormControlStyled         from './FormControlStyled';
-import AphFormControlButtonStyled   from './FormControlButtonStyled';
-import AphFormControlErrorMsgStyled from './FormControlErrorMsgStyled';
+import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
+import AphFormControlLabelStyled    from '../FormControlLabelStyled';
+import AphFormControlStyled         from '../FormControlStyled';
+import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Styled */
-const AphFormControlSelect = AphFormControlStyled.withComponent('select');
+const AphFormControlTextArea = AphFormControlStyled.withComponent('textarea');
 
 /* Component Itself */
-const FormControlSelect = forwardRef((props, ref) => {
+const FormControlTextArea = forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -37,9 +28,41 @@ const FormControlSelect = forwardRef((props, ref) => {
     } = props;
 
     const [hasValue, setHasValue] = useState(value ? true : false);
+    const inputId                 = `${id || 'formControl'}`;
     const styles                  = `
-        height: 50px;
-        cursor: pointer;
+        min-width : 100%;
+        min-height: 90px;
+        padding-bottom: 10px;
+
+        &[rows="4"] {
+            min-height: 110px;
+        }
+
+        &[rows="5"] {
+            min-height: 130px;
+        }
+
+        &[rows="6"] {
+            min-height: 150px;
+        }
+
+        &[rows="7"] {
+            min-height: 170px;
+        }
+
+        &[rows="8"] {
+            min-height: 190px;
+        }
+
+        &[rows="9"] {
+            min-height: 210px;
+        }
+
+        &[rows="10"] {
+            min-height: 230px;
+        }
+
+        ${props => props.styles};
     `;
 
     /**
@@ -60,27 +83,21 @@ const FormControlSelect = forwardRef((props, ref) => {
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlSelect
+            <AphFormControlTextArea
                 {...props}
-                ref={ref}
                 onChange={handleChange}
-                styles={Object.assign({}, styles, props.styles)}
+                styles={styles}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled
-                    htmlFor={id}
+                    {...labelProps}
+                    htmlFor={inputId}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
                 </AphFormControlLabelStyled>
             )}
-            <AphFormControlButtonStyled type="button">
-                <IconArrowDown
-                    size={30}
-                    color={colors.get('black')}
-                />
-            </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled
-                htmlFor={id}
+                htmlFor={inputId}
                 styles={!errorMessage ? null : { maxHeight: '600px' }}
                 className="aph-form-error">
                 {errorMessage || ''}
@@ -89,21 +106,5 @@ const FormControlSelect = forwardRef((props, ref) => {
     );
 });
 
-/* Default Properties */
-FormControlSelect.defaultProps = {
-    id    : `formControlRandomID${Math.random()}`,
-    label : '',
-    btn   : null,
-    styles: {},
-};
-
-/* Properties Types */
-FormControlSelect.propTypes = {
-    id    : propTypes.string.isRequired,
-    label : propTypes.string,
-    btn   : propTypes.object,
-    styles: propTypes.any,
-};
-
 /* Exporting */
-export default FormControlSelect;
+export default FormControlTextArea;

@@ -37,8 +37,8 @@ export { default as Accordion } from './Accordion/Accordion';
 export { default as Collapsible } from './Collapsible/Collapsible';
 
 /* Form Components */
-export { default as Input } from './Form/FormControlInput';
-export { default as Checkbox } from './Form/FormControlCheckbox';
-export { default as Select } from './Form/FormControlSelect';
-export { default as TextArea } from './Form/FormControlTextArea';
+export { default as Input } from './Form/Input/FormControlInput';
+export { default as Checkbox } from './Form/Checkbox/FormControlCheckbox';
+export { default as Select } from './Form/Select/FormControlSelect';
+export { default as TextArea } from './Form/TextArea/FormControlTextArea';
 export { default as Switch } from './Form/Switch/FormControlSwitch';

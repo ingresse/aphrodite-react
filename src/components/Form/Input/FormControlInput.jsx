@@ -4,14 +4,14 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Component Variations */
-import Checkbox from './FormControlCheckbox';
+import Checkbox from '../Checkbox/FormControlCheckbox';
 
 /* Component Helpers/Styles */
-import AphFormControlWrapperStyled  from './FormControlWrapperStyled';
-import AphFormControlLabelStyled    from './FormControlLabelStyled';
-import AphFormControlStyled         from './FormControlStyled';
-import AphFormControlButtonStyled   from './FormControlButtonStyled';
-import AphFormControlErrorMsgStyled from './FormControlErrorMsgStyled';
+import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
+import AphFormControlLabelStyled    from '../FormControlLabelStyled';
+import AphFormControlStyled         from '../FormControlStyled';
+import AphFormControlButtonStyled   from '../FormControlButtonStyled';
+import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Itself */
 const Input = forwardRef((props, ref) => {

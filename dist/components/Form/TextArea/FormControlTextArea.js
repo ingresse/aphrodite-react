@@ -7,13 +7,13 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _FormControlWrapperStyled = _interopRequireDefault(require("./FormControlWrapperStyled"));
+var _FormControlWrapperStyled = _interopRequireDefault(require("../FormControlWrapperStyled"));
 
-var _FormControlLabelStyled = _interopRequireDefault(require("./FormControlLabelStyled"));
+var _FormControlLabelStyled = _interopRequireDefault(require("../FormControlLabelStyled"));
 
-var _FormControlStyled = _interopRequireDefault(require("./FormControlStyled"));
+var _FormControlStyled = _interopRequireDefault(require("../FormControlStyled"));
 
-var _FormControlErrorMsgStyled = _interopRequireDefault(require("./FormControlErrorMsgStyled"));
+var _FormControlErrorMsgStyled = _interopRequireDefault(require("../FormControlErrorMsgStyled"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,7 +31,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* Component Styled */
 var AphFormControlTextArea = _FormControlStyled.default.withComponent('textarea', {
-  target: "eydfesu0"
+  target: "e1iz5a6a0"
 });
 /* Component Itself */
 

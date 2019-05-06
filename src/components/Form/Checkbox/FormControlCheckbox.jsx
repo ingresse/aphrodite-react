@@ -4,13 +4,13 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Constants Helpers */
-import { ICONS, RADIUS } from '../../constants';
+import { ICONS, RADIUS } from '../../../constants';
 
 /* Utils */
-import { colors } from '../../utils';
+import { colors } from '../../../utils';
 
 /* Components Helpers */
-import IconCheckThin from '../Icons/IconCheckThin';
+import IconCheckThin from '../../Icons/IconCheckThin';
 
 /* Wrapper Styles */
 const AphCheckboxWrapperStyled = styled.div`
@@ -47,10 +47,10 @@ const AphCheckboxMaskStyled = styled.label`
 
         transition-timing-function: ease;
         transition-duration       : 0.15s;
-        transition-property       : background-image;
+        transition-property       : background-color, background-image;
 
         background-image   : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
-        background-color   : ${props => colors.get((props.color || 'secondary'), 'crystal')};
+        background-color   : ${props => colors.get((props.color || 'smoke'), (props.color ? 'crystal' : 'original'))};
         background-size    : 20px;
         background-position: center;
         background-repeat  : no-repeat;
@@ -80,12 +80,29 @@ const AphCheckboxStyled = styled.input`
     }
 
     &:checked + .aph-form-control-mask:before {
+        background-color: ${props => colors.get((props.color || 'secondary'), 'crystal')};
         background-image: url('${props => ICONS.ENCODE_SVG(
             <IconCheckThin
                 size={20}
                 color={colors.get(props.color || 'secondary')}
             />
         )}');
+    }
+
+    &.disabled,
+    &:disabled {
+        + .aph-form-control-mask:before {
+            background-color: ${props => colors.get('mercury', 'crystal')};
+        }
+
+        &:checked + .aph-form-control-mask:before {
+            background-image: url('${props => ICONS.ENCODE_SVG(
+                <IconCheckThin
+                    size={20}
+                    color={colors.get('mercury')}
+                />
+            )}');
+        }
     }
 `;
 

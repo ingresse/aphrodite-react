@@ -6,7 +6,7 @@ route: /organisms/form
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Input, Checkbox, Select, TextArea, Switch, Card, Segment, Row, Col } from '../';
+import { Input, Checkbox, Select, TextArea, Switch, Card, Segment, Placeholder, Row, Col } from '../';
 
 # Form
 #### Simple form components
@@ -148,85 +148,121 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
         const [ textSmall, setTextSmall ]     = useState(false);
         const [ toggleAlign, setToggleAlign ] = useState(false);
 
+        const BreakPointToggle = (props) => (
+            <Placeholder
+                {...props}
+                block
+                height={20}
+                styles={{ cursor: 'pointer' }}
+                title={`Toggle width to ${props.size} columns`}
+                onClick={() => { setCol(props.size); console.log('size', props.size); }}
+            />
+        );
+
         return (
-            <Segment>
-                <Row horizontal="center">
-                    <Col xs={12} sm={col}>
-                        <Card>
-                            <Switch
-                                disabled={disabled}
-                                textSmall={textSmall}
-                                textAlign={textAlign ? 'right' : 'left'}
-                                toggleAlign={toggleAlign ? 'right' : 'left'}>
-                                {text}
-                            </Switch>
-                        </Card>
-                    </Col>
-                </Row>
+            <Segment padding="0" >
+                {(window.innerWidth < 768) ? (null) : (
+                    <Segment padding="0 0 10px">
+                        <Row horizontal="center">
+                            <Col xs={12} sm={2}>
+                                <BreakPointToggle size={12} />
+                            </Col>
+                            <Col xs={12} sm={2}>
+                                <BreakPointToggle size={8} />
+                            </Col>
+                            <Col xs={12} sm={4}>
+                                <BreakPointToggle size={4} />
+                            </Col>
+                            <Col xs={12} sm={2}>
+                                <BreakPointToggle size={8} />
+                            </Col>
+                            <Col xs={12} sm={2}>
+                                <BreakPointToggle size={12} />
+                            </Col>
+                        </Row>
+                    </Segment>
+                )}
 
-                <Segment padding="40px 0">
+                <Segment padding="20px 0">
                     <Row horizontal="center">
-                        <Col xs={12} sm={12} md={9}>
-                            <Segment padding="10px 0">
-                                <Input
-                                    type="text"
-                                    label="Switch Label Text"
-                                    placeholder="Type something..."
-                                    onChange={(e) => setText(e.target.value)}
-                                />
-                            </Segment>
+                        <Col xs={12} sm={col}>
+                            <Card>
+                                <Switch
+                                    disabled={disabled}
+                                    textSmall={textSmall}
+                                    textAlign={textAlign ? 'right' : 'left'}
+                                    toggleAlign={toggleAlign ? 'right' : 'left'}>
+                                    {text}
+                                </Switch>
+                            </Card>
                         </Col>
                     </Row>
 
-                    <Row horizontal="center">
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchToggleAlign"
-                                    value={toggleAlign ? 'right' : 'left'}
-                                    defaultChecked={toggleAlign}
-                                    onChange={(e) => setToggleAlign(e.target.checked ? true : false)}>
-                                    Align toggle at right
-                                </Checkbox>
-                            </Segment>
-                        </Col>
+                    <Segment padding="40px 0">
+                        <Row horizontal="center">
+                            <Col xs={12} sm={12} md={9}>
+                                <Segment padding="10px 0">
+                                    <Input
+                                        type="text"
+                                        label="Switch Label Text"
+                                        placeholder="Type something..."
+                                        value={text}
+                                        onChange={(e) => setText(e.target.value)}
+                                    />
+                                </Segment>
+                            </Col>
+                        </Row>
 
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchTextAlign"
-                                    value={textAlign ? 'right' : 'left'}
-                                    defaultChecked={textAlign}
-                                    onChange={(e) => setTextAlign(e.target.checked ? true : false)}>
-                                    Align text at right
-                                </Checkbox>
-                            </Segment>
-                        </Col>
+                        <Row horizontal="center">
+                            <Col xs={6} sm={6} md={3}>
+                                <Segment padding="10px 0">
+                                    <Checkbox
+                                        id="switchToggleAlign"
+                                        value={toggleAlign ? 'right' : 'left'}
+                                        defaultChecked={toggleAlign}
+                                        onChange={(e) => setToggleAlign(e.target.checked ? true : false)}>
+                                        Align toggle at right
+                                    </Checkbox>
+                                </Segment>
+                            </Col>
 
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchTextSmall"
-                                    value={textSmall ? true : false}
-                                    defaultChecked={textSmall}
-                                    onChange={(e) => setTextSmall(e.target.checked ? true : false)}>
-                                    Text small
-                                </Checkbox>
-                            </Segment>
-                        </Col>
+                            <Col xs={6} sm={6} md={3}>
+                                <Segment padding="10px 0">
+                                    <Checkbox
+                                        id="switchTextAlign"
+                                        value={textAlign ? 'right' : 'left'}
+                                        defaultChecked={textAlign}
+                                        onChange={(e) => setTextAlign(e.target.checked ? true : false)}>
+                                        Align text at right
+                                    </Checkbox>
+                                </Segment>
+                            </Col>
 
-                        <Col xs={6} sm={6} md={3}>
-                            <Segment padding="10px 0">
-                                <Checkbox
-                                    id="switchDisabled"
-                                    value={disabled ? true : false}
-                                    defaultChecked={disabled}
-                                    onChange={(e) => setDisabled(e.target.checked ? true : false)}>
-                                    Disabled
-                                </Checkbox>
-                            </Segment>
-                        </Col>
-                    </Row>
+                            <Col xs={6} sm={6} md={3}>
+                                <Segment padding="10px 0">
+                                    <Checkbox
+                                        id="switchTextSmall"
+                                        value={textSmall ? true : false}
+                                        defaultChecked={textSmall}
+                                        onChange={(e) => setTextSmall(e.target.checked ? true : false)}>
+                                        Text small
+                                    </Checkbox>
+                                </Segment>
+                            </Col>
+
+                            <Col xs={6} sm={6} md={3}>
+                                <Segment padding="10px 0">
+                                    <Checkbox
+                                        id="switchDisabled"
+                                        value={disabled ? true : false}
+                                        defaultChecked={disabled}
+                                        onChange={(e) => setDisabled(e.target.checked ? true : false)}>
+                                        Disabled
+                                    </Checkbox>
+                                </Segment>
+                            </Col>
+                        </Row>
+                    </Segment>
                 </Segment>
             </Segment>
         );
