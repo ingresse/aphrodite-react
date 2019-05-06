@@ -4,14 +4,14 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Helpers */
-import { COLORS, SIZES } from '../../constants';
-import { colors } from '../../utils';
+import { COLORS, SIZES } from '../../../constants';
+import { colors } from '../../../utils';
 
 /* Component Styles */
-const H3Styled = styled.h3`
+const H2Styled = styled.h2`
     font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${props => (SIZES.LG.FONT_SIZE)};
-    line-height: ${props => (SIZES.LG.LINE_HEIGHT)};
+    font-size  : ${props => (SIZES.XL.FONT_SIZE)};
+    line-height: ${props => (SIZES.XL.LINE_HEIGHT)};
 
     padding: 0;
     margin : ${props => props.margin};
@@ -25,31 +25,31 @@ const H3Styled = styled.h3`
 `;
 
 /* Component Itself */
-const H3 = forwardRef((props, ref) => {
+const H2 = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
-        <H3Styled
+        <H2Styled
             {...props}
             ref={ref}
-            className={`aph-h3 ${className || ''}`}
+            className={`aph-h2 ${className || ''}`}
         />
     );
 });
 
 /* Default Properties */
-H3.defaultProps = {
+H2.defaultProps = {
     primary  : false,
     secondary: false,
     bold     : false,
     center   : false,
     upper    : false,
-    margin   : '15px 0 5px',
+    margin   : '25px 0 15px',
     styles   : {},
 };
 
 /* Properties Types */
-H3.propTypes = {
+H2.propTypes = {
     primary  : propTypes.bool,
     secondary: propTypes.bool,
     bold     : propTypes.bool,
@@ -60,4 +60,4 @@ H3.propTypes = {
 };
 
 /* Exporting */
-export default H3;
+export default H2;

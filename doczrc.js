@@ -24,6 +24,7 @@ export default {
         mode  : 'light',
         codemirrorTheme: 'docz-dark',
         radii : '5px',
+        linesToScrollEditor: 50,
         colors: {
             grayExtraLight: colors.get('mercury', 'crystal', 0.5),
             grayLight     : colors.get('mercury', 'crystal'),

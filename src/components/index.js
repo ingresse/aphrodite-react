@@ -4,21 +4,23 @@ export { default as Badge } from './Badge/Badge';
 export { default as Button } from './Button/Button';
 export { default as Card } from './Card/Card';
 export { default as Icon } from './Icons/Icon';
-export { default as H1 } from './H1/H1';
-export { default as H2 } from './H2/H2';
-export { default as H3 } from './H3/H3';
 export { default as Img } from './Img/Img';
 export { default as NumberFormat } from './NumberFormat/NumberFormat';
-export { default as P } from './P/P';
 export { default as Placeholder } from './Placeholder/Placeholder';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as Scrollable } from './Scrollable/Scrollable';
 export { default as Segment } from './Segment/Segment';
 export { default as Table } from './Table/Table';
-export { default as Text } from './P/P';
 export { default as ToastsContainer } from './Toast/ToastsContainer';
 export { default as toast } from './Toast/Toast';
 export { default as Tooltip } from './Tooltip/Tooltip';
+
+/* Typography */
+export { default as H1 } from './Typography/H1/H1';
+export { default as H2 } from './Typography/H2/H2';
+export { default as H3 } from './Typography/H3/H3';
+export { default as P } from './Typography/P/P';
+export { default as Text } from './Typography/P/P';
 
 /* Grid Components */
 export { default as Container } from './Grid/Container';

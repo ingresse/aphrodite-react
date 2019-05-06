@@ -33,24 +33,6 @@ Object.defineProperty(exports, "Icon", {
     return _Icon.default;
   }
 });
-Object.defineProperty(exports, "H1", {
-  enumerable: true,
-  get: function get() {
-    return _H.default;
-  }
-});
-Object.defineProperty(exports, "H2", {
-  enumerable: true,
-  get: function get() {
-    return _H2.default;
-  }
-});
-Object.defineProperty(exports, "H3", {
-  enumerable: true,
-  get: function get() {
-    return _H3.default;
-  }
-});
 Object.defineProperty(exports, "Img", {
   enumerable: true,
   get: function get() {
@@ -61,18 +43,6 @@ Object.defineProperty(exports, "NumberFormat", {
   enumerable: true,
   get: function get() {
     return _NumberFormat.default;
-  }
-});
-Object.defineProperty(exports, "P", {
-  enumerable: true,
-  get: function get() {
-    return _P.default;
-  }
-});
-Object.defineProperty(exports, "Text", {
-  enumerable: true,
-  get: function get() {
-    return _P.default;
   }
 });
 Object.defineProperty(exports, "Placeholder", {
@@ -121,6 +91,36 @@ Object.defineProperty(exports, "Tooltip", {
   enumerable: true,
   get: function get() {
     return _Tooltip.default;
+  }
+});
+Object.defineProperty(exports, "H1", {
+  enumerable: true,
+  get: function get() {
+    return _H.default;
+  }
+});
+Object.defineProperty(exports, "H2", {
+  enumerable: true,
+  get: function get() {
+    return _H2.default;
+  }
+});
+Object.defineProperty(exports, "H3", {
+  enumerable: true,
+  get: function get() {
+    return _H3.default;
+  }
+});
+Object.defineProperty(exports, "P", {
+  enumerable: true,
+  get: function get() {
+    return _P.default;
+  }
+});
+Object.defineProperty(exports, "Text", {
+  enumerable: true,
+  get: function get() {
+    return _P.default;
   }
 });
 Object.defineProperty(exports, "Container", {
@@ -224,17 +224,9 @@ var _Card = _interopRequireDefault(require("./Card/Card"));
 
 var _Icon = _interopRequireDefault(require("./Icons/Icon"));
 
-var _H = _interopRequireDefault(require("./H1/H1"));
-
-var _H2 = _interopRequireDefault(require("./H2/H2"));
-
-var _H3 = _interopRequireDefault(require("./H3/H3"));
-
 var _Img = _interopRequireDefault(require("./Img/Img"));
 
 var _NumberFormat = _interopRequireDefault(require("./NumberFormat/NumberFormat"));
-
-var _P = _interopRequireDefault(require("./P/P"));
 
 var _Placeholder = _interopRequireDefault(require("./Placeholder/Placeholder"));
 
@@ -251,6 +243,14 @@ var _ToastsContainer = _interopRequireDefault(require("./Toast/ToastsContainer")
 var _Toast = _interopRequireDefault(require("./Toast/Toast"));
 
 var _Tooltip = _interopRequireDefault(require("./Tooltip/Tooltip"));
+
+var _H = _interopRequireDefault(require("./Typography/H1/H1"));
+
+var _H2 = _interopRequireDefault(require("./Typography/H2/H2"));
+
+var _H3 = _interopRequireDefault(require("./Typography/H3/H3"));
+
+var _P = _interopRequireDefault(require("./Typography/P/P"));
 
 var _Container = _interopRequireDefault(require("./Grid/Container"));
 
