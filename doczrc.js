@@ -10,6 +10,7 @@ export default {
     dest       : './docs/',
     src        : './src/',
     codeSandbox: false,
+    hashRouter : true,
     htmlContext: {
         head: {
             links: [

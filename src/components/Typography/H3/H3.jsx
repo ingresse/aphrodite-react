@@ -39,24 +39,22 @@ const H3 = forwardRef((props, ref) => {
 
 /* Default Properties */
 H3.defaultProps = {
-    primary  : false,
-    secondary: false,
-    bold     : false,
-    center   : false,
-    upper    : false,
-    margin   : '15px 0 5px',
-    styles   : {},
+    link  : false,
+    bold  : false,
+    center: false,
+    upper : false,
+    margin: '15px 0 5px',
+    styles: {},
 };
 
 /* Properties Types */
 H3.propTypes = {
-    primary  : propTypes.bool,
-    secondary: propTypes.bool,
-    bold     : propTypes.bool,
-    center   : propTypes.bool,
-    upper    : propTypes.bool,
-    margin   : propTypes.string,
-    styles   : propTypes.object,
+    link  : propTypes.bool,
+    bold  : propTypes.bool,
+    center: propTypes.bool,
+    upper : propTypes.bool,
+    margin: propTypes.string,
+    styles: propTypes.object,
 };
 
 /* Exporting */

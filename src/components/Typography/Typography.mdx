@@ -7,9 +7,12 @@ route: /atoms/typography
 import { Playground, Props } from 'docz';
 import { H1, H2, H3, P, Row, Col } from '../';
 
+# Typography
+#### Components to help with text issues.
+
 ---
 
-# H1
+## H1
 #### Title component
 
 ```jsx
@@ -20,10 +23,10 @@ import { H1 } from 'aphrodite-react';
 </H1>
 ```
 
-## Properties
+### Properties
 <Props of={H1} />
 
-## Examples
+### Examples
 <Playground style={{ padding: '20px' }}>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
@@ -51,7 +54,7 @@ import { H1 } from 'aphrodite-react';
 
 ---
 
-# H2
+## H2
 #### Title component
 
 ```jsx
@@ -62,10 +65,10 @@ import { H2 } from 'aphrodite-react';
 </H2>
 ```
 
-## Properties
+### Properties
 <Props of={H2} />
 
-## Examples
+### Examples
 <Playground style={{ padding: '20px' }}>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
@@ -93,7 +96,7 @@ import { H2 } from 'aphrodite-react';
 
 ---
 
-# H3
+## H3
 #### Title component
 
 ```jsx
@@ -104,10 +107,10 @@ import { H3 } from 'aphrodite-react';
 </H3>
 ```
 
-## Properties
+### Properties
 <Props of={H3} />
 
-## Examples
+### Examples
 <Playground style={{ padding: '20px' }}>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
@@ -135,7 +138,7 @@ import { H3 } from 'aphrodite-react';
 
 ---
 
-# P
+## P
 #### Paragraph component
 
 ```jsx
@@ -146,10 +149,10 @@ import { P } from 'aphrodite-react';
 </P>
 ```
 
-## Properties
+### Properties
 <Props of={P} />
 
-## Examples
+### Examples
 <Playground style={{ padding: '20px' }}>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
@@ -167,9 +170,14 @@ import { P } from 'aphrodite-react';
                 upper
             </P>
         </Col>
-        <Col xs={6} sm={12}>
+        <Col xs={6}>
             <P center link>
                 with link appearance
+            </P>
+        </Col>
+        <Col xs={6}>
+            <P center small>
+                small
             </P>
         </Col>
     </Row>

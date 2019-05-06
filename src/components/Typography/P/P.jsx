@@ -39,26 +39,24 @@ const P = forwardRef((props, ref) => {
 
 /* Default Properties */
 P.defaultProps = {
-    primary  : false,
-    secondary: false,
-    bold     : false,
-    center   : false,
-    upper    : false,
-    small    : false,
-    margin   : '10px 0',
-    styles   : {},
+    link  : false,
+    bold  : false,
+    center: false,
+    upper : false,
+    small : false,
+    margin: '10px 0',
+    styles: {},
 };
 
 /* Properties Types */
 P.propTypes = {
-    primary  : propTypes.bool,
-    secondary: propTypes.bool,
-    bold     : propTypes.bool,
-    center   : propTypes.bool,
-    upper    : propTypes.bool,
-    small    : propTypes.bool,
-    margin   : propTypes.string,
-    styles   : propTypes.object,
+    link  : propTypes.bool,
+    bold  : propTypes.bool,
+    center: propTypes.bool,
+    upper : propTypes.bool,
+    small : propTypes.bool,
+    margin: propTypes.string,
+    styles: propTypes.object,
 };
 
 /* Exporting */
