@@ -9,7 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _constants = require("../../constants");
+var _utils = require("../../utils");
 
 var _ = require("../");
 
@@ -70,12 +70,15 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
   /* Custom Styles */
 
 
-  var headerStyles = {
+  var headerStyles = Object.assign({
     margin: 0,
-    padding: 0,
+    padding: headerProps && headerProps.lg ? '5px 0' : 0,
     cursor: 'pointer',
-    color: disabled ? _constants.COLORS.DARK_GREY : _constants.COLORS.PRIMARY
-  };
+    color: _utils.colors.get(disabled ? 'mercury' : 'secondary')
+  }, headerProps && headerProps.styles ? headerProps.styles : {});
+  /* Header Title */
+
+  var HeaderTitle = headerProps && headerProps.lg ? _.H2 : _.H3;
   /**
    * Handle with Collapsible Opening event
    */
@@ -159,7 +162,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     }, props.styles, !opened ? {} : {
       padding: '10px 10px 0'
     })
-  }), !header ? null : _react.default.createElement(_.H3, _extends({}, headerProps, {
+  }), !header ? null : _react.default.createElement(HeaderTitle, _extends({}, headerProps, {
     styles: headerStyles,
     onClick: toggle,
     role: "button"
@@ -177,7 +180,9 @@ Collapsible.defaultProps = {
   opened: false,
   delay: 0.25,
   styles: {},
-  childrenStyles: {}
+  childrenStyles: {},
+  header: '',
+  headerProps: null
 };
 /* Properties Types */
 
@@ -185,7 +190,9 @@ Collapsible.propTypes = {
   opened: _propTypes.default.bool,
   delay: _propTypes.default.number,
   styles: _propTypes.default.object,
-  childrenStyles: _propTypes.default.object
+  childrenStyles: _propTypes.default.object,
+  header: _propTypes.default.any,
+  headerProps: _propTypes.default.object
 };
 /* Exporting */
 

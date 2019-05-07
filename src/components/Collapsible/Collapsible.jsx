@@ -3,10 +3,10 @@ import React, { forwardRef, useState, useRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Utils */
-import { COLORS } from '../../constants';
+import { colors } from '../../utils';
 
 /* Composition Components */
-import { H3, Card } from '../';
+import { H2, H3, Card } from '../';
 
 /* Component Styles */
 import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
@@ -31,12 +31,15 @@ const Collapsible = forwardRef((props, ref) => {
     );
 
     /* Custom Styles */
-    const headerStyles = {
+    const headerStyles = Object.assign({
         margin : 0,
-        padding: 0,
+        padding: ((headerProps && headerProps.lg) ? '5px 0' : 0),
         cursor : 'pointer',
-        color  : disabled ? COLORS.DARK_GREY : COLORS.PRIMARY
-    };
+        color  : colors.get(disabled ? 'mercury' : 'secondary'),
+    }, headerProps && headerProps.styles ? headerProps.styles : {});
+
+    /* Header Title */
+    const HeaderTitle = (headerProps && headerProps.lg ? H2 : H3);
 
     /**
      * Handle with Collapsible Opening event
@@ -123,7 +126,8 @@ const Collapsible = forwardRef((props, ref) => {
     }
 
     return (
-        <Card {...props}
+        <Card
+            {...props}
             ref={ref}
             className={`aph-collapsible ${opened ? 'active' : ''}`}
             styles={Object.assign(
@@ -137,12 +141,13 @@ const Collapsible = forwardRef((props, ref) => {
                 }
             )}>
             {!header ? null : (
-                <H3 {...headerProps}
+                <HeaderTitle
+                    {...headerProps}
                     styles={headerStyles}
                     onClick={toggle}
                     role="button">
                     {header}
-                </H3>
+                </HeaderTitle>
             )}
 
             <CollapsibleChildrenStyled
@@ -161,6 +166,9 @@ Collapsible.defaultProps = {
     delay         : 0.25,
     styles        : {},
     childrenStyles: {},
+
+    header     : '',
+    headerProps: null,
 };
 
 /* Properties Types */
@@ -169,6 +177,9 @@ Collapsible.propTypes = {
     delay         : propTypes.number,
     styles        : propTypes.object,
     childrenStyles: propTypes.object,
+
+    header     : propTypes.any,
+    headerProps: propTypes.object,
 };
 
 /* Exporting */
