@@ -67,6 +67,13 @@ var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
 
   var styles = "\n        height: 50px;\n        cursor: pointer;\n    ";
   /**
+   * Trigger
+   */
+
+  (0, _react.useEffect)(function () {
+    setHasValue(value ? true : false);
+  }, [value]);
+  /**
    * Handle with input changes
    *
    * @param {object} evt - input change synthetic event

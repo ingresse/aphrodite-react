@@ -73,11 +73,18 @@ var Input = (0, _react.forwardRef)(function (props, ref) {
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
   /**
+   * Trigger
+   */
+
+
+  (0, _react.useEffect)(function () {
+    setHasValue(value ? true : false);
+  }, [value]);
+  /**
    * Handle with input changes
    *
    * @param {object} evt - input change synthetic event
    */
-
 
   function handleChange(evt) {
     var target = evt.target;

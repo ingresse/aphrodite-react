@@ -1,5 +1,5 @@
 /* Packages */
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
@@ -64,6 +64,13 @@ const FormControlTextArea = forwardRef((props, ref) => {
 
         ${props => props.styles};
     `;
+
+    /**
+     * Trigger
+     */
+    useEffect(() => {
+        setHasValue(value ? true : false);
+    }, [ value ]);
 
     /**
      * Handle with input changes

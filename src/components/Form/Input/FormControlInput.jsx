@@ -54,6 +54,13 @@ const Input = forwardRef((props, ref) => {
     const [hasValue, setHasValue] = useState(value ? true : false);
 
     /**
+     * Trigger
+     */
+    useEffect(() => {
+        setHasValue(value ? true : false);
+    }, [ value ]);
+
+    /**
      * Handle with input changes
      *
      * @param {object} evt - input change synthetic event

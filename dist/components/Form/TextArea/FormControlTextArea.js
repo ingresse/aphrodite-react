@@ -60,6 +60,13 @@ var FormControlTextArea = (0, _react.forwardRef)(function (props, ref) {
     return props.styles;
   }, ";\n    ");
   /**
+   * Trigger
+   */
+
+  (0, _react.useEffect)(function () {
+    setHasValue(value ? true : false);
+  }, [value]);
+  /**
    * Handle with input changes
    *
    * @param {object} evt - input change synthetic event

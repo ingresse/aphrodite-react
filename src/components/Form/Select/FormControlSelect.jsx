@@ -1,5 +1,5 @@
 /* Packages */
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 
 /* Framework Definitions */
@@ -41,6 +41,13 @@ const FormControlSelect = forwardRef((props, ref) => {
         height: 50px;
         cursor: pointer;
     `;
+
+    /**
+     * Trigger
+     */
+    useEffect(() => {
+        setHasValue(value ? true : false);
+    }, [ value ]);
 
     /**
      * Handle with input changes
