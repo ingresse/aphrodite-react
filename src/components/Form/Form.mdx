@@ -6,16 +6,10 @@ route: /organisms/form
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Input, Checkbox, Select, TextArea, Switch, Card, Segment, Placeholder, Row, Col } from '../';
+import { Input, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
 
 # Form
-#### Simple form components
-
-```jsx
-import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
-...
-<Input type="text" ... />
-```
+#### Form components
 
 ---
 
@@ -23,24 +17,6 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
 <Props of={Input} />
 
 ### Examples
-<Playground>
-    <Row>
-        <Col xs={6} styles={{ margin: '10px 0' }}>
-            <Checkbox
-                type="checkbox"
-                id="ExampleCheckbox">
-                regular checkbox
-            </Checkbox>
-        </Col>
-        <Col xs={6} styles={{ margin: '10px 0' }}>
-            <Checkbox
-                id="ExampleCheckboxRight"
-                right>
-                aligned checkbox
-            </Checkbox>
-        </Col>
-    </Row>
-</Playground>
 
 <Playground>
     <Input
@@ -94,12 +70,29 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
     <Input
         type="text"
         id="ExampleInputErrorWithMsg"
-        value="With error"
+        value="With error and disabled"
         label="Field Label"
         placeholder="Field Placeholder"
         error
         errorMessage="And with error message"
         disabled
+    />
+</Playground>
+
+---
+
+## Input Currency
+#### Simple customization of awesome [react-currency-input](https://github.com/jsillitoe/react-currency-input) component.
+
+<Props of={InputCurrency} />
+
+### Examples
+
+<Playground>
+    <InputCurrency
+        id="ExampleInputCurrency"
+        label="Field Label"
+        value={0}
     />
 </Playground>
 
@@ -134,13 +127,36 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
 
 ---
 
+## Checkbox
+<Props of={Checkbox} />
+
+### Examples
+<Playground>
+    <Row>
+        <Col xs={6} styles={{ margin: '10px 0' }}>
+            <Checkbox
+                id="ExampleCheckbox">
+                regular checkbox
+            </Checkbox>
+        </Col>
+        <Col xs={6} styles={{ margin: '10px 0' }}>
+            <Checkbox
+                id="ExampleCheckboxRight"
+                right>
+                aligned checkbox
+            </Checkbox>
+        </Col>
+    </Row>
+</Playground>
+
+---
+
 ## Switch
 <Props of={Switch} />
 
 ### Example
 <Playground>
     {() => {
-
         const [ col, setCol ]                 = useState(4);
         const [ text, setText ]               = useState('Switch Text');
         const [ disabled, setDisabled ]       = useState(false);
@@ -155,7 +171,7 @@ import { Input, Checkbox, Select, TextArea } from 'aphrodite-react';
                 height={20}
                 styles={{ cursor: 'pointer' }}
                 title={`Toggle width to ${props.size} columns`}
-                onClick={() => { setCol(props.size); console.log('size', props.size); }}
+                onClick={() => setCol(props.size)}
             />
         );
 

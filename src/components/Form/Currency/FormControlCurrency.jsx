@@ -1,85 +1,60 @@
-/* Packages */
+/* Core Packages */
 import React, { forwardRef, useState } from 'react';
 import propTypes from 'prop-types';
-
-/* Framework Definitions */
-import { SIZES } from '../../../constants';
-import { colors } from '../../../utils';
-
-/* Components Helpers */
-import IconArrowDown from '../../Icons/IconArrowDown';
+import CurrencyInput from 'react-currency-input';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
 import AphFormControlLabelStyled    from '../FormControlLabelStyled';
 import AphFormControlStyled         from '../FormControlStyled';
-import AphFormControlButtonStyled   from '../FormControlButtonStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Styled */
-const AphFormControlSelect = AphFormControlStyled.withComponent('select');
+const AphFormControlCurrency = AphFormControlStyled.withComponent(CurrencyInput);
 
 /* Component Itself */
-const FormControlSelect = forwardRef((props, ref) => {
+const FormControlCurrency = forwardRef((props, ref) => {
     const {
         id,
         className,
         label,
         labelProps,
-        placeholder,
-        value,
         onChange,
-        type,
         btn,
         error,
         errorMessage,
-        color,
     } = props;
-
-    const [hasValue, setHasValue] = useState(value ? true : false);
-    const styles                  = `
-        height: 50px;
-        cursor: pointer;
-    `;
 
     /**
      * Handle with input changes
      *
-     * @param {object} evt - input change synthetic event
+     * @param {object} evt         - input change synthetic event
+     * @param {string} maskedValue - input masked value
+     * @param {string} floatValue  - input float value
      */
-    function handleChange(evt) {
-        const { target } = evt;
-        const inputValue = target.value;
-
-        setHasValue(inputValue ? true : false);
-
+    function handleChange(evt, maskedValue, floatValue) {
         if (typeof onChange === 'function') {
-            onChange(Object.assign({}, evt));
+            onChange(floatValue, maskedValue);
         }
     }
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlSelect
+            <AphFormControlCurrency
                 {...props}
                 ref={ref}
-                onChange={handleChange}
-                styles={Object.assign({}, styles, props.styles)}
+                onChange={() => {}}
+                onChangeEvent={handleChange}
+                className={`aph-form-control ${className || ''}`}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled
                     {...labelProps}
                     htmlFor={id}
-                    className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
+                    className="aph-form-label aph-form-label--top">
                     {label}
                 </AphFormControlLabelStyled>
             )}
-            <AphFormControlButtonStyled type="button">
-                <IconArrowDown
-                    size={30}
-                    color={colors.get('black')}
-                />
-            </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled
                 htmlFor={id}
                 styles={!errorMessage ? null : { maxHeight: '600px' }}
@@ -91,20 +66,37 @@ const FormControlSelect = forwardRef((props, ref) => {
 });
 
 /* Default Properties */
-FormControlSelect.defaultProps = {
+FormControlCurrency.defaultProps = {
     id    : `formControlRandomID${Math.random()}`,
     label : '',
     btn   : null,
     styles: {},
+
+    inputType        : 'tel',
+    thousandSeparator: '.',
+    decimalSeparator : ',',
+    prefix           : 'R$ ',
+    value            : 0,
+    precision        : 2,
+    allowNegative    : false,
 };
 
 /* Properties Types */
-FormControlSelect.propTypes = {
+FormControlCurrency.propTypes = {
     id    : propTypes.string.isRequired,
     label : propTypes.string,
     btn   : propTypes.object,
-    styles: propTypes.any,
+    styles: propTypes.object,
+    type  : propTypes.string,
+
+    thousandSeparator: propTypes.string,
+    decimalSeparator : propTypes.string,
+    displayType      : propTypes.string,
+    prefix           : propTypes.string,
+    value            : propTypes.number,
+    precision        : propTypes.number,
+    allowNegative    : propTypes.bool,
 };
 
 /* Exporting */
-export default FormControlSelect;
+export default FormControlCurrency;

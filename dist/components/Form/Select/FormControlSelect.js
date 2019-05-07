@@ -86,10 +86,10 @@ var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
     ref: ref,
     onChange: handleChange,
     styles: Object.assign({}, styles, props.styles)
-  })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, {
+  })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }, label), _react.default.createElement(_FormControlButtonStyled.default, {
+  }), label), _react.default.createElement(_FormControlButtonStyled.default, {
     type: "button"
   }, _react.default.createElement(_IconArrowDown.default, {
     size: 30,

@@ -45,6 +45,7 @@ var ruby = getShadesFormat('rgb(230, 38, 39)', 'rgb(239, 60, 62)', 'rgb(245, 83,
 var supernova = getShadesFormat('rgb(141, 77, 156)', 'rgb(172, 108, 184)', 'rgb(198, 138, 207)', 'rgb(234, 218, 237)');
 var mint = getShadesFormat('rgb(38, 168, 134)', 'rgb(60, 194, 165)', 'rgb(83, 215, 192)', 'rgb(206, 239, 232)');
 var oil = getShadesFormat('rgb(27, 27, 27)', 'rgb(45, 45, 45)', 'rgb(64, 64, 64)', 'rgb(202, 202, 202)');
+var translucid = getShadesFormat('rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)');
 var shades = {
   tangerine: tangerine,
   ocean: ocean,
@@ -54,7 +55,20 @@ var shades = {
   ruby: ruby,
   supernova: supernova,
   mint: mint,
-  oil: oil
+  oil: oil,
+  translucid: translucid
+};
+/**
+ * Colors Alias
+ */
+
+var alias = {
+  primary: Object.assign({}, tangerine),
+  secondary: Object.assign({}, ocean),
+  info: Object.assign({}, supernova),
+  success: Object.assign({}, bamboo),
+  warning: Object.assign({}, sunflower),
+  error: Object.assign({}, ruby)
 };
 /**
  * Default Colors
@@ -70,27 +84,23 @@ var stock = {
   supernova: supernova.original,
   mint: mint.original,
   oil: oil.original,
+  primary: tangerine.original,
+  secondary: ocean.original,
+  info: supernova.original,
+  success: bamboo.original,
+  warning: sunflower.original,
+  error: ruby.original,
+  translucid: translucid.original,
   smoke: 'rgb(248, 248, 248)',
   white: 'rgb(255, 255, 255)',
   black: 'rgb(0, 0, 0)'
-};
-/**
- * Colors Alias
- */
-
-var alias = {
-  primary: Object.assign({}, tangerine),
-  secondary: Object.assign({}, ocean),
-  info: Object.assign({}, supernova),
-  success: Object.assign({}, bamboo),
-  warning: Object.assign({}, sunflower),
-  error: Object.assign({}, ruby)
 };
 /**
  * All Colors
  */
 
 var all = _objectSpread({
+  alias: alias,
   shades: _objectSpread({}, shades, alias)
 }, stock);
 /**
@@ -99,7 +109,7 @@ var all = _objectSpread({
  * @param {number} opacity - between 0 and 1;
  * @param {string} color   - any rgb/rgba color;
  *
- * @param {string} RGBA Color
+ * @return {string} RGBA Color
  */
 
 
@@ -129,7 +139,10 @@ var get = function get() {
   var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'primary';
   var shade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'original';
   var opacity = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-  var selected = all.shades[color] ? all.shades[color][shade] : all[color];
+
+  var _color = (color + '').toLowerCase();
+
+  var selected = all.shades[_color] ? all.shades[_color][shade] : all[_color];
 
   if (typeof color !== 'string' || !selected) {
     return getOpacity(opacity);
@@ -155,19 +168,19 @@ var colors = _objectSpread({}, all, {
  * @param {string} shadeLight
  * @param {string} shadeCrystal
  *
- * @param {boolean} Operation Status
+ * @param {object} colors
  */
 
 
 var set = function set(colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) {
   if (typeof colorKey !== 'string' || typeof shadeDark !== 'string' || typeof shadeOriginal !== 'string' || typeof shadeLight !== 'string' || typeof shadeCrystal !== 'string') {
-    return false;
+    return colors;
   }
 
   colors = _objectSpread({}, colors, {
     shades: _objectSpread({}, colors.shades, _defineProperty({}, colorKey, getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal)))
   });
-  return true;
+  return colors;
 };
 /**
  * Colors reference override

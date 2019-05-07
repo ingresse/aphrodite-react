@@ -33,21 +33,21 @@ const tangerine = getShadesFormat(
     'rgb(254, 232, 195)'
 );
 
-const ocean     = getShadesFormat(
+const ocean = getShadesFormat(
     'rgb(0, 134, 201)',
     'rgb(0, 165, 219)',
     'rgb(0, 192, 232)',
     'rgb(191, 232, 246)'
 );
 
-const mercury   = getShadesFormat(
+const mercury = getShadesFormat(
     'rgb(90, 96, 101)',
     'rgb(122, 128, 133)',
     'rgb(152, 159, 163)',
     'rgb(221, 223, 224)'
 );
 
-const bamboo    = getShadesFormat(
+const bamboo = getShadesFormat(
     'rgb(66, 173, 60)',
     'rgb(96, 198, 89)',
     'rgb(126, 218, 118)',
@@ -61,7 +61,7 @@ const sunflower = getShadesFormat(
     'rgb(255, 240, 198)'
 );
 
-const ruby      = getShadesFormat(
+const ruby = getShadesFormat(
     'rgb(230, 38, 39)',
     'rgb(239, 60, 62)',
     'rgb(245, 83, 86)',
@@ -75,18 +75,25 @@ const supernova = getShadesFormat(
     'rgb(234, 218, 237)'
 );
 
-const mint      = getShadesFormat(
+const mint = getShadesFormat(
     'rgb(38, 168, 134)',
     'rgb(60, 194, 165)',
     'rgb(83, 215, 192)',
     'rgb(206, 239, 232)'
 );
 
-const oil       = getShadesFormat(
+const oil = getShadesFormat(
     'rgb(27, 27, 27)',
     'rgb(45, 45, 45)',
     'rgb(64, 64, 64)',
     'rgb(202, 202, 202)'
+);
+
+const translucid = getShadesFormat(
+    'rgba(255, 255, 255, 0.1)',
+    'rgba(255, 255, 255, 0.2)',
+    'rgba(255, 255, 255, 0.3)',
+    'rgba(255, 255, 255, 0.1)',
 );
 
 let shades = {
@@ -99,26 +106,7 @@ let shades = {
     supernova,
     mint,
     oil,
-};
-
-
-/**
- * Default Colors
- */
-let stock = {
-    tangerine: tangerine.original,
-    ocean    : ocean.original,
-    mercury  : mercury.original,
-    bamboo   : bamboo.original,
-    sunflower: sunflower.original,
-    ruby     : ruby.original,
-    supernova: supernova.original,
-    mint     : mint.original,
-    oil      : oil.original,
-
-    smoke    : 'rgb(248, 248, 248)',
-    white    : 'rgb(255, 255, 255)',
-    black    : 'rgb(0, 0, 0)',
+    translucid,
 };
 
 
@@ -137,9 +125,41 @@ let alias = {
 
 
 /**
+ * Default Colors
+ */
+let stock = {
+    tangerine: tangerine.original,
+    ocean    : ocean.original,
+    mercury  : mercury.original,
+    bamboo   : bamboo.original,
+    sunflower: sunflower.original,
+    ruby     : ruby.original,
+    supernova: supernova.original,
+    mint     : mint.original,
+    oil      : oil.original,
+
+    primary  : tangerine.original,
+    secondary: ocean.original,
+
+    info   : supernova.original,
+    success: bamboo.original,
+    warning: sunflower.original,
+    error  : ruby.original,
+
+    translucid: translucid.original,
+
+    smoke: 'rgb(248, 248, 248)',
+    white: 'rgb(255, 255, 255)',
+    black: 'rgb(0, 0, 0)',
+};
+
+
+/**
  * All Colors
  */
 let all = {
+    alias : alias,
+
     shades: {
         ...shades,
         ...alias,
@@ -154,7 +174,7 @@ let all = {
  * @param {number} opacity - between 0 and 1;
  * @param {string} color   - any rgb/rgba color;
  *
- * @param {string} RGBA Color
+ * @return {string} RGBA Color
  */
 const getOpacity = (opacity = 1, color = all.shades.mercury.original) => {
     const opacityToReplace = (!isNaN(opacity) && (opacity > 0 && opacity < 1) ? `, ${opacity})` : '');
@@ -177,7 +197,8 @@ const getOpacity = (opacity = 1, color = all.shades.mercury.original) => {
  * @return {string} RGBA Color
  */
 const get = (color = 'primary', shade = 'original', opacity = 1) => {
-    const selected = (all.shades[color] ? all.shades[color][shade] : all[color]);
+    const _color   = (color + '').toLowerCase();
+    const selected = (all.shades[_color] ? all.shades[_color][shade] : all[_color]);
 
     if (typeof color !== 'string' || !selected) {
         return getOpacity(opacity);
@@ -207,7 +228,7 @@ let colors = {
  * @param {string} shadeLight
  * @param {string} shadeCrystal
  *
- * @param {boolean} Operation Status
+ * @param {object} colors
  */
 const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
     if (typeof colorKey !== 'string' ||
@@ -215,7 +236,7 @@ const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
         typeof shadeOriginal !== 'string' ||
         typeof shadeLight !== 'string' ||
         typeof shadeCrystal !== 'string') {
-        return false;
+        return colors;
     }
 
     colors = {
@@ -227,7 +248,7 @@ const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
         },
     };
 
-    return true;
+    return colors;
 };
 
 

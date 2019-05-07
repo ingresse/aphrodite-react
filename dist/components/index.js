@@ -189,6 +189,12 @@ Object.defineProperty(exports, "Input", {
     return _FormControlInput.default;
   }
 });
+Object.defineProperty(exports, "InputCurrency", {
+  enumerable: true,
+  get: function get() {
+    return _FormControlCurrency.default;
+  }
+});
 Object.defineProperty(exports, "Checkbox", {
   enumerable: true,
   get: function get() {
@@ -271,6 +277,8 @@ var _Accordion = _interopRequireDefault(require("./Accordion/Accordion"));
 var _Collapsible = _interopRequireDefault(require("./Collapsible/Collapsible"));
 
 var _FormControlInput = _interopRequireDefault(require("./Form/Input/FormControlInput"));
+
+var _FormControlCurrency = _interopRequireDefault(require("./Form/Currency/FormControlCurrency"));
 
 var _FormControlCheckbox = _interopRequireDefault(require("./Form/Checkbox/FormControlCheckbox"));
 

@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 
 /* Component Variations */
 import Checkbox from '../Checkbox/FormControlCheckbox';
+import Currency from '../Currency/FormControlCurrency';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
@@ -15,6 +16,25 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Itself */
 const Input = forwardRef((props, ref) => {
+    if (type === 'checkbox') {
+        return (
+            <Checkbox
+                {...props}
+                color={props.error ? 'error' : props.color}
+                ref={ref}
+            />
+        );
+    }
+
+    if (type === 'currency') {
+        return (
+            <Currency
+                {...props}
+                ref={ref}
+            />
+        );
+    }
+
     const {
         id,
         className,
@@ -31,18 +51,7 @@ const Input = forwardRef((props, ref) => {
         color,
     } = props;
 
-    const inputId = `${id || 'formControl'}`;
     const [hasValue, setHasValue] = useState(value ? true : false);
-
-    if (type === 'checkbox') {
-        return (
-            <Checkbox
-                {...props}
-                color={error ? 'error' : color}
-                id={inputId}
-            />
-        );
-    }
 
     /**
      * Handle with input changes
@@ -67,13 +76,13 @@ const Input = forwardRef((props, ref) => {
             <AphFormControlStyled
                 {...props}
                 ref={ref}
-                id={inputId}
                 onChange={handleChange}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled
-                    htmlFor={inputId}
+                    {...labelProps}
+                    htmlFor={id}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
                 </AphFormControlLabelStyled>
@@ -85,7 +94,7 @@ const Input = forwardRef((props, ref) => {
                 />
             )}
             <AphFormControlErrorMsgStyled
-                htmlFor={inputId}
+                htmlFor={id}
                 styles={!errorMessage ? null : { maxHeight: '600px' }}
                 className="aph-form-error">
                 {errorMessage || ''}

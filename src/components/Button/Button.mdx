@@ -1,11 +1,12 @@
 ---
 name : Button
 menu : Atoms
-route: /components/button
+route: /atoms/button
 ---
 
 import { Playground, Props } from 'docz';
-import { Button } from '../';
+import { Button, Container, Segment, Row, Col } from '../';
+import { colors } from '../../utils';
 
 # Button
 #### Button styled with Aphrodite definitions.
@@ -18,88 +19,171 @@ import { Button } from 'aphrodite-react';
 ## Properties
 <Props of={Button} />
 
-## Sizes
+---
+
+## Regular
 
 <Playground>
-    <Button>
-        Regular
-    </Button>
-    <Button size="sm">
-        Smaller
-    </Button>
-    <Button size="xs">
-        Extra Smaller
-    </Button>
+    <Segment styles={{ textAlign: 'center' }}>
+        <Button>
+            Hello
+        </Button>
+    </Segment>
 </Playground>
 
-## Color
+---
+
+## Small
 
 <Playground>
-    <Button color="warning">
-        Warning
-    </Button>
-    <Button color="secondary">
-        Secondary
-    </Button>
-    <Button color="error">
-        Error
-    </Button>
-    <Button color="primary">
-        Primary
-    </Button>
-    <Button color="success">
-        Success
-    </Button>
-    <Button color="black">
-        Black
-    </Button>
-    <Button color="white">
-        White
-    </Button>
+    <Segment styles={{ textAlign: 'center' }}>
+        <Button small>
+            Hello
+        </Button>
+    </Segment>
 </Playground>
 
-## Bordered
+---
+
+## Basic Colors
 
 <Playground>
-    <Button bordered color="warning">
-        Warning
-    </Button>
-    <Button bordered color="secondary">
-        Secondary
-    </Button>
-    <Button bordered color="error">
-        Error
-    </Button>
-    <Button bordered color="primary">
-        Primary
-    </Button>
-    <Button bordered color="success">
-        Success
-    </Button>
-    <Button bordered color="black">
-        Black
-    </Button>
-    <Button bordered color="white">
-        White
-    </Button>
+    <Row horizontal="center">
+        <Col xs={6} sm={4} md={3}>
+            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('info') }}>
+                <Button block margin="10px 0" color="black">
+                    black
+                </Button>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={4} md={3}>
+            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('secondary') }}>
+                <Button block margin="10px 0" color="white">
+                    white
+                </Button>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={4} md={3}>
+            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('success') }}>
+                <Button block margin="10px 0" color="smoke">
+                    smoke
+                </Button>
+            </Segment>
+        </Col>
+    </Row>
 </Playground>
 
-## Roundend & Customized Radius
+---
+
+## Colors Alias
 
 <Playground>
-    <Button rounded>
-        Rounded
-    </Button>
-    <Button radius>
-        Reset Radius
-    </Button>
-    <Button radius="12px">
-        Custom Radius
-    </Button>
-    <Button radius={6}>
-        Custom Radius
-    </Button>
+    {() => {
+        const colorsAlias = Object.keys(colors.alias);
+
+        return (
+            <Row horizontal="center" vertical="middle">
+                {colorsAlias.map((colorKey) => (
+                    <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                        <Button block margin="10px 0" color={colorKey}>
+                            {colorKey}
+                        </Button>
+                        <Button block small margin="10px 0" color={colorKey}>
+                            {colorKey}
+                        </Button>
+                    </Col>
+                ))}
+            </Row>
+        );
+    }}
 </Playground>
+
+---
+
+## Colors Shades
+
+<Playground>
+    {() => {
+        const colorsShades   = Object.keys(colors.shades);
+        const colorsExcluded = [
+            'primary',
+            'secondary',
+            'info',
+            'success',
+            'warning',
+            'error',
+            'translucid',
+        ];
+
+        return (
+            <Row horizontal="center">
+                {colorsShades.map((colorKey) => {
+                    if (colorsExcluded.includes(colorKey)) {
+                        return (null)
+                    }
+
+                    return (
+                        <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                            <Button block margin="10px 0" color={colorKey}>
+                                {colorKey}
+                            </Button>
+                            <Button block small margin="10px 0" color={colorKey}>
+                                {colorKey}
+                            </Button>
+                        </Col>
+                    );
+                })}
+            </Row>
+        );
+    }}
+</Playground>
+
+---
+
+## Translucid
+
+<Playground>
+    <Row horizontal="center">
+        <Col xs={6} sm={4} md={3}>
+            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('success') }}>
+                <Button block margin="10px 0" color="translucid">
+                    translucid
+                </Button>
+            </Segment>
+        </Col>
+    </Row>
+</Playground>
+
+---
+
+## Customized Radius
+
+<Playground>
+    <Row horizontal="center">
+        <Col xs={6} sm={3}>
+            <Button block margin="10px 0">
+                Regular Radius
+            </Button>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Button block margin="10px 0" radius="12px">
+                Custom Radius
+            </Button>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Button block margin="10px 0" radius={6}>
+                Custom Radius
+            </Button>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Button block margin="10px 0" radius="0">
+                Reset Radius
+            </Button>
+        </Col>
+    </Row>
+</Playground>
+
+---
 
 ## Block
 
@@ -109,15 +193,15 @@ import { Button } from 'aphrodite-react';
     </Button>
 </Playground>
 
+---
+
 ## Disabled
 Ignore `color` attribute
 
-
 <Playground>
-    <Button color="black" disabled>
-        Regular Disabled
-    </Button>
-    <Button color="red" bordered disabled>
-        Bordered Disabled
-    </Button>
+    <Segment styles={{ textAlign: 'center' }}>
+        <Button color="success" disabled>
+            Disabled
+        </Button>
+    </Segment>
 </Playground>
