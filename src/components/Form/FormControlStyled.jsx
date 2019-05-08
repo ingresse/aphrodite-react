@@ -69,6 +69,14 @@ const FormControlStyled = styled.input`
 
         color           : ${colors.get('mercury')};
         background-color: ${colors.get('mercury', 'crystal')};
+
+        &:hover,
+        &:active,
+        &:focus {
+            + .aph-form-label {
+                color: ${colors.get('mercury')};
+            }
+        }
     }
 
     &.aph-form-control--middle {
@@ -80,6 +88,14 @@ const FormControlStyled = styled.input`
 
         + .aph-form-label {
             color: ${colors.get('error')};
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            + .aph-form-label {
+                color: ${colors.get('error')};
+            }
         }
     `}
 

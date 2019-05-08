@@ -40,7 +40,8 @@ export { default as Collapsible } from './Collapsible/Collapsible';
 
 /* Form Components */
 export { default as Input } from './Form/Input/FormControlInput';
-export { default as InputCurrency } from './Form/Currency/FormControlCurrency';
+export { default as InputCurrency } from './Form/InputCurrency/FormControlInputCurrency';
+export { default as InputNumber } from './Form/InputNumber/FormControlInputNumber';
 export { default as Checkbox } from './Form/Checkbox/FormControlCheckbox';
 export { default as Select } from './Form/Select/FormControlSelect';
 export { default as TextArea } from './Form/TextArea/FormControlTextArea';

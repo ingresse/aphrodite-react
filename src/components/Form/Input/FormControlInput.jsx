@@ -5,7 +5,8 @@ import styled from '@emotion/styled';
 
 /* Component Variations */
 import Checkbox from '../Checkbox/FormControlCheckbox';
-import Currency from '../Currency/FormControlCurrency';
+import InputNumber from '../InputNumber/FormControlInputNumber';
+import InputCurrency from '../InputCurrency/FormControlInputCurrency';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
@@ -26,9 +27,18 @@ const Input = forwardRef((props, ref) => {
         );
     }
 
+    if (type === 'number') {
+        return (
+            <InputNumber
+                {...props}
+                ref={ref}
+            />
+        );
+    }
+
     if (type === 'currency') {
         return (
-            <Currency
+            <InputCurrency
                 {...props}
                 ref={ref}
             />
@@ -51,7 +61,7 @@ const Input = forwardRef((props, ref) => {
         color,
     } = props;
 
-    const [hasValue, setHasValue] = useState(value ? true : false);
+    const [ hasValue, setHasValue ] = useState(value ? true : false);
 
     /**
      * Trigger
@@ -72,7 +82,7 @@ const Input = forwardRef((props, ref) => {
         setHasValue(inputValue ? true : false);
 
         if (typeof onChange === 'function') {
-            onChange(Object.assign({}, evt));
+            onChange(Object.assign({}, evt), inputValue);
         }
     }
 

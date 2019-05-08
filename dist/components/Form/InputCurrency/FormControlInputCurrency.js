@@ -26,21 +26,30 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 /* Component Styled */
-var AphFormControlCurrency = _FormControlStyled.default.withComponent(_reactCurrencyInput.default, {
-  target: "e1d8mnui0"
+var AphFormControlInputCurrency = _FormControlStyled.default.withComponent(_reactCurrencyInput.default, {
+  target: "e10gb5eb0"
 });
 /* Component Itself */
 
 
-var FormControlCurrency = (0, _react.forwardRef)(function (props, ref) {
+var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
       labelProps = props.labelProps,
+      placeholder = props.placeholder,
+      value = props.value,
       onChange = props.onChange,
-      btn = props.btn,
       error = props.error,
       errorMessage = props.errorMessage;
+  /* Inherit Props */
+
+  var inheritProps = Object.assign({}, props);
+  var excludedProps = ['label', 'labelProps', 'errorMessage'];
+  excludedProps.map(function (excludedProp) {
+    delete inheritProps[excludedProp];
+    return true;
+  });
   /**
    * Handle with input changes
    *
@@ -51,12 +60,13 @@ var FormControlCurrency = (0, _react.forwardRef)(function (props, ref) {
 
   function handleChange(evt, maskedValue, floatValue) {
     if (typeof onChange === 'function') {
-      onChange(floatValue, maskedValue);
+      onChange(Object.assign({}, evt), floatValue, maskedValue);
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlCurrency, _extends({}, props, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlInputCurrency, _extends({}, inheritProps, {
     ref: ref,
+    error: error ? 'true' : null,
     onChange: function onChange() {},
     onChangeEvent: handleChange,
     className: "aph-form-control ".concat(className || '')
@@ -73,22 +83,23 @@ var FormControlCurrency = (0, _react.forwardRef)(function (props, ref) {
 });
 /* Default Properties */
 
-FormControlCurrency.defaultProps = {
-  id: "formControlRandomID".concat(Math.random()),
+FormControlInputNumber.defaultProps = {
+  id: '',
   label: '',
   btn: null,
   styles: {},
   inputType: 'tel',
   thousandSeparator: '.',
   decimalSeparator: ',',
-  prefix: 'R$ ',
+  prefix: 'R$',
   value: 0,
   precision: 2,
-  allowNegative: false
+  allowEmpty: true,
+  allowNegative: true
 };
 /* Properties Types */
 
-FormControlCurrency.propTypes = {
+FormControlInputNumber.propTypes = {
   id: _propTypes.default.string.isRequired,
   label: _propTypes.default.string,
   btn: _propTypes.default.object,
@@ -96,13 +107,13 @@ FormControlCurrency.propTypes = {
   type: _propTypes.default.string,
   thousandSeparator: _propTypes.default.string,
   decimalSeparator: _propTypes.default.string,
-  displayType: _propTypes.default.string,
   prefix: _propTypes.default.string,
   value: _propTypes.default.number,
   precision: _propTypes.default.number,
+  allowEmpty: _propTypes.default.bool,
   allowNegative: _propTypes.default.bool
 };
 /* Exporting */
 
-var _default = FormControlCurrency;
+var _default = FormControlInputNumber;
 exports.default = _default;

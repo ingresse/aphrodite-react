@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import CurrencyInput from 'react-currency-input';
 
@@ -10,20 +10,38 @@ import AphFormControlStyled         from '../FormControlStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Styled */
-const AphFormControlCurrency = AphFormControlStyled.withComponent(CurrencyInput);
+const AphFormControlInputCurrency = AphFormControlStyled.withComponent(CurrencyInput);
 
 /* Component Itself */
-const FormControlCurrency = forwardRef((props, ref) => {
+const FormControlInputNumber = forwardRef((props, ref) => {
     const {
         id,
         className,
         label,
         labelProps,
+        placeholder,
+
+        value,
         onChange,
-        btn,
+
         error,
         errorMessage,
     } = props;
+
+    /* Inherit Props */
+    let inheritProps  = Object.assign({}, props);
+    let excludedProps = [
+        'label',
+        'labelProps',
+
+        'errorMessage',
+    ];
+
+    excludedProps.map((excludedProp) => {
+        delete inheritProps[excludedProp];
+
+        return true;
+    });
 
     /**
      * Handle with input changes
@@ -34,15 +52,16 @@ const FormControlCurrency = forwardRef((props, ref) => {
      */
     function handleChange(evt, maskedValue, floatValue) {
         if (typeof onChange === 'function') {
-            onChange(floatValue, maskedValue);
+            onChange(Object.assign({}, evt), floatValue, maskedValue);
         }
     }
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlCurrency
-                {...props}
+            <AphFormControlInputCurrency
+                {...inheritProps}
                 ref={ref}
+                error={error ? 'true' : null}
                 onChange={() => {}}
                 onChangeEvent={handleChange}
                 className={`aph-form-control ${className || ''}`}
@@ -66,8 +85,8 @@ const FormControlCurrency = forwardRef((props, ref) => {
 });
 
 /* Default Properties */
-FormControlCurrency.defaultProps = {
-    id    : `formControlRandomID${Math.random()}`,
+FormControlInputNumber.defaultProps = {
+    id    : '',
     label : '',
     btn   : null,
     styles: {},
@@ -75,14 +94,15 @@ FormControlCurrency.defaultProps = {
     inputType        : 'tel',
     thousandSeparator: '.',
     decimalSeparator : ',',
-    prefix           : 'R$ ',
+    prefix           : 'R$',
     value            : 0,
     precision        : 2,
-    allowNegative    : false,
+    allowEmpty       : true,
+    allowNegative    : true,
 };
 
 /* Properties Types */
-FormControlCurrency.propTypes = {
+FormControlInputNumber.propTypes = {
     id    : propTypes.string.isRequired,
     label : propTypes.string,
     btn   : propTypes.object,
@@ -91,12 +111,12 @@ FormControlCurrency.propTypes = {
 
     thousandSeparator: propTypes.string,
     decimalSeparator : propTypes.string,
-    displayType      : propTypes.string,
     prefix           : propTypes.string,
     value            : propTypes.number,
     precision        : propTypes.number,
+    allowEmpty       : propTypes.bool,
     allowNegative    : propTypes.bool,
 };
 
 /* Exporting */
-export default FormControlCurrency;
+export default FormControlInputNumber;

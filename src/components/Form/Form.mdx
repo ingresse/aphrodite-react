@@ -6,7 +6,7 @@ route: /organisms/form
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Input, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
+import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
 
 # Form
 #### Form components
@@ -81,19 +81,53 @@ import { Input, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment
 
 ---
 
+## Input Number
+#### Simple customization of awesome [react-input-number](https://www.npmjs.com/package/react-input-number) component, to support only numbers.
+
+<Props of={InputNumber} />
+
+### Examples
+
+<Playground>
+    {() => {
+        function handleChange(inputValue) {
+            console.log('Input Number changed', inputValue);
+        }
+
+        return (
+            <InputNumber
+                id="ExampleInputNumber"
+                label="Field Label"
+                onChange={handleChange}
+            />
+        );
+    }}
+</Playground>
+
+---
+
 ## Input Currency
 #### Simple customization of awesome [react-currency-input](https://github.com/jsillitoe/react-currency-input) component.
 
 <Props of={InputCurrency} />
 
-### Examples
+### Example
 
 <Playground>
-    <InputCurrency
-        id="ExampleInputCurrency"
-        label="Field Label"
-        value={0}
-    />
+    {() => {
+        function handleChange(evt, floatValue, maskedValue) {
+            console.log('Input Currency changed', floatValue, maskedValue);
+        }
+
+        return (
+            <InputCurrency
+                id="ExampleInputCurrency"
+                label="Field Label"
+                onChange={handleChange}
+                value={0}
+            />
+        );
+    }}
 </Playground>
 
 ---
