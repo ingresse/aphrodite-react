@@ -137,8 +137,19 @@ import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, 
 
 ### Examples
 <Playground>
-    <Select label="Select Label"
-    >
+    <Select label="Select Label">
+        <option value=""></option>
+        <option value="ingresse">Ingresse</option>
+        <option value="aphrodite">Aphrodite</option>
+        <option value="react">React</option>
+    </Select>
+</Playground>
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+    }}
+    <Select label="Select Label" value={value}>
         <option value=""></option>
         <option value="ingresse">Ingresse</option>
         <option value="aphrodite">Aphrodite</option>

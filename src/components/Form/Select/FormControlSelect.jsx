@@ -36,8 +36,8 @@ const FormControlSelect = forwardRef((props, ref) => {
         color,
     } = props;
 
-    const [hasValue, setHasValue] = useState(value ? true : false);
-    const styles                  = `
+    const [ hasValue, setHasValue ] = useState((typeof value === 'number' || value) ? true : false);
+    const styles = `
         height: 50px;
         cursor: pointer;
     `;
@@ -58,10 +58,10 @@ const FormControlSelect = forwardRef((props, ref) => {
         const { target } = evt;
         const inputValue = target.value;
 
-        setHasValue(inputValue ? true : false);
+        setHasValue((typeof inputValue === 'number' || inputValue) ? true : false);
 
         if (typeof onChange === 'function') {
-            onChange(Object.assign({}, evt));
+            onChange(Object.assign({}, evt), inputValue);
         }
     }
 

@@ -60,7 +60,7 @@ var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
       errorMessage = props.errorMessage,
       color = props.color;
 
-  var _useState = (0, _react.useState)(value ? true : false),
+  var _useState = (0, _react.useState)(typeof value === 'number' || value ? true : false),
       _useState2 = _slicedToArray(_useState, 2),
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
@@ -82,10 +82,10 @@ var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
   function handleChange(evt) {
     var target = evt.target;
     var inputValue = target.value;
-    setHasValue(inputValue ? true : false);
+    setHasValue(typeof inputValue === 'number' || inputValue ? true : false);
 
     if (typeof onChange === 'function') {
-      onChange(Object.assign({}, evt));
+      onChange(Object.assign({}, evt), inputValue);
     }
   }
 
