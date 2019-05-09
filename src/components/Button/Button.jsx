@@ -1,32 +1,62 @@
 /* Core Packages */
-import React from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
+/* Component Helpers */
+import { colors } from '../../utils';
+import { Icon } from '../';
+
 /* Component Styles */
-import AphButtonStyled from './ButtonStyled.js';
+import AphButtonStyled from './ButtonStyled';
+import AphButtonItemStyled from './ButtonItemStyled';
 
 /* Component Itself */
-const Button = (props) => {
-    const { className, component } = props;
+const Button = forwardRef((props, ref) => {
+    const { className, color, children, component, loading } = props;
+    const AphButton = (AphButtonStyled.withComponent(component || 'button'));
 
-    if (component) {
-        const CustomButton = AphButtonStyled.withComponent(component);
+    const childrenRef = useRef(null);
+    const [ childrenWidth, setChildrenWidth ] = useState(140);
 
-        return (
-            <CustomButton
-                {...props}
-                className={`aph-btn ${className}`}
-            />
-        );
-    }
+    /**
+     * Children Did Update
+     */
+    useEffect(() => {
+        if (!childrenRef ||
+            !childrenRef.current ||
+            !childrenRef.current.offsetWidth ||
+            childrenRef.current.offsetWidth === childrenWidth) {
+            return;
+        }
+
+        setChildrenWidth(childrenRef.current.offsetWidth);
+
+        console.log(`button ${color} updated`, `${childrenRef.current.offsetWidth}px`);
+
+    }, []);
 
     return (
-        <AphButtonStyled
+        <AphButton
             {...props}
-            className={`aph-btn ${className}`}
-        />
+            ref={ref}
+            className={`aph-btn ${className} ${loading ? 'aph-btn--loading' : ''}`}>
+            <AphButtonItemStyled
+                ref={childrenRef}
+                className="aph-btn__content">
+                {children}
+            </AphButtonItemStyled>
+            <AphButtonItemStyled
+                className="aph-btn__loader"
+                childrenWidth={`${childrenWidth}px`}>
+                <Icon
+                    size={15}
+                    slug="loader"
+                    color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
+                />
+            </AphButtonItemStyled>
+        </AphButton>
     );
-};
+});
 
 /* Default Properties */
 Button.defaultProps = {
@@ -45,7 +75,7 @@ Button.defaultProps = {
 Button.propTypes = {
     /**
      * Button Type:
-     * "button", "reset" or "submit"
+     * "button", "reset" or "submit" maicon vacilão comenta os bagulho aí
      */
     type: PropTypes.string,
 

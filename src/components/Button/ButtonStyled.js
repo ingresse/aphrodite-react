@@ -7,6 +7,9 @@ import { colors } from '../../utils';
 /* Component Itself */
 const AphButtonStyled = styled.button`
     box-sizing: border-box;
+    position  : relative;
+    overflow  : hidden;
+
     cursor    : pointer;
     display   : ${props => props.block ? '' : 'inline-'}block;
 
@@ -26,7 +29,7 @@ const AphButtonStyled = styled.button`
     border : 0;
     outline: 0;
 
-    color: ${props => colors.get(props.color === 'white' ? 'secondary' : 'white')};
+    color: ${props => colors.get((['white', 'smoke'].includes(props.color)) ? 'secondary' : 'white')};
     background-color: ${props =>
         colors.get((props.color || 'secondary'))
     };
@@ -53,6 +56,34 @@ const AphButtonStyled = styled.button`
 
         color: ${colors.get('mercury', 'light')};
         background-color: ${colors.get('mercury', 'crystal')};
+    }
+
+    .aph-btn {
+        &__content {
+            transform: translate(0);
+        }
+
+        &__loader {
+            position : absolute;
+            left     : 50%;
+            transform: translate(-50%, 100px);
+        }
+    }
+
+    &.aph-btn--loading {
+        .aph-btn {
+            &__content {
+                position : absolute;
+                left     : 50%;
+                transform: translate(-50%, -100px);
+            }
+
+            &__loader {
+                position : relative;
+                left     : 0;
+                transform: translate(0);
+            }
+        }
     }
 `;
 

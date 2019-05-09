@@ -4,6 +4,7 @@ menu : Atoms
 route: /atoms/button
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Button, Container, Segment, Row, Col } from '../';
 import { colors } from '../../utils';
@@ -191,6 +192,26 @@ import { Button } from 'aphrodite-react';
     <Button block>
         Block
     </Button>
+</Playground>
+
+---
+
+## Loading
+
+<Playground>
+    {() => {
+        const [ loading, setLoading ] = useState(false);
+
+        function toggleLoading() {
+            setLoading(!loading);
+        }
+
+        return (
+            <Button onClick={toggleLoading} loading={loading}>
+                Loading Button
+            </Button>
+        );
+    }}
 </Playground>
 
 ---

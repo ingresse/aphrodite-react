@@ -16,6 +16,7 @@ import Check from './IconCheck';
 import CheckCircle from './IconCheckCircle';
 import CheckThin from './IconCheckThin';
 import InfoCircle from './IconInfoCircle';
+import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
 import Pencil from './IconPencil';
 import QuestionCircle from './IconQuestionCircle';
@@ -33,6 +34,7 @@ const ICONS = {
     'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
     'info-circle'       : InfoCircle,
+    'loader'            : LoaderDonut,
     'loading'           : Loading,
     'pencil'            : Pencil,
     'question-circle'   : QuestionCircle,

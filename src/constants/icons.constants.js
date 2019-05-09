@@ -12,9 +12,10 @@ export const ICONS = Object.assign([
     'check',
     'check-circle',
     'check-thin',
+    'loader',
+    'loading',
     'question-circle',
     'times-circle',
-    'loading',
 ], {
     ENCODE_SVG: (reactElement) => {
         return 'data:image/svg+xml,' + escape(ReactDOMServer.renderToStaticMarkup((reactElement)));
