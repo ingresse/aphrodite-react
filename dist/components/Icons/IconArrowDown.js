@@ -14,9 +14,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* Icon */
 var IconArrowDown = function IconArrowDown(props) {
   var color = props.color,
-      size = props.size;
+      size = props.size,
+      styles = props.styles;
   return _react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
+    style: styles,
     width: size,
     height: size,
     viewBox: "0 0 30 30"

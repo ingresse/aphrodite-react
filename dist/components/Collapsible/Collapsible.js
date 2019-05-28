@@ -15,6 +15,8 @@ var _ = require("../");
 
 var _CollapsibleChildrenStyled = _interopRequireDefault(require("./CollapsibleChildrenStyled"));
 
+var _IconArrowDown = _interopRequireDefault(require("../Icons/IconArrowDown"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
@@ -71,6 +73,9 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 
 
   var headerStyles = Object.assign({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     margin: 0,
     padding: headerProps && headerProps.lg ? '5px 0' : 0,
     cursor: 'pointer',
@@ -166,7 +171,18 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     styles: headerStyles,
     onClick: toggle,
     role: "button"
-  }), header), _react.default.createElement(_CollapsibleChildrenStyled.default, {
+  }), _react.default.createElement("div", {
+    style: {
+      maxWidth: '90%'
+    }
+  }, header), _react.default.createElement(_IconArrowDown.default, {
+    size: 50,
+    color: _utils.colors.get('mercury', 'light'),
+    styles: {
+      transform: opened ? 'rotate(180deg)' : 'initial',
+      transition: "transform ".concat(delay, "s linear")
+    }
+  })), _react.default.createElement(_CollapsibleChildrenStyled.default, {
     ref: wrapperRef,
     styles: styles,
     visible: opened

@@ -11,6 +11,9 @@ import { H2, H3, Card } from '../';
 /* Component Styles */
 import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
+/* Components Helpers */
+import IconArrowDown from '../Icons/IconArrowDown';
+
 /* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
     const { header, headerProps, children, disabled, delay } = props;
@@ -32,6 +35,10 @@ const Collapsible = forwardRef((props, ref) => {
 
     /* Custom Styles */
     const headerStyles = Object.assign({
+        display       : 'flex',
+        alignItems    : 'center',
+        justifyContent: 'space-between',
+
         margin : 0,
         padding: ((headerProps && headerProps.lg) ? '5px 0' : 0),
         cursor : 'pointer',
@@ -146,7 +153,14 @@ const Collapsible = forwardRef((props, ref) => {
                     styles={headerStyles}
                     onClick={toggle}
                     role="button">
-                    {header}
+                        <div style={{ maxWidth: '90%' }}>
+                            {header}
+                        </div>
+                        <IconArrowDown
+                            size={50}
+                            color={colors.get('mercury', 'light')}
+                            styles={{transform: opened ? 'rotate(180deg)' : 'initial', transition:`transform ${delay}s linear`}}
+                        />
                 </HeaderTitle>
             )}
 

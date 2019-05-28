@@ -19,14 +19,19 @@ const AphCardStyled = styled.div`
 
     color     : ${colors.get('black')};
     background: ${colors.get('white')};
-    box-shadow: 0 0 5px ${colors.get('black', 'original', 0.25)};
 
     transition : box-shadow 0.25s linear, padding 0.25s linear;
     will-change: box-shadow, padding;
 
+    ${props => props.boxShadow ? ({
+        boxShadow: `0 0 5px ${colors.get('black', 'original', 0.25)}`,
+    }) : null};
+
     &.active,
     &:hover {
-        box-shadow: 0 0 20px ${colors.get('black', 'original', 0.25)};
+        ${props => props.boxShadow ? ({
+            boxShadow: `0 0 20px ${colors.get('black', 'original', 0.25)}`,
+        }) : null};
     }
 
     .aph-card {
@@ -51,16 +56,18 @@ const Card = forwardRef((props, ref) => {
 
 /* Default Properties */
 Card.defaultProps = {
-    margin : undefined,
-    padding: '10px',
-    styles : {},
+    margin   : undefined,
+    padding  : '10px',
+    styles   : {},
+    boxShadow: false,
 };
 
 /* Properties Types */
 Card.propTypes = {
-    margin : propTypes.string,
-    padding: propTypes.string,
-    styles : propTypes.object,
+    margin   : propTypes.string,
+    padding  : propTypes.string,
+    styles   : propTypes.object,
+    boxShadow: propTypes.bool,
 };
 
 /* Exporting */

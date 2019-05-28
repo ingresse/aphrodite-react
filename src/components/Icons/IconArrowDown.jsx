@@ -3,10 +3,11 @@ import React from 'react';
 
 /* Icon */
 const IconArrowDown = (props) => {
-    const { color, size } = props;
+    const { color, size, styles } = props;
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg"
+             style={styles}
              width={size}
              height={size} viewBox="0 0 30 30">
             <path
