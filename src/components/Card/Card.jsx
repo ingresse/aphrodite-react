@@ -20,12 +20,16 @@ const AphCardStyled = styled.div`
     color     : ${colors.get('black')};
     background: ${colors.get('white')};
 
-    transition : box-shadow 0.25s linear, padding 0.25s linear;
+    transition : background-color 0.25s linear, box-shadow 0.25s linear, padding 0.25s linear;
     will-change: box-shadow, padding;
 
     ${props => props.boxShadow ? ({
         boxShadow: `0 0 5px ${colors.get('black', 'original', 0.25)}`,
     }) : null};
+
+    &:hover {
+        background: #f8f8f8;
+    }
 
     &.active,
     &:hover {
