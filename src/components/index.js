@@ -37,6 +37,7 @@ export { default as ListGroupItem } from './Lists/ListGroupItem';
 /* Dependent Components */
 export { default as Accordion } from './Accordion/Accordion';
 export { default as Collapsible } from './Collapsible/Collapsible';
+export { default as Dropdown } from './Dropdown/Dropdown';
 
 /* Form Components */
 export { default as Input } from './Form/Input/FormControlInput';
