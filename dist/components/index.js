@@ -93,6 +93,12 @@ Object.defineProperty(exports, "Tooltip", {
     return _Tooltip.default;
   }
 });
+Object.defineProperty(exports, "Modal", {
+  enumerable: true,
+  get: function get() {
+    return _Modal.default;
+  }
+});
 Object.defineProperty(exports, "H1", {
   enumerable: true,
   get: function get() {
@@ -261,6 +267,8 @@ var _ToastsContainer = _interopRequireDefault(require("./Toast/ToastsContainer")
 var _Toast = _interopRequireDefault(require("./Toast/Toast"));
 
 var _Tooltip = _interopRequireDefault(require("./Tooltip/Tooltip"));
+
+var _Modal = _interopRequireDefault(require("./Modal/Modal"));
 
 var _H = _interopRequireDefault(require("./Typography/H1/H1"));
 

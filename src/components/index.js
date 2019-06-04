@@ -14,6 +14,7 @@ export { default as Table } from './Table/Table';
 export { default as ToastsContainer } from './Toast/ToastsContainer';
 export { default as toast } from './Toast/Toast';
 export { default as Tooltip } from './Tooltip/Tooltip';
+export { default as Modal } from './Modal/Modal';
 
 /* Typography */
 export { default as H1 } from './Typography/H1/H1';
