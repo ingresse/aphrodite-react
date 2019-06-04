@@ -28,6 +28,7 @@ const List = forwardRef((props, ref) => {
 
     return (
         <AphListStyled
+            role="listbox"
             {...props}
             ref={ref}
             className={`aph-list ${className || ''}`}

@@ -4,7 +4,7 @@ menu : Organisms
 route: /organisms/form
 ---
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
 
@@ -145,16 +145,33 @@ import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, 
     </Select>
 </Playground>
 
+#### Delayed
 <Playground>
     {() => {
         const [ value, setValue ] = useState('');
+
+        useEffect(() => {
+            setTimeout(() => {
+                setValue('aphrodite');
+            }, 2500);
+        }, []);
+
+        function handleChange(evt) {
+            setValue(evt.target.value);
+        }
+
+        return (
+            <Select
+                label="Select Label"
+                value={value}
+                onChange={handleChange}>
+                <option value=""></option>
+                <option value="ingresse">Ingresse</option>
+                <option value="aphrodite">Aphrodite</option>
+                <option value="react">React</option>
+            </Select>
+        );
     }}
-    <Select label="Select Label" value={value}>
-        <option value=""></option>
-        <option value="ingresse">Ingresse</option>
-        <option value="aphrodite">Aphrodite</option>
-        <option value="react">React</option>
-    </Select>
 </Playground>
 
 ---

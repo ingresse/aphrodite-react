@@ -30,10 +30,7 @@ const Button = forwardRef((props, ref) => {
         }
 
         setChildrenWidth(childrenRef.current.offsetWidth);
-
-        console.log(`button ${color} updated`, `${childrenRef.current.offsetWidth}px`);
-
-    }, []);
+    }, [ children ]);
 
     return (
         <AphButton

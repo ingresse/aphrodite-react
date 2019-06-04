@@ -1,76 +1,212 @@
 /* Packages */
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-/* Utils */
-import { colors } from '../../utils';
+/* Components */
+import DropdownStyled from './DropdownStyled';
 
-/* Styled components */
-import { DropdowContainer, DropdowHeader, DropdowContent } from './DropdownStyled';
-
-/* Component Itself */
+/* Component it self */
 const Dropdown = forwardRef((props, ref) => {
+    /**
+     * Properties values
+     */
     const {
-        isVisible,
-        animationDuration,
-        header,
-        itemColor,
-        hover,
-        items,
-        selectValue,
+        className,
+        children,
+
+        toggle,
+        toggleBlock,
+
+        width,
+
+        center,
+        up,
+        right,
+        left,
+        thin,
+
+        opened,
     } = props;
 
-    const dropDownContainerRef = useRef(null);
+    /**
+     * State values
+     */
+    const [ active, setActive ]       = useState(opened);
+    const [ visible, setVisible ]     = useState(opened);
+    const [ unmounted, setUnmounted ] = useState(false);
+    const [ activeTimer, setActiveTimer ]   = useState(null);
+    const [ visibleTimer, setVisibleTimer ] = useState(null);
 
-    const style = {
-        visibility: isVisible ? 'visible' : 'hidden',
-        transition: 'visibility ' + animationDuration + 'ms'
+    /**
+     * State reference
+     */
+    const dropdownRef = useRef(null);
+
+    /**
+     * Listen to
+     */
+    useEffect(() => {
+        if (!opened) {
+            handleClose();
+
+            return;
+        }
+
+        if (opened || active) {
+            handleOpen();
+        }
+    }, [ opened ]);
+
+    /**
+     * Mount
+     */
+    useEffect(() => {
+        document.addEventListener('click', handleClose);
+
+        return removeClickListener;
+    }, []);
+
+    /**
+     * Remove click listener
+     */
+    function removeClickListener () {
+        setUnmounted(true);
+        document.removeEventListener('click', handleClose);
     }
 
-    return (
-        <DropdowContainer
-            {...props}
-            style={style}
-            ref={dropDownContainerRef}
-        >
+    /**
+     * Handle with Dropdown close event
+     *
+     * @param {object} evt - DOM click event
+     */
+    function handleClose(evt) {
+        clearTimeout(visibleTimer);
 
-            {header &&
-                <DropdowHeader>{header}</DropdowHeader>
+        if (unmounted ||
+            (evt &&
+            evt.target &&
+            dropdownRef &&
+            dropdownRef.current &&
+            dropdownRef.current.contains(evt.target))) {
+            return;
+        }
+
+        setActive(false);
+        setVisible(true);
+
+        setVisibleTimer(setTimeout(() => {
+            if (unmounted) {
+                return;
             }
 
-            <DropdowContent color={itemColor} hover={hover}>
-                {items.map((item, index) => (
-                    <a key={index} value={item.value} href="#0" className="item" onClick={selectValue}>
-                        {item.text}
-                    </a>
-                ))}
-            </DropdowContent>
-        </DropdowContainer>
+            setVisible(false);
+        }, 250));
+    }
+
+    /**
+     * Handle with Dropdown open event
+     *
+     * @param {object} evt - DOM click event
+     */
+    function handleOpen(evt) {
+        clearTimeout(activeTimer);
+
+        if (unmounted) {
+            return;
+        }
+
+        if (evt && evt.preventDefault) {
+            evt.preventDefault();
+        }
+
+        setActive(false);
+        setVisible(true);
+
+        setActiveTimer(setTimeout(() => {
+            if (unmounted) {
+                return;
+            }
+
+            setActive(true);
+        }, 50));
+    }
+
+    /**
+     * Toggle visibility handler
+     *
+     * @param {object} evt - DOM click event
+     */
+    function handleToggle(evt) {
+        if (visible && !opened) {
+            return handleClose();
+        }
+
+        handleOpen(evt);
+    }
+
+    /**
+     * Render
+     */
+    return (
+        <DropdownStyled
+            center={center}
+            up={up}
+            right={right}
+            left={left}
+            thin={thin}
+            toggleBlock={toggleBlock || center}
+            contentWidth={width}
+            ref={dropdownRef}
+            className={`aph-dropdown ${className || ''}`}>
+            {(!toggle) ? (null) : (
+                <span role="button"
+                      onClick={handleToggle}
+                      className="aph-dropdown__toggle">
+                    {toggle}
+                </span>
+            )}
+            {(!visible) ? (null) : (
+                <div className={`aph-dropdown__content${active ? ' active' : ''}${visible ? ' visible' : ''}`}
+                     onClick={() => handleClose()}>
+                    {children}
+                </div>
+            )}
+        </DropdownStyled>
     );
 });
 
-/* Default Properties */
+/* Component Properties */
 Dropdown.defaultProps = {
-    isVisible  : true,
-    header     : 'Digite ou selecione uma opção',
-    items      : [{ text: 'Agora', value: '10/10/2019 12:00' }],
-    hover      :  colors.get('ocean', 'crystal'),
-    itemColor  : colors.get('ocean', 'original'),
-    selectValue: (evt) => console.log(evt.target.attributes[0].value),
-    animationDuration: 0.15,
+    className: '',
+    toggle   : '',
+
+    opened: false,
+
+    width: '220px',
+    thin : false,
+
+    up   : false,
+    right: false,
+    left : true,
 };
 
-/* Properties Types */
+/* Component Properties Types */
 Dropdown.propTypes = {
-    isVisible  : PropTypes.bool,
-    header     : PropTypes.string,
-    items      : PropTypes.array,
-    hover      : PropTypes.string,
-    itemColor  : PropTypes.string,
-    selectValue: PropTypes.func,
-    animationDuration: PropTypes.number,
-};
+    className: PropTypes.string,
+    toggle   : PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element,
+    ]),
 
+    opened: PropTypes.bool,
+
+    width: PropTypes.string,
+    thin : PropTypes.bool,
+
+    up   : PropTypes.bool,
+    right: PropTypes.bool,
+    left : PropTypes.bool,
+};
 
 /* Exporting */
 export default Dropdown;

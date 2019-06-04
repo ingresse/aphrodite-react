@@ -1,0 +1,29 @@
+---
+name : Dropdown
+menu : Organisms
+route: /organisms/dropdown
+---
+
+import { Dropdown } from '../';
+
+import { Playground, Props } from 'docz';
+
+# Dropdown
+#### Toggle dropdown contents.
+
+
+```jsx
+import { Dropdown } from 'aphrodite-react';
+...
+    <Dropdown>
+        ...
+    </Dropdown>
+```
+
+## Properties
+<Props of={Dropdown} />
+
+## Simple
+<Playground style={{ padding: '20px' }}>
+    <Dropdown />
+</Playground>

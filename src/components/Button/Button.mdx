@@ -207,9 +207,11 @@ import { Button } from 'aphrodite-react';
         }
 
         return (
-            <Button onClick={toggleLoading} loading={loading}>
-                Loading Button
-            </Button>
+            <Segment styles={{ textAlign: 'center' }}>
+                <Button onClick={toggleLoading} loading={loading}>
+                    Loading Button
+                </Button>
+            </Segment>
         );
     }}
 </Playground>

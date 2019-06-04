@@ -27,9 +27,11 @@ const AphCardStyled = styled.div`
         boxShadow: `0 0 5px ${colors.get('black', 'original', 0.25)}`,
     }) : null};
 
-    &:hover {
-        background: #f8f8f8;
-    }
+    ${props => props.onClick ? ({
+        '&:hover': {
+            background: colors.get('smoke'),
+        }
+    }) : null};
 
     &.active,
     &:hover {

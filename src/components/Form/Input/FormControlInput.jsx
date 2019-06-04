@@ -91,6 +91,7 @@ const Input = forwardRef((props, ref) => {
             hasButton={(btn || button) ? true : false}
             buttonAlign={((btn && btn.align) ? btn.align : (button && button.align) ? button.align : '')}>
             <AphFormControlStyled
+                name={id}
                 {...props}
                 ref={ref}
                 onChange={handleChange}

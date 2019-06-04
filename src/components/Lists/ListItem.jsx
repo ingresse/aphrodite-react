@@ -6,6 +6,12 @@ import styled from '@emotion/styled';
 /* UI Framework Utils */
 import { colors } from '../../utils';
 
+/* Component Styles */
+const active = {
+    color          : colors.get('secondary'),
+    backgroundColor: colors.get('secondary', 'crystal'),
+};
+
 /* Component Itself */
 const AphListItemStyled = styled.li`
     box-sizing: border-box;
@@ -16,13 +22,26 @@ const AphListItemStyled = styled.li`
 
     background-color: transparent;
 
-    transition : background-color 0.25s linear;
-    will-change: background-color;
+    transition :
+        color 0.15s linear,
+        background-color 0.15s linear
+    ;
+    will-change:
+        color,
+        background-color
+    ;
 
-    ${props => props.hoverable ? {
-        '&:hover': {
-            backgroundColor: colors.get('secondary', 'crystal'),
-        }
+    &.active {
+        ${active};
+    }
+
+    ${props => (props.onClick) ? {
+        cursor: 'pointer',
+        color : colors.get('secondary'),
+    } : null};
+
+    ${props => (props.onClick || props.hoverable) ? {
+        '&:hover': active
     } : null}
 
     ${props => props.styles};
@@ -30,10 +49,17 @@ const AphListItemStyled = styled.li`
 
 /* Component Itself */
 const ListItem = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+        component,
+        hoverable,
+    } = props;
+
+    const AphListItem = (component ? AphListItemStyled.withComponent(component) : AphListItemStyled);
 
     return (
-        <AphListItemStyled
+        <AphListItem
+            role="option"
             {...props}
             ref={ref}
             className={`aph-list__item ${className || ''}`}
