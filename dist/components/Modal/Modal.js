@@ -34,43 +34,43 @@ function Modal(props) {
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
-      render = _useState2[0],
-      setRender = _useState2[1];
+      mounted = _useState2[0],
+      setMounted = _useState2[1];
 
   (0, _react.useEffect)(function () {
     if (!opened) {
       setTimeout(function () {
-        setRender(opened);
+        setMounted(opened);
       }, animationDuration);
       return;
     }
 
-    setRender(opened);
+    setMounted(opened);
   }, [opened]);
   var style = {
     visibility: opened ? 'visible' : 'hidden',
     animationDuration: animationDuration + 'ms',
     transition: 'visibility ' + animationDuration + 'ms'
   };
-  return render && _react.default.createElement(_ModalStyles.ModalContainer, {
+  return mounted && _react.default.createElement(_ModalStyles.ModalContainer, {
     style: style,
     className: "".concat(opened ? 'modal-fade-enter' : 'modal-fade-leave')
-  }, _react.default.createElement(_ModalStyles.Mask, null), _react.default.createElement(_ModalStyles.ModalDialog, null, _react.default.createElement(_.H1, {
+  }, _react.default.createElement(_ModalStyles.Mask, null), _react.default.createElement(_ModalStyles.ModalDialog, null, title && _react.default.createElement(_.H1, {
     center: true,
     bold: true
-  }, title), children, _react.default.createElement(_.ActionBar, {
+  }, title), children, footer && _react.default.createElement(_.ActionBar, {
     styles: {
       padding: '10px 0',
       minHeight: 'initial'
     },
     visible: true
-  }, footer && footer)));
+  }, footer)));
 }
 /* Default props */
 
 
 Modal.defaultProps = {
-  title: 'Modal title',
+  title: '',
   opened: false,
   animationDuration: '100'
 };

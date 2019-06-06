@@ -60,8 +60,7 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
     }
 
     setChildrenWidth(childrenRef.current.offsetWidth);
-    console.log("button ".concat(color, " updated"), "".concat(childrenRef.current.offsetWidth, "px"));
-  }, []);
+  }, [children]);
   return _react.default.createElement(AphButton, _extends({}, props, {
     ref: ref,
     className: "aph-btn ".concat(className, " ").concat(loading ? 'aph-btn--loading' : '')

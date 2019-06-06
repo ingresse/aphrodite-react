@@ -107,7 +107,9 @@ var Input = (0, _react.forwardRef)(function (props, ref) {
   return _react.default.createElement(_FormControlWrapperStyled.default, {
     hasButton: btn || button ? true : false,
     buttonAlign: btn && btn.align ? btn.align : button && button.align ? button.align : ''
-  }, _react.default.createElement(_FormControlStyled.default, _extends({}, props, {
+  }, _react.default.createElement(_FormControlStyled.default, _extends({
+    name: id
+  }, props, {
     ref: ref,
     onChange: handleChange,
     className: "aph-form-control ".concat(!label || !label && hasValue ? 'aph-form-control--middle' : '', " ").concat(className || '')

@@ -19,23 +19,39 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+/* Component Styles */
+var active = {
+  color: _utils.colors.get('secondary'),
+  backgroundColor: _utils.colors.get('secondary', 'crystal')
+};
 /* Component Itself */
+
 var AphListItemStyled = (0, _styledBase.default)("li", {
   target: "e6wegxb0"
-})("box-sizing:border-box;display:block;margin:0;padding:10px;background-color:transparent;transition:background-color 0.25s linear;will-change:background-color;", function (props) {
-  return props.hoverable ? {
-    '&:hover': {
-      backgroundColor: _utils.colors.get('secondary', 'crystal')
-    }
+})("box-sizing:border-box;display:block;margin:0;padding:10px;background-color:transparent;transition:color 0.15s linear,background-color 0.15s linear;will-change:color,background-color;&.active{", active, ";}", function (props) {
+  return props.onClick ? {
+    cursor: 'pointer',
+    color: _utils.colors.get('secondary')
+  } : null;
+}, ";", function (props) {
+  return props.onClick || props.hoverable ? {
+    '&:hover': active
   } : null;
 }, " ", function (props) {
   return props.styles;
-}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0xpc3RzL0xpc3RJdGVtLmpzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFTbUMiLCJmaWxlIjoiLi4vLi4vLi4vc3JjL2NvbXBvbmVudHMvTGlzdHMvTGlzdEl0ZW0uanN4Iiwic291cmNlc0NvbnRlbnQiOlsiLyogUGFja2FnZXMgKi9cbmltcG9ydCBSZWFjdCwgeyBmb3J3YXJkUmVmIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogVUkgRnJhbWV3b3JrIFV0aWxzICovXG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaExpc3RJdGVtU3R5bGVkID0gc3R5bGVkLmxpYFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4gOiAwO1xuICAgIHBhZGRpbmc6IDEwcHg7XG5cbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcblxuICAgIHRyYW5zaXRpb24gOiBiYWNrZ3JvdW5kLWNvbG9yIDAuMjVzIGxpbmVhcjtcbiAgICB3aWxsLWNoYW5nZTogYmFja2dyb3VuZC1jb2xvcjtcblxuICAgICR7cHJvcHMgPT4gcHJvcHMuaG92ZXJhYmxlID8ge1xuICAgICAgICAnJjpob3Zlcic6IHtcbiAgICAgICAgICAgIGJhY2tncm91bmRDb2xvcjogY29sb3JzLmdldCgnc2Vjb25kYXJ5JywgJ2NyeXN0YWwnKSxcbiAgICAgICAgfVxuICAgIH0gOiBudWxsfVxuXG4gICAgJHtwcm9wcyA9PiBwcm9wcy5zdHlsZXN9O1xuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgTGlzdEl0ZW0gPSBmb3J3YXJkUmVmKChwcm9wcywgcmVmKSA9PiB7XG4gICAgY29uc3QgeyBjbGFzc05hbWUgfSA9IHByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEFwaExpc3RJdGVtU3R5bGVkXG4gICAgICAgICAgICB7Li4ucHJvcHN9XG4gICAgICAgICAgICByZWY9e3JlZn1cbiAgICAgICAgICAgIGNsYXNzTmFtZT17YGFwaC1saXN0X19pdGVtICR7Y2xhc3NOYW1lIHx8ICcnfWB9XG4gICAgICAgIC8+XG4gICAgKTtcbn0pO1xuXG4vKiBEZWZhdWx0IFByb3BlcnRpZXMgKi9cbkxpc3RJdGVtLmRlZmF1bHRQcm9wcyA9IHtcbiAgICBob3ZlcmFibGU6IGZhbHNlLFxuICAgIHN0eWxlcyAgIDoge30sXG59O1xuXG4vKiBQcm9wZXJ0aWVzIFR5cGVzICovXG5MaXN0SXRlbS5wcm9wVHlwZXMgPSB7XG4gICAgaG92ZXJhYmxlOiBwcm9wVHlwZXMuYm9vbCxcbiAgICBzdHlsZXMgICA6IHByb3BUeXBlcy5vYmplY3QsXG59O1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IExpc3RJdGVtO1xuIl19 */"));
+}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0xpc3RzL0xpc3RJdGVtLmpzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFlbUMiLCJmaWxlIjoiLi4vLi4vLi4vc3JjL2NvbXBvbmVudHMvTGlzdHMvTGlzdEl0ZW0uanN4Iiwic291cmNlc0NvbnRlbnQiOlsiLyogUGFja2FnZXMgKi9cbmltcG9ydCBSZWFjdCwgeyBmb3J3YXJkUmVmIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogVUkgRnJhbWV3b3JrIFV0aWxzICovXG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5cbi8qIENvbXBvbmVudCBTdHlsZXMgKi9cbmNvbnN0IGFjdGl2ZSA9IHtcbiAgICBjb2xvciAgICAgICAgICA6IGNvbG9ycy5nZXQoJ3NlY29uZGFyeScpLFxuICAgIGJhY2tncm91bmRDb2xvcjogY29sb3JzLmdldCgnc2Vjb25kYXJ5JywgJ2NyeXN0YWwnKSxcbn07XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaExpc3RJdGVtU3R5bGVkID0gc3R5bGVkLmxpYFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4gOiAwO1xuICAgIHBhZGRpbmc6IDEwcHg7XG5cbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcblxuICAgIHRyYW5zaXRpb24gOlxuICAgICAgICBjb2xvciAwLjE1cyBsaW5lYXIsXG4gICAgICAgIGJhY2tncm91bmQtY29sb3IgMC4xNXMgbGluZWFyXG4gICAgO1xuICAgIHdpbGwtY2hhbmdlOlxuICAgICAgICBjb2xvcixcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvclxuICAgIDtcblxuICAgICYuYWN0aXZlIHtcbiAgICAgICAgJHthY3RpdmV9O1xuICAgIH1cblxuICAgICR7cHJvcHMgPT4gKHByb3BzLm9uQ2xpY2spID8ge1xuICAgICAgICBjdXJzb3I6ICdwb2ludGVyJyxcbiAgICAgICAgY29sb3IgOiBjb2xvcnMuZ2V0KCdzZWNvbmRhcnknKSxcbiAgICB9IDogbnVsbH07XG5cbiAgICAke3Byb3BzID0+IChwcm9wcy5vbkNsaWNrIHx8IHByb3BzLmhvdmVyYWJsZSkgPyB7XG4gICAgICAgICcmOmhvdmVyJzogYWN0aXZlXG4gICAgfSA6IG51bGx9XG5cbiAgICAke3Byb3BzID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBDb21wb25lbnQgSXRzZWxmICovXG5jb25zdCBMaXN0SXRlbSA9IGZvcndhcmRSZWYoKHByb3BzLCByZWYpID0+IHtcbiAgICBjb25zdCB7XG4gICAgICAgIGNsYXNzTmFtZSxcbiAgICAgICAgY29tcG9uZW50LFxuICAgICAgICBob3ZlcmFibGUsXG4gICAgfSA9IHByb3BzO1xuXG4gICAgY29uc3QgQXBoTGlzdEl0ZW0gPSAoY29tcG9uZW50ID8gQXBoTGlzdEl0ZW1TdHlsZWQud2l0aENvbXBvbmVudChjb21wb25lbnQpIDogQXBoTGlzdEl0ZW1TdHlsZWQpO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEFwaExpc3RJdGVtXG4gICAgICAgICAgICByb2xlPVwib3B0aW9uXCJcbiAgICAgICAgICAgIHsuLi5wcm9wc31cbiAgICAgICAgICAgIHJlZj17cmVmfVxuICAgICAgICAgICAgY2xhc3NOYW1lPXtgYXBoLWxpc3RfX2l0ZW0gJHtjbGFzc05hbWUgfHwgJyd9YH1cbiAgICAgICAgLz5cbiAgICApO1xufSk7XG5cbi8qIERlZmF1bHQgUHJvcGVydGllcyAqL1xuTGlzdEl0ZW0uZGVmYXVsdFByb3BzID0ge1xuICAgIGhvdmVyYWJsZTogZmFsc2UsXG4gICAgc3R5bGVzICAgOiB7fSxcbn07XG5cbi8qIFByb3BlcnRpZXMgVHlwZXMgKi9cbkxpc3RJdGVtLnByb3BUeXBlcyA9IHtcbiAgICBob3ZlcmFibGU6IHByb3BUeXBlcy5ib29sLFxuICAgIHN0eWxlcyAgIDogcHJvcFR5cGVzLm9iamVjdCxcbn07XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgTGlzdEl0ZW07XG4iXX0= */"));
 /* Component Itself */
 
 var ListItem = (0, _react.forwardRef)(function (props, ref) {
-  var className = props.className;
-  return _react.default.createElement(AphListItemStyled, _extends({}, props, {
+  var className = props.className,
+      component = props.component,
+      hoverable = props.hoverable;
+  var AphListItem = component ? AphListItemStyled.withComponent(component, {
+    target: "e6wegxb1"
+  }) : AphListItemStyled;
+  return _react.default.createElement(AphListItem, _extends({
+    role: "option"
+  }, props, {
     ref: ref,
     className: "aph-list__item ".concat(className || '')
   }));
