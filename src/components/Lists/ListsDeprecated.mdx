@@ -5,22 +5,22 @@ route: /organisms/deprecated/lists
 ---
 
 import { Playground, Props } from 'docz';
-import { Input, ListGroup, ListItem } from '../';
+import { Checkbox, ListGroup, ListItem } from '../';
 
 # Lists
 #### Organizing information with an alternative to tables.
 
 ```jsx
-import { Input, ListGroup, ListItem } from 'aphrodite-react';
+import { Checkbox, ListGroup, ListItem } from 'aphrodite-react';
 ...
 <ListGroup
     radius={window.innerWidth < 768 ? 0 : 4}
     noSideBorders={window.innerWidth < 768}>
     <div>
         <ListItem header>
-            <Input type="checkbox" id="firstToggle" labelRight={window.innerWidth < 768}>
+            <Checkbox id="firstToggle" labelRight={window.innerWidth < 768}>
                 Header
-            </Input>
+            </Checkbox>
         </ListItem>
         <ListItem>
             Item ...
@@ -28,9 +28,9 @@ import { Input, ListGroup, ListItem } from 'aphrodite-react';
     </div>
     <div>
         <ListItem header>
-            <Input type="checkbox" id="secondToggle" color="#ff0000">
+            <Checkbox id="secondToggle" color="#ff0000">
                 Header
-            </Input>
+            </Checkbox>
         </ListItem>
         <ListItem>
             Item ...
@@ -46,9 +46,9 @@ import { Input, ListGroup, ListItem } from 'aphrodite-react';
         noSideBorders={window.innerWidth < 768}>
         <div>
             <ListItem header>
-                <Input type="checkbox" id="firstToggle" labelRight={window.innerWidth < 768}>
+                <Checkbox id="firstToggle" labelRight={window.innerWidth < 768}>
                     Header
-                </Input>
+                </Checkbox>
             </ListItem>
             <ListItem>
                 Item ...
@@ -68,9 +68,9 @@ import { Input, ListGroup, ListItem } from 'aphrodite-react';
         </div>
         <div>
             <ListItem header>
-                <Input type="checkbox" id="secondToggle" color="red" defaultChecked={true}>
+                <Checkbox id="secondToggle" color="red" defaultChecked={true}>
                     Header
-                </Input>
+                </Checkbox>
             </ListItem>
             <ListItem>
                 Item ...

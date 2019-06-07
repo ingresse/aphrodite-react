@@ -34,6 +34,18 @@ import { Button } from 'aphrodite-react';
 
 ---
 
+## Link
+
+<Playground>
+    <Segment styles={{ textAlign: 'center' }}>
+        <Button link>
+            Hello
+        </Button>
+    </Segment>
+</Playground>
+
+---
+
 ## Small
 
 <Playground>
@@ -83,18 +95,36 @@ import { Button } from 'aphrodite-react';
         const colorsAlias = Object.keys(colors.alias);
 
         return (
-            <Row horizontal="center" vertical="middle">
-                {colorsAlias.map((colorKey) => (
-                    <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
-                        <Button block margin="10px 0" color={colorKey}>
-                            {colorKey}
-                        </Button>
-                        <Button block small margin="10px 0" color={colorKey}>
-                            {colorKey}
-                        </Button>
-                    </Col>
-                ))}
-            </Row>
+            <section>
+                <Segment padding="20px 0">
+                    <Row horizontal="center" vertical="middle">
+                        {colorsAlias.map((colorKey) => (
+                            <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                                <Button block margin="10px 0" color={colorKey}>
+                                    {colorKey}
+                                </Button>
+                                <Button block small margin="10px 0" color={colorKey}>
+                                    {colorKey}
+                                </Button>
+                            </Col>
+                        ))}
+                    </Row>
+                </Segment>
+                <Segment padding="20px 0">
+                    <Row horizontal="center" vertical="middle">
+                        {colorsAlias.map((colorKey) => (
+                            <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                                <Button link block margin="10px 0" color={colorKey}>
+                                    {colorKey}
+                                </Button>
+                                <Button link block small margin="10px 0" color={colorKey}>
+                                    {colorKey}
+                                </Button>
+                            </Col>
+                        ))}
+                    </Row>
+                </Segment>
+            </section>
         );
     }}
 </Playground>

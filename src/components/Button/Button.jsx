@@ -72,7 +72,7 @@ Button.defaultProps = {
 Button.propTypes = {
     /**
      * Button Type:
-     * "button", "reset" or "submit" maicon vacilão comenta os bagulho aí
+     * "button", "reset" or "submit"
      */
     type: PropTypes.string,
 

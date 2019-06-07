@@ -29,9 +29,15 @@ const AphButtonStyled = styled.button`
     border : 0;
     outline: 0;
 
-    color: ${props => colors.get((['white', 'smoke'].includes(props.color)) ? 'secondary' : 'white')};
+    color: ${props =>
+        props.link ?
+            colors.get((props.color || 'secondary')) :
+            colors.get((['white', 'smoke'].includes(props.color)) ? 'secondary' : 'white')
+    };
     background-color: ${props =>
-        colors.get((props.color || 'secondary'))
+        props.link ?
+            'transparent' :
+            colors.get((props.color || 'secondary'))
     };
 
     transition-timing-function: ease;
@@ -40,14 +46,18 @@ const AphButtonStyled = styled.button`
 
     &:hover {
         background-color: ${props =>
-            colors.get((props.color || 'secondary'), 'light')
+            props.link ?
+                colors.get('smoke') :
+                colors.get((props.color || 'secondary'), 'light')
         };
     }
 
     &:active,
     &:focus {
         background-color: ${props =>
-            colors.get((props.color || 'secondary'), 'dark')
+            props.link ?
+                colors.get('smoke') :
+                colors.get((props.color || 'secondary'), 'dark')
         };
     }
 
@@ -85,6 +95,8 @@ const AphButtonStyled = styled.button`
             }
         }
     }
+
+    ${props => props.styles};
 `;
 
 /* Exporting */
