@@ -1,0 +1,89 @@
+---
+name : Collapsible
+menu : Organisms
+route: /organisms/collapsible
+---
+
+import { Playground, Props } from 'docz';
+import { Collapsible, Segment, Text } from '../';
+import { colors } from '../../utils';
+
+# Collapsible
+#### An alternative to Accordion.
+
+```jsx
+import { Collapsible, Segment } from 'aphrodite-react';
+...
+<Collapsible header="Hi">
+    <Segment padding="5px 10px">
+        <Text>
+            there
+        </Text>
+    </Segment>
+</Collapsible>
+```
+
+## Properties
+<Props of={Collapsible} />
+
+## Regular Example
+<Playground style={{ padding: '20px' }}>
+    <Collapsible
+        header="Collapsible component with 'Segment' component inside">
+        <Segment
+            padding="5px 10px"
+            styles={{ marginTop: '10px', background: colors.get('smoke') }}>
+            <Text>
+                Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Suco de cevadiss deixa as pessoas mais interessantis. Quem num gosta di mim que vai caçá sua turmis! Atirei o pau no gatis, per gatis num morreus.
+            </Text>
+            <Text>
+                Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.
+            </Text>
+            <Text>
+                Copo furadis é disculpa de bebadis, arcu quam euismod magna. Viva Forevis aptent taciti sociosqu ad litora torquent. Leite de capivaris, leite de mula manquis sem cabeça. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!
+            </Text>
+            <Text>
+                Diuretics paradis num copo é motivis de denguis. Interagi no mé, cursus quis, vehicula ac nisi. In elementis mé pra quem é amistosis quis leo. Não sou faixa preta cumpadi, sou preto inteiris, inteiris.
+            </Text>
+            <Text>
+                Delegadis gente finis, bibendum egestas augue arcu ut est. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Quem num gosta di mé, boa gentis num é.
+            </Text>
+        </Segment>
+    </Collapsible>
+</Playground>
+
+## Custom Example
+<Playground style={{ padding: '20px' }}>
+    <Collapsible
+        opened
+        delay={0.75}
+        headerProps={{ lg: true, bold: true }}
+        header={(
+            <span>
+                Collapsible component with 'Segment' component inside
+                <Text styles={{ marginBottom: 0, color: colors.get('mercury') }}>
+                   Subheader customized text
+                </Text>
+            </span>
+        )}>
+        <Segment
+            padding="5px 10px"
+            styles={{ marginTop: '10px', background: colors.get('smoke') }}>
+            <Text>
+                Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Suco de cevadiss deixa as pessoas mais interessantis. Quem num gosta di mim que vai caçá sua turmis! Atirei o pau no gatis, per gatis num morreus.
+            </Text>
+            <Text>
+                Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.
+            </Text>
+            <Text>
+                Copo furadis é disculpa de bebadis, arcu quam euismod magna. Viva Forevis aptent taciti sociosqu ad litora torquent. Leite de capivaris, leite de mula manquis sem cabeça. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo!
+            </Text>
+            <Text>
+                Diuretics paradis num copo é motivis de denguis. Interagi no mé, cursus quis, vehicula ac nisi. In elementis mé pra quem é amistosis quis leo. Não sou faixa preta cumpadi, sou preto inteiris, inteiris.
+            </Text>
+            <Text>
+                Delegadis gente finis, bibendum egestas augue arcu ut est. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Quem num gosta di mé, boa gentis num é.
+            </Text>
+        </Segment>
+    </Collapsible>
+</Playground>

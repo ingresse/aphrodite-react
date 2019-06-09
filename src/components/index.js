@@ -2,16 +2,27 @@
 export { default as ActionBar } from './ActionBar/ActionBar';
 export { default as Badge } from './Badge/Badge';
 export { default as Button } from './Button/Button';
+export { default as Card } from './Card/Card';
+export { default as Dropdown } from './Dropdown/Dropdown';
 export { default as Icon } from './Icons/Icon';
 export { default as Img } from './Img/Img';
 export { default as NumberFormat } from './NumberFormat/NumberFormat';
 export { default as Placeholder } from './Placeholder/Placeholder';
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as Scrollable } from './Scrollable/Scrollable';
-export { default as Switch } from './Switch/Switch';
+export { default as Segment } from './Segment/Segment';
+export { default as Table } from './Table/Table';
 export { default as ToastsContainer } from './Toast/ToastsContainer';
 export { default as toast } from './Toast/Toast';
 export { default as Tooltip } from './Tooltip/Tooltip';
+export { default as Modal } from './Modal/Modal';
+
+/* Typography */
+export { default as H1 } from './Typography/H1/H1';
+export { default as H2 } from './Typography/H2/H2';
+export { default as H3 } from './Typography/H3/H3';
+export { default as P } from './Typography/P/P';
+export { default as Text } from './Typography/P/P';
 
 /* Grid Components */
 export { default as Container } from './Grid/Container';
@@ -20,11 +31,20 @@ export { default as Col } from './Grid/Column';
 export { default as Column } from './Grid/Column';
 
 /* List Components */
-export { default as ListGroup } from './Lists/ListGroup';
+export { default as List } from './Lists/List';
 export { default as ListItem } from './Lists/ListItem';
+export { default as ListGroup } from './Lists/ListGroup';
+export { default as ListGroupItem } from './Lists/ListGroupItem';
 
 /* Dependent Components */
 export { default as Accordion } from './Accordion/Accordion';
+export { default as Collapsible } from './Collapsible/Collapsible';
 
 /* Form Components */
-export { default as Input } from './Form/Input';
+export { default as Input } from './Form/Input/FormControlInput';
+export { default as InputCurrency } from './Form/InputCurrency/FormControlInputCurrency';
+export { default as InputNumber } from './Form/InputNumber/FormControlInputNumber';
+export { default as Checkbox } from './Form/Checkbox/FormControlCheckbox';
+export { default as Select } from './Form/Select/FormControlSelect';
+export { default as TextArea } from './Form/TextArea/FormControlTextArea';
+export { default as Switch } from './Form/Switch/FormControlSwitch';

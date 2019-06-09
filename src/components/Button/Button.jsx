@@ -1,137 +1,123 @@
-/* Packages */
-import React from 'react';
+/* Core Packages */
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-/* Constants */
-import { BUTTON_STYLES as STYLES} from './constants';
-import { MEDIA_QUERIES } from '../../constants';
+/* Component Helpers */
+import { colors } from '../../utils';
+import { Icon } from '../';
 
-/* Nested Components */
-import Bordered from './Bordered/Bordered';
-import Regular from './Regular/Regular';
+/* Component Styles */
+import AphButtonStyled from './ButtonStyled';
+import AphButtonItemStyled from './ButtonItemStyled';
 
-/* Component */
-class Button extends React.Component {
-    render() {
-        const { block, radius, rounded, bordered, size, styles } = this.props;
-        let _styles = Object.assign({}, STYLES);
+/* Component Itself */
+const Button = forwardRef((props, ref) => {
+    const { className, color, children, loading, disabled } = props;
 
-        /* Block style */
-        if (block) {
-            _styles.display = 'block';
-            _styles.width   = '100%';
+    const childrenRef = useRef(null);
+    const [ childrenWidth, setChildrenWidth ] = useState(140);
+
+    /**
+     * Children Did Update
+     */
+    useEffect(() => {
+        if (!childrenRef ||
+            !childrenRef.current ||
+            !childrenRef.current.offsetWidth ||
+            childrenRef.current.offsetWidth === childrenWidth) {
+            return;
         }
 
-        /* Customized Radius */
-        if (radius || typeof radius === 'number') {
-            _styles.borderRadius = radius + '';
+        setChildrenWidth(childrenRef.current.offsetWidth);
+    }, [ children ]);
 
-            if (!_styles.borderRadius.includes('px')) {
-                _styles.borderRadius += 'px';
-            }
-        }
-
-        /* Rounded Radius */
-        if (rounded) {
-            _styles.borderRadius = '8px';
-        }
-
-        switch (size) {
-            case 'xs':
-                _styles.fontSize   = '9px';
-                _styles.minHeight  = '20px';
-                _styles.lineHeight = '18px';
-                _styles[MEDIA_QUERIES.XS] = {
-                    minHeight : '30px',
-                    lineHeight: '28px',
-                };
-                break;
-
-            case 'sm':
-                _styles.fontSize   = '13px';
-                _styles.minHeight  = '30px';
-                _styles.lineHeight = '28px';
-                _styles[MEDIA_QUERIES.XS] = {
-                    minHeight : '40px',
-                    lineHeight: '38px',
-                };
-                break;
-
-            default:
-                _styles.minHeight  = '40px';
-                _styles.lineHeight = '38px';
-                _styles[MEDIA_QUERIES.XS] = {
-                    minHeight : '50px',
-                    lineHeight: '48px',
-                };
-        }
-
-        _styles = Object.assign(_styles, styles);
-
-        if (bordered) {
-            return (<Bordered {...this.props} styles={_styles} />);
-        }
-
-        return (<Regular {...this.props} styles={_styles} />);
-    }
-}
+    return (
+        <AphButtonStyled
+            {...props}
+            ref={ref}
+            disabled={disabled || loading}
+            className={`aph-btn ${className} ${loading ? 'aph-btn--loading' : ''}`}>
+            <AphButtonItemStyled
+                ref={childrenRef}
+                className="aph-btn__content">
+                {children}
+            </AphButtonItemStyled>
+            <AphButtonItemStyled
+                className="aph-btn__loader"
+                childrenWidth={childrenWidth ? `${childrenWidth}px` : null}>
+                <Icon
+                    size={19}
+                    slug="loader"
+                    color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
+                />
+            </AphButtonItemStyled>
+        </AphButtonStyled>
+    );
+});
 
 /* Default Properties */
 Button.defaultProps = {
-    type    : 'button',
-    disabled: false,
-    color   : 'primary',
-    bordered: false,
-    radius  : 25,
-    block   : false,
-    size    : '',
+    as       : 'button',
+    type     : 'button',
+    role     : 'button',
+    color    : 'secondary',
+    radius   : '25px',
+    className: '',
+    margin   : null,
+    small    : false,
+    block    : false,
+    disabled : false,
 };
 
 /* Properties Types */
 Button.propTypes = {
-
     /**
-    * Button Type.
-    * Button, Reset, Submit
-    */
+     * Button Type:
+     * "button", "reset" or "submit"
+     */
     type: PropTypes.string,
 
     /**
-    * Should the Button be disabled?
-    */
+     * Should the Button be disabled?
+     */
     disabled: PropTypes.bool,
 
     /**
-    * Renders the button using an alternative color.
-    * Secondary, Warning, Error, Success
-    */
+     * Renders the button using an alternative color:
+     * Primary, Warning, Error, Success
+     */
     color: PropTypes.string,
 
     /**
-    * Should the Button be bordered?
-    */
-    bordered: PropTypes.bool,
-
-    /**
-    * Customized Border Radius
-    */
-    radius: PropTypes.any,
-
-    /**
-     * Border Radius variation to '8px'
-     * Overwrites 'radius' property
+     * Customized Border Radius
      */
-    Rounded: PropTypes.bool,
+    radius: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
 
     /**
-    * Should the Button be block?
-    */
+     * Customized Margin
+     */
+    margin: PropTypes.string,
+
+    /**
+     * Should the Button be block?
+     */
     block: PropTypes.bool,
 
     /**
-    * Size of the button. Use the Button's xs or sm.
-    */
-    size: PropTypes.string,
+     * Alternative button size: small.
+     */
+    small: PropTypes.bool,
+
+    /**
+     * Custom Component
+     *
+     * Example: `Link` from react-router-dom
+     */
+    as: PropTypes.elementType,
 };
 
+/* Exporting */
 export default Button;

@@ -5,191 +5,135 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _constants = require("./constants");
+var _utils = require("../../utils");
 
-var _constants2 = require("../../constants");
+var _ = require("../");
 
-var _Bordered = _interopRequireDefault(require("./Bordered/Bordered"));
+var _ButtonStyled = _interopRequireDefault(require("./ButtonStyled"));
 
-var _Regular = _interopRequireDefault(require("./Regular/Regular"));
+var _ButtonItemStyled = _interopRequireDefault(require("./ButtonItemStyled"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+/* Component Itself */
+var Button = (0, _react.forwardRef)(function (props, ref) {
+  var className = props.className,
+      color = props.color,
+      children = props.children,
+      loading = props.loading,
+      disabled = props.disabled;
+  var childrenRef = (0, _react.useRef)(null);
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-/* Component */
-var Button =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Button, _React$Component);
-
-  function Button() {
-    _classCallCheck(this, Button);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Button).apply(this, arguments));
-  }
-
-  _createClass(Button, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          block = _this$props.block,
-          radius = _this$props.radius,
-          rounded = _this$props.rounded,
-          bordered = _this$props.bordered,
-          size = _this$props.size,
-          styles = _this$props.styles;
-
-      var _styles = Object.assign({}, _constants.BUTTON_STYLES);
-      /* Block style */
+  var _useState = (0, _react.useState)(140),
+      _useState2 = _slicedToArray(_useState, 2),
+      childrenWidth = _useState2[0],
+      setChildrenWidth = _useState2[1];
+  /**
+   * Children Did Update
+   */
 
 
-      if (block) {
-        _styles.display = 'block';
-        _styles.width = '100%';
-      }
-      /* Customized Radius */
-
-
-      if (radius || typeof radius === 'number') {
-        _styles.borderRadius = radius + '';
-
-        if (!_styles.borderRadius.includes('px')) {
-          _styles.borderRadius += 'px';
-        }
-      }
-      /* Rounded Radius */
-
-
-      if (rounded) {
-        _styles.borderRadius = '8px';
-      }
-
-      switch (size) {
-        case 'xs':
-          _styles.fontSize = '9px';
-          _styles.minHeight = '20px';
-          _styles.lineHeight = '18px';
-          _styles[_constants2.MEDIA_QUERIES.XS] = {
-            minHeight: '30px',
-            lineHeight: '28px'
-          };
-          break;
-
-        case 'sm':
-          _styles.fontSize = '13px';
-          _styles.minHeight = '30px';
-          _styles.lineHeight = '28px';
-          _styles[_constants2.MEDIA_QUERIES.XS] = {
-            minHeight: '40px',
-            lineHeight: '38px'
-          };
-          break;
-
-        default:
-          _styles.minHeight = '40px';
-          _styles.lineHeight = '38px';
-          _styles[_constants2.MEDIA_QUERIES.XS] = {
-            minHeight: '50px',
-            lineHeight: '48px'
-          };
-      }
-
-      _styles = Object.assign(_styles, styles);
-
-      if (bordered) {
-        return _react.default.createElement(_Bordered.default, _extends({}, this.props, {
-          styles: _styles
-        }));
-      }
-
-      return _react.default.createElement(_Regular.default, _extends({}, this.props, {
-        styles: _styles
-      }));
+  (0, _react.useEffect)(function () {
+    if (!childrenRef || !childrenRef.current || !childrenRef.current.offsetWidth || childrenRef.current.offsetWidth === childrenWidth) {
+      return;
     }
-  }]);
 
-  return Button;
-}(_react.default.Component);
+    setChildrenWidth(childrenRef.current.offsetWidth);
+  }, [children]);
+  return _react.default.createElement(_ButtonStyled.default, _extends({}, props, {
+    ref: ref,
+    disabled: disabled || loading,
+    className: "aph-btn ".concat(className, " ").concat(loading ? 'aph-btn--loading' : '')
+  }), _react.default.createElement(_ButtonItemStyled.default, {
+    ref: childrenRef,
+    className: "aph-btn__content"
+  }, children), _react.default.createElement(_ButtonItemStyled.default, {
+    className: "aph-btn__loader",
+    childrenWidth: childrenWidth ? "".concat(childrenWidth, "px") : null
+  }, _react.default.createElement(_.Icon, {
+    size: 19,
+    slug: "loader",
+    color: ['white', 'smoke'].includes(color) ? 'secondary' : 'white'
+  })));
+});
 /* Default Properties */
 
-
 Button.defaultProps = {
+  as: 'button',
   type: 'button',
-  disabled: false,
-  color: 'primary',
-  bordered: false,
-  radius: 25,
+  role: 'button',
+  color: 'secondary',
+  radius: '25px',
+  className: '',
+  margin: null,
+  small: false,
   block: false,
-  size: ''
+  disabled: false
 };
 /* Properties Types */
 
 Button.propTypes = {
   /**
-  * Button Type.
-  * Button, Reset, Submit
-  */
+   * Button Type:
+   * "button", "reset" or "submit"
+   */
   type: _propTypes.default.string,
 
   /**
-  * Should the Button be disabled?
-  */
+   * Should the Button be disabled?
+   */
   disabled: _propTypes.default.bool,
 
   /**
-  * Renders the button using an alternative color.
-  * Secondary, Warning, Error, Success
-  */
+   * Renders the button using an alternative color:
+   * Primary, Warning, Error, Success
+   */
   color: _propTypes.default.string,
 
   /**
-  * Should the Button be bordered?
-  */
-  bordered: _propTypes.default.bool,
-
-  /**
-  * Customized Border Radius
-  */
-  radius: _propTypes.default.any,
-
-  /**
-   * Border Radius variation to '8px'
-   * Overwrites 'radius' property
+   * Customized Border Radius
    */
-  Rounded: _propTypes.default.bool,
+  radius: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
 
   /**
-  * Should the Button be block?
-  */
+   * Customized Margin
+   */
+  margin: _propTypes.default.string,
+
+  /**
+   * Should the Button be block?
+   */
   block: _propTypes.default.bool,
 
   /**
-  * Size of the button. Use the Button's xs or sm.
-  */
-  size: _propTypes.default.string
+   * Alternative button size: small.
+   */
+  small: _propTypes.default.bool,
+
+  /**
+   * Custom Component
+   *
+   * Example: `Link` from react-router-dom
+   */
+  as: _propTypes.default.elementType
 };
+/* Exporting */
+
 var _default = Button;
 exports.default = _default;

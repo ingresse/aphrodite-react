@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 
 /* Export */
 export const ICONS = Object.assign([
+    'arrow-down',
     'arrow-down-circle',
     'arrow-left-circle',
     'arrow-right-circle',
@@ -11,9 +12,10 @@ export const ICONS = Object.assign([
     'check',
     'check-circle',
     'check-thin',
+    'loader',
+    'loading',
     'question-circle',
     'times-circle',
-    'loading',
 ], {
     ENCODE_SVG: (reactElement) => {
         return 'data:image/svg+xml,' + escape(ReactDOMServer.renderToStaticMarkup((reactElement)));

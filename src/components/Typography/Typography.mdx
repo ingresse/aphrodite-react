@@ -1,0 +1,184 @@
+---
+name : Typography
+menu : Atoms
+route: /atoms/typography
+---
+
+import { Playground, Props } from 'docz';
+import { H1, H2, H3, P, Row, Col } from '../';
+
+# Typography
+#### Components to help with text issues.
+
+---
+
+## H1
+#### Title component
+
+```jsx
+import { H1 } from 'aphrodite-react';
+...
+<H1>
+    Hello
+</H1>
+```
+
+### Properties
+<Props of={H1} />
+
+### Examples
+<Playground style={{ padding: '20px' }}>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <H1 center>
+                regular
+            </H1>
+        </Col>
+        <Col xs={6} sm={4}>
+            <H1 center bold>
+                bold
+            </H1>
+        </Col>
+        <Col xs={12} sm={4}>
+            <H1 center upper>
+                upper
+            </H1>
+        </Col>
+        <Col xs={6} sm={12}>
+            <H1 center link>
+                with link appearance
+            </H1>
+        </Col>
+    </Row>
+</Playground>
+
+---
+
+## H2
+#### Title component
+
+```jsx
+import { H2 } from 'aphrodite-react';
+...
+<H2>
+    Hello
+</H2>
+```
+
+### Properties
+<Props of={H2} />
+
+### Examples
+<Playground style={{ padding: '20px' }}>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <H2 center>
+                regular
+            </H2>
+        </Col>
+        <Col xs={6} sm={4}>
+            <H2 center bold>
+                bold
+            </H2>
+        </Col>
+        <Col xs={12} sm={4}>
+            <H2 center upper>
+                upper
+            </H2>
+        </Col>
+        <Col xs={6} sm={12}>
+            <H2 center link>
+                with link appearance
+            </H2>
+        </Col>
+    </Row>
+</Playground>
+
+---
+
+## H3
+#### Title component
+
+```jsx
+import { H3 } from 'aphrodite-react';
+...
+<H3>
+    Hello
+</H3>
+```
+
+### Properties
+<Props of={H3} />
+
+### Examples
+<Playground style={{ padding: '20px' }}>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <H3 center>
+                regular
+            </H3>
+        </Col>
+        <Col xs={6} sm={4}>
+            <H3 center bold>
+                bold
+            </H3>
+        </Col>
+        <Col xs={12} sm={4}>
+            <H3 center upper>
+                upper
+            </H3>
+        </Col>
+        <Col xs={6} sm={12}>
+            <H3 center link>
+                with link appearance
+            </H3>
+        </Col>
+    </Row>
+</Playground>
+
+---
+
+## P
+#### Paragraph component
+
+```jsx
+import { P } from 'aphrodite-react';
+...
+<P>
+    Hello
+</P>
+```
+
+### Properties
+<Props of={P} />
+
+### Examples
+<Playground style={{ padding: '20px' }}>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <P center>
+                regular
+            </P>
+        </Col>
+        <Col xs={6} sm={4}>
+            <P center bold>
+                bold
+            </P>
+        </Col>
+        <Col xs={12} sm={4}>
+            <P center upper>
+                upper
+            </P>
+        </Col>
+        <Col xs={6}>
+            <P center link>
+                with link appearance
+            </P>
+        </Col>
+        <Col xs={6}>
+            <P center small>
+                small
+            </P>
+        </Col>
+    </Row>
+</Playground>

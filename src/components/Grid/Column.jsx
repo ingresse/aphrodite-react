@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -92,17 +92,18 @@ const ColumnWrapper = styled('div')((props) => {
 });
 
 /* Component */
-const Column = (props) => {
+const Column = forwardRef((props, ref) => {
     const { className, children } = props;
 
     return (
         <ColumnWrapper
             {...props}
+            ref={ref}
             className={`aph-col ${className || ''}`}>
             {children}
         </ColumnWrapper>
     );
-};
+});
 
 /* Sizes Types */
 const sizesTypes = propTypes.oneOfType([

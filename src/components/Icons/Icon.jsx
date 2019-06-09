@@ -1,12 +1,13 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Constants */
-import { COLORS } from '../../constants';
+/* Utilities */
+import { colors } from '../../utils';
 
 /* Components / Icons */
+import ArrowDown from './IconArrowDown';
 import ArrowDownCircle from './IconArrowDownCircle';
 import ArrowLeftCircle from './IconArrowLeftCircle';
 import ArrowRightCircle from './IconArrowRightCircle';
@@ -15,6 +16,7 @@ import Check from './IconCheck';
 import CheckCircle from './IconCheckCircle';
 import CheckThin from './IconCheckThin';
 import InfoCircle from './IconInfoCircle';
+import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
 import Pencil from './IconPencil';
 import QuestionCircle from './IconQuestionCircle';
@@ -23,6 +25,7 @@ import TimesCircle from './IconTimesCircle';
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
 const ICONS = {
+    'arrow-down'        : ArrowDown,
     'arrow-down-circle' : ArrowDownCircle,
     'arrow-left-circle' : ArrowLeftCircle,
     'arrow-right-circle': ArrowRightCircle,
@@ -31,6 +34,7 @@ const ICONS = {
     'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
     'info-circle'       : InfoCircle,
+    'loader'            : LoaderDonut,
     'loading'           : Loading,
     'pencil'            : Pencil,
     'question-circle'   : QuestionCircle,
@@ -45,7 +49,7 @@ const IconWrapper = styled('span')(props => ({
 }));
 
 /* Component it self */
-const Icon = (props) => {
+const Icon = forwardRef((props, ref) => {
     const ICON = ICONS[props.slug];
 
     if (!ICON) {
@@ -56,18 +60,19 @@ const Icon = (props) => {
         <IconWrapper className="aph-icon-wrapper">
             <ICON
                 {...props}
-                color={props.color || COLORS.PRIMARY}
+                ref={ref}
+                color={colors.get(props.color || 'secondary')}
                 className={`aph-icon ${props.className || ''}`}
             />
         </IconWrapper>
     );
-};
+});
 
 /* Default Properties */
 Icon.defaultProps = {
     slug  : undefined,
     size  : 20,
-    color : COLORS.PRIMARY,
+    color : '',
     width : undefined,
     Height: undefined,
 };

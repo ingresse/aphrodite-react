@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 exports.RADIUS = void 0;
 
 /* Exporting */
-var RADIUS = Object.assign(4, {
-  XXS: 2,
-  XS: 4,
-  SM: 6,
-  MD: 8,
-  LG: 10,
-  XL: 12
+var RADIUS = Object.assign(5, {
+  XXS: 5,
+  XS: 5,
+  SM: 5,
+  MD: 5,
+  LG: 5,
+  XL: 5
 });
 exports.RADIUS = RADIUS;

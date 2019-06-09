@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -43,16 +43,17 @@ const ImgStyled = styled('img')((props) => {
 });
 
 /* Component */
-const Img = (props) => {
+const Img = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
         <ImgStyled
             {...props}
+            ref={ref}
             className={`aph-img ${className || ''}`}
         />
     );
-};
+});
 
 /* Properties Types */
 Img.propTypes = {

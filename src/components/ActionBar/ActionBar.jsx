@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -40,7 +40,7 @@ const ActionBarStyled = styled('div')(props => ({
 }));
 
 /* Component */
-const ActionBar = (props) => {
+const ActionBar = forwardRef((props, ref) => {
     const {
         className,
         children,
@@ -50,12 +50,13 @@ const ActionBar = (props) => {
 
     return (
         <ActionBarStyled
+            ref={ref}
             className={`action-bar ${visible ? 'action-bar--visible' : ''} ${className || ''}`}
             styles={styles}>
             {children}
         </ActionBarStyled>
     );
-};
+});
 
 /* Default Properties */
 ActionBar.defaultProps = {

@@ -1,0 +1,164 @@
+---
+name : Dropdown
+menu : Organisms
+route: /organisms/dropdown
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { Dropdown, Row, Col, Segment, H3, Button, Input, List, ListItem } from '../';
+
+# Dropdown
+#### A white block, rounded, with simple shadow effect, downing from some other component.
+
+```jsx
+import { Dropdown } from 'aphrodite-react';
+
+...
+
+<Dropdown>
+    Hello
+</Dropdown>
+```
+
+## Properties
+<Props of={Dropdown} />
+
+## Examples
+<Playground style={{ padding: '20px' }}>
+    {() => {
+        function logClick (dropdownItemId) {
+            console.log('Dropdown Item click', dropdownItemId);
+        }
+
+        return (
+            <Row>
+                <Col xs={12} sm={3}>
+                    <Segment padding="20px 0">
+                        <H3 styles={{ marginBottom: '25px' }}>
+                            Regular
+                        </H3>
+                        <Dropdown
+                            width="300px"
+                            toggle="Regular Dropdown Toggle">
+                            This is the regular dropdown content, with customized width
+                        </Dropdown>
+                    </Segment>
+                </Col>
+                <Col xs={12} sm={3}>
+                    <Segment padding="20px 0" styles={{ textAlign: 'center' }}>
+                        <H3 styles={{ marginBottom: '25px' }}>
+                            Center
+                        </H3>
+                        <Dropdown
+                            center
+                            toggle="Center Dropdown Toggle">
+                            This is the regular dropdown content
+                        </Dropdown>
+                    </Segment>
+                </Col>
+                <Col xs={12} sm={3}>
+                    <Segment padding="20px 0" styles={{ textAlign: 'center' }}>
+                        <H3 styles={{ marginBottom: '25px' }}>
+                            Center Up
+                        </H3>
+                        <Dropdown
+                            up
+                            center
+                            toggle="Center Dropdown Toggle">
+                            This is the regular dropdown content
+                        </Dropdown>
+                    </Segment>
+                </Col>
+                <Col xs={12} sm={3}>
+                    <Segment padding="20px 0" styles={{ textAlign: 'right' }}>
+                        <H3 styles={{ marginBottom: '25px' }}>
+                            Right
+                        </H3>
+                        <Dropdown
+                            right
+                            thin
+                            toggle="Right Dropdown Toggle">
+                            <List>
+                                <ListItem onClick={() => logClick('#A')}>
+                                    Dropdown Item A
+                                </ListItem>
+                                <ListItem onClick={() => logClick('#B')}>
+                                    Dropdown Item B
+                                </ListItem>
+                            </List>
+                        </Dropdown>
+                    </Segment>
+                </Col>
+            </Row>
+        );
+    }}
+</Playground>
+
+## Advanced Examples
+<Playground style={{ padding: '20px' }}>
+    {() => {
+        const [ dropdownVisible, setDropdownVisible ] = useState(false);
+        const [ dropdownValue, setDropdownValue ]     = useState('Dropdown Item B');
+
+        return (
+            <Row>
+                <Col xs={12} sm={6}>
+                    <Segment padding="20px 0">
+                        <H3 styles={{ marginBottom: '25px' }}>
+                            Custom Toggle
+                        </H3>
+                        <Dropdown
+                            width="300px"
+                            toggleBlock
+                            toggle={(
+                                <Button block>
+                                    Custom Toggle
+                                </Button>
+                            )}>
+                            This is the dropdown content, triggered by a custom toggle
+                        </Dropdown>
+                    </Segment>
+                </Col>
+                <Col xs={12} sm={6}>
+                    <Segment padding="20px 0">
+                        <H3 styles={{ marginBottom: '25px' }}>
+                            Focus
+                        </H3>
+                        <Dropdown
+                            thin
+                            opened={dropdownVisible}
+                            toggleBlock
+                            toggle={(
+                                <Input
+                                    id="MyInputAsDropdownToggle"
+                                    label="Selecting a Value from Dropdown"
+                                    tabIndex={20}
+                                    value={dropdownValue}
+                                    onChange={(evt) => setDropdownValue(evt.target.value || '')}
+                                    onBlur={() => { setDropdownVisible(false) }}
+                                    onFocus={() => { setDropdownVisible(true) }}
+                                />
+                            )}>
+                            <List>
+                                <ListItem>
+                                    Type or Select one option
+                                </ListItem>
+                                <ListItem
+                                    className={dropdownValue === 'Dropdown Item A' ? 'active' : ''}
+                                    onClick={() => setDropdownValue('Dropdown Item A')}>
+                                    Dropdown Item A
+                                </ListItem>
+                                <ListItem
+                                    className={dropdownValue === 'Dropdown Item B' ? 'active' : ''}
+                                    onClick={() => setDropdownValue('Dropdown Item B')}>
+                                    Dropdown Item B
+                                </ListItem>
+                            </List>
+                        </Dropdown>
+                    </Segment>
+                </Col>
+            </Row>
+        );
+    }}
+</Playground>

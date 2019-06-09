@@ -1,0 +1,57 @@
+---
+name : Modal
+menu : Atoms
+route: /atoms/modal
+---
+
+import { useState } from 'react';
+import { Modal, Button, Row } from '../';
+
+import { Playground, Props } from 'docz';
+
+# Modal
+#### Show and hide items in modal
+
+```jsx
+import { Modal } from 'aphrodite-react';
+...
+    <Modal
+        title="Modal title"
+        opened={true}
+        animationDuration="200"
+        footer={<Component />}
+    >
+        <Component />
+    </Modal>
+```
+
+## Properties
+<Props of={Modal} />
+
+## Simple
+<Playground style={{ padding: '20px' }}>
+    {() => {
+        const [ opened, setOpened ] = useState(false);
+
+        function toggleModal() {
+            setOpened(!opened);
+        };
+
+        return (
+            <>
+                <Button onClick={toggleModal}>Toggle</Button>
+                <Modal
+                    title="TÍTULO"
+                    opened={opened}
+                    footer={
+                        <Row horizontal="center">
+                            <Button onClick={toggleModal}>Custom footer</Button>
+                        </Row>
+                    }
+                >
+                    <p>Children</p>
+                </Modal>
+            </>
+        );
+    }}
+</Playground>

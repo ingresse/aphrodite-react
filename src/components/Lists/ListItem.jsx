@@ -1,36 +1,82 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
+import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Constants */
-import { COLORS, GRID, MEDIA_QUERIES, RADIUS } from '../../constants';
+/* UI Framework Utils */
+import { colors } from '../../utils';
 
-/* Wrapper styles */
-const AphListItem = styled('div')(props => ({
-    boxSizing: 'border-box',
-    position : 'relative',
-    overflow : 'hidden',
-    display  : 'block',
-    padding  : (((GRID.CONTAINER_PADDING  / 2) + GRID.UNIT) + ' ' + (GRID.CONTAINER_PADDING  + GRID.UNIT)),
-    margin   : 0,
+/* Component Styles */
+const active = {
+    color          : colors.get('secondary'),
+    backgroundColor: colors.get('secondary', 'crystal'),
+};
 
-    [MEDIA_QUERIES.LT.SM]: {
-        paddingRight: ((GRID.CONTAINER_PADDING  - 5) + GRID.UNIT),
-        paddingLeft : ((GRID.CONTAINER_PADDING  - 5) + GRID.UNIT),
-    },
+/* Component Itself */
+const AphListItemStyled = styled.li`
+    box-sizing: border-box;
 
-    ...props.styles,
-}));
+    display: block;
+    margin : 0;
+    padding: 10px;
 
-/* Component */
-const ListItem = (props) => {
+    background-color: transparent;
+
+    transition :
+        color 0.15s linear,
+        background-color 0.15s linear
+    ;
+    will-change:
+        color,
+        background-color
+    ;
+
+    &.active {
+        ${active};
+    }
+
+    ${props => (props.onClick) ? {
+        cursor: 'pointer',
+        color : colors.get('secondary'),
+    } : null};
+
+    ${props => (props.onClick || props.hoverable) ? {
+        '&:hover': active
+    } : null}
+
+    ${props => props.styles};
+`;
+
+/* Component Itself */
+const ListItem = forwardRef((props, ref) => {
+    const {
+        className,
+        component,
+        hoverable,
+    } = props;
+
+    const AphListItem = (component ? AphListItemStyled.withComponent(component) : AphListItemStyled);
+
     return (
         <AphListItem
+            role="option"
             {...props}
-            className={`${props.header ? 'aph-list__header ' : 'aph-list__item '}${props.className || ''}`}>
-            {props.children}
-        </AphListItem>
+            ref={ref}
+            className={`aph-list__item ${className || ''}`}
+        />
     );
+});
+
+/* Default Properties */
+ListItem.defaultProps = {
+    hoverable: false,
+    styles   : {},
+};
+
+/* Properties Types */
+ListItem.propTypes = {
+    hoverable: propTypes.bool,
+    styles   : propTypes.object,
 };
 
 /* Exporting */

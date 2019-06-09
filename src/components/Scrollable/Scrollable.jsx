@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
 /* Constants */
@@ -77,24 +77,26 @@ const StyledScrollable = styled('div')({
     },
 });
 
-/* Component it self */
-class Scrollable extends React.Component {
-    /**
-     * Component Render
-     */
-    render() {
-        const { props }    = this;
-        const { children } = props;
+/* Component Itself */
+const Scrollable = forwardRef((props, ref) => {
+    const {
+        children,
+        className,
+        onlyXS,
+        styles,
+    } = props;
 
-        return (
-            <StyledWrapper className={(props.className || '') + (props.onlyXS ? ' scrollable--xs' : '')}>
-                <StyledScrollable>
-                    {children}
-                </StyledScrollable>
-            </StyledWrapper>
-        )
-    }
-}
+    return (
+        <StyledWrapper
+            ref={ref}
+            styles={styles}
+            className={(className || '') + (onlyXS ? ' scrollable--xs' : '')}>
+            <StyledScrollable>
+                {children}
+            </StyledScrollable>
+        </StyledWrapper>
+    );
+});
 
 /* Export Component */
 export default Scrollable;

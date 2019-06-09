@@ -1,5 +1,5 @@
 /* Packages */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
 /* Constants */
@@ -89,15 +89,16 @@ const AphListGroup = styled('div')(props => ({
 }));
 
 /* Component */
-const ListGroup = (props) => {
+const ListGroup = forwardRef((props, ref) => {
     return (
         <AphListGroup
             {...props}
+            ref={ref}
             className={`aph-list-group ${props.className || ''}`}>
             {props.children}
         </AphListGroup>
     );
-};
+});
 
 /* Exporting */
 export default ListGroup;

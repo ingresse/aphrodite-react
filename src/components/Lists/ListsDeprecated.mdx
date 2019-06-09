@@ -1,0 +1,92 @@
+---
+name : Lists (Deprecated)
+menu : Organisms
+route: /organisms/deprecated/lists
+---
+
+import { Playground, Props } from 'docz';
+import { Checkbox, ListGroup, ListItem } from '../';
+
+# Lists
+#### Organizing information with an alternative to tables.
+
+```jsx
+import { Checkbox, ListGroup, ListItem } from 'aphrodite-react';
+...
+<ListGroup
+    radius={window.innerWidth < 768 ? 0 : 4}
+    noSideBorders={window.innerWidth < 768}>
+    <div>
+        <ListItem header>
+            <Checkbox id="firstToggle" labelRight={window.innerWidth < 768}>
+                Header
+            </Checkbox>
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+    </div>
+    <div>
+        <ListItem header>
+            <Checkbox id="secondToggle" color="#ff0000">
+                Header
+            </Checkbox>
+        </ListItem>
+        <ListItem>
+            Item ...
+        </ListItem>
+    </div>
+</ListGroup>
+```
+
+## Example
+<Playground style={{ fontSize: '16px', lineHeight: '20px' }}>
+    <ListGroup
+        radius={window.innerWidth < 768 ? 0 : 4}
+        noSideBorders={window.innerWidth < 768}>
+        <div>
+            <ListItem header>
+                <Checkbox id="firstToggle" labelRight={window.innerWidth < 768}>
+                    Header
+                </Checkbox>
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+        </div>
+        <div>
+            <ListItem header>
+                <Checkbox id="secondToggle" color="red" defaultChecked={true}>
+                    Header
+                </Checkbox>
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+            <ListItem>
+                Item ...
+            </ListItem>
+        </div>
+    </ListGroup>
+</Playground>
