@@ -29,14 +29,8 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-/* Component Styled */
-var AphFormControlTextArea = _FormControlStyled.default.withComponent('textarea', {
-  target: "e1iz5a6a0"
-});
 /* Component Itself */
-
-
-var FormControlTextArea = (0, _react.forwardRef)(function (props, ref) {
+var FormControlTextArea = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -82,7 +76,8 @@ var FormControlTextArea = (0, _react.forwardRef)(function (props, ref) {
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlTextArea, _extends({}, props, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(_FormControlStyled.default, _extends({}, props, {
+    as: "textarea",
     onChange: handleChange,
     styles: styles
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
@@ -95,7 +90,7 @@ var FormControlTextArea = (0, _react.forwardRef)(function (props, ref) {
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-});
+}));
 /* Exporting */
 
 var _default = FormControlTextArea;

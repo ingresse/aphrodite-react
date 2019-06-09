@@ -12,8 +12,7 @@ import AphButtonItemStyled from './ButtonItemStyled';
 
 /* Component Itself */
 const Button = forwardRef((props, ref) => {
-    const { className, color, children, component, loading } = props;
-    const AphButton = (AphButtonStyled.withComponent(component || 'button'));
+    const { className, color, children, loading, disabled } = props;
 
     const childrenRef = useRef(null);
     const [ childrenWidth, setChildrenWidth ] = useState(140);
@@ -33,9 +32,10 @@ const Button = forwardRef((props, ref) => {
     }, [ children ]);
 
     return (
-        <AphButton
+        <AphButtonStyled
             {...props}
             ref={ref}
+            disabled={disabled || loading}
             className={`aph-btn ${className} ${loading ? 'aph-btn--loading' : ''}`}>
             <AphButtonItemStyled
                 ref={childrenRef}
@@ -44,20 +44,22 @@ const Button = forwardRef((props, ref) => {
             </AphButtonItemStyled>
             <AphButtonItemStyled
                 className="aph-btn__loader"
-                childrenWidth={`${childrenWidth}px`}>
+                childrenWidth={childrenWidth ? `${childrenWidth}px` : null}>
                 <Icon
-                    size={15}
+                    size={19}
                     slug="loader"
                     color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
                 />
             </AphButtonItemStyled>
-        </AphButton>
+        </AphButtonStyled>
     );
 });
 
 /* Default Properties */
 Button.defaultProps = {
+    as       : 'button',
     type     : 'button',
+    role     : 'button',
     color    : 'secondary',
     radius   : '25px',
     className: '',
@@ -65,7 +67,6 @@ Button.defaultProps = {
     small    : false,
     block    : false,
     disabled : false,
-    component: null,
 };
 
 /* Properties Types */
@@ -115,7 +116,7 @@ Button.propTypes = {
      *
      * Example: `Link` from react-router-dom
      */
-    component: PropTypes.elementType,
+    as: PropTypes.elementType,
 };
 
 /* Exporting */

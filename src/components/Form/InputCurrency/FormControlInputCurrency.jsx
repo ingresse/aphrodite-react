@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { forwardRef, useState, useEffect } from 'react';
+import React, { memo, forwardRef, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import CurrencyInput from 'react-currency-input';
 
@@ -9,11 +9,8 @@ import AphFormControlLabelStyled    from '../FormControlLabelStyled';
 import AphFormControlStyled         from '../FormControlStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
-/* Component Styled */
-const AphFormControlInputCurrency = AphFormControlStyled.withComponent(CurrencyInput);
-
 /* Component Itself */
-const FormControlInputNumber = forwardRef((props, ref) => {
+const FormControlInputNumber = memo(forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -58,8 +55,9 @@ const FormControlInputNumber = forwardRef((props, ref) => {
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlInputCurrency
+            <AphFormControlStyled
                 {...inheritProps}
+                as={CurrencyInput}
                 ref={ref}
                 error={error ? 'true' : null}
                 onChange={() => {}}
@@ -82,7 +80,7 @@ const FormControlInputNumber = forwardRef((props, ref) => {
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
-});
+}));
 
 /* Default Properties */
 FormControlInputNumber.defaultProps = {

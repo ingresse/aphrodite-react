@@ -39,14 +39,8 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-/* Component Styled */
-var AphFormControlSelect = _FormControlStyled.default.withComponent('select', {
-  target: "ee8iy4u0"
-});
 /* Component Itself */
-
-
-var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
+var FormControlSelect = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -89,7 +83,8 @@ var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlSelect, _extends({}, props, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(_FormControlStyled.default, _extends({}, props, {
+    as: "select",
     ref: ref,
     onChange: handleChange,
     styles: Object.assign({}, styles, props.styles)
@@ -108,7 +103,7 @@ var FormControlSelect = (0, _react.forwardRef)(function (props, ref) {
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-});
+}));
 /* Default Properties */
 
 FormControlSelect.defaultProps = {

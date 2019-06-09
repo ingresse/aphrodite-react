@@ -36,13 +36,8 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
   var className = props.className,
       color = props.color,
       children = props.children,
-      component = props.component,
-      loading = props.loading;
-
-  var AphButton = _ButtonStyled.default.withComponent(component || 'button', {
-    target: "e1y3cl570"
-  });
-
+      loading = props.loading,
+      disabled = props.disabled;
   var childrenRef = (0, _react.useRef)(null);
 
   var _useState = (0, _react.useState)(140),
@@ -61,17 +56,18 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
 
     setChildrenWidth(childrenRef.current.offsetWidth);
   }, [children]);
-  return _react.default.createElement(AphButton, _extends({}, props, {
+  return _react.default.createElement(_ButtonStyled.default, _extends({}, props, {
     ref: ref,
+    disabled: disabled || loading,
     className: "aph-btn ".concat(className, " ").concat(loading ? 'aph-btn--loading' : '')
   }), _react.default.createElement(_ButtonItemStyled.default, {
     ref: childrenRef,
     className: "aph-btn__content"
   }, children), _react.default.createElement(_ButtonItemStyled.default, {
     className: "aph-btn__loader",
-    childrenWidth: "".concat(childrenWidth, "px")
+    childrenWidth: childrenWidth ? "".concat(childrenWidth, "px") : null
   }, _react.default.createElement(_.Icon, {
-    size: 15,
+    size: 19,
     slug: "loader",
     color: ['white', 'smoke'].includes(color) ? 'secondary' : 'white'
   })));
@@ -79,15 +75,16 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
 /* Default Properties */
 
 Button.defaultProps = {
+  as: 'button',
   type: 'button',
+  role: 'button',
   color: 'secondary',
   radius: '25px',
   className: '',
   margin: null,
   small: false,
   block: false,
-  disabled: false,
-  component: null
+  disabled: false
 };
 /* Properties Types */
 
@@ -134,7 +131,7 @@ Button.propTypes = {
    *
    * Example: `Link` from react-router-dom
    */
-  component: _propTypes.default.elementType
+  as: _propTypes.default.elementType
 };
 /* Exporting */
 

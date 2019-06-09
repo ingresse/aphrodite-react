@@ -1,12 +1,12 @@
 /* Packages */
-import React, { forwardRef } from 'react';
+import React, { memo, forwardRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Component Styles */
 import SwitchStyles from './FormControlSwitchStyles';
 
 /* Component Itself */
-const Switch = forwardRef((props, ref) => {
+const Switch = memo(forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -58,7 +58,7 @@ const Switch = forwardRef((props, ref) => {
             )}
         </SwitchStyles.Wrapper>
     );
-});
+}));
 
 /* Default Properties */
 Switch.defaultProps = {

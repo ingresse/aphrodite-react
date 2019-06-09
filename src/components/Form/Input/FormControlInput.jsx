@@ -1,5 +1,5 @@
 /* Packages */
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { memo, forwardRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -16,7 +16,7 @@ import AphFormControlButtonStyled   from '../FormControlButtonStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Itself */
-const Input = forwardRef((props, ref) => {
+const Input = memo(forwardRef((props, ref) => {
     if (type === 'checkbox') {
         return (
             <Checkbox
@@ -119,7 +119,7 @@ const Input = forwardRef((props, ref) => {
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
-});
+}));
 
 /* Default Properties */
 Input.defaultProps = {

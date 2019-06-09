@@ -25,14 +25,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-/* Component Styled */
-var AphFormControlInputCurrency = _FormControlStyled.default.withComponent(_reactCurrencyInput.default, {
-  target: "e10gb5eb0"
-});
 /* Component Itself */
-
-
-var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
+var FormControlInputNumber = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -64,7 +58,8 @@ var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlInputCurrency, _extends({}, inheritProps, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(_FormControlStyled.default, _extends({}, inheritProps, {
+    as: _reactCurrencyInput.default,
     ref: ref,
     error: error ? 'true' : null,
     onChange: function onChange() {},
@@ -80,7 +75,7 @@ var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-});
+}));
 /* Default Properties */
 
 FormControlInputNumber.defaultProps = {

@@ -11,16 +11,15 @@ const AphButtonItemStyled = styled.span`
     display   : inline-block;
     top       : 0;
 
-    width    : 100%;
     min-width: ${props => props.childrenWidth || null};
-    padding  : 0;
     margin   : 0;
+    padding  : 0;
 
     text-align: center;
 
     transition-timing-function: linear;
     transition-duration       : 0.25s;
-    transition-property       : position, transform;
+    transition-property       : opacity;
 `;
 
 /* Exporting */

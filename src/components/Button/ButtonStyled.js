@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 
 /* UI Library definitions */
-import { colors } from '../../utils';
+import { animations, colors } from '../../utils';
 
 /* Component Itself */
 const AphButtonStyled = styled.button`
@@ -70,28 +70,39 @@ const AphButtonStyled = styled.button`
 
     .aph-btn {
         &__content {
-            transform: translate(0);
+            opacity: 1;
         }
 
         &__loader {
             position : absolute;
+            top      : calc(50% - 11.5px);
             left     : 50%;
-            transform: translate(-50%, 100px);
+            transform: translate(-50%);
+            opacity  : 0;
         }
     }
 
     &.aph-btn--loading {
+        &:hover,
+        &:disabled {
+            background-color: ${props =>
+                props.link ?
+                    'transparent' :
+                    colors.get((props.color || 'secondary'))
+            };
+        }
+
         .aph-btn {
             &__content {
-                position : absolute;
-                left     : 50%;
-                transform: translate(-50%, -100px);
+                opacity: 0;
             }
 
             &__loader {
-                position : relative;
-                left     : 0;
-                transform: translate(0);
+                opacity: 1;
+
+                .aph-icon-wrapper {
+                    ${animations.spin()};
+                }
             }
         }
     }

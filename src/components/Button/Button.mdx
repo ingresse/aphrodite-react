@@ -226,20 +226,46 @@ import { Button } from 'aphrodite-react';
 
 ---
 
+## Custom Component
+
+<Playground>
+    {() => {
+        const Span = (props) => (
+            <span {...props} />
+        );
+
+        return (
+            <Segment styles={{ textAlign: 'center' }}>
+                <Button as={Span}>
+                    Custom Component
+                </Button>
+            </Segment>
+        );
+    }}
+</Playground>
+
+---
+
 ## Loading
 
 <Playground>
     {() => {
+        const [ btnText, setBtnText ] = useState('Loading Button');
         const [ loading, setLoading ] = useState(false);
 
         function toggleLoading() {
             setLoading(!loading);
+            setBtnText('Loading Button Tested');
+
+            setTimeout(() => {
+                setLoading(loading);
+            }, 2000);
         }
 
         return (
             <Segment styles={{ textAlign: 'center' }}>
                 <Button onClick={toggleLoading} loading={loading}>
-                    Loading Button
+                    {btnText}
                 </Button>
             </Segment>
         );

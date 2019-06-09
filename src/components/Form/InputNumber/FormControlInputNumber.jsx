@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { forwardRef, useState, useEffect } from 'react';
+import React, { memo, forwardRef, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import InputNumber from 'react-input-number';
 
@@ -9,11 +9,8 @@ import AphFormControlLabelStyled    from '../FormControlLabelStyled';
 import AphFormControlStyled         from '../FormControlStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
-/* Component Styled */
-const AphFormControlInputNumber = AphFormControlStyled.withComponent(InputNumber);
-
 /* Component Itself */
-const FormControlInputNumber = forwardRef((props, ref) => {
+const FormControlInputNumber = memo(forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -68,8 +65,9 @@ const FormControlInputNumber = forwardRef((props, ref) => {
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlInputNumber
+            <AphFormControlStyled
                 {...inheritProps}
+                as={InputNumber}
                 ref={ref}
                 onChange={handleChange}
                 enableMobileNumericKeyboard
@@ -91,7 +89,7 @@ const FormControlInputNumber = forwardRef((props, ref) => {
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
-});
+}));
 
 /* Default Properties */
 FormControlInputNumber.defaultProps = {

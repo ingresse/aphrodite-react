@@ -33,14 +33,8 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-/* Component Styled */
-var AphFormControlInputNumber = _FormControlStyled.default.withComponent(_reactInputNumber.default, {
-  target: "e19jaxi50"
-});
 /* Component Itself */
-
-
-var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
+var FormControlInputNumber = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -86,7 +80,8 @@ var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
     }
   }
 
-  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(AphFormControlInputNumber, _extends({}, inheritProps, {
+  return _react.default.createElement(_FormControlWrapperStyled.default, null, _react.default.createElement(_FormControlStyled.default, _extends({}, inheritProps, {
+    as: _reactInputNumber.default,
     ref: ref,
     onChange: handleChange,
     enableMobileNumericKeyboard: true,
@@ -101,7 +96,7 @@ var FormControlInputNumber = (0, _react.forwardRef)(function (props, ref) {
     },
     className: "aph-form-error"
   }, errorMessage || ''));
-});
+}));
 /* Default Properties */
 
 FormControlInputNumber.defaultProps = {

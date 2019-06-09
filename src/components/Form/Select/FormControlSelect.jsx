@@ -1,5 +1,5 @@
 /* Packages */
-import React, { forwardRef, useState, useEffect } from 'react';
+import React, { memo, forwardRef, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 
 /* Framework Definitions */
@@ -16,11 +16,8 @@ import AphFormControlStyled         from '../FormControlStyled';
 import AphFormControlButtonStyled   from '../FormControlButtonStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
-/* Component Styled */
-const AphFormControlSelect = AphFormControlStyled.withComponent('select');
-
 /* Component Itself */
-const FormControlSelect = forwardRef((props, ref) => {
+const FormControlSelect = memo(forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -67,8 +64,9 @@ const FormControlSelect = forwardRef((props, ref) => {
 
     return (
         <AphFormControlWrapperStyled>
-            <AphFormControlSelect
+            <AphFormControlStyled
                 {...props}
+                as="select"
                 ref={ref}
                 onChange={handleChange}
                 styles={Object.assign({}, styles, props.styles)}
@@ -95,7 +93,7 @@ const FormControlSelect = forwardRef((props, ref) => {
             </AphFormControlErrorMsgStyled>
         </AphFormControlWrapperStyled>
     );
-});
+}));
 
 /* Default Properties */
 FormControlSelect.defaultProps = {
