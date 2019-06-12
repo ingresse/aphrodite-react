@@ -15,6 +15,7 @@ const DropdownStyled = styled.div`
     position: relative;
     display : block;
     width   : 100%;
+    z-index : 2;
 
     -webkit-box-orient   : vertical;
     -webkit-box-direction: normal;
