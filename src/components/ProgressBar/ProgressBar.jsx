@@ -50,8 +50,8 @@ const AphProgressBarWrapper = styled('div')(props => ({
 const AphProgressBar = styled('div')(props => ({
     ...defaultStyles,
 
-    width : (((props.percentual && props.percentual > 100) ? 100 : props.percentual || 0) + '%'),
     height: (props.height || '10px'),
+    width : (props.size || ((props.percentual && props.percentual > 100) ? 100 : props.percentual || 0) + '%'),
 
     background: (props.color ? COLORS.GET(props.color) : !props.animated ? COLORS.BLUE : `linear-gradient(270deg, ${props.gradientStart || COLORS.BLUE} 0%, ${props.gradientEnd || COLORS.LIGHT_BLUE} 100%)`),
     backgroundSize: '200% 100%',
@@ -83,60 +83,12 @@ class ProgressBar extends Component {
         this.interval  = null;
     }
 
-    /**
-     *
-     */
-    increasePercentual(increment = 1) {
-        const { percentual } = this.state;
-
-        if (percentual >= 100) {
-            return false;
-        }
-
-        this.setState({
-            percentual: (percentual + increment),
-        }, () => {
-            return true;
-        });
-    }
-
-    /**
-     *
-     */
-    handlePromise() {
-        const { promise, promiseDone } = this.props;
-
-        if (!promise) {
-            return;
-        }
-
-        let response  = null;
-        let error     = null;
-        let increment = 0;
-        this.interval =
-            setInterval(() => {
-                increment += 15;
-
-                this.increaseProgress(increment);
-            }, this.increment);
-
-        promise
-        .then((response) => {
-            response = response;
-        })
-        .catch((error) => {
-            error = error;
-        })
-        .finally(() => {
-            clearInterval(this.interval);
-        });
-    }
-
     /* Render */
     render() {
         const {
             animated,
 
+            size,
             percent,
             percentual,
             gradient,
@@ -151,9 +103,6 @@ class ProgressBar extends Component {
             wrapperStyles,
         } = this.props;
 
-        const _color      = (color || '');
-        const _percentual = (this.state.percentual || percent || percentual);
-
         return (
             <AphProgressBarWrapper
                 width={width}
@@ -161,8 +110,9 @@ class ProgressBar extends Component {
                 radius={radius}
                 styles={wrapperStyles}>
                 <AphProgressBar
-                    percentual={_percentual}
-                    color={_color}
+                    size={size}
+                    percentual={(percent || percentual)}
+                    color={(color || '')}
                     animated={animated}
                     gradientStart={gradient && gradient.start}
                     gradientEnd={gradient && gradient.end}
@@ -180,6 +130,7 @@ ProgressBar.defaultProps = {
 
     percent      : 0,
     percentual   : 0,
+    size         : '',
     gradient     : {
         start: COLORS.BLUE,
         end  : COLORS.LIGHT_BLUE,
@@ -199,6 +150,7 @@ ProgressBar.defaultProps = {
 ProgressBar.propTypes = {
     animated     : propTypes.bool,
 
+    size         : propTypes.string,
     percentual   : propTypes.number,
     grandient    : propTypes.object,
     styles       : propTypes.object,
