@@ -40,6 +40,18 @@ const AphCardStyled = styled.div`
         }) : null};
     }
 
+    &:hover {
+        ${props => props.hover ? () => {
+            const isActive = props.className.split('active').length > 1;
+
+            if (isActive) {
+                return;
+            }
+
+            return ({ backgroundColor: `${colors.get('smoke')}`,})
+        } : null};
+    }
+
     .aph-card {
         box-shadow: none !important;
     }
