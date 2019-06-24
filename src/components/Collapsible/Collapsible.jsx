@@ -13,7 +13,6 @@ import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
 /* Components Helpers */
 import IconArrowDown from '../Icons/IconArrowDown';
-import { backgrounds } from 'polished';
 
 /* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
