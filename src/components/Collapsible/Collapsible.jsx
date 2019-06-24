@@ -13,10 +13,11 @@ import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
 /* Components Helpers */
 import IconArrowDown from '../Icons/IconArrowDown';
+import { backgrounds } from 'polished';
 
 /* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
-    const { header, headerProps, children, disabled, delay } = props;
+    const { header, headerProps, children, disabled, delay, hover } = props;
 
     const timerDelay = (delay * 1000);
 
@@ -136,6 +137,7 @@ const Collapsible = forwardRef((props, ref) => {
         <Card
             {...props}
             ref={ref}
+            hover
             className={`aph-collapsible ${opened ? 'active' : ''}`}
             styles={Object.assign(
                 {
@@ -159,7 +161,11 @@ const Collapsible = forwardRef((props, ref) => {
                         <IconArrowDown
                             size={50}
                             color={colors.get('mercury', 'light')}
-                            styles={{transform: opened ? 'rotate(180deg)' : 'initial', transition:`transform ${delay}s linear`}}
+                            styles={{
+                                transform: opened ? 'rotate(180deg)' : 'initial',
+                                transition:`transform ${delay}s linear`,
+                                minWidth: '50px'
+                            }}
                         />
                 </HeaderTitle>
             )}
@@ -177,6 +183,7 @@ const Collapsible = forwardRef((props, ref) => {
 /* Default Properties */
 Collapsible.defaultProps = {
     opened        : false,
+    hover         : false,
     delay         : 0.25,
     styles        : {},
     childrenStyles: {},
@@ -188,6 +195,7 @@ Collapsible.defaultProps = {
 /* Properties Types */
 Collapsible.propTypes = {
     opened        : propTypes.bool,
+    hover         : propTypes.bool,
     delay         : propTypes.number,
     styles        : propTypes.object,
     childrenStyles: propTypes.object,

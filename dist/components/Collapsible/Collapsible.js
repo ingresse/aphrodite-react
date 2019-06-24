@@ -17,6 +17,8 @@ var _CollapsibleChildrenStyled = _interopRequireDefault(require("./CollapsibleCh
 
 var _IconArrowDown = _interopRequireDefault(require("../Icons/IconArrowDown"));
 
+var _polished = require("polished");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
@@ -41,7 +43,8 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
       headerProps = props.headerProps,
       children = props.children,
       disabled = props.disabled,
-      delay = props.delay;
+      delay = props.delay,
+      hover = props.hover;
   var timerDelay = delay * 1000;
   var wrapperRef = (0, _react.useRef)(null);
   var wrapperContentRef = (0, _react.useRef)(null);
@@ -160,6 +163,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 
   return _react.default.createElement(_.Card, _extends({}, props, {
     ref: ref,
+    hover: true,
     className: "aph-collapsible ".concat(opened ? 'active' : ''),
     styles: Object.assign({
       position: 'relative',
@@ -180,7 +184,8 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     color: _utils.colors.get('mercury', 'light'),
     styles: {
       transform: opened ? 'rotate(180deg)' : 'initial',
-      transition: "transform ".concat(delay, "s linear")
+      transition: "transform ".concat(delay, "s linear"),
+      minWidth: '50px'
     }
   })), _react.default.createElement(_CollapsibleChildrenStyled.default, {
     ref: wrapperRef,
@@ -194,6 +199,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 
 Collapsible.defaultProps = {
   opened: false,
+  hover: false,
   delay: 0.25,
   styles: {},
   childrenStyles: {},
@@ -204,6 +210,7 @@ Collapsible.defaultProps = {
 
 Collapsible.propTypes = {
   opened: _propTypes.default.bool,
+  hover: _propTypes.default.bool,
   delay: _propTypes.default.number,
   styles: _propTypes.default.object,
   childrenStyles: _propTypes.default.object,
