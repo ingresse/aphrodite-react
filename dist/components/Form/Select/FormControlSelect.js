@@ -94,7 +94,6 @@ var FormControlSelect = (0, _react.memo)((0, _react.forwardRef)(function (props,
   }), label), _react.default.createElement(_FormControlButtonStyled.default, {
     type: "button"
   }, _react.default.createElement(_IconArrowDown.default, {
-    size: 30,
     color: _utils.colors.get('black')
   })), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: id,
