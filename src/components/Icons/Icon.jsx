@@ -3,9 +3,6 @@ import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Utilities */
-import { colors } from '../../utils';
-
 /* Components / Icons */
 import ArrowDown from './IconArrowDown';
 import ArrowDownCircle from './IconArrowDownCircle';
@@ -61,7 +58,7 @@ const Icon = forwardRef((props, ref) => {
             <ICON
                 {...props}
                 ref={ref}
-                color={colors.get(props.color || 'secondary')}
+                color={props.color}
                 className={`aph-icon ${props.className || ''}`}
             />
         </IconWrapper>
@@ -72,7 +69,7 @@ const Icon = forwardRef((props, ref) => {
 Icon.defaultProps = {
     slug  : undefined,
     size  : 20,
-    color : '',
+    color :'secondary',
     width : undefined,
     Height: undefined,
 };
