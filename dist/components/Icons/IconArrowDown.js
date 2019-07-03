@@ -17,23 +17,32 @@ var IconArrowDown = function IconArrowDown(props) {
       size = props.size,
       styles = props.styles;
   return _react.default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
     style: styles,
     width: size,
     height: size,
-    viewBox: "0 0 30 30"
-  }, _react.default.createElement("path", {
+    viewBox: "0 0 30 30",
+    version: "1.1",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, _react.default.createElement("g", {
+    id: "Icon-/-30-/-Forward-/-Mercury",
+    stroke: "none",
+    strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd",
-    stroke: color,
     strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "2",
-    d: "M10 12l5 5.714L20 12"
-  }));
+    strokeLinejoin: "round"
+  }, _react.default.createElement("polyline", {
+    id: "Path-2",
+    stroke: color,
+    strokeWidth: "4",
+    points: "9 11 16 19 23 11"
+  })));
 };
-/* Exporting Component */
 
+IconArrowDown.defaultProps = {
+  size: 15
+  /* Exporting Component */
 
+};
 var _default = IconArrowDown;
 exports.default = _default;

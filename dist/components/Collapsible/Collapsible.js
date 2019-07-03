@@ -166,9 +166,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     styles: Object.assign({
       position: 'relative',
       overflow: 'hidden'
-    }, props.styles, !opened ? {} : {
-      padding: '10px 10px 0'
-    })
+    }, props.styles)
   }), !header ? null : _react.default.createElement(HeaderTitle, _extends({}, headerProps, {
     styles: headerStyles,
     onClick: toggle,
@@ -178,12 +176,11 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
       maxWidth: '90%'
     }
   }, header), _react.default.createElement(_IconArrowDown.default, {
-    size: 50,
+    size: 30,
     color: _utils.colors.get('mercury', 'light'),
     styles: {
       transform: opened ? 'rotate(180deg)' : 'initial',
-      transition: "transform ".concat(delay, "s linear"),
-      minWidth: '50px'
+      transition: "transform ".concat(delay, "s linear")
     }
   })), _react.default.createElement(_CollapsibleChildrenStyled.default, {
     ref: wrapperRef,
@@ -201,6 +198,7 @@ Collapsible.defaultProps = {
   delay: 0.25,
   styles: {},
   childrenStyles: {},
+  size: 30,
   header: '',
   headerProps: null
 };
@@ -212,6 +210,7 @@ Collapsible.propTypes = {
   delay: _propTypes.default.number,
   styles: _propTypes.default.object,
   childrenStyles: _propTypes.default.object,
+  size: _propTypes.default.number,
   header: _propTypes.default.any,
   headerProps: _propTypes.default.object
 };

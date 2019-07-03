@@ -144,9 +144,6 @@ const Collapsible = forwardRef((props, ref) => {
                     overflow: 'hidden',
                 },
                 props.styles,
-                !opened ? {} : {
-                    padding: '10px 10px 0'
-                }
             )}>
             {!header ? null : (
                 <HeaderTitle
@@ -158,12 +155,11 @@ const Collapsible = forwardRef((props, ref) => {
                             {header}
                         </div>
                         <IconArrowDown
-                            size={50}
+                            size={30}
                             color={colors.get('mercury', 'light')}
                             styles={{
                                 transform: opened ? 'rotate(180deg)' : 'initial',
                                 transition:`transform ${delay}s linear`,
-                                minWidth: '50px'
                             }}
                         />
                 </HeaderTitle>
@@ -186,6 +182,7 @@ Collapsible.defaultProps = {
     delay         : 0.25,
     styles        : {},
     childrenStyles: {},
+    size          : 30,
 
     header     : '',
     headerProps: null,
@@ -198,6 +195,7 @@ Collapsible.propTypes = {
     delay         : propTypes.number,
     styles        : propTypes.object,
     childrenStyles: propTypes.object,
+    size          : propTypes.number,
 
     header     : propTypes.any,
     headerProps: propTypes.object,
