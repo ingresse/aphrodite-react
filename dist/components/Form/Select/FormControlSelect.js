@@ -92,7 +92,10 @@ var FormControlSelect = (0, _react.memo)((0, _react.forwardRef)(function (props,
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
   }), label), _react.default.createElement(_FormControlButtonStyled.default, {
-    type: "button"
+    type: "button",
+    styles: {
+      pointerEvents: 'none'
+    }
   }, _react.default.createElement(_IconArrowDown.default, {
     color: _utils.colors.get('black')
   })), _react.default.createElement(_FormControlErrorMsgStyled.default, {

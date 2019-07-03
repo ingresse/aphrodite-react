@@ -13,6 +13,8 @@ const AphFormControlLabelStyled = styled.label`
     left      : 10px;
     display   : inline-block;
 
+    pointer-events: none;
+
     color: ${colors.get('mercury')};
 
     font-size  : ${SIZES.MD.FONT_SIZE};
