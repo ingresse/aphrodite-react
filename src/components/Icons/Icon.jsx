@@ -69,7 +69,7 @@ const Icon = forwardRef((props, ref) => {
 Icon.defaultProps = {
     slug  : undefined,
     size  : 20,
-    color :'secondary',
+    color : 'secondary',
     width : undefined,
     Height: undefined,
 };
