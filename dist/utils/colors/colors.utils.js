@@ -5,7 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { keys.push.apply(keys, Object.getOwnPropertySymbols(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -46,6 +48,7 @@ var supernova = getShadesFormat('rgb(141, 77, 156)', 'rgb(172, 108, 184)', 'rgb(
 var mint = getShadesFormat('rgb(38, 168, 134)', 'rgb(60, 194, 165)', 'rgb(83, 215, 192)', 'rgb(206, 239, 232)');
 var oil = getShadesFormat('rgb(27, 27, 27)', 'rgb(45, 45, 45)', 'rgb(64, 64, 64)', 'rgb(202, 202, 202)');
 var translucid = getShadesFormat('rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)');
+var poison = getShadesFormat('rgb(81, 108, 178)', 'rgb(81, 108, 178)', 'rgb(81, 108, 178)', 'rgb(81, 108, 178)');
 var shades = {
   tangerine: tangerine,
   ocean: ocean,
@@ -56,7 +59,8 @@ var shades = {
   supernova: supernova,
   mint: mint,
   oil: oil,
-  translucid: translucid
+  translucid: translucid,
+  poison: poison
 };
 /**
  * Colors Alias
@@ -101,7 +105,7 @@ var stock = {
 
 var all = _objectSpread({
   alias: alias,
-  shades: _objectSpread({}, shades, alias)
+  shades: _objectSpread({}, shades, {}, alias)
 }, stock);
 /**
  * Get Color with custom Opacity
