@@ -96,6 +96,13 @@ const translucid = getShadesFormat(
     'rgba(255, 255, 255, 0.1)',
 );
 
+const poison = getShadesFormat(
+    'rgb(81, 108, 178)',
+    'rgb(81, 108, 178)',
+    'rgb(81, 108, 178)',
+    'rgb(81, 108, 178)',
+);
+
 let shades = {
     tangerine,
     ocean,
@@ -107,6 +114,7 @@ let shades = {
     mint,
     oil,
     translucid,
+    poison,
 };
 
 
