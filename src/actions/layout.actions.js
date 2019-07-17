@@ -6,10 +6,11 @@ import { LAYOUT } from '../constants';
  *
  * @return {function} dispatch
  */
-const resized = () => {
+const resized = (_window) => {
     return dispatch => {
         dispatch({
-            type: LAYOUT.RESIZED,
+            type  : LAYOUT.RESIZED,
+            window: _window,
         });
     };
 }

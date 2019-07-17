@@ -12,10 +12,11 @@ var _constants = require("../constants");
  *
  * @return {function} dispatch
  */
-var resized = function resized() {
+var resized = function resized(_window) {
   return function (dispatch) {
     dispatch({
-      type: _constants.LAYOUT.RESIZED
+      type: _constants.LAYOUT.RESIZED,
+      window: _window
     });
   };
 };
