@@ -8,7 +8,7 @@ import { SIZES } from '../../../constants';
 import { colors } from '../../../utils';
 
 /* Component Styles */
-const PStyled = styled.h1`
+const PStyled = styled.p`
     font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
     font-size  : ${props => (SIZES[props.small ? 'SM' : 'MD'].FONT_SIZE)};
     line-height: ${props => (SIZES[props.small ? 'SM' : 'MD'].LINE_HEIGHT)};
@@ -19,7 +19,10 @@ const PStyled = styled.h1`
     text-align    : ${props => (props.center ? 'center' : null)};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (props.link ? colors.get('secondary') : null)};
+    color: ${props => (
+        (!props.color && !props.link) ? null :
+            colors.get(props.link ? 'secondary' : props.color)
+    )};
 
     ${props => props.styles};
 `;
@@ -45,6 +48,7 @@ P.defaultProps = {
     upper : false,
     small : false,
     margin: '10px 0',
+    color : '',
     styles: {},
 };
 
@@ -54,9 +58,12 @@ P.propTypes = {
     bold  : propTypes.bool,
     center: propTypes.bool,
     upper : propTypes.bool,
-    small : propTypes.bool,
     margin: propTypes.string,
-    styles: propTypes.object,
+    color : propTypes.string,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

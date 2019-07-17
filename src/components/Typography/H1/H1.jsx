@@ -20,7 +20,10 @@ const H1Styled = styled.h1`
     text-align    : ${props => (props.center ? 'center' : null)};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (props.link ? colors.get('secondary') : null)};
+    color: ${props => (
+        (!props.color && !props.link) ? null :
+            colors.get(props.link ? 'secondary' : props.color)
+    )};
 
     ${props => props.styles};
 `;
@@ -45,6 +48,7 @@ H1.defaultProps = {
     center: false,
     upper : false,
     margin: '25px 0 15px',
+    color : '',
     styles: {},
 };
 
@@ -55,7 +59,11 @@ H1.propTypes = {
     center: propTypes.bool,
     upper : propTypes.bool,
     margin: propTypes.string,
-    styles: propTypes.object,
+    color : propTypes.string,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */
