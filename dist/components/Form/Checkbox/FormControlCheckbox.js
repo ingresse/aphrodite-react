@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -87,12 +85,12 @@ var Checkbox = (0, _react.forwardRef)(function (props, ref) {
   var newProps = Object.assign({}, props);
   delete newProps.children;
   return _react.default.createElement(AphCheckboxWrapperStyled, null, _react.default.createElement(AphCheckboxStyled, _extends({
-    className: "aph-form-control ".concat(className || '')
+    className: "aph-form-control " + (className || '')
   }, newProps, {
     ref: ref,
     type: "checkbox"
   })), _react.default.createElement(AphCheckboxMaskStyled, _extends({
-    className: "aph-form-control-mask ".concat(className || ''),
+    className: "aph-form-control-mask " + (className || ''),
     htmlFor: id,
     color: color,
     right: right,
@@ -102,7 +100,7 @@ var Checkbox = (0, _react.forwardRef)(function (props, ref) {
 /* Default Properties */
 
 Checkbox.defaultProps = {
-  id: "formControlRandomID".concat(Math.random()),
+  id: "formControlRandomID" + Math.random(),
   labelProps: {},
   labelRight: false,
   right: false,

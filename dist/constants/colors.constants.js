@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.COLORS = void 0;
 
 /* Packages */
@@ -106,9 +104,14 @@ var COLORS = Object.assign({}, _TONED, {
    *
    * @return {string} selected color
    */
-  GET: function GET() {
-    var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'BLACK';
-    var opacity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  GET: function GET(color, opacity) {
+    if (color === void 0) {
+      color = 'BLACK';
+    }
+
+    if (opacity === void 0) {
+      opacity = 1;
+    }
 
     if (!color || typeof color !== 'string') {
       return _TONED.BLACK;
@@ -126,7 +129,7 @@ var COLORS = Object.assign({}, _TONED, {
 
     if (!isNaN(opacity) && opacity >= 0 && opacity <= 1) {
       selected = selected.replace('rgb', 'rgba');
-      selected = selected.replace(')', ", ".concat(opacity, ")"));
+      selected = selected.replace(')', ", " + opacity + ")");
     }
 
     return selected;
@@ -138,8 +141,10 @@ var COLORS = Object.assign({}, _TONED, {
    *
    * @return {object} selected color as background
    */
-  FILL: function FILL() {
-    var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'SMOKE';
+  FILL: function FILL(color) {
+    if (color === void 0) {
+      color = 'SMOKE';
+    }
 
     if (typeof color !== 'string') {
       return {

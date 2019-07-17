@@ -1,14 +1,12 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _core = require("@emotion/core");
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        from {\n            transform: rotate(0deg);\n        }\n\n        to {\n            transform: rotate(360deg);\n        }\n    "]);
+  var data = _taggedTemplateLiteralLoose(["\n        from {\n            transform: rotate(0deg);\n        }\n\n        to {\n            transform: rotate(360deg);\n        }\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -17,15 +15,24 @@ function _templateObject() {
   return data;
 }
 
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
 /**
  * Animations Utils
  */
-var spin = function spin() {
-  var speed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '0.75s';
-  var effect = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'linear';
-  var loop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'infinite';
+var spin = function spin(speed, effect, loop) {
+  if (speed === void 0) {
+    speed = '0.75s';
+  }
+
+  if (effect === void 0) {
+    effect = 'linear';
+  }
+
+  if (loop === void 0) {
+    loop = 'infinite';
+  }
+
   var animation = (0, _core.keyframes)(_templateObject());
   return (
     /*#__PURE__*/

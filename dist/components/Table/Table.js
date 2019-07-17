@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
@@ -23,7 +21,7 @@ var Table = (0, _react.forwardRef)(function (props, ref) {
       children = props.children;
   return _react.default.createElement(_TableStyled.default, _extends({}, props, {
     ref: ref,
-    className: "aph-table ".concat(className || '')
+    className: "aph-table " + (className || '')
   }), children);
 });
 /* Default Properties */

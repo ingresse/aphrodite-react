@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -39,11 +37,11 @@ var AphListGroup = (
     margin: 0,
     listStyle: 'none',
     borderRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) + _constants.GRID.UNIT,
-    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        ") : "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset -1px 0 0 0 ").concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n        "),
+    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 1px 0 0 " + _constants.COLORS.LIGHT_GREY + "\n        " : "\n            inset 0 -1px 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n            inset 1px 0 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n            inset -1px 0 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n            inset 0 1px 0 0 " + _constants.COLORS.LIGHT_GREY + "\n        ",
     '.aph-list__header, .aph-list__item': {
-      boxShadow: "\n            inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent\n        "),
+      boxShadow: "\n            inset 0 -1px 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent\n        ",
       '+ .aph-list__header, + .aph-list__item': {
-        boxShadow: "\n                inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent\n            ")
+        boxShadow: "\n                inset 0 -1px 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent\n            "
       }
     },
     '.aph-list__header': {
@@ -58,7 +56,7 @@ var AphListGroup = (
           marginTop: '-1px',
           borderTopRightRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) - 2 + _constants.GRID.UNIT,
           borderTopLeftRadius: (!isNaN(props.radius) ? props.radius : _constants.RADIUS) - 2 + _constants.GRID.UNIT,
-          boxShadow: "\n                    inset 0 -1px 0 0 ".concat(_constants.COLORS.LIGHT_GREY, ",\n                    inset 0 0 0 0 transparent,\n                    inset 0 0 0 0 transparent,\n                    inset 0 1px 0 0 ").concat(_constants.COLORS.LIGHT_GREY, "\n                ")
+          boxShadow: "\n                    inset 0 -1px 0 0 " + _constants.COLORS.LIGHT_GREY + ",\n                    inset 0 0 0 0 transparent,\n                    inset 0 0 0 0 transparent,\n                    inset 0 1px 0 0 " + _constants.COLORS.LIGHT_GREY + "\n                "
         }
       }
     },
@@ -78,7 +76,7 @@ var AphListGroup = (
 var ListGroup = (0, _react.forwardRef)(function (props, ref) {
   return _react.default.createElement(AphListGroup, _extends({}, props, {
     ref: ref,
-    className: "aph-list-group ".concat(props.className || '')
+    className: "aph-list-group " + (props.className || '')
   }), props.children);
 });
 /* Exporting */

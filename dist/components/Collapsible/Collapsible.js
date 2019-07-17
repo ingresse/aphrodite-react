@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
@@ -27,14 +25,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 /* Component Itself */
 var Collapsible = (0, _react.forwardRef)(function (props, ref) {
   var header = props.header,
@@ -48,28 +38,24 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
   var wrapperContentRef = (0, _react.useRef)(null);
 
   var _useState = (0, _react.useState)(props.opened || false),
-      _useState2 = _slicedToArray(_useState, 2),
-      opened = _useState2[0],
-      setOpened = _useState2[1];
+      opened = _useState[0],
+      setOpened = _useState[1];
+
+  var _useState2 = (0, _react.useState)(null),
+      openTimer = _useState2[0],
+      setOpenTimer = _useState2[1];
 
   var _useState3 = (0, _react.useState)(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      openTimer = _useState4[0],
-      setOpenTimer = _useState4[1];
+      closeTimer = _useState3[0],
+      setCloseTimer = _useState3[1];
 
-  var _useState5 = (0, _react.useState)(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      closeTimer = _useState6[0],
-      setCloseTimer = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(Object.assign({
+  var _useState4 = (0, _react.useState)(Object.assign({
     transitionDuration: props.delay + 's'
   }, props.opened ? null : {
     maxHeight: 0
   })),
-      _useState8 = _slicedToArray(_useState7, 2),
-      styles = _useState8[0],
-      setStyles = _useState8[1];
+      styles = _useState4[0],
+      setStyles = _useState4[1];
   /* Custom Styles */
 
 
@@ -162,7 +148,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
   return _react.default.createElement(_.Card, _extends({}, props, {
     ref: ref,
     hover: true,
-    className: "aph-collapsible ".concat(opened ? 'active' : ''),
+    className: "aph-collapsible " + (opened ? 'active' : ''),
     styles: Object.assign({
       position: 'relative',
       overflow: 'hidden'
@@ -181,7 +167,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     color: _utils.colors.get('mercury', 'light'),
     styles: {
       transform: opened ? 'rotate(180deg)' : 'initial',
-      transition: "transform ".concat(delay, "s linear")
+      transition: "transform " + delay + "s linear"
     }
   })), _react.default.createElement(_CollapsibleChildrenStyled.default, {
     ref: wrapperRef,

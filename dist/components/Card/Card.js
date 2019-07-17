@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -30,7 +28,7 @@ var AphCardStyled = (0, _styledBase.default)("div", {
   return props.padding || '10px';
 }, ";border-radius:", _constants.RADIUS.SM, "px;color:", _utils.colors.get('black'), ";background:", _utils.colors.get('white'), ";transition:background-color 0.25s linear,box-shadow 0.25s linear,padding 0.25s linear;will-change:box-shadow,padding;", function (props) {
   return props.boxShadow ? {
-    boxShadow: "0 0 5px ".concat(_utils.colors.get('black', 'original', 0.25))
+    boxShadow: "0 0 5px " + _utils.colors.get('black', 'original', 0.25)
   } : null;
 }, ";", function (props) {
   return props.onClick ? {
@@ -40,7 +38,7 @@ var AphCardStyled = (0, _styledBase.default)("div", {
   } : null;
 }, ";&.active,&:hover{", function (props) {
   return props.boxShadow ? {
-    boxShadow: "0 0 20px ".concat(_utils.colors.get('black', 'original', 0.25))
+    boxShadow: "0 0 20px " + _utils.colors.get('black', 'original', 0.25)
   } : null;
 }, ";}&:hover{", function (props) {
   return props.hover ? function () {
@@ -51,7 +49,7 @@ var AphCardStyled = (0, _styledBase.default)("div", {
     }
 
     return {
-      backgroundColor: "".concat(_utils.colors.get('smoke'))
+      backgroundColor: "" + _utils.colors.get('smoke')
     };
   } : null;
 }, ";}.aph-card{box-shadow:none !important;}", function (props) {
@@ -63,7 +61,7 @@ var Card = (0, _react.forwardRef)(function (props, ref) {
   var className = props.className;
   return _react.default.createElement(AphCardStyled, _extends({}, props, {
     ref: ref,
-    className: "aph-card ".concat(className || '')
+    className: "aph-card " + (className || '')
   }));
 });
 /* Default Properties */

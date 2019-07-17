@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -47,7 +45,7 @@ var H3 = (0, _react.forwardRef)(function (props, ref) {
   var className = props.className;
   return _react.default.createElement(H3Styled, _extends({}, props, {
     ref: ref,
-    className: "aph-h3 ".concat(className || '')
+    className: "aph-h3 " + (className || '')
   }));
 });
 /* Default Properties */

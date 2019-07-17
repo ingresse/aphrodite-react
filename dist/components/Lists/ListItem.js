@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -53,7 +51,7 @@ var ListItem = (0, _react.forwardRef)(function (props, ref) {
     role: "option"
   }, props, {
     ref: ref,
-    className: "aph-list__item ".concat(className || '')
+    className: "aph-list__item " + (className || '')
   }));
 });
 /* Default Properties */

@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -103,7 +101,7 @@ var Icon = (0, _react.forwardRef)(function (props, ref) {
   }, _react.default.createElement(ICON, _extends({}, props, {
     ref: ref,
     color: _utils.colors.get(color),
-    className: "aph-icon ".concat(className || '')
+    className: "aph-icon " + (className || '')
   })));
 });
 /* Default Properties */

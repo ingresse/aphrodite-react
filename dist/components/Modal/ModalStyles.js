@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.ModalDialog = exports.Mask = exports.ModalContainer = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -12,7 +10,7 @@ var _core = require("@emotion/core");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    to {\n        opacity: 0\n    }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n    to {\n        opacity: 0\n    }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -22,7 +20,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  from {\n        opacity: 0;\n    }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  from {\n        opacity: 0;\n    }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -31,7 +29,7 @@ function _templateObject() {
   return data;
 }
 
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteralLoose(strings, raw) { if (!raw) { raw = strings.slice(0); } strings.raw = raw; return strings; }
 
 var fadeEnter = (0, _core.keyframes)(_templateObject());
 var fadeLeave = (0, _core.keyframes)(_templateObject2());
