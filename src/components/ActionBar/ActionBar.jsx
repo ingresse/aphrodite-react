@@ -3,6 +3,9 @@ import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
+/* Utilities */
+import { colors } from '../../utils';
+
 /* Constants */
 import { COLORS, MEDIA_QUERIES } from '../../constants';
 
@@ -21,14 +24,14 @@ const ActionBarStyled = styled('div')(props => ({
     left     : 0,
     padding  : '20px 0',
 
-    background: COLORS.WHITE,
-    boxShadow : `0 0 4px 0 ${COLORS.GET('BLACK', 0.2)}`,
+    background: colors.get('white'),
+    boxShadow : `0 0 4px 0 ${colors.get('black', null, 0.2)}`,
 
-    transform : `translateY(160px)`,
+    transform : `translateY(110%)`,
     willChange: 'transform',
     transition: '-webkit-transform 0.3s ease-out 0s',
 
-    '&.action-bar--visible': {
+    '&.aph-action-bar--visible': {
         transform: 'translateY(0)',
     },
 
@@ -50,8 +53,9 @@ const ActionBar = forwardRef((props, ref) => {
 
     return (
         <ActionBarStyled
+            {...props}
             ref={ref}
-            className={`action-bar ${visible ? 'action-bar--visible' : ''} ${className || ''}`}
+            className={`aph-action-bar${visible ? ' aph-action-bar--visible' : ''} ${className || ''}`}
             styles={styles}>
             {children}
         </ActionBarStyled>

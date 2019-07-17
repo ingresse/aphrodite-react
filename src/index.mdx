@@ -1,5 +1,5 @@
 ---
-name : 1 - Getting Started
+name : + Getting Started
 route: /
 ---
 
@@ -28,13 +28,13 @@ import propTypes from 'prop-types';
 import { Container, Button } from 'aphrodite-react';
 
 /* Component Itself */
-const MyComponent = (props) = {
+const MyComponent = (props) => {
     const { handleClick } = props;
 
     return (
         <Container>
             <Button onClick={handleClick}>
-                Aphrodite Button
+                My Button
             </Button>
         </Container>
     );
