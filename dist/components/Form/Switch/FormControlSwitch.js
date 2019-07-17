@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
@@ -35,7 +33,7 @@ var Switch = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   });
   return _react.default.createElement(_FormControlSwitchStyles.default.Wrapper, {
     htmlFor: id,
-    className: "aph-form-switch ".concat(className || ''),
+    className: "aph-form-switch " + (className || ''),
     styles: styles,
     textAlign: textAlign,
     textSmall: textSmall,
@@ -60,7 +58,7 @@ var Switch = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
 /* Default Properties */
 
 Switch.defaultProps = {
-  id: "formControlRandomID".concat(Math.random()),
+  id: "formControlRandomID" + Math.random(),
   className: '',
   styles: {},
   textSmall: false,

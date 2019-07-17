@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { keys.push.apply(keys, Object.getOwnPropertySymbols(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); return keys; }
@@ -117,10 +115,16 @@ var all = _objectSpread({
  */
 
 
-var getOpacity = function getOpacity() {
-  var opacity = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-  var color = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : all.shades.mercury.original;
-  var opacityToReplace = !isNaN(opacity) && opacity > 0 && opacity < 1 ? ", ".concat(opacity, ")") : '';
+var getOpacity = function getOpacity(opacity, color) {
+  if (opacity === void 0) {
+    opacity = 1;
+  }
+
+  if (color === void 0) {
+    color = all.shades.mercury.original;
+  }
+
+  var opacityToReplace = !isNaN(opacity) && opacity > 0 && opacity < 1 ? ", " + opacity + ")" : '';
 
   if (!opacityToReplace || typeof color !== 'string' || !color.includes('rgb(') && !color.includes('rgba(')) {
     return color;
@@ -139,10 +143,18 @@ var getOpacity = function getOpacity() {
  */
 
 
-var get = function get() {
-  var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'primary';
-  var shade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'original';
-  var opacity = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+var get = function get(color, shade, opacity) {
+  if (color === void 0) {
+    color = 'primary';
+  }
+
+  if (shade === void 0) {
+    shade = 'original';
+  }
+
+  if (opacity === void 0) {
+    opacity = 1;
+  }
 
   var _color = (color + '').toLowerCase();
 
@@ -177,12 +189,14 @@ var colors = _objectSpread({}, all, {
 
 
 var set = function set(colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) {
+  var _objectSpread2;
+
   if (typeof colorKey !== 'string' || typeof shadeDark !== 'string' || typeof shadeOriginal !== 'string' || typeof shadeLight !== 'string' || typeof shadeCrystal !== 'string') {
     return colors;
   }
 
   colors = _objectSpread({}, colors, {
-    shades: _objectSpread({}, colors.shades, _defineProperty({}, colorKey, getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal)))
+    shades: _objectSpread({}, colors.shades, (_objectSpread2 = {}, _objectSpread2[colorKey] = getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal), _objectSpread2))
   });
   return colors;
 };

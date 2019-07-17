@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
@@ -64,7 +62,7 @@ var FormControlInputNumber = (0, _react.memo)((0, _react.forwardRef)(function (p
     error: error ? 'true' : null,
     onChange: function onChange() {},
     onChangeEvent: handleChange,
-    className: "aph-form-control ".concat(className || '')
+    className: "aph-form-control " + (className || '')
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label aph-form-label--top"

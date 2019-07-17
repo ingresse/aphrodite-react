@@ -1,15 +1,11 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.FORM = void 0;
 
 var _ = require("./");
 
-var _DEFAULT;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _DEFAULT, _CHECKBOX_MASK, _CHECKBOX_MASK_RIGHT;
 
 /* Form Constants */
 var FORM = {
@@ -31,14 +27,14 @@ var FORM = {
       color: _.COLORS.BLACK,
       backgroundColor: _.COLORS.WHITE,
       borderRadius: _.RADIUS,
-      boxShadow: "inset 0 0 2px 0 ".concat(_.COLORS.GET('DARK_BLACK', 0.3))
-    }, _defineProperty(_DEFAULT, "borderRadius", _.RADIUS.XS), _defineProperty(_DEFAULT, "border", 0), _defineProperty(_DEFAULT, "outline", 0), _defineProperty(_DEFAULT, "transition", 'box-shadow 0.15s linear'), _defineProperty(_DEFAULT, "willChange", 'box-shadow'), _defineProperty(_DEFAULT, '&.error', {
-      boxShadow: "inset 0 0 2px 0 ".concat(_.COLORS.GET('RED', 0.3))
-    }), _defineProperty(_DEFAULT, '&:focus, &:active, &.error:focus, &.error:active', {
-      boxShadow: "inset 0 0 2px 0 ".concat(_.COLORS.GET('DARK_BLACK', 0.6))
-    }), _defineProperty(_DEFAULT, _.MEDIA_QUERIES.LT.SM, {
+      boxShadow: "inset 0 0 2px 0 " + _.COLORS.GET('DARK_BLACK', 0.3)
+    }, _DEFAULT["borderRadius"] = _.RADIUS.XS, _DEFAULT["border"] = 0, _DEFAULT.outline = 0, _DEFAULT.transition = 'box-shadow 0.15s linear', _DEFAULT.willChange = 'box-shadow', _DEFAULT['&.error'] = {
+      boxShadow: "inset 0 0 2px 0 " + _.COLORS.GET('RED', 0.3)
+    }, _DEFAULT['&:focus, &:active, &.error:focus, &.error:active'] = {
+      boxShadow: "inset 0 0 2px 0 " + _.COLORS.GET('DARK_BLACK', 0.6)
+    }, _DEFAULT[_.MEDIA_QUERIES.LT.SM] = {
       height: '50px'
-    }), _DEFAULT),
+    }, _DEFAULT),
     CHECKBOX: {
       boxSizing: 'border-box',
       position: 'absolute',
@@ -52,7 +48,7 @@ var FORM = {
         backgroundColor: _.COLORS.BLUE
       }
     },
-    CHECKBOX_MASK: _defineProperty({
+    CHECKBOX_MASK: (_CHECKBOX_MASK = {
       boxSizing: 'border-box',
       position: 'relative',
       display: 'block',
@@ -78,22 +74,22 @@ var FORM = {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
       }
-    }, _.MEDIA_QUERIES.LT.SM, {
+    }, _CHECKBOX_MASK[_.MEDIA_QUERIES.LT.SM] = {
       paddingLeft: '40px',
       '&:before': {
         width: '30px',
         height: '30px',
         backgroundSize: '18px'
       }
-    }),
-    CHECKBOX_MASK_RIGHT: _defineProperty({
+    }, _CHECKBOX_MASK),
+    CHECKBOX_MASK_RIGHT: (_CHECKBOX_MASK_RIGHT = {
       paddingRight: '30px',
       paddingLeft: 0,
       '&:before': {
         right: 0,
         left: 'auto'
       }
-    }, _.MEDIA_QUERIES.LT.SM, {
+    }, _CHECKBOX_MASK_RIGHT[_.MEDIA_QUERIES.LT.SM] = {
       paddingRight: '40px',
       paddingLeft: 0,
       '&:before': {
@@ -101,7 +97,7 @@ var FORM = {
         height: '30px',
         backgroundSize: '18px'
       }
-    })
+    }, _CHECKBOX_MASK_RIGHT)
   }
 };
 exports.FORM = FORM;

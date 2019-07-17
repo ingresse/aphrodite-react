@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _styledBase = _interopRequireDefault(require("@emotion/styled-base"));
@@ -30,8 +28,8 @@ var IconLoaderDonut = function IconLoaderDonut(props) {
       size = props.size;
   return _react.default.createElement(IconStyled, {
     xmlns: "http://www.w3.org/2000/svg",
-    width: "".concat(size, "px"),
-    height: "".concat(size, "px"),
+    width: size + "px",
+    height: size + "px",
     viewBox: "0 0 20 20"
   }, _react.default.createElement("path", {
     fill: "none",

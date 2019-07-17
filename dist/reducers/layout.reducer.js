@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _constants = require("../constants");
@@ -64,9 +62,10 @@ var getSizes = function getSizes() {
 var initialState = getSizes();
 /* Reducer */
 
-var layoutReducer = function layoutReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
+var layoutReducer = function layoutReducer(state, action) {
+  if (state === void 0) {
+    state = initialState;
+  }
 
   switch (action.type) {
     case _constants.LAYOUT.RESIZED:

@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
@@ -17,9 +15,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-_reactToastify.toast.inverse = function () {
-  var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+_reactToastify.toast.inverse = function (content, props) {
+  if (content === void 0) {
+    content = '';
+  }
+
+  if (props === void 0) {
+    props = {};
+  }
+
   return (0, _reactToastify.toast)(content, _objectSpread({}, props, {
     className: 'Toastify__toast--inverse'
   }));
