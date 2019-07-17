@@ -52,6 +52,18 @@ Object.keys(_icons).forEach(function (key) {
   });
 });
 
+var _layout = require("./layout.constants");
+
+Object.keys(_layout).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _layout[key];
+    }
+  });
+});
+
 var _radius = require("./radius.constants");
 
 Object.keys(_radius).forEach(function (key) {

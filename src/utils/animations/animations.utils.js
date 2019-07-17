@@ -4,7 +4,7 @@ import { css, keyframes } from '@emotion/core';
 /**
  * Animations Utils
  */
-const spin = (speed = '0.75s') => {
+const spin = (speed = '0.75s', effect = 'linear', loop = 'infinite') => {
     const animation = keyframes`
         from {
             transform: rotate(0deg);
@@ -16,7 +16,7 @@ const spin = (speed = '0.75s') => {
     `;
 
     return css`
-        animation: ${animation} ${speed} linear infinite;
+        animation: ${animation} ${speed} ${effect} ${loop};
     `;
 };
 
