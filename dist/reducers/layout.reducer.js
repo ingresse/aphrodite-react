@@ -14,9 +14,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /**
  * Get Sizes
  */
-var getSizes = function getSizes() {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
+var getSizes = function getSizes(_window) {
+  if (_window === void 0) {
+    _window = {
+      innerWidth: 1280,
+      innerHeight: 768
+    };
+  }
+
+  var width = _window.innerWidth;
+  var height = _window.innerHeight;
   var xs = width < _constants.SCREEN_SIZES.SM;
   var sm = width >= _constants.SCREEN_SIZES.SM && width < _constants.SCREEN_SIZES.MD;
   var md = width >= _constants.SCREEN_SIZES.MD && width < _constants.SCREEN_SIZES.LG;
@@ -62,14 +69,14 @@ var getSizes = function getSizes() {
 var initialState = getSizes();
 /* Reducer */
 
-var layoutReducer = function layoutReducer(state, action) {
+var layout = function layout(state, action) {
   if (state === void 0) {
     state = initialState;
   }
 
   switch (action.type) {
     case _constants.LAYOUT.RESIZED:
-      var sizes = getSizes();
+      var sizes = getSizes(action.window);
       return _objectSpread({}, state, {}, sizes);
 
     default:
@@ -79,5 +86,5 @@ var layoutReducer = function layoutReducer(state, action) {
 /* Exporting */
 
 
-var _default = layoutReducer;
+var _default = layout;
 exports.default = _default;
