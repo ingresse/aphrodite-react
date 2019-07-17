@@ -136,7 +136,10 @@ Input.propTypes = {
     label : propTypes.string,
     btn   : propTypes.object,
     button: propTypes.object,
-    styles: propTypes.any,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

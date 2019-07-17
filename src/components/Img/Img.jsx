@@ -55,17 +55,6 @@ const Img = forwardRef((props, ref) => {
     );
 });
 
-/* Properties Types */
-Img.propTypes = {
-    circle    : propTypes.bool,
-    rounded   : propTypes.bool,
-
-    radius    : propTypes.string,
-    maxWidthXS: propTypes.string,
-
-    styles    : propTypes.object,
-};
-
 /* Default Properties */
 Img.defaultProps = {
     circle    : false,
@@ -75,6 +64,20 @@ Img.defaultProps = {
     maxWidthXS: '',
 
     styles    : {},
+};
+
+/* Properties Types */
+Img.propTypes = {
+    circle    : propTypes.bool,
+    rounded   : propTypes.bool,
+
+    radius    : propTypes.string,
+    maxWidthXS: propTypes.string,
+
+    styles    : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

@@ -36,7 +36,7 @@ const Button = forwardRef((props, ref) => {
             {...props}
             ref={ref}
             disabled={disabled || loading}
-            className={`aph-btn ${className} ${loading ? 'aph-btn--loading' : ''}`}>
+            className={`aph-btn${loading ? ' aph-btn--loading' : ''} ${className}`}>
             <AphButtonItemStyled
                 ref={childrenRef}
                 className="aph-btn__content">
@@ -66,6 +66,7 @@ Button.defaultProps = {
     small    : false,
     block    : false,
     disabled : false,
+    styles   : {},
 };
 
 /* Properties Types */
@@ -116,6 +117,14 @@ Button.propTypes = {
      * Example: `Link` from react-router-dom
      */
     as: PropTypes.elementType,
+
+    /**
+     * Custom Styles
+     */
+    styles: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Exporting */

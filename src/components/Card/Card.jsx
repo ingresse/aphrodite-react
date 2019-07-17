@@ -84,8 +84,11 @@ Card.defaultProps = {
 Card.propTypes = {
     margin   : propTypes.string,
     padding  : propTypes.string,
-    styles   : propTypes.object,
     boxShadow: propTypes.bool,
+    styles   : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

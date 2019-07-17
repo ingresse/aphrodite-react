@@ -77,7 +77,10 @@ Switch.propTypes = {
     id: propTypes.string,
 
     className: propTypes.string,
-    styles   : propTypes.object,
+    styles   : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 
     textSmall  : propTypes.bool,
     textAlign  : propTypes.string,

@@ -209,9 +209,9 @@ Collapsible.propTypes = {
   opened: _propTypes.default.bool,
   hover: _propTypes.default.bool,
   delay: _propTypes.default.number,
-  styles: _propTypes.default.object,
-  childrenStyles: _propTypes.default.object,
   size: _propTypes.default.number,
+  styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
+  childrenStyles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
   header: _propTypes.default.any,
   headerProps: _propTypes.default.object
 };

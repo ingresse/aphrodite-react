@@ -140,7 +140,7 @@ Input.propTypes = {
   label: _propTypes.default.string,
   btn: _propTypes.default.object,
   button: _propTypes.default.object,
-  styles: _propTypes.default.any
+  styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object])
 };
 /* Exporting */
 

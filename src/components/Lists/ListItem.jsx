@@ -76,7 +76,10 @@ ListItem.defaultProps = {
 /* Properties Types */
 ListItem.propTypes = {
     hoverable: propTypes.bool,
-    styles   : propTypes.object,
+    styles   : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

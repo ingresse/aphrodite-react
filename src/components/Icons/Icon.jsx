@@ -46,6 +46,8 @@ const IconWrapper = styled('span')(props => ({
     display      : 'inline-block',
     verticalAlign: 'middle',
     lineHeight   : 0,
+
+    ...props.styles,
 }));
 
 /* Component it self */
@@ -56,10 +58,12 @@ const Icon = forwardRef((props, ref) => {
         return null;
     }
 
-    const { color, className } = props;
+    const { color, className, styles } = props;
 
     return (
-        <IconWrapper className="aph-icon-wrapper">
+        <IconWrapper
+            styles={styles}
+            className="aph-icon-wrapper">
             <ICON
                 {...props}
                 ref={ref}
@@ -76,7 +80,8 @@ Icon.defaultProps = {
     size  : 20,
     color : 'secondary',
     width : undefined,
-    Height: undefined,
+    height: undefined,
+    styles: {},
 };
 
 /* Properties Types */
@@ -86,6 +91,10 @@ Icon.propTypes = {
     color : propTypes.string,
     width : propTypes.number,
     height: propTypes.number,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

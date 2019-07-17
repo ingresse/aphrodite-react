@@ -26,6 +26,8 @@ const Dropdown = forwardRef((props, ref) => {
         thin,
 
         opened,
+
+        styles,
     } = props;
 
     /**
@@ -156,6 +158,7 @@ const Dropdown = forwardRef((props, ref) => {
             thin={thin}
             toggleBlock={toggleBlock || center}
             contentWidth={width}
+            styles={styles}
             ref={dropdownRef}
             className={`aph-dropdown ${className || ''}`}>
             {(!toggle) ? (null) : (
@@ -188,6 +191,8 @@ Dropdown.defaultProps = {
     up   : false,
     right: false,
     left : true,
+
+    styles: {},
 };
 
 /* Component Properties Types */
@@ -206,6 +211,11 @@ Dropdown.propTypes = {
     up   : PropTypes.bool,
     right: PropTypes.bool,
     left : PropTypes.bool,
+
+    styles: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Exporting */

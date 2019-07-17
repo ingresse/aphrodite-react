@@ -94,6 +94,8 @@ const DropdownStyled = styled.div`
             }
         }
     }
+
+    ${props => props.styles};
 `;
 
 /* Exporting */

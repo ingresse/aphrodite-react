@@ -104,8 +104,11 @@ FormControlInputNumber.propTypes = {
     id    : propTypes.string.isRequired,
     label : propTypes.string,
     btn   : propTypes.object,
-    styles: propTypes.object,
     type  : propTypes.string,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 
     thousandSeparator: propTypes.string,
     decimalSeparator : propTypes.string,

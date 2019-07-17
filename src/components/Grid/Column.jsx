@@ -124,7 +124,10 @@ Column.propTypes = {
     last  : propTypes.string,
 
     width : propTypes.string,
-    styles: propTypes.object,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Default Properties */

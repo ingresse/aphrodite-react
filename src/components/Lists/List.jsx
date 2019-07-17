@@ -43,7 +43,10 @@ List.defaultProps = {
 
 /* Properties Types */
 List.propTypes = {
-    styles: propTypes.object,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */
