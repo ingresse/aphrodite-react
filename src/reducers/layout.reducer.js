@@ -4,9 +4,9 @@ import { LAYOUT, SCREEN_SIZES } from '../constants';
 /**
  * Get Sizes
  */
-const getSizes = () => {
-    const width  = window.innerWidth;
-    const height = window.innerHeight;
+const getSizes = (_window = { innerWidth: 1280, innerHeight: 768 }) => {
+    const width  = (_window.innerWidth);
+    const height = (_window.innerHeight);
     const xs     = (width < SCREEN_SIZES.SM);
     const sm     = (width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD);
     const md     = (width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG);
@@ -54,10 +54,10 @@ const getSizes = () => {
 const initialState = getSizes();
 
 /* Reducer */
-const layoutReducer = (state = initialState, action) => {
+const layout = (state = initialState, action) => {
     switch (action.type) {
         case LAYOUT.RESIZED:
-            const sizes = getSizes();
+            const sizes = getSizes(action.window);
 
             return {
                 ...state,
@@ -70,4 +70,4 @@ const layoutReducer = (state = initialState, action) => {
 };
 
 /* Exporting */
-export default layoutReducer;
+export default layout;

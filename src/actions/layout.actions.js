@@ -15,6 +15,6 @@ const resized = () => {
 }
 
 /* Exporting */
-export const layout = {
+export const layoutActions = {
     resized,
 };

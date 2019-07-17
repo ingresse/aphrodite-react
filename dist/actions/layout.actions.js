@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.layout = void 0;
+exports.layoutActions = void 0;
 
 var _constants = require("../constants");
 
@@ -22,7 +22,7 @@ var resized = function resized() {
 /* Exporting */
 
 
-var layout = {
+var layoutActions = {
   resized: resized
 };
-exports.layout = layout;
+exports.layoutActions = layoutActions;
