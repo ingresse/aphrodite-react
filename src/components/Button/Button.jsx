@@ -61,7 +61,6 @@ Button.defaultProps = {
     type     : 'button',
     role     : 'button',
     color    : 'secondary',
-    radius   : '25px',
     className: '',
     margin   : null,
     small    : false,

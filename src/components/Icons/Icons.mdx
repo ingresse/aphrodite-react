@@ -26,7 +26,7 @@ import { Icon } from 'aphrodite-react';
         return ICONS.map((ICON_SLUG, INDEX) => {
             return (
                 <div key={INDEX} style={{ margin: '5px 0' }}>
-                    <Icon slug={ICON_SLUG} size={20 + ((INDEX + 1) * 5)} color={(INDEX % 2) ? 'ruby' : ''} />
+                    <Icon slug={ICON_SLUG} size={20 + ((INDEX + 1) * 5)} color={(INDEX % 2) ? 'primary' : 'secondary'} />
                     <span style={{ paddingLeft: '10px' }}>{ICON_SLUG}</span>
                 </div>
             );

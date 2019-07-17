@@ -6,13 +6,10 @@ import propTypes from 'prop-types';
 import { colors } from '../../utils';
 
 /* Composition Components */
-import { H2, H3, Card } from '../';
+import { H2, H3, Card, Icon } from '../';
 
 /* Component Styles */
 import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
-
-/* Components Helpers */
-import IconArrowDown from '../Icons/IconArrowDown';
 
 /* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
@@ -39,8 +36,8 @@ const Collapsible = forwardRef((props, ref) => {
         alignItems    : 'center',
         justifyContent: 'space-between',
 
-        margin : 0,
-        padding: ((headerProps && headerProps.lg) ? '5px 0' : 0),
+        margin : '-10px',
+        padding: ((headerProps && headerProps.lg) ? '15px 10px' : '10px'),
         cursor : 'pointer',
         color  : colors.get(disabled ? 'mercury' : 'secondary'),
     }, headerProps && headerProps.styles ? headerProps.styles : {});
@@ -154,7 +151,8 @@ const Collapsible = forwardRef((props, ref) => {
                         <div style={{ maxWidth: '90%' }}>
                             {header}
                         </div>
-                        <IconArrowDown
+                        <Icon
+                            slug="arrow-down"
                             size={30}
                             color={colors.get('mercury', 'light')}
                             styles={{

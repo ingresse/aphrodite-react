@@ -4,8 +4,9 @@ menu : Atoms
 route: /atoms/action-bar
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { ActionBar, Button } from '../';
+import { ActionBar, Button, Segment } from '../';
 
 # Action Bar
 #### Toggle visibility of action elements
@@ -26,23 +27,46 @@ import { ActionBar, Button } from 'aphrodite-react';
 
 ## Example
 <Playground>
-    <div style={{
-            position: 'relative',
-            minHeight: '180px',
-            border: '1px solid rgba(0, 0, 0, 0.1)',
-            borderRadius: '4px',
-            overflow: 'hidden',
-            padding : '15px 0 0',
-            textAlign: 'center',
-        }}>
-        The Page Container
+    {() => {
+        const [ visible, setVisible ] = useState(true);
 
-        <ActionBar
-            visible={true}
-            styles={{
-                position : 'absolute', // Just to fit in this example. Default: 'fixed',
-            }}>
-            <Button>My Action</Button>
-        </ActionBar>
-    </div>
+        function toggle() {
+            setVisible(!visible);
+        }
+
+        return (
+            <Segment
+                style={{
+                    position    : 'relative',
+                    minHeight   : '240px',
+                    border      : '1px solid rgba(0, 0, 0, 0.1)',
+                    borderRadius: '4px',
+                    overflow    : 'hidden',
+                    padding     : '15px 0 0',
+                    textAlign   : 'center',
+                }}>
+                <Segment>
+                    The Page Container
+                </Segment>
+
+                <Button
+                    link
+                    onClick={toggle}>
+                    Toggle Action Bar
+                </Button>
+
+                <ActionBar
+                    visible={visible}
+                    styles={{
+                        position : 'absolute', // Just to fit in this example. Default: 'fixed',
+                    }}>
+                    <Button
+                        color="primary"
+                        onClick={toggle}>
+                        Close Action Bar
+                    </Button>
+                </ActionBar>
+            </Segment>
+        );
+    }}
 </Playground>

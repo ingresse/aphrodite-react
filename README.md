@@ -1,7 +1,7 @@
 # Aphrodite React
-### UI framework from ingresse.com
+### React UI Library from ingresse.com
 
-A front-end framework with Ingresse styles, using `React` 16.
+A front-end library with Ingresse styles, using `React` 16.
 
 _
 

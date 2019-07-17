@@ -24,10 +24,12 @@ const AphButtonStyled = styled.button`
     font-size  : 16px;
     line-height: 20px;
 
-    border-radius: ${props => ((props.radius || 0) + ((props.radius + '').includes('px') ? '' : 'px'))};
+    border-radius: ${props => ((props.radius || 25) + ((props.radius + '').includes('px') ? '' : 'px'))};
 
     border : 0;
     outline: 0;
+
+    -webkit-tap-highlight-color: ${props => colors.get((props.color || 'secondary'), 'crystal', 0.5)};
 
     color: ${props =>
         props.link ?
