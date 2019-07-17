@@ -95,9 +95,12 @@ const Row = forwardRef((props, ref) => {
 
 /* Properties Types */
 Row.propTypes = {
-    styles    : propTypes.object,
     vertical  : propTypes.string,
     horizontal: propTypes.string,
+    styles    : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Default Properties */

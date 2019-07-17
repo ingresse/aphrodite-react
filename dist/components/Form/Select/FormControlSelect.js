@@ -11,9 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _constants = require("../../../constants");
 
-var _utils = require("../../../utils");
-
-var _IconArrowDown = _interopRequireDefault(require("../../Icons/IconArrowDown"));
+var _Icon = _interopRequireDefault(require("../../Icons/Icon"));
 
 var _FormControlWrapperStyled = _interopRequireDefault(require("../FormControlWrapperStyled"));
 
@@ -96,8 +94,10 @@ var FormControlSelect = (0, _react.memo)((0, _react.forwardRef)(function (props,
     styles: {
       pointerEvents: 'none'
     }
-  }, _react.default.createElement(_IconArrowDown.default, {
-    color: _utils.colors.get('black')
+  }, _react.default.createElement(_Icon.default, {
+    size: 20,
+    slug: "arrow-down",
+    color: "black"
   })), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: id,
     styles: !errorMessage ? null : {
@@ -120,7 +120,7 @@ FormControlSelect.propTypes = {
   id: _propTypes.default.string.isRequired,
   label: _propTypes.default.string,
   btn: _propTypes.default.object,
-  styles: _propTypes.default.any
+  styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object])
 };
 /* Exporting */
 

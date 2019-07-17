@@ -59,7 +59,7 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
   return _react.default.createElement(_ButtonStyled.default, _extends({}, props, {
     ref: ref,
     disabled: disabled || loading,
-    className: "aph-btn ".concat(className, " ").concat(loading ? 'aph-btn--loading' : '')
+    className: "aph-btn".concat(loading ? ' aph-btn--loading' : '', " ").concat(className)
   }), _react.default.createElement(_ButtonItemStyled.default, {
     ref: childrenRef,
     className: "aph-btn__content"
@@ -83,7 +83,8 @@ Button.defaultProps = {
   margin: null,
   small: false,
   block: false,
-  disabled: false
+  disabled: false,
+  styles: {}
 };
 /* Properties Types */
 
@@ -130,7 +131,12 @@ Button.propTypes = {
    *
    * Example: `Link` from react-router-dom
    */
-  as: _propTypes.default.elementType
+  as: _propTypes.default.elementType,
+
+  /**
+   * Custom Styles
+   */
+  styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object])
 };
 /* Exporting */
 

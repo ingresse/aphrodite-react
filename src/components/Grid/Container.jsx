@@ -56,7 +56,10 @@ Container.propTypes = {
     lg    : propTypes.bool,
     xl    : propTypes.bool,
     fluid : propTypes.bool,
-    styles: propTypes.object,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Default Properties */

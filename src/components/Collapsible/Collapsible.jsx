@@ -191,9 +191,15 @@ Collapsible.propTypes = {
     opened        : propTypes.bool,
     hover         : propTypes.bool,
     delay         : propTypes.number,
-    styles        : propTypes.object,
-    childrenStyles: propTypes.object,
     size          : propTypes.number,
+    styles        : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
+    childrenStyles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 
     header     : propTypes.any,
     headerProps: propTypes.object,

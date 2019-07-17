@@ -72,7 +72,7 @@ Switch.defaultProps = {
 Switch.propTypes = {
   id: _propTypes.default.string,
   className: _propTypes.default.string,
-  styles: _propTypes.default.object,
+  styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
   textSmall: _propTypes.default.bool,
   textAlign: _propTypes.default.string,
   toggleAlign: _propTypes.default.string

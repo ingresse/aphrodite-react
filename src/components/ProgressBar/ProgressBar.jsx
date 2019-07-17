@@ -153,14 +153,20 @@ ProgressBar.propTypes = {
     size         : propTypes.string,
     percentual   : propTypes.number,
     grandient    : propTypes.object,
-    styles       : propTypes.object,
+    styles       : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 
     width        : propTypes.any,
     height       : propTypes.number,
 
     color        : propTypes.string,
 
-    wrapperStyles: propTypes.object,
+    wrapperStyles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

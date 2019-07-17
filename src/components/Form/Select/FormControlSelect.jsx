@@ -4,10 +4,9 @@ import propTypes from 'prop-types';
 
 /* Framework Definitions */
 import { SIZES } from '../../../constants';
-import { colors } from '../../../utils';
 
 /* Components Helpers */
-import IconArrowDown from '../../Icons/IconArrowDown';
+import Icon from '../../Icons/Icon';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
@@ -80,8 +79,10 @@ const FormControlSelect = memo(forwardRef((props, ref) => {
                 </AphFormControlLabelStyled>
             )}
             <AphFormControlButtonStyled type="button" styles={{ pointerEvents: 'none' }}>
-                <IconArrowDown
-                    color={colors.get('black')}
+                <Icon
+                    size={20}
+                    slug="arrow-down"
+                    color="black"
                 />
             </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled
@@ -107,7 +108,10 @@ FormControlSelect.propTypes = {
     id    : propTypes.string.isRequired,
     label : propTypes.string,
     btn   : propTypes.object,
-    styles: propTypes.any,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

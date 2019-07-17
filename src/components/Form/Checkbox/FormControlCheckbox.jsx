@@ -149,7 +149,10 @@ Checkbox.propTypes = {
     labelProps: propTypes.object,
     labelRight: propTypes.bool,
     right     : propTypes.bool,
-    styles    : propTypes.any,
+    styles    : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

@@ -64,15 +64,18 @@ const ActionBar = forwardRef((props, ref) => {
 
 /* Default Properties */
 ActionBar.defaultProps = {
-    styles : {},
     visible: false,
+    styles : {},
 };
 
 /* Properties Types */
 ActionBar.propTypes = {
     children: propTypes.any,
-    styles  : propTypes.object,
     visible : propTypes.bool,
+    styles  : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

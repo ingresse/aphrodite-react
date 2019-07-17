@@ -49,7 +49,10 @@ const Segment = forwardRef((props, ref) => {
 Segment.propTypes = {
     margin : propTypes.string,
     padding: propTypes.string,
-    styles : propTypes.object,
+    styles : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

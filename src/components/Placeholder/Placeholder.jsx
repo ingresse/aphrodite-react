@@ -80,7 +80,10 @@ Placeholder.propTypes = {
     width : propTypes.number,
     height: propTypes.number,
     radius: propTypes.number,
-    style : propTypes.object,
+    style : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting Component */

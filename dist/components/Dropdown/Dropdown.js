@@ -38,7 +38,8 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
       right = props.right,
       left = props.left,
       thin = props.thin,
-      opened = props.opened;
+      opened = props.opened,
+      styles = props.styles;
   /**
    * State values
    */
@@ -182,6 +183,7 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
     thin: thin,
     toggleBlock: toggleBlock || center,
     contentWidth: width,
+    styles: styles,
     ref: dropdownRef,
     className: "aph-dropdown ".concat(className || '')
   }, !toggle ? null : _react.default.createElement("span", {
@@ -205,7 +207,8 @@ Dropdown.defaultProps = {
   thin: false,
   up: false,
   right: false,
-  left: true
+  left: true,
+  styles: {}
 };
 /* Component Properties Types */
 
@@ -217,7 +220,8 @@ Dropdown.propTypes = {
   thin: _propTypes.default.bool,
   up: _propTypes.default.bool,
   right: _propTypes.default.bool,
-  left: _propTypes.default.bool
+  left: _propTypes.default.bool,
+  styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object])
 };
 /* Exporting */
 

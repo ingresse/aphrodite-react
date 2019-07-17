@@ -110,7 +110,10 @@ FormControlInputNumber.propTypes = {
     labelProps: propTypes.object,
 
     type  : propTypes.string,
-    styles: propTypes.object,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */
