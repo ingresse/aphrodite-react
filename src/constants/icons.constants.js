@@ -3,7 +3,10 @@ import ReactDOMServer from 'react-dom/server';
 
 /* Export */
 export const ICONS = Object.assign([
+    'arrow-up',
+    'arrow-right',
     'arrow-down',
+    'arrow-left',
     'arrow-down-circle',
     'arrow-left-circle',
     'arrow-right-circle',

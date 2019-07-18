@@ -154,6 +154,11 @@ let stock = {
     warning: sunflower.original,
     error  : ruby.original,
 
+    base    : 'rgb(0, 0, 0)',
+    inverse : 'rgb(255, 255, 255)',
+    disabled: mercury.crystal,
+    helper  : mercury.crystal,
+
     translucid: translucid.original,
 
     smoke: 'rgb(248, 248, 248)',
@@ -209,10 +214,33 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
     const selected = (all.shades[_color] ? all.shades[_color][shade] : all[_color]);
 
     if (typeof color !== 'string' || !selected) {
-        return getOpacity(opacity);
+        return getOpacity(opacity, (selected || _color));
     }
 
     return getOpacity(opacity, selected);
+};
+
+/**
+ * Get Color from Theme
+ *
+ * @param {}
+ *
+ * @return {string} RGBA Color
+ */
+const getFromTheme = (componentProps = {}, colorKey, colorShade = 'original', opacity) => {
+    const { theme } = componentProps;
+
+    if (typeof theme !== 'object') {
+        return get(colorKey, colorShade, opacity);
+    }
+
+    const themeShades = (theme[colorKey]);
+
+    if (typeof themeShades !== 'object') {
+        return (themeShades || '');
+    }
+
+    return getOpacity(opacity, themeShades[colorShade]);
 };
 
 
@@ -222,6 +250,7 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
 let colors = {
     ...all,
 
+    getFromTheme,
     getOpacity,
     get,
 };
