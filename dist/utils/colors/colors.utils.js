@@ -92,6 +92,10 @@ var stock = {
   success: bamboo.original,
   warning: sunflower.original,
   error: ruby.original,
+  base: 'rgb(0, 0, 0)',
+  inverse: 'rgb(255, 255, 255)',
+  disabled: mercury.crystal,
+  helper: mercury.crystal,
   translucid: translucid.original,
   smoke: 'rgb(248, 248, 248)',
   white: 'rgb(255, 255, 255)',
@@ -161,10 +165,43 @@ var get = function get(color, shade, opacity) {
   var selected = all.shades[_color] ? all.shades[_color][shade] : all[_color];
 
   if (typeof color !== 'string' || !selected) {
-    return getOpacity(opacity);
+    return getOpacity(opacity, selected || _color);
   }
 
   return getOpacity(opacity, selected);
+};
+/**
+ * Get Color from Theme
+ *
+ * @param {}
+ *
+ * @return {string} RGBA Color
+ */
+
+
+var getFromTheme = function getFromTheme(componentProps, colorKey, colorShade, opacity) {
+  if (componentProps === void 0) {
+    componentProps = {};
+  }
+
+  if (colorShade === void 0) {
+    colorShade = 'original';
+  }
+
+  var _componentProps = componentProps,
+      theme = _componentProps.theme;
+
+  if (typeof theme !== 'object') {
+    return get(colorKey, colorShade, opacity);
+  }
+
+  var themeShades = theme[colorKey];
+
+  if (typeof themeShades !== 'object') {
+    return themeShades || '';
+  }
+
+  return getOpacity(opacity, themeShades[colorShade]);
 };
 /**
  * Colors reference
@@ -172,6 +209,7 @@ var get = function get(color, shade, opacity) {
 
 
 var colors = _objectSpread({}, all, {
+  getFromTheme: getFromTheme,
   getOpacity: getOpacity,
   get: get
 });

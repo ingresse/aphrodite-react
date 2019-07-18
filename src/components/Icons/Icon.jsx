@@ -7,7 +7,10 @@ import styled from '@emotion/styled';
 import { colors } from '../../utils';
 
 /* Components / Icons */
+import ArrowUp from './IconArrowUp';
+import ArrowRight from './IconArrowRight';
 import ArrowDown from './IconArrowDown';
+import ArrowLeft from './IconArrowLeft';
 import ArrowDownCircle from './IconArrowDownCircle';
 import ArrowLeftCircle from './IconArrowLeftCircle';
 import ArrowRightCircle from './IconArrowRightCircle';
@@ -25,7 +28,10 @@ import TimesCircle from './IconTimesCircle';
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
 const ICONS = {
+    'arrow-up'          : ArrowUp,
+    'arrow-right'       : ArrowRight,
     'arrow-down'        : ArrowDown,
+    'arrow-left'        : ArrowLeft,
     'arrow-down-circle' : ArrowDownCircle,
     'arrow-left-circle' : ArrowLeftCircle,
     'arrow-right-circle': ArrowRightCircle,
@@ -52,20 +58,28 @@ const IconWrapper = styled('span')(props => ({
 
 /* Component it self */
 const Icon = forwardRef((props, ref) => {
-    const ICON = ICONS[props.slug];
+    const { direction, shape, slug } = props;
+    const SLUG = (slug + (!direction ? '' : '-' + direction) + (!shape ? '' : '-' + shape));
+    const ICON = ICONS[SLUG];
 
     if (!ICON) {
         return null;
     }
 
-    const { color, className, styles } = props;
+    const {
+        color,
+        className,
+        styles,
+
+        ...rest
+    } = props;
 
     return (
         <IconWrapper
             styles={styles}
             className="aph-icon-wrapper">
             <ICON
-                {...props}
+                {...rest}
                 ref={ref}
                 color={colors.get(color)}
                 className={`aph-icon ${className || ''}`}
@@ -76,22 +90,26 @@ const Icon = forwardRef((props, ref) => {
 
 /* Default Properties */
 Icon.defaultProps = {
-    slug  : undefined,
-    size  : 20,
-    color : 'secondary',
-    width : undefined,
-    height: undefined,
-    styles: {},
+    slug     : '',
+    direction: '',
+    shape    : '',
+    size     : 20,
+    color    : 'secondary',
+    width    : undefined,
+    height   : undefined,
+    styles   : {},
 };
 
 /* Properties Types */
 Icon.propTypes = {
-    slug  : propTypes.string.isRequired,
-    size  : propTypes.number,
-    color : propTypes.string,
-    width : propTypes.number,
-    height: propTypes.number,
-    styles: propTypes.oneOfType([
+    slug     : propTypes.string.isRequired,
+    direction: propTypes.string,
+    shape    : propTypes.string,
+    size     : propTypes.number,
+    color    : propTypes.string,
+    width    : propTypes.number,
+    height   : propTypes.number,
+    styles   : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),
