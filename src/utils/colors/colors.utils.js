@@ -214,7 +214,7 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
     const selected = (all.shades[_color] ? all.shades[_color][shade] : all[_color]);
 
     if (typeof color !== 'string' || !selected) {
-        return getOpacity(opacity);
+        return getOpacity(opacity, (selected || _color));
     }
 
     return getOpacity(opacity, selected);
