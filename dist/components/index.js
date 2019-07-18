@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.Switch = exports.TextArea = exports.Select = exports.Checkbox = exports.InputNumber = exports.InputCurrency = exports.Input = exports.Collapsible = exports.Accordion = exports.ListGroupItem = exports.ListGroup = exports.ListItem = exports.List = exports.Column = exports.Col = exports.Row = exports.Container = exports.Text = exports.P = exports.H3 = exports.H2 = exports.H1 = exports.Modal = exports.Tooltip = exports.toast = exports.ToastsContainer = exports.Table = exports.Segment = exports.Scrollable = exports.ProgressBar = exports.Placeholder = exports.NumberFormat = exports.Img = exports.Icon = exports.Dropdown = exports.Card = exports.Button = exports.Badge = exports.ActionBar = void 0;
+exports.Switch = exports.TextArea = exports.Select = exports.Checkbox = exports.InputNumber = exports.InputCurrency = exports.Input = exports.Pagination = exports.Collapsible = exports.Accordion = exports.ListGroupItem = exports.ListGroup = exports.ListItem = exports.List = exports.Column = exports.Col = exports.Row = exports.Container = exports.Text = exports.P = exports.H3 = exports.H2 = exports.H1 = exports.Modal = exports.Tooltip = exports.toast = exports.ToastsContainer = exports.Table = exports.Segment = exports.Scrollable = exports.ProgressBar = exports.Placeholder = exports.NumberFormat = exports.Img = exports.Icon = exports.Dropdown = exports.Card = exports.Button = exports.Badge = exports.ActionBar = void 0;
 
 var _ActionBar = _interopRequireDefault(require("./ActionBar/ActionBar"));
 
@@ -124,6 +124,10 @@ exports.Accordion = _Accordion.default;
 var _Collapsible = _interopRequireDefault(require("./Collapsible/Collapsible"));
 
 exports.Collapsible = _Collapsible.default;
+
+var _Pagination = _interopRequireDefault(require("./Pagination/Pagination"));
+
+exports.Pagination = _Pagination.default;
 
 var _FormControlInput = _interopRequireDefault(require("./Form/Input/FormControlInput"));
 
