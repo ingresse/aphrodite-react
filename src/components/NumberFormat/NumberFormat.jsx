@@ -1,13 +1,30 @@
 /* Packages */
 import React, { Component, forwardRef } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Formatter from 'react-number-format';
+
+/* Component Styles */
+import NumberFormatStyled from './NumberFormatStyled';
 
 /* Component */
 const NumberFormat = forwardRef((props, ref) => {
+
+    /**
+     * Inherit Props
+     */
+    const {
+        className,
+        ...rest
+    } = props;
+
+    /**
+     * Render
+     */
     return (
-        <Formatter
-            {...props}
+        <NumberFormatStyled
+            {...rest}
+            className={`aph-number-format ${className || ''}`}
+            as={Formatter}
             ref={ref}
         />
     );
@@ -19,14 +36,19 @@ NumberFormat.defaultProps = {
     decimalSeparator : ',',
     displayType      : 'text',
     value            : 0,
+    styles           : {},
 };
 
 /* Properties Types */
 NumberFormat.propTypes = {
-    thousandSeparator: propTypes.string,
-    decimalSeparator : propTypes.string,
-    displayType      : propTypes.string,
-    value            : propTypes.number,
+    thousandSeparator: PropTypes.string,
+    decimalSeparator : PropTypes.string,
+    displayType      : PropTypes.string,
+    value            : PropTypes.number,
+    styles           : PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Exporting Component */

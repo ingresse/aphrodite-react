@@ -68,15 +68,25 @@ function Pagination (props) {
 
 /* Default Propeties */
 Pagination.defaultProps = {
+    onChange: () => {},
     loading : true,
     total   : 0,
     current : 1,
     pageSize: 25,
+    styles  : {},
 };
 
 /* Properties Types */
 Pagination.propTypes = {
-    loading: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    loading : PropTypes.bool,
+    total   : PropTypes.number,
+    current : PropTypes.number,
+    pageSize: PropTypes.number,
+    styles  : PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Exporting */
