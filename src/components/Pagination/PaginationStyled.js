@@ -99,6 +99,8 @@ const AphPaginationStyled = styled.section`
             }
         }
     }
+
+    ${props => props.styles};
 `;
 
 /* Exporting */
