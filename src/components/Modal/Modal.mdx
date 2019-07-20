@@ -5,7 +5,7 @@ route: /atoms/modal
 ---
 
 import { useState } from 'react';
-import { Modal, Button, Row } from '../';
+import { Modal, Button, Row, Segment } from '../';
 
 import { Playground, Props } from 'docz';
 
@@ -18,9 +18,7 @@ import { Modal } from 'aphrodite-react';
     <Modal
         title="Modal title"
         opened={true}
-        animationDuration="200"
-        footer={<Component />}
-    >
+        footer={<Component />}>
         <Component />
     </Modal>
 ```
@@ -28,30 +26,49 @@ import { Modal } from 'aphrodite-react';
 ## Properties
 <Props of={Modal} />
 
-## Simple
-<Playground style={{ padding: '20px' }}>
+## Example
+<Playground style={{ margin: '-20px', padding: '0 !important' }}>
     {() => {
         const [ opened, setOpened ] = useState(false);
 
         function toggleModal() {
             setOpened(!opened);
-        };
+        }
 
         return (
-            <>
-                <Button onClick={toggleModal}>Toggle</Button>
+            <Segment
+                padding="0"
+                styles={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    height  : '640px'
+                }}>
+
+                <Segment styles={{ textAlign: 'center' }}>
+                    <Button color="primary" onClick={toggleModal}>
+                        Open Modal
+                    </Button>
+                </Segment>
+
                 <Modal
-                    title="TÍTULO"
+                    title="Modal Title"
                     opened={opened}
+                    styles={{ position: 'absolute' }}
+                    footerProps={{
+                        styles: {
+                            position: 'absolute',
+                        },
+                    }}
                     footer={
                         <Row horizontal="center">
-                            <Button onClick={toggleModal}>Custom footer</Button>
+                            <Button onClick={toggleModal}>
+                                Close Modal
+                            </Button>
                         </Row>
-                    }
-                >
-                    <p>Children</p>
+                    }>
+                    Modal Content
                 </Modal>
-            </>
+            </Segment>
         );
     }}
 </Playground>
