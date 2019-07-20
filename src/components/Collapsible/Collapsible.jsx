@@ -1,5 +1,5 @@
 /* Packages */
-import React, { forwardRef, useState, useRef } from 'react';
+import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Utils */

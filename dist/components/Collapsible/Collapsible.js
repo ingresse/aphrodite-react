@@ -75,7 +75,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
    * Watch for `opened` changes
    */
 
-  useEffect(function () {
+  (0, _react.useEffect)(function () {
     handleToggle(props.opened);
   }, [props.opened, handleToggle]);
   /**
