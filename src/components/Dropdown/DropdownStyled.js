@@ -15,7 +15,7 @@ const DropdownStyled = styled.div`
     position: relative;
     display : block;
     width   : 100%;
-    z-index : 2;
+    z-index : 901;
 
     -webkit-box-orient   : vertical;
     -webkit-box-direction: normal;
@@ -52,8 +52,8 @@ const DropdownStyled = styled.div`
 
                 will-change: z-index, opacity;
                 transition :
-                    display 0.1s linear,
-                    opacity 0.25s linear
+                    display ${props => props.opened ? 0.25 : 0.1}s linear,
+                    opacity ${props => props.opened ? 0.15 : 0.25}s linear
                 ;
 
                 color     : ${colors.get('black')};

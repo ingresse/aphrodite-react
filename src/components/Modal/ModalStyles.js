@@ -1,58 +1,50 @@
+/* Packages */
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/core';
 
-const fadeEnter = keyframes`
-  from {
-        opacity: 0;
-    }
-`;
+/* Utils */
+import { colors } from '../../utils';
 
-const fadeLeave = keyframes`
-    to {
-        opacity: 0
-    }
-`;
+/* Constants */
+import { GRID, MEDIA_QUERIES, SIZES } from '../../constants';
 
-const ContainerView = styled.div`
-    top    : 0;
-    left   : 0;
-    width  : 100%;
-    height : 100%;
-    z-index: 1000;
-`;
-
-export const ModalContainer = styled(ContainerView)`
+/* Modal Styled */
+const ModalStyled = styled.dialog`
     position: fixed;
-
-    &.modal-fade-enter {
-        animation: ${fadeEnter} both ease-in;
-    }
-
-    &.modal-fade-leave {
-        animation: ${fadeLeave} both ease-out;
-    }
-
-    h1 {
-        margin-bottom: 80px;
-    }
-`;
-
-export const Mask = styled(ContainerView)`
-    position   : absolute;
-    background : rgba(0, 0, 0, .3);
-`;
-
-export const ModalDialog = styled.div`
-    position: absolute;
+    display : none;
+    opacity : 0;
+    z-index : 1001;
+    width   : auto;
+    height  : auto;
     top     : 40px;
-    left    : 0;
-    right   : 0;
+    right   : 40px;
     bottom  : 0;
-    margin  : auto;
+    left    : 40px;
+    margin  : 0;
+    padding : ${(GRID.CONTAINER_PADDING + GRID.UNIT)};
 
-    padding-top     : 15px;
-    border-radius   : 10px 10px 0 0;
-    z-index         : 1001;
-    background      : #fff;
-    box-shadow      : 0 0 10px 0 rgba(0,0,0,0.25);
+    border : 0;
+    outline: 0;
+
+    will-change: z-index, opacity;
+    transition :
+        display ${props => props.opened ? 0.25 : 0.1}s linear,
+        opacity ${props => props.opened ? 0.15 : 0.25}s linear
+    ;
+
+    background-color: ${colors.get('white')};
+    box-shadow      : 0 0 10px 0 ${colors.get('black', 'original', 0.25)};
+    border-radius   : ${SIZES.LG.RADIUS} ${SIZES.LG.RADIUS} 0 0;
+
+    &.visible {
+        display: block;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    ${props => props.styles};
 `;
+
+/* Exporting */
+export default ModalStyled;
