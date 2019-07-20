@@ -72,6 +72,13 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 
   var HeaderTitle = headerProps && headerProps.lg ? _.H2 : _.H3;
   /**
+   * Watch for `opened` changes
+   */
+
+  useEffect(function () {
+    handleToggle(props.opened);
+  }, [props.opened, handleToggle]);
+  /**
    * Handle with Collapsible Opening event
    */
 
