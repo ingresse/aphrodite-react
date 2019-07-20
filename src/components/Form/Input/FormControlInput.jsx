@@ -106,10 +106,12 @@ const Input = memo(forwardRef((props, ref) => {
                 </AphFormControlLabelStyled>
             )}
             {(!btn && !button) ? (null) : (
-                <AphFormControlButtonStyled
-                    {...btn}
-                    {...button}
-                />
+                <AphFormControlButtonStyled>
+                    <span
+                        {...btn}
+                        {...button}
+                    />
+                </AphFormControlButtonStyled>
             )}
             <AphFormControlErrorMsgStyled
                 htmlFor={id}

@@ -105,7 +105,7 @@ var Input = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label " + (placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), !btn && !button ? null : _react.default.createElement(_FormControlButtonStyled.default, _extends({}, btn, button)), _react.default.createElement(_FormControlErrorMsgStyled.default, {
+  }), label), !btn && !button ? null : _react.default.createElement(_FormControlButtonStyled.default, null, _react.default.createElement("span", _extends({}, btn, button))), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
