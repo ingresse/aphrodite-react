@@ -32,7 +32,8 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
       children = props.children,
       disabled = props.disabled,
       delay = props.delay,
-      hover = props.hover;
+      hover = props.hover,
+      withoutIcon = props.withoutIcon;
   var timerDelay = delay * 1000;
   var wrapperRef = (0, _react.useRef)(null);
   var wrapperContentRef = (0, _react.useRef)(null);
@@ -71,13 +72,6 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
   /* Header Title */
 
   var HeaderTitle = headerProps && headerProps.lg ? _.H2 : _.H3;
-  /**
-   * Watch for `opened` changes
-   */
-
-  (0, _react.useEffect)(function () {
-    handleToggle(props.opened);
-  }, [props.opened, handleToggle]);
   /**
    * Handle with Collapsible Opening event
    */
@@ -165,10 +159,10 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     onClick: toggle,
     role: "button"
   }), _react.default.createElement("div", {
-    style: {
+    style: withoutIcon ? {} : {
       maxWidth: '90%'
     }
-  }, header), _react.default.createElement(_.Icon, {
+  }, header), withoutIcon ? null : _react.default.createElement(_.Icon, {
     slug: "arrow-down",
     size: 30,
     color: _utils.colors.get('mercury', 'light'),

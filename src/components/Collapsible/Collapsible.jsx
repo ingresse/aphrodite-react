@@ -13,7 +13,15 @@ import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
 /* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
-    const { header, headerProps, children, disabled, delay, hover } = props;
+    const {
+        header,
+        headerProps,
+        children,
+        disabled,
+        delay,
+        hover,
+        withoutIcon,
+    } = props;
 
     const timerDelay = (delay * 1000);
 
@@ -44,13 +52,6 @@ const Collapsible = forwardRef((props, ref) => {
 
     /* Header Title */
     const HeaderTitle = (headerProps && headerProps.lg ? H2 : H3);
-
-    /**
-     * Watch for `opened` changes
-     */
-    useEffect(() => {
-        handleToggle(props.opened);
-    }, [ props.opened, handleToggle ]);
 
     /**
      * Handle with Collapsible Opening event
@@ -155,18 +156,20 @@ const Collapsible = forwardRef((props, ref) => {
                     styles={headerStyles}
                     onClick={toggle}
                     role="button">
-                        <div style={{ maxWidth: '90%' }}>
+                        <div style={withoutIcon ? {} : { maxWidth: '90%' }}>
                             {header}
                         </div>
-                        <Icon
-                            slug="arrow-down"
-                            size={30}
-                            color={colors.get('mercury', 'light')}
-                            styles={{
-                                transform: opened ? 'rotate(180deg)' : 'initial',
-                                transition:`transform ${delay}s linear`,
-                            }}
-                        />
+                        {(withoutIcon) ? (null) : (
+                            <Icon
+                                slug="arrow-down"
+                                size={30}
+                                color={colors.get('mercury', 'light')}
+                                styles={{
+                                    transform : opened ? 'rotate(180deg)' : 'initial',
+                                    transition:`transform ${delay}s linear`,
+                                }}
+                            />
+                        )}
                 </HeaderTitle>
             )}
 
