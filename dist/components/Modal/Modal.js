@@ -28,8 +28,15 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 /* Component Itself */
 var Modal = (0, _react.forwardRef)(function (props, ref) {
   /**
+   * Global props
+   */
+  var _document = document,
+      addEventListener = _document.addEventListener,
+      removeEventListener = _document.removeEventListener;
+  /**
    * Inherit Props
    */
+
   var title = props.title,
       header = props.header,
       children = props.children,
@@ -38,7 +45,9 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
       className = props.className,
       styles = props.styles,
       opened = props.opened,
-      rest = _objectWithoutPropertiesLoose(props, ["title", "header", "children", "footer", "footerProps", "className", "styles", "opened"]);
+      openedCallback = props.openedCallback,
+      closeOnScape = props.closeOnScape,
+      rest = _objectWithoutPropertiesLoose(props, ["title", "header", "children", "footer", "footerProps", "className", "styles", "opened", "openedCallback", "closeOnScape"]);
   /**
    * State values
    */
@@ -76,6 +85,7 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
   (0, _react.useEffect)(function () {
     if (!opened) {
       handleClose();
+      unlisten();
       return;
     }
 
@@ -84,25 +94,47 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
     }
   }, [opened]);
   /**
-   * Mount
+   * Handle with close by escape key
+   *
+   * @param {object} evt - DOM click event
    */
-  // useEffect(() => {
-  //     if (active && !visible) {
-  //         document.addEventListener('click', handleClose);
-  //     }
-  //     if (visible && !active) {
-  //         removeClickListener();
-  //     }
-  //     return removeClickListener;
-  // }, [ active, visible ]);
 
+  function handleCloseOnScape(evt) {
+    var _ref = evt || {},
+        key = _ref.key,
+        keyCode = _ref.keyCode,
+        target = _ref.target;
+
+    var _ref2 = target || {},
+        nodeName = _ref2.nodeName;
+
+    var isEscPressed = key === 'Escape' || key === 'Esc' || keyCode === 27;
+
+    if (isEscPressed) {
+      handleClose();
+      return false;
+    }
+  }
   /**
-   * Remove click listener
+   * Add Event Listeners to handle with modal visibility
    */
 
-  function removeClickListener() {
-    setUnmounted(true);
-    document.removeEventListener('click', handleClose);
+
+  function listen() {
+    addEventListener('click', handleClose);
+
+    if (closeOnScape) {
+      addEventListener('keydown', handleCloseOnScape);
+    }
+  }
+  /**
+   * Remove Event Listeners
+   */
+
+
+  function unlisten() {
+    removeEventListener('click', handleClose);
+    removeEventListener('keydown', handleCloseOnScape);
   }
   /**
    * Handle with Dropdown close event
@@ -118,6 +150,7 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
       return;
     }
 
+    unlisten();
     setActive(false);
     setVisible(true);
     setVisibleTimer(setTimeout(function () {
@@ -126,6 +159,7 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
       }
 
       setVisible(false);
+      openedCallback(false);
     }, 250));
   }
   /**
@@ -136,9 +170,11 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
 
 
   function handleOpen(evt) {
-    clearTimeout(activeTimer); // if (unmounted) {
-    //     return;
-    // }
+    clearTimeout(activeTimer);
+
+    if (unmounted) {
+      return;
+    }
 
     if (evt && evt.preventDefault) {
       evt.preventDefault();
@@ -151,7 +187,9 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
         return;
       }
 
+      modalRef.current.focus();
       setActive(true);
+      listen();
     }, 50));
   }
   /**
@@ -162,7 +200,7 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
   return _react.default.createElement(_ModalStyles.default, _extends({}, rest, {
     ref: modalRef,
     open: true,
-    opened: active,
+    opened: active && visible,
     styles: styles,
     className: "aph-modal " + (className || '') + (active ? ' active' : '') + (visible ? ' visible' : '')
   }), !active || !visible ? null : _react.default.createElement(_react.default.Fragment, null, title && _react.default.createElement(_.H1, {
@@ -173,9 +211,9 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
     className: "aph-modal__header"
   }, header), _react.default.createElement("section", {
     className: "aph-modal__content"
-  }, children), footer && _react.default.createElement(_.ActionBar, _extends({}, footerProps, {
-    className: "aph-modal__footer",
-    visible: true,
+  }, children), _react.default.createElement(_.ActionBar, _extends({}, footerProps, {
+    className: "aph-modal__footer " + (footerProps.className || ''),
+    visible: footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false),
     styles: _objectSpread({}, footerProps.styles, {
       padding: '10px 0',
       minHeight: 'initial'
@@ -186,14 +224,17 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
 
 Modal.defaultProps = {
   title: '',
+  header: undefined,
   opened: false,
-  footerProps: {}
+  openedCallback: function openedCallback() {},
+  footerProps: {},
+  styles: {}
 };
 /* Prop Types */
 
 Modal.propTypes = {
-  title: _propTypes.default.string,
-  opened: _propTypes.default.bool
+  opened: _propTypes.default.bool,
+  openedCallback: _propTypes.default.func
 };
 /* Exporting */
 
