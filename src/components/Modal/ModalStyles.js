@@ -25,10 +25,13 @@ const ModalStyled = styled.dialog`
     border : 0;
     outline: 0;
 
-    will-change: z-index, opacity;
+    transform: translateY(${props => props.opened ? '0' : '110%'});
+
+    will-change: z-index, opacity, transform;
     transition :
         display ${props => props.opened ? 0.25 : 0.1}s linear,
-        opacity ${props => props.opened ? 0.15 : 0.25}s linear
+        opacity ${props => props.opened ? 0.15 : 0.25}s linear,
+        transform ${props => props.opened ? 0.15 : 0.25}s linear
     ;
 
     background-color: ${colors.get('white')};

@@ -12,6 +12,14 @@ import ModalStyled from './ModalStyles';
 const Modal = forwardRef((props, ref) => {
 
     /**
+     * Global props
+     */
+    const {
+        addEventListener,
+        removeEventListener,
+    } = document;
+
+    /**
      * Inherit Props
      */
     const {
@@ -25,6 +33,8 @@ const Modal = forwardRef((props, ref) => {
         styles,
 
         opened,
+        openedCallback,
+        closeOnScape,
 
         ...rest
     } = props;
@@ -49,7 +59,7 @@ const Modal = forwardRef((props, ref) => {
     useEffect(() => {
         if (!opened) {
             handleClose();
-
+            unlisten();
             return;
         }
 
@@ -59,26 +69,38 @@ const Modal = forwardRef((props, ref) => {
     }, [ opened ]);
 
     /**
-     * Mount
+     * Handle with close by escape key
+     *
+     * @param {object} evt - DOM click event
      */
-    // useEffect(() => {
-    //     if (active && !visible) {
-    //         document.addEventListener('click', handleClose);
-    //     }
+    function handleCloseOnScape (evt) {
+        const { key, keyCode, target } = (evt || {});
+        const { nodeName } = (target || {});
+        const isEscPressed = (key === 'Escape' || key === 'Esc' || keyCode === 27);
 
-    //     if (visible && !active) {
-    //         removeClickListener();
-    //     }
-
-    //     return removeClickListener;
-    // }, [ active, visible ]);
+        if (isEscPressed) {
+            handleClose();
+            return false;
+        }
+    }
 
     /**
-     * Remove click listener
+     * Add Event Listeners to handle with modal visibility
      */
-    function removeClickListener () {
-        setUnmounted(true);
-        document.removeEventListener('click', handleClose);
+    function listen () {
+        addEventListener('click', handleClose);
+
+        if (closeOnScape) {
+            addEventListener('keydown', handleCloseOnScape);
+        }
+    }
+
+    /**
+     * Remove Event Listeners
+     */
+    function unlisten () {
+        removeEventListener('click', handleClose);
+        removeEventListener('keydown', handleCloseOnScape);
     }
 
     /**
@@ -98,6 +120,7 @@ const Modal = forwardRef((props, ref) => {
             return;
         }
 
+        unlisten();
         setActive(false);
         setVisible(true);
 
@@ -107,6 +130,7 @@ const Modal = forwardRef((props, ref) => {
             }
 
             setVisible(false);
+            openedCallback(false);
         }, 250));
     }
 
@@ -118,9 +142,9 @@ const Modal = forwardRef((props, ref) => {
     function handleOpen(evt) {
         clearTimeout(activeTimer);
 
-        // if (unmounted) {
-        //     return;
-        // }
+        if (unmounted) {
+            return;
+        }
 
         if (evt && evt.preventDefault) {
             evt.preventDefault();
@@ -134,7 +158,10 @@ const Modal = forwardRef((props, ref) => {
                 return;
             }
 
+            modalRef.current.focus();
+
             setActive(true);
+            listen();
         }, 50));
     }
 
@@ -146,7 +173,7 @@ const Modal = forwardRef((props, ref) => {
             {...rest}
             ref={modalRef}
             open
-            opened={active}
+            opened={active && visible}
             styles={styles}
             className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
             {(!active || !visible) ? (null) : (
@@ -167,19 +194,17 @@ const Modal = forwardRef((props, ref) => {
                         {children}
                     </section>
 
-                    {footer &&
-                        <ActionBar
-                            {...footerProps}
-                            className="aph-modal__footer"
-                            visible={true}
-                            styles={{
-                                ...footerProps.styles,
-                                padding  : '10px 0',
-                                minHeight: 'initial'
-                            }}>
-                            {footer}
-                        </ActionBar>
-                    }
+                    <ActionBar
+                        {...footerProps}
+                        className={`aph-modal__footer ${footerProps.className || ''}`}
+                        visible={footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false)}
+                        styles={{
+                            ...footerProps.styles,
+                            padding  : '10px 0',
+                            minHeight: 'initial'
+                        }}>
+                        {footer}
+                    </ActionBar>
                 </>
             )}
         </ModalStyled>
@@ -188,16 +213,20 @@ const Modal = forwardRef((props, ref) => {
 
 /* Default props */
 Modal.defaultProps = {
-    title  : '',
-    opened : false,
+    title : '',
+    header: undefined,
+
+    opened        : false,
+    openedCallback: () => {},
 
     footerProps: {},
+    styles     : {},
 };
 
 /* Prop Types */
 Modal.propTypes = {
-    title   : PropTypes.string,
-    opened  : PropTypes.bool,
+    opened        : PropTypes.bool,
+    openedCallback: PropTypes.func,
 };
 
 /* Exporting */
