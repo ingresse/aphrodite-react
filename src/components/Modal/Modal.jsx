@@ -36,6 +36,8 @@ const Modal = forwardRef((props, ref) => {
         opened,
         openedCallback,
         closeOnEscape,
+        closeByEscape,
+        unblockScrolling,
 
         ...rest
     } = props;
@@ -61,12 +63,15 @@ const Modal = forwardRef((props, ref) => {
         if (!opened) {
             handleClose();
             unlisten();
-            return;
+
+            return unlisten;
         }
 
         if (opened || active) {
             handleOpen();
         }
+
+        return unlisten;
     }, [ opened ]);
 
     /**
@@ -91,11 +96,9 @@ const Modal = forwardRef((props, ref) => {
     function listen () {
         addEventListener('click', handleClose);
 
-        if (closeOnEscape) {
+        if (closeOnEscape || closeByEscape) {
             addEventListener('keydown', handleCloseOnScape);
         }
-
-
     }
 
     /**
@@ -134,6 +137,7 @@ const Modal = forwardRef((props, ref) => {
 
             setVisible(false);
             openedCallback(false);
+            modalRef.current.focus();
         }, 250));
     }
 
@@ -161,8 +165,6 @@ const Modal = forwardRef((props, ref) => {
                 return;
             }
 
-            modalRef.current.focus();
-
             setActive(true);
             listen();
         }, 50));
@@ -177,32 +179,36 @@ const Modal = forwardRef((props, ref) => {
             ref={modalRef}
             open
             opened={active && visible}
+            role="dialog"
             styles={styles}
             hasFooter={(footer || Object.keys(footerProps).length)}
             className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
             {(!active || !visible) ? (null) : (
                 <>
-                    <Global
-                        styles={css`
-                            body {
-                                overflow: hidden;
-                            }
-                        `}
-                    />
-                    {title &&
-                        <H1 className="aph-modal__title" bold center>
-                            {title}
-                        </H1>
-                    }
+                    {unblockScrolling ? (null) : (
+                        <Global
+                            styles={css`
+                                body {
+                                    overflow: hidden;
+                                }
+                            `}
+                        />
+                    )}
 
-                    {header &&
-                        <header className="aph-modal__header">
-                            {header}
-                        </header>
-                    }
-
-                    <section className="aph-modal__content">
-                        {children}
+                    <section className="aph-modal__container">
+                        {title &&
+                            <H1 className="aph-modal__container__title" bold center>
+                                {title}
+                            </H1>
+                        }
+                        {header &&
+                            <header className="aph-modal__container__header">
+                                {header}
+                            </header>
+                        }
+                        <section className="aph-modal__container__content">
+                            {children}
+                        </section>
                     </section>
 
                     <ActionBar
@@ -227,9 +233,10 @@ Modal.defaultProps = {
     title : '',
     header: undefined,
 
-    opened        : false,
-    openedCallback: () => {},
-    closeOnEscape : false,
+    opened          : false,
+    openedCallback  : () => {},
+    closeOnEscape   : false,
+    unblockScrolling: false,
 
     footerProps: {},
     styles     : {},
@@ -240,9 +247,10 @@ Modal.propTypes = {
     title: PropTypes.string,
     header: PropTypes.any,
 
-    opened        : PropTypes.bool,
-    openedCallback: PropTypes.func,
-    closeOnEscape : PropTypes.bool,
+    opened          : PropTypes.bool,
+    openedCallback  : PropTypes.func.isRequired,
+    closeOnEscape   : PropTypes.bool,
+    unblockScrolling: PropTypes.bool,
 };
 
 /* Exporting */
