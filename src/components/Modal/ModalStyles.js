@@ -15,7 +15,7 @@ const ModalStyled = styled.dialog`
     position: fixed;
     display : none;
     opacity : 0;
-    z-index : 1001;
+    z-index : 10001;
     width   : auto;
     height  : auto;
     top     : 40px;
