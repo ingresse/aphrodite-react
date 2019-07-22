@@ -65,6 +65,13 @@ Object.keys(_mediaQueries).forEach(function (key) {
   exports[key] = _mediaQueries[key];
 });
 
+var _zindex = require("./zindex.constants");
+
+Object.keys(_zindex).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  exports[key] = _zindex[key];
+});
+
 var _form = require("./form.constants");
 
 Object.keys(_form).forEach(function (key) {

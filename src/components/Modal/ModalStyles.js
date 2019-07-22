@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../utils';
 
 /* Constants */
-import { GRID, MEDIA_QUERIES, SIZES } from '../../constants';
+import { GRID, MEDIA_QUERIES, SIZES, ZINDEX } from '../../constants';
 
 /* CSS Selector */
 const selector = '.aph-modal';
@@ -15,7 +15,7 @@ const ModalStyled = styled.dialog`
     position: fixed;
     display : none;
     opacity : 0;
-    z-index : 10001;
+    z-index : ${ZINDEX.MODAL};
     width   : auto;
     height  : auto;
     top     : 40px;
