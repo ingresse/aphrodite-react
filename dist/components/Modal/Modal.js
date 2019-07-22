@@ -46,8 +46,8 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
       styles = props.styles,
       opened = props.opened,
       openedCallback = props.openedCallback,
-      closeOnScape = props.closeOnScape,
-      rest = _objectWithoutPropertiesLoose(props, ["title", "header", "children", "footer", "footerProps", "className", "styles", "opened", "openedCallback", "closeOnScape"]);
+      closeOnEscape = props.closeOnEscape,
+      rest = _objectWithoutPropertiesLoose(props, ["title", "header", "children", "footer", "footerProps", "className", "styles", "opened", "openedCallback", "closeOnEscape"]);
   /**
    * State values
    */
@@ -123,7 +123,7 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
   function listen() {
     addEventListener('click', handleClose);
 
-    if (closeOnScape) {
+    if (closeOnEscape) {
       addEventListener('keydown', handleCloseOnScape);
     }
   }
@@ -202,6 +202,7 @@ var Modal = (0, _react.forwardRef)(function (props, ref) {
     open: true,
     opened: active && visible,
     styles: styles,
+    hasFooter: footer || Object.keys(footerProps).length,
     className: "aph-modal " + (className || '') + (active ? ' active' : '') + (visible ? ' visible' : '')
   }), !active || !visible ? null : _react.default.createElement(_react.default.Fragment, null, title && _react.default.createElement(_.H1, {
     className: "aph-modal__title",
@@ -227,14 +228,18 @@ Modal.defaultProps = {
   header: undefined,
   opened: false,
   openedCallback: function openedCallback() {},
+  closeOnEscape: false,
   footerProps: {},
   styles: {}
 };
 /* Prop Types */
 
 Modal.propTypes = {
+  title: _propTypes.default.string,
+  header: _propTypes.default.any,
   opened: _propTypes.default.bool,
-  openedCallback: _propTypes.default.func
+  openedCallback: _propTypes.default.func,
+  closeOnEscape: _propTypes.default.bool
 };
 /* Exporting */
 

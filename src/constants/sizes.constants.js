@@ -42,4 +42,6 @@ export const SIZES = {
         RADIUS     : '10px',
         SHADOW     : '10px',
     },
+
+    ACTION_BAR_HEIGHT: '60px',
 };

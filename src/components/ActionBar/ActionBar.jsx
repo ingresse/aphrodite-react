@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../utils';
 
 /* Constants */
-import { COLORS, MEDIA_QUERIES } from '../../constants';
+import { COLORS, MEDIA_QUERIES, SIZES } from '../../constants';
 
 /* Styles */
 const ActionBarStyled = styled('div')(props => ({
@@ -15,7 +15,7 @@ const ActionBarStyled = styled('div')(props => ({
 
     display  : 'block',
     width    : '100%',
-    minHeight: '80px',
+    minHeight: SIZES.ACTION_BAR_HEIGHT,
 
     zIndex   : 100,
     position : 'fixed',
