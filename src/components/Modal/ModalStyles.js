@@ -23,17 +23,10 @@ const ModalStyled = styled.dialog`
     bottom  : 0;
     left    : 40px;
     margin  : 0;
-    padding :
-        ${(GRID.CONTAINER_PADDING + GRID.UNIT)}
-        0
-        ${props => props.hasFooter ? SIZES.ACTION_BAR_HEIGHT : 0}
-    ;
+    padding : 0 0 ${props => props.hasFooter ? SIZES.ACTION_BAR_HEIGHT : 0};
 
     border : 0;
     outline: 0;
-
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
 
     transform: translateY(${props => props.opened ? '0' : '110%'});
 
@@ -57,8 +50,13 @@ const ModalStyled = styled.dialog`
     }
 
     ${selector} {
-        &__title {
-            margin: 20px 0 15px;
+        &__container {
+            max-height: 100%;
+            overflow  : auto;
+        }
+
+        &__footer {
+            max-height: ${SIZES.ACTION_BAR_HEIGHT};
         }
     }
 
@@ -70,8 +68,10 @@ const ModalStyled = styled.dialog`
         left   : 0;
 
         ${selector} {
-            &__title {
-                margin: 15px 0;
+            &__container {
+                &__title {
+                    margin: 15px 0;
+                }
             }
         }
     }
