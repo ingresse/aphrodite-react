@@ -5,7 +5,7 @@ route: /atoms/modal
 ---
 
 import { useState } from 'react';
-import { Modal, Button, Row, Segment } from '../';
+import { Modal, Button, Segment, Container, Placeholder } from '../';
 
 import { Playground, Props } from 'docz';
 
@@ -18,15 +18,18 @@ import { Playground, Props } from 'docz';
 ## Example
 <Playground style={{ margin: '-20px', padding: '0 !important' }}>
     {() => {
+        // import { Modal, Segment, Button, Placeholder } from 'aphrodite-react';
+
         const [ opened, setOpened ] = useState(false);
 
+        /** All the `styles` in Modal was only customized to this example */
         return (
             <Segment
                 padding="0"
                 styles={{
                     position: 'relative',
                     overflow: 'hidden',
-                    height  : '520px'
+                    height  : '530px'
                 }}>
 
                 <Segment padding="80px 0" styles={{ textAlign: 'center' }}>
@@ -38,23 +41,35 @@ import { Playground, Props } from 'docz';
                 </Segment>
 
                 <Modal
-                    title="Modal Title"
+                    title="Oi, eu sou o Goku"
                     opened={opened}
                     openedCallback={setOpened}
-                    styles={{ position: 'absolute' }}
+                    styles={{
+                        position: 'absolute'
+                    }}
                     footerProps={{
                         styles: {
-                            position: 'absolute',
+                            position : 'absolute',
+                            textAlign: 'center',
                         },
                     }}
                     footer={
-                        <Row horizontal="center">
-                            <Button onClick={() => setOpened(false)}>
-                                Close Modal
-                            </Button>
-                        </Row>
+                        <Button onClick={() => setOpened(false)}>
+                            Close Modal
+                        </Button>
                     }>
-                    Modal Content
+                    <Container sm>
+                        <Placeholder>
+                            <iframe
+                                width="100%"
+                                height="315"
+                                src="https://www.youtube-nocookie.com/embed/oyTZ267Xg70?autoplay=true&volume=0.3&start=4"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </Placeholder>
+                    </Container>
                 </Modal>
             </Segment>
         );

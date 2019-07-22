@@ -34,7 +34,7 @@ const Modal = forwardRef((props, ref) => {
 
         opened,
         openedCallback,
-        closeOnScape,
+        closeOnEscape,
 
         ...rest
     } = props;
@@ -42,9 +42,9 @@ const Modal = forwardRef((props, ref) => {
     /**
      * State values
      */
-    const [ active, setActive ]       = useState(opened);
-    const [ visible, setVisible ]     = useState(opened);
-    const [ unmounted, setUnmounted ] = useState(false);
+    const [ active, setActive ]             = useState(opened);
+    const [ visible, setVisible ]           = useState(opened);
+    const [ unmounted, setUnmounted ]       = useState(false);
     const [ activeTimer, setActiveTimer ]   = useState(null);
     const [ visibleTimer, setVisibleTimer ] = useState(null);
 
@@ -90,7 +90,7 @@ const Modal = forwardRef((props, ref) => {
     function listen () {
         addEventListener('click', handleClose);
 
-        if (closeOnScape) {
+        if (closeOnEscape) {
             addEventListener('keydown', handleCloseOnScape);
         }
     }
@@ -175,6 +175,7 @@ const Modal = forwardRef((props, ref) => {
             open
             opened={active && visible}
             styles={styles}
+            hasFooter={(footer || Object.keys(footerProps).length)}
             className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
             {(!active || !visible) ? (null) : (
                 <>
@@ -218,6 +219,7 @@ Modal.defaultProps = {
 
     opened        : false,
     openedCallback: () => {},
+    closeOnEscape : false,
 
     footerProps: {},
     styles     : {},
@@ -225,8 +227,12 @@ Modal.defaultProps = {
 
 /* Prop Types */
 Modal.propTypes = {
+    title: PropTypes.string,
+    header: PropTypes.any,
+
     opened        : PropTypes.bool,
     openedCallback: PropTypes.func,
+    closeOnEscape : PropTypes.bool,
 };
 
 /* Exporting */

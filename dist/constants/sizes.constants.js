@@ -46,6 +46,7 @@ var SIZES = {
     LINE_HEIGHT: '40px',
     RADIUS: '10px',
     SHADOW: '10px'
-  }
+  },
+  ACTION_BAR_HEIGHT: '60px'
 };
 exports.SIZES = SIZES;
