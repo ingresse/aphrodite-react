@@ -1,6 +1,7 @@
 /* Core Packages */
 import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Global, css } from '@emotion/core';
 
 /* Helper Components */
 import { H1, ActionBar } from '../';
@@ -93,6 +94,8 @@ const Modal = forwardRef((props, ref) => {
         if (closeOnEscape) {
             addEventListener('keydown', handleCloseOnScape);
         }
+
+
     }
 
     /**
@@ -179,6 +182,13 @@ const Modal = forwardRef((props, ref) => {
             className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
             {(!active || !visible) ? (null) : (
                 <>
+                    <Global
+                        styles={css`
+                            body {
+                                overflow: hidden;
+                            }
+                        `}
+                    />
                     {title &&
                         <H1 className="aph-modal__title" bold center>
                             {title}
