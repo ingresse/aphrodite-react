@@ -32,6 +32,9 @@ const ModalStyled = styled.dialog`
     border : 0;
     outline: 0;
 
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
     transform: translateY(${props => props.opened ? '0' : '110%'});
 
     will-change: z-index, opacity, transform;
