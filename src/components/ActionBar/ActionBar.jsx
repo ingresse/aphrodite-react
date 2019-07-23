@@ -35,10 +35,6 @@ const ActionBarStyled = styled('div')(props => ({
         transform: 'translateY(0)',
     },
 
-    [MEDIA_QUERIES.LT.SM]: {
-        padding: '15px 0',
-    },
-
     ...props.styles,
 }));
 
