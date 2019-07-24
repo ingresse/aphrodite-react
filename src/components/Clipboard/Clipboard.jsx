@@ -1,10 +1,15 @@
 /* Core Packages */
 import React, { useEffect, useState } from 'react';
+import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import ReactClipboard from 'react-clipboard.js';
 
 /* Component Styles */
 import ClipboardStyled from './ClipboardStyled';
+const AphClipboardWrapper = styled(ReactClipboard)`
+    box-sizing: border-box;
+    ${props => props.styles};
+`;
 
 /* Component Itself */
 const Clipboard = (props) => {
@@ -84,6 +89,8 @@ const Clipboard = (props) => {
      */
     const clipboardProps = {
         ...rest,
+
+        styles   : styles,
         onError  : _onError,
         onSuccess: _onSuccess,
     };
@@ -93,7 +100,7 @@ const Clipboard = (props) => {
      */
     if (!styled) {
         return (
-            <ReactClipboard
+            <AphClipboardWrapper
                 {...clipboardProps}
                 className={`aph-clipboard ${className || ''}`}
             />
@@ -104,7 +111,6 @@ const Clipboard = (props) => {
         <ClipboardStyled
             {...clipboardProps}
             as={ReactClipboard}
-            styles={styles}
             className={`aph-clipboard${status === 'success' ? ' success' : ''}${status === 'error' ? ' error' : ''} ${className || ''}`}
         />
     );
@@ -119,12 +125,12 @@ Clipboard.defaultProps = {
 /* Properties Types */
 Clipboard.propTypes = {
     /**
-     * Should have custom styles?
+     * Default styles
      */
     styled: propTypes.bool,
 
     /**
-     * Only applied with `styled`
+     * Full custom styles
      */
     styles: propTypes.oneOfType([
         propTypes.string,

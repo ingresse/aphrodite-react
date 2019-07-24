@@ -66,8 +66,18 @@ const AphButtonStyled = styled.button`
     &:disabled {
         cursor: not-allowed;
 
-        color: ${colors.get('mercury', 'light')};
-        background-color: ${colors.get('mercury', 'crystal')};
+        color: ${props => colors.get(
+            'mercury',
+            (props.translucid ? 'crystal' : 'light')
+        )};
+
+        background-color: ${props =>
+            props.link ?
+                colors.get('smoke') :
+                    props.translucid ?
+                        colors.get('smoke', '', 0.5) :
+                            colors.get('mercury', 'crystal')
+        };
     }
 
     .aph-btn {
@@ -77,7 +87,7 @@ const AphButtonStyled = styled.button`
 
         &__loader {
             position : absolute;
-            top      : calc(50% - 11.5px);
+            top      : calc(50% - 15px);
             left     : 50%;
             transform: translate(-50%);
             opacity  : 0;
@@ -103,7 +113,7 @@ const AphButtonStyled = styled.button`
                 opacity: 1;
 
                 .aph-icon-wrapper {
-                    ${animations.spin()};
+                    ${animations.spin('4s')};
                 }
             }
         }

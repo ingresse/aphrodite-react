@@ -9,6 +9,7 @@ export const ICONS = Object.assign([
     'arrow-right',
     'bluetooth',
     'camera',
+    'card',
     'check',
     'check-thin',
     'external-ticket',
@@ -22,7 +23,15 @@ export const ICONS = Object.assign([
     'lock',
     'unlock',
     'search',
+    'settings',
+    'options',
+    'minus',
+    'plus',
     'times',
+    'qrcode',
+    'scan',
+    'ticketbooth',
+    'transfer',
 
     'arrow-down-circle',
     'arrow-left-circle',
@@ -32,6 +41,18 @@ export const ICONS = Object.assign([
     'info-circle',
     'question-circle',
     'times-circle',
+
+    'payment-amex',
+    'payment-bankbillet',
+    'payment-diners',
+    'payment-discover',
+    'payment-elo',
+    'payment-freepass',
+    'payment-mastercard',
+    'payment-money',
+    'payment-others',
+    'payment-paypal',
+    'payment-visa',
 ], {
     ENCODE_SVG: (reactElement) => {
         return 'data:image/svg+xml,' + escape(ReactDOMServer.renderToStaticMarkup((reactElement)));

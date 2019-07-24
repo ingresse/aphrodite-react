@@ -105,6 +105,8 @@ const Modal = forwardRef((props, ref) => {
      * Remove Event Listeners
      */
     function unlisten () {
+        clearTimeout(activeTimer);
+        clearTimeout(visibleTimer);
         removeEventListener('click', handleClose);
         removeEventListener('keydown', handleCloseOnScape);
     }
