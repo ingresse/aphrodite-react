@@ -50,6 +50,13 @@ import PaymentAmex from './IconPaymentAmex';
 import PaymentBankBillet from './IconPaymentBankBillet';
 import PaymentDiners from './IconPaymentDiners';
 import PaymentDiscover from './IconPaymentDiscover';
+import PaymentElo from './IconPaymentElo';
+import PaymentFreepass from './IconPaymentFreepass';
+import PaymentMastercard from './IconPaymentMastercard';
+import PaymentMoney from './IconPaymentMoney';
+import PaymentOthers from './IconPaymentOthers';
+import PaymentPaypal from './IconPaymentPaypal';
+import PaymentVisa from './IconPaymentVisa';
 
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
@@ -103,8 +110,26 @@ const ICONS = {
     'payment-boleto'     : PaymentBankBillet,
     'diners'             : PaymentDiners,
     'payment-diners'     : PaymentDiners,
-    'discover'           : PaymentDiners,
+    'discover'           : PaymentDiscover,
     'payment-discover'   : PaymentDiscover,
+    'elo'                : PaymentElo,
+    'payment-elo'        : PaymentElo,
+    'freepass'           : PaymentFreepass,
+    'payment-freepass'   : PaymentFreepass,
+    'master'             : PaymentMastercard,
+    'mastercard'         : PaymentMastercard,
+    'payment-master'     : PaymentMastercard,
+    'payment-mastercard' : PaymentMastercard,
+    'money'              : PaymentMoney,
+    'cash'               : PaymentMoney,
+    'payment-money'      : PaymentMoney,
+    'payment-cash'       : PaymentMoney,
+    'others'             : PaymentOthers,
+    'payment-others'     : PaymentOthers,
+    'paypal'             : PaymentPaypal,
+    'payment-paypal'     : PaymentPaypal,
+    'visa'               : PaymentVisa,
+    'payment-visa'       : PaymentVisa,
 };
 
 /* Component Wrapper styles */
