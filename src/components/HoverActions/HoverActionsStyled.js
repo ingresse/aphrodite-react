@@ -16,18 +16,19 @@ const HoverActionsStyled = styled.span`
         &__content {
             z-index: 1;
             filter : none;
+            display: block;
 
             transition: filter 0.15s linear;
         }
 
         &__items {
             position: absolute;
-            display : flex;
             top     : 0;
             right   : 0;
             bottom  : 0;
             left    : 0;
             opacity : 0;
+            display : flex;
             z-index : -1;
 
             justify-content: space-evenly;

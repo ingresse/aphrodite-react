@@ -91,9 +91,18 @@ var Clipboard = function Clipboard(props) {
     }
   }
   /**
-   * Common Props
+   * Will Unmount
    */
 
+
+  (0, _react.useEffect)(function () {
+    return function () {
+      clearTimeout(timer);
+    };
+  }, []);
+  /**
+   * Common Props
+   */
 
   var clipboardProps = _objectSpread({}, rest, {
     onError: _onError,

@@ -15,15 +15,27 @@ import ArrowDownCircle from './IconArrowDownCircle';
 import ArrowLeftCircle from './IconArrowLeftCircle';
 import ArrowRightCircle from './IconArrowRightCircle';
 import ArrowUpCircle from './IconArrowUpCircle';
+import Bluetooth from './IconBluetooth';
+import Camera from './IconCamera';
 import Check from './IconCheck';
 import CheckCircle from './IconCheckCircle';
 import CheckThin from './IconCheckThin';
+import ExternalTicket from './IconExternalTicket';
+import Eye from './IconEye';
+import Flash from './IconFlash';
+import FlashOff from './IconFlashOff';
+import Info from './IconInfo';
 import InfoCircle from './IconInfoCircle';
+import List from './IconList';
 import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
+import Lock from './IconLock';
 import Pencil from './IconPencil';
 import QuestionCircle from './IconQuestionCircle';
+import Search from './IconSearch';
+import Times from './IconTimes';
 import TimesCircle from './IconTimesCircle';
+import Unlock from './IconUnlock';
 
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
@@ -36,15 +48,27 @@ const ICONS = {
     'arrow-left-circle' : ArrowLeftCircle,
     'arrow-right-circle': ArrowRightCircle,
     'arrow-up-circle'   : ArrowUpCircle,
+    'bluetooth'         : Bluetooth,
+    'camera'            : Camera,
     'check'             : Check,
     'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
+    'external-ticket'   : ExternalTicket,
+    'eye'               : Eye,
+    'flash'             : Flash,
+    'flash-off'         : FlashOff,
+    'info'              : Info,
     'info-circle'       : InfoCircle,
+    'list'              : List,
     'loader'            : LoaderDonut,
     'loading'           : Loading,
+    'lock'              : Lock,
     'pencil'            : Pencil,
+    'search'            : Search,
     'question-circle'   : QuestionCircle,
+    'times'             : Times,
     'times-circle'      : TimesCircle,
+    'unlock'            : Unlock,
 };
 
 /* Component Wrapper styles */

@@ -4,9 +4,11 @@ menu : Atoms
 route: /atoms/icon
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Icon } from '../';
+import { Icon, Input, Select, Card, Row, Col, Text, HoverActions, Clipboard, Segment } from '../';
 import { ICONS } from '../../constants';
+import { colors } from '../../utils';
 
 # Icon
 #### Simple SVG icons
@@ -14,38 +16,194 @@ import { ICONS } from '../../constants';
 ```jsx
 import { Icon } from 'aphrodite-react';
 ...
-<Icon slug="arrow-up-circle" size={40} color="ruby" />
+<Icon
+    slug="arrow-up-circle"
+    size={30}
+    color="ruby"
+/>
 ```
 
 ## Properties
 <Props of={Icon} />
 
-## Example
+---
+
+## List
 <Playground>
     {() => {
-        return ICONS.map((ICON_SLUG, INDEX) => {
-            return (
-                <div key={INDEX} style={{ margin: '5px 0' }}>
-                    <Icon slug={ICON_SLUG} size={20 + ((INDEX + 1) * 5)} color={(INDEX % 2) ? 'primary' : 'secondary'} />
-                    <span style={{ paddingLeft: '10px' }}>{ICON_SLUG}</span>
-                </div>
-            );
-        });
+        /**
+         * Local values
+         */
+        const [ size, setSize ]   = useState(30);
+        const [ color, setColor ] = useState('none');
+        const [ term, setTerm ]   = useState('');
+
+        return (
+            <>
+                <form onSubmit={(evt) => evt.preventDefault()}>
+                    <Segment padding="0">
+                        <Row vertical="middle" horizontal="center">
+                            <Col xs={12} sm={8} first="sm" last="xs">
+                                <Segment padding="0 0 20px">
+                                    <Input
+                                        id="aph_icons_search"
+                                        type="search"
+                                        autoComplete="off"
+                                        label="Search Icons"
+                                        value={term}
+                                        onChange={(evt, value) => setTerm(value)}
+                                    />
+                                </Segment>
+                            </Col>
+                            <Col xs={6} sm={2}>
+                                <Segment padding="0 0 20px">
+                                    <Select
+                                        id="aph_icons_size"
+                                        label="Size"
+                                        value={size}
+                                        onChange={(evt, value) => setSize(value)}>
+                                        <option value={20}>
+                                            20
+                                        </option>
+                                        <option value={30}>
+                                            30
+                                        </option>
+                                        <option value={40}>
+                                            40
+                                        </option>
+                                    </Select>
+                                </Segment>
+                            </Col>
+                            <Col xs={6} sm={2}>
+                                <Segment padding="0 0 20px">
+                                    <Select
+                                        id="aph_icons_color"
+                                        label="Color"
+                                        value={color}
+                                        onChange={(evt, value) => setColor(value)}>
+                                        <option value={'none'}>
+                                            random
+                                        </option>
+                                        {Object.keys(colors.shades).map((colorKey) => (
+                                            <option key={`aph_icons_color_${colorKey}`} value={colorKey}>
+                                                {colorKey}
+                                            </option>
+                                        ))}
+                                    </Select>
+                                </Segment>
+                            </Col>
+                        </Row>
+                    </Segment>
+
+                    <Row vertical="middle" horizontal="center">
+                        {ICONS.map((ICON_SLUG, INDEX) => {
+                            if (term && !ICON_SLUG.toLowerCase().includes(term.toLowerCase())) {
+                                return (null);
+                            }
+
+                            const IconRendered = (props) => (
+                                <Icon
+                                    slug={ICON_SLUG}
+                                    size={parseInt(size, 10)}
+                                    color={color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}
+                                    {...props}
+                                />
+                            );
+
+                            const iconMarkup =
+                                `<Icon slug="${ICON_SLUG}" size={${size}} color="${color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}" />`
+                            ;
+
+                            return (
+                                <Col xs={12} sm={4} md={3} key={`aph_icon_${INDEX}`}>
+                                    <HoverActions
+                                        styled
+                                        styles={{ display: 'block', width: 'auto' }}
+                                        actions={(
+                                            <>
+                                                <Clipboard
+                                                    styled
+                                                    data-clipboard-text={ICON_SLUG}>
+                                                    Copy Slug
+                                                </Clipboard>
+                                                <Clipboard
+                                                    styled
+                                                    data-clipboard-text={iconMarkup}>
+                                                    Copy Markup
+                                                </Clipboard>
+                                            </>
+                                        )}>
+                                        <Card
+                                            hover
+                                            boxShadow
+                                            styles={{
+                                                margin: '0 0 20px',
+                                                backgroundColor: ((color === 'translucid') ? colors.get('oil') : null),
+                                            }}>
+                                            <Row vertical="middle" horizontal="center">
+                                                <Col xs={4} sm={4} lg={3} styles={{ textAlign: 'center' }}>
+                                                    <IconRendered />
+                                                </Col>
+                                                <Col xs={8} sm={8} lg={9}>
+                                                    <Text bold small center helper>
+                                                        {ICON_SLUG}
+                                                    </Text>
+                                                </Col>
+                                            </Row>
+                                        </Card>
+                                    </HoverActions>
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                </form>
+            </>
+        );
     }}
 </Playground>
 
+---
+
 ## Width & Height
 <Playground>
-    <div>
-        <Icon slug="loading" width={20} height={5} color="ruby" />
-    </div>
-    <div>
-        <Icon slug="loading" width={40} height={10} />
-    </div>
-    <div>
-        <Icon slug="loading" width={80} height={20} color="ruby" />
-    </div>
-    <div>
-        <Icon slug="loading" width={120} height={30} />
-    </div>
+    <Row vertical="middle" horizontal="center">
+        <Col xs={12} sm={6} md={3}>
+            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
+                <Icon
+                    slug="loading"
+                    width={20}
+                    height={5}
+                    color="primary"
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={6} md={3}>
+            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
+                <Icon
+                    slug="loading"
+                    width={40}
+                    height={10}
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={6} md={3}>
+            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
+                <Icon
+                    slug="loading"
+                    width={80}
+                    height={20}
+                    color="primary"
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={6} md={3}>
+            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
+                <Icon
+                    slug="loading"
+                    width={120}
+                    height={30}
+                />
+            </Segment>
+        </Col>
+    </Row>
 </Playground>

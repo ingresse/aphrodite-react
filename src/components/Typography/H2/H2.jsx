@@ -16,12 +16,12 @@ const H2Styled = styled.h2`
     padding: 0;
     margin : ${props => props.margin};
 
-    text-align    : ${props => (props.center ? 'center' : null)};
+    text-align    : ${props => (props.center ? 'center' : (props.align || null))};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
     color: ${props => (
-        (!props.color && !props.link) ? null :
-            colors.get(props.link ? 'secondary' : props.color)
+        (!props.color && !props.link && !props.helper) ? null :
+            colors.get(props.link ? 'secondary' : (props.helper ? 'mercury' : props.color))
     )};
 
     ${props => props.styles};
@@ -46,6 +46,7 @@ H2.defaultProps = {
     bold  : false,
     center: false,
     upper : false,
+    helper: false,
     margin: '25px 0 15px',
     color : '',
     styles: {},
@@ -57,6 +58,7 @@ H2.propTypes = {
     bold  : propTypes.bool,
     center: propTypes.bool,
     upper : propTypes.bool,
+    helper: propTypes.bool,
     margin: propTypes.string,
     color : propTypes.string,
     styles: propTypes.oneOfType([

@@ -33,7 +33,8 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
       disabled = props.disabled,
       delay = props.delay,
       hover = props.hover,
-      withoutIcon = props.withoutIcon;
+      icon = props.icon,
+      iconSize = props.iconSize;
   var timerDelay = delay * 1000;
   var wrapperRef = (0, _react.useRef)(null);
   var wrapperContentRef = (0, _react.useRef)(null);
@@ -61,6 +62,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 
 
   var headerStyles = Object.assign({
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -145,7 +147,17 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
     handleToggle(opened);
     setOpened(!opened);
   }
+  /**
+   * Unmount
+   */
 
+
+  (0, _react.useEffect)(function () {
+    return function () {
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+    };
+  }, []);
   return _react.default.createElement(_.Card, _extends({}, props, {
     ref: ref,
     hover: true,
@@ -155,18 +167,18 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
       overflow: 'hidden'
     }, props.styles)
   }), !header ? null : _react.default.createElement(HeaderTitle, _extends({}, headerProps, {
-    styles: headerStyles,
+    styles: Object.assign(headerStyles, {
+      paddingRight: !icon ? null : iconSize + "px"
+    }),
     onClick: toggle,
     role: "button"
-  }), _react.default.createElement("div", {
-    style: withoutIcon ? {} : {
-      maxWidth: '90%'
-    }
-  }, header), withoutIcon ? null : _react.default.createElement(_.Icon, {
+  }), header, !icon ? null : _react.default.createElement(_.Icon, {
     slug: "arrow-down",
-    size: 30,
+    size: iconSize,
     color: _utils.colors.get('mercury', 'light'),
     styles: {
+      position: 'absolute',
+      right: 0,
       transform: opened ? 'rotate(180deg)' : 'initial',
       transition: "transform " + delay + "s linear"
     }
@@ -183,10 +195,11 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 Collapsible.defaultProps = {
   opened: false,
   hover: false,
-  delay: 0.25,
+  delay: 0.35,
   styles: {},
   childrenStyles: {},
-  size: 30,
+  icon: true,
+  iconSize: 40,
   header: '',
   headerProps: null
 };
@@ -196,7 +209,8 @@ Collapsible.propTypes = {
   opened: _propTypes.default.bool,
   hover: _propTypes.default.bool,
   delay: _propTypes.default.number,
-  size: _propTypes.default.number,
+  icon: _propTypes.default.bool,
+  iconSize: _propTypes.default.number,
   styles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
   childrenStyles: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
   header: _propTypes.default.any,

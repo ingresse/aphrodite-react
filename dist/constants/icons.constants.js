@@ -10,7 +10,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* Packages */
 
 /* Export */
-var ICONS = Object.assign(['arrow-up', 'arrow-right', 'arrow-down', 'arrow-left', 'arrow-down-circle', 'arrow-left-circle', 'arrow-right-circle', 'arrow-up-circle', 'info-circle', 'check', 'check-circle', 'check-thin', 'loader', 'loading', 'question-circle', 'times-circle'], {
+var ICONS = Object.assign(['arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'bluetooth', 'camera', 'check', 'check-thin', 'external-ticket', 'eye', 'flash', 'flash-off', 'info', 'list', 'loader', 'loading', 'lock', 'unlock', 'search', 'times', 'arrow-down-circle', 'arrow-left-circle', 'arrow-right-circle', 'arrow-up-circle', 'check-circle', 'info-circle', 'question-circle', 'times-circle'], {
   ENCODE_SVG: function ENCODE_SVG(reactElement) {
     return 'data:image/svg+xml,' + escape(_server.default.renderToStaticMarkup(reactElement));
   }

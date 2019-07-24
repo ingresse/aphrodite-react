@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import ReactClipboard from 'react-clipboard.js';
 
@@ -69,6 +69,15 @@ const Clipboard = (props) => {
             onSuccess({ ...evt });
         }
     }
+
+    /**
+     * Will Unmount
+     */
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer);
+        }
+    }, []);
 
     /**
      * Common Props

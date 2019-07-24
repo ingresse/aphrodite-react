@@ -32,8 +32,8 @@ var IconArrowDown = function IconArrowDown(props) {
   }, _react.default.createElement("polyline", {
     id: "aph-icon-arrow-down-polyline",
     stroke: color,
-    strokeWidth: "4",
-    points: "9 11 16 19 23 11"
+    strokeWidth: "2",
+    points: "10 12 15 17.7142857 20 12"
   })));
 };
 /* Exporting Component */

@@ -14,10 +14,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL
  */
 var IconLoading = function IconLoading(props) {
+  /**
+   * Inherit props
+   */
   var color = props.color,
       width = props.width,
       height = props.height,
       size = props.size;
+  /**
+   * Render
+   */
+
   return _react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 120 30",

@@ -80,7 +80,7 @@ const FormControlSelect = memo(forwardRef((props, ref) => {
             )}
             <AphFormControlButtonStyled type="button" styles={{ pointerEvents: 'none' }}>
                 <Icon
-                    size={20}
+                    size={30}
                     slug="arrow-down"
                     color="black"
                 />
