@@ -1,14 +1,15 @@
 ---
 name : Icons
 menu : Atoms
-route: /atoms/icon
+route: /atoms/icons
 ---
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Icon, Input, Select, Card, Row, Col, Text, HoverActions, Clipboard, Segment } from '../';
+import { Icon, Input, Select, Card, Row, Col, Segment } from '../';
 import { ICONS } from '../../constants';
 import { colors } from '../../utils';
+import IconExample from './IconExample';
 
 # Icon
 #### Simple SVG icons
@@ -101,57 +102,24 @@ import { Icon } from 'aphrodite-react';
                                 return (null);
                             }
 
-                            const IconRendered = (props) => (
-                                <Icon
-                                    slug={ICON_SLUG}
-                                    size={parseInt(size, 10)}
-                                    color={color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}
-                                    {...props}
-                                />
-                            );
-
                             const iconMarkup =
                                 `<Icon slug="${ICON_SLUG}" size={${size}} color="${color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}" />`
                             ;
 
                             return (
                                 <Col xs={12} sm={4} md={3} key={`aph_icon_${INDEX}`}>
-                                    <HoverActions
-                                        styled
-                                        styles={{ display: 'block', width: 'auto' }}
-                                        actions={(
-                                            <>
-                                                <Clipboard
-                                                    styled
-                                                    data-clipboard-text={ICON_SLUG}>
-                                                    Copy Slug
-                                                </Clipboard>
-                                                <Clipboard
-                                                    styled
-                                                    data-clipboard-text={iconMarkup}>
-                                                    Copy Markup
-                                                </Clipboard>
-                                            </>
-                                        )}>
-                                        <Card
-                                            hover
-                                            boxShadow
-                                            styles={{
-                                                margin: '0 0 20px',
-                                                backgroundColor: ((color === 'translucid') ? colors.get('oil') : null),
-                                            }}>
-                                            <Row vertical="middle" horizontal="center">
-                                                <Col xs={4} sm={4} lg={3} styles={{ textAlign: 'center' }}>
-                                                    <IconRendered />
-                                                </Col>
-                                                <Col xs={8} sm={8} lg={9}>
-                                                    <Text bold small center helper>
-                                                        {ICON_SLUG}
-                                                    </Text>
-                                                </Col>
-                                            </Row>
-                                        </Card>
-                                    </HoverActions>
+                                    <IconExample
+                                        id={`aph_icon_${INDEX}`}
+                                        color={color}
+                                        slug={ICON_SLUG}
+                                        markup={iconMarkup}>
+                                        <Icon
+                                            slug={ICON_SLUG}
+                                            size={parseInt(size, 10)}
+                                            color={color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}
+                                            {...props}
+                                        />
+                                    </IconExample>
                                 </Col>
                             );
                         })}
@@ -166,44 +134,50 @@ import { Icon } from 'aphrodite-react';
 
 ## Width & Height
 <Playground>
-    <Row vertical="middle" horizontal="center">
-        <Col xs={12} sm={6} md={3}>
-            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
-                <Icon
-                    slug="loading"
-                    width={20}
-                    height={5}
-                    color="primary"
-                />
-            </Segment>
-        </Col>
-        <Col xs={12} sm={6} md={3}>
-            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
-                <Icon
-                    slug="loading"
-                    width={40}
-                    height={10}
-                />
-            </Segment>
-        </Col>
-        <Col xs={12} sm={6} md={3}>
-            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
-                <Icon
-                    slug="loading"
-                    width={80}
-                    height={20}
-                    color="primary"
-                />
-            </Segment>
-        </Col>
-        <Col xs={12} sm={6} md={3}>
-            <Segment padding="10px 0" styles={{ textAlign: 'center' }}>
-                <Icon
-                    slug="loading"
-                    width={120}
-                    height={30}
-                />
-            </Segment>
-        </Col>
-    </Row>
+    <Segment padding="20px 0 0">
+        <Row vertical="middle" horizontal="center">
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={20} height={5} color="primary" />`}>
+                    <Icon
+                        slug="loading"
+                        width={20}
+                        height={5}
+                        color="primary"
+                    />
+                </IconExample>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={40} height={10} />`}>
+                    <Icon
+                        slug="loading"
+                        width={40}
+                        height={10}
+                    />
+                </IconExample>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={80} height={20} color="primary" />`}>
+                    <Icon
+                        slug="loading"
+                        width={80}
+                        height={20}
+                        color="primary"
+                    />
+                </IconExample>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={120} height={30} />`}>
+                    <Icon
+                        slug="loading"
+                        width={120}
+                        height={30}
+                    />
+                </IconExample>
+            </Col>
+        </Row>
+    </Segment>
 </Playground>

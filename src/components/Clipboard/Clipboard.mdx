@@ -5,7 +5,7 @@ route: /organisms/clipboard
 ---
 
 import { Playground, Props } from 'docz';
-import { Clipboard, Container } from '../';
+import { Clipboard, Container, Button } from '../';
 
 # Clipboard
 #### A simple implementation of awesome library [React Clipboard.JS](https://github.com/nihey/react-clipboard.js), check it out there to more usage details.
@@ -42,6 +42,19 @@ import { Clipboard } from 'aphrodite-react';
     <Container styles={{ textAlign: 'center' }}>
         <Clipboard
             styled
+            data-clipboard-text="Hello World">
+            On click in this element, should copy the text "Hello World" to your clipboard
+        </Clipboard>
+    </Container>
+</Playground>
+
+---
+
+## Custom Style Example
+<Playground style={{ padding: '20px' }}>
+    <Container styles={{ textAlign: 'center' }}>
+        <Clipboard
+            styles={{ height: '70px' }}
             data-clipboard-text="Hello World">
             On click in this element, should copy the text "Hello World" to your clipboard
         </Clipboard>

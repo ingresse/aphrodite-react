@@ -39,7 +39,7 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
 
 
   (0, _react.useEffect)(function () {
-    if (!childrenRef || !childrenRef.current || !childrenRef.current.offsetWidth || childrenRef.current.offsetWidth === childrenWidth) {
+    if (typeof loading !== 'boolean' || !childrenRef || !childrenRef.current || !childrenRef.current.offsetWidth || childrenRef.current.offsetWidth === childrenWidth) {
       return;
     }
 
@@ -49,17 +49,17 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
     ref: ref,
     disabled: disabled || loading,
     className: "aph-btn" + (loading ? ' aph-btn--loading' : '') + " " + className
-  }), _react.default.createElement(_ButtonItemStyled.default, {
-    ref: childrenRef,
-    className: "aph-btn__content"
-  }, children), _react.default.createElement(_ButtonItemStyled.default, {
+  }), typeof loading !== 'boolean' ? children : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_ButtonItemStyled.default, {
     className: "aph-btn__loader",
     childrenWidth: childrenWidth ? childrenWidth + "px" : null
   }, _react.default.createElement(_.Icon, {
-    size: 19,
+    size: 30,
     slug: "loader",
     color: ['white', 'smoke'].includes(color) ? 'secondary' : 'white'
-  })));
+  })), _react.default.createElement(_ButtonItemStyled.default, {
+    ref: childrenRef,
+    className: "aph-btn__content"
+  }, children)));
 });
 /* Default Properties */
 
@@ -73,6 +73,7 @@ Button.defaultProps = {
   small: false,
   block: false,
   disabled: false,
+  loading: undefined,
   styles: {}
 };
 /* Properties Types */
@@ -88,6 +89,11 @@ Button.propTypes = {
    * Should the Button be disabled?
    */
   disabled: _propTypes.default.bool,
+
+  /**
+   * Loading state, replacing text by a donut spinning
+   */
+  loading: _propTypes.default.bool,
 
   /**
    * Renders the button using an alternative color:

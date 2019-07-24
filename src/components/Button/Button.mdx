@@ -246,7 +246,7 @@ import { Button } from 'aphrodite-react';
 
 ---
 
-## Loading
+## Loading State
 
 <Playground>
     {() => {
@@ -259,15 +259,26 @@ import { Button } from 'aphrodite-react';
 
             setTimeout(() => {
                 setLoading(loading);
-            }, 2000);
+            }, 5000);
         }
 
         return (
-            <Segment styles={{ textAlign: 'center' }}>
-                <Button onClick={toggleLoading} loading={loading}>
-                    {btnText}
-                </Button>
-            </Segment>
+            <Row horizontal="center">
+                <Col xs={12} sm={6}>
+                    <Segment styles={{ textAlign: 'center' }}>
+                        <Button onClick={toggleLoading} loading={loading}>
+                            {btnText}
+                        </Button>
+                    </Segment>
+                </Col>
+                <Col xs={12} sm={6}>
+                    <Segment styles={{ textAlign: 'center' }}>
+                        <Button small onClick={toggleLoading} loading={loading}>
+                            {btnText}
+                        </Button>
+                    </Segment>
+                </Col>
+            </Row>
         );
     }}
 </Playground>
@@ -279,8 +290,22 @@ Ignore `color` attribute
 
 <Playground>
     <Segment styles={{ textAlign: 'center' }}>
-        <Button color="success" disabled>
-            Disabled
-        </Button>
+        <Row horizontal="center">
+            <Col xs={6} sm={4}>
+                <Button disabled block color="success">
+                    Regular
+                </Button>
+            </Col>
+            <Col xs={6} sm={4}>
+                <Button disabled block link color="success">
+                    Link
+                </Button>
+            </Col>
+            <Col xs={6} sm={4}>
+                <Button disabled block translucid color="success">
+                    Translucid
+                </Button>
+            </Col>
+        </Row>
     </Segment>
 </Playground>

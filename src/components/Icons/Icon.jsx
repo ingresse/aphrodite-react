@@ -17,6 +17,7 @@ import ArrowRightCircle from './IconArrowRightCircle';
 import ArrowUpCircle from './IconArrowUpCircle';
 import Bluetooth from './IconBluetooth';
 import Camera from './IconCamera';
+import Card from './IconCard';
 import Check from './IconCheck';
 import CheckCircle from './IconCheckCircle';
 import CheckThin from './IconCheckThin';
@@ -30,12 +31,25 @@ import List from './IconList';
 import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
 import Lock from './IconLock';
+import Minus from './IconMinus';
+import Options from './IconOptions';
 import Pencil from './IconPencil';
+import Plus from './IconPlus';
+import QRCode from './IconQRCode';
 import QuestionCircle from './IconQuestionCircle';
+import Scan from './IconScan';
 import Search from './IconSearch';
+import Settings from './IconSettings';
+import Ticketbooth from './IconTicketbooth';
 import Times from './IconTimes';
 import TimesCircle from './IconTimesCircle';
+import Transfer from './IconTransfer';
 import Unlock from './IconUnlock';
+
+import PaymentAmex from './IconPaymentAmex';
+import PaymentBankBillet from './IconPaymentBankBillet';
+import PaymentDiners from './IconPaymentDiners';
+import PaymentDiscover from './IconPaymentDiscover';
 
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
@@ -50,6 +64,7 @@ const ICONS = {
     'arrow-up-circle'   : ArrowUpCircle,
     'bluetooth'         : Bluetooth,
     'camera'            : Camera,
+    'card'              : Card,
     'check'             : Check,
     'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
@@ -63,12 +78,33 @@ const ICONS = {
     'loader'            : LoaderDonut,
     'loading'           : Loading,
     'lock'              : Lock,
+    'minus'             : Minus,
+    'options'           : Options,
     'pencil'            : Pencil,
+    'plus'              : Plus,
     'search'            : Search,
+    'settings'          : Settings,
+    'qrcode'            : QRCode,
     'question-circle'   : QuestionCircle,
+    'scan'              : Scan,
+    'ticketbooth'       : Ticketbooth,
     'times'             : Times,
     'times-circle'      : TimesCircle,
+    'transfer'          : Transfer,
     'unlock'            : Unlock,
+
+    'amex'               : PaymentAmex,
+    'payment-amex'       : PaymentAmex,
+    'bankbillet'         : PaymentBankBillet,
+    'bank-billet'        : PaymentBankBillet,
+    'payment-bankbillet' : PaymentBankBillet,
+    'payment-bank-billet': PaymentBankBillet,
+    'boleto'             : PaymentBankBillet,
+    'payment-boleto'     : PaymentBankBillet,
+    'diners'             : PaymentDiners,
+    'payment-diners'     : PaymentDiners,
+    'discover'           : PaymentDiners,
+    'payment-discover'   : PaymentDiscover,
 };
 
 /* Component Wrapper styles */
