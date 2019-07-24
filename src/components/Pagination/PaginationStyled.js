@@ -16,13 +16,15 @@ const AphPaginationStyled = styled.section`
 
     list-style-type: none;
 
-    text-align: center;
+    text-align : center;
+    user-select: none;
 
     border-radius   : 5px;
     background-color: ${colors.get('smoke')};
 
     * {
-        box-sizing: border-box;
+        box-sizing : border-box;
+        user-select: none;
     }
 
     .rc-pagination {

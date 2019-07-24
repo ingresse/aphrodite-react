@@ -13,16 +13,22 @@ const IconArrowUp = (props) => {
             viewBox="0 0 30 30"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg">
-            <path
-                id="aph-icon-arrow-up-path"
+            <g
+                id="aph-icon-arrow-up-group"
+                stroke="none"
+                strokeWidth="1"
                 fill="none"
                 fillRule="evenodd"
-                stroke={color}
                 strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M20 17.714L15 12l-5 5.714"
-            />
+                strokeLinejoin="round">
+                <polyline
+                    id="aph-icon-arrow-up-polyline"
+                    stroke={color}
+                    strokeWidth="2"
+                    transform="translate(15.000000, 14.857143) rotate(-180.000000) translate(-15.000000, -14.857143)"
+                    points="10 12 15 17.7142857 20 12"
+                />
+            </g>
         </svg>
     );
 };

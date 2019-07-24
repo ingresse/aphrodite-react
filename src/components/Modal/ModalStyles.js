@@ -53,6 +53,11 @@ const ModalStyled = styled.dialog`
         &__container {
             max-height: 100%;
             overflow  : auto;
+
+            &__title,
+            &__header {
+                padding-top: 10px;
+            }
         }
 
         &__footer {
@@ -69,6 +74,11 @@ const ModalStyled = styled.dialog`
 
         ${selector} {
             &__container {
+                &__title,
+                &__header {
+                    padding-top: 0;
+                }
+
                 &__title {
                     margin: 15px 0;
                 }

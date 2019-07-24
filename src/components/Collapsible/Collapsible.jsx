@@ -20,7 +20,8 @@ const Collapsible = forwardRef((props, ref) => {
         disabled,
         delay,
         hover,
-        withoutIcon,
+        icon,
+        iconSize,
     } = props;
 
     const timerDelay = (delay * 1000);
@@ -40,6 +41,7 @@ const Collapsible = forwardRef((props, ref) => {
 
     /* Custom Styles */
     const headerStyles = Object.assign({
+        position      : 'relative',
         display       : 'flex',
         alignItems    : 'center',
         justifyContent: 'space-between',
@@ -137,6 +139,16 @@ const Collapsible = forwardRef((props, ref) => {
         setOpened(!opened);
     }
 
+    /**
+     * Unmount
+     */
+    useEffect(() => {
+        return () => {
+            clearTimeout(openTimer);
+            clearTimeout(closeTimer);
+        };
+    }, []);
+
     return (
         <Card
             {...props}
@@ -153,18 +165,20 @@ const Collapsible = forwardRef((props, ref) => {
             {!header ? null : (
                 <HeaderTitle
                     {...headerProps}
-                    styles={headerStyles}
+                    styles={Object.assign(headerStyles, {
+                        paddingRight: (!icon ? null : `${iconSize}px`),
+                    })}
                     onClick={toggle}
                     role="button">
-                        <div style={withoutIcon ? {} : { maxWidth: '90%' }}>
-                            {header}
-                        </div>
-                        {(withoutIcon) ? (null) : (
+                        {header}
+                        {(!icon) ? (null) : (
                             <Icon
                                 slug="arrow-down"
-                                size={30}
+                                size={iconSize}
                                 color={colors.get('mercury', 'light')}
                                 styles={{
+                                    position  : 'absolute',
+                                    right     : 0,
                                     transform : opened ? 'rotate(180deg)' : 'initial',
                                     transition:`transform ${delay}s linear`,
                                 }}
@@ -187,10 +201,11 @@ const Collapsible = forwardRef((props, ref) => {
 Collapsible.defaultProps = {
     opened        : false,
     hover         : false,
-    delay         : 0.25,
+    delay         : 0.35,
     styles        : {},
     childrenStyles: {},
-    size          : 30,
+    icon          : true,
+    iconSize      : 40,
 
     header     : '',
     headerProps: null,
@@ -201,7 +216,8 @@ Collapsible.propTypes = {
     opened        : propTypes.bool,
     hover         : propTypes.bool,
     delay         : propTypes.number,
-    size          : propTypes.number,
+    icon          : propTypes.bool,
+    iconSize      : propTypes.number,
     styles        : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
