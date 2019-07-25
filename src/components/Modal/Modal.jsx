@@ -121,10 +121,11 @@ const Modal = forwardRef((props, ref) => {
 
         if (unmounted ||
             (evt &&
-            evt.target &&
+            evt.currentTarget &&
             modalRef &&
             modalRef.current &&
-            modalRef.current.contains(evt.target))) {
+            modalRef.current.contains(evt.currentTarget))) {
+
             return;
         }
 
