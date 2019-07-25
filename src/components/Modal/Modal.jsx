@@ -194,7 +194,7 @@ const Modal = forwardRef((props, ref) => {
                 opened={active && visible}
                 role="dialog"
                 styles={styles}
-                hasFooter={(footer || Object.keys(footerProps).length)}
+                hasFooter={(footer || Object.keys(footerProps).length) ? true : false}
                 className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
                 {(!active || !visible) ? (null) : (
                     <>
@@ -207,34 +207,32 @@ const Modal = forwardRef((props, ref) => {
                                 `}
                             />
                         )}
-                        <section className="aph-modal__content">
-                            <section className="aph-modal__content__container">
-                                {(!title) ? (null) : (
-                                    <H1 className="aph-modal__content__container__title" bold center>
-                                        {title}
-                                    </H1>
-                                )}
-                                {(!header) ? (null) : (
-                                    <header className="aph-modal__content__container__header">
-                                        {header}
-                                    </header>
-                                )}
-                                <section className="aph-modal__content__container__content">
-                                    {children}
-                                </section>
+                        <section className="aph-modal__content__container">
+                            {(!title) ? (null) : (
+                                <H1 className="aph-modal__content__container__title" bold center>
+                                    {title}
+                                </H1>
+                            )}
+                            {(!header) ? (null) : (
+                                <header className="aph-modal__content__container__header">
+                                    {header}
+                                </header>
+                            )}
+                            <section className="aph-modal__content__container__content">
+                                {children}
                             </section>
-                            <ActionBar
-                                {...footerProps}
-                                className={`aph-modal__content__footer ${footerProps.className || ''}`}
-                                visible={footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false)}
-                                styles={{
-                                    ...footerProps.styles,
-                                    padding  : '10px 0',
-                                    minHeight: 'initial'
-                                }}>
-                                {footer}
-                            </ActionBar>
                         </section>
+                        <ActionBar
+                            {...footerProps}
+                            className={`aph-modal__content__footer ${footerProps.className || ''}`}
+                            visible={footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false)}
+                            styles={{
+                                ...footerProps.styles,
+                                padding  : '10px 0',
+                                minHeight: 'initial'
+                            }}>
+                            {footer}
+                        </ActionBar>
                     </>
                 )}
             </ModalStyled>
