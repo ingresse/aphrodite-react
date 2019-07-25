@@ -91,6 +91,8 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
 
   function removeClickListener() {
     setUnmounted(true);
+    clearTimeout(activeTimer);
+    clearTimeout(visibleTimer);
     document.removeEventListener('click', handleClose);
   }
   /**
