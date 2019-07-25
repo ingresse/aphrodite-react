@@ -8,6 +8,7 @@ import { H1, ActionBar } from '../';
 
 /* Component Styles */
 import ModalStyled from './ModalStyles';
+import ModalOverlayStyled from './ModalOverlayStyles';
 
 /* Component Itself */
 const Modal = forwardRef((props, ref) => {
@@ -29,6 +30,7 @@ const Modal = forwardRef((props, ref) => {
         children,
         footer,
         footerProps,
+        overlayProps,
 
         className,
         styles,
@@ -84,18 +86,19 @@ const Modal = forwardRef((props, ref) => {
         const { nodeName } = (target || {});
         const isEscPressed = (key === 'Escape' || key === 'Esc' || keyCode === 27);
 
-        if (isEscPressed) {
-            handleClose();
-            return false;
+        if (!isEscPressed) {
+            return;
         }
+
+        handleClose();
+
+        return;
     }
 
     /**
      * Add Event Listeners to handle with modal visibility
      */
     function listen () {
-        addEventListener('click', handleClose);
-
         if (closeOnEscape || closeByEscape) {
             addEventListener('keydown', handleCloseOnScape);
         }
@@ -107,7 +110,7 @@ const Modal = forwardRef((props, ref) => {
     function unlisten () {
         clearTimeout(activeTimer);
         clearTimeout(visibleTimer);
-        removeEventListener('click', handleClose);
+
         removeEventListener('keydown', handleCloseOnScape);
     }
 
@@ -121,11 +124,10 @@ const Modal = forwardRef((props, ref) => {
 
         if (unmounted ||
             (evt &&
-            evt.currentTarget &&
+            evt.target &&
             modalRef &&
             modalRef.current &&
-            modalRef.current.contains(evt.currentTarget))) {
-
+            modalRef.current.contains(evt.target))) {
             return;
         }
 
@@ -177,57 +179,66 @@ const Modal = forwardRef((props, ref) => {
      * Render
      */
     return (
-        <ModalStyled
-            {...rest}
-            ref={modalRef}
-            open
-            opened={active && visible}
-            role="dialog"
-            styles={styles}
-            hasFooter={(footer || Object.keys(footerProps).length)}
-            className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
+        <>
             {(!active || !visible) ? (null) : (
-                <>
-                    {unblockScrolling ? (null) : (
-                        <Global
-                            styles={css`
-                                body {
-                                    overflow: hidden;
-                                }
-                            `}
-                        />
-                    )}
-
-                    <section className="aph-modal__container">
-                        {title &&
-                            <H1 className="aph-modal__container__title" bold center>
-                                {title}
-                            </H1>
-                        }
-                        {header &&
-                            <header className="aph-modal__container__header">
-                                {header}
-                            </header>
-                        }
-                        <section className="aph-modal__container__content">
-                            {children}
-                        </section>
-                    </section>
-
-                    <ActionBar
-                        {...footerProps}
-                        className={`aph-modal__footer ${footerProps.className || ''}`}
-                        visible={footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false)}
-                        styles={{
-                            ...footerProps.styles,
-                            padding  : '10px 0',
-                            minHeight: 'initial'
-                        }}>
-                        {footer}
-                    </ActionBar>
-                </>
+                <ModalOverlayStyled
+                    onClick={handleClose}
+                    className={`aph-modal-overlay ${active ? ' active' : ''}${visible ? ' visible' : ''}`}
+                    {...overlayProps}
+                />
             )}
-        </ModalStyled>
+            <ModalStyled
+                {...rest}
+                ref={modalRef}
+                open
+                opened={active && visible}
+                role="dialog"
+                styles={styles}
+                hasFooter={(footer || Object.keys(footerProps).length)}
+                className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
+                {(!active || !visible) ? (null) : (
+                    <>
+                        {unblockScrolling ? (null) : (
+                            <Global
+                                styles={css`
+                                    body {
+                                        overflow: hidden;
+                                    }
+                                `}
+                            />
+                        )}
+                        <section className="aph-modal__content">
+                            <section className="aph-modal__content__container">
+                                {(!title) ? (null) : (
+                                    <H1 className="aph-modal__content__container__title" bold center>
+                                        {title}
+                                    </H1>
+                                )}
+                                {(!header) ? (null) : (
+                                    <header className="aph-modal__content__container__header">
+                                        {header}
+                                    </header>
+                                )}
+                                <section className="aph-modal__content__container__content">
+                                    {children}
+                                </section>
+                            </section>
+                            <ActionBar
+                                {...footerProps}
+                                className={`aph-modal__content__footer ${footerProps.className || ''}`}
+                                visible={footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false)}
+                                styles={{
+                                    ...footerProps.styles,
+                                    padding  : '10px 0',
+                                    minHeight: 'initial'
+                                }}>
+                                {footer}
+                            </ActionBar>
+                        </section>
+                    </>
+                )}
+            </ModalStyled>
+        </>
     );
 });
 
@@ -243,6 +254,8 @@ Modal.defaultProps = {
 
     footerProps: {},
     styles     : {},
+
+    overlayProps: {},
 };
 
 /* Prop Types */
@@ -254,6 +267,8 @@ Modal.propTypes = {
     openedCallback  : PropTypes.func.isRequired,
     closeOnEscape   : PropTypes.bool,
     unblockScrolling: PropTypes.bool,
+
+    overlayProps: PropTypes.object,
 };
 
 /* Exporting */

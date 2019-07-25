@@ -12,6 +12,7 @@ const selector = '.aph-modal';
 
 /* Modal Styled */
 const ModalStyled = styled.dialog`
+    box-sizing: border-box;
     position: fixed;
     display : none;
     opacity : 0;
@@ -47,6 +48,10 @@ const ModalStyled = styled.dialog`
 
     &.active {
         opacity: 1;
+    }
+
+    * {
+        box-sizing: border-box;
     }
 
     ${selector} {
