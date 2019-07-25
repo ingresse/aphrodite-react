@@ -207,18 +207,18 @@ const Modal = forwardRef((props, ref) => {
                                 `}
                             />
                         )}
-                        <section className="aph-modal__content__container">
+                        <section className="aph-modal__container">
                             {(!title) ? (null) : (
-                                <H1 className="aph-modal__content__container__title" bold center>
+                                <H1 className="aph-modal__container__title" bold center>
                                     {title}
                                 </H1>
                             )}
                             {(!header) ? (null) : (
-                                <header className="aph-modal__content__container__header">
+                                <header className="aph-modal__container__header">
                                     {header}
                                 </header>
                             )}
-                            <section className="aph-modal__content__container__content">
+                            <section className="aph-modal__container__content">
                                 {children}
                             </section>
                         </section>
