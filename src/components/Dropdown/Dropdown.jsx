@@ -73,6 +73,10 @@ const Dropdown = forwardRef((props, ref) => {
      */
     function removeClickListener () {
         setUnmounted(true);
+
+        clearTimeout(activeTimer);
+        clearTimeout(visibleTimer);
+
         document.removeEventListener('click', handleClose);
     }
 
