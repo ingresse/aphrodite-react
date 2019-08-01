@@ -9,7 +9,7 @@ import { colors } from '../../utils';
 const AphFormControlLabelStyled = styled.label`
     box-sizing: border-box;
     position  : absolute;
-    top       : 15px;
+    top       : ${props => props.textArea ? '15px' : '50%'};
     left      : 10px;
     display   : inline-block;
 
@@ -22,12 +22,15 @@ const AphFormControlLabelStyled = styled.label`
 
     text-transform: uppercase;
 
+    transform: ${props => props.textArea ? null : 'translateY(-50%)'};
+
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-duration       : 0.15s;
 
     &.aph-form-label--top {
         top      : 2.5px;
         font-size: ${SIZES.SM.FONT_SIZE};
+        transform: translateY(0);
     }
 `;
 

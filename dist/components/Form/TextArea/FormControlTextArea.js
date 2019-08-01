@@ -73,6 +73,7 @@ var FormControlTextArea = (0, _react.memo)((0, _react.forwardRef)(function (prop
     styles: styles
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
     htmlFor: inputId,
+    textArea: true,
     className: "aph-form-label " + (placeholder || hasValue ? 'aph-form-label--top' : '')
   }), label), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: inputId,

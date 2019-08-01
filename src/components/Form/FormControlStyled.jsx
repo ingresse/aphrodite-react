@@ -49,6 +49,7 @@ const FormControlStyled = styled.input`
         + .aph-form-label {
             top      : 2.5px;
             font-size: ${SIZES.SM.FONT_SIZE};
+            transform: translateY(0);
         }
     }
 
