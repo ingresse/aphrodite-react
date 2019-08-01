@@ -97,6 +97,7 @@ const FormControlTextArea = memo(forwardRef((props, ref) => {
                 <AphFormControlLabelStyled
                     {...labelProps}
                     htmlFor={inputId}
+                    textArea={true}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
                 </AphFormControlLabelStyled>
