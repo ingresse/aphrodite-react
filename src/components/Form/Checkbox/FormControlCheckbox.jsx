@@ -40,6 +40,7 @@ const AphCheckboxMaskStyled = styled.label`
         display   : block;
         width     : 30px;
         height    : 30px;
+        border    : 1px solid  ${colors.get('secondary', 'original')};
 
         top: 0;
 
@@ -50,7 +51,7 @@ const AphCheckboxMaskStyled = styled.label`
         transition-property       : background-color, background-image;
 
         background-image   : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
-        background-color   : ${props => colors.get((props.color || 'smoke'), (props.color ? 'crystal' : 'original'))};
+        background-color   : ${props => colors.get('white')};
         background-size    : 20px;
         background-position: center;
         background-repeat  : no-repeat;
@@ -92,7 +93,8 @@ const AphCheckboxStyled = styled.input`
     &.disabled,
     &:disabled {
         + .aph-form-control-mask:before {
-            background-color: ${props => colors.get('mercury', 'crystal')};
+            border          : none;
+            background-color: ${props => colors.get('smoke', 'crystal')};
         }
 
         &:checked + .aph-form-control-mask:before {

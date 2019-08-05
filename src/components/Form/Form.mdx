@@ -195,13 +195,21 @@ import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, 
 ### Examples
 <Playground>
     <Row>
-        <Col xs={6} styles={{ margin: '10px 0' }}>
+        <Col xs={4} styles={{ margin: '10px 0' }}>
             <Checkbox
                 id="ExampleCheckbox">
                 regular checkbox
             </Checkbox>
         </Col>
-        <Col xs={6} styles={{ margin: '10px 0' }}>
+        <Col xs={4} styles={{ margin: '10px 0' }}>
+            <Checkbox
+                id="ExampleCheckboxDesabled"
+                disabled
+                >
+                disabled checkbox
+            </Checkbox>
+        </Col>
+        <Col xs={4} styles={{ margin: '10px 0' }}>
             <Checkbox
                 id="ExampleCheckboxRight"
                 right>
