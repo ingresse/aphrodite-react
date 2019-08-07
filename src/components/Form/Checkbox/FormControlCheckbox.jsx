@@ -28,8 +28,8 @@ const AphCheckboxMaskStyled = styled.label`
 
     padding-top   : 5px;
     padding-bottom: 5px;
-    padding-right : ${props => props.labelRight ? '35px' : null};
-    padding-left  : ${props => !props.labelRight ? '35px' : null};
+    padding-right : ${props => props.labelRight ? '40px' : null};
+    padding-left  : ${props => !props.labelRight ? '40px' : null};
 
     text-align: ${props => props.right ? 'right' : null};
 
