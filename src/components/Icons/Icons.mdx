@@ -18,7 +18,7 @@ import IconExample from './IconExample';
 import { Icon } from 'aphrodite-react';
 ...
 <Icon
-    slug="arrow-up-circle"
+    slug="arrow-up"
     size={30}
     color="ruby"
 />
@@ -50,7 +50,7 @@ import { Icon } from 'aphrodite-react';
                                         id="aph_icons_search"
                                         type="search"
                                         autoComplete="off"
-                                        label="Search Icons"
+                                        label={`Search over ${ICONS.length} icons`}
                                         value={term}
                                         onChange={(evt, value) => setTerm(value)}
                                     />

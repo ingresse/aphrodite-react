@@ -9,6 +9,7 @@ const AphPaginationStyled = styled.section`
     box-sizing: border-box;
     position  : relative;
     display   : block;
+    width     : auto;
     margin    : 40px auto;
     padding   : 10px 15px;
     max-width : 460px;
@@ -59,7 +60,7 @@ const AphPaginationStyled = styled.section`
         &-prev,
         &-next {
             position: absolute;
-            padding : 2.5px;
+            padding : 2px 2.5px 2.5px;
 
             color           : ${colors.get('inverse')};
             background-color: ${colors.get('secondary')};
@@ -71,10 +72,11 @@ const AphPaginationStyled = styled.section`
 
         &-next {
             right: 15px;
+            padding-left: 1.5px;
         }
 
         &-disabled {
-            display: none;
+            background-color: ${colors.get('disabled')};
         }
 
         &-item,

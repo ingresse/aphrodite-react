@@ -18,9 +18,9 @@ import ArrowUpCircle from './IconArrowUpCircle';
 import Bluetooth from './IconBluetooth';
 import Camera from './IconCamera';
 import Card from './IconCard';
-import Check from './IconCheck';
 import CheckCircle from './IconCheckCircle';
 import CheckThin from './IconCheckThin';
+import Delete from './IconDelete';
 import ExternalTicket from './IconExternalTicket';
 import Eye from './IconEye';
 import Flash from './IconFlash';
@@ -37,6 +37,7 @@ import Pencil from './IconPencil';
 import Plus from './IconPlus';
 import QRCode from './IconQRCode';
 import QuestionCircle from './IconQuestionCircle';
+import Refresh from './IconRefresh';
 import Scan from './IconScan';
 import Search from './IconSearch';
 import Settings from './IconSettings';
@@ -72,7 +73,7 @@ const ICONS = {
     'bluetooth'         : Bluetooth,
     'camera'            : Camera,
     'card'              : Card,
-    'check'             : Check,
+    'check'             : CheckThin,
     'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
     'external-ticket'   : ExternalTicket,
@@ -99,6 +100,8 @@ const ICONS = {
     'times-circle'      : TimesCircle,
     'transfer'          : Transfer,
     'unlock'            : Unlock,
+    'refresh'           : Refresh,
+    'delete'            : Delete,
 
     'amex'               : PaymentAmex,
     'payment-amex'       : PaymentAmex,
