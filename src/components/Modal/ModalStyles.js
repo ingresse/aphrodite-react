@@ -59,9 +59,13 @@ const ModalStyled = styled.dialog`
             max-height: 100%;
             overflow  : auto;
 
-            &__title,
-            &__header {
+            &__title {
                 padding-top: 10px;
+            }
+
+            &__header {
+                padding-top   : 5px;
+                padding-bottom: 5px;
             }
         }
 
