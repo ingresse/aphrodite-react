@@ -32,6 +32,7 @@ export { default as Container } from './Grid/Container';
 export { default as Row } from './Grid/Row';
 export { default as Col } from './Grid/Column';
 export { default as Column } from './Grid/Column';
+export { default as Flex } from './Flex/Flex';
 
 /* List Components */
 export { default as List } from './Lists/List';

@@ -13,6 +13,7 @@ const selector = '.aph-modal';
 /* Modal Styled */
 const ModalStyled = styled.dialog`
     box-sizing: border-box;
+    overflow: hidden;
     position: fixed;
     display : none;
     opacity : 0;
@@ -56,6 +57,7 @@ const ModalStyled = styled.dialog`
 
     ${selector} {
         &__container {
+            min-height: 100%;
             max-height: 100%;
             overflow  : auto;
 
@@ -66,6 +68,10 @@ const ModalStyled = styled.dialog`
             &__header {
                 padding-top   : 5px;
                 padding-bottom: 5px;
+            }
+
+            &__content {
+                width: 100%;
             }
         }
 
