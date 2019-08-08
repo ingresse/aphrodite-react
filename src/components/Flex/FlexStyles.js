@@ -10,7 +10,7 @@ const AphFlex = styled.div`
     flex-wrap: nowrap;
     flex-flow: ${props => props.flexFlow};
 
-    align-items    : ${props => props.flexAlign};
+    align-items    : ${props => props.flexStretch ? 'stretch' : props.flexAlign};
     justify-content: ${props => props.flexJustify};
 
     ${props => props.flexItem && `
@@ -21,15 +21,6 @@ const AphFlex = styled.div`
 
     ${props => props.styles};
 `;
-
-/* Default Props */
-AphFlex.defaultProps = {
-    flexFlow   : 'column',
-    flexAlign  : null,
-    flexJustify: 'start',
-
-    flexItem   : false,
-};
 
 /* Exporting */
 export default AphFlex;
