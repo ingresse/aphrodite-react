@@ -9,7 +9,7 @@ const color = require('tinycolor2');
 import 'react-toastify/scss/main.scss';
 
 /* Constants */
-import { COLORS, MEDIA_QUERIES, SCREEN_SIZES } from '../../constants';
+import { COLORS, MEDIA_QUERIES, SCREEN_SIZES, ZINDEX } from '../../constants';
 
 /* Component */
 const ToastsContainer = (props = { styles: {} }) => {
@@ -17,7 +17,7 @@ const ToastsContainer = (props = { styles: {} }) => {
 
     const AphToastsContainer = styled('div')({
         ...styles,
-        zIndex  : (styles.zIndex || 1000),
+        zIndex  : (styles.zIndex || ZINDEX.TOAST),
         position: (styles.position || 'fixed'),
         top     : (typeof styles.top === 'string' ? styles.top : '20px'),
         right   : (typeof styles.right === 'string' ? styles.right : '20px'),
