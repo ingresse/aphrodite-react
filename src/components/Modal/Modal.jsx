@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
 
 /* Helper Components */
-import { H1, ActionBar } from '../';
+import {
+    H1,
+    Flex,
+    ActionBar,
+} from '../';
 
 /* Component Styles */
 import ModalStyled from './ModalStyles';
@@ -27,6 +31,7 @@ const Modal = forwardRef((props, ref) => {
     const {
         title,
         header,
+        contentJustify,
         children,
         footer,
         footerProps,
@@ -182,7 +187,7 @@ const Modal = forwardRef((props, ref) => {
         <>
             {(!active || !visible) ? (null) : (
                 <ModalOverlayStyled
-                    onClick={handleClose}
+                    onClick={(evt) => (closeOnEscape || closeByEscape) && handleClose(evt)}
                     className={`aph-modal-overlay ${active ? ' active' : ''}${visible ? ' visible' : ''}`}
                     {...overlayProps}
                 />
@@ -207,7 +212,9 @@ const Modal = forwardRef((props, ref) => {
                                 `}
                             />
                         )}
-                        <section className="aph-modal__container">
+                        <Flex
+                            flexFlow="column"
+                            className="aph-modal__container">
                             {(!title) ? (null) : (
                                 <H1 className="aph-modal__container__title" bold center>
                                     {title}
@@ -218,10 +225,13 @@ const Modal = forwardRef((props, ref) => {
                                     {header}
                                 </header>
                             )}
-                            <section className="aph-modal__container__content">
+                            <Flex
+                                flexItem
+                                flexJustify={contentJustify || 'start'}
+                                className="aph-modal__container__content">
                                 {children}
-                            </section>
-                        </section>
+                            </Flex>
+                        </Flex>
                         <ActionBar
                             {...footerProps}
                             className={`aph-modal__content__footer ${footerProps.className || ''}`}
@@ -250,6 +260,12 @@ Modal.defaultProps = {
     closeOnEscape   : false,
     unblockScrolling: false,
 
+    /**
+     * Flex `justify-content`
+     * flex-start || center || flex-end
+     */
+    contentJustify: 'flex-start',
+
     footerProps: {},
     styles     : {},
 
@@ -265,6 +281,8 @@ Modal.propTypes = {
     openedCallback  : PropTypes.func.isRequired,
     closeOnEscape   : PropTypes.bool,
     unblockScrolling: PropTypes.bool,
+
+    contentJustify: PropTypes.string,
 
     overlayProps: PropTypes.object,
 };
