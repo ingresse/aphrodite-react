@@ -27,12 +27,41 @@ import { Playground, Props } from 'docz';
             textAlign: 'center',
         };
 
+        const flexContainerStyles = {
+            height:     '100px',
+            marginBottom: '20px',
+        }
+
+        const flexItemStyles = {
+            width          : '50px',
+            padding        : '5px 10px',
+            marginRight    : '10px',
+            backgroundColor: 'rgb(224, 224, 224)',
+        }
+
         return (
-            <Flex styles={wrapperStyles}>
-                <Flex flexItem>
-                    Flex Component
+            <Segment>
+                <Flex flex justifyContent="flex-end" alignItems="center" styles={flexContainerStyles}>
+                    <Flex styles={flexItemStyles}>1</Flex>
+                    <Flex styles={flexItemStyles}>2</Flex>
+                    <Flex styles={flexItemStyles}>3</Flex>
+                    <Flex styles={flexItemStyles}>4</Flex>
                 </Flex>
-            </Flex>
+
+                <Flex flex alignItems="center" styles={flexContainerStyles}>
+                    <Flex order={3} styles={flexItemStyles}>1</Flex>
+                    <Flex order={1} styles={flexItemStyles}>2</Flex>
+                    <Flex order={4} styles={flexItemStyles}>3</Flex>
+                    <Flex order={2} styles={flexItemStyles}>4</Flex>
+                </Flex>
+
+                <Flex flex justifyContent="space-around" alignItems="center" styles={flexContainerStyles}>
+                    <Flex order={3} styles={flexItemStyles}>1</Flex>
+                    <Flex order={1} styles={flexItemStyles}>2</Flex>
+                    <Flex order={4} styles={flexItemStyles}>3</Flex>
+                    <Flex order={2} styles={flexItemStyles}>4</Flex>
+                </Flex>
+            </Segment>
         );
     }}
 </Playground>
