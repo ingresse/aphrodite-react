@@ -54,6 +54,7 @@ const Input = memo(forwardRef((props, ref) => {
         value,
         onChange,
         onPaste,
+        preventPaste,
         type,
         btn,
         button,
