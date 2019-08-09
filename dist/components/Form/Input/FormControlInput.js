@@ -59,6 +59,7 @@ var Input = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
       placeholder = props.placeholder,
       value = props.value,
       onChange = props.onChange,
+      onPaste = props.onPaste,
       type = props.type,
       btn = props.btn,
       button = props.button,
@@ -92,6 +93,22 @@ var Input = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
       onChange(Object.assign({}, evt), inputValue);
     }
   }
+  /**
+   * Handle with input paste
+   *
+   * @param {object} evt - input change synthetic event
+   */
+
+
+  function handlePaste(evt) {
+    if (preventPaste) {
+      evt.preventDefault();
+    }
+
+    if (typeof onPaste === 'function') {
+      onPaste(Object.assign({}, evt), inputValue);
+    }
+  }
 
   return _react.default.createElement(_FormControlWrapperStyled.default, {
     hasButton: btn || button ? true : false,
@@ -101,6 +118,7 @@ var Input = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
   }, props, {
     ref: ref,
     onChange: handleChange,
+    onPaste: handlePaste,
     className: "aph-form-control " + (!label || !label && hasValue ? 'aph-form-control--middle' : '') + " " + (className || '')
   })), !label ? null : _react.default.createElement(_FormControlLabelStyled.default, _extends({}, labelProps, {
     htmlFor: id,
