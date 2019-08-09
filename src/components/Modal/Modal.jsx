@@ -148,7 +148,7 @@ const Modal = forwardRef((props, ref) => {
             setVisible(false);
             openedCallback(false);
             modalRef.current.focus();
-        }, 250));
+        }, 100));
     }
 
     /**
