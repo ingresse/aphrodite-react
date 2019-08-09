@@ -53,6 +53,7 @@ const Input = memo(forwardRef((props, ref) => {
         placeholder,
         value,
         onChange,
+        onPaste,
         type,
         btn,
         button,
@@ -86,6 +87,21 @@ const Input = memo(forwardRef((props, ref) => {
         }
     }
 
+    /**
+     * Handle with input paste
+     *
+     * @param {object} evt - input change synthetic event
+     */
+    function handlePaste(evt) {
+        if (preventPaste) {
+            evt.preventDefault();
+        }
+
+        if (typeof onPaste === 'function') {
+            onPaste(Object.assign({}, evt), inputValue);
+        }
+    }
+
     return (
         <AphFormControlWrapperStyled
             hasButton={(btn || button) ? true : false}
@@ -95,6 +111,7 @@ const Input = memo(forwardRef((props, ref) => {
                 {...props}
                 ref={ref}
                 onChange={handleChange}
+                onPaste={handlePaste}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
             {(!label) ? (null) : (
