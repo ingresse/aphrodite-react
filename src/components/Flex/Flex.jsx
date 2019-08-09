@@ -11,9 +11,7 @@ function Flex (props) {
      * Inherit props,
      */
     const {
-        className,
-
-        ...rest
+        className
     } = props;
 
     /**
@@ -21,7 +19,7 @@ function Flex (props) {
      */
     return (
         <FlexStyled
-            {...rest}
+            {...props}
             className={`aph-flex ${className}`}
         />
     );
@@ -29,56 +27,47 @@ function Flex (props) {
 
 /* Component Props */
 Flex.defaultProps = {
-    /**
-     * Additional className
-     */
-    className: '',
+    className     : '',
+    flexWrap      : '',
+    alignSelf     : '',
+    alignItems    : '',
+    alignContent  : '',
+    flexDirection : '',
+    justifyContent: '',
 
-    /**
-     * Flex Flow
-     */
-    flexFlow: 'column',
+    order     : '',
+    flexGrow  : '',
+    flexShrink: '',
 
-    /**
-     * Alias to `align-items`
-     */
-    flexAlign: '',
-
-    /**
-     * Alias to `align-items: stretch`
-     */
-    flexStretch: false,
-
-    /**
-     * Alias to `justify-content`
-     */
-    flexJustify: 'start',
-
-    /**
-     * Will apply this to the component styles:
-     * ```
-     * height        : auto;
-     * flex          : 1 1 auto;
-     * flex-direction: column;
-     * ```
-     */
-    flexItem: false,
-
-    /**
-     * Customized styles
-     */
     styles: {},
 };
 
 /* Component properties types */
 Flex.propTypes = {
-    className  : PropTypes.string,
-    flexFlow   : PropTypes.string,
-    flexAlign  : PropTypes.string,
-    flexStretch: PropTypes.bool,
-    flexJustify: PropTypes.string,
-    flexItem   : PropTypes.bool,
-    styles     : PropTypes.any,
+    className     : PropTypes.string,
+    flexWrap      : PropTypes.string,
+    alignSelf     : PropTypes.string,
+    alignItems    : PropTypes.string,
+    alignContent  : PropTypes.string,
+    flexDirection : PropTypes.string,
+    justifyContent: PropTypes.string,
+
+    order: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    flexGrow: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    flexShrink: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    styles: PropTypes.any,
 };
 
 /* Exporting */

@@ -213,7 +213,8 @@ const Modal = forwardRef((props, ref) => {
                             />
                         )}
                         <Flex
-                            flexFlow="column"
+                            flex
+                            flexDirection="column"
                             className="aph-modal__container">
                             {(!title) ? (null) : (
                                 <H1 className="aph-modal__container__title" bold center>
@@ -226,8 +227,7 @@ const Modal = forwardRef((props, ref) => {
                                 </header>
                             )}
                             <Flex
-                                flexItem
-                                flexJustify={contentJustify || 'start'}
+                                justifyContent={contentJustify || 'start'}
                                 className="aph-modal__container__content">
                                 {children}
                             </Flex>
