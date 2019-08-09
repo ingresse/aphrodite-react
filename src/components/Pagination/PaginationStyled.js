@@ -11,7 +11,7 @@ const AphPaginationStyled = styled.section`
     display   : block;
     width     : auto;
     margin    : 40px auto;
-    padding   : 10px 15px;
+    padding   : 10px 60px;
     max-width : 460px;
     min-height: 50px;
 
