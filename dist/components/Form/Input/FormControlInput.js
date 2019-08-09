@@ -60,6 +60,7 @@ var Input = (0, _react.memo)((0, _react.forwardRef)(function (props, ref) {
       value = props.value,
       onChange = props.onChange,
       onPaste = props.onPaste,
+      preventPaste = props.preventPaste,
       type = props.type,
       btn = props.btn,
       button = props.button,
