@@ -32,6 +32,7 @@ const Modal = forwardRef((props, ref) => {
         title,
         header,
         contentJustify,
+        alignItems,
         children,
         footer,
         footerProps,
@@ -227,7 +228,11 @@ const Modal = forwardRef((props, ref) => {
                                 </header>
                             )}
                             <Flex
+                                flex
+                                alignItems={alignItems}
                                 justifyContent={contentJustify || 'start'}
+                                flexDirection="column"
+                                styles={{ flex: 1 }}
                                 className="aph-modal__container__content">
                                 {children}
                             </Flex>
@@ -266,6 +271,7 @@ Modal.defaultProps = {
      */
     contentJustify: 'flex-start',
 
+    alignItems: 'center',
     footerProps: {},
     styles     : {},
 
@@ -283,6 +289,7 @@ Modal.propTypes = {
     unblockScrolling: PropTypes.bool,
 
     contentJustify: PropTypes.string,
+    alignItems: PropTypes.string,
 
     overlayProps: PropTypes.object,
 };
