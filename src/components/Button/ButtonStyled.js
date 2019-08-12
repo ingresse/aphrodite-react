@@ -29,17 +29,17 @@ const AphButtonStyled = styled.button`
     border : 0;
     outline: 0;
 
-    -webkit-tap-highlight-color: ${props => colors.get((props.color || 'secondary'), 'crystal', 0.5)};
+    -webkit-tap-highlight-color: ${props => colors.getFromTheme(props, (props.color || 'secondary'), 'crystal', 0.5)};
 
     color: ${props =>
         props.link ?
-            colors.get((props.color || 'secondary')) :
-            colors.get((['white', 'smoke'].includes(props.color)) ? 'secondary' : 'white')
+            colors.getFromTheme(props, (props.color || 'secondary')) :
+            colors.getFromTheme(props, (['white', 'smoke'].includes(props.color)) ? 'secondary' : 'white')
     };
     background-color: ${props =>
         props.link ?
             'transparent' :
-            colors.get((props.color || 'secondary'))
+            colors.getFromTheme(props, (props.color || 'secondary'))
     };
 
     transition-timing-function: ease;
@@ -49,8 +49,8 @@ const AphButtonStyled = styled.button`
     &:hover {
         background-color: ${props =>
             props.link ?
-                colors.get('smoke') :
-                colors.get((props.color || 'secondary'), 'light')
+                colors.getFromTheme(props, 'smoke') :
+                colors.getFromTheme(props, (props.color || 'secondary'), 'light')
         };
     }
 
@@ -58,25 +58,25 @@ const AphButtonStyled = styled.button`
     &:focus {
         background-color: ${props =>
             props.link ?
-                colors.get('smoke') :
-                colors.get((props.color || 'secondary'), 'dark')
+                colors.getFromTheme(props, 'smoke') :
+                colors.getFromTheme(props, (props.color || 'secondary'), 'dark')
         };
     }
 
     &:disabled {
         cursor: not-allowed;
 
-        color: ${props => colors.get(
+        color: ${props => colors.getFromTheme(props,
             'mercury',
             (props.translucid ? 'crystal' : 'light')
         )};
 
         background-color: ${props =>
             props.link ?
-                colors.get('smoke') :
+                colors.getFromTheme(props, 'smoke') :
                     props.translucid ?
-                        colors.get('smoke', '', 0.5) :
-                            colors.get('mercury', 'crystal')
+                        colors.getFromTheme(props, 'smoke', '', 0.5) :
+                            colors.getFromTheme(props, 'mercury', 'crystal')
         };
     }
 
@@ -100,7 +100,7 @@ const AphButtonStyled = styled.button`
             background-color: ${props =>
                 props.link ?
                     'transparent' :
-                    colors.get((props.color || 'secondary'))
+                    colors.getFromTheme(props, (props.color || 'secondary'))
             };
         }
 
