@@ -280,7 +280,7 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
         return colors;
     }
 
-    const colorOriginal = `rgb(${chroma(shadeOriginal).rgb().join(',')}`;
+    const colorOriginal = `rgb(${chroma(shadeOriginal).rgb().join(',')})`;
     const colorDark     = (shadeDark || chroma(colorOriginal).darken().css());
     const colorLight    = (shadeLight || chroma(colorOriginal).brighten(0.5).css());
     const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(1).css());
