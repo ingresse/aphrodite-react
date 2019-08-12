@@ -281,9 +281,9 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
     }
 
     const colorOriginal = shadeOriginal;
-    const colorDark     = (shadeDark || chroma(colorOriginal).darken().rgb());
-    const colorLight    = (shadeLight || chroma(colorOriginal).brighten().rgb());
-    const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(2).rgb());
+    const colorDark     = (shadeDark || chroma(colorOriginal).darken().css());
+    const colorLight    = (shadeLight || chroma(colorOriginal).brighten().css());
+    const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(2).css());
 
     colors = {
         ...colors,
