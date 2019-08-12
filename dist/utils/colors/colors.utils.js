@@ -236,7 +236,7 @@ var set = function set(colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrys
     return colors;
   }
 
-  var colorOriginal = (0, _chromaJs.default)(shadeOriginal).rgb().css();
+  var colorOriginal = "rgb(" + (0, _chromaJs.default)(shadeOriginal).rgb().join(',');
   var colorDark = shadeDark || (0, _chromaJs.default)(colorOriginal).darken().css();
   var colorLight = shadeLight || (0, _chromaJs.default)(colorOriginal).brighten(0.5).css();
   var colorCrystal = shadeCrystal || (0, _chromaJs.default)(colorOriginal).brighten(1).css();
