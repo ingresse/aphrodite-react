@@ -2,6 +2,8 @@
  * Utilities: Colors
  */
 
+/* Lib Helpers */
+import chroma from 'chroma-js';
 
 /**
  * Get Color Shade Format
@@ -223,18 +225,23 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
 /**
  * Get Color from Theme
  *
- * @param {}
+ * @param {object} componentProps
+ * @param {string} colorKey
+ * @param {string} colorShade
+ * @param {number} opacity
  *
  * @return {string} RGBA Color
  */
 const getFromTheme = (componentProps = {}, colorKey, colorShade = 'original', opacity) => {
     const { theme } = componentProps;
 
-    if (typeof theme !== 'object') {
+    if (typeof theme !== 'object' || !theme[colorKey]) {
         return get(colorKey, colorShade, opacity);
     }
 
-    const themeShades = (theme[colorKey]);
+    const themeShades = ((theme.shades && theme.shades[colorKey]) ?
+        theme.shades[colorKey] : theme[colorKey]
+    );
 
     if (typeof themeShades !== 'object') {
         return (themeShades || '');
@@ -260,28 +267,31 @@ let colors = {
  * Set Colors
  *
  * @param {string} colorKey
- * @param {string} shadeDark
  * @param {string} shadeOriginal
+ * @param {string} shadeDark
  * @param {string} shadeLight
  * @param {string} shadeCrystal
  *
  * @param {object} colors
  */
-const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
+const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
     if (typeof colorKey !== 'string' ||
-        typeof shadeDark !== 'string' ||
-        typeof shadeOriginal !== 'string' ||
-        typeof shadeLight !== 'string' ||
-        typeof shadeCrystal !== 'string') {
+        typeof shadeOriginal !== 'string') {
         return colors;
     }
 
+    const colorOriginal = shadeOriginal;
+    const colorDark     = (shadeDark || chroma(colorOriginal).darken().rgb());
+    const colorLight    = (shadeLight || chroma(colorOriginal).brighten().rgb());
+    const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(2).rgb());
+
     colors = {
         ...colors,
+        [colorKey]: colorOriginal,
 
         shades: {
             ...colors.shades,
-            [colorKey]: getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal),
+            [colorKey]: getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal),
         },
     };
 

@@ -3,15 +3,15 @@
 exports.__esModule = true;
 exports.default = void 0;
 
+var _chromaJs = _interopRequireDefault(require("chroma-js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { keys.push.apply(keys, Object.getOwnPropertySymbols(object)); } if (enumerableOnly) keys = keys.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/**
- * Utilities: Colors
- */
 
 /**
  * Get Color Shade Format
@@ -173,7 +173,10 @@ var get = function get(color, shade, opacity) {
 /**
  * Get Color from Theme
  *
- * @param {}
+ * @param {object} componentProps
+ * @param {string} colorKey
+ * @param {string} colorShade
+ * @param {number} opacity
  *
  * @return {string} RGBA Color
  */
@@ -191,11 +194,11 @@ var getFromTheme = function getFromTheme(componentProps, colorKey, colorShade, o
   var _componentProps = componentProps,
       theme = _componentProps.theme;
 
-  if (typeof theme !== 'object') {
+  if (typeof theme !== 'object' || !theme[colorKey]) {
     return get(colorKey, colorShade, opacity);
   }
 
-  var themeShades = theme[colorKey];
+  var themeShades = theme.shades && theme.shades[colorKey] ? theme.shades[colorKey] : theme[colorKey];
 
   if (typeof themeShades !== 'object') {
     return themeShades || '';
@@ -217,8 +220,8 @@ var colors = _objectSpread({}, all, {
  * Set Colors
  *
  * @param {string} colorKey
- * @param {string} shadeDark
  * @param {string} shadeOriginal
+ * @param {string} shadeDark
  * @param {string} shadeLight
  * @param {string} shadeCrystal
  *
@@ -226,16 +229,18 @@ var colors = _objectSpread({}, all, {
  */
 
 
-var set = function set(colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) {
-  var _objectSpread2;
+var set = function set(colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) {
+  var _objectSpread2, _objectSpread3;
 
-  if (typeof colorKey !== 'string' || typeof shadeDark !== 'string' || typeof shadeOriginal !== 'string' || typeof shadeLight !== 'string' || typeof shadeCrystal !== 'string') {
+  if (typeof colorKey !== 'string' || typeof shadeOriginal !== 'string') {
     return colors;
   }
 
-  colors = _objectSpread({}, colors, {
-    shades: _objectSpread({}, colors.shades, (_objectSpread2 = {}, _objectSpread2[colorKey] = getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal), _objectSpread2))
-  });
+  var colorOriginal = shadeOriginal;
+  var colorDark = shadeDark || (0, _chromaJs.default)(colorOriginal).darken().rgb();
+  var colorLight = shadeLight || (0, _chromaJs.default)(colorOriginal).brighten().rgb();
+  var colorCrystal = shadeCrystal || (0, _chromaJs.default)(colorOriginal).brighten(2).rgb();
+  colors = _objectSpread({}, colors, (_objectSpread3 = {}, _objectSpread3[colorKey] = colorOriginal, _objectSpread3.shades = _objectSpread({}, colors.shades, (_objectSpread2 = {}, _objectSpread2[colorKey] = getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal), _objectSpread2)), _objectSpread3));
   return colors;
 };
 /**
