@@ -235,7 +235,7 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
 const getFromTheme = (componentProps = {}, colorKey, colorShade = 'original', opacity) => {
     const { theme } = componentProps;
 
-    if (typeof theme !== 'object' || !theme[colorKey]) {
+    if (typeof theme !== 'object') {
         return get(colorKey, colorShade, opacity);
     }
 
@@ -280,10 +280,10 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
         return colors;
     }
 
-    const colorOriginal = shadeOriginal;
+    const colorOriginal = chroma(shadeOriginal).rgb().css();
     const colorDark     = (shadeDark || chroma(colorOriginal).darken().css());
-    const colorLight    = (shadeLight || chroma(colorOriginal).brighten().css());
-    const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(2).css());
+    const colorLight    = (shadeLight || chroma(colorOriginal).brighten(0.5).css());
+    const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(1).css());
 
     colors = {
         ...colors,

@@ -194,7 +194,7 @@ var getFromTheme = function getFromTheme(componentProps, colorKey, colorShade, o
   var _componentProps = componentProps,
       theme = _componentProps.theme;
 
-  if (typeof theme !== 'object' || !theme[colorKey]) {
+  if (typeof theme !== 'object') {
     return get(colorKey, colorShade, opacity);
   }
 
@@ -236,10 +236,10 @@ var set = function set(colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrys
     return colors;
   }
 
-  var colorOriginal = shadeOriginal;
+  var colorOriginal = (0, _chromaJs.default)(shadeOriginal).rgb().css();
   var colorDark = shadeDark || (0, _chromaJs.default)(colorOriginal).darken().css();
-  var colorLight = shadeLight || (0, _chromaJs.default)(colorOriginal).brighten().css();
-  var colorCrystal = shadeCrystal || (0, _chromaJs.default)(colorOriginal).brighten(2).css();
+  var colorLight = shadeLight || (0, _chromaJs.default)(colorOriginal).brighten(0.5).css();
+  var colorCrystal = shadeCrystal || (0, _chromaJs.default)(colorOriginal).brighten(1).css();
   colors = _objectSpread({}, colors, (_objectSpread3 = {}, _objectSpread3[colorKey] = colorOriginal, _objectSpread3.shades = _objectSpread({}, colors.shades, (_objectSpread2 = {}, _objectSpread2[colorKey] = getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal), _objectSpread2)), _objectSpread3));
   return colors;
 };
