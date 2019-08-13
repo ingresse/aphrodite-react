@@ -194,7 +194,7 @@ var getFromTheme = function getFromTheme(componentProps, colorKey, colorShade, o
   var _componentProps = componentProps,
       theme = _componentProps.theme;
 
-  if (typeof theme !== 'object') {
+  if (typeof theme !== 'object' || !theme[colorKey]) {
     return get(colorKey, colorShade, opacity);
   }
 

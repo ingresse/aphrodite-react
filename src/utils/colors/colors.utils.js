@@ -235,7 +235,7 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
 const getFromTheme = (componentProps = {}, colorKey, colorShade = 'original', opacity) => {
     const { theme } = componentProps;
 
-    if (typeof theme !== 'object') {
+    if (typeof theme !== 'object' || !theme[colorKey]) {
         return get(colorKey, colorShade, opacity);
     }
 
