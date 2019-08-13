@@ -107,6 +107,7 @@ class Accordion extends Component {
             className,
             styles,
 
+            withIcon,
             iconSize,
             iconProps,
             iconStyles,
@@ -122,6 +123,7 @@ class Accordion extends Component {
                     className="aph-accordion__header">
                     {children ? (
                         <Header className="aph-accordion__header-row">
+                            {withIcon &&
                             <IconColumn className="aph-accordion__header__col-icon">
                                 <Icon
                                     size={iconSize || _iconSize}
@@ -129,7 +131,7 @@ class Accordion extends Component {
                                     styles={iconStyles}
                                     {...iconProps}
                                 />
-                            </IconColumn>
+                            </IconColumn>}
                             <ContentColumn className="aph-accordion__header__col-content">
                                 {header}
                             </ContentColumn>
@@ -147,6 +149,8 @@ Accordion.defaultProps = {
     opened   : false,
     header   : '',
     className: '',
+
+    withIcon : true,
 };
 
 /* Properties Types */
@@ -161,6 +165,8 @@ Accordion.propTypes = {
     className: propTypes.string,
 
     styles    : propTypes.object,
+
+    withIcon  : propTypes.bool,
     iconSize  : propTypes.number,
     iconStyles: propTypes.object,
 
