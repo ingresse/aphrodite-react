@@ -229,12 +229,14 @@ const Modal = forwardRef((props, ref) => {
                             )}
                             <Flex
                                 flex
-                                alignItems={alignItems}
+                                alignItems="center"
                                 justifyContent={contentJustify || 'start'}
+                                styles={{ flex: 1, width: '100%' }}
                                 flexDirection="column"
-                                styles={{ flex: 1 }}
                                 className="aph-modal__container__content">
-                                {children}
+                                <Flex styles={{ width: '100%' }}>
+                                    {children}
+                                </Flex>
                             </Flex>
                         </Flex>
                         <ActionBar
