@@ -81,7 +81,6 @@ const AphCheckboxStyled = styled.input`
     }
 
     &:checked + .aph-form-control-mask:before {
-        background-color: ${props => colors.get((props.color || 'secondary'), 'crystal')};
         background-image: url('${props => ICONS.ENCODE_SVG(
             <IconCheckThin
                 size={20}

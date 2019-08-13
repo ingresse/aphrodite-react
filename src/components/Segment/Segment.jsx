@@ -10,9 +10,10 @@ import { colors } from '../../utils';
 /* Component Itself */
 const SegmentStyled = styled.div`
     box-sizing: border-box;
-
     display: block;
-    margin : ${props => props.margin || null};
+
+    color  : ${props => props.color   || null};
+    margin : ${props => props.margin  || null};
     padding: ${props => props.padding || '20px 10px'};
 
     ${props => !props.hoverable ? null : `

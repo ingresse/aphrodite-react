@@ -46,6 +46,13 @@ import { Segment } from 'aphrodite-react';
             <Container>
                 <Row horizontal="center">
                     <Col xs={12} sm={6}>
+                        <Segment>
+                            Default Segment
+                        </Segment>
+
+                        <Segment color={colors.get('supernova')}>
+                            Segment with custom color prop (NEW)
+                        </Segment>
 
                         <Segment styles={segmentStyles}>
                             <div>
