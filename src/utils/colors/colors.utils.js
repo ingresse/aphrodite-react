@@ -156,10 +156,11 @@ let stock = {
     warning: sunflower.original,
     error  : ruby.original,
 
-    base    : 'rgb(0, 0, 0)',
-    inverse : 'rgb(255, 255, 255)',
-    disabled: mercury.crystal,
-    helper  : mercury.crystal,
+    base      : 'rgb(0, 0, 0)',
+    inverse   : 'rgb(255, 255, 255)',
+    background: 'rgb(255, 255, 255)',
+    disabled  : mercury.crystal,
+    helper    : mercury.crystal,
 
     translucid: translucid.original,
 
