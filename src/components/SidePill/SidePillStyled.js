@@ -16,9 +16,10 @@ const SidePillStyled = styled.aside`
 
     position : absolute;
     top      : 10px;
-    left     : ${props => (props.center ? '50%' : props.right ? null : 0)};
-    right    : ${props => (props.right && !props.center ? 0 : null)};
-    transform: ${props => (props.center ? 'translateX(-50%)' : null)};
+    left     : ${props => (props.center ? '50%' : props.right ? null : '-15%')};
+    right    : ${props => (props.right && !props.center ? '-15%' : null)};
+
+    flex-direction: ${props => (props.right ? 'row-reverse' : null)};
 
     font-weight: 500;
     font-size  : 20px;
@@ -32,6 +33,11 @@ const SidePillStyled = styled.aside`
 
     transition: all 0.15s linear 0s;
 
+    img {
+        margin-left : ${props => props.right ? 0 : '20px'};
+        margin-right: ${props => props.right ? '20px' : 0};
+    }
+
     .aph-sidepill {
         &__content,
         &__hoverable {
@@ -41,25 +47,11 @@ const SidePillStyled = styled.aside`
             padding: 0;
             margin : 0;
         }
-
-        &__hoverable {
-            position: absolute;
-            order: ${props => (props.right ? 200 : null)};
-            left : ${props => (props.right ? null : '-100%')};
-            right: ${props => (!props.right ? null : '-100%')};
-
-            transition: position 0.15s linear, ${props => (props.right ? 'right' : 'left')} 0.25s ease;
-        }
     }
 
     &:hover {
-        .aph-sidepill {
-            &__hoverable {
-                position: relative;
-                left : ${props => (props.right ? null : '0')};
-                right: ${props => (!props.right ? null : '0')};
-            }
-        }
+        left : ${props => (props.right  ? null : '0')};
+        right: ${props => (!props.right ? null : '0')};
     }
 `;
 
