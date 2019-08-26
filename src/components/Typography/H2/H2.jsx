@@ -19,9 +19,10 @@ const H2Styled = styled.h2`
     text-align    : ${props => (props.center ? 'center' : (props.align || null))};
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
+
     color: ${props => (
         (!props.color && !props.link && !props.helper) ? null :
-            colors.get(props.link ? 'secondary' : (props.helper ? 'mercury' : props.color))
+            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.color))
     )};
 
     ${props => props.styles};

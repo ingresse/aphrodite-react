@@ -29,18 +29,7 @@ import { Segment } from 'aphrodite-react';
 ## Examples
 <Playground style={{ padding: '20px' }}>
     {() => {
-        const customStyles = {
-            color     : colors.get('white'),
-            background: colors.get('bamboo'),
-
-            borderRadius: RADIUS.SM,
-        };
-
-        const [ segmentStyles, setSegmentStyles ] = useState(customStyles);
-
-        const toggleStyles = () => {
-            setSegmentStyles(segmentStyles ? null : customStyles);
-        };
+        const [ hasCustomStyles, setHasCustomStyles ] = useState(true);
 
         return (
             <Container>
@@ -54,7 +43,10 @@ import { Segment } from 'aphrodite-react';
                             Segment with custom color prop (NEW)
                         </Segment>
 
-                        <Segment styles={segmentStyles}>
+                        <Segment
+                            radius={hasCustomStyles ? 10 : 0}
+                            color={hasCustomStyles ? 'inverse' : ''}
+                            background={hasCustomStyles ? 'success' : ''}>
                             <div>
                                 This is a `Segment`.
                             </div>
@@ -69,9 +61,9 @@ import { Segment } from 'aphrodite-react';
                         <Col xs={12} sm={6}>
                             <Card>
                                 <Switch
-                                    value={segmentStyles ? true : false}
-                                    defaultChecked={segmentStyles ? true : false}
-                                    onChange={toggleStyles}>
+                                    value={hasCustomStyles}
+                                    defaultChecked={hasCustomStyles}
+                                    onChange={() => setHasCustomStyles(!hasCustomStyles)}>
                                     Display with custom styles.
                                 </Switch>
                             </Card>

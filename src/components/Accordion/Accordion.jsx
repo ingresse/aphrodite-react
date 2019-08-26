@@ -1,5 +1,5 @@
 /* Packages */
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -57,91 +57,88 @@ const ContentColumn = styled('div')(props => ({
     lineHeight: '20px',
 }));
 
-/* Component */
-class Accordion extends Component {
+/* Component Itself */
+function Accordion(props) {
     /**
-     * Constructor
-     *
-     * @param {object} props - react component default props
+     * Inherit props
      */
-    constructor(props) {
-        super(props);
+    const {
+        header,
+        headerDark,
+        headerProps,
+        headerStyles,
 
-        this.props = props;
-        this.state = {
-            opened: (props.opened || false),
-        };
+        children,
+        className,
+        styles,
 
-        this.toggle = this.toggle.bind(this);
-    }
+        withIcon,
+        iconSize,
+        iconProps,
+        iconStyles,
+    } = props;
+
+    /**
+     * Local values
+     */
+    const [ opened, setOpened ] = useState(props.opened || false);
 
     /**
      * Toggle childrens visibility
      */
-    toggle() {
-        const { toggleCallback } = this.props;
+    function toggle() {
+        const toggleCallback = (props.toggleCallback || props.openedCallback);
+        const isOpened       = !opened;
 
-        this.setState({
-            opened: !this.state.opened,
-        }, () => {
-            if (!toggleCallback) {
-                return;
-            }
+        setOpened(isOpened);
 
-            const { opened } = this.state;
+        if (typeof toggleCallback !== 'function') {
+            return;
+        }
 
-            toggleCallback(opened);
-        });
+        toggleCallback(isOpened);
     }
 
-    /* Render */
-    render() {
-        const { opened } = this.state;
-        const {
-            header,
-            headerDark,
-            headerProps,
-            headerStyles,
+    /**
+     * Listen for changes
+     */
+    useEffect(() => {
+        setOpened(props.opened);
+    }, [ props.opened ]);
 
-            children,
-            className,
-            styles,
-
-            withIcon,
-            iconSize,
-            iconProps,
-            iconStyles,
-        } = this.props;
-
-        return (
-            <AphAccordion className={`aph-accordion ${className}`} styles={styles}>
-                <ListItem
-                    {...headerProps}
-                    header={headerDark ? true : false}
-                    styles={{ cursor: 'pointer', paddingRight: '15px', paddingLeft: '15px', ...headerStyles }}
-                    onClick={this.toggle}
-                    className="aph-accordion__header">
-                    {children ? (
-                        <Header className="aph-accordion__header-row">
-                            {withIcon &&
-                            <IconColumn className="aph-accordion__header__col-icon">
-                                <Icon
-                                    size={iconSize || _iconSize}
-                                    slug={`arrow-${opened ? 'up' : 'down'}-circle`}
-                                    styles={iconStyles}
-                                    {...iconProps}
-                                />
-                            </IconColumn>}
-                            <ContentColumn className="aph-accordion__header__col-content">
-                                {header}
-                            </ContentColumn>
-                        </Header>
-                    ) : header}
-                </ListItem>
-                {opened && children}
-            </AphAccordion>
-        );
-    }
+    /**
+     * Render
+     */
+    return (
+        <AphAccordion
+            styles={styles}
+            className={`aph-accordion ${className}`}>
+            <ListItem
+                {...headerProps}
+                header={headerDark ? true : false}
+                styles={{ cursor: 'pointer', paddingRight: '15px', paddingLeft: '15px', ...headerStyles }}
+                onClick={toggle}
+                className="aph-accordion__header">
+                {children ? (
+                    <Header className="aph-accordion__header-row">
+                        {withIcon &&
+                        <IconColumn className="aph-accordion__header__col-icon">
+                            <Icon
+                                size={iconSize || _iconSize}
+                                slug={`arrow-${opened ? 'up' : 'down'}-circle`}
+                                styles={iconStyles}
+                                {...iconProps}
+                            />
+                        </IconColumn>}
+                        <ContentColumn className="aph-accordion__header__col-content">
+                            {header}
+                        </ContentColumn>
+                    </Header>
+                ) : header}
+            </ListItem>
+            {opened && children}
+        </AphAccordion>
+    );
 };
 
 /* Default Props */
@@ -155,7 +152,8 @@ Accordion.defaultProps = {
 
 /* Properties Types */
 Accordion.propTypes = {
-    opened: propTypes.bool,
+    opened        : propTypes.bool,
+    openedCallback: propTypes.func,
 
     header      : propTypes.any,
     headerDark  : propTypes.bool,

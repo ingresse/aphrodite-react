@@ -27,6 +27,7 @@ const FormControlTextArea = memo(forwardRef((props, ref) => {
     const [hasValue, setHasValue] = useState(value ? true : false);
     const inputId                 = `${id || 'formControl'}`;
     const styles                  = `
+        max-width : 100%;
         min-width : 100%;
         min-height: 90px;
         padding-bottom: 10px;

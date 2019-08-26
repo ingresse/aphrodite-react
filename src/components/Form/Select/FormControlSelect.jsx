@@ -33,10 +33,11 @@ const FormControlSelect = memo(forwardRef((props, ref) => {
     } = props;
 
     const [ hasValue, setHasValue ] = useState((typeof value === 'number' || value) ? true : false);
-    const styles = `
-        height: 50px;
-        cursor: pointer;
-    `;
+    const styles = {
+        height      : '50px',
+        cursor      : 'pointer',
+        paddingRight: '40px',
+    };
 
     /**
      * Trigger

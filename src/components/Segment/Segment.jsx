@@ -11,12 +11,15 @@ import { colors } from '../../utils';
 const SegmentStyled = styled.div`
     box-sizing: border-box;
     display: block;
+    margin : ${props => props.aphmargin  || null};
+    padding: ${props => props.aphpadding || '20px 10px'};
 
-    color  : ${props => props.color   || null};
-    margin : ${props => props.margin  || null};
-    padding: ${props => props.padding || '20px 10px'};
+    border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
 
-    ${props => !props.hoverable ? null : `
+    color           : ${props => props.aphcolor ? colors.getFromTheme(props, props.aphcolor) : null};
+    background-color: ${props => props.aphbackground ? colors.getFromTheme(props, props.aphbackground) : null};
+
+    ${props => !props.aphhoverable ? null : `
         outline: 0;
         border : 0;
 
@@ -30,17 +33,38 @@ const SegmentStyled = styled.div`
         }
     `}
 
-    ${props => props.styles};
+    ${props => props.aphstyles};
 `;
 
 /* Component Itself */
 const Segment = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+
+        margin,
+        padding,
+
+        color,
+        background,
+        hoverable,
+        radius,
+
+        styles,
+
+        ...rest
+    } = props;
 
     return (
         <SegmentStyled
-            {...props}
+            {...rest}
             ref={ref}
+            aphmargin={margin}
+            aphpadding={padding}
+            aphhoverable={hoverable}
+            aphcolor={color}
+            aphbackground={background}
+            aphradius={radius}
+            aphstyles={styles}
             className={`aph-segment ${className || ''}`}
         />
     );
@@ -48,9 +72,13 @@ const Segment = forwardRef((props, ref) => {
 
 /* Properties Types */
 Segment.propTypes = {
-    margin : propTypes.string,
-    padding: propTypes.string,
-    styles : propTypes.oneOfType([
+    margin    : propTypes.string,
+    padding   : propTypes.string,
+    hoverable : propTypes.bool,
+    color     : propTypes.string,
+    background: propTypes.string,
+    radius    : propTypes.number,
+    styles    : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),

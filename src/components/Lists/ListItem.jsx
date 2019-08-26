@@ -6,12 +6,6 @@ import styled from '@emotion/styled';
 /* UI Framework Utils */
 import { colors } from '../../utils';
 
-/* Component Styles */
-const active = {
-    color          : colors.get('secondary'),
-    backgroundColor: colors.get('secondary', 'crystal'),
-};
-
 /* Component Itself */
 const AphListItemStyled = styled.li`
     box-sizing: border-box;
@@ -32,16 +26,20 @@ const AphListItemStyled = styled.li`
     ;
 
     &.active {
-        ${active};
+        color           : ${props => colors.getFromTheme(props, 'secondary')};
+        background-color: ${props => colors.getFromTheme(props, 'secondary', 'crystal')};
     }
 
     ${props => (props.onClick) ? {
         cursor: 'pointer',
-        color : colors.get('secondary'),
+        color : colors.getFromTheme(props, 'secondary'),
     } : null};
 
     ${props => (props.onClick || props.hoverable) ? {
-        '&:hover': active
+        '&:hover': {
+            color          : colors.getFromTheme(props, 'secondary'),
+            backgroundColor: colors.getFromTheme(props, 'secondary', 'crystal'),
+        }
     } : null}
 
     ${props => props.styles};
