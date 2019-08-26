@@ -46,13 +46,13 @@ function Pagination(props) {
     prevIcon: _react.default.createElement(_.Icon, {
       slug: "arrow",
       direction: "left",
-      color: "white",
+      color: "inverse",
       size: 25
     }),
     nextIcon: _react.default.createElement(_.Icon, {
       slug: "arrow",
       direction: "right",
-      color: "white",
+      color: "inverse",
       size: 25
     }),
     className: "aph-pagination " + (className || '')

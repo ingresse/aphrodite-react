@@ -21,7 +21,7 @@ const AphPaginationStyled = styled.section`
     user-select: none;
 
     border-radius   : 5px;
-    background-color: ${colors.get('smoke')};
+    background-color: ${props => colors.getFromTheme(props, 'smoke')};
 
     * {
         box-sizing : border-box;
@@ -62,8 +62,8 @@ const AphPaginationStyled = styled.section`
             position: absolute;
             padding : 2px 2.5px 2.5px;
 
-            color           : ${colors.get('inverse')};
-            background-color: ${colors.get('secondary')};
+            color           : ${props => colors.getFromTheme(props, 'inverse')};
+            background-color: ${props => colors.getFromTheme(props, 'secondary')};
         }
 
         &-prev {
@@ -76,7 +76,7 @@ const AphPaginationStyled = styled.section`
         }
 
         &-disabled {
-            background-color: ${colors.get('disabled')};
+            background-color: ${props => colors.getFromTheme(props, 'disabled')};
         }
 
         &-item,
@@ -85,11 +85,11 @@ const AphPaginationStyled = styled.section`
             padding: 5px;
             margin : 0 5px;
 
-            color           : ${colors.get('secondary')};
+            color           : ${props => colors.getFromTheme(props, 'secondary')};
             background-color: transparent;
 
             &-active {
-                color: ${colors.get('black')};
+                color: ${props => colors.getFromTheme(props, 'black')};
             }
 
             &:active,
@@ -98,7 +98,7 @@ const AphPaginationStyled = styled.section`
                 border : 0;
 
                 &:not(.rc-pagination-item-active) {
-                    background-color: ${colors.get('mercury', 'crystal', 0.5)};
+                    background-color: ${props => colors.getFromTheme(props, 'mercury', 'crystal', 0.5)};
                 }
             }
         }

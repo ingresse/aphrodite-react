@@ -169,7 +169,7 @@ const Icon = forwardRef((props, ref) => {
             <ICON
                 {...rest}
                 ref={ref}
-                color={colors.get(color)}
+                color={colors.getFromTheme(props, color)}
                 className={`aph-icon ${className || ''}`}
             />
         </IconWrapper>

@@ -49,7 +49,7 @@ function IconExample (props) {
                     </Col>
                     {(!slug) ? (null) : (
                         <Col xs={8} sm={8} lg={9}>
-                            <Text bold small center helper>
+                            <Text bold small center color="mercury">
                                 {slug}
                             </Text>
                         </Col>
