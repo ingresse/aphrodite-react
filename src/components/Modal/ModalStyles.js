@@ -62,7 +62,7 @@ const ModalStyled = styled.dialog`
             overflow  : auto;
 
             &__title {
-                padding-top: 10px;
+                padding-top: 20px;
             }
 
             &__header {
