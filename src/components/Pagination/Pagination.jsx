@@ -37,8 +37,8 @@ function Pagination (props) {
             as={(!loading) ? Paginator : Placeholder}
             jumpPrevIcon={<>•••</>}
             jumpNextIcon={<>•••</>}
-            prevIcon={<Icon slug="arrow" direction="left" color="white" size={25} />}
-            nextIcon={<Icon slug="arrow" direction="right" color="white" size={25} />}
+            prevIcon={<Icon slug="arrow" direction="left" color="inverse" size={25} />}
+            nextIcon={<Icon slug="arrow" direction="right" color="inverse" size={25} />}
             className={`aph-pagination ${className || ''}`}>
             {(!loading) ? (null) : (
                 <>

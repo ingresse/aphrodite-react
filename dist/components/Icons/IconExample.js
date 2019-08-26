@@ -61,7 +61,7 @@ function IconExample(props) {
     bold: true,
     small: true,
     center: true,
-    helper: true
+    color: "mercury"
   }, slug)))));
 }
 /* Exporting */
