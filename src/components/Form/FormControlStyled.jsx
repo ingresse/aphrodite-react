@@ -19,11 +19,12 @@ const FormControlStyled = styled.input`
     min-height: 50px;
     padding   : 20px 10px 0;
 
+    font-weight: ${SIZES.MD.FONT_WEIGHT};
     font-size  : ${SIZES.MD.FONT_SIZE};
     line-height: ${SIZES.MD.LINE_HEIGHT};
 
-    color           : ${colors.get('black')};
-    background-color: ${colors.get('smoke')};
+    color           : ${props => colors.getFromTheme(props, 'base')};
+    background-color: ${props => colors.getFromTheme(props, 'smoke')};
     border-radius   : ${RADIUS.XS}px;
 
     border : 0;
@@ -39,12 +40,14 @@ const FormControlStyled = styled.input`
     -webkit-tap-highlight-color: transparent;
 
     &::placeholder {
-        color: ${colors.get('mercury', 'light')};
+        color: ${props => colors.getFromTheme(props, 'mercury', 'light')};
+
+        font-weight: 300;
     }
 
     &:active,
     &:focus {
-        background-color: ${props => colors.get(props.error ? 'error' : (props.color || 'secondary'), 'crystal')};
+        background-color: ${props => colors.getFromTheme(props, (props.error ? 'error' : (props.color || 'secondary')), 'crystal')};
 
         + .aph-form-label {
             top      : 2.5px;
@@ -60,7 +63,7 @@ const FormControlStyled = styled.input`
         outline: 0;
 
         + .aph-form-label {
-            color: ${props => colors.get(props.error ? 'error' : (props.color || 'secondary'))};
+            color: ${props => colors.getFromTheme(props, (props.error ? 'error' : (props.color || 'secondary')))};
         }
     }
 
@@ -68,14 +71,14 @@ const FormControlStyled = styled.input`
     &:disabled {
         cursor: not-allowed;
 
-        color           : ${colors.get('mercury')};
-        background-color: ${colors.get('mercury', 'crystal')};
+        color           : ${props => colors.getFromTheme(props, 'mercury')};
+        background-color: ${props => colors.getFromTheme(props, 'mercury', 'crystal')};
 
         &:hover,
         &:active,
         &:focus {
             + .aph-form-label {
-                color: ${colors.get('mercury')};
+                color: ${props => colors.getFromTheme(props, 'mercury')};
             }
         }
     }
@@ -85,17 +88,17 @@ const FormControlStyled = styled.input`
     }
 
     ${props => !props.error ? null : `
-        color: ${colors.get('error')};
+        color: ${props => colors.getFromTheme(props, 'error')};
 
         + .aph-form-label {
-            color: ${colors.get('error')};
+            color: ${props => colors.getFromTheme(props, 'error')};
         }
 
         &:hover,
         &:active,
         &:focus {
             + .aph-form-label {
-                color: ${colors.get('error')};
+                color: ${props => colors.getFromTheme(props, 'error')};
             }
         }
     `}

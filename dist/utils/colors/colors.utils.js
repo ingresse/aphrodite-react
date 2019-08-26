@@ -97,6 +97,7 @@ var stock = {
   background: 'rgb(255, 255, 255)',
   disabled: mercury.crystal,
   helper: mercury.crystal,
+  link: ocean.original,
   translucid: translucid.original,
   smoke: 'rgb(248, 248, 248)',
   white: 'rgb(255, 255, 255)',

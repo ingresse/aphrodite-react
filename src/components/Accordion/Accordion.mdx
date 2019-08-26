@@ -4,8 +4,9 @@ menu : Organisms
 route: /organisms/accordion
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Accordion, ListGroup } from '../';
+import { Accordion, ListGroup, Button, Segment } from '../';
 
 # Accordion
 #### Toggle sub-items visibility.
@@ -35,22 +36,45 @@ import { Accordion, ListGroup } from 'aphrodite-react';
 
 ## Nested
 <Playground>
-    <ListGroup>
-        <Accordion
-            headerDark
-            headerStyles={{ color: 'red' }}
-            header={
-                <div>
-                    <strong>GRAND</strong>FATHER
-                </div>
-            }>
-            <div>
-                <Accordion header="FATHER">
-                    <div style={{ padding: '10px 15px' }}>
-                        Accordion Children
-                    </div>
-                </Accordion>
-            </div>
-        </Accordion>
-    </ListGroup>
+    {() => {
+        const [ opened, setOpened ] = useState(false);
+
+        return (
+            <Segment padding="0">
+                <Segment
+                    padding="0 0 20px"
+                    styles={{ textAlign: 'center' }}>
+                    <Button
+                        type="button"
+                        onClick={() => setOpened(!opened)}>
+                        Toggle from external value
+                    </Button>
+                    <Segment padding="15px 0 0">
+                        Should be opened: {opened ? 'YES' : 'NO'}
+                    </Segment>
+                </Segment>
+
+                <ListGroup>
+                    <Accordion
+                        opened={opened}
+                        openedCallback={setOpened}
+                        headerDark
+                        headerStyles={{ color: 'red' }}
+                        header={
+                            <div>
+                                <strong>GRAND</strong>FATHER
+                            </div>
+                        }>
+                        <div>
+                            <Accordion header="FATHER">
+                                <div style={{ padding: '10px 15px' }}>
+                                    Accordion Children
+                                </div>
+                            </Accordion>
+                        </div>
+                    </Accordion>
+                </ListGroup>
+            </Segment>
+        );
+    }}
 </Playground>

@@ -46,7 +46,11 @@ var FormControlSelect = (0, _react.memo)((0, _react.forwardRef)(function (props,
       hasValue = _useState[0],
       setHasValue = _useState[1];
 
-  var styles = "\n        height: 50px;\n        cursor: pointer;\n    ";
+  var styles = {
+    height: '50px',
+    cursor: 'pointer',
+    paddingRight: '40px'
+  };
   /**
    * Trigger
    */
