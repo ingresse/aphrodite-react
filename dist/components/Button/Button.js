@@ -21,13 +21,32 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 /* Component Itself */
 var Button = (0, _react.forwardRef)(function (props, ref) {
-  var className = props.className,
+  /**
+   * Component props
+   */
+  var block = props.block,
+      className = props.className,
       color = props.color,
       children = props.children,
       loading = props.loading,
-      disabled = props.disabled;
+      disabled = props.disabled,
+      margin = props.margin,
+      link = props.link,
+      radius = props.radius,
+      sm = props.sm,
+      small = props.small,
+      styles = props.styles,
+      translucid = props.translucid,
+      rest = _objectWithoutPropertiesLoose(props, ["block", "className", "color", "children", "loading", "disabled", "margin", "link", "radius", "sm", "small", "styles", "translucid"]);
+  /**
+   * Local values
+   */
+
+
   var childrenRef = (0, _react.useRef)(null);
 
   var _useState = (0, _react.useState)(140),
@@ -45,9 +64,21 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
 
     setChildrenWidth(childrenRef.current.offsetWidth);
   }, [children]);
-  return _react.default.createElement(_ButtonStyled.default, _extends({}, props, {
+  /**
+   * Render
+   */
+
+  return _react.default.createElement(_ButtonStyled.default, _extends({}, rest, {
     ref: ref,
-    disabled: disabled || loading,
+    aphsm: sm || small ? 1 : 0,
+    aphblock: block ? 1 : 0,
+    aphcolor: color,
+    aphlink: link ? 1 : 0,
+    aphmargin: margin,
+    aphradius: radius,
+    aphstyles: styles,
+    aphtranslucid: translucid ? 1 : 0,
+    disabled: disabled,
     className: "aph-btn" + (loading ? ' aph-btn--loading' : '') + " " + className
   }), typeof loading !== 'boolean' ? children : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_ButtonItemStyled.default, {
     className: "aph-btn__loader",
