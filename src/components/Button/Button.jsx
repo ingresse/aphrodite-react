@@ -12,8 +12,31 @@ import AphButtonItemStyled from './ButtonItemStyled';
 
 /* Component Itself */
 const Button = forwardRef((props, ref) => {
-    const { className, color, children, loading, disabled } = props;
+    /**
+     * Component props
+     */
+    const {
+        block,
+        className,
+        color,
+        children,
+        loading,
+        disabled,
 
+        margin,
+        link,
+        radius,
+        sm,
+        small,
+        styles,
+        translucid,
+
+        ...rest
+    } = props;
+
+    /**
+     * Local values
+     */
     const childrenRef = useRef(null);
     const [ childrenWidth, setChildrenWidth ] = useState(140);
 
@@ -32,11 +55,22 @@ const Button = forwardRef((props, ref) => {
         setChildrenWidth(childrenRef.current.offsetWidth);
     }, [ children ]);
 
+    /**
+     * Render
+     */
     return (
         <AphButtonStyled
-            {...props}
+            {...rest}
             ref={ref}
-            disabled={disabled || loading}
+            aphsm={(sm || small) ? 1 : 0}
+            aphblock={block ? 1 : 0}
+            aphcolor={color}
+            aphlink={link ? 1 : 0}
+            aphmargin={margin}
+            aphradius={radius}
+            aphstyles={styles}
+            aphtranslucid={translucid ? 1 : 0}
+            disabled={disabled}
             className={`aph-btn${loading ? ' aph-btn--loading' : ''} ${className}`}>
             {(typeof loading !== 'boolean') ? (children) : (
                 <>

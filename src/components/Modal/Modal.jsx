@@ -282,7 +282,7 @@ Modal.defaultProps = {
 
 /* Prop Types */
 Modal.propTypes = {
-    title: PropTypes.string,
+    title : PropTypes.any,
     header: PropTypes.any,
 
     opened          : PropTypes.bool,
