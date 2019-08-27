@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.Switch = exports.TextArea = exports.Select = exports.Checkbox = exports.InputNumber = exports.InputCurrency = exports.Input = exports.Pagination = exports.Collapsible = exports.Accordion = exports.ListGroupItem = exports.ListGroup = exports.ListItem = exports.List = exports.Flex = exports.Column = exports.Col = exports.Row = exports.Container = exports.Text = exports.P = exports.H3 = exports.H2 = exports.H1 = exports.Link = exports.A = exports.SidePill = exports.Modal = exports.Tooltip = exports.toast = exports.ToastsContainer = exports.Table = exports.Segment = exports.Scrollable = exports.ProgressBar = exports.Placeholder = exports.NumberFormat = exports.Img = exports.Icon = exports.HoverActionsItem = exports.HoverActions = exports.Dropdown = exports.Clipboard = exports.Card = exports.Button = exports.Badge = exports.ActionBar = void 0;
+exports.Switch = exports.TextArea = exports.Select = exports.Checkbox = exports.InputNumber = exports.InputCurrency = exports.Input = exports.Pagination = exports.Collapsible = exports.Accordion = exports.ListGroupItem = exports.ListGroup = exports.ListItem = exports.List = exports.Flex = exports.Column = exports.Col = exports.Row = exports.Container = exports.Label = exports.Text = exports.P = exports.H3 = exports.H2 = exports.H1 = exports.Link = exports.A = exports.SidePill = exports.Modal = exports.Tooltip = exports.toast = exports.ToastsContainer = exports.Table = exports.Segment = exports.Scrollable = exports.ProgressBar = exports.Placeholder = exports.NumberFormat = exports.Img = exports.Icon = exports.HoverActionsItem = exports.HoverActions = exports.Dropdown = exports.Clipboard = exports.Card = exports.Button = exports.Badge = exports.ActionBar = void 0;
 
 var _ActionBar = _interopRequireDefault(require("./ActionBar/ActionBar"));
 
@@ -108,6 +108,10 @@ var _P = _interopRequireDefault(require("./Typography/P/P"));
 
 exports.P = _P.default;
 exports.Text = _P.default;
+
+var _Label = _interopRequireDefault(require("./Label/Label"));
+
+exports.Label = _Label.default;
 
 var _Container = _interopRequireDefault(require("./Grid/Container"));
 
