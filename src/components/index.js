@@ -22,6 +22,8 @@ export { default as Modal } from './Modal/Modal';
 export { default as SidePill } from './SidePill/SidePill';
 
 /* Typography */
+export { default as A } from './Typography/A/A';
+export { default as Link } from './Typography/A/A';
 export { default as H1 } from './Typography/H1/H1';
 export { default as H2 } from './Typography/H2/H2';
 export { default as H3 } from './Typography/H3/H3';

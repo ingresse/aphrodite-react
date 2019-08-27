@@ -4,45 +4,45 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Helpers */
-import { SIZES } from '../../../constants';
 import { colors } from '../../../utils';
 
 /* Component Styles */
-const PStyled = styled.p`
+const AStyled = styled.a`
     box-sizing: border-box;
-    font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${props => (SIZES[props.small ? 'SM' : 'MD'].FONT_SIZE)};
-    line-height: ${props => (SIZES[props.small ? 'SM' : 'MD'].LINE_HEIGHT)};
 
-    padding: 0;
-    margin : ${props => props.margin};
+    margin: ${props => props.margin};
 
-    text-align    : ${props => (props.center ? 'center' : (props.align || null))};
-    text-transform: ${props => (props.upper ? 'uppercase' : null)};
+    cursor         : pointer;
+    text-decoration: none;
+    text-transform : ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (
-        (!props.color && !props.link && !props.helper) ? null :
-            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.color))
-    )};
+    color: ${props => (colors.getFromTheme(props, (!props.color ? 'link' : props.color)))};
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+        color: ${props => (colors.getFromTheme(props, (!props.color ? 'link' : props.color), 'dark'))};
+    }
 
     ${props => props.styles};
 `;
 
 /* Component Itself */
-const P = forwardRef((props, ref) => {
+const A = forwardRef((props, ref) => {
     const { className } = props;
 
     return (
-        <PStyled
+        <AStyled
             {...props}
             ref={ref}
-            className={`aph-p ${className || ''}`}
+            className={`aph-a ${className || ''}`}
         />
     );
 });
 
 /* Default Properties */
-P.defaultProps = {
+A.defaultProps = {
     link  : false,
     bold  : false,
     center: false,
@@ -55,7 +55,7 @@ P.defaultProps = {
 };
 
 /* Properties Types */
-P.propTypes = {
+A.propTypes = {
     link  : propTypes.bool,
     bold  : propTypes.bool,
     center: propTypes.bool,
@@ -70,4 +70,4 @@ P.propTypes = {
 };
 
 /* Exporting */
-export default P;
+export default A;

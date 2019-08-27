@@ -9,6 +9,7 @@ import { colors } from '../../../utils';
 
 /* Component Styles */
 const H2Styled = styled.h2`
+    box-sizing: border-box;
     font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
     font-size  : ${props => (SIZES.XL.FONT_SIZE)};
     line-height: ${props => (SIZES.XL.LINE_HEIGHT)};

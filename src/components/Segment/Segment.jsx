@@ -15,6 +15,8 @@ const SegmentStyled = styled.div`
     padding: ${props => props.aphpadding || '20px 10px'};
 
     border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
+    box-shadow   : ${props => props.aphshadow ? `0 0 3px ${colors.getFromTheme('oil', 'dark', 0.25)}` : null};
+
 
     color           : ${props => props.aphcolor ? colors.getFromTheme(props, props.aphcolor) : null};
     background-color: ${props => props.aphbackground ? colors.getFromTheme(props, props.aphbackground) : null};
@@ -24,12 +26,12 @@ const SegmentStyled = styled.div`
         border : 0;
 
         border-radius: ${RADIUS.LG}px;
-        box-shadow   : none;
+        box-shadow   : ${props => !props.aphshadow ? null : `0 0 3px ${colors.getFromTheme('oil', 'dark', 0.25)}`};
         transition   : box-shadow 0.15s linear;
 
         &:hover,
         &:focus {
-            box-shadow: 0 0 10px ${colors.get('oil', 'dark', 0.25)};
+            box-shadow: 0 0 10px ${colors.getFromTheme('oil', 'dark', 0.25)};
         }
     `}
 
@@ -48,6 +50,7 @@ const Segment = forwardRef((props, ref) => {
         background,
         hoverable,
         radius,
+        shadow,
 
         styles,
 
@@ -64,6 +67,7 @@ const Segment = forwardRef((props, ref) => {
             aphcolor={color}
             aphbackground={background}
             aphradius={radius}
+            aphshadow={shadow}
             aphstyles={styles}
             className={`aph-segment ${className || ''}`}
         />
@@ -78,6 +82,7 @@ Segment.propTypes = {
     color     : propTypes.string,
     background: propTypes.string,
     radius    : propTypes.number,
+    shadow    : propTypes.bool,
     styles    : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
