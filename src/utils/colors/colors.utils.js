@@ -131,6 +131,8 @@ let alias = {
     success  : Object.assign({}, bamboo),
     warning  : Object.assign({}, sunflower),
     error    : Object.assign({}, ruby),
+
+    link     : Object.assign({}, ocean),
 };
 
 
@@ -160,7 +162,7 @@ let stock = {
     inverse   : 'rgb(255, 255, 255)',
     background: 'rgb(255, 255, 255)',
     disabled  : mercury.crystal,
-    helper    : mercury.crystal,
+    helper    : mercury.original,
     link      : ocean.original,
 
     translucid: translucid.original,

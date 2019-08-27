@@ -70,7 +70,8 @@ var alias = {
   info: Object.assign({}, supernova),
   success: Object.assign({}, bamboo),
   warning: Object.assign({}, sunflower),
-  error: Object.assign({}, ruby)
+  error: Object.assign({}, ruby),
+  link: Object.assign({}, ocean)
 };
 /**
  * Default Colors
@@ -96,7 +97,7 @@ var stock = {
   inverse: 'rgb(255, 255, 255)',
   background: 'rgb(255, 255, 255)',
   disabled: mercury.crystal,
-  helper: mercury.crystal,
+  helper: mercury.original,
   link: ocean.original,
   translucid: translucid.original,
   smoke: 'rgb(248, 248, 248)',
