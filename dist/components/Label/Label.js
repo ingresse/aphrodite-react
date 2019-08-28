@@ -21,7 +21,7 @@ function Label(props) {
     small: true,
     upper: true,
     margin: "5px 0",
-    color: "mercury"
+    color: "helper"
   }, props));
 }
 /* Exporting */

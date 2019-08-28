@@ -16,7 +16,7 @@ const AStyled = styled.a`
     text-decoration: none;
     text-transform : ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (colors.getFromTheme(props, (props.color || 'link')))};
+    color: ${props => (colors.getFromTheme(props, (props.aphcolor || 'link')))};
 
     border : 0;
     outline: 0;
@@ -34,12 +34,18 @@ const AStyled = styled.a`
 
 /* Component Itself */
 const A = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+        color,
+
+        ...rest
+    } = props;
 
     return (
         <AStyled
-            {...props}
+            {...rest}
             ref={ref}
+            aphcolor={color}
             className={`aph-a ${className || ''}`}
         />
     );

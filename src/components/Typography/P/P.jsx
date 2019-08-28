@@ -21,8 +21,8 @@ const PStyled = styled.p`
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
     color: ${props => (
-        (!props.color && !props.link && !props.helper) ? null :
-            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.color))
+        (!props.aphcolor && !props.link && !props.helper) ? null :
+            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.aphcolor))
     )};
 
     ${props => props.styles};
@@ -30,12 +30,18 @@ const PStyled = styled.p`
 
 /* Component Itself */
 const P = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+        color,
+
+        ...rest
+    } = props;
 
     return (
         <PStyled
-            {...props}
+            {...rest}
             ref={ref}
+            aphcolor={color}
             className={`aph-p ${className || ''}`}
         />
     );
