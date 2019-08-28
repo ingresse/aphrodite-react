@@ -15,7 +15,7 @@ const SegmentStyled = styled.div`
     padding: ${props => props.aphpadding || '20px 10px'};
 
     border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
-    box-shadow   : ${props => props.aphshadow ? `0 0 3px ${colors.getFromTheme('oil', 'dark', 0.25)}` : null};
+    box-shadow   : ${props => props.aphshadow ? `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}` : null};
 
 
     color           : ${props => props.aphcolor ? colors.getFromTheme(props, props.aphcolor) : null};
@@ -26,12 +26,12 @@ const SegmentStyled = styled.div`
         border : 0;
 
         border-radius: ${RADIUS.LG}px;
-        box-shadow   : ${props => !props.aphshadow ? null : `0 0 3px ${colors.getFromTheme('oil', 'dark', 0.25)}`};
+        box-shadow   : ${props => !props.aphshadow ? null : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`};
         transition   : box-shadow 0.15s linear;
 
         &:hover,
         &:focus {
-            box-shadow: 0 0 10px ${colors.getFromTheme('oil', 'dark', 0.25)};
+            box-shadow: 0 0 10px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)};
         }
     `}
 
