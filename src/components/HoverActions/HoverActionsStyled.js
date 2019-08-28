@@ -52,7 +52,6 @@ const HoverActionsStyled = styled.span`
             ${selector} {
                 &__content {
                     filter: blur(1px);
-
                 }
 
                 &__items {

@@ -79,11 +79,13 @@ const FormControlSelect = memo(forwardRef((props, ref) => {
                     {label}
                 </AphFormControlLabelStyled>
             )}
-            <AphFormControlButtonStyled type="button" styles={{ pointerEvents: 'none' }}>
+            <AphFormControlButtonStyled
+                type="button"
+                styles={{ pointerEvents: 'none' }}>
                 <Icon
                     size={30}
                     slug="arrow-down"
-                    color="black"
+                    color={props.disabled ? 'disabled' : 'base'}
                 />
             </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled

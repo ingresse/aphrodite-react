@@ -32,8 +32,8 @@ const HoverActionItem = styled.button`
 
     cursor: pointer;
 
-    color           : ${props => props.color ? colors.get(props.color) : 'inherit'};
-    background-color: ${colors.get('white', null, 0.75)};
+    color           : ${props => props.color ? colors.getFromTheme(props, props.color) : 'inherit'};
+    background-color: ${props => colors.getFromTheme(props, 'inverse', null, 0.75)};
     box-shadow      : 0 0 5px ${colors.get('black', null, 0.25)};
 
     transition:
@@ -46,15 +46,15 @@ const HoverActionItem = styled.button`
     &:hover {
         border : 0;
         outline: 0;
-        background-color: ${colors.get('white', null, 1)};
+        background-color: ${props => colors.getFromTheme(props, 'inverse', null, 1)};
     }
 
     &.success {
-        color: ${colors.get('success')};
+        color: ${props => colors.getFromTheme(props, 'success')};
     }
 
     &.error {
-        color: ${colors.get('error')};
+        color: ${props => colors.getFromTheme(props, 'error')};
     }
 
     ${props => props.styles};

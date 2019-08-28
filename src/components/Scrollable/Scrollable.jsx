@@ -2,6 +2,9 @@
 import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
+/* Utilites */
+import { colors } from '../../utils';
+
 /* Constants */
 import { MEDIA_QUERIES } from '../../constants';
 
@@ -26,12 +29,12 @@ const StyledWrapper = styled('div')(props => ({
 
     '&:before': {
         left: 0,
-        background: 'linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%)',
+        background: `linear-gradient(to right, ${colors.getFromTheme(props, 'inverse')} 50%, ${colors.getFromTheme(props, 'inverse', 'original', 0)} 80%)`,
     },
 
     '&:after': {
         right: 0,
-        background: 'linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%)',
+        background: `linear-gradient(to right, ${colors.getFromTheme(props, 'inverse', 'original', 0)} 0%, ${colors.getFromTheme(props, 'inverse')} 50%)`,
     },
 
     '&.scrollable--xs': {
