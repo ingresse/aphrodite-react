@@ -29,12 +29,12 @@ const StyledWrapper = styled('div')(props => ({
 
     '&:before': {
         left: 0,
-        background: `linear-gradient(to right, ${colors.getFromTheme(props, 'inverse')} 50%, ${colors.getFromTheme(props, 'inverse', 'original', 0)} 80%)`,
+        background: `linear-gradient(to right, ${colors.getFromTheme(props, 'inverse')} 50%, ${colors.getFromTheme(props, 'inverse').replace('rgb(', 'rgba(').replace(')', ', 0)')} 80%)`,
     },
 
     '&:after': {
         right: 0,
-        background: `linear-gradient(to right, ${colors.getFromTheme(props, 'inverse', 'original', 0)} 0%, ${colors.getFromTheme(props, 'inverse')} 50%)`,
+        background: `linear-gradient(to right, ${colors.getFromTheme(props, 'inverse').replace('rgb(', 'rgba(').replace(')', ', 0)')} 0%, ${colors.getFromTheme(props, 'inverse')} 50%)`,
     },
 
     '&.scrollable--xs': {
