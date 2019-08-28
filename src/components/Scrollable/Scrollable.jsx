@@ -25,6 +25,7 @@ const StyledWrapper = styled('div')(props => ({
         top     : '0',
         bottom  : '0',
         width   : '15px',
+        zIndex  : 1,
     },
 
     '&:before': {
