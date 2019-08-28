@@ -21,8 +21,8 @@ const H3Styled = styled.h3`
     text-transform: ${props => (props.upper ? 'uppercase' : null)};
 
     color: ${props => (
-        (!props.color && !props.link && !props.helper) ? null :
-            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.color))
+        (!props.aphcolor && !props.link && !props.helper) ? null :
+            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.aphcolor))
     )};
 
     ${props => props.styles};
@@ -30,12 +30,18 @@ const H3Styled = styled.h3`
 
 /* Component Itself */
 const H3 = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+        color,
+
+        ...rest
+    } = props;
 
     return (
         <H3Styled
-            {...props}
+            {...rest}
             ref={ref}
+            aphcolor={color}
             className={`aph-h3 ${className || ''}`}
         />
     );

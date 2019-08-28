@@ -15,7 +15,7 @@ function Label(props) {
             small
             upper
             margin="5px 0"
-            color="mercury"
+            color="helper"
             {...props}
         />
     );
