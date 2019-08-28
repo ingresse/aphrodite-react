@@ -84,7 +84,7 @@ const AphCheckboxStyled = styled.input`
         background-image: url('${props => ICONS.ENCODE_SVG(
             <IconCheckThin
                 size={20}
-                color={colors.get(props.color || 'secondary')}
+                color={colors.getFromTheme(props, (props.color || 'secondary'))}
             />
         )}');
     }
@@ -93,7 +93,7 @@ const AphCheckboxStyled = styled.input`
     &:disabled {
         + .aph-form-control-mask:before {
             border-color    : ${props => colors.getFromTheme(props, 'disabled')};
-            background-color: ${props => colors.getFromTheme(props, 'smoke')};
+            background-color: ${props => colors.getFromTheme(props, 'background')};
         }
 
         &:checked + .aph-form-control-mask:before {

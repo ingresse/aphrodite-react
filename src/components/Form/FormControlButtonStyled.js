@@ -29,7 +29,7 @@ const AphFormControlButtonStyled = styled.button`
     &:active,
     &:focus,
     &:hover {
-        color: ${colors.get('black')};
+        color: ${props => colors.getFromTheme(props, 'base')};
 
         border    : 0;
         outline   : 0;
