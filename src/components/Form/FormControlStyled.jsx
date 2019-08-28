@@ -47,6 +47,7 @@ const FormControlStyled = styled.input`
 
     &:active,
     &:focus {
+        color           : ${props => colors.getFromTheme(props, 'inverse')};
         background-color: ${props => colors.getFromTheme(props, (props.error ? 'error' : (props.color || 'secondary')), 'crystal')};
 
         + .aph-form-label {
