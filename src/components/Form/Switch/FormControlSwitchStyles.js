@@ -71,7 +71,7 @@ const AphFormSwitchToggle = styled.label`
     transition-timing-function: ease;
 
     border-radius   : 50%;
-    background-color: ${colors.get('white')};
+    background-color: ${props => colors.getFromTheme(props, 'white')};
     box-shadow      : 0 0 5px 0 ${colors.get('black', 'original', 0.25)};
 `;
 
@@ -86,7 +86,7 @@ const AphFormSwitchInput = styled.input`
     height       : 20px;
     border-radius: 15px;
 
-    background-color: ${colors.get('mercury', 'light')};
+    background-color: ${props => colors.getFromTheme(props, 'disabled')};
 
     border : 0;
     outline: 0;
@@ -100,11 +100,11 @@ const AphFormSwitchInput = styled.input`
 
     &.disabled,
     &:disabled {
-        background-color: ${colors.get('mercury', 'light', 0.5)};
+        background-color: ${props=> colors.getFromTheme(props, 'disabled', 'light', 0.5)};
     }
 
     &:checked {
-        background-color: ${colors.get('bamboo')};
+        background-color: ${props => colors.getFromTheme(props, (props.color || 'success'))};
 
         + .aph-form-switch {
             &__toggle {
@@ -113,7 +113,7 @@ const AphFormSwitchInput = styled.input`
         }
 
         &:disabled {
-            background-color: ${colors.get('bamboo', 'light', 0.5)};
+            background-color: ${props => colors.getFromTheme(props, (props.color || 'success'), 'light', 0.5)};
         }
     }
 

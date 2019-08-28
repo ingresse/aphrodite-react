@@ -16,13 +16,17 @@ const AStyled = styled.a`
     text-decoration: none;
     text-transform : ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (colors.getFromTheme(props, (!props.color ? 'link' : props.color)))};
+    color: ${props => (colors.getFromTheme(props, (props.color || 'link')))};
+
+    border : 0;
+    outline: 0;
 
     &:active,
     &:focus,
     &:hover,
     &:visited {
-        color: ${props => (colors.getFromTheme(props, (!props.color ? 'link' : props.color), 'dark'))};
+        border : 0;
+        outline: 0;
     }
 
     ${props => props.styles};

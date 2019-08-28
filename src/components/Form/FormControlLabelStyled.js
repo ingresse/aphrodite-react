@@ -15,7 +15,7 @@ const AphFormControlLabelStyled = styled.label`
 
     pointer-events: none;
 
-    color: ${colors.get('mercury')};
+    color: ${props => colors.getFromTheme(props, 'helper')};
 
     font-size  : ${SIZES.MD.FONT_SIZE};
     line-height: ${SIZES.MD.LINE_HEIGHT};

@@ -24,7 +24,7 @@ const FormControlStyled = styled.input`
     line-height: ${SIZES.MD.LINE_HEIGHT};
 
     color           : ${props => colors.getFromTheme(props, 'base')};
-    background-color: ${props => colors.getFromTheme(props, 'smoke')};
+    background-color: ${props => colors.getFromTheme(props, 'background')};
     border-radius   : ${RADIUS.XS}px;
 
     border : 0;
@@ -71,14 +71,14 @@ const FormControlStyled = styled.input`
     &:disabled {
         cursor: not-allowed;
 
-        color           : ${props => colors.getFromTheme(props, 'mercury')};
-        background-color: ${props => colors.getFromTheme(props, 'mercury', 'crystal')};
+        color           : ${props => colors.getFromTheme(props, 'disabled')};
+        background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
 
         &:hover,
         &:active,
         &:focus {
             + .aph-form-label {
-                color: ${props => colors.getFromTheme(props, 'mercury')};
+                color: ${props => colors.getFromTheme(props, 'disabled')};
             }
         }
     }

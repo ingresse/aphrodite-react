@@ -160,7 +160,7 @@ let stock = {
 
     base      : 'rgb(0, 0, 0)',
     inverse   : 'rgb(255, 255, 255)',
-    background: 'rgb(255, 255, 255)',
+    background: 'rgb(248, 248, 248)',
     disabled  : mercury.crystal,
     helper    : mercury.original,
     link      : ocean.original,
