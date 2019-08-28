@@ -90,7 +90,7 @@ var FormControlSelect = (0, _react.memo)((0, _react.forwardRef)(function (props,
   }, _react.default.createElement(_Icon.default, {
     size: 30,
     slug: "arrow-down",
-    color: "black"
+    color: props.disabled ? 'disabled' : 'base'
   })), _react.default.createElement(_FormControlErrorMsgStyled.default, {
     htmlFor: id,
     styles: !errorMessage ? null : {
