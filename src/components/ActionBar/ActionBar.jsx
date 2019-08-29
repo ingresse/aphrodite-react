@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../utils';
 
 /* Constants */
-import { COLORS, MEDIA_QUERIES, SIZES } from '../../constants';
+import { SIZES, ZINDEX } from '../../constants';
 
 /* Styles */
 const ActionBarStyled = styled('div')(props => ({
@@ -17,19 +17,19 @@ const ActionBarStyled = styled('div')(props => ({
     width    : '100%',
     minHeight: SIZES.ACTION_BAR_HEIGHT,
 
-    zIndex   : 100,
+    zIndex   : ZINDEX.ACTION_BAR,
     position : 'fixed',
     right    : 0,
     bottom   : 0,
     left     : 0,
     padding  : '20px 0',
 
-    background: colors.get('white'),
-    boxShadow : `0 0 4px 0 ${colors.get('black', null, 0.2)}`,
+    backgroundColor: colors.getFromTheme(props, 'white'),
+    boxShadow      : `0 0 4px 0 ${colors.get('black', null, 0.2)}`,
 
     transform : `translateY(110%)`,
     willChange: 'transform',
-    transition: '-webkit-transform 0.3s ease-out 0s',
+    transition: 'transform 0.3s ease-out 0s, background-color 0.2s linear',
 
     '&.aph-action-bar--visible': {
         transform: 'translateY(0)',
