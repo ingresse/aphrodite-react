@@ -33,9 +33,9 @@ const Dropdown = forwardRef((props, ref) => {
     /**
      * State values
      */
-    const [ active, setActive ]       = useState(opened);
-    const [ visible, setVisible ]     = useState(opened);
-    const [ unmounted, setUnmounted ] = useState(false);
+    const [ active, setActive ]             = useState(opened);
+    const [ visible, setVisible ]           = useState(opened);
+    const [ unmounted, setUnmounted ]       = useState(false);
     const [ activeTimer, setActiveTimer ]   = useState(null);
     const [ visibleTimer, setVisibleTimer ] = useState(null);
 
@@ -45,11 +45,16 @@ const Dropdown = forwardRef((props, ref) => {
     const dropdownRef = useRef(null);
 
     /**
+     * Add click listener
+     */
+    function addClickListener() {
+        document.addEventListener('click', handleClose);
+    }
+
+    /**
      * Remove click listener
      */
-    function removeClickListener () {
-        setUnmounted(true);
-
+    function removeClickListener() {
         clearTimeout(activeTimer);
         clearTimeout(visibleTimer);
 
@@ -82,6 +87,7 @@ const Dropdown = forwardRef((props, ref) => {
             }
 
             setVisible(false);
+            removeClickListener();
         }, 250));
     }
 
@@ -110,6 +116,7 @@ const Dropdown = forwardRef((props, ref) => {
             }
 
             setActive(true);
+            addClickListener();
         }, 50));
     }
 
@@ -130,6 +137,8 @@ const Dropdown = forwardRef((props, ref) => {
      * Listen to `opened` changes
      */
     useEffect(() => {
+        removeClickListener();
+
         if (!opened) {
             handleClose();
 
@@ -137,16 +146,19 @@ const Dropdown = forwardRef((props, ref) => {
         }
 
         if (opened || active) {
+            addClickListener();
             handleOpen();
         }
+
+        return function cleanup() {
+            removeClickListener();
+        };
     }, [ opened ]);
 
     /**
      * Mount
      */
     useEffect(() => {
-        document.addEventListener('click', handleClose);
-
         return function cleanup() {
             removeClickListener();
         };

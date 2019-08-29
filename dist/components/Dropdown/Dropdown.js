@@ -64,11 +64,18 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
 
   var dropdownRef = (0, _react.useRef)(null);
   /**
+   * Add click listener
+   */
+
+  function addClickListener() {
+    document.addEventListener('click', handleClose);
+  }
+  /**
    * Remove click listener
    */
 
+
   function removeClickListener() {
-    setUnmounted(true);
     clearTimeout(activeTimer);
     clearTimeout(visibleTimer);
     document.removeEventListener('click', handleClose);
@@ -95,6 +102,7 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
       }
 
       setVisible(false);
+      removeClickListener();
     }, 250));
   }
   /**
@@ -123,6 +131,7 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
       }
 
       setActive(true);
+      addClickListener();
     }, 50));
   }
   /**
@@ -145,21 +154,27 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
 
 
   (0, _react.useEffect)(function () {
+    removeClickListener();
+
     if (!opened) {
       handleClose();
       return;
     }
 
     if (opened || active) {
+      addClickListener();
       handleOpen();
     }
+
+    return function cleanup() {
+      removeClickListener();
+    };
   }, [opened]);
   /**
    * Mount
    */
 
   (0, _react.useEffect)(function () {
-    document.addEventListener('click', handleClose);
     return function cleanup() {
       removeClickListener();
     };
