@@ -64,28 +64,6 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
 
   var dropdownRef = (0, _react.useRef)(null);
   /**
-   * Listen to
-   */
-
-  (0, _react.useEffect)(function () {
-    if (!opened) {
-      handleClose();
-      return;
-    }
-
-    if (opened || active) {
-      handleOpen();
-    }
-  }, [opened]);
-  /**
-   * Mount
-   */
-
-  (0, _react.useEffect)(function () {
-    document.addEventListener('click', handleClose);
-    return removeClickListener;
-  }, []);
-  /**
    * Remove click listener
    */
 
@@ -162,9 +140,33 @@ var Dropdown = (0, _react.forwardRef)(function (props, ref) {
     handleOpen(evt);
   }
   /**
-   * Render
+   * Listen to `opened` changes
    */
 
+
+  (0, _react.useEffect)(function () {
+    if (!opened) {
+      handleClose();
+      return;
+    }
+
+    if (opened || active) {
+      handleOpen();
+    }
+  }, [opened]);
+  /**
+   * Mount
+   */
+
+  (0, _react.useEffect)(function () {
+    document.addEventListener('click', handleClose);
+    return function cleanup() {
+      removeClickListener();
+    };
+  }, []);
+  /**
+   * Render
+   */
 
   return _react.default.createElement(_DropdownStyled.default, {
     center: center,

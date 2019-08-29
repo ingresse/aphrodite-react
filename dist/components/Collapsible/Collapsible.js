@@ -153,7 +153,7 @@ var Collapsible = (0, _react.forwardRef)(function (props, ref) {
 
 
   (0, _react.useEffect)(function () {
-    return function () {
+    return function cleanup() {
       clearTimeout(openTimer);
       clearTimeout(closeTimer);
     };

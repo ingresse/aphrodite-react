@@ -68,7 +68,10 @@ function Countdown(props) {
     var _dashoffset = CIRCUMFERENCE * (1 - _progress);
 
     setDashoffset(_dashoffset);
-    console.log('countdown:', value + '%', '|', 'offset:', _dashoffset + ';');
+
+    if (log) {
+      console.log(LOG_PREFIX, value + '%', '|', 'offset:', _dashoffset + ';');
+    }
   }
   /**
    * Handle with Start
@@ -94,7 +97,9 @@ function Countdown(props) {
           onFinishCallback(seconds, log);
         }
 
-        return clearInterval(_timer);
+        clearInterval(timer);
+        clearInterval(_timer);
+        return;
       }
 
       handleProgress(_progress);
@@ -110,7 +115,7 @@ function Countdown(props) {
     _decrease();
 
     _timer = setInterval(_decrease, miliseconds);
-    setTimer(timer);
+    setTimer(_timer);
   }
   /**
    * Did Mount
@@ -119,7 +124,7 @@ function Countdown(props) {
 
   (0, _react.useEffect)(function () {
     handleStart();
-    return function () {
+    return function cleanup() {
       clearInterval(timer);
     };
   }, [seconds]);
