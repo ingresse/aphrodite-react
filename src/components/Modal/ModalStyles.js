@@ -41,7 +41,7 @@ const ModalStyled = styled.dialog`
 
     color           : ${props => colors.getFromTheme(props, 'base')};
     background-color: ${props => colors.getFromTheme(props, 'inverse')};
-    box-shadow      : 0 0 10px 0 ${colors.get('black', 'original', 0.25)};
+    box-shadow      : 0 0 10px 0 ${props => colors.getFromTheme(props, 'shadow')};
     border-radius   : ${SIZES.LG.RADIUS} ${SIZES.LG.RADIUS} 0 0;
 
     &.visible {

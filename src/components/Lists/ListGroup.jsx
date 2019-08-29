@@ -22,23 +22,23 @@ const AphListGroup = styled('div')(props => ({
     borderRadius: ((!isNaN(props.radius) ? props.radius : RADIUS) + GRID.UNIT),
     boxShadow   : (props.noSideBorders ?
         (`
-            inset 0 -1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
+            inset 0 -1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
             inset 0 0 0 0 transparent,
             inset 0 0 0 0 transparent,
-            inset 0 1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')}
+            inset 0 1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))}
         `)
         :
         (`
-            inset 0 -1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
-            inset 1px 0 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
-            inset -1px 0 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
-            inset 0 1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')}
+            inset 0 -1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
+            inset 1px 0 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
+            inset -1px 0 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
+            inset 0 1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))}
         `)
     ),
 
     '.aph-list__header, .aph-list__item': {
         boxShadow   : `
-            inset 0 -1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
+            inset 0 -1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
             inset 0 0 0 0 transparent,
             inset 0 0 0 0 transparent,
             inset 0 0 0 0 transparent
@@ -46,7 +46,7 @@ const AphListGroup = styled('div')(props => ({
 
         '+ .aph-list__header, + .aph-list__item': {
             boxShadow   : `
-                inset 0 -1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
+                inset 0 -1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
                 inset 0 0 0 0 transparent,
                 inset 0 0 0 0 transparent,
                 inset 0 0 0 0 transparent
@@ -55,11 +55,11 @@ const AphListGroup = styled('div')(props => ({
     },
 
     '.aph-list__header': {
-        backgroundColor: colors.getFromTheme(props, 'mercury'),
+        backgroundColor: colors.getFromTheme(props, 'helper'),
     },
 
     '.aph-list__item': {
-        backgroundColor: colors.getFromTheme(props, 'smoke'),
+        backgroundColor: colors.getFromTheme(props, 'background'),
     },
 
     'div:first-of-type': {
@@ -69,10 +69,10 @@ const AphListGroup = styled('div')(props => ({
                 borderTopRightRadius: (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
                 borderTopLeftRadius : (((!isNaN(props.radius) ? props.radius : RADIUS) - 2) + GRID.UNIT),
                 boxShadow: `
-                    inset 0 -1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')},
+                    inset 0 -1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))},
                     inset 0 0 0 0 transparent,
                     inset 0 0 0 0 transparent,
-                    inset 0 1px 0 0 ${colors.getFromTheme(props, 'mercury', 'crystal')}
+                    inset 0 1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))}
                 `,
             },
         },

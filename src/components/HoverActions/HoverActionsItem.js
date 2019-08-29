@@ -34,7 +34,7 @@ const HoverActionItem = styled.button`
 
     color           : ${props => props.color ? colors.getFromTheme(props, props.color) : 'inherit'};
     background-color: ${props => colors.getFromTheme(props, 'inverse', null, 0.75)};
-    box-shadow      : 0 0 5px ${colors.get('black', null, 0.25)};
+    box-shadow      : 0 0 5px ${props => colors.getFromTheme(props, 'shadow')};
 
     transition:
         color 0.25s linear,

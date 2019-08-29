@@ -100,6 +100,7 @@ var stock = {
   helper: mercury.original,
   link: ocean.original,
   translucid: translucid.original,
+  shadow: 'rgba(0, 0, 0, 0.2)',
   smoke: 'rgb(248, 248, 248)',
   white: 'rgb(255, 255, 255)',
   black: 'rgb(0, 0, 0)'
