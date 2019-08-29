@@ -28,7 +28,7 @@ const AphListItemStyled = styled.li`
 
     &.active {
         color           : ${props => colors.getFromTheme(props, 'secondary')};
-        background-color: ${props => colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'inverse' : 'secondary'), 'crystal')};
+        background-color: ${props => colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'background' : 'secondary'), 'crystal')};
     }
 
     ${props => (props.onClick) ? {
@@ -37,7 +37,7 @@ const AphListItemStyled = styled.li`
 
         '&:hover': {
             color          : colors.getFromTheme(props, 'secondary'),
-            backgroundColor: colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'inverse' : 'secondary'), 'crystal'),
+            backgroundColor: colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'background' : 'secondary'), 'crystal'),
         }
     } : null};
 
