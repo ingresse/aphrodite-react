@@ -3,8 +3,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ToastContainer } from 'react-toastify';
 
-const color = require('tinycolor2');
-
 /* Styles */
 import 'react-toastify/scss/main.scss';
 
