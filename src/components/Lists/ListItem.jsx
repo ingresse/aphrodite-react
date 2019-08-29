@@ -15,7 +15,7 @@ const AphListItemStyled = styled.li`
     padding: 10px;
 
     background-color: transparent;
-    box-shadow      : ${props => (!props.borderBottom ? null : `inset 0 1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}`)};
+    box-shadow      : ${props => ((!props.borderTop && !props.borderBottom) ? null : `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getOpacity(colors.getFromTheme(props, 'helper'), 0.25)}`)};
 
     transition :
         color 0.15s linear,
@@ -43,7 +43,7 @@ const AphListItemStyled = styled.li`
 
     ${props => (props.hoverable) ? {
         '&:hover': {
-            backgroundColor: colors.getFromTheme(props, 'helper', 'original', 0.25),
+            backgroundColor: colors.getOpacity(colors.getFromTheme(props, 'helper'), 0.25),
         }
     } : null};
 
