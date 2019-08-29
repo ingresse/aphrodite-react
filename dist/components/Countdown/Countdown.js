@@ -116,18 +116,29 @@ function Countdown(props) {
 
     _timer = setInterval(_decrease, miliseconds);
     setTimer(_timer);
+    return _timer;
   }
   /**
-   * Did Mount
+   * Mount
    */
 
 
   (0, _react.useEffect)(function () {
-    handleStart();
+    var interval = handleStart();
+    return function cleanup() {
+      clearInterval(timer);
+      clearInterval(interval);
+    };
+  }, [seconds]);
+  /**
+   * Unmount
+   */
+
+  (0, _react.useEffect)(function () {
     return function cleanup() {
       clearInterval(timer);
     };
-  }, [seconds]);
+  }, []);
   /**
    * Render
    */
