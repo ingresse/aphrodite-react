@@ -143,7 +143,7 @@ const Collapsible = forwardRef((props, ref) => {
      * Unmount
      */
     useEffect(() => {
-        return () => {
+        return function cleanup() {
             clearTimeout(openTimer);
             clearTimeout(closeTimer);
         };

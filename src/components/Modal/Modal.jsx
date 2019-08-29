@@ -79,7 +79,9 @@ const Modal = forwardRef((props, ref) => {
             handleOpen();
         }
 
-        return unlisten;
+        return function cleanup() {
+            unlisten();
+        };
     }, [ opened ]);
 
     /**

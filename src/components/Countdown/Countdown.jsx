@@ -46,17 +46,20 @@ function Countdown(props) {
      * @param {number} value
      */
     function handleProgress(value) {
-        const _progress = value / 100;
-        const _dashoffset = CIRCUMFERENCE * (1 - _progress);
+        const _progress   = (value / 100);
+        const _dashoffset = (CIRCUMFERENCE * (1 - _progress));
 
         setDashoffset(_dashoffset);
-        console.log(
-            'countdown:',
-            value + '%',
-            '|',
-            'offset:',
-            _dashoffset + ';'
-        );
+
+        if (log) {
+            console.log(
+                LOG_PREFIX,
+                value + '%',
+                '|',
+                'offset:',
+                _dashoffset + ';'
+            );
+        }
     }
 
     /**
@@ -78,15 +81,19 @@ function Countdown(props) {
                 if (typeof onFinishCallback === 'function') {
                     onFinishCallback(seconds, log);
                 }
-                return clearInterval(_timer);
+
+                clearInterval(timer);
+                clearInterval(_timer);
+
+                return;
             }
 
             handleProgress(_progress);
             setCountdown(seconds - _count);
 
-            _count = _count + 1;
-            _current = _current - 1;
-            _progress = (_current / seconds) * 100;
+            _count    = (_count + 1);
+            _current  = (_current - 1);
+            _progress = ((_current / seconds) * 100);
         }
 
         clearInterval(timer);
@@ -96,7 +103,7 @@ function Countdown(props) {
 
         _timer = setInterval(_decrease, miliseconds);
 
-        setTimer(timer);
+        setTimer(_timer);
     }
 
     /**
@@ -105,7 +112,7 @@ function Countdown(props) {
     useEffect(() => {
         handleStart();
 
-        return () => {
+        return function cleanup() {
             clearInterval(timer);
         };
     }, [ seconds ]);

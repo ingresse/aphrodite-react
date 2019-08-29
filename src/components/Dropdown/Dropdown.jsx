@@ -45,30 +45,6 @@ const Dropdown = forwardRef((props, ref) => {
     const dropdownRef = useRef(null);
 
     /**
-     * Listen to
-     */
-    useEffect(() => {
-        if (!opened) {
-            handleClose();
-
-            return;
-        }
-
-        if (opened || active) {
-            handleOpen();
-        }
-    }, [ opened ]);
-
-    /**
-     * Mount
-     */
-    useEffect(() => {
-        document.addEventListener('click', handleClose);
-
-        return removeClickListener;
-    }, []);
-
-    /**
      * Remove click listener
      */
     function removeClickListener () {
@@ -149,6 +125,32 @@ const Dropdown = forwardRef((props, ref) => {
 
         handleOpen(evt);
     }
+
+    /**
+     * Listen to `opened` changes
+     */
+    useEffect(() => {
+        if (!opened) {
+            handleClose();
+
+            return;
+        }
+
+        if (opened || active) {
+            handleOpen();
+        }
+    }, [ opened ]);
+
+    /**
+     * Mount
+     */
+    useEffect(() => {
+        document.addEventListener('click', handleClose);
+
+        return function cleanup() {
+            removeClickListener();
+        };
+    }, []);
 
     /**
      * Render
