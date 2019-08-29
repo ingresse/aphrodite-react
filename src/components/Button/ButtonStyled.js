@@ -14,8 +14,8 @@ const AphButtonStyled = styled.button`
     display   : ${props => props.aphblock ? '' : 'inline-'}block;
 
     width    : ${props => props.aphblock ? '100%' : 'auto'};
-    min-width: 140px;
-    padding  : ${props => ((props.aphsm || props.aphsmall) ? '5px 15px' : '10px 20px')};
+    min-width: ${props => props.aphcircle ? ((props.aphsm || props.aphsmall) ? '30px' : '40px') : '140px'};
+    padding  : ${props => ((props.aphsm || props.aphsmall) ? `5px ${props.aphcircle ? 0 : '15px'}` : `10px  ${props.aphcircle ? 0 : '20px'}`)};
     margin   : ${props => props.aphmargin};
 
     text-align    : center;
@@ -43,7 +43,7 @@ const AphButtonStyled = styled.button`
     };
 
     transition-timing-function: ease;
-    transition-duration       : 0.25s;
+    transition-duration       : 0.2s;
     transition-property       : background-color, color, width;
 
     &:hover {

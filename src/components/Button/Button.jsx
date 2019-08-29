@@ -17,6 +17,7 @@ const Button = forwardRef((props, ref) => {
      */
     const {
         block,
+        circle,
         className,
         color,
         children,
@@ -64,6 +65,7 @@ const Button = forwardRef((props, ref) => {
             ref={ref}
             aphsm={(sm || small) ? 1 : 0}
             aphblock={block ? 1 : 0}
+            aphcircle={circle}
             aphcolor={color}
             aphlink={link ? 1 : 0}
             aphmargin={margin}

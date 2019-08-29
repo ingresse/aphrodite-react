@@ -47,6 +47,7 @@ export { default as ListGroupItem } from './Lists/ListGroupItem';
 /* Dependent Components */
 export { default as Accordion } from './Accordion/Accordion';
 export { default as Collapsible } from './Collapsible/Collapsible';
+export { default as Countdown } from './Countdown/Countdown';
 export { default as Pagination } from './Pagination/Pagination';
 
 /* Form Components */

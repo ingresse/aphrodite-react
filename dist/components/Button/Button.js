@@ -29,6 +29,7 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
    * Component props
    */
   var block = props.block,
+      circle = props.circle,
       className = props.className,
       color = props.color,
       children = props.children,
@@ -41,7 +42,7 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
       small = props.small,
       styles = props.styles,
       translucid = props.translucid,
-      rest = _objectWithoutPropertiesLoose(props, ["block", "className", "color", "children", "loading", "disabled", "margin", "link", "radius", "sm", "small", "styles", "translucid"]);
+      rest = _objectWithoutPropertiesLoose(props, ["block", "circle", "className", "color", "children", "loading", "disabled", "margin", "link", "radius", "sm", "small", "styles", "translucid"]);
   /**
    * Local values
    */
@@ -72,6 +73,7 @@ var Button = (0, _react.forwardRef)(function (props, ref) {
     ref: ref,
     aphsm: sm || small ? 1 : 0,
     aphblock: block ? 1 : 0,
+    aphcircle: circle,
     aphcolor: color,
     aphlink: link ? 1 : 0,
     aphmargin: margin,
