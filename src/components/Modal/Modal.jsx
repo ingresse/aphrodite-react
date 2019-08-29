@@ -65,37 +65,20 @@ const Modal = forwardRef((props, ref) => {
     const modalRef = useRef(null);
 
     /**
-     * Watch for `opened` prop changes
-     */
-    useEffect(() => {
-        if (!opened) {
-            handleClose();
-            unlisten();
-
-            return unlisten;
-        }
-
-        if (opened || active) {
-            handleOpen();
-        }
-
-        return function cleanup() {
-            unlisten();
-        };
-    }, [ opened ]);
-
-    /**
      * Handle with close by escape key
      *
      * @param {object} evt - DOM click event
      */
     function handleCloseOnScape (evt) {
-        const { key, keyCode, target } = (evt || {});
-        const { nodeName } = (target || {});
+        const { key, keyCode, target, stopPropagation } = (evt || {});
         const isEscPressed = (key === 'Escape' || key === 'Esc' || keyCode === 27);
 
         if (!isEscPressed) {
             return;
+        }
+
+        if (typeof stopPropagation === 'function') {
+            stopPropagation();
         }
 
         handleClose();
@@ -182,6 +165,35 @@ const Modal = forwardRef((props, ref) => {
             listen();
         }, 50));
     }
+
+    /**
+     * Watch for `opened` prop changes
+     */
+    useEffect(() => {
+        if (!opened) {
+            handleClose();
+            unlisten();
+
+            return unlisten;
+        }
+
+        if (opened || active) {
+            handleOpen();
+        }
+
+        return function cleanup() {
+            unlisten();
+        };
+    }, [ opened ]);
+
+    /**
+     * Unmount
+     */
+    useEffect(() => {
+        return function cleanup() {
+            unlisten();
+        };
+    }, []);
 
     /**
      * Render

@@ -1,6 +1,9 @@
 /* Core Packages */
 import styled from '@emotion/styled';
 
+/* Utilities */
+import { colors } from '../../utils';
+
 /* Component Styles */
 const CountdownStyled = styled.div`
     box-sizing: border-box;
@@ -22,11 +25,11 @@ const CountdownStyled = styled.div`
         }
 
         &__trace {
-            stroke: ${props => props.aphBackground};
+            stroke: ${props => colors.getFromTheme(props, props.aphBackground)};
         }
 
         &__line {
-            stroke        : ${props => props.aphColor};
+            stroke        : ${props => colors.getFromTheme(props, props.aphColor)};
             stroke-linecap: round;
             transition    : stroke-dashoffset 0.1s linear;
         }
@@ -45,7 +48,7 @@ const CountdownStyled = styled.div`
             font-size  : ${props => props.aphSize / 2}px;
             line-height: ${props => props.aphSize}px;
 
-            color: ${props => props.aphColor};
+            color: ${props => colors.getFromTheme(props, props.aphColor)};
         }
     }
 
