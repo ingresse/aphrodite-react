@@ -15,6 +15,7 @@ const AphListItemStyled = styled.li`
     padding: 10px;
 
     background-color: transparent;
+    box-shadow      : ${props => (!props.borderBottom ? null : `inset 0 1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}`)};
 
     transition :
         color 0.15s linear,
@@ -33,14 +34,18 @@ const AphListItemStyled = styled.li`
     ${props => (props.onClick) ? {
         cursor: 'pointer',
         color : colors.getFromTheme(props, 'secondary'),
-    } : null};
 
-    ${props => (props.onClick || props.hoverable) ? {
         '&:hover': {
             color          : colors.getFromTheme(props, 'secondary'),
             backgroundColor: colors.getFromTheme(props, 'secondary', 'crystal'),
         }
-    } : null}
+    } : null};
+
+    ${props => (props.hoverable) ? {
+        '&:hover': {
+            backgroundColor: colors.getFromTheme(props, 'helper', 'original', 0.25),
+        }
+    } : null};
 
     ${props => props.styles};
 `;
