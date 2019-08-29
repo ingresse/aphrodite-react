@@ -70,15 +70,16 @@ const Modal = forwardRef((props, ref) => {
      * @param {object} evt - DOM click event
      */
     function handleCloseOnScape (evt) {
-        const { key, keyCode, target, stopPropagation } = (evt || {});
+        const { key, keyCode, target } = (evt || {});
         const isEscPressed = (key === 'Escape' || key === 'Esc' || keyCode === 27);
 
         if (!isEscPressed) {
             return;
         }
 
-        if (typeof stopPropagation === 'function') {
-            stopPropagation();
+        if (evt && evt.stopPropagation &&
+            (typeof evt.stopPropagation === 'function')) {
+            evt.stopPropagation();
         }
 
         handleClose();
@@ -174,7 +175,9 @@ const Modal = forwardRef((props, ref) => {
             handleClose();
             unlisten();
 
-            return unlisten;
+            return function cleanup() {
+                unlisten();
+            };
         }
 
         if (opened || active) {
