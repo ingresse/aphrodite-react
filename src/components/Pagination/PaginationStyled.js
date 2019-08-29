@@ -21,7 +21,8 @@ const AphPaginationStyled = styled.section`
     user-select: none;
 
     border-radius   : 5px;
-    background-color: ${props => colors.getFromTheme(props, 'smoke')};
+    background-color: ${props => colors.getFromTheme(props, 'background')};
+    transition      : background-color .2s linear;
 
     * {
         box-sizing : border-box;
@@ -47,7 +48,7 @@ const AphPaginationStyled = styled.section`
 
             border-radius: 5px;
 
-            transition: background-color 0.25s linear;
+            transition: background-color 0.2s linear;
 
             outline: 0;
             border : 0;
@@ -89,7 +90,7 @@ const AphPaginationStyled = styled.section`
             background-color: transparent;
 
             &-active {
-                color: ${props => colors.getFromTheme(props, 'black')};
+                color: ${props => colors.getFromTheme(props, 'base')};
             }
 
             &:active,
@@ -98,7 +99,7 @@ const AphPaginationStyled = styled.section`
                 border : 0;
 
                 &:not(.rc-pagination-item-active) {
-                    background-color: ${props => colors.getFromTheme(props, 'mercury', 'crystal', 0.5)};
+                    background-color: ${props => colors.getOpacity(0.5, colors.getFromTheme(props, 'disabled'))};
                 }
             }
         }

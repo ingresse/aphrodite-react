@@ -39,7 +39,8 @@ const ModalStyled = styled.dialog`
         transform ${props => props.opened ? 0.2 : 0.1}s linear
     ;
 
-    background-color: ${colors.get('white')};
+    color           : ${props => colors.getFromTheme(props, 'base')};
+    background-color: ${props => colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'background' : 'white'))};
     box-shadow      : 0 0 10px 0 ${colors.get('black', 'original', 0.25)};
     border-radius   : ${SIZES.LG.RADIUS} ${SIZES.LG.RADIUS} 0 0;
 
