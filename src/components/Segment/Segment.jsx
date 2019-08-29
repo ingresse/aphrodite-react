@@ -15,8 +15,11 @@ const SegmentStyled = styled.div`
     padding: ${props => props.aphpadding || '20px 10px'};
 
     border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
-    box-shadow   : ${props => props.aphshadow ? `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}` : null};
-
+    box-shadow   : ${props => props.aphshadow ?
+        `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}` : (
+            props.borderBottom ? `inset 0 1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}` : null
+        )
+    };
 
     color           : ${props => props.aphcolor ? colors.getFromTheme(props, props.aphcolor) : null};
     background-color: ${props => props.aphbackground ? colors.getFromTheme(props, props.aphbackground) : null};
