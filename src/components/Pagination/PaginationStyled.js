@@ -77,7 +77,7 @@ const AphPaginationStyled = styled.section`
         }
 
         &-disabled {
-            background-color: ${props => colors.getFromTheme(props, 'disabled')};
+            background-color: ${props => colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'inverse' : 'disabled'))};
         }
 
         &-item,
