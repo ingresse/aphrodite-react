@@ -99,7 +99,7 @@ const AphPaginationStyled = styled.section`
                 border : 0;
 
                 &:not(.rc-pagination-item-active) {
-                    background-color: ${props => colors.getOpacity(0.5, colors.getFromTheme(props, 'disabled'))};
+                    background-color: ${props => colors.getOpacity(0.5, colors.getFromTheme(props, (props.theme && props.theme.isDarkMode ? 'inverse' : 'disabled')))};
                 }
             }
         }
