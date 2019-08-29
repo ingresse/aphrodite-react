@@ -7,6 +7,16 @@ import P from '../Typography/P/P';
 /* Component Itself */
 function Label(props) {
     /**
+     * Inherit props
+     */
+    const {
+        className,
+        styles,
+
+        ...rest
+    } = props;
+
+    /**
      * Render
      */
     return (
@@ -16,7 +26,10 @@ function Label(props) {
             upper
             margin="5px 0"
             color="helper"
-            {...props}
+            as="label"
+            className={`aph-label ${className || ''}`}
+            styles={Object.assign({ display: 'block' }, (styles || {}))}
+            {...rest}
         />
     );
 }
