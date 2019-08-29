@@ -1,6 +1,3 @@
-/* Packages */
-const util = require('tinycolor2');
-
 /* Color Base */
 const _COLORS = {
     DARK_BLACK: 'rgb(0, 0, 0)',         // #000000
@@ -56,26 +53,26 @@ const _TONED = Object.assign({}, _SEGMENTED, {
         'GREY'      : _SEGMENTED.DARK_GREY,
         'DARK_GREY' : _SEGMENTED.GREY,
 
-        'YELLOW'      : util(_SEGMENTED.YELLOW).darken().toString(),
-        'ORANGE'      : util(_SEGMENTED.ORANGE).darken().toString(),
-        'ORANGE_RED'  : util(_SEGMENTED.ORANGE_RED).darken().toString(),
+        'YELLOW'      : _SEGMENTED.YELLOW,
+        'ORANGE'      : _SEGMENTED.ORANGE,
+        'ORANGE_RED'  : _SEGMENTED.ORANGE_RED,
         'RED'         : _SEGMENTED.DARK_RED,
         'DARK_RED'    : _SEGMENTED.RED,
         'GREEN'       : _SEGMENTED.DARK_GREEN,
         'DARK_GREEN'  : _SEGMENTED.GREEN,
-        'BLUE'        : util(_SEGMENTED.BLUE).darken().toString(),
-        'PURPLE'      : util(_SEGMENTED.PURPLE).darken().toString(),
-        'LIGHT_PINK'  : util(_SEGMENTED.LIGHT_PINK).darken().toString(),
+        'BLUE'        : _SEGMENTED.BLUE,
+        'PURPLE'      : _SEGMENTED.PURPLE,
+        'LIGHT_PINK'  : _SEGMENTED.LIGHT_PINK,
 
-        'PRIMARY'  : util(_SEGMENTED.PRIMARY).darken().toString(),
-        'SECONDARY': util(_SEGMENTED.SECONDARY).darken().toString(),
+        'PRIMARY'  : _SEGMENTED.PRIMARY,
+        'SECONDARY': _SEGMENTED.SECONDARY,
 
-        'ERROR'    : util(_SEGMENTED.ERROR).darken().toString(),
-        'WARNING'  : util(_SEGMENTED.WARNING).darken().toString(),
-        'SUCCESS'  : util(_SEGMENTED.SUCCESS).darken().toString(),
-        'INFO'     : util(_SEGMENTED.INFO).darken().toString(),
+        'ERROR'    : _SEGMENTED.ERROR,
+        'WARNING'  : _SEGMENTED.WARNING,
+        'SUCCESS'  : _SEGMENTED.SUCCESS,
+        'INFO'     : _SEGMENTED.INFO,
 
-        'INVERSE'  : util(_SEGMENTED.WHITE).darken().toString(),
+        'INVERSE'  : _SEGMENTED.WHITE,
     },
 });
 
