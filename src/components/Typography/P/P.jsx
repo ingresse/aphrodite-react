@@ -10,7 +10,7 @@ import { text } from '../typography';
 const PStyled = styled.p`
     box-sizing: border-box;
 
-    ${props => text(props, props.small ? 'SM' : 'MD')};
+    ${props => text(props, props.textSmall ? 'SM' : 'MD')};
 
     ${props => props.styles};
 `;
