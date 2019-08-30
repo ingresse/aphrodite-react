@@ -56,8 +56,8 @@ const DropdownStyled = styled.div`
                     opacity ${props => props.opened ? 0.15 : 0.25}s linear
                 ;
 
-                color     : ${props => colors.getFromTheme(props, 'base')};
-                background: ${props => colors.getFromTheme(props, 'inverse')};
+                color     : ${props => colors.getFromTheme(props, 'black')};
+                background: ${props => colors.getFromTheme(props, 'white')};
                 box-shadow: 0 0 5px ${props => colors.getFromTheme(props, 'shadow')};
 
                 padding: ${props => (props.thin ? '0' : '15px 10px')};

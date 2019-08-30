@@ -491,7 +491,7 @@ var ActionBarStyled = _styled("div", {
     bottom: 0,
     left: 0,
     padding: "20px 0",
-    backgroundColor: colors$1.getFromTheme(props, "inverse"),
+    backgroundColor: colors$1.getFromTheme(props, "white"),
     boxShadow: "0 0 4px 0 ".concat(colors$1.getFromTheme(props, "shadow")),
     transform: "translateY(110%)",
     willChange: "transform",
@@ -883,9 +883,9 @@ var DISTANCE = "calc(100% + 10px)", DropdownStyled = _styled("div", {
 }, "s linear,opacity ", function(props) {
   return props.opened ? .15 : .25;
 }, "s linear;color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+  return colors$1.getFromTheme(props, "black");
 }, ";background:", function(props) {
-  return colors$1.getFromTheme(props, "inverse");
+  return colors$1.getFromTheme(props, "white");
 }, ";box-shadow:0 0 5px ", function(props) {
   return colors$1.getFromTheme(props, "shadow");
 }, ";padding:", function(props) {
@@ -3478,9 +3478,9 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
 }, "s linear,transform ", function(props) {
   return props.opened ? .2 : .1;
 }, "s linear;color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+  return colors$1.getFromTheme(props, "black");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "inverse");
+  return colors$1.getFromTheme(props, "white");
 }, ";box-shadow:0 0 10px 0 ", function(props) {
   return colors$1.getFromTheme(props, "shadow");
 }, ";border-radius:", SIZES.LG.RADIUS, " ", SIZES.LG.RADIUS, " 0 0;&.visible{display:block;}&.active{opacity:1;}*{box-sizing:border-box;}", selector$1, "{&__container{min-height:100%;max-height:100%;overflow:auto;&__title{padding-top:20px;}&__header{padding-top:5px;padding-bottom:5px;}&__content{width:100%;}}&__footer{max-height:", SIZES.ACTION_BAR_HEIGHT, ";}}", function(props) {
@@ -4234,18 +4234,18 @@ List.defaultProps = {
 var AphListItemStyled = _styled("li", {
   target: "e6wegxb0"
 })("box-sizing:border-box;display:block;margin:0;padding:10px;background-color:transparent;box-shadow:", function(props) {
-  return props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "helper"))) : null;
+  return props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))) : null;
 }, ";transition:color 0.15s linear,background-color 0.15s linear;will-change:color,background-color;&.active{color:", function(props) {
   return colors$1.getFromTheme(props, "secondary");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "background" : "secondary", "crystal");
+  return colors$1.getFromTheme(props, "secondary", "crystal");
 }, ";}", function(props) {
   return props.onClick ? {
     cursor: "pointer",
     color: colors$1.getFromTheme(props, "secondary"),
     "&:hover": {
       color: colors$1.getFromTheme(props, "secondary"),
-      backgroundColor: colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "background" : "secondary", "crystal")
+      backgroundColor: colors$1.getFromTheme(props, "secondary", "crystal")
     }
   } : null;
 }, ";", function(props) {
