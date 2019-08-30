@@ -70,6 +70,7 @@ function Accordion(props) {
 
         children,
         className,
+        id,
         styles,
 
         withIcon,
@@ -112,7 +113,8 @@ function Accordion(props) {
     return (
         <AphAccordion
             styles={styles}
-            className={`aph-accordion ${className}`}>
+            className={`aph-accordion ${className}`}
+            id={id}>
             <ListItem
                 {...headerProps}
                 header={headerDark ? true : false}
