@@ -24,7 +24,7 @@ const ActionBarStyled = styled('div')(props => ({
     left     : 0,
     padding  : '20px 0',
 
-    backgroundColor: colors.getFromTheme(props, 'inverse'),
+    backgroundColor: colors.getFromTheme(props, 'white'),
     boxShadow      : `0 0 4px 0 ${colors.getFromTheme(props, 'shadow')}`,
 
     transform : `translateY(110%)`,
