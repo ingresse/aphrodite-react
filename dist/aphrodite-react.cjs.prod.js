@@ -3854,7 +3854,7 @@ H3.defaultProps = {
 var PStyled = _styled("p", {
   target: "enm91qe0"
 })("box-sizing:border-box;", function(props) {
-  return text(props, props.small ? "SM" : "MD");
+  return text(props, props.textSmall ? "SM" : "MD");
 }, ";", function(props) {
   return props.styles;
 }, ";"), P = React.forwardRef(function(props, ref) {
