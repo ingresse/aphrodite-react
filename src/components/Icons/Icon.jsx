@@ -11,14 +11,10 @@ import ArrowUp from './IconArrowUp';
 import ArrowRight from './IconArrowRight';
 import ArrowDown from './IconArrowDown';
 import ArrowLeft from './IconArrowLeft';
-import ArrowDownCircle from './IconArrowDownCircle';
-import ArrowLeftCircle from './IconArrowLeftCircle';
-import ArrowRightCircle from './IconArrowRightCircle';
-import ArrowUpCircle from './IconArrowUpCircle';
 import Bluetooth from './IconBluetooth';
 import Camera from './IconCamera';
 import Card from './IconCard';
-import CheckCircle from './IconCheckCircle';
+import Cards from './IconCards';
 import CheckThin from './IconCheckThin';
 import Delete from './IconDelete';
 import ExternalTicket from './IconExternalTicket';
@@ -26,7 +22,7 @@ import Eye from './IconEye';
 import Flash from './IconFlash';
 import FlashOff from './IconFlashOff';
 import Info from './IconInfo';
-import InfoCircle from './IconInfoCircle';
+import Items from './IconItems';
 import List from './IconList';
 import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
@@ -36,14 +32,12 @@ import Options from './IconOptions';
 import Pencil from './IconPencil';
 import Plus from './IconPlus';
 import QRCode from './IconQRCode';
-import QuestionCircle from './IconQuestionCircle';
 import Refresh from './IconRefresh';
 import Scan from './IconScan';
 import Search from './IconSearch';
 import Settings from './IconSettings';
 import Ticketbooth from './IconTicketbooth';
 import Times from './IconTimes';
-import TimesCircle from './IconTimesCircle';
 import Transfer from './IconTransfer';
 import Unlock from './IconUnlock';
 
@@ -66,22 +60,18 @@ const ICONS = {
     'arrow-right'       : ArrowRight,
     'arrow-down'        : ArrowDown,
     'arrow-left'        : ArrowLeft,
-    'arrow-down-circle' : ArrowDownCircle,
-    'arrow-left-circle' : ArrowLeftCircle,
-    'arrow-right-circle': ArrowRightCircle,
-    'arrow-up-circle'   : ArrowUpCircle,
     'bluetooth'         : Bluetooth,
     'camera'            : Camera,
     'card'              : Card,
+    'cards'             : Cards,
     'check'             : CheckThin,
-    'check-circle'      : CheckCircle,
     'check-thin'        : CheckThin,
     'external-ticket'   : ExternalTicket,
     'eye'               : Eye,
     'flash'             : Flash,
     'flash-off'         : FlashOff,
     'info'              : Info,
-    'info-circle'       : InfoCircle,
+    'items'             : Items,
     'list'              : List,
     'loader'            : LoaderDonut,
     'loading'           : Loading,
@@ -93,11 +83,9 @@ const ICONS = {
     'search'            : Search,
     'settings'          : Settings,
     'qrcode'            : QRCode,
-    'question-circle'   : QuestionCircle,
     'scan'              : Scan,
     'ticketbooth'       : Ticketbooth,
     'times'             : Times,
-    'times-circle'      : TimesCircle,
     'transfer'          : Transfer,
     'unlock'            : Unlock,
     'refresh'           : Refresh,

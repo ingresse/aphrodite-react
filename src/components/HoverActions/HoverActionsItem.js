@@ -15,7 +15,7 @@ const HoverActionItem = styled.button`
     box-sizing: border-box;
 
     display: inline-block;
-    padding: 5px;
+    padding: 6px 5px 4px;
     margin : 0;
 
     font-weight   : bold;
@@ -32,7 +32,7 @@ const HoverActionItem = styled.button`
 
     cursor: pointer;
 
-    color           : ${props => props.color ? colors.getFromTheme(props, props.color) : 'inherit'};
+    color           : ${props => props.color ? colors.getFromTheme(props, props.color) : null};
     background-color: ${props => colors.getFromTheme(props, 'inverse', null, 0.75)};
     box-shadow      : 0 0 5px ${props => colors.getFromTheme(props, 'shadow')};
 

@@ -140,7 +140,7 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
   COLUMNS_GET_WIDTH: function(columnNumber) {
     return !(columnNumber = parseInt(columnNumber, 10)) || "number" != typeof columnNumber || columnNumber < 1 || columnNumber > COLUMNS ? null : 10 * columnNumber / 12 * 10 + "%";
   }
-}, ICONS = Object.assign([ "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "info", "list", "loader", "loading", "lock", "unlock", "search", "settings", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "arrow-down-circle", "arrow-left-circle", "arrow-right-circle", "arrow-up-circle", "check-circle", "info-circle", "question-circle", "times-circle", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
+}, ICONS = Object.assign([ "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "info", "items", "list", "loader", "loading", "lock", "unlock", "search", "settings", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
   ENCODE_SVG: function(reactElement) {
     return "data:image/svg+xml," + escape(ReactDOMServer.renderToStaticMarkup(reactElement));
   }
@@ -776,8 +776,8 @@ Card.defaultProps = {
 
 var _SIZES$XS = SIZES.XS, FONT_SIZE = _SIZES$XS.FONT_SIZE, LINE_HEIGHT = _SIZES$XS.LINE_HEIGHT, HoverActionItem = _styled("button", {
   target: "ezj1zsv0"
-})("box-sizing:border-box;display:inline-block;padding:5px;margin:0;font-weight:bold;font-size:", FONT_SIZE, ";line-height:", LINE_HEIGHT, ";text-transform:uppercase;border:0;outline:0;text-decoration:none;border-radius:", RADIUS.XS, "px;cursor:pointer;color:", function(props) {
-  return props.color ? colors$1.getFromTheme(props, props.color) : "inherit";
+})("box-sizing:border-box;display:inline-block;padding:6px 5px 4px;margin:0;font-weight:bold;font-size:", FONT_SIZE, ";line-height:", LINE_HEIGHT, ";text-transform:uppercase;border:0;outline:0;text-decoration:none;border-radius:", RADIUS.XS, "px;cursor:pointer;color:", function(props) {
+  return props.color ? colors$1.getFromTheme(props, props.color) : null;
 }, ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "inverse", null, .75);
 }, ";box-shadow:0 0 5px ", function(props) {
@@ -1086,150 +1086,6 @@ var IconArrowUp = function(props) {
     strokeWidth: "4",
     d: "M18 8l-8 7 8 7"
   }));
-}, IconArrowDownCircle = function(props) {
-  return React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
-    viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    id: "a",
-    d: "M3.953 3.953c5.272-5.27 13.82-5.27 19.092 0 5.273 5.274 5.273 13.82 0 19.091-5.271 5.275-13.82 5.275-19.09 0-5.273-5.27-5.273-13.82-.002-19.09z"
-  }), React__default.createElement("mask", {
-    id: "b",
-    width: "30",
-    height: "30",
-    x: "-1.5",
-    y: "-1.5"
-  }, React__default.createElement("path", {
-    fill: "#fff",
-    d: "M-1.5-1.5h30v30h-30z",
-    id: "path8"
-  }), React__default.createElement("use", {
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd",
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    transform: "matrix(-1 0 0 1 28.5 1.5)"
-  }, React__default.createElement("use", {
-    strokeWidth: "2",
-    mask: "url(#b)",
-    xlinkHref: "#a",
-    id: "use14"
-  }), React__default.createElement("path", {
-    strokeWidth: "1.5",
-    d: "m 9.006001,12.255031 4.495,4.495 4.493,-4.495"
-  })));
-}, IconArrowLeftCircle = function(props) {
-  return React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
-    viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    id: "a",
-    d: "M3.953 3.953c5.272-5.27 13.82-5.27 19.092 0 5.273 5.274 5.273 13.82 0 19.091-5.271 5.275-13.82 5.275-19.09 0-5.273-5.27-5.273-13.82-.002-19.09z"
-  }), React__default.createElement("mask", {
-    id: "b",
-    width: "30",
-    height: "30",
-    x: "-1.5",
-    y: "-1.5"
-  }, React__default.createElement("path", {
-    fill: "#fff",
-    d: "M-1.5-1.5h30v30h-30z"
-  }), React__default.createElement("use", {
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd",
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    transform: "matrix(-1 0 0 1 28.5 1.5)"
-  }, React__default.createElement("use", {
-    strokeWidth: "2",
-    mask: "url(#b)",
-    xlinkHref: "#a"
-  }), React__default.createElement("path", {
-    strokeWidth: "1.5",
-    d: "M12 17.988l4.495-4.495L12 9"
-  })));
-}, IconArrowRightCircle = function(props) {
-  return React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
-    viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    id: "a",
-    d: "M3.953 3.953c5.272-5.27 13.82-5.27 19.092 0 5.273 5.274 5.273 13.82 0 19.091-5.271 5.275-13.82 5.275-19.09 0-5.273-5.27-5.273-13.82-.002-19.09z"
-  }), React__default.createElement("mask", {
-    id: "b",
-    width: "30",
-    height: "30",
-    x: "-1.5",
-    y: "-1.5"
-  }, React__default.createElement("path", {
-    fill: "#fff",
-    d: "M-1.5-1.5h30v30h-30z"
-  }), React__default.createElement("use", {
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd",
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    transform: "translate(1.5 1.5)"
-  }, React__default.createElement("use", {
-    strokeWidth: "2",
-    mask: "url(#b)",
-    xlinkHref: "#a"
-  }), React__default.createElement("path", {
-    strokeWidth: "1.5",
-    d: "M12 17.988l4.495-4.495L12 9"
-  })));
-}, IconArrowUpCircle = function(props) {
-  return React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
-    viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    d: "M3.953 3.953c5.272-5.27 13.82-5.27 19.092 0 5.273 5.274 5.273 13.82 0 19.091-5.271 5.275-13.82 5.275-19.09 0-5.273-5.27-5.273-13.82-.002-19.09z",
-    id: "a"
-  }), React__default.createElement("mask", {
-    y: "-1.5",
-    x: "-1.5",
-    height: "30",
-    width: "30",
-    id: "b"
-  }, React__default.createElement("path", {
-    id: "path8",
-    d: "M-1.5-1.5h30v30h-30z",
-    fill: "#fff"
-  }), React__default.createElement("use", {
-    id: "use10",
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
-    transform: "matrix(-1 0 0 1 28.5 1.5)",
-    strokeLinejoin: "round",
-    strokeLinecap: "round",
-    stroke: props.color,
-    fillRule: "evenodd",
-    fill: "none"
-  }, React__default.createElement("use", {
-    strokeWidth: "2",
-    xlinkHref: "#a",
-    mask: "url(#b)"
-  }), React__default.createElement("path", {
-    strokeWidth: "1.5",
-    d: "m 17.993999,15.743696 -4.495,-4.495 -4.4929997,4.495"
-  })));
 }, IconBluetooth = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color;
   return React__default.createElement("svg", {
@@ -1311,42 +1167,92 @@ var IconArrowUp = function(props) {
     width: "5",
     height: "2"
   })));
-}, IconCheck = function(props) {
+}, IconCards = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color;
   return React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    xmlnsXlink: "http://www.w3.org/1999/xlink",
-    width: props.size,
-    height: props.size,
+    width: width || size,
+    height: height || size,
     viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    id: "a",
-    d: "M27.5 14c0 7.457-6.043 13.5-13.5 13.5S.5 21.457.5 14C.5 6.545 6.543.5 14 .5S27.5 6.545 27.5 14z"
-  }), React__default.createElement("mask", {
-    id: "b",
-    width: "30",
-    height: "30",
-    x: "-1.5",
-    y: "-1.5"
-  }, React__default.createElement("path", {
-    fill: "#fff",
-    d: "M-1-1h30v30H-1z"
-  }), React__default.createElement("use", {
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Cards",
+    stroke: "none",
+    strokeWidth: "1",
     fill: "none",
-    fillRule: "evenodd",
-    stroke: props.color,
+    fillRule: "evenodd"
+  }, React__default.createElement("g", {
+    id: "Group",
+    transform: "translate(2.000000, 5.300000)"
+  }, React__default.createElement("g", {
+    id: "Cards",
+    transform: "translate(0.000000, 1.000000)"
+  }, React__default.createElement("g", {
+    id: "Card-1"
+  }, React__default.createElement("path", {
+    d: "M1,-0.75 L15,-0.75 C15.5983085,-0.75 16.0833333,-0.264975146 16.0833333,0.333333333 L16.0833333,7.24831355 L11.1641099,7.24831355 C10.473754,7.24831355 9.91410993,7.80795762 9.91410993,8.49831355 L9.91410993,10.0833333 L1,10.0833333 C0.401691521,10.0833333 -0.0833333333,9.59830848 -0.0833333333,9 L-0.0833333333,0.333333333 C-0.0833333333,-0.264975146 0.401691521,-0.75 1,-0.75 Z",
+    id: "Rectangle",
+    stroke: color,
+    strokeWidth: "1.5"
+  }), React__default.createElement("rect", {
+    id: "Rectangle",
+    fill: color,
+    x: "0",
+    y: "2",
+    width: "16",
+    height: "1.5"
+  })), React__default.createElement("g", {
+    id: "Card-2",
+    transform: "translate(10.000000, 8.000000)"
+  }, React__default.createElement("rect", {
+    id: "Rectangle",
+    stroke: color,
+    strokeWidth: "1.5",
+    x: "-0.0833333333",
+    y: "-0.75",
+    width: "16.1666667",
+    height: "10.8333333",
+    rx: "0.333333333"
+  }), React__default.createElement("rect", {
+    id: "Rectangle",
+    fill: color,
+    x: "0",
+    y: "2",
+    width: "16",
+    height: "1.5"
+  }))), React__default.createElement("g", {
+    id: "Arrows",
+    transform: "translate(1.500000, 0.000000)"
+  }, React__default.createElement("g", {
+    id: "Arrow-1",
+    transform: "translate(16.000000, 0.000000)"
+  }, React__default.createElement("path", {
+    d: "M1.75851811,5.41421356 L1.5,5.41421356 C1.22385763,5.41421356 1,5.19035594 1,4.91421356 L1,1.5 C1,1.22385763 1.22385763,1 1.5,1 L4.91421356,1 C5.19035594,1 5.41421356,1.22385763 5.41421356,1.5 L5.41421356,1.75851811 C5.41421356,2.03466048 5.19035594,2.25851811 4.91421356,2.25851811 L2.75851811,2.25851811 C2.48237573,2.25851811 2.25851811,2.48237573 2.25851811,2.75851811 L2.25851811,4.91421356 C2.25851811,5.19035594 2.03466048,5.41421356 1.75851811,5.41421356 Z",
+    id: "Path-4-Copy-4",
+    fill: color,
+    transform: "translate(3.207107, 3.207107) rotate(-45.000000) translate(-3.207107, -3.207107) "
+  }), React__default.createElement("polyline", {
+    id: "Path-9",
+    stroke: color,
+    strokeWidth: "1.3",
     strokeLinecap: "round",
     strokeLinejoin: "round",
-    transform: "translate(1 1)"
-  }, React__default.createElement("use", {
-    strokeWidth: "3",
-    mask: "url(#b)",
-    xlinkHref: "#a"
-  }), React__default.createElement("path", {
-    strokeWidth: "1.5",
-    d: "M7.808 14.149l4.291 3.994 8.821-8.554"
-  })));
+    points: "1.53553391 3.20710678 6.82504026 3.20710678 6.82504026 5.70710678"
+  })), React__default.createElement("g", {
+    id: "Arrow-2",
+    transform: "translate(3.500000, 15.500000) scale(-1, -1) translate(-3.500000, -15.500000) translate(0.000000, 12.000000)"
+  }, React__default.createElement("path", {
+    d: "M1.75851811,5.41421356 L1.5,5.41421356 C1.22385763,5.41421356 1,5.19035594 1,4.91421356 L1,1.5 C1,1.22385763 1.22385763,1 1.5,1 L4.91421356,1 C5.19035594,1 5.41421356,1.22385763 5.41421356,1.5 L5.41421356,1.75851811 C5.41421356,2.03466048 5.19035594,2.25851811 4.91421356,2.25851811 L2.75851811,2.25851811 C2.48237573,2.25851811 2.25851811,2.48237573 2.25851811,2.75851811 L2.25851811,4.91421356 C2.25851811,5.19035594 2.03466048,5.41421356 1.75851811,5.41421356 Z",
+    id: "Path-4-Copy-4",
+    fill: color,
+    transform: "translate(3.207107, 3.207107) rotate(-45.000000) translate(-3.207107, -3.207107) "
+  }), React__default.createElement("polyline", {
+    id: "Path-9",
+    stroke: color,
+    strokeWidth: "1.3",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    points: "1.53553391 3.20710678 6.82504026 3.20710678 6.82504026 5.70710678"
+  }))))));
 }, IconCheckThin = function(props) {
   var color = props.color, size = props.size;
   return React__default.createElement("svg", {
@@ -1499,50 +1405,50 @@ var IconArrowUp = function(props) {
     fill: color,
     d: "M10,3.25 C10.9664983,3.25 11.75,4.03350169 11.75,5 C11.75,5.96649831 10.9664983,6.75 10,6.75 C9.03350169,6.75 8.25,5.96649831 8.25,5 C8.25,4.03350169 9.03350169,3.25 10,3.25 Z M8.6875,8.75 L11.3125,8.75 C11.5541246,8.75 11.75,8.94587542 11.75,9.1875 L11.75,16.3125 C11.75,16.5541246 11.5541246,16.75 11.3125,16.75 L8.6875,16.75 C8.44587542,16.75 8.25,16.5541246 8.25,16.3125 L8.25,9.1875 C8.25,8.94587542 8.44587542,8.75 8.6875,8.75 Z"
   })));
-}, IconInfoCircle = function(props) {
+}, IconItems = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color;
   return React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
+    width: width || size,
+    height: height || size,
     viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    id: "a",
-    d: "M27 13.499c0 7.457-6.046 13.5-13.5 13.5-7.458 0-13.5-6.043-13.5-13.5C0 6.044 6.042 0 13.5 0 20.954 0 27 6.044 27 13.499z"
-  }), React__default.createElement("mask", {
-    id: "b",
-    width: "30",
-    height: "29.999",
-    x: "-1.5",
-    y: "-1.5"
-  }, React__default.createElement("path", {
-    fill: "#fff",
-    d: "M-1.5-1.5h30v29.999h-30z"
-  }), React__default.createElement("use", {
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
+  }, React__default.createElement("g", {
+    id: "Tab-Destaques-/-Normal",
+    stroke: "none",
+    strokeWidth: "1",
     fill: "none",
-    fillRule: "evenodd",
-    transform: "translate(1.5 1.5)"
-  }, React__default.createElement("use", {
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "3",
-    mask: "url(#b)",
-    xlinkHref: "#a"
-  }), React__default.createElement("g", {
-    transform: "matrix(1 0 0 -1 12 20)"
-  }, React__default.createElement("path", {
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
+    fillRule: "evenodd"
+  }, React__default.createElement("g", {
+    id: "Eventos",
+    transform: "translate(2.000000, 0.500000)"
+  }, React__default.createElement("rect", {
+    id: "Rectangle-Copy-3",
+    stroke: color,
     strokeWidth: "1.5",
-    d: "M1.5.5v8"
-  }), React__default.createElement("circle", {
-    cx: "1.5",
-    cy: "12",
-    r: "1",
-    fill: props.color
+    transform: "translate(7.000000, 12.000000) rotate(-270.000000) translate(-7.000000, -12.000000) ",
+    x: "-4.75",
+    y: "4.25",
+    width: "23.5",
+    height: "15.5",
+    rx: "1.05"
+  }), React__default.createElement("rect", {
+    id: "Rectangle-Copy-3",
+    fill: color,
+    transform: "translate(18.000000, 11.950000) rotate(-270.000000) translate(-18.000000, -11.950000) ",
+    x: "7",
+    y: "11.2",
+    width: "22",
+    height: "1.5",
+    rx: "0.75"
+  }), React__default.createElement("rect", {
+    id: "Rectangle-Copy-5",
+    fill: color,
+    transform: "translate(21.000000, 11.750000) rotate(-270.000000) translate(-21.000000, -11.750000) ",
+    x: "12",
+    y: "11",
+    width: "18",
+    height: "1.5",
+    rx: "0.75"
   }))));
 }, IconList = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color;
@@ -1800,51 +1706,6 @@ var IconLoading = function(props) {
     fill: color,
     d: "M6,19 L10,19 C10.5522847,19 11,19.4477153 11,20 L11,24 C11,24.5522847 10.5522847,25 10,25 L6,25 C5.44771525,25 5,24.5522847 5,24 L5,20 C5,19.4477153 5.44771525,19 6,19 Z M7.3,20.8 C7.02385763,20.8 6.8,21.0238576 6.8,21.3 L6.8,22.8 C6.8,23.0761424 7.02385763,23.3 7.3,23.3 L8.8,23.3 C9.07614237,23.3 9.3,23.0761424 9.3,22.8 L9.3,21.3 C9.3,21.0238576 9.07614237,20.8 8.8,20.8 L7.3,20.8 Z M6,5 L10,5 C10.5522847,5 11,5.44771525 11,6 L11,10 C11,10.5522847 10.5522847,11 10,11 L6,11 C5.44771525,11 5,10.5522847 5,10 L5,6 C5,5.44771525 5.44771525,5 6,5 Z M7.3,6.8 C7.02385763,6.8 6.8,7.02385763 6.8,7.3 L6.8,8.8 C6.8,9.07614237 7.02385763,9.3 7.3,9.3 L8.8,9.3 C9.07614237,9.3 9.3,9.07614237 9.3,8.8 L9.3,7.3 C9.3,7.02385763 9.07614237,6.8 8.8,6.8 L7.3,6.8 Z M20,5 L24,5 C24.5522847,5 25,5.44771525 25,6 L25,10 C25,10.5522847 24.5522847,11 24,11 L20,11 C19.4477153,11 19,10.5522847 19,10 L19,6 C19,5.44771525 19.4477153,5 20,5 Z M21.3,6.8 C21.0238576,6.8 20.8,7.02385763 20.8,7.3 L20.8,8.8 C20.8,9.07614237 21.0238576,9.3 21.3,9.3 L22.8,9.3 C23.0761424,9.3 23.3,9.07614237 23.3,8.8 L23.3,7.3 C23.3,7.02385763 23.0761424,6.8 22.8,6.8 L21.3,6.8 Z M24,17 C24.5522847,17 25,17.4477153 25,18 L25,24 C25,24.5522847 24.5522847,25 24,25 L16,25 C15.4477153,25 15,24.5522847 15,24 C15,23.4477153 15.4477153,23 16,23 L22,23 C22.5522847,23 23,22.5522847 23,22 L23,18 C23,17.4477153 23.4477153,17 24,17 Z M14,22 C13.4477153,22 13,21.5522847 13,21 L13,19 C13,18.4477153 13.4477153,18 14,18 L20,18 C20.5522847,18 21,18.4477153 21,19 C21,19.5522847 20.5522847,20 20,20 L16,20 C15.4477153,20 15,20.4477153 15,21 C15,21.5522847 14.5522847,22 14,22 Z M14,11 C14.5522847,11 15,11.4477153 15,12 L15,15 C15,15.5522847 14.5522847,16 14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L12,14 C12.5522847,14 13,13.5522847 13,13 L13,12 C13,11.4477153 13.4477153,11 14,11 Z M16,5 C16.5522847,5 17,5.44771525 17,6 L17,8 C17,8.55228475 16.5522847,9 16,9 C15.4477153,9 15,8.55228475 15,8 L15,6 C15,5.44771525 15.4477153,5 16,5 Z M17.9988769,13.0002805 L24.0011231,13.0019657 C24.552833,13.0021206 25,13.4494132 25,14.0011231 C25,14.5526327 24.5529131,14.9997196 24.0014035,14.9997196 C24.0013101,14.9997196 24.0012166,14.9997196 24.0011231,14.9997195 L17.9988769,14.9980343 C17.447167,14.9978794 17,14.5505868 17,13.9988769 C17,13.4473673 17.4470869,13.0002804 17.9985965,13.0002804 C17.9986899,13.0002804 17.9987834,13.0002804 17.9988769,13.0002805 Z"
   })));
-}, IconQuestionCircle = function(props) {
-  return React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
-    viewBox: "0 0 30 30"
-  }, React__default.createElement("defs", null, React__default.createElement("path", {
-    id: "a",
-    d: "M27 13.5c0 7.458-6.043 13.501-13.5 13.501C6.045 27.001 0 20.958 0 13.5 0 6.044 6.045 0 13.5 0 20.957 0 27 6.044 27 13.5z"
-  }), React__default.createElement("mask", {
-    id: "b",
-    width: "30",
-    height: "30.001",
-    x: "-1.5",
-    y: "-1.5"
-  }, React__default.createElement("path", {
-    fill: "#fff",
-    d: "M-1.5-1.5h30v30.001h-30z"
-  }), React__default.createElement("use", {
-    xlinkHref: "#a"
-  }))), React__default.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd",
-    transform: "translate(1.5 1.5)"
-  }, React__default.createElement("use", {
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "3",
-    mask: "url(#b)",
-    xlinkHref: "#a"
-  }), React__default.createElement("g", {
-    transform: "translate(10 7)"
-  }, React__default.createElement("path", {
-    stroke: props.color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "1.5",
-    d: "M3.041 9.715c0-.718-.185-1.031.39-1.55 1.18-1.068 3.596-2.319 3.596-4.437C7.027-.609.603-.217.603 3.042"
-  }), React__default.createElement("circle", {
-    cx: "3",
-    cy: "13",
-    r: "1",
-    fill: props.color
-  }))));
 }, IconRefresh = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color;
   return React__default.createElement("svg", {
@@ -2041,32 +1902,6 @@ var IconSettings = function(props) {
     d: "M0,12 L12,0 L0,12 Z",
     transform: "translate(6.000000, 6.000000) rotate(-180.000000) translate(-6.000000, -6.000000)"
   }))));
-}, IconTimesCircle = function(props) {
-  return React__default.createElement("svg", {
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg",
-    width: props.size,
-    height: props.size,
-    viewBox: "0 0 20 20"
-  }, React__default.createElement("g", {
-    id: "timesGroup",
-    stroke: "none",
-    fill: "none",
-    fillRule: "evenodd",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, React__default.createElement("g", {
-    id: "timesHead",
-    transform: "translate(-875.000000, -19.000000)",
-    stroke: props.color
-  }, React__default.createElement("g", {
-    id: "timesCancel",
-    transform: "translate(870.000000, 15.000000)"
-  }, React__default.createElement("path", {
-    d: "M20.2106667,20.2113333 C16.7313333,23.69 11.09,23.69 7.61,20.2113333 C4.13,16.7306667 4.13,11.0886667 7.61,7.61 C11.09,4.13 16.7313333,4.13 20.21,7.61 C23.6906667,11.0886667 23.6906667,16.7306667 20.2106667,20.2113333 L20.2106667,20.2113333 Z M13.91,8.79 L13.91,19.0293333 L13.91,8.79 Z M8.79066667,13.91 L19.03,13.91 L8.79066667,13.91 Z",
-    id: "times",
-    transform: "translate(15.000000, 15.000000) rotate(-315.000000) translate(-15.000000, -15.000000) "
-  })))));
 }, IconTransfer = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color;
   return React__default.createElement("svg", {
@@ -2727,22 +2562,18 @@ var ICONS$1 = {
   "arrow-right": IconArrowRight,
   "arrow-down": IconArrowDown,
   "arrow-left": IconArrowLeft,
-  "arrow-down-circle": IconArrowDownCircle,
-  "arrow-left-circle": IconArrowLeftCircle,
-  "arrow-right-circle": IconArrowRightCircle,
-  "arrow-up-circle": IconArrowUpCircle,
   bluetooth: IconBluetooth,
   camera: IconCamera,
   card: IconCard,
+  cards: IconCards,
   check: IconCheckThin,
-  "check-circle": IconCheck,
   "check-thin": IconCheckThin,
   "external-ticket": IconExternalTicket,
   eye: IconEye,
   flash: IconFlash,
   "flash-off": IconFlashOff,
   info: IconInfo,
-  "info-circle": IconInfoCircle,
+  items: IconItems,
   list: IconList,
   loader: IconLoaderDonut,
   loading: IconLoading,
@@ -2754,11 +2585,9 @@ var ICONS$1 = {
   search: IconSearch,
   settings: IconSettings,
   qrcode: IconQRCode,
-  "question-circle": IconQuestionCircle,
   scan: IconScan,
   ticketbooth: IconTicketbooth,
   times: IconTimes,
-  "times-circle": IconTimesCircle,
   transfer: IconTransfer,
   unlock: IconUnlock,
   refresh: IconRefresh,
@@ -2947,7 +2776,7 @@ NumberFormat.defaultProps = {
   thousandSeparator: propTypes.string,
   decimalSeparator: propTypes.string,
   displayType: propTypes.string,
-  value: propTypes.number,
+  value: propTypes.oneOfType([ propTypes.string, propTypes.number ]),
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
@@ -3841,21 +3670,36 @@ SidePill.defaultProps = {
   right: propTypes.bool
 };
 
-var AStyled = _styled("a", {
+var text = function(props) {
+  var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "MD";
+  return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
+}, textAlign = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textAlign || props.textLeft || props.textCenter || props.textRight ? "\n    text-align: ".concat(props.textLeft ? "left" : props.textCenter ? "center" : props.textRight ? "right" : props.textAlign, ";\n") : "";
+}, textBreakAll = function() {
+  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).breakAll ? "\n    word-break: break-all;\n" : "";
+}, textColorfull = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
+}, textDefinitions = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "MD";
+  return "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n");
+}, textTransform = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textLower || props.textUpper ? "\n    text-transform: ".concat(props.textLower ? "lowercase" : "uppercase", ";\n") : "";
+}, textTruncate = function() {
+  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).truncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
+}, AStyled = _styled("a", {
   target: "e93yvql0"
-})("box-sizing:border-box;margin:", function(props) {
-  return props.margin;
-}, ";cursor:pointer;text-decoration:none;text-transform:", function(props) {
-  return props.upper ? "uppercase" : null;
-}, ";color:", function(props) {
-  return colors$1.getFromTheme(props, props.aphcolor || "link");
+})("box-sizing:border-box;cursor:pointer;text-decoration:none;", function(props) {
+  return textColorfull(props);
 }, ";border:0;outline:0;&:active,&:focus,&:hover,&:visited{border:0;outline:0;}", function(props) {
   return props.styles;
 }, ";"), A = React.forwardRef(function(props, ref) {
   var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
   return React__default.createElement(AStyled, _extends({}, rest, {
     ref: ref,
-    aphcolor: color,
+    textColor: color,
     className: "aph-a ".concat(className || "")
   }));
 });
@@ -3883,29 +3727,22 @@ A.defaultProps = {
 
 var H1Styled = _styled("h1", {
   target: "ezvpeh30"
-})("box-sizing:border-box;font-weight:", function(props) {
-  return props.bold ? SIZES.XL.FONT_WEIGHT : SIZES.MD.FONT_WEIGHT;
-}, ";font-weight:", function(props) {
-  return SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT;
-}, ";font-size:", function(props) {
-  return SIZES.XXL.FONT_SIZE;
-}, ";line-height:", function(props) {
-  return SIZES.XXL.LINE_HEIGHT;
-}, ";padding:0;margin:", function(props) {
-  return props.margin;
-}, ";text-align:", function(props) {
-  return props.center ? "center" : props.align || null;
-}, ";text-transform:", function(props) {
-  return props.upper ? "uppercase" : null;
-}, ";color:", function(props) {
-  return props.aphcolor || props.link || props.helper ? colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.aphcolor) : null;
+})("box-sizing:border-box;", function(props) {
+  return text(props, "XXL");
 }, ";", function(props) {
   return props.styles;
 }, ";"), H1 = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
-  return React__default.createElement(H1Styled, _extends({}, rest, {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
+  return React__default.createElement(H1Styled, _extends({
+    textAlign: align,
+    textColor: color,
+    textLeft: left,
+    textCenter: center,
+    textRight: right,
+    textLower: lower,
+    textUpper: upper
+  }, rest, {
     ref: ref,
-    aphcolor: color,
     className: "aph-h1 ".concat(className || "")
   }));
 });
@@ -3932,27 +3769,22 @@ H1.defaultProps = {
 
 var H2Styled = _styled("h2", {
   target: "e1knkmrf0"
-})("box-sizing:border-box;font-weight:", function(props) {
-  return SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT;
-}, ";font-size:", function(props) {
-  return SIZES.XL.FONT_SIZE;
-}, ";line-height:", function(props) {
-  return SIZES.XL.LINE_HEIGHT;
-}, ";padding:0;margin:", function(props) {
-  return props.margin;
-}, ";text-align:", function(props) {
-  return props.center ? "center" : props.align || null;
-}, ";text-transform:", function(props) {
-  return props.upper ? "uppercase" : null;
-}, ";color:", function(props) {
-  return props.aphcolor || props.link || props.helper ? colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.aphcolor) : null;
+})("box-sizing:border-box;", function(props) {
+  return text(props, "XL");
 }, ";", function(props) {
   return props.styles;
 }, ";"), H2 = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
-  return React__default.createElement(H2Styled, _extends({}, rest, {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
+  return React__default.createElement(H2Styled, _extends({
+    textAlign: align,
+    textLeft: left,
+    textCenter: center,
+    textRight: right,
+    textLower: lower,
+    textUpper: upper,
+    textColor: color
+  }, rest, {
     ref: ref,
-    aphcolor: color,
     className: "aph-h2 ".concat(className || "")
   }));
 });
@@ -3979,27 +3811,22 @@ H2.defaultProps = {
 
 var H3Styled = _styled("h3", {
   target: "e181c9j70"
-})("box-sizing:border-box;font-weight:", function(props) {
-  return SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT;
-}, ";font-size:", function(props) {
-  return SIZES.LG.FONT_SIZE;
-}, ";line-height:", function(props) {
-  return SIZES.LG.LINE_HEIGHT;
-}, ";padding:0;margin:", function(props) {
-  return props.margin;
-}, ";text-align:", function(props) {
-  return props.center ? "center" : props.align || null;
-}, ";text-transform:", function(props) {
-  return props.upper ? "uppercase" : null;
-}, ";color:", function(props) {
-  return props.aphcolor || props.link || props.helper ? colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.aphcolor) : null;
+})("box-sizing:border-box;", function(props) {
+  return text(props, "LG");
 }, ";", function(props) {
   return props.styles;
 }, ";"), H3 = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
-  return React__default.createElement(H3Styled, _extends({}, rest, {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
+  return React__default.createElement(H3Styled, _extends({
+    textAlign: align,
+    textLeft: left,
+    textCenter: center,
+    textRight: right,
+    textLower: lower,
+    textUpper: upper,
+    textColor: color
+  }, rest, {
     ref: ref,
-    aphcolor: color,
     className: "aph-h3 ".concat(className || "")
   }));
 });
@@ -4026,27 +3853,23 @@ H3.defaultProps = {
 
 var PStyled = _styled("p", {
   target: "enm91qe0"
-})("box-sizing:border-box;font-weight:", function(props) {
-  return SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT;
-}, ";font-size:", function(props) {
-  return SIZES[props.small ? "SM" : "MD"].FONT_SIZE;
-}, ";line-height:", function(props) {
-  return SIZES[props.small ? "SM" : "MD"].LINE_HEIGHT;
-}, ";padding:0;margin:", function(props) {
-  return props.margin;
-}, ";text-align:", function(props) {
-  return props.center ? "center" : props.align || null;
-}, ";text-transform:", function(props) {
-  return props.upper ? "uppercase" : null;
-}, ";color:", function(props) {
-  return props.aphcolor || props.link || props.helper ? colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.aphcolor) : null;
+})("box-sizing:border-box;", function(props) {
+  return text(props, props.small ? "SM" : "MD");
 }, ";", function(props) {
   return props.styles;
 }, ";"), P = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
-  return React__default.createElement(PStyled, _extends({}, rest, {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, small = props.small, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper", "small" ]);
+  return React__default.createElement(PStyled, _extends({
+    textAlign: align,
+    textLeft: left,
+    textCenter: center,
+    textRight: right,
+    textLower: lower,
+    textUpper: upper,
+    textColor: color,
+    textSmall: small
+  }, rest, {
     ref: ref,
-    aphcolor: color,
     className: "aph-p ".concat(className || "")
   }));
 });

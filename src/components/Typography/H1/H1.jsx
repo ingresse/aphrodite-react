@@ -3,28 +3,14 @@ import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Helpers */
-import { COLORS, SIZES } from '../../../constants';
-import { colors } from '../../../utils';
+/* Commons */
+import { text } from '../typography';
 
 /* Component Styles */
 const H1Styled = styled.h1`
     box-sizing: border-box;
-    font-weight: ${props => (props.bold ? SIZES.XL.FONT_WEIGHT : SIZES.MD.FONT_WEIGHT)};
-    font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${props => (SIZES.XXL.FONT_SIZE)};
-    line-height: ${props => (SIZES.XXL.LINE_HEIGHT)};
 
-    padding: 0;
-    margin : ${props => props.margin};
-
-    text-align    : ${props => (props.center ? 'center' : (props.align || null))};
-    text-transform: ${props => (props.upper ? 'uppercase' : null)};
-
-    color: ${props => (
-        (!props.aphcolor && !props.link && !props.helper) ? null :
-            colors.getFromTheme(props, props.link ? 'link' : (props.helper ? 'helper' : props.aphcolor))
-    )};
+    ${props => text(props, 'XXL')};
 
     ${props => props.styles};
 `;
@@ -35,14 +21,27 @@ const H1 = forwardRef((props, ref) => {
         className,
         color,
 
+        align,
+        center,
+        left,
+        right,
+        lower,
+        upper,
+
         ...rest
     } = props;
 
     return (
         <H1Styled
+            textAlign={align}
+            textColor={color}
+            textLeft={left}
+            textCenter={center}
+            textRight={right}
+            textLower={lower}
+            textUpper={upper}
             {...rest}
             ref={ref}
-            aphcolor={color}
             className={`aph-h1 ${className || ''}`}
         />
     );

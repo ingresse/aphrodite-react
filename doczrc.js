@@ -5,12 +5,18 @@ import { colors } from './src/utils';
 
 /* Docz Custom Settings */
 export default {
-    title      : 'APHRODITE',
+    title      : 'Aphrodite React',
+    description: 'Ingresse\'s UI library',
     base       : '/aphrodite-react/',
     dest       : './docs/',
     src        : './src/',
+    host       : 'local.ingresse.com',
+    debug      : true,
     codeSandbox: false,
     hashRouter : true,
+    menu       : [
+        'Getting Started',
+    ],
     htmlContext: {
         head: {
             links: [
@@ -21,11 +27,17 @@ export default {
             ],
         },
     },
+    theme     : 'docz-theme-ztopia',
     themeConfig: {
         mode  : 'light',
         codemirrorTheme: 'docz-dark',
         radii : '5px',
         linesToScrollEditor: 50,
+        fonts: {
+            body      : 'Roboto, sans-serif',
+            title     : 'Roboto, sans-serif',
+            playground: 'Roboto, sans-serif',
+        },
         colors: {
             grayExtraLight: colors.get('mercury', 'crystal', 0.5),
             grayLight     : colors.get('mercury', 'crystal'),
