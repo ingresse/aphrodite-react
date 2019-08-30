@@ -4467,9 +4467,10 @@ function Accordion(props) {
     setOpened(props.opened);
   }, [ props.opened ]), React__default.createElement(AphAccordion, {
     styles: styles,
-    className: "aph-accordion ".concat(className),
+    className: "aph-accordion ".concat(className)
+  }, React__default.createElement(ListItem, _extends({
     id: id
-  }, React__default.createElement(ListItem, _extends({}, headerProps, {
+  }, headerProps, {
     header: !!headerDark,
     styles: _objectSpread$h({
       cursor: "pointer",

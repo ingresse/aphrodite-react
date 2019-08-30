@@ -114,8 +114,9 @@ function Accordion(props) {
         <AphAccordion
             styles={styles}
             className={`aph-accordion ${className}`}
-            id={id}>
+        >
             <ListItem
+                id={id}
                 {...headerProps}
                 header={headerDark ? true : false}
                 styles={{ cursor: 'pointer', paddingRight: '15px', paddingLeft: '15px', ...headerStyles }}
