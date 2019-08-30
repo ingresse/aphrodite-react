@@ -30,7 +30,7 @@ export const SIZES = {
     },
     XL : {
         FONT_WEIGHT: 700,
-        FONT_SIZE: '28px',
+        FONT_SIZE  : '28px',
         LINE_HEIGHT: '30px',
         RADIUS     : '10px',
         SHADOW     : '10px',

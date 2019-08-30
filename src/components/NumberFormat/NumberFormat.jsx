@@ -44,7 +44,10 @@ NumberFormat.propTypes = {
     thousandSeparator: PropTypes.string,
     decimalSeparator : PropTypes.string,
     displayType      : PropTypes.string,
-    value            : PropTypes.number,
+    value            : PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
     styles           : PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object,

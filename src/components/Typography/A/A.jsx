@@ -5,18 +5,16 @@ import styled from '@emotion/styled';
 
 /* Helpers */
 import { colors } from '../../../utils';
+import { textColorfull } from '../typography';
 
 /* Component Styles */
 const AStyled = styled.a`
     box-sizing: border-box;
 
-    margin: ${props => props.margin};
-
     cursor         : pointer;
     text-decoration: none;
-    text-transform : ${props => (props.upper ? 'uppercase' : null)};
 
-    color: ${props => (colors.getFromTheme(props, (props.aphcolor || 'link')))};
+    ${props => textColorfull(props)};
 
     border : 0;
     outline: 0;
@@ -45,7 +43,7 @@ const A = forwardRef((props, ref) => {
         <AStyled
             {...rest}
             ref={ref}
-            aphcolor={color}
+            textColor={color}
             className={`aph-a ${className || ''}`}
         />
     );
