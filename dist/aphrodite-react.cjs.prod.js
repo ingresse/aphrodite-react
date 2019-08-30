@@ -4462,12 +4462,13 @@ var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _ico
 }, "");
 
 function Accordion(props) {
-  var header = props.header, headerDark = props.headerDark, headerProps = props.headerProps, headerStyles = props.headerStyles, children = props.children, className = props.className, styles = props.styles, withIcon = props.withIcon, iconSize = props.iconSize, iconProps = props.iconProps, iconStyles = props.iconStyles, _useState = React.useState(props.opened || !1), _useState2 = _slicedToArray(_useState, 2), opened = _useState2[0], setOpened = _useState2[1];
+  var header = props.header, headerDark = props.headerDark, headerProps = props.headerProps, headerStyles = props.headerStyles, children = props.children, className = props.className, id = props.id, styles = props.styles, withIcon = props.withIcon, iconSize = props.iconSize, iconProps = props.iconProps, iconStyles = props.iconStyles, _useState = React.useState(props.opened || !1), _useState2 = _slicedToArray(_useState, 2), opened = _useState2[0], setOpened = _useState2[1];
   return React.useEffect(function() {
     setOpened(props.opened);
   }, [ props.opened ]), React__default.createElement(AphAccordion, {
     styles: styles,
-    className: "aph-accordion ".concat(className)
+    className: "aph-accordion ".concat(className),
+    id: id
   }, React__default.createElement(ListItem, _extends({}, headerProps, {
     header: !!headerDark,
     styles: _objectSpread$h({
