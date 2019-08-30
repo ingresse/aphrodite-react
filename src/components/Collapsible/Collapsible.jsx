@@ -178,9 +178,10 @@ const Collapsible = forwardRef((props, ref) => {
                                 color={colors.get('mercury', 'light')}
                                 styles={{
                                     position  : 'absolute',
+                                    top       : '50%',
                                     right     : 0,
-                                    transform : opened ? 'rotate(180deg)' : 'initial',
-                                    transition:`transform ${delay}s linear`,
+                                    transform : `translateY(-50%)${opened ? ' rotate(180deg)' : ''}`,
+                                    transition: `transform ${delay}s linear`,
                                 }}
                             />
                         )}

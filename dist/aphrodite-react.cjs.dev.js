@@ -6516,8 +6516,9 @@ var Collapsible = React.forwardRef(function (props, ref) {
     color: colors$1.get('mercury', 'light'),
     styles: {
       position: 'absolute',
+      top: '50%',
       right: 0,
-      transform: opened ? 'rotate(180deg)' : 'initial',
+      transform: "translateY(-50%)".concat(opened ? ' rotate(180deg)' : ''),
       transition: "transform ".concat(delay, "s linear")
     }
   })), React__default.createElement(AphCollapsibleChildrenStyled, {
