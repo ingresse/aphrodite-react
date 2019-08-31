@@ -90,13 +90,12 @@ const ModalStyled = styled.dialog`
 
         ${selector} {
             &__container {
-                &__title,
-                &__header {
-                    padding-top: 0;
+                &__title {
+                    padding: 25px 0 15px;
                 }
 
-                &__title {
-                    padding: 15px 0 5px;
+                &__header {
+                    padding-top: 0;
                 }
             }
         }

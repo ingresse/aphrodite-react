@@ -3485,7 +3485,7 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
   return colors$1.getFromTheme(props, "shadow");
 }, ";border-radius:", SIZES.LG.RADIUS, " ", SIZES.LG.RADIUS, " 0 0;&.visible{display:block;}&.active{opacity:1;}*{box-sizing:border-box;}", selector$1, "{&__container{min-height:100%;max-height:100%;overflow:auto;&__title{padding:45px 0 15px;}&__header{padding-top:5px;padding-bottom:5px;}&__content{width:100%;}}&__footer{max-height:", SIZES.ACTION_BAR_HEIGHT, ";}}", function(props) {
   return props.styles;
-}, ";", MEDIA_QUERIES.LT.SM, "{top:20px;right:10px;left:10px;", selector$1, "{&__container{&__title,&__header{padding-top:0;}&__title{padding:15px 0 5px;}}}}"), ModalOverlayStyled = _styled("div", {
+}, ";", MEDIA_QUERIES.LT.SM, "{top:20px;right:10px;left:10px;", selector$1, "{&__container{&__title{padding:25px 0 15px;}&__header{padding-top:0;}}}}"), ModalOverlayStyled = _styled("div", {
   target: "e1bytuoh0"
 })("position:fixed;z-index:", ZINDEX.MODAL - 1, ";top:0;right:0;bottom:0;left:0;", function(props) {
   return props.styles;
