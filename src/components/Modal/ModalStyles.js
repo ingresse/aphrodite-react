@@ -63,7 +63,7 @@ const ModalStyled = styled.dialog`
             overflow  : auto;
 
             &__title {
-                padding-top: 20px;
+                padding: 45px 0 15px;
             }
 
             &__header {
@@ -84,9 +84,9 @@ const ModalStyled = styled.dialog`
     ${props => props.styles};
 
     ${MEDIA_QUERIES.LT.SM} {
-        padding: ${(GRID.CONTAINER_PADDING_XS + GRID.UNIT)} 0;
-        right  : 0;
-        left   : 0;
+        top  : 20px;
+        right: 10px;
+        left : 10px;
 
         ${selector} {
             &__container {
@@ -96,7 +96,7 @@ const ModalStyled = styled.dialog`
                 }
 
                 &__title {
-                    margin: 15px 0;
+                    padding: 15px 0 5px;
                 }
             }
         }

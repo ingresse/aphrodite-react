@@ -235,7 +235,11 @@ const Modal = forwardRef((props, ref) => {
                             flexDirection="column"
                             className="aph-modal__container">
                             {(!title) ? (null) : (
-                                <H1 className="aph-modal__container__title" bold center>
+                                <H1
+                                    bold
+                                    center
+                                    margin="0"
+                                    className="aph-modal__container__title">
                                     {title}
                                 </H1>
                             )}
