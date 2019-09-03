@@ -7074,6 +7074,7 @@ var FormControlInputNumber = memo(forwardRef(function (props, ref) {
     as: InputNumber,
     ref: ref,
     onChange: handleChange,
+    displayType: "input",
     enableMobileNumericKeyboard: true,
     className: "aph-form-control ".concat(!label || !label && hasValue ? 'aph-form-control--middle' : '', " ").concat(className || '')
   })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {

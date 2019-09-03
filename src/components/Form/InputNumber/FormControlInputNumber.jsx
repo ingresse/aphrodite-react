@@ -70,6 +70,7 @@ const FormControlInputNumber = memo(forwardRef((props, ref) => {
                 as={InputNumber}
                 ref={ref}
                 onChange={handleChange}
+                displayType="input"
                 enableMobileNumericKeyboard
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
