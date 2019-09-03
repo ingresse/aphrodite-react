@@ -29,8 +29,8 @@ const AphContainer = styled('div')(props => ({
     ),
 
     [MEDIA_QUERIES.LT.SM]: {
-        paddingRight: (props.noPadding ? 0 : `0 ${(GRID.CONTAINER_PADDING_XS + GRID.UNIT)}`),
-        paddingLeft : (props.noPadding ? 0 : `0 ${(GRID.CONTAINER_PADDING_XS + GRID.UNIT)}`),
+        paddingRight: (props.noPadding ? 0 : (GRID.CONTAINER_PADDING_XS + GRID.UNIT)),
+        paddingLeft : (props.noPadding ? 0 : (GRID.CONTAINER_PADDING_XS + GRID.UNIT)),
     },
 
     ...props.styles,
