@@ -3942,12 +3942,12 @@ var AphContainer = _styled("div", {
     boxSizing: "border-box",
     display: "block",
     margin: "0 auto",
-    padding: "0 ".concat(GRID.CONTAINER_PADDING + GRID.UNIT),
+    padding: props.noPadding ? 0 : "0 ".concat(GRID.CONTAINER_PADDING + GRID.UNIT),
     width: "100%",
     maxWidth: props.fluid ? "100%" : props.xs ? GRID.CONTAINER.XS + GRID.UNIT : props.sm ? GRID.CONTAINER.SM + GRID.UNIT : props.md ? GRID.CONTAINER.MD + GRID.UNIT : props.xl ? GRID.CONTAINER.XL + GRID.UNIT : GRID.CONTAINER.LG + GRID.UNIT
   }, MEDIA_QUERIES.LT.SM, {
-    paddingRight: GRID.CONTAINER_PADDING_XS + GRID.UNIT,
-    paddingLeft: GRID.CONTAINER_PADDING_XS + GRID.UNIT
+    paddingRight: props.noPadding ? 0 : "0 ".concat(GRID.CONTAINER_PADDING_XS + GRID.UNIT),
+    paddingLeft: props.noPadding ? 0 : "0 ".concat(GRID.CONTAINER_PADDING_XS + GRID.UNIT)
   }), props.styles);
 }, ""), Container = React.forwardRef(function(props, ref) {
   return React__default.createElement(AphContainer, _extends({}, props, {
@@ -3986,9 +3986,11 @@ Container.propTypes = {
   lg: propTypes.bool,
   xl: propTypes.bool,
   fluid: propTypes.bool,
-  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
+  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ]),
+  noPadding: propTypes.bool
 }, Container.defaultProps = {
-  styles: {}
+  styles: {},
+  noPadding: !1
 };
 
 var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div", {
