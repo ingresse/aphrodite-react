@@ -11,7 +11,7 @@ const AphContainer = styled('div')(props => ({
     boxSizing: 'border-box',
     display  : 'block',
     margin   : '0 auto',
-    padding  : `0 ${(GRID.CONTAINER_PADDING + GRID.UNIT)}`,
+    padding  :  (props.noPadding ? 0 : `0 ${(GRID.CONTAINER_PADDING + GRID.UNIT)}`),
     width    : '100%',
 
     maxWidth : (
@@ -29,8 +29,8 @@ const AphContainer = styled('div')(props => ({
     ),
 
     [MEDIA_QUERIES.LT.SM]: {
-        paddingRight: (GRID.CONTAINER_PADDING_XS + GRID.UNIT),
-        paddingLeft : (GRID.CONTAINER_PADDING_XS + GRID.UNIT),
+        paddingRight: (props.noPadding ? 0 : `0 ${(GRID.CONTAINER_PADDING_XS + GRID.UNIT)}`),
+        paddingLeft : (props.noPadding ? 0 : `0 ${(GRID.CONTAINER_PADDING_XS + GRID.UNIT)}`),
     },
 
     ...props.styles,
@@ -60,11 +60,14 @@ Container.propTypes = {
         propTypes.string,
         propTypes.object,
     ]),
+
+    noPadding: propTypes.bool,
 };
 
 /* Default Properties */
 Container.defaultProps = {
-    styles: {},
+    styles   : {},
+    noPadding: false,
 };
 
 /* Exporting */
