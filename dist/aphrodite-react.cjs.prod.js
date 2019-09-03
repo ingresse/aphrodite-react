@@ -4951,6 +4951,7 @@ var AphFormControlWrapperStyled = _styled("div", {
     onChange: function(inputValue) {
       setHasValue("number" == typeof inputValue), "function" == typeof onChange && onChange(inputValue);
     },
+    displayType: "input",
     enableMobileNumericKeyboard: !0,
     className: "aph-form-control ".concat(!label || !label && hasValue ? "aph-form-control--middle" : "", " ").concat(className || "")
   })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
