@@ -3946,8 +3946,8 @@ var AphContainer = _styled("div", {
     width: "100%",
     maxWidth: props.fluid ? "100%" : props.xs ? GRID.CONTAINER.XS + GRID.UNIT : props.sm ? GRID.CONTAINER.SM + GRID.UNIT : props.md ? GRID.CONTAINER.MD + GRID.UNIT : props.xl ? GRID.CONTAINER.XL + GRID.UNIT : GRID.CONTAINER.LG + GRID.UNIT
   }, MEDIA_QUERIES.LT.SM, {
-    paddingRight: props.noPadding ? 0 : "0 ".concat(GRID.CONTAINER_PADDING_XS + GRID.UNIT),
-    paddingLeft: props.noPadding ? 0 : "0 ".concat(GRID.CONTAINER_PADDING_XS + GRID.UNIT)
+    paddingRight: props.noPadding ? 0 : GRID.CONTAINER_PADDING_XS + GRID.UNIT,
+    paddingLeft: props.noPadding ? 0 : GRID.CONTAINER_PADDING_XS + GRID.UNIT
   }), props.styles);
 }, ""), Container = React.forwardRef(function(props, ref) {
   return React__default.createElement(AphContainer, _extends({}, props, {
