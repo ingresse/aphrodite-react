@@ -15,6 +15,7 @@ import Bluetooth from './IconBluetooth';
 import Camera from './IconCamera';
 import Card from './IconCard';
 import Cards from './IconCards';
+import ChartLine from './IconChartLine';
 import CheckThin from './IconCheckThin';
 import Delete from './IconDelete';
 import ExternalTicket from './IconExternalTicket';
@@ -27,6 +28,7 @@ import List from './IconList';
 import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
 import Lock from './IconLock';
+import Logout from './IconLogout';
 import Minus from './IconMinus';
 import Options from './IconOptions';
 import Pencil from './IconPencil';
@@ -64,6 +66,7 @@ const ICONS = {
     'camera'            : Camera,
     'card'              : Card,
     'cards'             : Cards,
+    'chart-line'        : ChartLine,
     'check'             : CheckThin,
     'check-thin'        : CheckThin,
     'external-ticket'   : ExternalTicket,
@@ -76,6 +79,7 @@ const ICONS = {
     'loader'            : LoaderDonut,
     'loading'           : Loading,
     'lock'              : Lock,
+    'logout'            : Logout,
     'minus'             : Minus,
     'options'           : Options,
     'pencil'            : Pencil,

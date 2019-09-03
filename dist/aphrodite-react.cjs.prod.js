@@ -140,7 +140,7 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
   COLUMNS_GET_WIDTH: function(columnNumber) {
     return !(columnNumber = parseInt(columnNumber, 10)) || "number" != typeof columnNumber || columnNumber < 1 || columnNumber > COLUMNS ? null : 10 * columnNumber / 12 * 10 + "%";
   }
-}, ICONS = Object.assign([ "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "info", "items", "list", "loader", "loading", "lock", "unlock", "search", "settings", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
+}, ICONS = Object.assign([ "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
   ENCODE_SVG: function(reactElement) {
     return "data:image/svg+xml," + escape(ReactDOMServer.renderToStaticMarkup(reactElement));
   }
@@ -1253,6 +1253,28 @@ var IconArrowUp = function(props) {
     strokeLinejoin: "round",
     points: "1.53553391 3.20710678 6.82504026 3.20710678 6.82504026 5.70710678"
   }))))));
+}, IconCharLine = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Chart-/-White",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, React__default.createElement("g", {
+    id: "chart-bar-regular",
+    transform: "translate(5.000000, 7.000000)",
+    fill: color,
+    fillRule: "nonzero"
+  }, React__default.createElement("path", {
+    d: "M16.275,11.8125 L17.19375,11.8125 C17.45625,11.8125 17.71875,11.55 17.71875,11.2875 L17.71875,1.8375 C17.71875,1.575 17.45625,1.3125 17.19375,1.3125 L16.275,1.3125 C16.0125,1.3125 15.75,1.575 15.75,1.8375 L15.75,11.2875 C15.75,11.55 16.0125,11.8125 16.275,11.8125 Z M8.4,11.8125 L9.31875,11.8125 C9.58125,11.8125 9.84375,11.55 9.84375,11.2875 L9.84375,3.15 C9.84375,2.8875 9.58125,2.625 9.31875,2.625 L8.4,2.625 C8.1375,2.625 7.875,2.8875 7.875,3.15 L7.875,11.2875 C7.875,11.55 8.1375,11.8125 8.4,11.8125 L8.4,11.8125 Z M12.3375,11.8125 L13.25625,11.8125 C13.51875,11.8125 13.78125,11.55 13.78125,11.2875 L13.78125,5.775 C13.78125,5.5125 13.51875,5.25 13.25625,5.25 L12.3375,5.25 C12.075,5.25 11.8125,5.5125 11.8125,5.775 L11.8125,11.2875 C11.8125,11.55 12.075,11.8125 12.3375,11.8125 L12.3375,11.8125 Z M20.34375,13.78125 L1.96875,13.78125 L1.96875,0.65625 C1.96875,0.293671875 1.67507813,0 1.3125,0 L0.65625,0 C0.293671875,0 0,0.293671875 0,0.65625 L0,14.4375 C0,15.1622461 0.587753906,15.75 1.3125,15.75 L20.34375,15.75 C20.7063281,15.75 21,15.4563281 21,15.09375 L21,14.4375 C21,14.0749219 20.7063281,13.78125 20.34375,13.78125 Z M4.4625,11.8125 L5.38125,11.8125 C5.64375,11.8125 5.90625,11.55 5.90625,11.2875 L5.90625,8.4 C5.90625,8.1375 5.64375,7.875 5.38125,7.875 L4.4625,7.875 C4.2,7.875 3.9375,8.1375 3.9375,8.4 L3.9375,11.2875 C3.9375,11.55 4.2,11.8125 4.4625,11.8125 L4.4625,11.8125 Z",
+    id: "Shape"
+  }))));
 }, IconCheckThin = function(props) {
   var color = props.color, size = props.size;
   return React__default.createElement("svg", {
@@ -1604,6 +1626,36 @@ var IconLoading = function(props) {
     fill: color,
     d: "M9,13 L9,11 C9,7.6862915 11.6862915,5 15,5 C18.3137085,5 21,7.6862915 21,11 L21,13 L19,13 L19,11 C19,8.790861 17.209139,7 15,7 C12.790861,7 11,8.790861 11,11 L11,13 L9,13 Z"
   })));
+}, IconLogout = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Logout-/-White",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, React__default.createElement("g", {
+    id: "log-out",
+    transform: "translate(6.000000, 6.000000)",
+    stroke: color,
+    strokeWidth: "2.3"
+  }, React__default.createElement("path", {
+    d: "M6,18 L2,18 C0.8954305,18 0,17.1045695 0,16 L0,2 C0,0.8954305 0.8954305,0 2,0 L6,0",
+    id: "Path"
+  }), React__default.createElement("polyline", {
+    id: "Path",
+    points: "13 14 18 9 13 4"
+  }), React__default.createElement("path", {
+    d: "M18,9 L6,9",
+    id: "Path"
+  }))));
 }, IconMinus = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color;
   return React__default.createElement("svg", {
@@ -2566,6 +2618,7 @@ var ICONS$1 = {
   camera: IconCamera,
   card: IconCard,
   cards: IconCards,
+  "chart-line": IconCharLine,
   check: IconCheckThin,
   "check-thin": IconCheckThin,
   "external-ticket": IconExternalTicket,
@@ -2578,6 +2631,7 @@ var ICONS$1 = {
   loader: IconLoaderDonut,
   loading: IconLoading,
   lock: IconLock,
+  logout: IconLogout,
   minus: IconMinus,
   options: IconOptions,
   pencil: IconPencil,
