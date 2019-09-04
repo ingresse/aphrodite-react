@@ -10,17 +10,20 @@ const IconRefresh = (props) => {
         size,
         width,
         height,
-        color
+        color,
+        className,
     } = props;
 
     /**
      * Render
      */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width={(width || size)}
-             height={(height || size)}
-             viewBox="0 0 30 30">
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <g id="Icon-/-30-/-Refresh-/-Ocean"
                 stroke="none"
                 strokeWidth="1"

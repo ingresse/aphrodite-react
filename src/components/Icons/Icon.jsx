@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../utils';
 
 /* Components / Icons */
+import Adjusts from './IconAdjusts';
 import ArrowUp from './IconArrowUp';
 import ArrowRight from './IconArrowRight';
 import ArrowDown from './IconArrowDown';
@@ -38,6 +39,7 @@ import Refresh from './IconRefresh';
 import Scan from './IconScan';
 import Search from './IconSearch';
 import Settings from './IconSettings';
+import Signal from './IconSignal';
 import Ticketbooth from './IconTicketbooth';
 import Times from './IconTimes';
 import Transfer from './IconTransfer';
@@ -58,6 +60,7 @@ import PaymentVisa from './IconPaymentVisa';
 /* Mapper */
 /* Should be mapped into 'icons.constants' too */
 const ICONS = {
+    'adjusts'           : Adjusts,
     'arrow-up'          : ArrowUp,
     'arrow-right'       : ArrowRight,
     'arrow-down'        : ArrowDown,
@@ -84,10 +87,11 @@ const ICONS = {
     'options'           : Options,
     'pencil'            : Pencil,
     'plus'              : Plus,
-    'search'            : Search,
-    'settings'          : Settings,
     'qrcode'            : QRCode,
     'scan'              : Scan,
+    'search'            : Search,
+    'settings'          : Settings,
+    'signal'            : Signal,
     'ticketbooth'       : Ticketbooth,
     'times'             : Times,
     'transfer'          : Transfer,
@@ -128,24 +132,27 @@ const ICONS = {
 };
 
 /* Component Wrapper styles */
-const IconWrapper = styled('span')(props => ({
-    display      : 'inline-block',
-    verticalAlign: 'middle',
-    lineHeight   : 0,
+const IconWrapper = styled.svg`
+    display       : inline-block;
+    line-height   : 0;
+    vertical-align: middle;
 
-    ...props.styles,
-}));
+    ${props => props.aphStyles};
+`;
 
 /* Component it self */
 const Icon = forwardRef((props, ref) => {
     const { direction, shape, slug } = props;
     const SLUG = (slug + (!direction ? '' : '-' + direction) + (!shape ? '' : '-' + shape));
-    const ICON = ICONS[SLUG];
+    const SelectedIcon = ICONS[SLUG];
 
-    if (!ICON) {
+    if (!SelectedIcon) {
         return null;
     }
 
+    /**
+     * Props
+     */
     const {
         color,
         className,
@@ -154,17 +161,18 @@ const Icon = forwardRef((props, ref) => {
         ...rest
     } = props;
 
+    /**
+     * Render
+     */
     return (
         <IconWrapper
-            styles={styles}
-            className="aph-icon-wrapper">
-            <ICON
-                {...rest}
-                ref={ref}
-                color={colors.getFromTheme(props, color)}
-                className={`aph-icon ${className || ''}`}
-            />
-        </IconWrapper>
+            {...rest}
+            ref={ref}
+            as={SelectedIcon}
+            aphStyles={styles}
+            color={colors.getFromTheme(props, color)}
+            className={`aph-icon aph-icon-wrapper ${className || ''}`}
+        />
     );
 });
 
@@ -178,6 +186,7 @@ Icon.defaultProps = {
     width    : undefined,
     height   : undefined,
     styles   : {},
+    toEncode : false,
 };
 
 /* Properties Types */
@@ -189,6 +198,7 @@ Icon.propTypes = {
     color    : propTypes.string,
     width    : propTypes.number,
     height   : propTypes.number,
+    toEncode : propTypes.bool,
     styles   : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,

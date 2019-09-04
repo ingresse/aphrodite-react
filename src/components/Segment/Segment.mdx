@@ -7,7 +7,6 @@ route: /atoms/segment
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Segment, Container, Row, Col, Card, Switch } from '../';
-import { colors } from '../../utils';
 import { RADIUS } from '../../constants';
 
 # Segment
@@ -39,11 +38,12 @@ import { Segment } from 'aphrodite-react';
                             Default Segment
                         </Segment>
 
-                        <Segment color={colors.get('supernova')}>
-                            Segment with custom color prop (NEW)
+                        <Segment color="supernova">
+                            Segment with custom color prop
                         </Segment>
 
                         <Segment
+                            textUpper={hasCustomStyles}
                             radius={hasCustomStyles ? 10 : 0}
                             color={hasCustomStyles ? 'inverse' : ''}
                             background={hasCustomStyles ? 'success' : ''}>

@@ -140,7 +140,7 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
   COLUMNS_GET_WIDTH: function(columnNumber) {
     return !(columnNumber = parseInt(columnNumber, 10)) || "number" != typeof columnNumber || columnNumber < 1 || columnNumber > COLUMNS ? null : 10 * columnNumber / 12 * 10 + "%";
   }
-}, ICONS = Object.assign([ "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
+}, ICONS = Object.assign([ "adjusts", "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "help", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "signal", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
   ENCODE_SVG: function(reactElement) {
     return "data:image/svg+xml," + escape(ReactDOMServer.renderToStaticMarkup(reactElement));
   }
@@ -1001,15 +1001,33 @@ HoverActions.defaultProps = {
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
-var IconArrowUp = function(props) {
-  var color = props.color, size = props.size, styles = props.styles;
+var IconAdjusts = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "aph-icon-group-adjusts",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, React__default.createElement("path", {
+    id: "aph-icon-path-adjusts",
+    fill: color,
+    d: "M21,22 L21,21.5 C21,20.9477153 21.4477153,20.5 22,20.5 C22.5522847,20.5 23,20.9477153 23,21.5 L23,22 L24,22 C24.5522847,22 25,22.4477153 25,23 C25,23.5522847 24.5522847,24 24,24 L23,24 L23,24.5 C23,25.0522847 22.5522847,25.5 22,25.5 C21.4477153,25.5 21,25.0522847 21,24.5 L21,24 L6,24 C5.44771525,24 5,23.5522847 5,23 C5,22.4477153 5.44771525,22 6,22 L21,22 Z M14,14 L14,13.5 C14,12.9477153 14.4477153,12.5 15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 L16,14 L24,14 C24.5522847,14 25,14.4477153 25,15 C25,15.5522847 24.5522847,16 24,16 L16,16 L16,16.5 C16,17.0522847 15.5522847,17.5 15,17.5 C14.4477153,17.5 14,17.0522847 14,16.5 L14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L14,14 Z M7,6 L7,5.5 C7,4.94771525 7.44771525,4.5 8,4.5 C8.55228475,4.5 9,4.94771525 9,5.5 L9,6 L24,6 C24.5522847,6 25,6.44771525 25,7 C25,7.55228475 24.5522847,8 24,8 L9,8 L9,8.5 C9,9.05228475 8.55228475,9.5 8,9.5 C7.44771525,9.5 7,9.05228475 7,8.5 L7,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 L7,6 Z"
+  })));
+}, IconArrowUp = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
+  return React__default.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React__default.createElement("g", {
     id: "aph-icon-arrow-up-group",
     stroke: "none",
@@ -1026,14 +1044,13 @@ var IconArrowUp = function(props) {
     points: "10 12 15 17.7142857 20 12"
   })));
 }, IconArrowRight = function(props) {
-  var color = props.color, size = props.size, styles = props.styles;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React__default.createElement("path", {
     id: "aph-icon-arrow-right-path",
     fill: "none",
@@ -1045,14 +1062,13 @@ var IconArrowUp = function(props) {
     d: "M13 22l8-7-8-7"
   }));
 }, IconArrowDown = function(props) {
-  var color = props.color, size = props.size, styles = props.styles;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React__default.createElement("g", {
     id: "aph-icon-arrow-down-group",
     stroke: "none",
@@ -1068,14 +1084,13 @@ var IconArrowUp = function(props) {
     points: "10 12 15 17.7142857 20 12"
   })));
 }, IconArrowLeft = function(props) {
-  var color = props.color, size = props.size, styles = props.styles;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React__default.createElement("path", {
     id: "aph-icon-arrow-left-path",
     fill: "none",
@@ -1087,8 +1102,9 @@ var IconArrowUp = function(props) {
     d: "M18 8l-8 7 8 7"
   }));
 }, IconBluetooth = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1105,8 +1121,9 @@ var IconArrowUp = function(props) {
     fill: color
   })));
 }, IconCamera = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1131,8 +1148,9 @@ var IconArrowUp = function(props) {
     r: "4"
   })));
 }, IconCard = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1168,8 +1186,9 @@ var IconArrowUp = function(props) {
     height: "2"
   })));
 }, IconCards = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1254,8 +1273,9 @@ var IconArrowUp = function(props) {
     points: "1.53553391 3.20710678 6.82504026 3.20710678 6.82504026 5.70710678"
   }))))));
 }, IconCharLine = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1276,12 +1296,13 @@ var IconArrowUp = function(props) {
     id: "Shape"
   }))));
 }, IconCheckThin = function(props) {
-  var color = props.color, size = props.size;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
-    viewBox: "0 0 20 16",
-    width: size,
-    height: size,
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 20 16"
   }, React__default.createElement("g", {
     id: "IconCheckThinWrapper",
     stroke: "none",
@@ -1300,8 +1321,9 @@ var IconArrowUp = function(props) {
     points: "7.5 14 13.5 21 23 9"
   }))));
 }, IconDelete = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1318,8 +1340,9 @@ var IconArrowUp = function(props) {
     d: "M15,0 C23.2842712,-1.52179594e-15 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 C6.71572875,30 1.01453063e-15,23.2842712 0,15 C-1.01453063e-15,6.71572875 6.71572875,1.52179594e-15 15,0 Z M24.25,18 C24.6642136,18 25,17.6642136 25,17.25 L25,13.75 C25,13.3357864 24.6642136,13 24.25,13 L5.75,13 C5.33578644,13 5,13.3357864 5,13.75 L5,17.25 C5,17.6642136 5.33578644,18 5.75,18 L24.25,18 Z"
   })));
 }, IconExternalTicket = function(props) {
-  var _React$createElement, size = props.size, width = props.width, height = props.height, color = props.color;
+  var _React$createElement, size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1346,8 +1369,9 @@ var IconArrowUp = function(props) {
     d: "M0,21.5 L22,14.5"
   }))));
 }, IconEye = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1364,8 +1388,9 @@ var IconArrowUp = function(props) {
     fill: color
   })));
 }, IconFlash = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1384,8 +1409,9 @@ var IconArrowUp = function(props) {
     points: "17 5 9 17 15 17 13 25 21 13 15 13"
   })));
 }, IconFlashOff = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1410,8 +1436,9 @@ var IconArrowUp = function(props) {
     strokeLinecap: "round"
   })));
 }, IconInfo = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1428,8 +1455,9 @@ var IconArrowUp = function(props) {
     d: "M10,3.25 C10.9664983,3.25 11.75,4.03350169 11.75,5 C11.75,5.96649831 10.9664983,6.75 10,6.75 C9.03350169,6.75 8.25,5.96649831 8.25,5 C8.25,4.03350169 9.03350169,3.25 10,3.25 Z M8.6875,8.75 L11.3125,8.75 C11.5541246,8.75 11.75,8.94587542 11.75,9.1875 L11.75,16.3125 C11.75,16.5541246 11.5541246,16.75 11.3125,16.75 L8.6875,16.75 C8.44587542,16.75 8.25,16.5541246 8.25,16.3125 L8.25,9.1875 C8.25,8.94587542 8.44587542,8.75 8.6875,8.75 Z"
   })));
 }, IconItems = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1473,8 +1501,9 @@ var IconArrowUp = function(props) {
     rx: "0.75"
   }))));
 }, IconList = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1493,11 +1522,12 @@ var IconArrowUp = function(props) {
 }, IconStyled = _styled("svg", {
   target: "edz3eco0"
 })(animations.spin(), ";"), IconLoaderDonut = function(props) {
-  var color = props.color, size = props.size, width = props.width, height = props.height;
+  var color = props.color, size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement(IconStyled, {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    width: "".concat(width || size, "px"),
-    height: "".concat(height || size, "px"),
+    width: width || size,
+    height: height || size,
     viewBox: "0 0 30 30"
   }, React__default.createElement("g", {
     id: "aph-icon-loader-group",
@@ -1524,12 +1554,13 @@ IconLoaderDonut.defaultProps = {
 };
 
 var IconLoading = function(props) {
-  var color = props.color, width = props.width, height = props.height, size = props.size;
+  var color = props.color, width = props.width, height = props.height, size = props.size, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 120 30",
     width: width || size || 120,
     height: height || size || 30,
+    viewBox: "0 0 120 30",
     fill: color
   }, React__default.createElement("circle", {
     cx: "15",
@@ -1600,8 +1631,9 @@ var IconLoading = function(props) {
     repeatCount: "indefinite"
   })));
 }, IconLock = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1627,8 +1659,9 @@ var IconLoading = function(props) {
     d: "M9,13 L9,11 C9,7.6862915 11.6862915,5 15,5 C18.3137085,5 21,7.6862915 21,11 L21,13 L19,13 L19,11 C19,8.790861 17.209139,7 15,7 C12.790861,7 11,8.790861 11,11 L11,13 L9,13 Z"
   })));
 }, IconLogout = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1657,8 +1690,9 @@ var IconLoading = function(props) {
     id: "Path"
   }))));
 }, IconMinus = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1680,8 +1714,9 @@ var IconLoading = function(props) {
     transform: "translate(15.000000, 15.000000) rotate(-270.000000) translate(-15.000000, -15.000000) "
   })));
 }, IconOptions = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1698,12 +1733,13 @@ var IconLoading = function(props) {
     d: "M7.5,17.5 C6.11928813,17.5 5,16.3807119 5,15 C5,13.6192881 6.11928813,12.5 7.5,12.5 C8.88071187,12.5 10,13.6192881 10,15 C10,16.3807119 8.88071187,17.5 7.5,17.5 Z M15,17.5 C13.6192881,17.5 12.5,16.3807119 12.5,15 C12.5,13.6192881 13.6192881,12.5 15,12.5 C16.3807119,12.5 17.5,13.6192881 17.5,15 C17.5,16.3807119 16.3807119,17.5 15,17.5 Z M22.5,17.5 C21.1192881,17.5 20,16.3807119 20,15 C20,13.6192881 21.1192881,12.5 22.5,12.5 C23.8807119,12.5 25,13.6192881 25,15 C25,16.3807119 23.8807119,17.5 22.5,17.5 Z"
   })));
 }, IconPencil = function(props) {
-  var color = props.color, size = props.size;
+  var color = props.color, size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 30 30",
-    width: size,
-    height: size
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React__default.createElement("g", {
     id: "aph-icon-polygon-group",
     stroke: "none",
@@ -1723,8 +1759,9 @@ var IconLoading = function(props) {
     points: "8.67125147 21.8612882 5.9996786 25.8510429 3.32810572 21.8612882"
   })));
 }, IconPlus = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1741,8 +1778,9 @@ var IconLoading = function(props) {
     d: "M17.5,12.5 L22.5,12.5 C23.8807119,12.5 25,13.6192881 25,15 C25,16.3807119 23.8807119,17.5 22.5,17.5 L17.5,17.5 L17.5,22.5 C17.5,23.8807119 16.3807119,25 15,25 C13.6192881,25 12.5,23.8807119 12.5,22.5 L12.5,17.5 L7.5,17.5 C6.11928813,17.5 5,16.3807119 5,15 C5,13.6192881 6.11928813,12.5 7.5,12.5 L12.5,12.5 L12.5,7.5 C12.5,6.11928813 13.6192881,5 15,5 C16.3807119,5 17.5,6.11928813 17.5,7.5 L17.5,12.5 Z"
   })));
 }, IconQRCode = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1759,8 +1797,9 @@ var IconLoading = function(props) {
     d: "M6,19 L10,19 C10.5522847,19 11,19.4477153 11,20 L11,24 C11,24.5522847 10.5522847,25 10,25 L6,25 C5.44771525,25 5,24.5522847 5,24 L5,20 C5,19.4477153 5.44771525,19 6,19 Z M7.3,20.8 C7.02385763,20.8 6.8,21.0238576 6.8,21.3 L6.8,22.8 C6.8,23.0761424 7.02385763,23.3 7.3,23.3 L8.8,23.3 C9.07614237,23.3 9.3,23.0761424 9.3,22.8 L9.3,21.3 C9.3,21.0238576 9.07614237,20.8 8.8,20.8 L7.3,20.8 Z M6,5 L10,5 C10.5522847,5 11,5.44771525 11,6 L11,10 C11,10.5522847 10.5522847,11 10,11 L6,11 C5.44771525,11 5,10.5522847 5,10 L5,6 C5,5.44771525 5.44771525,5 6,5 Z M7.3,6.8 C7.02385763,6.8 6.8,7.02385763 6.8,7.3 L6.8,8.8 C6.8,9.07614237 7.02385763,9.3 7.3,9.3 L8.8,9.3 C9.07614237,9.3 9.3,9.07614237 9.3,8.8 L9.3,7.3 C9.3,7.02385763 9.07614237,6.8 8.8,6.8 L7.3,6.8 Z M20,5 L24,5 C24.5522847,5 25,5.44771525 25,6 L25,10 C25,10.5522847 24.5522847,11 24,11 L20,11 C19.4477153,11 19,10.5522847 19,10 L19,6 C19,5.44771525 19.4477153,5 20,5 Z M21.3,6.8 C21.0238576,6.8 20.8,7.02385763 20.8,7.3 L20.8,8.8 C20.8,9.07614237 21.0238576,9.3 21.3,9.3 L22.8,9.3 C23.0761424,9.3 23.3,9.07614237 23.3,8.8 L23.3,7.3 C23.3,7.02385763 23.0761424,6.8 22.8,6.8 L21.3,6.8 Z M24,17 C24.5522847,17 25,17.4477153 25,18 L25,24 C25,24.5522847 24.5522847,25 24,25 L16,25 C15.4477153,25 15,24.5522847 15,24 C15,23.4477153 15.4477153,23 16,23 L22,23 C22.5522847,23 23,22.5522847 23,22 L23,18 C23,17.4477153 23.4477153,17 24,17 Z M14,22 C13.4477153,22 13,21.5522847 13,21 L13,19 C13,18.4477153 13.4477153,18 14,18 L20,18 C20.5522847,18 21,18.4477153 21,19 C21,19.5522847 20.5522847,20 20,20 L16,20 C15.4477153,20 15,20.4477153 15,21 C15,21.5522847 14.5522847,22 14,22 Z M14,11 C14.5522847,11 15,11.4477153 15,12 L15,15 C15,15.5522847 14.5522847,16 14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L12,14 C12.5522847,14 13,13.5522847 13,13 L13,12 C13,11.4477153 13.4477153,11 14,11 Z M16,5 C16.5522847,5 17,5.44771525 17,6 L17,8 C17,8.55228475 16.5522847,9 16,9 C15.4477153,9 15,8.55228475 15,8 L15,6 C15,5.44771525 15.4477153,5 16,5 Z M17.9988769,13.0002805 L24.0011231,13.0019657 C24.552833,13.0021206 25,13.4494132 25,14.0011231 C25,14.5526327 24.5529131,14.9997196 24.0014035,14.9997196 C24.0013101,14.9997196 24.0012166,14.9997196 24.0011231,14.9997195 L17.9988769,14.9980343 C17.447167,14.9978794 17,14.5505868 17,13.9988769 C17,13.4473673 17.4470869,13.0002804 17.9985965,13.0002804 C17.9986899,13.0002804 17.9987834,13.0002804 17.9988769,13.0002805 Z"
   })));
 }, IconRefresh = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1801,8 +1840,9 @@ var IconLoading = function(props) {
     d: "M22,11.6308301 C20.4097668,10.0052117 18.2144208,9 15.789779,9 C10.9353181,9 7,13.0294373 7,18"
   }))));
 }, IconScan = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1850,11 +1890,12 @@ var IconLoading = function(props) {
 };
 
 function IconSearch(props) {
-  var size = props.size, color = props.color;
+  var size = props.size, color = props.color, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    width: size,
-    height: size,
+    width: width || size,
+    height: height || size,
     viewBox: "0 0 30 30"
   }, React__default.createElement("g", {
     id: "IconSearchGroup",
@@ -1880,28 +1921,71 @@ function IconSearch(props) {
 }
 
 var IconSettings = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
   }, React__default.createElement("g", {
-    id: "aph-icon-group-settings",
+    id: "Icon-/-30-/-Settings-/-Mercury",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
-    fillRule: "evenodd"
-  }, React__default.createElement("path", {
-    id: "aph-icon-path-settings",
-    fill: color,
-    d: "M21,22 L21,21.5 C21,20.9477153 21.4477153,20.5 22,20.5 C22.5522847,20.5 23,20.9477153 23,21.5 L23,22 L24,22 C24.5522847,22 25,22.4477153 25,23 C25,23.5522847 24.5522847,24 24,24 L23,24 L23,24.5 C23,25.0522847 22.5522847,25.5 22,25.5 C21.4477153,25.5 21,25.0522847 21,24.5 L21,24 L6,24 C5.44771525,24 5,23.5522847 5,23 C5,22.4477153 5.44771525,22 6,22 L21,22 Z M14,14 L14,13.5 C14,12.9477153 14.4477153,12.5 15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 L16,14 L24,14 C24.5522847,14 25,14.4477153 25,15 C25,15.5522847 24.5522847,16 24,16 L16,16 L16,16.5 C16,17.0522847 15.5522847,17.5 15,17.5 C14.4477153,17.5 14,17.0522847 14,16.5 L14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L14,14 Z M7,6 L7,5.5 C7,4.94771525 7.44771525,4.5 8,4.5 C8.55228475,4.5 9,4.94771525 9,5.5 L9,6 L24,6 C24.5522847,6 25,6.44771525 25,7 C25,7.55228475 24.5522847,8 24,8 L9,8 L9,8.5 C9,9.05228475 8.55228475,9.5 8,9.5 C7.44771525,9.5 7,9.05228475 7,8.5 L7,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 L7,6 Z"
-  })));
-}, IconTicketbooth = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+    fillRule: "evenodd",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, React__default.createElement("g", {
+    id: "settings",
+    transform: "translate(4.000000, 4.000000)",
+    stroke: color,
+    strokeWidth: "2"
+  }, React__default.createElement("circle", {
+    id: "Oval",
+    cx: "11",
+    cy: "11",
+    r: "3"
+  }), React__default.createElement("path", {
+    d: "M18.4,14 C18.1276535,14.6170901 18.2583341,15.3378133 18.73,15.82 L18.79,15.88 C19.1655541,16.2551365 19.3765733,16.7641815 19.3765733,17.295 C19.3765733,17.8258185 19.1655541,18.3348635 18.79,18.71 C18.4148635,19.0855541 17.9058185,19.2965733 17.375,19.2965733 C16.8441815,19.2965733 16.3351365,19.0855541 15.96,18.71 L15.9,18.65 C15.4178133,18.1783341 14.6970901,18.0476535 14.08,18.32 C13.4755294,18.5790683 13.0826229,19.1723571 13.08,19.83 L13.08,20 C13.08,21.1045695 12.1845695,22 11.08,22 C9.9754305,22 9.08,21.1045695 9.08,20 L9.08,19.91 C9.0641566,19.2326708 8.63587177,18.6338652 8,18.4 C7.38290993,18.1276535 6.66218673,18.2583341 6.18,18.73 L6.12,18.79 C5.74486349,19.1655541 5.2358185,19.3765733 4.705,19.3765733 C4.1741815,19.3765733 3.66513651,19.1655541 3.29,18.79 C2.91444591,18.4148635 2.70342669,17.9058185 2.70342669,17.375 C2.70342669,16.8441815 2.91444591,16.3351365 3.29,15.96 L3.35,15.9 C3.82166588,15.4178133 3.95234646,14.6970901 3.68,14.08 C3.42093172,13.4755294 2.82764292,13.0826229 2.17,13.08 L2,13.08 C0.8954305,13.08 0,12.1845695 0,11.08 C0,9.9754305 0.8954305,9.08 2,9.08 L2.09,9.08 C2.76732918,9.0641566 3.36613483,8.63587177 3.6,8 C3.87234646,7.38290993 3.74166588,6.66218673 3.27,6.18 L3.21,6.12 C2.83444591,5.74486349 2.62342669,5.2358185 2.62342669,4.705 C2.62342669,4.1741815 2.83444591,3.66513651 3.21,3.29 C3.58513651,2.91444591 4.0941815,2.70342669 4.625,2.70342669 C5.1558185,2.70342669 5.66486349,2.91444591 6.04,3.29 L6.1,3.35 C6.58218673,3.82166588 7.30290993,3.95234646 7.92,3.68 L8,3.68 C8.60447061,3.42093172 8.99737709,2.82764292 9,2.17 L9,2 C9,0.8954305 9.8954305,0 11,0 C12.1045695,0 13,0.8954305 13,2 L13,2.09 C13.0026229,2.74764292 13.3955294,3.34093172 14,3.6 C14.6170901,3.87234646 15.3378133,3.74166588 15.82,3.27 L15.88,3.21 C16.2551365,2.83444591 16.7641815,2.62342669 17.295,2.62342669 C17.8258185,2.62342669 18.3348635,2.83444591 18.71,3.21 C19.0855541,3.58513651 19.2965733,4.0941815 19.2965733,4.625 C19.2965733,5.1558185 19.0855541,5.66486349 18.71,6.04 L18.65,6.1 C18.1783341,6.58218673 18.0476535,7.30290993 18.32,7.92 L18.32,8 C18.5790683,8.60447061 19.1723571,8.99737709 19.83,9 L20,9 C21.1045695,9 22,9.8954305 22,11 C22,12.1045695 21.1045695,13 20,13 L19.91,13 C19.2523571,13.0026229 18.6590683,13.3955294 18.4,14 Z",
+    id: "Path"
+  }))));
+}, IconSignal = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Chart-/-White",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, React__default.createElement("g", {
+    id: "bar-chart",
+    transform: "translate(8.000000, 7.000000)",
+    stroke: color,
+    strokeWidth: "2.3"
+  }, React__default.createElement("path", {
+    d: "M7,16 L7,6",
+    id: "Path"
+  }), React__default.createElement("path", {
+    d: "M13,16 L13,0",
+    id: "Path"
+  }), React__default.createElement("path", {
+    d: "M1,16 L1,12",
+    id: "Path"
+  }))));
+}, IconTicketbooth = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
+  return React__default.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
@@ -1926,8 +2010,9 @@ var IconSettings = function(props) {
     transform: "translate(15.000000, 15.000000) rotate(-45.000000) translate(-15.000000, -15.000000)"
   })));
 }, IconTimes = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1955,8 +2040,9 @@ var IconSettings = function(props) {
     transform: "translate(6.000000, 6.000000) rotate(-180.000000) translate(-6.000000, -6.000000)"
   }))));
 }, IconTransfer = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1974,8 +2060,9 @@ var IconSettings = function(props) {
     d: "M11.206603,8.37817585 C11.2271209,8.45799335 11.2380326,8.54166506 11.2380326,8.62788535 L11.2380326,19.9850282 C11.2380326,20.537313 10.7903174,20.9850282 10.2380326,20.9850282 C9.68574787,20.9850282 9.23803262,20.537313 9.23803262,19.9850282 L9.23803262,8.62788535 C9.23803262,8.54608042 9.24785541,8.46656973 9.26638585,8.3904684 L6.70710678,10.9497475 C6.31658249,11.3402718 5.68341751,11.3402718 5.29289322,10.9497475 C4.90236893,10.5592232 4.90236893,9.9260582 5.29289322,9.53553391 L9.53553391,5.29289322 C9.9260582,4.90236893 10.5592232,4.90236893 10.9497475,5.29289322 L15.1923882,9.53553391 C15.5829124,9.9260582 15.5829124,10.5592232 15.1923882,10.9497475 C14.8018639,11.3402718 14.1686989,11.3402718 13.7781746,10.9497475 L11.206603,8.37817585 Z M20.6984202,21.6000634 L23.2781746,19.0203089 C23.6686989,18.6297847 24.3018639,18.6297847 24.6923882,19.0203089 C25.0829124,19.4108332 25.0829124,20.0439982 24.6923882,20.4345225 L20.4497475,24.6771632 C20.0592232,25.0676875 19.4260582,25.0676875 19.0355339,24.6771632 L14.7928932,20.4345225 C14.4023689,20.0439982 14.4023689,19.4108332 14.7928932,19.0203089 C15.1834175,18.6297847 15.8165825,18.6297847 16.2071068,19.0203089 L18.7740013,21.5872035 C18.7505574,21.5022863 18.7380326,21.4128383 18.7380326,21.3204649 L18.7380326,9.98502821 C18.7380326,9.43274346 19.1857479,8.98502821 19.7380326,8.98502821 C20.2903174,8.98502821 20.7380326,9.43274346 20.7380326,9.98502821 L20.7380326,21.3204649 C20.7380326,21.417514 20.7242078,21.5113341 20.6984202,21.6000634 Z"
   })));
 }, IconUnlock = function(props) {
-  var size = props.size, width = props.width, height = props.height, color = props.color;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2001,8 +2088,9 @@ var IconSettings = function(props) {
     d: "M21,10 C21,10.5522847 20.5522847,11 20,11 C19.4477153,11 19,10.5522847 19,10 C19,8.34314575 17.6568542,7 16,7 L15,7 C12.790861,7 11,8.790861 11,11 L11,13 L9,13 L9,11 C9,7.6862915 11.6862915,5 15,5 L16,5 C18.7614237,5 21,7.23857625 21,10 Z"
   })));
 }, IconPaymentAmex = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2051,8 +2139,9 @@ var IconSettings = function(props) {
     d: "M28.2120805,7.96078571 L28.2120805,5.867 L27.6924073,5.867 L27.6924073,5.867 L26.3310805,5.867 C25.9115744,5.867 25.6064159,5.9715 25.3908585,6.13371429 L25.3908585,5.867 L23.3345488,5.867 C23.0057561,5.867 22.6195463,5.95142857 22.4374939,6.13371429 L22.4374939,5.867 L18.7648171,5.867 L18.7648171,6.13371429 C18.4727268,5.91457143 17.9793293,5.867 17.7520244,5.867 L15.3297329,5.867 L15.3297329,6.13371429 C15.0985354,5.90092857 14.5845622,5.867 14.2711317,5.867 L11.5603646,5.867 L10.9400378,6.56535714 L10.3589854,5.867 L6.30955244,5.867 L6.30955244,10.4303571 L10.282522,10.4303571 L10.9218256,9.721 L11.5236622,10.4303571 L13.9729939,10.433 L13.9729939,9.35914286 L14.2135756,9.35914286 C14.5384061,9.3645 14.9215573,9.35085714 15.2596646,9.19878571 L15.2596646,10.4300714 L17.279828,10.4300714 L17.279828,9.24042857 L17.3776317,9.24042857 C17.501989,9.24042857 17.5139451,9.24607143 17.5139451,9.37514286 L17.5139451,10.4300714 L23.6502037,10.4300714 C24.0400976,10.4300714 24.447439,10.3260714 24.6731451,10.1382143 L24.6731451,10.4300714 L26.6192085,10.4300714 C27.0244646,10.4300714 27.4200585,10.371 27.7209768,10.2197143 L27.7209768,10.2149286 C28.160572,9.92357143 28.4528733,9.41314286 28.4528733,8.8305 C28.4534268,8.51078571 28.3645207,8.21278571 28.2120805,7.96078571 Z M14.24715,8.69092857 L13.309778,8.69092857 L13.309778,9.78807143 L11.8498134,9.78807143 L10.9246756,8.70507143 L9.9636,9.78807143 L6.98785244,9.78807143 L6.98785244,6.51721429 L10.0094085,6.51721429 L10.9335037,7.58921429 L11.8890878,6.51721429 L14.2895524,6.51721429 C14.885411,6.51721429 15.555161,6.68907143 15.555161,7.59457143 C15.555161,8.50357143 14.9036232,8.69092857 14.24715,8.69092857 Z M18.7679451,8.54257143 C18.8740902,8.70214286 18.8893829,8.851 18.892511,9.13964286 L18.892511,9.78807143 L18.1387207,9.78807143 L18.1387207,9.37885714 C18.1387207,9.18214286 18.1566549,8.89085714 18.0170049,8.7385 C17.9069671,8.62142857 17.7402768,8.59307143 17.4658427,8.59307143 L16.6629073,8.59307143 L16.6629073,9.788 L15.9083524,9.788 L15.9083524,6.51714286 L17.6426817,6.51714286 C18.0229134,6.51714286 18.299711,6.5345 18.5465488,6.67164286 C18.7837939,6.8205 18.932828,7.02442857 18.932828,7.39778571 C18.932828,7.91978571 18.5980573,8.1865 18.4004341,8.268 C18.5668463,8.33228571 18.7039244,8.44721429 18.7679451,8.54257143 Z M21.8560939,7.194 L20.0968098,7.194 L20.0968098,7.78864286 L21.8132049,7.78864286 L21.8132049,8.456 L20.0968098,8.456 L20.0968098,9.10678571 L21.8560939,9.11 L21.8560939,9.78857143 L19.3489976,9.78857143 L19.3489976,6.51721429 L21.8560939,6.51721429 L21.8560939,7.194 L21.8560939,7.194 Z M23.7690695,9.78835714 L22.3060463,9.78835714 L22.3060463,9.08678571 L23.7636476,9.08678571 C23.9061476,9.08678571 24.0070793,9.06757143 24.0705439,9.00557143 C24.1217744,8.95535714 24.1592415,8.88157143 24.1592415,8.79285714 C24.1592415,8.69742857 24.1192024,8.62157143 24.0674159,8.57607143 C24.0096512,8.52585714 23.9308939,8.50364286 23.8000024,8.50364286 C23.0974427,8.47907143 22.2175573,8.52607143 22.2175573,7.49092857 C22.2175573,7.0165 22.5041561,6.51728571 23.2915207,6.51728571 L24.7977805,6.51728571 L24.7977805,7.2135 L23.4197707,7.2135 C23.2832488,7.2135 23.1942732,7.21885714 23.1185744,7.27228571 C23.0366195,7.3255 23.0056866,7.40378571 23.0056866,7.508 C23.0056866,7.63121429 23.0758939,7.71514286 23.1700829,7.75178571 C23.2496744,7.78014286 23.3344793,7.78842857 23.4624512,7.78842857 L23.8671512,7.80042857 C24.2747012,7.81028571 24.5548354,7.88407143 24.7249317,8.06314286 C24.8713939,8.22028571 24.9493866,8.41914286 24.9493866,8.75564286 C24.949178,9.45957143 24.5270305,9.78835714 23.7690695,9.78835714 Z M27.6354768,9.47242857 C27.4375756,9.68064286 27.1183756,9.78835714 26.7019976,9.78835714 L25.251139,9.78835714 L25.251139,9.08678571 L26.69595,9.08678571 C26.8394927,9.08678571 26.9399378,9.06757143 27.0002744,9.00557143 C27.0525476,8.95535714 27.088972,8.88157143 27.088972,8.79285714 C27.088972,8.69742857 27.0525476,8.62157143 26.9971463,8.57607143 C26.9427878,8.52585714 26.8634744,8.50364286 26.7323744,8.50364286 C26.0269646,8.47907143 25.1470793,8.52607143 25.1470793,7.49092857 C25.1470793,7.0165 25.4363195,6.51728571 26.2249354,6.51728571 L27.6926854,6.51728571 L27.6926854,7.21328571 L26.3524207,7.21328571 C26.2161073,7.21328571 26.1251159,7.21892857 26.0483744,7.27235714 C25.969061,7.32528571 25.9386146,7.40385714 25.9386146,7.50757143 C25.9386146,7.63128571 26.0054854,7.71471429 26.103011,7.75135714 C26.1826024,7.78021429 26.2674073,7.7885 26.3922512,7.7885 L26.7993146,7.8 C27.2102707,7.81042857 27.4847049,7.88392857 27.6513951,8.06328571 C27.6818415,8.08814286 27.7002622,8.11621429 27.7216024,8.144 C27.7130524,8.1325 27.704711,8.12157143 27.6958829,8.11007143 C27.8259402,8.28914286 27.904211,8.51178571 27.904211,8.75364286 C27.9041415,9.03092857 27.8014024,9.28242857 27.6354768,9.47242857 Z M9.61951463,7.194 L10.4414268,8.14707143 L9.58309024,9.10657143 L7.73587317,9.10657143 L7.73587317,8.45578571 L9.38518902,8.45578571 L9.38518902,7.78842857 L7.73587317,7.78842857 L7.73587317,7.194 L9.61951463,7.194 L9.61951463,7.194 Z M11.4084805,8.15828571 L12.5620354,6.86871429 L12.5620354,9.49085714 L11.4084805,8.15828571 Z M14.7491671,7.59485714 C14.7491671,7.87842857 14.5694085,8.02678571 14.2807244,8.02678571 L13.3100561,8.02678571 L13.3100561,7.194 L14.2898305,7.194 C14.5605805,7.194 14.7491671,7.30864286 14.7491671,7.59485714 Z M18.1018098,7.54728571 C18.1018098,7.68707143 18.0435585,7.79985714 17.9460329,7.86107143 C17.8456573,7.92307143 17.7213,7.92842857 17.5753939,7.92842857 L16.6624207,7.92842857 L16.6624207,7.194 L17.58735,7.194 C17.7213,7.194 17.85525,7.19692857 17.9460329,7.25307143 C18.0438366,7.30571429 18.1018098,7.407 18.1018098,7.54728571 Z"
   })))));
 }, IconPaymentBankBillet = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2086,8 +2175,9 @@ var IconSettings = function(props) {
     d: "M12.7692308,4 L14.3076923,4 L14.3076923,26.5 L12.7692308,26.5 L12.7692308,4 Z M17.2307692,4 L18.7692308,4 L18.7692308,26.5 L17.2307692,26.5 L17.2307692,4 Z M21.6923077,4 L25.5384615,4 L25.5384615,26.5 L21.6923077,26.5 L21.6923077,4 Z M4.46153846,4 L9.84615385,4 L9.84615385,26.5 L4.46153846,26.5 L4.46153846,4 Z M0,4 L1.53846154,4 L1.53846154,26.5 L0,26.5 L0,4 Z M28.4615385,4 L30,4 L30,26.5 L28.4615385,26.5 L28.4615385,4 Z"
   })));
 }, IconPaymentDiners = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2132,8 +2222,9 @@ var IconSettings = function(props) {
     d: "M9.44965517,11.5570652 L9.44965517,3.45076087 C11.129569,4.07543478 12.3220948,5.65358696 12.3250086,7.50369565 C12.3220948,9.35391304 11.1294569,10.9307609 9.44965517,11.5570652 M3.37092241,7.50369565 C3.37428448,5.65434783 4.56524138,4.0775 6.24425862,3.45076087 L6.24425862,11.5557609 C4.56524138,10.9294565 3.37428448,9.35304348 3.37092241,7.50369565 M7.8469569,0.652173913 C3.94673276,0.652934783 0.785267241,3.72 0.784482759,7.50369565 C0.785267241,11.2873913 3.94673276,14.3528261 7.8469569,14.3544565 C11.7488621,14.3528261 14.9111121,11.2873913 14.9111121,7.50369565 C14.9111121,3.72 11.7484138,0.653043478 7.8469569,0.652173913"
   })))));
 }, IconPaymentDiscover = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2246,8 +2337,9 @@ var IconSettings = function(props) {
     fillRule: "nonzero"
   }))))));
 }, IconPaymentElo = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2294,8 +2386,9 @@ var IconSettings = function(props) {
     fill: "#DC3E2A"
   })))));
 }, IconPaymentFreepass = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2335,8 +2428,9 @@ var IconSettings = function(props) {
     d: "M12.4166667,0.5 L9.70833333,0.5 C9.00228881,0.5 8.40177409,0.953063948 8.17815144,1.58333333 L5.82184856,1.58333333 C5.59822591,0.953063948 4.99771119,0.5 4.29166667,0.5 L1.58333333,0.5 L1.58333333,3.75 L0.5,3.75 L0.5,7.27083333 L1.58333333,7.27083333 L1.58333333,13.5 L12.4166667,13.5 L12.4166667,7.27083333 L13.5,7.27083333 L13.5,3.75 L12.4166667,3.75 L12.4166667,0.5 Z M4.83333333,12.4166667 L2.66666667,12.4166667 L2.66666667,7.27083333 L4.83333333,7.27083333 L4.83333333,12.4166667 Z M4.83333333,6.1875 L1.58333333,6.1875 L1.58333333,4.83333333 L4.83333333,4.83333333 L4.83333333,6.1875 Z M4.83333333,2.66666667 L4.83333333,3.75 L2.66666667,3.75 L2.66666667,1.58333333 L4.29166667,1.58333333 C4.59040325,1.58333333 4.83333333,1.82626342 4.83333333,2.125 L4.83333333,2.66666667 Z M8.08333333,7.27083333 L8.08333333,12.4166667 L5.91666667,12.4166667 L5.91666667,4.83333333 L8.08333333,4.83333333 L8.08333333,7.27083333 Z M8.08333333,3.75 L5.91666667,3.75 L5.91666667,2.66666667 L8.08333333,2.66666667 L8.08333333,3.75 Z M9.16666667,2.66666667 L9.16666667,2.125 C9.16666667,1.82626342 9.40959675,1.58333333 9.70833333,1.58333333 L11.3333333,1.58333333 L11.3333333,3.75 L9.16666667,3.75 L9.16666667,2.66666667 Z M11.3333333,12.4166667 L9.16666667,12.4166667 L9.16666667,7.27083333 L11.3333333,7.27083333 L11.3333333,12.4166667 Z M12.4166667,6.1875 L9.16666667,6.1875 L9.16666667,4.83333333 L12.4166667,4.83333333 L12.4166667,6.1875 Z"
   })))));
 }, IconPaymentMastercard = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2389,8 +2483,9 @@ var IconSettings = function(props) {
     fill: "#FF6300"
   })))));
 }, IconPaymentMoney = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2434,8 +2529,9 @@ var IconSettings = function(props) {
     points: "8.125 2.8125 6.875 2.8125 6.875 4.375 5 4.375 5 8.125 8.75 8.125 8.75 9.375 5 9.375 5 10.625 6.875 10.625 6.875 12.1875 8.125 12.1875 8.125 10.625 10 10.625 10 6.875 6.25 6.875 6.25 5.625 10 5.625 10 4.375 8.125 4.375"
   })))));
 }, IconPaymentOthers = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2475,8 +2571,9 @@ var IconSettings = function(props) {
     d: "M7.0414022,0 L5.95806886,0 C2.62687174,0.277241768 0,3.08227604 0,6.49257507 C0,9.90287409 2.62687174,12.7077758 5.95806886,12.9850176 L7.0414022,12.9850176 C10.3728638,12.708041 13,9.90313929 13,6.49257507 C13,3.08201084 10.3728638,0.276976574 7.0414022,0 Z M7.0414022,3.27943458 C8.57647707,3.53877691 9.74973553,4.8807013 9.74973553,6.49257507 C9.74973553,8.10444883 8.57647707,9.44637322 7.0414022,9.70571555 L7.0414022,8.59316866 C7.9743754,8.35093016 8.6664022,7.50236619 8.6664022,6.49230991 C8.6664022,5.48212101 7.9743754,4.63355704 7.0414022,4.39131854 L7.0414022,3.27943458 Z M6.49973553,7.57873695 L5.95806886,7.57873695 L5.95806886,11.8959387 C3.22487384,11.6221443 1.08333333,9.30357579 1.08333333,6.49257507 C1.08333333,3.68157434 3.22487384,1.3628733 5.95806886,1.08921142 L5.95806886,5.40641319 L6.49973553,5.40641319 C7.09720866,5.40641319 7.58306886,5.89354192 7.58306886,6.49257507 C7.58306886,7.09160821 7.09720866,7.57873695 6.49973553,7.57873695 Z M7.0414022,11.8959387 L7.0414022,10.799435 C9.17553711,10.530944 10.8330689,8.70401233 10.8330689,6.49257507 C10.8330689,4.2811378 9.17553711,2.45420612 7.0414022,2.18558257 L7.0414022,1.08921142 C9.77486165,1.3626081 11.9166667,3.68130915 11.9166667,6.49257507 C11.9166667,9.30384098 9.77486165,11.6224094 7.0414022,11.8959387 Z"
   })))));
 }, IconPaymentPaypal = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2524,8 +2621,9 @@ var IconSettings = function(props) {
     fill: "#253B80"
   })))));
 }, IconPaymentVisa = function(props) {
-  var size = props.size, width = props.width, height = props.height;
+  var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -2584,32 +2682,8 @@ var IconSettings = function(props) {
     fill: "#F7981D",
     fillRule: "evenodd"
   })))));
-};
-
-function ownKeys$4(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-
-function _objectSpread$4(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$4(source, !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(source).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-  return target;
-}
-
-var ICONS$1 = {
+}, ICONS$1 = {
+  adjusts: IconAdjusts,
   "arrow-up": IconArrowUp,
   "arrow-right": IconArrowRight,
   "arrow-down": IconArrowDown,
@@ -2636,10 +2710,11 @@ var ICONS$1 = {
   options: IconOptions,
   pencil: IconPencil,
   plus: IconPlus,
-  search: IconSearch,
-  settings: IconSettings,
   qrcode: IconQRCode,
   scan: IconScan,
+  search: IconSearch,
+  settings: IconSettings,
+  signal: IconSignal,
   ticketbooth: IconTicketbooth,
   times: IconTimes,
   transfer: IconTransfer,
@@ -2676,29 +2751,24 @@ var ICONS$1 = {
   "payment-paypal": IconPaymentPaypal,
   visa: IconPaymentVisa,
   "payment-visa": IconPaymentVisa
-}, IconWrapper = _styled("span", {
+}, IconWrapper = _styled("svg", {
   target: "e34a6r20"
-})(function(props) {
-  return _objectSpread$4({
-    display: "inline-block",
-    verticalAlign: "middle",
-    lineHeight: 0
-  }, props.styles);
-}, ""), Icon = React.forwardRef(function(props, ref) {
-  var direction = props.direction, shape = props.shape, slug = props.slug, ICON = ICONS$1[slug + (direction ? "-" + direction : "") + (shape ? "-" + shape : "")];
-  if (!ICON) return null;
+})("display:inline-block;line-height:0;vertical-align:middle;", function(props) {
+  return props.aphStyles;
+}, ";"), Icon = React.forwardRef(function(props, ref) {
+  var direction = props.direction, shape = props.shape, slug = props.slug, SelectedIcon = ICONS$1[slug + (direction ? "-" + direction : "") + (shape ? "-" + shape : "")];
+  if (!SelectedIcon) return null;
   var color = props.color, className = props.className, styles = props.styles, rest = _objectWithoutProperties(props, [ "color", "className", "styles" ]);
-  return React__default.createElement(IconWrapper, {
-    styles: styles,
-    className: "aph-icon-wrapper"
-  }, React__default.createElement(ICON, _extends({}, rest, {
+  return React__default.createElement(IconWrapper, _extends({}, rest, {
     ref: ref,
+    as: SelectedIcon,
+    aphStyles: styles,
     color: colors$1.getFromTheme(props, color),
-    className: "aph-icon ".concat(className || "")
-  })));
+    className: "aph-icon aph-icon-wrapper ".concat(className || "")
+  }));
 });
 
-function ownKeys$5(object, enumerableOnly) {
+function ownKeys$4(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -2709,12 +2779,12 @@ function ownKeys$5(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$5(target) {
+function _objectSpread$4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$5(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$4(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -2729,7 +2799,8 @@ Icon.defaultProps = {
   color: "secondary",
   width: void 0,
   height: void 0,
-  styles: {}
+  styles: {},
+  toEncode: !1
 }, Icon.propTypes = {
   slug: propTypes.string.isRequired,
   direction: propTypes.string,
@@ -2738,6 +2809,7 @@ Icon.defaultProps = {
   color: propTypes.string,
   width: propTypes.number,
   height: propTypes.number,
+  toEncode: propTypes.bool,
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
@@ -2747,7 +2819,7 @@ var ImgStyled = _styled("img", {
   var circle = props.circle, rounded = props.rounded, radius = props.radius, maxWidthXS = props.maxWidthXS, styles = props.styles, _extraStyles = {};
   return maxWidthXS && (_extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
     maxWidth: maxWidthXS
-  }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {})), _objectSpread$5({
+  }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {})), _objectSpread$4({
     boxSizing: "border-box",
     display: "inline-block",
     maxWidth: "100%",
@@ -2790,7 +2862,7 @@ var AphNumberFormatStyled = _styled("span", {
   }));
 });
 
-function ownKeys$6(object, enumerableOnly) {
+function ownKeys$5(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -2801,12 +2873,12 @@ function ownKeys$6(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$6(target) {
+function _objectSpread$5(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$6(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$5(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -2837,7 +2909,7 @@ NumberFormat.defaultProps = {
 var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.forwardRef(function(props, ref) {
   var _ref = props || {}, className = _ref.className, styles = _ref.styles, rest = _objectWithoutProperties(_ref, [ "className", "styles" ]), isDarkMode = !(!props.theme || !props.theme.isDarkMode), colorTheme = colors$1.getFromTheme(props, "helper"), colorBase = chroma(colorTheme), colorStart = colorBase.alpha(isDarkMode ? .5 : .05).css(), colorEnd = colorBase.alpha(isDarkMode ? .75 : .15).css(), StyledPlaceholder = _styled("div", {
     target: "ejqn05n0"
-  })(_objectSpread$6({
+  })(_objectSpread$5({
     fontSize: "0",
     lineHeight: "0",
     boxSizing: "border-box",
@@ -2859,7 +2931,7 @@ var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.for
   }), props.children);
 });
 
-function ownKeys$7(object, enumerableOnly) {
+function ownKeys$6(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -2870,12 +2942,12 @@ function ownKeys$7(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$7(target) {
+function _objectSpread$6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$7(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$6(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -2908,7 +2980,7 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
 }, AphProgressBarWrapper = _styled("div", {
   target: "e1pp9vj70"
 })(function(props) {
-  return _objectSpread$7({}, defaultStyles, {
+  return _objectSpread$6({}, defaultStyles, {
     height: props.height || "10px",
     overflow: "hidden",
     width: "100%",
@@ -2921,7 +2993,7 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
 }, ""), AphProgressBar = _styled("div", {
   target: "e1pp9vj71"
 })(function(props) {
-  return _objectSpread$7({}, defaultStyles, {
+  return _objectSpread$6({}, defaultStyles, {
     height: props.height || "10px",
     width: props.size || (props.percentual && props.percentual > 100 ? 100 : props.percentual || 0) + "%",
     background: props.color ? colors$1.getFromTheme(props, props.color) : props.animated ? "linear-gradient(270deg, ".concat(colors$1.getFromTheme(props, props.gradientStart || "secondary"), " 0%, ").concat(colors$1.getFromTheme(props, props.gradientEnd || "secondary"), " 100%)") : colors$1.getFromTheme(props, "secondary"),
@@ -2951,7 +3023,7 @@ function ProgressBar(props) {
   }));
 }
 
-function ownKeys$8(object, enumerableOnly) {
+function ownKeys$7(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -2962,12 +3034,12 @@ function ownKeys$8(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$8(target) {
+function _objectSpread$7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$8(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$7(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3004,7 +3076,7 @@ ProgressBar.defaultProps = {
 var StyledWrapper = _styled("div", {
   target: "e19gg4i70"
 })(function(props) {
-  return _objectSpread$8({}, props.styles, _defineProperty({
+  return _objectSpread$7({}, props.styles, _defineProperty({
     position: "relative",
     paddingTop: "10px",
     paddingBottom: "10px",
@@ -3067,12 +3139,33 @@ var StyledWrapper = _styled("div", {
     styles: styles,
     className: (className || "") + (onlyXS ? " scrollable--xs" : "")
   }, React__default.createElement(StyledScrollable, null, children));
-}), SegmentStyled = _styled("div", {
+}), text = function(props) {
+  var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+  return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
+}, textAlign = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textAlign || props.textLeft || props.textCenter || props.textRight ? "\n    text-align: ".concat(props.textLeft ? "left" : props.textCenter ? "center" : props.textRight ? "right" : props.textAlign, ";\n") : "";
+}, textBreakAll = function() {
+  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).breakAll ? "\n    word-break: break-all;\n" : "";
+}, textColorfull = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
+}, textDefinitions = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+  return size ? "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n") : "";
+}, textTransform = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textLower || props.textUpper ? "\n    text-transform: ".concat(props.textLower ? "lowercase" : "uppercase", ";\n") : "";
+}, textTruncate = function() {
+  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).truncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
+}, SegmentStyled = _styled("div", {
   target: "e1pevrxj0"
 })("box-sizing:border-box;display:block;margin:", function(props) {
   return props.aphmargin || null;
 }, ";padding:", function(props) {
   return props.aphpadding || "20px 10px";
+}, ";", function(props) {
+  return text(props);
 }, ";border-radius:", function(props) {
   return props.aphradius ? "".concat(props.aphradius, "px") : null;
 }, ";box-shadow:", function(props) {
@@ -3142,7 +3235,7 @@ var AphTableStyled = _styled("table", {
   }), children);
 });
 
-function ownKeys$9(object, enumerableOnly) {
+function ownKeys$8(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3153,12 +3246,12 @@ function ownKeys$9(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$9(target) {
+function _objectSpread$8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$9(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$8(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3182,7 +3275,7 @@ var ToastsContainer = function() {
     styles: {}
   }, styles = props.styles || {}, AphToastsContainer = _styled("div", {
     target: "ej5e3vp0"
-  })(_objectSpread$9({}, styles, _defineProperty({
+  })(_objectSpread$8({}, styles, _defineProperty({
     zIndex: styles.zIndex || ZINDEX.TOAST,
     position: styles.position || "fixed",
     top: "string" == typeof styles.top ? styles.top : "20px",
@@ -3340,7 +3433,7 @@ var ToastsContainer = function() {
   })));
 };
 
-function ownKeys$a(object, enumerableOnly) {
+function ownKeys$9(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3351,12 +3444,12 @@ function ownKeys$a(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$a(target) {
+function _objectSpread$9(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$a(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$9(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3365,7 +3458,7 @@ function _objectSpread$a(target) {
 
 reactToastify.toast.inverse = function() {
   var content = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", props = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-  return reactToastify.toast(content, _objectSpread$a({}, props, {
+  return reactToastify.toast(content, _objectSpread$9({}, props, {
     className: "Toastify__toast--inverse"
   }));
 }, reactToastify.toast.black = reactToastify.toast.inverse;
@@ -3545,7 +3638,7 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
   return props.styles;
 }, ";");
 
-function ownKeys$b(object, enumerableOnly) {
+function ownKeys$a(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3556,12 +3649,12 @@ function ownKeys$b(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$b(target) {
+function _objectSpread$a(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$b(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$a(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3649,7 +3742,7 @@ var _ref = {
   }, children))), React__default.createElement(ActionBar, _extends({}, footerProps, {
     className: "aph-modal__content__footer ".concat(footerProps.className || ""),
     visible: footerProps.visible || !(void 0 !== footerProps.visible || !footer),
-    styles: _objectSpread$b({}, footerProps.styles, {
+    styles: _objectSpread$a({}, footerProps.styles, {
       padding: "10px 0",
       minHeight: "initial"
     })
@@ -3725,26 +3818,7 @@ SidePill.defaultProps = {
   right: propTypes.bool
 };
 
-var text = function(props) {
-  var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "MD";
-  return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
-}, textAlign = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textAlign || props.textLeft || props.textCenter || props.textRight ? "\n    text-align: ".concat(props.textLeft ? "left" : props.textCenter ? "center" : props.textRight ? "right" : props.textAlign, ";\n") : "";
-}, textBreakAll = function() {
-  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).breakAll ? "\n    word-break: break-all;\n" : "";
-}, textColorfull = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
-}, textDefinitions = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "MD";
-  return "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n");
-}, textTransform = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textLower || props.textUpper ? "\n    text-transform: ".concat(props.textLower ? "lowercase" : "uppercase", ";\n") : "";
-}, textTruncate = function() {
-  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).truncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
-}, AStyled = _styled("a", {
+var AStyled = _styled("a", {
   target: "e93yvql0"
 })("box-sizing:border-box;cursor:pointer;text-decoration:none;", function(props) {
   return textColorfull(props);
@@ -3945,7 +4019,7 @@ function Label(props) {
   }, rest));
 }
 
-function ownKeys$c(object, enumerableOnly) {
+function ownKeys$b(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3956,12 +4030,12 @@ function ownKeys$c(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$c(target) {
+function _objectSpread$b(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$c(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$b(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3992,7 +4066,7 @@ P.defaultProps = {
 var AphContainer = _styled("div", {
   target: "e1js7dhi0"
 })(function(props) {
-  return _objectSpread$c(_defineProperty({
+  return _objectSpread$b(_defineProperty({
     boxSizing: "border-box",
     display: "block",
     margin: "0 auto",
@@ -4010,7 +4084,7 @@ var AphContainer = _styled("div", {
   }), props.children);
 });
 
-function ownKeys$d(object, enumerableOnly) {
+function ownKeys$c(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4021,12 +4095,12 @@ function ownKeys$d(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$d(target) {
+function _objectSpread$c(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$d(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$c(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4068,7 +4142,7 @@ var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div",
     WebkitBoxAlign: vertical,
     MsFlexAlign: vertical,
     alignItems: "flex-".concat(vertical)
-  })), _objectSpread$d((_defineProperty(_objectSpread2 = {
+  })), _objectSpread$c((_defineProperty(_objectSpread2 = {
     boxSizing: "border-box",
     position: "relative",
     display: "flex",
@@ -4088,7 +4162,7 @@ var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div",
   }), children);
 });
 
-function ownKeys$e(object, enumerableOnly) {
+function ownKeys$d(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4099,12 +4173,12 @@ function ownKeys$e(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$e(target) {
+function _objectSpread$d(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$e(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$d(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4129,7 +4203,7 @@ var ColumnWrapper = _styled("div", {
     var size = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "xs";
     return first === size ? -1 : last === size ? 1 : null;
   }
-  return _objectSpread$e((_objectSpread2 = {
+  return _objectSpread$d((_objectSpread2 = {
     boxSizing: "border-box",
     flex: "0 0 auto",
     flexGrow: 1,
@@ -4326,7 +4400,7 @@ var AphListItemStyled = _styled("li", {
   }));
 });
 
-function ownKeys$f(object, enumerableOnly) {
+function ownKeys$e(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4337,12 +4411,12 @@ function ownKeys$f(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$f(target) {
+function _objectSpread$e(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$f(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$e(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4360,7 +4434,7 @@ ListItem.defaultProps = {
 var AphListGroup = _styled("div", {
   target: "ey9rber0"
 })(function(props) {
-  return _objectSpread$f({
+  return _objectSpread$e({
     boxSizing: "border-box",
     position: "relative",
     overflow: "hidden",
@@ -4410,6 +4484,51 @@ var AphListGroup = _styled("div", {
   }), props.children);
 });
 
+function ownKeys$f(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$f(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$f(source, !0).forEach(function(key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(source).forEach(function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+  return target;
+}
+
+var AphListGroupItem = _styled("div", {
+  target: "evs8czu0"
+})(function(props) {
+  return _objectSpread$f(_defineProperty({
+    boxSizing: "border-box",
+    position: "relative",
+    overflow: "hidden",
+    display: "block",
+    padding: GRID.CONTAINER_PADDING / 2 + GRID.UNIT + " " + (GRID.CONTAINER_PADDING + GRID.UNIT),
+    margin: 0
+  }, MEDIA_QUERIES.LT.SM, {
+    paddingRight: GRID.CONTAINER_PADDING - 5 + GRID.UNIT,
+    paddingLeft: GRID.CONTAINER_PADDING - 5 + GRID.UNIT
+  }), props.styles);
+}, ""), ListGroupItem = React.forwardRef(function(props, ref) {
+  var className = props.className, children = props.children;
+  return React__default.createElement(AphListGroupItem, _extends({}, props, {
+    ref: React.forwardRef,
+    className: "".concat(props.header ? "aph-list-group__header " : "aph-list-group__item ").concat(className || "")
+  }), children);
+});
+
 function ownKeys$g(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -4433,55 +4552,10 @@ function _objectSpread$g(target) {
   return target;
 }
 
-var AphListGroupItem = _styled("div", {
-  target: "evs8czu0"
-})(function(props) {
-  return _objectSpread$g(_defineProperty({
-    boxSizing: "border-box",
-    position: "relative",
-    overflow: "hidden",
-    display: "block",
-    padding: GRID.CONTAINER_PADDING / 2 + GRID.UNIT + " " + (GRID.CONTAINER_PADDING + GRID.UNIT),
-    margin: 0
-  }, MEDIA_QUERIES.LT.SM, {
-    paddingRight: GRID.CONTAINER_PADDING - 5 + GRID.UNIT,
-    paddingLeft: GRID.CONTAINER_PADDING - 5 + GRID.UNIT
-  }), props.styles);
-}, ""), ListGroupItem = React.forwardRef(function(props, ref) {
-  var className = props.className, children = props.children;
-  return React__default.createElement(AphListGroupItem, _extends({}, props, {
-    ref: React.forwardRef,
-    className: "".concat(props.header ? "aph-list-group__header " : "aph-list-group__item ").concat(className || "")
-  }), children);
-});
-
-function ownKeys$h(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-
-function _objectSpread$h(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$h(source, !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(source).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-  return target;
-}
-
 var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _iconSize + GRID.CONTAINER_PADDING / 2 + GRID.UNIT, AphAccordion = _styled("div", {
   target: "e869uf0"
 })(function(props) {
-  return _objectSpread$h({
+  return _objectSpread$g({
     boxSizing: "border-box",
     display: "block",
     fontSize: SIZES.MD.FONT_SIZE,
@@ -4502,7 +4576,7 @@ var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _ico
 }, IconColumn = _styled("div", {
   target: "e869uf2"
 })(function(props) {
-  return _objectSpread$h({}, columnStyles, _defineProperty({
+  return _objectSpread$g({}, columnStyles, _defineProperty({
     width: iconColumn,
     lineHeight: 0,
     margin: "-2px 0"
@@ -4512,7 +4586,7 @@ var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _ico
 }, ""), ContentColumn = _styled("div", {
   target: "e869uf3"
 })(function(props) {
-  return _objectSpread$h({}, columnStyles, {
+  return _objectSpread$g({}, columnStyles, {
     width: "calc(100% - ".concat(iconColumn, ")"),
     lineHeight: "20px"
   });
@@ -4529,7 +4603,7 @@ function Accordion(props) {
     id: id
   }, headerProps, {
     header: !!headerDark,
-    styles: _objectSpread$h({
+    styles: _objectSpread$g({
       cursor: "pointer",
       paddingRight: "15px",
       paddingLeft: "15px"
@@ -4578,7 +4652,7 @@ var AphCollapsibleChildrenStyled = _styled("div", {
   return props.styles;
 }, ";");
 
-function ownKeys$i(object, enumerableOnly) {
+function ownKeys$h(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4589,12 +4663,12 @@ function ownKeys$i(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$i(target) {
+function _objectSpread$h(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$i(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$h(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4619,24 +4693,24 @@ var Collapsible = React.forwardRef(function(props, ref) {
   }, headerProps && headerProps.styles ? headerProps.styles : {}), HeaderTitle = headerProps && headerProps.lg ? H2 : H3;
   function handleToggle(isOpened) {
     var openStyles, closeStyles;
-    isOpened ? (closeStyles = _objectSpread$i({}, styles, {
+    isOpened ? (closeStyles = _objectSpread$h({}, styles, {
       maxHeight: wrapperContentRef.current.clientHeight
     }), clearTimeout(openTimer), setStyles(closeStyles), setTimeout(function() {
-      setStyles(_objectSpread$i({}, closeStyles, {
+      setStyles(_objectSpread$h({}, closeStyles, {
         maxHeight: 0
       })), clearTimeout(closeTimer), setCloseTimer(setTimeout(function() {
-        setStyles(_objectSpread$i({}, closeStyles, {
+        setStyles(_objectSpread$h({}, closeStyles, {
           display: "none"
         }));
       }, timerDelay + 10));
-    }, 10)) : (openStyles = _objectSpread$i({}, styles, {
+    }, 10)) : (openStyles = _objectSpread$h({}, styles, {
       maxHeight: 0,
       display: "block"
     }), clearTimeout(closeTimer), setStyles(openStyles), setTimeout(function() {
-      setStyles(_objectSpread$i({}, openStyles, {
+      setStyles(_objectSpread$h({}, openStyles, {
         maxHeight: wrapperContentRef.current.clientHeight
       })), clearTimeout(openTimer), setOpenTimer(setTimeout(function() {
-        setStyles(_objectSpread$i({}, openStyles, {
+        setStyles(_objectSpread$h({}, openStyles, {
           maxHeight: null
         }));
       }, timerDelay));

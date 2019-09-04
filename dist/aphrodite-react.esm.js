@@ -251,7 +251,7 @@ var GRID = {
 /* Packages */
 /* Export */
 
-var ICONS = Object.assign(['arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'bluetooth', 'camera', 'card', 'cards', 'chart-line', 'check', 'delete', 'external-ticket', 'eye', 'flash', 'flash-off', 'info', 'items', 'list', 'loader', 'loading', 'logout', 'lock', 'unlock', 'search', 'settings', 'options', 'minus', 'plus', 'times', 'qrcode', 'refresh', 'scan', 'ticketbooth', 'transfer', 'pencil', 'payment-amex', 'payment-bankbillet', 'payment-diners', 'payment-discover', 'payment-elo', 'payment-freepass', 'payment-mastercard', 'payment-money', 'payment-others', 'payment-paypal', 'payment-visa'], {
+var ICONS = Object.assign(['adjusts', 'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'bluetooth', 'camera', 'card', 'cards', 'chart-line', 'check', 'delete', 'external-ticket', 'eye', 'flash', 'flash-off', 'help', 'info', 'items', 'list', 'loader', 'loading', 'logout', 'lock', 'unlock', 'search', 'settings', 'signal', 'options', 'minus', 'plus', 'times', 'qrcode', 'refresh', 'scan', 'ticketbooth', 'transfer', 'pencil', 'payment-amex', 'payment-bankbillet', 'payment-diners', 'payment-discover', 'payment-elo', 'payment-freepass', 'payment-mastercard', 'payment-money', 'payment-others', 'payment-paypal', 'payment-visa'], {
   ENCODE_SVG: function ENCODE_SVG(reactElement) {
     return 'data:image/svg+xml,' + escape(ReactDOMServer.renderToStaticMarkup(reactElement));
   }
@@ -1670,19 +1670,62 @@ HoverActions.propTypes = {
 };
 
 /* Packages */
+/* Icon Itself */
+
+var IconAdjusts = function IconAdjusts(props) {
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
+  return React.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React.createElement("g", {
+    id: "aph-icon-group-adjusts",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, React.createElement("path", {
+    id: "aph-icon-path-adjusts",
+    fill: color,
+    d: "M21,22 L21,21.5 C21,20.9477153 21.4477153,20.5 22,20.5 C22.5522847,20.5 23,20.9477153 23,21.5 L23,22 L24,22 C24.5522847,22 25,22.4477153 25,23 C25,23.5522847 24.5522847,24 24,24 L23,24 L23,24.5 C23,25.0522847 22.5522847,25.5 22,25.5 C21.4477153,25.5 21,25.0522847 21,24.5 L21,24 L6,24 C5.44771525,24 5,23.5522847 5,23 C5,22.4477153 5.44771525,22 6,22 L21,22 Z M14,14 L14,13.5 C14,12.9477153 14.4477153,12.5 15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 L16,14 L24,14 C24.5522847,14 25,14.4477153 25,15 C25,15.5522847 24.5522847,16 24,16 L16,16 L16,16.5 C16,17.0522847 15.5522847,17.5 15,17.5 C14.4477153,17.5 14,17.0522847 14,16.5 L14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L14,14 Z M7,6 L7,5.5 C7,4.94771525 7.44771525,4.5 8,4.5 C8.55228475,4.5 9,4.94771525 9,5.5 L9,6 L24,6 C24.5522847,6 25,6.44771525 25,7 C25,7.55228475 24.5522847,8 24,8 L9,8 L9,8.5 C9,9.05228475 8.55228475,9.5 8,9.5 C7.44771525,9.5 7,9.05228475 7,8.5 L7,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 L7,6 Z"
+  })));
+};
+
+/* Packages */
 /* Icon */
 
 var IconArrowUp = function IconArrowUp(props) {
-  var color = props.color,
-      size = props.size,
-      styles = props.styles;
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React.createElement("g", {
     id: "aph-icon-arrow-up-group",
     stroke: "none",
@@ -1704,16 +1747,24 @@ var IconArrowUp = function IconArrowUp(props) {
 /* Icon */
 
 var IconArrowRight = function IconArrowRight(props) {
-  var color = props.color,
-      size = props.size,
-      styles = props.styles;
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React.createElement("path", {
     id: "aph-icon-arrow-right-path",
     fill: "none",
@@ -1730,16 +1781,24 @@ var IconArrowRight = function IconArrowRight(props) {
 /* Icon */
 
 var IconArrowDown = function IconArrowDown(props) {
-  var color = props.color,
-      size = props.size,
-      styles = props.styles;
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React.createElement("g", {
     id: "aph-icon-arrow-down-group",
     stroke: "none",
@@ -1760,16 +1819,24 @@ var IconArrowDown = function IconArrowDown(props) {
 /* Icon */
 
 var IconArrowLeft = function IconArrowLeft(props) {
-  var color = props.color,
-      size = props.size,
-      styles = props.styles;
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement("svg", {
-    style: styles,
-    width: size,
-    height: size,
-    viewBox: "0 0 30 30",
-    version: "1.1",
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React.createElement("path", {
     id: "aph-icon-arrow-left-path",
     fill: "none",
@@ -1792,12 +1859,14 @@ var IconBluetooth = function IconBluetooth(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1825,12 +1894,14 @@ var IconCamera = function IconCamera(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1866,12 +1937,14 @@ var IconCard = function IconCard(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -1918,12 +1991,14 @@ var IconCards = function IconCards(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2019,12 +2094,14 @@ var IconCharLine = function IconCharLine(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2050,13 +2127,24 @@ var IconCharLine = function IconCharLine(props) {
 /* Icon */
 
 var IconCheckThin = function IconCheckThin(props) {
-  var color = props.color,
-      size = props.size;
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement("svg", {
-    viewBox: "0 0 20 16",
-    width: size,
-    height: size,
-    xmlns: "http://www.w3.org/2000/svg"
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 20 16"
   }, React.createElement("g", {
     id: "IconCheckThinWrapper",
     stroke: "none",
@@ -2086,12 +2174,14 @@ var IconDelete = function IconDelete(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2120,12 +2210,14 @@ var IconExternalTicket = function IconExternalTicket(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2162,12 +2254,14 @@ var IconEye = function IconEye(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2195,12 +2289,14 @@ var IconFlash = function IconFlash(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2230,12 +2326,14 @@ var IconFlashOff = function IconFlashOff(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2271,12 +2369,14 @@ var IconInfo = function IconInfo(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2304,12 +2404,14 @@ var IconItems = function IconItems(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2364,12 +2466,14 @@ var IconList = function IconList(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2391,19 +2495,28 @@ var IconList = function IconList(props) {
 
 var IconStyled = _styled("svg", {
   target: "edz3eco0"
-})(animations.spin(), ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkljb25Mb2FkZXJEb251dC5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUzZCIiwiZmlsZSI6Ikljb25Mb2FkZXJEb251dC5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogSGVscGVycyAqL1xuaW1wb3J0IHsgYW5pbWF0aW9ucyB9IGZyb20gJy4uLy4uL3V0aWxzJztcblxuLyogSWNvbiBzdHlsZXMgKi9cbmNvbnN0IEljb25TdHlsZWQgPSBzdHlsZWQuc3ZnYFxuICAgICR7YW5pbWF0aW9ucy5zcGluKCl9O1xuYDtcblxuLyogSWNvbiBJdHNlbGYgKi9cbmNvbnN0IEljb25Mb2FkZXJEb251dCA9IChwcm9wcykgPT4ge1xuICAgIGNvbnN0IHtcbiAgICAgICAgY29sb3IsXG4gICAgICAgIHNpemUsXG4gICAgICAgIHdpZHRoLFxuICAgICAgICBoZWlnaHQsXG4gICAgfSA9IHByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEljb25TdHlsZWRcbiAgICAgICAgICAgICB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCJcbiAgICAgICAgICAgICB3aWR0aD17YCR7d2lkdGggfHwgc2l6ZX1weGB9XG4gICAgICAgICAgICAgaGVpZ2h0PXtgJHtoZWlnaHQgfHwgc2l6ZX1weGB9XG4gICAgICAgICAgICAgdmlld0JveD1cIjAgMCAzMCAzMFwiPlxuICAgICAgICAgICAgPGdcbiAgICAgICAgICAgICAgICBpZD1cImFwaC1pY29uLWxvYWRlci1ncm91cFwiXG4gICAgICAgICAgICAgICAgc3Ryb2tlPVwibm9uZVwiXG4gICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9XCIxXCJcbiAgICAgICAgICAgICAgICBmaWxsPVwibm9uZVwiXG4gICAgICAgICAgICAgICAgZmlsbFJ1bGU9XCJldmVub2RkXCJcbiAgICAgICAgICAgICAgICBzdHJva2VMaW5lY2FwPVwicm91bmRcIlxuICAgICAgICAgICAgICAgIHN0cm9rZUxpbmVqb2luPVwicm91bmRcIj5cbiAgICAgICAgICAgICAgICA8cGF0aFxuICAgICAgICAgICAgICAgICAgICBpZD1cImFwaC1pY29uLWxvYWRlci1wYXRoXCJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlPXtjb2xvcn1cbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9XCI0XCJcbiAgICAgICAgICAgICAgICAgICAgZD1cIk0xNSwyMi41IEMxOS4xNDIxMzU2LDIyLjUgMjIuNSwxOS4xNDIxMzU2IDIyLjUsMTUgQzIyLjUsMTAuODU3ODY0NCAxOS4xNDIxMzU2LDcuNSAxNSw3LjUgQzEwLjg1Nzg2NDQsNy41IDcuNSwxMC44NTc4NjQ0IDcuNSwxNVwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZz5cbiAgICAgICAgPC9JY29uU3R5bGVkPlxuICAgICk7XG59O1xuXG4vKiBJY29uIERlZmF1bHQgUHJvcHMgKi9cbkljb25Mb2FkZXJEb251dC5kZWZhdWx0UHJvcHMgPSB7XG4gICAgY29sb3I6ICd3aGl0ZScsXG4gICAgc2l6ZSA6IDIwLFxufTtcblxuLyogSWNvbiBQcm9wZXJ0aWVzIFR5cGVzICovXG5JY29uTG9hZGVyRG9udXQucHJvcFR5cGVzID0ge1xuICAgIGNvbG9yOiBQcm9wVHlwZXMuc3RyaW5nLFxuICAgIHNpemUgOiBQcm9wVHlwZXMubnVtYmVyLFxufTtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBJY29uTG9hZGVyRG9udXQ7XG4iXX0= */"));
+})(animations.spin(), ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkljb25Mb2FkZXJEb251dC5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUzZCIiwiZmlsZSI6Ikljb25Mb2FkZXJEb251dC5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogSGVscGVycyAqL1xuaW1wb3J0IHsgYW5pbWF0aW9ucyB9IGZyb20gJy4uLy4uL3V0aWxzJztcblxuLyogSWNvbiBzdHlsZXMgKi9cbmNvbnN0IEljb25TdHlsZWQgPSBzdHlsZWQuc3ZnYFxuICAgICR7YW5pbWF0aW9ucy5zcGluKCl9O1xuYDtcblxuLyogSWNvbiBJdHNlbGYgKi9cbmNvbnN0IEljb25Mb2FkZXJEb251dCA9IChwcm9wcykgPT4ge1xuICAgIC8qKlxuICAgICAqIEluaGVyaXQgcHJvcHNcbiAgICAgKi9cbiAgICBjb25zdCB7XG4gICAgICAgIGNvbG9yLFxuICAgICAgICBzaXplLFxuICAgICAgICB3aWR0aCxcbiAgICAgICAgaGVpZ2h0LFxuICAgICAgICBjbGFzc05hbWUsXG4gICAgfSA9IHByb3BzO1xuXG4gICAgLyoqXG4gICAgICogUmVuZGVyXG4gICAgICovXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEljb25TdHlsZWRcbiAgICAgICAgICAgIGNsYXNzTmFtZT17Y2xhc3NOYW1lfVxuICAgICAgICAgICAgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiXG4gICAgICAgICAgICB3aWR0aD17KHdpZHRoIHx8IHNpemUpfVxuICAgICAgICAgICAgaGVpZ2h0PXsoaGVpZ2h0IHx8IHNpemUpfVxuICAgICAgICAgICAgdmlld0JveD1cIjAgMCAzMCAzMFwiPlxuICAgICAgICAgICAgPGdcbiAgICAgICAgICAgICAgICBpZD1cImFwaC1pY29uLWxvYWRlci1ncm91cFwiXG4gICAgICAgICAgICAgICAgc3Ryb2tlPVwibm9uZVwiXG4gICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9XCIxXCJcbiAgICAgICAgICAgICAgICBmaWxsPVwibm9uZVwiXG4gICAgICAgICAgICAgICAgZmlsbFJ1bGU9XCJldmVub2RkXCJcbiAgICAgICAgICAgICAgICBzdHJva2VMaW5lY2FwPVwicm91bmRcIlxuICAgICAgICAgICAgICAgIHN0cm9rZUxpbmVqb2luPVwicm91bmRcIj5cbiAgICAgICAgICAgICAgICA8cGF0aFxuICAgICAgICAgICAgICAgICAgICBpZD1cImFwaC1pY29uLWxvYWRlci1wYXRoXCJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlPXtjb2xvcn1cbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9XCI0XCJcbiAgICAgICAgICAgICAgICAgICAgZD1cIk0xNSwyMi41IEMxOS4xNDIxMzU2LDIyLjUgMjIuNSwxOS4xNDIxMzU2IDIyLjUsMTUgQzIyLjUsMTAuODU3ODY0NCAxOS4xNDIxMzU2LDcuNSAxNSw3LjUgQzEwLjg1Nzg2NDQsNy41IDcuNSwxMC44NTc4NjQ0IDcuNSwxNVwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZz5cbiAgICAgICAgPC9JY29uU3R5bGVkPlxuICAgICk7XG59O1xuXG4vKiBJY29uIERlZmF1bHQgUHJvcHMgKi9cbkljb25Mb2FkZXJEb251dC5kZWZhdWx0UHJvcHMgPSB7XG4gICAgY29sb3I6ICd3aGl0ZScsXG4gICAgc2l6ZSA6IDIwLFxufTtcblxuLyogSWNvbiBQcm9wZXJ0aWVzIFR5cGVzICovXG5JY29uTG9hZGVyRG9udXQucHJvcFR5cGVzID0ge1xuICAgIGNvbG9yOiBQcm9wVHlwZXMuc3RyaW5nLFxuICAgIHNpemUgOiBQcm9wVHlwZXMubnVtYmVyLFxufTtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBJY29uTG9hZGVyRG9udXQ7XG4iXX0= */"));
 /* Icon Itself */
 
 
 var IconLoaderDonut = function IconLoaderDonut(props) {
+  /**
+   * Inherit props
+   */
   var color = props.color,
       size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement(IconStyled, {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    width: "".concat(width || size, "px"),
-    height: "".concat(height || size, "px"),
+    width: width || size,
+    height: height || size,
     viewBox: "0 0 30 30"
   }, React.createElement("g", {
     id: "aph-icon-loader-group",
@@ -2447,16 +2560,18 @@ var IconLoading = function IconLoading(props) {
   var color = props.color,
       width = props.width,
       height = props.height,
-      size = props.size;
+      size = props.size,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 120 30",
     width: width || size || 120,
     height: height || size || 30,
+    viewBox: "0 0 120 30",
     fill: color
   }, React.createElement("circle", {
     cx: "15",
@@ -2538,12 +2653,14 @@ var IconLock = function IconLock(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2580,12 +2697,14 @@ var IconLogout = function IconLogout(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2625,12 +2744,14 @@ var IconMinus = function IconMinus(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2663,12 +2784,14 @@ var IconOptions = function IconOptions(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2690,13 +2813,24 @@ var IconOptions = function IconOptions(props) {
 /* Icon */
 
 var IconPencil = function IconPencil(props) {
+  /**
+   * Inherit props
+   */
   var color = props.color,
-      size = props.size;
+      size = props.size,
+      width = props.width,
+      height = props.height,
+      className = props.className;
+  /**
+   * Render
+   */
+
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 30 30",
-    width: size,
-    height: size
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
   }, React.createElement("g", {
     id: "aph-icon-polygon-group",
     stroke: "none",
@@ -2727,12 +2861,14 @@ var IconPlus = function IconPlus(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2760,12 +2896,14 @@ var IconQRCode = function IconQRCode(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2793,12 +2931,14 @@ var IconRefresh = function IconRefresh(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2850,12 +2990,14 @@ var IconScan = function IconScan(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -2910,15 +3052,19 @@ function IconSearch(props) {
    * Inherit props
    */
   var size = props.size,
-      color = props.color;
+      color = props.color,
+      width = props.width,
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    width: size,
-    height: size,
+    width: width || size,
+    height: height || size,
     viewBox: "0 0 30 30"
   }, React.createElement("g", {
     id: "IconSearchGroup",
@@ -2953,27 +3099,87 @@ var IconSettings = function IconSettings(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
   }, React.createElement("g", {
-    id: "aph-icon-group-settings",
+    id: "Icon-/-30-/-Settings-/-Mercury",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
-    fillRule: "evenodd"
+    fillRule: "evenodd",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, React.createElement("g", {
+    id: "settings",
+    transform: "translate(4.000000, 4.000000)",
+    stroke: color,
+    strokeWidth: "2"
+  }, React.createElement("circle", {
+    id: "Oval",
+    cx: "11",
+    cy: "11",
+    r: "3"
+  }), React.createElement("path", {
+    d: "M18.4,14 C18.1276535,14.6170901 18.2583341,15.3378133 18.73,15.82 L18.79,15.88 C19.1655541,16.2551365 19.3765733,16.7641815 19.3765733,17.295 C19.3765733,17.8258185 19.1655541,18.3348635 18.79,18.71 C18.4148635,19.0855541 17.9058185,19.2965733 17.375,19.2965733 C16.8441815,19.2965733 16.3351365,19.0855541 15.96,18.71 L15.9,18.65 C15.4178133,18.1783341 14.6970901,18.0476535 14.08,18.32 C13.4755294,18.5790683 13.0826229,19.1723571 13.08,19.83 L13.08,20 C13.08,21.1045695 12.1845695,22 11.08,22 C9.9754305,22 9.08,21.1045695 9.08,20 L9.08,19.91 C9.0641566,19.2326708 8.63587177,18.6338652 8,18.4 C7.38290993,18.1276535 6.66218673,18.2583341 6.18,18.73 L6.12,18.79 C5.74486349,19.1655541 5.2358185,19.3765733 4.705,19.3765733 C4.1741815,19.3765733 3.66513651,19.1655541 3.29,18.79 C2.91444591,18.4148635 2.70342669,17.9058185 2.70342669,17.375 C2.70342669,16.8441815 2.91444591,16.3351365 3.29,15.96 L3.35,15.9 C3.82166588,15.4178133 3.95234646,14.6970901 3.68,14.08 C3.42093172,13.4755294 2.82764292,13.0826229 2.17,13.08 L2,13.08 C0.8954305,13.08 0,12.1845695 0,11.08 C0,9.9754305 0.8954305,9.08 2,9.08 L2.09,9.08 C2.76732918,9.0641566 3.36613483,8.63587177 3.6,8 C3.87234646,7.38290993 3.74166588,6.66218673 3.27,6.18 L3.21,6.12 C2.83444591,5.74486349 2.62342669,5.2358185 2.62342669,4.705 C2.62342669,4.1741815 2.83444591,3.66513651 3.21,3.29 C3.58513651,2.91444591 4.0941815,2.70342669 4.625,2.70342669 C5.1558185,2.70342669 5.66486349,2.91444591 6.04,3.29 L6.1,3.35 C6.58218673,3.82166588 7.30290993,3.95234646 7.92,3.68 L8,3.68 C8.60447061,3.42093172 8.99737709,2.82764292 9,2.17 L9,2 C9,0.8954305 9.8954305,0 11,0 C12.1045695,0 13,0.8954305 13,2 L13,2.09 C13.0026229,2.74764292 13.3955294,3.34093172 14,3.6 C14.6170901,3.87234646 15.3378133,3.74166588 15.82,3.27 L15.88,3.21 C16.2551365,2.83444591 16.7641815,2.62342669 17.295,2.62342669 C17.8258185,2.62342669 18.3348635,2.83444591 18.71,3.21 C19.0855541,3.58513651 19.2965733,4.0941815 19.2965733,4.625 C19.2965733,5.1558185 19.0855541,5.66486349 18.71,6.04 L18.65,6.1 C18.1783341,6.58218673 18.0476535,7.30290993 18.32,7.92 L18.32,8 C18.5790683,8.60447061 19.1723571,8.99737709 19.83,9 L20,9 C21.1045695,9 22,9.8954305 22,11 C22,12.1045695 21.1045695,13 20,13 L19.91,13 C19.2523571,13.0026229 18.6590683,13.3955294 18.4,14 Z",
+    id: "Path"
+  }))));
+};
+
+/* Packages */
+/* Icon Itself */
+
+var IconSignal = function IconSignal(props) {
+  /**
+   * Inherit props
+   */
+  var size = props.size,
+      width = props.width,
+      height = props.height,
+      color = props.color,
+      className = props.className;
+  /**
+   * Render
+   */
+
+  return React.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React.createElement("g", {
+    id: "Icon-/-30-/-Chart-/-White",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, React.createElement("g", {
+    id: "bar-chart",
+    transform: "translate(8.000000, 7.000000)",
+    stroke: color,
+    strokeWidth: "2.3"
   }, React.createElement("path", {
-    id: "aph-icon-path-settings",
-    fill: color,
-    d: "M21,22 L21,21.5 C21,20.9477153 21.4477153,20.5 22,20.5 C22.5522847,20.5 23,20.9477153 23,21.5 L23,22 L24,22 C24.5522847,22 25,22.4477153 25,23 C25,23.5522847 24.5522847,24 24,24 L23,24 L23,24.5 C23,25.0522847 22.5522847,25.5 22,25.5 C21.4477153,25.5 21,25.0522847 21,24.5 L21,24 L6,24 C5.44771525,24 5,23.5522847 5,23 C5,22.4477153 5.44771525,22 6,22 L21,22 Z M14,14 L14,13.5 C14,12.9477153 14.4477153,12.5 15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 L16,14 L24,14 C24.5522847,14 25,14.4477153 25,15 C25,15.5522847 24.5522847,16 24,16 L16,16 L16,16.5 C16,17.0522847 15.5522847,17.5 15,17.5 C14.4477153,17.5 14,17.0522847 14,16.5 L14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L14,14 Z M7,6 L7,5.5 C7,4.94771525 7.44771525,4.5 8,4.5 C8.55228475,4.5 9,4.94771525 9,5.5 L9,6 L24,6 C24.5522847,6 25,6.44771525 25,7 C25,7.55228475 24.5522847,8 24,8 L9,8 L9,8.5 C9,9.05228475 8.55228475,9.5 8,9.5 C7.44771525,9.5 7,9.05228475 7,8.5 L7,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 L7,6 Z"
-  })));
+    d: "M7,16 L7,6",
+    id: "Path"
+  }), React.createElement("path", {
+    d: "M13,16 L13,0",
+    id: "Path"
+  }), React.createElement("path", {
+    d: "M1,16 L1,12",
+    id: "Path"
+  }))));
 };
 
 /* Packages */
@@ -2986,14 +3192,15 @@ var IconTicketbooth = function IconTicketbooth(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
@@ -3029,12 +3236,14 @@ var IconTimes = function IconTimes(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -3073,12 +3282,14 @@ var IconTransfer = function IconTransfer(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -3107,12 +3318,14 @@ var IconUnlock = function IconUnlock(props) {
   var size = props.size,
       width = props.width,
       height = props.height,
-      color = props.color;
+      color = props.color,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
@@ -3148,12 +3361,14 @@ var IconPaymentAmex = function IconPaymentAmex(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3212,12 +3427,14 @@ var IconPaymentBankBillet = function IconPaymentBankBillet(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3261,12 +3478,14 @@ var IconPaymentDiners = function IconPaymentDiners(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3321,12 +3540,14 @@ var IconPaymentDiscover = function IconPaymentDiscover(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3449,12 +3670,14 @@ var IconPaymentElo = function IconPaymentElo(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3511,12 +3734,14 @@ var IconPaymentFreepass = function IconPaymentFreepass(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3566,12 +3791,14 @@ var IconPaymentMastercard = function IconPaymentMastercard(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3634,12 +3861,14 @@ var IconPaymentMoney = function IconPaymentMoney(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3693,12 +3922,14 @@ var IconPaymentOthers = function IconPaymentOthers(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3748,12 +3979,14 @@ var IconPaymentPaypal = function IconPaymentPaypal(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3811,12 +4044,14 @@ var IconPaymentVisa = function IconPaymentVisa(props) {
    */
   var size = props.size,
       width = props.width,
-      height = props.height;
+      height = props.height,
+      className = props.className;
   /**
    * Render
    */
 
   return React.createElement("svg", {
+    className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
@@ -3877,14 +4112,12 @@ var IconPaymentVisa = function IconPaymentVisa(props) {
   })))));
 };
 
-function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Mapper */
 
 /* Should be mapped into 'icons.constants' too */
 
 var ICONS$1 = {
+  'adjusts': IconAdjusts,
   'arrow-up': IconArrowUp,
   'arrow-right': IconArrowRight,
   'arrow-down': IconArrowDown,
@@ -3911,10 +4144,11 @@ var ICONS$1 = {
   'options': IconOptions,
   'pencil': IconPencil,
   'plus': IconPlus,
-  'search': IconSearch,
-  'settings': IconSettings,
   'qrcode': IconQRCode,
   'scan': IconScan,
+  'search': IconSearch,
+  'settings': IconSettings,
+  'signal': IconSignal,
   'ticketbooth': IconTicketbooth,
   'times': IconTimes,
   'transfer': IconTransfer,
@@ -3954,17 +4188,11 @@ var ICONS$1 = {
 };
 /* Component Wrapper styles */
 
-var IconWrapper =
-/*#__PURE__*/
-_styled('span', {
+var IconWrapper = _styled("svg", {
   target: "e34a6r20"
-})(function (props) {
-  return _objectSpread$4({
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    lineHeight: 0
-  }, props.styles);
-}, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkljb24uanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWtJb0IiLCJmaWxlIjoiSWNvbi5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IFJlYWN0LCB7IGZvcndhcmRSZWYgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgcHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBIZWxwZXJzICovXG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5cbi8qIENvbXBvbmVudHMgLyBJY29ucyAqL1xuaW1wb3J0IEFycm93VXAgZnJvbSAnLi9JY29uQXJyb3dVcCc7XG5pbXBvcnQgQXJyb3dSaWdodCBmcm9tICcuL0ljb25BcnJvd1JpZ2h0JztcbmltcG9ydCBBcnJvd0Rvd24gZnJvbSAnLi9JY29uQXJyb3dEb3duJztcbmltcG9ydCBBcnJvd0xlZnQgZnJvbSAnLi9JY29uQXJyb3dMZWZ0JztcbmltcG9ydCBCbHVldG9vdGggZnJvbSAnLi9JY29uQmx1ZXRvb3RoJztcbmltcG9ydCBDYW1lcmEgZnJvbSAnLi9JY29uQ2FtZXJhJztcbmltcG9ydCBDYXJkIGZyb20gJy4vSWNvbkNhcmQnO1xuaW1wb3J0IENhcmRzIGZyb20gJy4vSWNvbkNhcmRzJztcbmltcG9ydCBDaGFydExpbmUgZnJvbSAnLi9JY29uQ2hhcnRMaW5lJztcbmltcG9ydCBDaGVja1RoaW4gZnJvbSAnLi9JY29uQ2hlY2tUaGluJztcbmltcG9ydCBEZWxldGUgZnJvbSAnLi9JY29uRGVsZXRlJztcbmltcG9ydCBFeHRlcm5hbFRpY2tldCBmcm9tICcuL0ljb25FeHRlcm5hbFRpY2tldCc7XG5pbXBvcnQgRXllIGZyb20gJy4vSWNvbkV5ZSc7XG5pbXBvcnQgRmxhc2ggZnJvbSAnLi9JY29uRmxhc2gnO1xuaW1wb3J0IEZsYXNoT2ZmIGZyb20gJy4vSWNvbkZsYXNoT2ZmJztcbmltcG9ydCBJbmZvIGZyb20gJy4vSWNvbkluZm8nO1xuaW1wb3J0IEl0ZW1zIGZyb20gJy4vSWNvbkl0ZW1zJztcbmltcG9ydCBMaXN0IGZyb20gJy4vSWNvbkxpc3QnO1xuaW1wb3J0IExvYWRlckRvbnV0IGZyb20gJy4vSWNvbkxvYWRlckRvbnV0JztcbmltcG9ydCBMb2FkaW5nIGZyb20gJy4vSWNvbkxvYWRpbmcnO1xuaW1wb3J0IExvY2sgZnJvbSAnLi9JY29uTG9jayc7XG5pbXBvcnQgTG9nb3V0IGZyb20gJy4vSWNvbkxvZ291dCc7XG5pbXBvcnQgTWludXMgZnJvbSAnLi9JY29uTWludXMnO1xuaW1wb3J0IE9wdGlvbnMgZnJvbSAnLi9JY29uT3B0aW9ucyc7XG5pbXBvcnQgUGVuY2lsIGZyb20gJy4vSWNvblBlbmNpbCc7XG5pbXBvcnQgUGx1cyBmcm9tICcuL0ljb25QbHVzJztcbmltcG9ydCBRUkNvZGUgZnJvbSAnLi9JY29uUVJDb2RlJztcbmltcG9ydCBSZWZyZXNoIGZyb20gJy4vSWNvblJlZnJlc2gnO1xuaW1wb3J0IFNjYW4gZnJvbSAnLi9JY29uU2Nhbic7XG5pbXBvcnQgU2VhcmNoIGZyb20gJy4vSWNvblNlYXJjaCc7XG5pbXBvcnQgU2V0dGluZ3MgZnJvbSAnLi9JY29uU2V0dGluZ3MnO1xuaW1wb3J0IFRpY2tldGJvb3RoIGZyb20gJy4vSWNvblRpY2tldGJvb3RoJztcbmltcG9ydCBUaW1lcyBmcm9tICcuL0ljb25UaW1lcyc7XG5pbXBvcnQgVHJhbnNmZXIgZnJvbSAnLi9JY29uVHJhbnNmZXInO1xuaW1wb3J0IFVubG9jayBmcm9tICcuL0ljb25VbmxvY2snO1xuXG5pbXBvcnQgUGF5bWVudEFtZXggZnJvbSAnLi9JY29uUGF5bWVudEFtZXgnO1xuaW1wb3J0IFBheW1lbnRCYW5rQmlsbGV0IGZyb20gJy4vSWNvblBheW1lbnRCYW5rQmlsbGV0JztcbmltcG9ydCBQYXltZW50RGluZXJzIGZyb20gJy4vSWNvblBheW1lbnREaW5lcnMnO1xuaW1wb3J0IFBheW1lbnREaXNjb3ZlciBmcm9tICcuL0ljb25QYXltZW50RGlzY292ZXInO1xuaW1wb3J0IFBheW1lbnRFbG8gZnJvbSAnLi9JY29uUGF5bWVudEVsbyc7XG5pbXBvcnQgUGF5bWVudEZyZWVwYXNzIGZyb20gJy4vSWNvblBheW1lbnRGcmVlcGFzcyc7XG5pbXBvcnQgUGF5bWVudE1hc3RlcmNhcmQgZnJvbSAnLi9JY29uUGF5bWVudE1hc3RlcmNhcmQnO1xuaW1wb3J0IFBheW1lbnRNb25leSBmcm9tICcuL0ljb25QYXltZW50TW9uZXknO1xuaW1wb3J0IFBheW1lbnRPdGhlcnMgZnJvbSAnLi9JY29uUGF5bWVudE90aGVycyc7XG5pbXBvcnQgUGF5bWVudFBheXBhbCBmcm9tICcuL0ljb25QYXltZW50UGF5cGFsJztcbmltcG9ydCBQYXltZW50VmlzYSBmcm9tICcuL0ljb25QYXltZW50VmlzYSc7XG5cbi8qIE1hcHBlciAqL1xuLyogU2hvdWxkIGJlIG1hcHBlZCBpbnRvICdpY29ucy5jb25zdGFudHMnIHRvbyAqL1xuY29uc3QgSUNPTlMgPSB7XG4gICAgJ2Fycm93LXVwJyAgICAgICAgICA6IEFycm93VXAsXG4gICAgJ2Fycm93LXJpZ2h0JyAgICAgICA6IEFycm93UmlnaHQsXG4gICAgJ2Fycm93LWRvd24nICAgICAgICA6IEFycm93RG93bixcbiAgICAnYXJyb3ctbGVmdCcgICAgICAgIDogQXJyb3dMZWZ0LFxuICAgICdibHVldG9vdGgnICAgICAgICAgOiBCbHVldG9vdGgsXG4gICAgJ2NhbWVyYScgICAgICAgICAgICA6IENhbWVyYSxcbiAgICAnY2FyZCcgICAgICAgICAgICAgIDogQ2FyZCxcbiAgICAnY2FyZHMnICAgICAgICAgICAgIDogQ2FyZHMsXG4gICAgJ2NoYXJ0LWxpbmUnICAgICAgICA6IENoYXJ0TGluZSxcbiAgICAnY2hlY2snICAgICAgICAgICAgIDogQ2hlY2tUaGluLFxuICAgICdjaGVjay10aGluJyAgICAgICAgOiBDaGVja1RoaW4sXG4gICAgJ2V4dGVybmFsLXRpY2tldCcgICA6IEV4dGVybmFsVGlja2V0LFxuICAgICdleWUnICAgICAgICAgICAgICAgOiBFeWUsXG4gICAgJ2ZsYXNoJyAgICAgICAgICAgICA6IEZsYXNoLFxuICAgICdmbGFzaC1vZmYnICAgICAgICAgOiBGbGFzaE9mZixcbiAgICAnaW5mbycgICAgICAgICAgICAgIDogSW5mbyxcbiAgICAnaXRlbXMnICAgICAgICAgICAgIDogSXRlbXMsXG4gICAgJ2xpc3QnICAgICAgICAgICAgICA6IExpc3QsXG4gICAgJ2xvYWRlcicgICAgICAgICAgICA6IExvYWRlckRvbnV0LFxuICAgICdsb2FkaW5nJyAgICAgICAgICAgOiBMb2FkaW5nLFxuICAgICdsb2NrJyAgICAgICAgICAgICAgOiBMb2NrLFxuICAgICdsb2dvdXQnICAgICAgICAgICAgOiBMb2dvdXQsXG4gICAgJ21pbnVzJyAgICAgICAgICAgICA6IE1pbnVzLFxuICAgICdvcHRpb25zJyAgICAgICAgICAgOiBPcHRpb25zLFxuICAgICdwZW5jaWwnICAgICAgICAgICAgOiBQZW5jaWwsXG4gICAgJ3BsdXMnICAgICAgICAgICAgICA6IFBsdXMsXG4gICAgJ3NlYXJjaCcgICAgICAgICAgICA6IFNlYXJjaCxcbiAgICAnc2V0dGluZ3MnICAgICAgICAgIDogU2V0dGluZ3MsXG4gICAgJ3FyY29kZScgICAgICAgICAgICA6IFFSQ29kZSxcbiAgICAnc2NhbicgICAgICAgICAgICAgIDogU2NhbixcbiAgICAndGlja2V0Ym9vdGgnICAgICAgIDogVGlja2V0Ym9vdGgsXG4gICAgJ3RpbWVzJyAgICAgICAgICAgICA6IFRpbWVzLFxuICAgICd0cmFuc2ZlcicgICAgICAgICAgOiBUcmFuc2ZlcixcbiAgICAndW5sb2NrJyAgICAgICAgICAgIDogVW5sb2NrLFxuICAgICdyZWZyZXNoJyAgICAgICAgICAgOiBSZWZyZXNoLFxuICAgICdkZWxldGUnICAgICAgICAgICAgOiBEZWxldGUsXG5cbiAgICAnYW1leCcgICAgICAgICAgICAgICA6IFBheW1lbnRBbWV4LFxuICAgICdwYXltZW50LWFtZXgnICAgICAgIDogUGF5bWVudEFtZXgsXG4gICAgJ2JhbmtiaWxsZXQnICAgICAgICAgOiBQYXltZW50QmFua0JpbGxldCxcbiAgICAnYmFuay1iaWxsZXQnICAgICAgICA6IFBheW1lbnRCYW5rQmlsbGV0LFxuICAgICdwYXltZW50LWJhbmtiaWxsZXQnIDogUGF5bWVudEJhbmtCaWxsZXQsXG4gICAgJ3BheW1lbnQtYmFuay1iaWxsZXQnOiBQYXltZW50QmFua0JpbGxldCxcbiAgICAnYm9sZXRvJyAgICAgICAgICAgICA6IFBheW1lbnRCYW5rQmlsbGV0LFxuICAgICdwYXltZW50LWJvbGV0bycgICAgIDogUGF5bWVudEJhbmtCaWxsZXQsXG4gICAgJ2RpbmVycycgICAgICAgICAgICAgOiBQYXltZW50RGluZXJzLFxuICAgICdwYXltZW50LWRpbmVycycgICAgIDogUGF5bWVudERpbmVycyxcbiAgICAnZGlzY292ZXInICAgICAgICAgICA6IFBheW1lbnREaXNjb3ZlcixcbiAgICAncGF5bWVudC1kaXNjb3ZlcicgICA6IFBheW1lbnREaXNjb3ZlcixcbiAgICAnZWxvJyAgICAgICAgICAgICAgICA6IFBheW1lbnRFbG8sXG4gICAgJ3BheW1lbnQtZWxvJyAgICAgICAgOiBQYXltZW50RWxvLFxuICAgICdmcmVlcGFzcycgICAgICAgICAgIDogUGF5bWVudEZyZWVwYXNzLFxuICAgICdwYXltZW50LWZyZWVwYXNzJyAgIDogUGF5bWVudEZyZWVwYXNzLFxuICAgICdtYXN0ZXInICAgICAgICAgICAgIDogUGF5bWVudE1hc3RlcmNhcmQsXG4gICAgJ21hc3RlcmNhcmQnICAgICAgICAgOiBQYXltZW50TWFzdGVyY2FyZCxcbiAgICAncGF5bWVudC1tYXN0ZXInICAgICA6IFBheW1lbnRNYXN0ZXJjYXJkLFxuICAgICdwYXltZW50LW1hc3RlcmNhcmQnIDogUGF5bWVudE1hc3RlcmNhcmQsXG4gICAgJ21vbmV5JyAgICAgICAgICAgICAgOiBQYXltZW50TW9uZXksXG4gICAgJ2Nhc2gnICAgICAgICAgICAgICAgOiBQYXltZW50TW9uZXksXG4gICAgJ3BheW1lbnQtbW9uZXknICAgICAgOiBQYXltZW50TW9uZXksXG4gICAgJ3BheW1lbnQtY2FzaCcgICAgICAgOiBQYXltZW50TW9uZXksXG4gICAgJ290aGVycycgICAgICAgICAgICAgOiBQYXltZW50T3RoZXJzLFxuICAgICdwYXltZW50LW90aGVycycgICAgIDogUGF5bWVudE90aGVycyxcbiAgICAncGF5cGFsJyAgICAgICAgICAgICA6IFBheW1lbnRQYXlwYWwsXG4gICAgJ3BheW1lbnQtcGF5cGFsJyAgICAgOiBQYXltZW50UGF5cGFsLFxuICAgICd2aXNhJyAgICAgICAgICAgICAgIDogUGF5bWVudFZpc2EsXG4gICAgJ3BheW1lbnQtdmlzYScgICAgICAgOiBQYXltZW50VmlzYSxcbn07XG5cbi8qIENvbXBvbmVudCBXcmFwcGVyIHN0eWxlcyAqL1xuY29uc3QgSWNvbldyYXBwZXIgPSBzdHlsZWQoJ3NwYW4nKShwcm9wcyA9PiAoe1xuICAgIGRpc3BsYXkgICAgICA6ICdpbmxpbmUtYmxvY2snLFxuICAgIHZlcnRpY2FsQWxpZ246ICdtaWRkbGUnLFxuICAgIGxpbmVIZWlnaHQgICA6IDAsXG5cbiAgICAuLi5wcm9wcy5zdHlsZXMsXG59KSk7XG5cbi8qIENvbXBvbmVudCBpdCBzZWxmICovXG5jb25zdCBJY29uID0gZm9yd2FyZFJlZigocHJvcHMsIHJlZikgPT4ge1xuICAgIGNvbnN0IHsgZGlyZWN0aW9uLCBzaGFwZSwgc2x1ZyB9ID0gcHJvcHM7XG4gICAgY29uc3QgU0xVRyA9IChzbHVnICsgKCFkaXJlY3Rpb24gPyAnJyA6ICctJyArIGRpcmVjdGlvbikgKyAoIXNoYXBlID8gJycgOiAnLScgKyBzaGFwZSkpO1xuICAgIGNvbnN0IElDT04gPSBJQ09OU1tTTFVHXTtcblxuICAgIGlmICghSUNPTikge1xuICAgICAgICByZXR1cm4gbnVsbDtcbiAgICB9XG5cbiAgICBjb25zdCB7XG4gICAgICAgIGNvbG9yLFxuICAgICAgICBjbGFzc05hbWUsXG4gICAgICAgIHN0eWxlcyxcblxuICAgICAgICAuLi5yZXN0XG4gICAgfSA9IHByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEljb25XcmFwcGVyXG4gICAgICAgICAgICBzdHlsZXM9e3N0eWxlc31cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImFwaC1pY29uLXdyYXBwZXJcIj5cbiAgICAgICAgICAgIDxJQ09OXG4gICAgICAgICAgICAgICAgey4uLnJlc3R9XG4gICAgICAgICAgICAgICAgcmVmPXtyZWZ9XG4gICAgICAgICAgICAgICAgY29sb3I9e2NvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsIGNvbG9yKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9e2BhcGgtaWNvbiAke2NsYXNzTmFtZSB8fCAnJ31gfVxuICAgICAgICAgICAgLz5cbiAgICAgICAgPC9JY29uV3JhcHBlcj5cbiAgICApO1xufSk7XG5cbi8qIERlZmF1bHQgUHJvcGVydGllcyAqL1xuSWNvbi5kZWZhdWx0UHJvcHMgPSB7XG4gICAgc2x1ZyAgICAgOiAnJyxcbiAgICBkaXJlY3Rpb246ICcnLFxuICAgIHNoYXBlICAgIDogJycsXG4gICAgc2l6ZSAgICAgOiAyMCxcbiAgICBjb2xvciAgICA6ICdzZWNvbmRhcnknLFxuICAgIHdpZHRoICAgIDogdW5kZWZpbmVkLFxuICAgIGhlaWdodCAgIDogdW5kZWZpbmVkLFxuICAgIHN0eWxlcyAgIDoge30sXG59O1xuXG4vKiBQcm9wZXJ0aWVzIFR5cGVzICovXG5JY29uLnByb3BUeXBlcyA9IHtcbiAgICBzbHVnICAgICA6IHByb3BUeXBlcy5zdHJpbmcuaXNSZXF1aXJlZCxcbiAgICBkaXJlY3Rpb246IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgc2hhcGUgICAgOiBwcm9wVHlwZXMuc3RyaW5nLFxuICAgIHNpemUgICAgIDogcHJvcFR5cGVzLm51bWJlcixcbiAgICBjb2xvciAgICA6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgd2lkdGggICAgOiBwcm9wVHlwZXMubnVtYmVyLFxuICAgIGhlaWdodCAgIDogcHJvcFR5cGVzLm51bWJlcixcbiAgICBzdHlsZXMgICA6IHByb3BUeXBlcy5vbmVPZlR5cGUoW1xuICAgICAgICBwcm9wVHlwZXMuc3RyaW5nLFxuICAgICAgICBwcm9wVHlwZXMub2JqZWN0LFxuICAgIF0pLFxufTtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBJY29uO1xuIl19 */");
+})("display:inline-block;line-height:0;vertical-align:middle;", function (props) {
+  return props.aphStyles;
+}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkljb24uanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXNJOEIiLCJmaWxlIjoiSWNvbi5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IFJlYWN0LCB7IGZvcndhcmRSZWYgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgcHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBIZWxwZXJzICovXG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5cbi8qIENvbXBvbmVudHMgLyBJY29ucyAqL1xuaW1wb3J0IEFkanVzdHMgZnJvbSAnLi9JY29uQWRqdXN0cyc7XG5pbXBvcnQgQXJyb3dVcCBmcm9tICcuL0ljb25BcnJvd1VwJztcbmltcG9ydCBBcnJvd1JpZ2h0IGZyb20gJy4vSWNvbkFycm93UmlnaHQnO1xuaW1wb3J0IEFycm93RG93biBmcm9tICcuL0ljb25BcnJvd0Rvd24nO1xuaW1wb3J0IEFycm93TGVmdCBmcm9tICcuL0ljb25BcnJvd0xlZnQnO1xuaW1wb3J0IEJsdWV0b290aCBmcm9tICcuL0ljb25CbHVldG9vdGgnO1xuaW1wb3J0IENhbWVyYSBmcm9tICcuL0ljb25DYW1lcmEnO1xuaW1wb3J0IENhcmQgZnJvbSAnLi9JY29uQ2FyZCc7XG5pbXBvcnQgQ2FyZHMgZnJvbSAnLi9JY29uQ2FyZHMnO1xuaW1wb3J0IENoYXJ0TGluZSBmcm9tICcuL0ljb25DaGFydExpbmUnO1xuaW1wb3J0IENoZWNrVGhpbiBmcm9tICcuL0ljb25DaGVja1RoaW4nO1xuaW1wb3J0IERlbGV0ZSBmcm9tICcuL0ljb25EZWxldGUnO1xuaW1wb3J0IEV4dGVybmFsVGlja2V0IGZyb20gJy4vSWNvbkV4dGVybmFsVGlja2V0JztcbmltcG9ydCBFeWUgZnJvbSAnLi9JY29uRXllJztcbmltcG9ydCBGbGFzaCBmcm9tICcuL0ljb25GbGFzaCc7XG5pbXBvcnQgRmxhc2hPZmYgZnJvbSAnLi9JY29uRmxhc2hPZmYnO1xuaW1wb3J0IEluZm8gZnJvbSAnLi9JY29uSW5mbyc7XG5pbXBvcnQgSXRlbXMgZnJvbSAnLi9JY29uSXRlbXMnO1xuaW1wb3J0IExpc3QgZnJvbSAnLi9JY29uTGlzdCc7XG5pbXBvcnQgTG9hZGVyRG9udXQgZnJvbSAnLi9JY29uTG9hZGVyRG9udXQnO1xuaW1wb3J0IExvYWRpbmcgZnJvbSAnLi9JY29uTG9hZGluZyc7XG5pbXBvcnQgTG9jayBmcm9tICcuL0ljb25Mb2NrJztcbmltcG9ydCBMb2dvdXQgZnJvbSAnLi9JY29uTG9nb3V0JztcbmltcG9ydCBNaW51cyBmcm9tICcuL0ljb25NaW51cyc7XG5pbXBvcnQgT3B0aW9ucyBmcm9tICcuL0ljb25PcHRpb25zJztcbmltcG9ydCBQZW5jaWwgZnJvbSAnLi9JY29uUGVuY2lsJztcbmltcG9ydCBQbHVzIGZyb20gJy4vSWNvblBsdXMnO1xuaW1wb3J0IFFSQ29kZSBmcm9tICcuL0ljb25RUkNvZGUnO1xuaW1wb3J0IFJlZnJlc2ggZnJvbSAnLi9JY29uUmVmcmVzaCc7XG5pbXBvcnQgU2NhbiBmcm9tICcuL0ljb25TY2FuJztcbmltcG9ydCBTZWFyY2ggZnJvbSAnLi9JY29uU2VhcmNoJztcbmltcG9ydCBTZXR0aW5ncyBmcm9tICcuL0ljb25TZXR0aW5ncyc7XG5pbXBvcnQgU2lnbmFsIGZyb20gJy4vSWNvblNpZ25hbCc7XG5pbXBvcnQgVGlja2V0Ym9vdGggZnJvbSAnLi9JY29uVGlja2V0Ym9vdGgnO1xuaW1wb3J0IFRpbWVzIGZyb20gJy4vSWNvblRpbWVzJztcbmltcG9ydCBUcmFuc2ZlciBmcm9tICcuL0ljb25UcmFuc2Zlcic7XG5pbXBvcnQgVW5sb2NrIGZyb20gJy4vSWNvblVubG9jayc7XG5cbmltcG9ydCBQYXltZW50QW1leCBmcm9tICcuL0ljb25QYXltZW50QW1leCc7XG5pbXBvcnQgUGF5bWVudEJhbmtCaWxsZXQgZnJvbSAnLi9JY29uUGF5bWVudEJhbmtCaWxsZXQnO1xuaW1wb3J0IFBheW1lbnREaW5lcnMgZnJvbSAnLi9JY29uUGF5bWVudERpbmVycyc7XG5pbXBvcnQgUGF5bWVudERpc2NvdmVyIGZyb20gJy4vSWNvblBheW1lbnREaXNjb3Zlcic7XG5pbXBvcnQgUGF5bWVudEVsbyBmcm9tICcuL0ljb25QYXltZW50RWxvJztcbmltcG9ydCBQYXltZW50RnJlZXBhc3MgZnJvbSAnLi9JY29uUGF5bWVudEZyZWVwYXNzJztcbmltcG9ydCBQYXltZW50TWFzdGVyY2FyZCBmcm9tICcuL0ljb25QYXltZW50TWFzdGVyY2FyZCc7XG5pbXBvcnQgUGF5bWVudE1vbmV5IGZyb20gJy4vSWNvblBheW1lbnRNb25leSc7XG5pbXBvcnQgUGF5bWVudE90aGVycyBmcm9tICcuL0ljb25QYXltZW50T3RoZXJzJztcbmltcG9ydCBQYXltZW50UGF5cGFsIGZyb20gJy4vSWNvblBheW1lbnRQYXlwYWwnO1xuaW1wb3J0IFBheW1lbnRWaXNhIGZyb20gJy4vSWNvblBheW1lbnRWaXNhJztcblxuLyogTWFwcGVyICovXG4vKiBTaG91bGQgYmUgbWFwcGVkIGludG8gJ2ljb25zLmNvbnN0YW50cycgdG9vICovXG5jb25zdCBJQ09OUyA9IHtcbiAgICAnYWRqdXN0cycgICAgICAgICAgIDogQWRqdXN0cyxcbiAgICAnYXJyb3ctdXAnICAgICAgICAgIDogQXJyb3dVcCxcbiAgICAnYXJyb3ctcmlnaHQnICAgICAgIDogQXJyb3dSaWdodCxcbiAgICAnYXJyb3ctZG93bicgICAgICAgIDogQXJyb3dEb3duLFxuICAgICdhcnJvdy1sZWZ0JyAgICAgICAgOiBBcnJvd0xlZnQsXG4gICAgJ2JsdWV0b290aCcgICAgICAgICA6IEJsdWV0b290aCxcbiAgICAnY2FtZXJhJyAgICAgICAgICAgIDogQ2FtZXJhLFxuICAgICdjYXJkJyAgICAgICAgICAgICAgOiBDYXJkLFxuICAgICdjYXJkcycgICAgICAgICAgICAgOiBDYXJkcyxcbiAgICAnY2hhcnQtbGluZScgICAgICAgIDogQ2hhcnRMaW5lLFxuICAgICdjaGVjaycgICAgICAgICAgICAgOiBDaGVja1RoaW4sXG4gICAgJ2NoZWNrLXRoaW4nICAgICAgICA6IENoZWNrVGhpbixcbiAgICAnZXh0ZXJuYWwtdGlja2V0JyAgIDogRXh0ZXJuYWxUaWNrZXQsXG4gICAgJ2V5ZScgICAgICAgICAgICAgICA6IEV5ZSxcbiAgICAnZmxhc2gnICAgICAgICAgICAgIDogRmxhc2gsXG4gICAgJ2ZsYXNoLW9mZicgICAgICAgICA6IEZsYXNoT2ZmLFxuICAgICdpbmZvJyAgICAgICAgICAgICAgOiBJbmZvLFxuICAgICdpdGVtcycgICAgICAgICAgICAgOiBJdGVtcyxcbiAgICAnbGlzdCcgICAgICAgICAgICAgIDogTGlzdCxcbiAgICAnbG9hZGVyJyAgICAgICAgICAgIDogTG9hZGVyRG9udXQsXG4gICAgJ2xvYWRpbmcnICAgICAgICAgICA6IExvYWRpbmcsXG4gICAgJ2xvY2snICAgICAgICAgICAgICA6IExvY2ssXG4gICAgJ2xvZ291dCcgICAgICAgICAgICA6IExvZ291dCxcbiAgICAnbWludXMnICAgICAgICAgICAgIDogTWludXMsXG4gICAgJ29wdGlvbnMnICAgICAgICAgICA6IE9wdGlvbnMsXG4gICAgJ3BlbmNpbCcgICAgICAgICAgICA6IFBlbmNpbCxcbiAgICAncGx1cycgICAgICAgICAgICAgIDogUGx1cyxcbiAgICAncXJjb2RlJyAgICAgICAgICAgIDogUVJDb2RlLFxuICAgICdzY2FuJyAgICAgICAgICAgICAgOiBTY2FuLFxuICAgICdzZWFyY2gnICAgICAgICAgICAgOiBTZWFyY2gsXG4gICAgJ3NldHRpbmdzJyAgICAgICAgICA6IFNldHRpbmdzLFxuICAgICdzaWduYWwnICAgICAgICAgICAgOiBTaWduYWwsXG4gICAgJ3RpY2tldGJvb3RoJyAgICAgICA6IFRpY2tldGJvb3RoLFxuICAgICd0aW1lcycgICAgICAgICAgICAgOiBUaW1lcyxcbiAgICAndHJhbnNmZXInICAgICAgICAgIDogVHJhbnNmZXIsXG4gICAgJ3VubG9jaycgICAgICAgICAgICA6IFVubG9jayxcbiAgICAncmVmcmVzaCcgICAgICAgICAgIDogUmVmcmVzaCxcbiAgICAnZGVsZXRlJyAgICAgICAgICAgIDogRGVsZXRlLFxuXG4gICAgJ2FtZXgnICAgICAgICAgICAgICAgOiBQYXltZW50QW1leCxcbiAgICAncGF5bWVudC1hbWV4JyAgICAgICA6IFBheW1lbnRBbWV4LFxuICAgICdiYW5rYmlsbGV0JyAgICAgICAgIDogUGF5bWVudEJhbmtCaWxsZXQsXG4gICAgJ2JhbmstYmlsbGV0JyAgICAgICAgOiBQYXltZW50QmFua0JpbGxldCxcbiAgICAncGF5bWVudC1iYW5rYmlsbGV0JyA6IFBheW1lbnRCYW5rQmlsbGV0LFxuICAgICdwYXltZW50LWJhbmstYmlsbGV0JzogUGF5bWVudEJhbmtCaWxsZXQsXG4gICAgJ2JvbGV0bycgICAgICAgICAgICAgOiBQYXltZW50QmFua0JpbGxldCxcbiAgICAncGF5bWVudC1ib2xldG8nICAgICA6IFBheW1lbnRCYW5rQmlsbGV0LFxuICAgICdkaW5lcnMnICAgICAgICAgICAgIDogUGF5bWVudERpbmVycyxcbiAgICAncGF5bWVudC1kaW5lcnMnICAgICA6IFBheW1lbnREaW5lcnMsXG4gICAgJ2Rpc2NvdmVyJyAgICAgICAgICAgOiBQYXltZW50RGlzY292ZXIsXG4gICAgJ3BheW1lbnQtZGlzY292ZXInICAgOiBQYXltZW50RGlzY292ZXIsXG4gICAgJ2VsbycgICAgICAgICAgICAgICAgOiBQYXltZW50RWxvLFxuICAgICdwYXltZW50LWVsbycgICAgICAgIDogUGF5bWVudEVsbyxcbiAgICAnZnJlZXBhc3MnICAgICAgICAgICA6IFBheW1lbnRGcmVlcGFzcyxcbiAgICAncGF5bWVudC1mcmVlcGFzcycgICA6IFBheW1lbnRGcmVlcGFzcyxcbiAgICAnbWFzdGVyJyAgICAgICAgICAgICA6IFBheW1lbnRNYXN0ZXJjYXJkLFxuICAgICdtYXN0ZXJjYXJkJyAgICAgICAgIDogUGF5bWVudE1hc3RlcmNhcmQsXG4gICAgJ3BheW1lbnQtbWFzdGVyJyAgICAgOiBQYXltZW50TWFzdGVyY2FyZCxcbiAgICAncGF5bWVudC1tYXN0ZXJjYXJkJyA6IFBheW1lbnRNYXN0ZXJjYXJkLFxuICAgICdtb25leScgICAgICAgICAgICAgIDogUGF5bWVudE1vbmV5LFxuICAgICdjYXNoJyAgICAgICAgICAgICAgIDogUGF5bWVudE1vbmV5LFxuICAgICdwYXltZW50LW1vbmV5JyAgICAgIDogUGF5bWVudE1vbmV5LFxuICAgICdwYXltZW50LWNhc2gnICAgICAgIDogUGF5bWVudE1vbmV5LFxuICAgICdvdGhlcnMnICAgICAgICAgICAgIDogUGF5bWVudE90aGVycyxcbiAgICAncGF5bWVudC1vdGhlcnMnICAgICA6IFBheW1lbnRPdGhlcnMsXG4gICAgJ3BheXBhbCcgICAgICAgICAgICAgOiBQYXltZW50UGF5cGFsLFxuICAgICdwYXltZW50LXBheXBhbCcgICAgIDogUGF5bWVudFBheXBhbCxcbiAgICAndmlzYScgICAgICAgICAgICAgICA6IFBheW1lbnRWaXNhLFxuICAgICdwYXltZW50LXZpc2EnICAgICAgIDogUGF5bWVudFZpc2EsXG59O1xuXG4vKiBDb21wb25lbnQgV3JhcHBlciBzdHlsZXMgKi9cbmNvbnN0IEljb25XcmFwcGVyID0gc3R5bGVkLnN2Z2BcbiAgICBkaXNwbGF5ICAgICAgIDogaW5saW5lLWJsb2NrO1xuICAgIGxpbmUtaGVpZ2h0ICAgOiAwO1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG5cbiAgICAke3Byb3BzID0+IHByb3BzLmFwaFN0eWxlc307XG5gO1xuXG4vKiBDb21wb25lbnQgaXQgc2VsZiAqL1xuY29uc3QgSWNvbiA9IGZvcndhcmRSZWYoKHByb3BzLCByZWYpID0+IHtcbiAgICBjb25zdCB7IGRpcmVjdGlvbiwgc2hhcGUsIHNsdWcgfSA9IHByb3BzO1xuICAgIGNvbnN0IFNMVUcgPSAoc2x1ZyArICghZGlyZWN0aW9uID8gJycgOiAnLScgKyBkaXJlY3Rpb24pICsgKCFzaGFwZSA/ICcnIDogJy0nICsgc2hhcGUpKTtcbiAgICBjb25zdCBTZWxlY3RlZEljb24gPSBJQ09OU1tTTFVHXTtcblxuICAgIGlmICghU2VsZWN0ZWRJY29uKSB7XG4gICAgICAgIHJldHVybiBudWxsO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIFByb3BzXG4gICAgICovXG4gICAgY29uc3Qge1xuICAgICAgICBjb2xvcixcbiAgICAgICAgY2xhc3NOYW1lLFxuICAgICAgICBzdHlsZXMsXG5cbiAgICAgICAgLi4ucmVzdFxuICAgIH0gPSBwcm9wcztcblxuICAgIC8qKlxuICAgICAqIFJlbmRlclxuICAgICAqL1xuICAgIHJldHVybiAoXG4gICAgICAgIDxJY29uV3JhcHBlclxuICAgICAgICAgICAgey4uLnJlc3R9XG4gICAgICAgICAgICByZWY9e3JlZn1cbiAgICAgICAgICAgIGFzPXtTZWxlY3RlZEljb259XG4gICAgICAgICAgICBhcGhTdHlsZXM9e3N0eWxlc31cbiAgICAgICAgICAgIGNvbG9yPXtjb2xvcnMuZ2V0RnJvbVRoZW1lKHByb3BzLCBjb2xvcil9XG4gICAgICAgICAgICBjbGFzc05hbWU9e2BhcGgtaWNvbiBhcGgtaWNvbi13cmFwcGVyICR7Y2xhc3NOYW1lIHx8ICcnfWB9XG4gICAgICAgIC8+XG4gICAgKTtcbn0pO1xuXG4vKiBEZWZhdWx0IFByb3BlcnRpZXMgKi9cbkljb24uZGVmYXVsdFByb3BzID0ge1xuICAgIHNsdWcgICAgIDogJycsXG4gICAgZGlyZWN0aW9uOiAnJyxcbiAgICBzaGFwZSAgICA6ICcnLFxuICAgIHNpemUgICAgIDogMjAsXG4gICAgY29sb3IgICAgOiAnc2Vjb25kYXJ5JyxcbiAgICB3aWR0aCAgICA6IHVuZGVmaW5lZCxcbiAgICBoZWlnaHQgICA6IHVuZGVmaW5lZCxcbiAgICBzdHlsZXMgICA6IHt9LFxuICAgIHRvRW5jb2RlIDogZmFsc2UsXG59O1xuXG4vKiBQcm9wZXJ0aWVzIFR5cGVzICovXG5JY29uLnByb3BUeXBlcyA9IHtcbiAgICBzbHVnICAgICA6IHByb3BUeXBlcy5zdHJpbmcuaXNSZXF1aXJlZCxcbiAgICBkaXJlY3Rpb246IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgc2hhcGUgICAgOiBwcm9wVHlwZXMuc3RyaW5nLFxuICAgIHNpemUgICAgIDogcHJvcFR5cGVzLm51bWJlcixcbiAgICBjb2xvciAgICA6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgd2lkdGggICAgOiBwcm9wVHlwZXMubnVtYmVyLFxuICAgIGhlaWdodCAgIDogcHJvcFR5cGVzLm51bWJlcixcbiAgICB0b0VuY29kZSA6IHByb3BUeXBlcy5ib29sLFxuICAgIHN0eWxlcyAgIDogcHJvcFR5cGVzLm9uZU9mVHlwZShbXG4gICAgICAgIHByb3BUeXBlcy5zdHJpbmcsXG4gICAgICAgIHByb3BUeXBlcy5vYmplY3QsXG4gICAgXSksXG59O1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEljb247XG4iXX0= */"));
 /* Component it self */
 
 
@@ -3973,25 +4201,32 @@ var Icon = forwardRef(function (props, ref) {
       shape = props.shape,
       slug = props.slug;
   var SLUG = slug + (!direction ? '' : '-' + direction) + (!shape ? '' : '-' + shape);
-  var ICON = ICONS$1[SLUG];
+  var SelectedIcon = ICONS$1[SLUG];
 
-  if (!ICON) {
+  if (!SelectedIcon) {
     return null;
   }
+  /**
+   * Props
+   */
+
 
   var color = props.color,
       className = props.className,
       styles = props.styles,
       rest = _objectWithoutProperties(props, ["color", "className", "styles"]);
+  /**
+   * Render
+   */
 
-  return React.createElement(IconWrapper, {
-    styles: styles,
-    className: "aph-icon-wrapper"
-  }, React.createElement(ICON, _extends({}, rest, {
+
+  return React.createElement(IconWrapper, _extends({}, rest, {
     ref: ref,
+    as: SelectedIcon,
+    aphStyles: styles,
     color: colors$1.getFromTheme(props, color),
-    className: "aph-icon ".concat(className || '')
-  })));
+    className: "aph-icon aph-icon-wrapper ".concat(className || '')
+  }));
 });
 /* Default Properties */
 
@@ -4003,7 +4238,8 @@ Icon.defaultProps = {
   color: 'secondary',
   width: undefined,
   height: undefined,
-  styles: {}
+  styles: {},
+  toEncode: false
 };
 /* Properties Types */
 
@@ -4015,12 +4251,13 @@ Icon.propTypes = {
   color: propTypes.string,
   width: propTypes.number,
   height: propTypes.number,
+  toEncode: propTypes.bool,
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Styled */
 
 var ImgStyled =
@@ -4041,7 +4278,7 @@ _styled('img', {
     }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {});
   }
 
-  return _objectSpread$5({
+  return _objectSpread$4({
     boxSizing: 'border-box',
     display: 'inline-block',
     maxWidth: '100%',
@@ -4124,9 +4361,9 @@ NumberFormat.propTypes = {
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _templateObject$2() {
   var data = _taggedTemplateLiteral(["\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n"]);
@@ -4158,7 +4395,7 @@ var Placeholder = forwardRef(function (props, ref) {
   /*#__PURE__*/
   _styled('div', {
     target: "ejqn05n0"
-  })(_objectSpread$6({
+  })(_objectSpread$5({
     fontSize: '0',
     lineHeight: '0',
     boxSizing: 'border-box',
@@ -4198,9 +4435,9 @@ Placeholder.propTypes = {
   style: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _templateObject$3() {
   var data = _taggedTemplateLiteral(["\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n"]);
@@ -4227,7 +4464,7 @@ var AphProgressBarWrapper =
 _styled('div', {
   target: "e1pp9vj70"
 })(function (props) {
-  return _objectSpread$7({}, defaultStyles, {
+  return _objectSpread$6({}, defaultStyles, {
     height: props.height || '10px',
     overflow: 'hidden',
     width: '100%',
@@ -4246,7 +4483,7 @@ var AphProgressBar =
 _styled('div', {
   target: "e1pp9vj71"
 })(function (props) {
-  return _objectSpread$7({}, defaultStyles, {
+  return _objectSpread$6({}, defaultStyles, {
     height: props.height || '10px',
     width: props.size || (props.percentual && props.percentual > 100 ? 100 : props.percentual || 0) + '%',
     background: props.color ? colors$1.getFromTheme(props, props.color) : !props.animated ? colors$1.getFromTheme(props, 'secondary') : "linear-gradient(270deg, ".concat(colors$1.getFromTheme(props, props.gradientStart || 'secondary'), " 0%, ").concat(colors$1.getFromTheme(props, props.gradientEnd || 'secondary'), " 100%)"),
@@ -4326,9 +4563,9 @@ ProgressBar.propTypes = {
   wrapperStyles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Style Wrapper */
 
 var StyledWrapper =
@@ -4336,7 +4573,7 @@ var StyledWrapper =
 _styled('div', {
   target: "e19gg4i70"
 })(function (props) {
-  return _objectSpread$8({}, props.styles, _defineProperty({
+  return _objectSpread$7({}, props.styles, _defineProperty({
     position: 'relative',
     paddingTop: '10px',
     paddingBottom: '10px',
@@ -4414,6 +4651,67 @@ var Scrollable = forwardRef(function (props, ref) {
   }, React.createElement(StyledScrollable, null, children));
 });
 
+/**
+ * Typography common styles
+ */
+/**
+ * Text
+ */
+
+var text = function text(props) {
+  var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  return "\n    ".concat(!props.margin ? '' : "\n        margin: ".concat(props.margin, ";\n    "), ";\n    ").concat(!props.padding ? '' : "\n        padding: ".concat(props.padding, ";\n    "), ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
+};
+/**
+ * Text Align
+ */
+
+var textAlign = function textAlign() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return !props.textAlign && !props.textLeft && !props.textCenter && !props.textRight ? '' : "\n    text-align: ".concat(props.textLeft ? 'left' : props.textCenter ? 'center' : props.textRight ? 'right' : props.textAlign, ";\n");
+};
+/**
+ * Text Break All words
+ */
+
+var textBreakAll = function textBreakAll() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return !props.breakAll ? '' : "\n    word-break: break-all;\n";
+};
+/**
+ * Text Colorfull
+ */
+
+var textColorfull = function textColorfull() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return !props.textColor && !props.link && !props.helper ? '' : "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? 'link' : props.helper ? 'helper' : props.textColor), ";\n");
+};
+/**
+ * Text Definitions
+ */
+
+var textDefinitions = function textDefinitions() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  return !size ? '' : "\n    font-weight: ".concat(SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n");
+};
+/**
+ * Text Transform
+ */
+
+var textTransform = function textTransform() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return !props.textLower && !props.textUpper ? '' : "\n    text-transform: ".concat(props.textLower ? 'lowercase' : 'uppercase', ";\n");
+};
+/**
+ * Text Truncate
+ */
+
+var textTruncate = function textTruncate() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return !props.truncate ? '' : "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n";
+};
+
 /* Component Itself */
 
 var SegmentStyled = _styled("div", {
@@ -4422,6 +4720,8 @@ var SegmentStyled = _styled("div", {
   return props.aphmargin || null;
 }, ";padding:", function (props) {
   return props.aphpadding || '20px 10px';
+}, ";", function (props) {
+  return text(props);
 }, ";border-radius:", function (props) {
   return props.aphradius ? "".concat(props.aphradius, "px") : null;
 }, ";box-shadow:", function (props) {
@@ -4436,7 +4736,7 @@ var SegmentStyled = _styled("div", {
   }, ";\n        transition   : box-shadow 0.15s linear;\n\n        &:hover,\n        &:focus {\n            box-shadow: 0 0 10px ").concat(colors$1.getFromTheme(props, 'oil', 'dark', 0.25), ";\n        }\n    ");
 }, " ", function (props) {
   return props.aphstyles;
-}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNlZ21lbnQuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVVnQyIsImZpbGUiOiJTZWdtZW50LmpzeCIsInNvdXJjZXNDb250ZW50IjpbIi8qIFBhY2thZ2VzICovXG5pbXBvcnQgUmVhY3QsIHsgZm9yd2FyZFJlZiB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBwcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5cbi8qIEhlbHBlcnMgKi9cbmltcG9ydCB7IFJBRElVUyB9IGZyb20gJy4uLy4uL2NvbnN0YW50cyc7XG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IFNlZ21lbnRTdHlsZWQgPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgbWFyZ2luIDogJHtwcm9wcyA9PiBwcm9wcy5hcGhtYXJnaW4gIHx8IG51bGx9O1xuICAgIHBhZGRpbmc6ICR7cHJvcHMgPT4gcHJvcHMuYXBocGFkZGluZyB8fCAnMjBweCAxMHB4J307XG5cbiAgICBib3JkZXItcmFkaXVzOiAke3Byb3BzID0+IHByb3BzLmFwaHJhZGl1cyA/IGAke3Byb3BzLmFwaHJhZGl1c31weGAgOiBudWxsfTtcbiAgICBib3gtc2hhZG93ICAgOiAke3Byb3BzID0+IHByb3BzLmFwaHNoYWRvdyA/XG4gICAgICAgIGAwIDAgM3B4ICR7Y29sb3JzLmdldEZyb21UaGVtZShwcm9wcywgJ29pbCcsICdkYXJrJywgMC4yNSl9YCA6IChcbiAgICAgICAgICAgIChwcm9wcy5ib3JkZXJUb3AgfHwgcHJvcHMuYm9yZGVyQm90dG9tKSA/IGBpbnNldCAwICR7cHJvcHMuYm9yZGVyQm90dG9tID8gJy0nIDogJyd9MXB4IDAgMCAke2NvbG9ycy5nZXRPcGFjaXR5KDAuMjUsIGNvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsICdoZWxwZXInKSl9YCA6IG51bGxcbiAgICAgICAgKVxuICAgIH07XG5cbiAgICBjb2xvciAgICAgICAgICAgOiAke3Byb3BzID0+IHByb3BzLmFwaGNvbG9yID8gY29sb3JzLmdldEZyb21UaGVtZShwcm9wcywgcHJvcHMuYXBoY29sb3IpIDogbnVsbH07XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJHtwcm9wcyA9PiBwcm9wcy5hcGhiYWNrZ3JvdW5kID8gY29sb3JzLmdldEZyb21UaGVtZShwcm9wcywgcHJvcHMuYXBoYmFja2dyb3VuZCkgOiBudWxsfTtcblxuICAgICR7cHJvcHMgPT4gIXByb3BzLmFwaGhvdmVyYWJsZSA/IG51bGwgOiBgXG4gICAgICAgIG91dGxpbmU6IDA7XG4gICAgICAgIGJvcmRlciA6IDA7XG5cbiAgICAgICAgYm9yZGVyLXJhZGl1czogJHtSQURJVVMuTEd9cHg7XG4gICAgICAgIGJveC1zaGFkb3cgICA6ICR7cHJvcHMgPT4gIXByb3BzLmFwaHNoYWRvdyA/IG51bGwgOiBgMCAwIDNweCAke2NvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsICdvaWwnLCAnZGFyaycsIDAuMjUpfWB9O1xuICAgICAgICB0cmFuc2l0aW9uICAgOiBib3gtc2hhZG93IDAuMTVzIGxpbmVhcjtcblxuICAgICAgICAmOmhvdmVyLFxuICAgICAgICAmOmZvY3VzIHtcbiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMCAxMHB4ICR7Y29sb3JzLmdldEZyb21UaGVtZShwcm9wcywgJ29pbCcsICdkYXJrJywgMC4yNSl9O1xuICAgICAgICB9XG4gICAgYH1cblxuICAgICR7cHJvcHMgPT4gcHJvcHMuYXBoc3R5bGVzfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IFNlZ21lbnQgPSBmb3J3YXJkUmVmKChwcm9wcywgcmVmKSA9PiB7XG4gICAgY29uc3Qge1xuICAgICAgICBjbGFzc05hbWUsXG5cbiAgICAgICAgbWFyZ2luLFxuICAgICAgICBwYWRkaW5nLFxuXG4gICAgICAgIGNvbG9yLFxuICAgICAgICBiYWNrZ3JvdW5kLFxuICAgICAgICBob3ZlcmFibGUsXG4gICAgICAgIHJhZGl1cyxcbiAgICAgICAgc2hhZG93LFxuXG4gICAgICAgIHN0eWxlcyxcblxuICAgICAgICAuLi5yZXN0XG4gICAgfSA9IHByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPFNlZ21lbnRTdHlsZWRcbiAgICAgICAgICAgIHsuLi5yZXN0fVxuICAgICAgICAgICAgcmVmPXtyZWZ9XG4gICAgICAgICAgICBhcGhtYXJnaW49e21hcmdpbn1cbiAgICAgICAgICAgIGFwaHBhZGRpbmc9e3BhZGRpbmd9XG4gICAgICAgICAgICBhcGhob3ZlcmFibGU9e2hvdmVyYWJsZX1cbiAgICAgICAgICAgIGFwaGNvbG9yPXtjb2xvcn1cbiAgICAgICAgICAgIGFwaGJhY2tncm91bmQ9e2JhY2tncm91bmR9XG4gICAgICAgICAgICBhcGhyYWRpdXM9e3JhZGl1c31cbiAgICAgICAgICAgIGFwaHNoYWRvdz17c2hhZG93fVxuICAgICAgICAgICAgYXBoc3R5bGVzPXtzdHlsZXN9XG4gICAgICAgICAgICBjbGFzc05hbWU9e2BhcGgtc2VnbWVudCAke2NsYXNzTmFtZSB8fCAnJ31gfVxuICAgICAgICAvPlxuICAgICk7XG59KTtcblxuLyogUHJvcGVydGllcyBUeXBlcyAqL1xuU2VnbWVudC5wcm9wVHlwZXMgPSB7XG4gICAgbWFyZ2luICAgIDogcHJvcFR5cGVzLnN0cmluZyxcbiAgICBwYWRkaW5nICAgOiBwcm9wVHlwZXMuc3RyaW5nLFxuICAgIGhvdmVyYWJsZSA6IHByb3BUeXBlcy5ib29sLFxuICAgIGNvbG9yICAgICA6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgYmFja2dyb3VuZDogcHJvcFR5cGVzLnN0cmluZyxcbiAgICByYWRpdXMgICAgOiBwcm9wVHlwZXMubnVtYmVyLFxuICAgIHNoYWRvdyAgICA6IHByb3BUeXBlcy5ib29sLFxuICAgIHN0eWxlcyAgICA6IHByb3BUeXBlcy5vbmVPZlR5cGUoW1xuICAgICAgICBwcm9wVHlwZXMuc3RyaW5nLFxuICAgICAgICBwcm9wVHlwZXMub2JqZWN0LFxuICAgIF0pLFxufTtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBTZWdtZW50O1xuIl19 */"));
+}, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNlZ21lbnQuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVdnQyIsImZpbGUiOiJTZWdtZW50LmpzeCIsInNvdXJjZXNDb250ZW50IjpbIi8qIFBhY2thZ2VzICovXG5pbXBvcnQgUmVhY3QsIHsgZm9yd2FyZFJlZiB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBwcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5cbi8qIEhlbHBlcnMgKi9cbmltcG9ydCB7IFJBRElVUyB9IGZyb20gJy4uLy4uL2NvbnN0YW50cyc7XG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5pbXBvcnQgeyB0ZXh0IH0gZnJvbSAnLi4vVHlwb2dyYXBoeS90eXBvZ3JhcGh5JztcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgU2VnbWVudFN0eWxlZCA9IHN0eWxlZC5kaXZgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4gOiAke3Byb3BzID0+IHByb3BzLmFwaG1hcmdpbiAgfHwgbnVsbH07XG4gICAgcGFkZGluZzogJHtwcm9wcyA9PiBwcm9wcy5hcGhwYWRkaW5nIHx8ICcyMHB4IDEwcHgnfTtcblxuICAgICR7cHJvcHMgPT4gdGV4dChwcm9wcyl9O1xuXG4gICAgYm9yZGVyLXJhZGl1czogJHtwcm9wcyA9PiBwcm9wcy5hcGhyYWRpdXMgPyBgJHtwcm9wcy5hcGhyYWRpdXN9cHhgIDogbnVsbH07XG4gICAgYm94LXNoYWRvdyAgIDogJHtwcm9wcyA9PiBwcm9wcy5hcGhzaGFkb3cgP1xuICAgICAgICBgMCAwIDNweCAke2NvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsICdvaWwnLCAnZGFyaycsIDAuMjUpfWAgOiAoXG4gICAgICAgICAgICAocHJvcHMuYm9yZGVyVG9wIHx8IHByb3BzLmJvcmRlckJvdHRvbSkgPyBgaW5zZXQgMCAke3Byb3BzLmJvcmRlckJvdHRvbSA/ICctJyA6ICcnfTFweCAwIDAgJHtjb2xvcnMuZ2V0T3BhY2l0eSgwLjI1LCBjb2xvcnMuZ2V0RnJvbVRoZW1lKHByb3BzLCAnaGVscGVyJykpfWAgOiBudWxsXG4gICAgICAgIClcbiAgICB9O1xuXG4gICAgY29sb3IgICAgICAgICAgIDogJHtwcm9wcyA9PiBwcm9wcy5hcGhjb2xvciA/IGNvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsIHByb3BzLmFwaGNvbG9yKSA6IG51bGx9O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICR7cHJvcHMgPT4gcHJvcHMuYXBoYmFja2dyb3VuZCA/IGNvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsIHByb3BzLmFwaGJhY2tncm91bmQpIDogbnVsbH07XG5cbiAgICAke3Byb3BzID0+ICFwcm9wcy5hcGhob3ZlcmFibGUgPyBudWxsIDogYFxuICAgICAgICBvdXRsaW5lOiAwO1xuICAgICAgICBib3JkZXIgOiAwO1xuXG4gICAgICAgIGJvcmRlci1yYWRpdXM6ICR7UkFESVVTLkxHfXB4O1xuICAgICAgICBib3gtc2hhZG93ICAgOiAke3Byb3BzID0+ICFwcm9wcy5hcGhzaGFkb3cgPyBudWxsIDogYDAgMCAzcHggJHtjb2xvcnMuZ2V0RnJvbVRoZW1lKHByb3BzLCAnb2lsJywgJ2RhcmsnLCAwLjI1KX1gfTtcbiAgICAgICAgdHJhbnNpdGlvbiAgIDogYm94LXNoYWRvdyAwLjE1cyBsaW5lYXI7XG5cbiAgICAgICAgJjpob3ZlcixcbiAgICAgICAgJjpmb2N1cyB7XG4gICAgICAgICAgICBib3gtc2hhZG93OiAwIDAgMTBweCAke2NvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsICdvaWwnLCAnZGFyaycsIDAuMjUpfTtcbiAgICAgICAgfVxuICAgIGB9XG5cbiAgICAke3Byb3BzID0+IHByb3BzLmFwaHN0eWxlc307XG5gO1xuXG4vKiBDb21wb25lbnQgSXRzZWxmICovXG5jb25zdCBTZWdtZW50ID0gZm9yd2FyZFJlZigocHJvcHMsIHJlZikgPT4ge1xuICAgIGNvbnN0IHtcbiAgICAgICAgY2xhc3NOYW1lLFxuXG4gICAgICAgIG1hcmdpbixcbiAgICAgICAgcGFkZGluZyxcblxuICAgICAgICBjb2xvcixcbiAgICAgICAgYmFja2dyb3VuZCxcbiAgICAgICAgaG92ZXJhYmxlLFxuICAgICAgICByYWRpdXMsXG4gICAgICAgIHNoYWRvdyxcblxuICAgICAgICBzdHlsZXMsXG5cbiAgICAgICAgLi4ucmVzdFxuICAgIH0gPSBwcm9wcztcblxuICAgIHJldHVybiAoXG4gICAgICAgIDxTZWdtZW50U3R5bGVkXG4gICAgICAgICAgICB7Li4ucmVzdH1cbiAgICAgICAgICAgIHJlZj17cmVmfVxuICAgICAgICAgICAgYXBobWFyZ2luPXttYXJnaW59XG4gICAgICAgICAgICBhcGhwYWRkaW5nPXtwYWRkaW5nfVxuICAgICAgICAgICAgYXBoaG92ZXJhYmxlPXtob3ZlcmFibGV9XG4gICAgICAgICAgICBhcGhjb2xvcj17Y29sb3J9XG4gICAgICAgICAgICBhcGhiYWNrZ3JvdW5kPXtiYWNrZ3JvdW5kfVxuICAgICAgICAgICAgYXBocmFkaXVzPXtyYWRpdXN9XG4gICAgICAgICAgICBhcGhzaGFkb3c9e3NoYWRvd31cbiAgICAgICAgICAgIGFwaHN0eWxlcz17c3R5bGVzfVxuICAgICAgICAgICAgY2xhc3NOYW1lPXtgYXBoLXNlZ21lbnQgJHtjbGFzc05hbWUgfHwgJyd9YH1cbiAgICAgICAgLz5cbiAgICApO1xufSk7XG5cbi8qIFByb3BlcnRpZXMgVHlwZXMgKi9cblNlZ21lbnQucHJvcFR5cGVzID0ge1xuICAgIG1hcmdpbiAgICA6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgcGFkZGluZyAgIDogcHJvcFR5cGVzLnN0cmluZyxcbiAgICBob3ZlcmFibGUgOiBwcm9wVHlwZXMuYm9vbCxcbiAgICBjb2xvciAgICAgOiBwcm9wVHlwZXMuc3RyaW5nLFxuICAgIGJhY2tncm91bmQ6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgcmFkaXVzICAgIDogcHJvcFR5cGVzLm51bWJlcixcbiAgICBzaGFkb3cgICAgOiBwcm9wVHlwZXMuYm9vbCxcbiAgICBzdHlsZXMgICAgOiBwcm9wVHlwZXMub25lT2ZUeXBlKFtcbiAgICAgICAgcHJvcFR5cGVzLnN0cmluZyxcbiAgICAgICAgcHJvcFR5cGVzLm9iamVjdCxcbiAgICBdKSxcbn07XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgU2VnbWVudDtcbiJdfQ== */"));
 /* Component Itself */
 
 
@@ -4529,9 +4829,9 @@ Table.propTypes = {
   striped: propTypes.bool
 };
 
-function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component */
 
 var ToastsContainer = function ToastsContainer() {
@@ -4544,7 +4844,7 @@ var ToastsContainer = function ToastsContainer() {
   /*#__PURE__*/
   _styled('div', {
     target: "ej5e3vp0"
-  })(_objectSpread$9({}, styles, _defineProperty({
+  })(_objectSpread$8({}, styles, _defineProperty({
     zIndex: styles.zIndex || ZINDEX.TOAST,
     position: styles.position || 'fixed',
     top: typeof styles.top === 'string' ? styles.top : '20px',
@@ -4703,14 +5003,14 @@ var ToastsContainer = function ToastsContainer() {
   })));
 };
 
-function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 toast.inverse = function () {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return toast(content, _objectSpread$a({}, props, {
+  return toast(content, _objectSpread$9({}, props, {
     className: 'Toastify__toast--inverse'
   }));
 };
@@ -4922,9 +5222,9 @@ var ModalOverlayStyled = _styled("div", {
   return props.styles;
 }, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsT3ZlcmxheVN0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFPcUMiLCJmaWxlIjoiTW9kYWxPdmVybGF5U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogUGFja2FnZXMgKi9cbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogQ29uc3RhbnRzICovXG5pbXBvcnQgeyBaSU5ERVggfSBmcm9tICcuLi8uLi9jb25zdGFudHMnO1xuXG4vKiBNb2RhbCBPdmVybGF5IFN0eWxlcyAqL1xuY29uc3QgTW9kYWxPdmVybGF5U3R5bGVkID0gc3R5bGVkLmRpdmBcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgei1pbmRleCA6ICR7WklOREVYLk1PREFMIC0gMX07XG4gICAgdG9wICAgICA6IDA7XG4gICAgcmlnaHQgICA6IDA7XG4gICAgYm90dG9tICA6IDA7XG4gICAgbGVmdCAgICA6IDA7XG4gICAgXG4gICAgJHtwcm9wcyA9PiBwcm9wcy5zdHlsZXN9O1xuYDtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBNb2RhbE92ZXJsYXlTdHlsZWQ7XG4iXX0= */"));
 
-function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Itself */
 
 var _ref = process.env.NODE_ENV === "production" ? {
@@ -5177,7 +5477,7 @@ var Modal = forwardRef(function (props, ref) {
   }, children))), React.createElement(ActionBar, _extends({}, footerProps, {
     className: "aph-modal__content__footer ".concat(footerProps.className || ''),
     visible: footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false),
-    styles: _objectSpread$b({}, footerProps.styles, {
+    styles: _objectSpread$a({}, footerProps.styles, {
       padding: '10px 0',
       minHeight: 'initial'
     })
@@ -5280,67 +5580,6 @@ SidePill.defaultProps = {
 
 SidePill.propTypes = {
   right: propTypes.bool
-};
-
-/**
- * Typography common styles
- */
-/**
- * Text
- */
-
-var text = function text(props) {
-  var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'MD';
-  return "\n    ".concat(!props.margin ? '' : "\n        margin: ".concat(props.margin, ";\n    "), ";\n    ").concat(!props.padding ? '' : "\n        padding: ".concat(props.padding, ";\n    "), ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
-};
-/**
- * Text Align
- */
-
-var textAlign = function textAlign() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return !props.textAlign && !props.textLeft && !props.textCenter && !props.textRight ? '' : "\n    text-align: ".concat(props.textLeft ? 'left' : props.textCenter ? 'center' : props.textRight ? 'right' : props.textAlign, ";\n");
-};
-/**
- * Text Break All words
- */
-
-var textBreakAll = function textBreakAll() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return !props.breakAll ? '' : "\n    word-break: break-all;\n";
-};
-/**
- * Text Colorfull
- */
-
-var textColorfull = function textColorfull() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return !props.textColor && !props.link && !props.helper ? '' : "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? 'link' : props.helper ? 'helper' : props.textColor), ";\n");
-};
-/**
- * Text Definitions
- */
-
-var textDefinitions = function textDefinitions() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'MD';
-  return "\n    font-weight: ".concat(SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n");
-};
-/**
- * Text Transform
- */
-
-var textTransform = function textTransform() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return !props.textLower && !props.textUpper ? '' : "\n    text-transform: ".concat(props.textLower ? 'lowercase' : 'uppercase', ";\n");
-};
-/**
- * Text Truncate
- */
-
-var textTruncate = function textTruncate() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return !props.truncate ? '' : "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n";
 };
 
 /* Component Styles */
@@ -5667,9 +5906,9 @@ function Label(props) {
   }, rest));
 }
 
-function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper styles */
 
 var AphContainer =
@@ -5677,7 +5916,7 @@ var AphContainer =
 _styled('div', {
   target: "e1js7dhi0"
 })(function (props) {
-  return _objectSpread$c(_defineProperty({
+  return _objectSpread$b(_defineProperty({
     boxSizing: 'border-box',
     display: 'block',
     margin: '0 auto',
@@ -5717,9 +5956,9 @@ Container.defaultProps = {
   noPadding: false
 };
 
-function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Sizes */
 
 var MARGIN = '-' + GRID.COLUMNS_PADDING + GRID.UNIT;
@@ -5771,7 +6010,7 @@ _styled('div', {
     }
   }
 
-  return _objectSpread$d((_objectSpread2 = {
+  return _objectSpread$c((_objectSpread2 = {
     boxSizing: 'border-box',
     position: 'relative',
     display: 'flex',
@@ -5810,9 +6049,9 @@ Row.defaultProps = {
   horizontal: 'left'
 };
 
-function ownKeys$e(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$e(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$e(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$e(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper Styles */
 
 var ColumnWrapper =
@@ -5844,7 +6083,7 @@ _styled('div', {
     return first === size ? -1 : last === size ? 1 : null;
   }
 
-  return _objectSpread$e((_objectSpread2 = {
+  return _objectSpread$d((_objectSpread2 = {
     boxSizing: 'border-box',
     flex: '0 0 auto',
     flexGrow: 1,
@@ -6152,9 +6391,9 @@ ListItem.propTypes = {
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$f(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$e(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$f(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$f(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$f(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$e(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$e(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$e(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper styles */
 
 var AphListGroup =
@@ -6162,7 +6401,7 @@ var AphListGroup =
 _styled('div', {
   target: "ey9rber0"
 })(function (props) {
-  return _objectSpread$f({
+  return _objectSpread$e({
     boxSizing: 'border-box',
     position: 'relative',
     overflow: 'hidden',
@@ -6216,9 +6455,9 @@ var ListGroup = forwardRef(function (props, ref) {
   }), props.children);
 });
 
-function ownKeys$g(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$f(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$g(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$g(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$g(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$f(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$f(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$f(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper styles */
 
 var AphListGroupItem =
@@ -6226,7 +6465,7 @@ var AphListGroupItem =
 _styled('div', {
   target: "evs8czu0"
 })(function (props) {
-  return _objectSpread$g(_defineProperty({
+  return _objectSpread$f(_defineProperty({
     boxSizing: 'border-box',
     position: 'relative',
     overflow: 'hidden',
@@ -6250,9 +6489,9 @@ var ListGroupItem = forwardRef(function (props, ref) {
   }), children);
 });
 
-function ownKeys$h(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$g(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$h(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$h(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$h(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$g(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$g(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$g(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Styles */
 
 var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30;
@@ -6265,7 +6504,7 @@ var AphAccordion =
 _styled('div', {
   target: "e869uf0"
 })(function (props) {
-  return _objectSpread$h({
+  return _objectSpread$g({
     boxSizing: 'border-box',
     display: 'block',
     fontSize: SIZES.MD.FONT_SIZE,
@@ -6301,7 +6540,7 @@ var IconColumn =
 _styled('div', {
   target: "e869uf2"
 })(function (props) {
-  return _objectSpread$h({}, columnStyles, _defineProperty({
+  return _objectSpread$g({}, columnStyles, _defineProperty({
     width: iconColumn,
     lineHeight: 0,
     margin: '-2px 0'
@@ -6317,7 +6556,7 @@ var ContentColumn =
 _styled('div', {
   target: "e869uf3"
 })(function (props) {
-  return _objectSpread$h({}, columnStyles, {
+  return _objectSpread$g({}, columnStyles, {
     width: "calc(100% - ".concat(iconColumn, ")"),
     lineHeight: '20px'
   });
@@ -6384,7 +6623,7 @@ function Accordion(props) {
     id: id
   }, headerProps, {
     header: headerDark ? true : false,
-    styles: _objectSpread$h({
+    styles: _objectSpread$g({
       cursor: 'pointer',
       paddingRight: '15px',
       paddingLeft: '15px'
@@ -6435,9 +6674,9 @@ var AphCollapsibleChildrenStyled = _styled("div", {
   return props.styles;
 }, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbGxhcHNpYmxlQ2hpbGRyZW5TdHlsZWQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSStDIiwiZmlsZSI6IkNvbGxhcHNpYmxlQ2hpbGRyZW5TdHlsZWQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBDb21wb25lbnQgSXRzZWxmICovXG5jb25zdCBBcGhDb2xsYXBzaWJsZUNoaWxkcmVuU3R5bGVkID0gc3R5bGVkLmRpdmBcbiAgICBkaXNwbGF5IDogYmxvY2s7XG4gICAgb3BhY2l0eSA6IDE7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG5cbiAgICBtYXJnaW4tcmlnaHQ6IC0xMHB4O1xuICAgIG1hcmdpbi1sZWZ0IDogLTEwcHg7XG5cbiAgICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogbGluZWFyO1xuICAgIHRyYW5zaXRpb24tcHJvcGVydHkgICAgICAgOiBtYXgtaGVpZ2h0LCBvcGFjaXR5O1xuXG4gICAgd2lsbC1jaGFuZ2U6IG1heC1oZWlnaHQsIG9wYWNpdHk7XG5cbiAgICAke3Byb3BzID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaENvbGxhcHNpYmxlQ2hpbGRyZW5TdHlsZWQ7XG4iXX0= */"));
 
-function ownKeys$i(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$h(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$i(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$i(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$i(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$h(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$h(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$h(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Itself */
 
 var Collapsible = forwardRef(function (props, ref) {
@@ -6497,7 +6736,7 @@ var Collapsible = forwardRef(function (props, ref) {
    */
 
   function handleOpen() {
-    var openStyles = _objectSpread$i({}, styles, {
+    var openStyles = _objectSpread$h({}, styles, {
       maxHeight: 0,
       display: 'block'
     });
@@ -6505,12 +6744,12 @@ var Collapsible = forwardRef(function (props, ref) {
     clearTimeout(closeTimer);
     setStyles(openStyles);
     setTimeout(function () {
-      setStyles(_objectSpread$i({}, openStyles, {
+      setStyles(_objectSpread$h({}, openStyles, {
         maxHeight: wrapperContentRef.current.clientHeight
       }));
       clearTimeout(openTimer);
       setOpenTimer(setTimeout(function () {
-        setStyles(_objectSpread$i({}, openStyles, {
+        setStyles(_objectSpread$h({}, openStyles, {
           maxHeight: null
         }));
       }, timerDelay));
@@ -6522,19 +6761,19 @@ var Collapsible = forwardRef(function (props, ref) {
 
 
   function handleClose() {
-    var closeStyles = _objectSpread$i({}, styles, {
+    var closeStyles = _objectSpread$h({}, styles, {
       maxHeight: wrapperContentRef.current.clientHeight
     });
 
     clearTimeout(openTimer);
     setStyles(closeStyles);
     setTimeout(function () {
-      setStyles(_objectSpread$i({}, closeStyles, {
+      setStyles(_objectSpread$h({}, closeStyles, {
         maxHeight: 0
       }));
       clearTimeout(closeTimer);
       setCloseTimer(setTimeout(function () {
-        setStyles(_objectSpread$i({}, closeStyles, {
+        setStyles(_objectSpread$h({}, closeStyles, {
           display: 'none'
         }));
       }, timerDelay + 10));

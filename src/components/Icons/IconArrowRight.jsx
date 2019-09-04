@@ -3,16 +3,27 @@ import React from 'react';
 
 /* Icon */
 const IconArrowRight = (props) => {
-    const { color, size, styles } = props;
+    /**
+     * Inherit props
+     */
+    const {
+        size,
+        width,
+        height,
+        color,
+        className,
+    } = props;
 
+    /**
+     * Render
+     */
     return (
         <svg
-            style={styles}
-            width={size}
-            height={size}
-            viewBox="0 0 30 30"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg">
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <path
                 id="aph-icon-arrow-right-path"
                 fill="none"

@@ -13,18 +13,21 @@ const IconLoading = (props) => {
         color,
         width,
         height,
-        size
+        size,
+        className,
     } = props;
 
     /**
      * Render
      */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 120 30"
-             width={width || size || 120}
-             height={height || size || 30}
-             fill={color}>
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size || 120)}
+            height={(height || size || 30)}
+            viewBox="0 0 120 30"
+            fill={color}>
             <circle cx="15" cy="15" r="15">
                 <animate
                     attributeName="r"

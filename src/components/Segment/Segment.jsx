@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 /* Helpers */
 import { RADIUS } from '../../constants';
 import { colors } from '../../utils';
+import { text } from '../Typography/typography';
 
 /* Component Itself */
 const SegmentStyled = styled.div`
@@ -13,6 +14,8 @@ const SegmentStyled = styled.div`
     display: block;
     margin : ${props => props.aphmargin  || null};
     padding: ${props => props.aphpadding || '20px 10px'};
+
+    ${props => text(props)};
 
     border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
     box-shadow   : ${props => props.aphshadow ?

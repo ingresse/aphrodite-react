@@ -3,12 +3,27 @@ import React from 'react';
 
 /* Icon */
 const IconCheckThin = (props) => {
-    const { color, size } = props;
+    /**
+     * Inherit props
+     */
+    const {
+        size,
+        width,
+        height,
+        color,
+        className,
+    } = props;
+
+    /**
+     * Render
+     */
     return (
-        <svg viewBox="0 0 20 16"
-            width={size}
-            height={size}
-            xmlns="http://www.w3.org/2000/svg">
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 20 16">
             <g id="IconCheckThinWrapper"
                 stroke="none"
                 strokeWidth="1"

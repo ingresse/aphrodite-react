@@ -9,18 +9,21 @@ const IconPaymentBankBillet = (props) => {
     const {
         size,
         width,
-        height
+        height,
+        className,
     } = props;
 
     /**
      * Render
      */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             xmlnsXlink="http://www.w3.org/1999/xlink"
-             width={(width || size)}
-             height={(height || size)}
-             viewBox="0 0 30 30">
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <defs>
                 <rect
                     id="aph-icon-defs-rect-payment-bank-billet"
