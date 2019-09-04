@@ -21,6 +21,7 @@ import CheckThin from './IconCheckThin';
 import Delete from './IconDelete';
 import ExternalTicket from './IconExternalTicket';
 import Eye from './IconEye';
+import Filter from './IconFilter';
 import Flash from './IconFlash';
 import FlashOff from './IconFlashOff';
 import Help from './IconHelp';
@@ -45,6 +46,7 @@ import Ticketbooth from './IconTicketbooth';
 import Times from './IconTimes';
 import Transfer from './IconTransfer';
 import Unlock from './IconUnlock';
+import User from './IconUser';
 
 import PaymentAmex from './IconPaymentAmex';
 import PaymentBankBillet from './IconPaymentBankBillet';
@@ -75,6 +77,7 @@ const ICONS = {
     'check-thin'        : CheckThin,
     'external-ticket'   : ExternalTicket,
     'eye'               : Eye,
+    'filter'            : Filter,
     'flash'             : Flash,
     'flash-off'         : FlashOff,
     'help'              : Help,
@@ -100,6 +103,7 @@ const ICONS = {
     'unlock'            : Unlock,
     'refresh'           : Refresh,
     'delete'            : Delete,
+    'user'              : User,
 
     'amex'               : PaymentAmex,
     'payment-amex'       : PaymentAmex,
