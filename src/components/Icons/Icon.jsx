@@ -23,6 +23,7 @@ import ExternalTicket from './IconExternalTicket';
 import Eye from './IconEye';
 import Flash from './IconFlash';
 import FlashOff from './IconFlashOff';
+import Help from './IconHelp';
 import Info from './IconInfo';
 import Items from './IconItems';
 import List from './IconList';
@@ -76,6 +77,7 @@ const ICONS = {
     'eye'               : Eye,
     'flash'             : Flash,
     'flash-off'         : FlashOff,
+    'help'              : Help,
     'info'              : Info,
     'items'             : Items,
     'list'              : List,
