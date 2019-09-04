@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 
 /* Export */
 export const ICONS = Object.assign([
+    'adjusts',
     'arrow-up',
     'arrow-down',
     'arrow-left',
@@ -18,6 +19,7 @@ export const ICONS = Object.assign([
     'eye',
     'flash',
     'flash-off',
+    'help',
     'info',
     'items',
     'list',
@@ -28,6 +30,7 @@ export const ICONS = Object.assign([
     'unlock',
     'search',
     'settings',
+    'signal',
     'options',
     'minus',
     'plus',

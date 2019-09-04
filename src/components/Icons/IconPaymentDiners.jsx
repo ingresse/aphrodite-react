@@ -9,18 +9,21 @@ const IconPaymentDiners = (props) => {
     const {
         size,
         width,
-        height
+        height,
+        className,
     } = props;
 
     /**
      * Render
      */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             xmlnsXlink="http://www.w3.org/1999/xlink"
-             width={(width || size)}
-             height={(height || size)}
-             viewBox="0 0 30 30"> 
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <defs>
                 <rect
                     id="path-1"
@@ -31,36 +34,36 @@ const IconPaymentDiners = (props) => {
                     rx="2"
                 />
             </defs>
-            <g 
+            <g
                 id="Pagamento-/-Diners"
                 stroke="none"
                 strokeWidth="1"
                 fill="none"
                 fillRule="evenodd">
-                <mask 
+                <mask
                     id="mask-2"
                     fill="white">
-                    <use 
+                    <use
                         xlinkHref="#path-1"
                     />
                 </mask>
-                <use 
+                <use
                     id="Fundo"
                     fill="#00529E"
                     xlinkHref="#path-1"
                 />
-                <g 
+                <g
                     id="Diners"
                     mask="url(#mask-2)">
-                    <g 
+                    <g
                         transform="translate(5.250000, 7.500000)">
-                        <path 
+                        <path
                             id="Path"
                             fill="#FFFFFF"
                             fillRule="evenodd"
                             d="M11.4131034,14.9672626 C15.6312672,14.9870659 19.4819569,11.631305 19.4819569,7.54826152 C19.4819569,3.08456586 15.6307069,-0.00162978907 11.4131034,5.68434189e-14 L7.78251724,5.68434189e-14 C3.51448276,-0.00162978907 -2.84217094e-14,3.08532673 -2.84217094e-14,7.54826152 C-2.84217094e-14,11.6320659 3.51448276,14.9870659 7.78251724,14.9672626 L11.4131034,14.9672626 L11.4131034,14.9672626 Z"
                         />
-                        <path 
+                        <path
                             id="Shape"
                             fill="#00529E"
                             fillRule="nonzero"

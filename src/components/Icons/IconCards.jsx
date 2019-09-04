@@ -10,17 +10,20 @@ const IconCards = (props) => {
         size,
         width,
         height,
-        color
+        color,
+        className,
     } = props;
 
     /**
      * Render
      */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width={(width || size)}
-             height={(height || size)}
-             viewBox="0 0 30 30">
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <g id="Icon-/-30-/-Cards" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                 <g id="Group" transform="translate(2.000000, 5.300000)">
                     <g id="Cards" transform="translate(0.000000, 1.000000)">

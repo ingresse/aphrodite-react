@@ -11,7 +11,7 @@ import { colors } from '../../utils';
 /**
  * Text
  */
-export const text = (props, size = 'MD') => `
+export const text = (props, size = '') => `
     ${!props.margin ? '' : `
         margin: ${props.margin};
     `};
@@ -53,7 +53,7 @@ export const textColorfull = (props = {}) => (!props.textColor && !props.link &&
 /**
  * Text Definitions
  */
-export const textDefinitions = (props = {}, size = 'MD') => `
+export const textDefinitions = (props = {}, size = '') => (!size) ? '' : `
     font-weight: ${(SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
     font-size  : ${(SIZES[size].FONT_SIZE)};
     line-height: ${(SIZES[size].LINE_HEIGHT)};

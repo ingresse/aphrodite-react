@@ -3,16 +3,27 @@ import React from 'react';
 
 /* Icon */
 const IconPencil = (props) => {
+    /**
+     * Inherit props
+     */
     const {
         color,
         size,
+        width,
+        height,
+        className,
     } = props;
 
+    /**
+     * Render
+     */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 30 30"
-             width={size}
-             height={size}>
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <g
                 id="aph-icon-polygon-group"
                 stroke="none"

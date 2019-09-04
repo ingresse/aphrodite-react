@@ -13,19 +13,27 @@ const IconStyled = styled.svg`
 
 /* Icon Itself */
 const IconLoaderDonut = (props) => {
+    /**
+     * Inherit props
+     */
     const {
         color,
         size,
         width,
         height,
+        className,
     } = props;
 
+    /**
+     * Render
+     */
     return (
         <IconStyled
-             xmlns="http://www.w3.org/2000/svg"
-             width={`${width || size}px`}
-             height={`${height || size}px`}
-             viewBox="0 0 30 30">
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 30 30">
             <g
                 id="aph-icon-loader-group"
                 stroke="none"
