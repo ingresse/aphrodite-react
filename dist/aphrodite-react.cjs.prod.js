@@ -140,7 +140,7 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
   COLUMNS_GET_WIDTH: function(columnNumber) {
     return !(columnNumber = parseInt(columnNumber, 10)) || "number" != typeof columnNumber || columnNumber < 1 || columnNumber > COLUMNS ? null : 10 * columnNumber / 12 * 10 + "%";
   }
-}, ICONS = Object.assign([ "adjusts", "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "flash", "flash-off", "help", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "signal", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
+}, ICONS = Object.assign([ "adjusts", "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "filter", "flash", "flash-off", "help", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "signal", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "user", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
   ENCODE_SVG: function(reactElement) {
     return "data:image/svg+xml," + escape(ReactDOMServer.renderToStaticMarkup(reactElement));
   }
@@ -1387,6 +1387,30 @@ var IconAdjusts = function(props) {
     d: "M5.34544747,14.7030573 C8.56363164,11.5676858 11.7818158,10 15,10 C18.2181923,10 21.4363846,11.5676937 24.6545769,14.7030811 L24.6545535,14.7031051 C25.0946794,15.1319063 25.1038597,15.8363109 24.6750585,16.2764368 C24.6683125,16.2833609 24.6614766,16.2901967 24.6545525,16.2969427 C21.4363684,19.4323142 18.2181842,21 15,21 C11.7818077,21 8.5636154,19.4323063 5.34542309,16.2969189 L5.34544646,16.2968949 C4.90532063,15.8680937 4.89614027,15.1636891 5.32494155,14.7235632 C5.33168748,14.7166391 5.33852337,14.7098033 5.34544747,14.7030573 Z M15,18.25 C16.5362373,18.25 17.7816037,17.0187831 17.7816037,15.5 C17.7816037,13.9812169 16.5362373,12.75 15,12.75 C13.4637627,12.75 12.2183963,13.9812169 12.2183963,15.5 C12.2183963,17.0187831 13.4637627,18.25 15,18.25 Z",
     fill: color
   })));
+}, IconFilter = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
+  return React__default.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Filter-/-Ocean",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, React__default.createElement("g", {
+    transform: "translate(5.000000, 6.000000)",
+    id: "Path",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2"
+  }, React__default.createElement("polygon", {
+    points: "20 0 0 0 8 9.46 8 16 12 18 12 9.46"
+  }))));
 }, IconFlash = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
@@ -2120,6 +2144,27 @@ var IconSettings = function(props) {
     fill: color,
     d: "M21,10 C21,10.5522847 20.5522847,11 20,11 C19.4477153,11 19,10.5522847 19,10 C19,8.34314575 17.6568542,7 16,7 L15,7 C12.790861,7 11,8.790861 11,11 L11,13 L9,13 L9,11 C9,7.6862915 11.6862915,5 15,5 L16,5 C18.7614237,5 21,7.23857625 21,10 Z"
   })));
+}, IconUser = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
+  return React__default.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "Page-1",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd"
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Perfil-/-Mercury",
+    stroke: color,
+    strokeWidth: "2"
+  }, React__default.createElement("path", {
+    d: "M18.9132855,17.7160261 C21.1860415,17.7160261 23.9166399,19.3436924 25.000265,21.3295607 L25.5521812,22.3410109 C26.6411712,24.3367109 25.6766726,25.9545455 23.4031446,25.9545455 L7.59388622,25.9545455 C5.31801606,25.9545455 4.36122446,24.3268791 5.44484956,22.3410109 L5.99676577,21.3295607 C7.08575576,19.3338607 9.81519808,17.7160261 12.0837452,17.7160261 L18.9132855,17.7160261 Z M15.1904113,4 C17.8161848,4 19.952635,6.03450072 19.952635,8.53515134 L19.952635,10.7534959 C19.952635,13.2541466 17.8161848,15.2886473 15.1904113,15.2886473 C12.5647887,15.2886473 10.4284894,13.2541466 10.4284894,10.7534959 L10.4284894,8.53515134 C10.4284894,6.03450072 12.5647887,4 15.1904113,4 Z"
+  }))));
 }, IconPaymentAmex = function(props) {
   var size = props.size, width = props.width, height = props.height, className = props.className;
   return React__default.createElement("svg", {
@@ -2730,6 +2775,7 @@ var IconSettings = function(props) {
   "check-thin": IconCheckThin,
   "external-ticket": IconExternalTicket,
   eye: IconEye,
+  filter: IconFilter,
   flash: IconFlash,
   "flash-off": IconFlashOff,
   help: IconHelp,
@@ -2755,6 +2801,7 @@ var IconSettings = function(props) {
   unlock: IconUnlock,
   refresh: IconRefresh,
   delete: IconDelete,
+  user: IconUser,
   amex: IconPaymentAmex,
   "payment-amex": IconPaymentAmex,
   bankbillet: IconPaymentBankBillet,

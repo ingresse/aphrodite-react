@@ -17,6 +17,7 @@ export const ICONS = Object.assign([
     'delete',
     'external-ticket',
     'eye',
+    'filter',
     'flash',
     'flash-off',
     'help',
@@ -41,6 +42,7 @@ export const ICONS = Object.assign([
     'ticketbooth',
     'transfer',
     'pencil',
+    'user',
 
     'payment-amex',
     'payment-bankbillet',
