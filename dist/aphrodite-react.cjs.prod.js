@@ -1435,6 +1435,39 @@ var IconAdjusts = function(props) {
     strokeWidth: "1.5",
     strokeLinecap: "round"
   })));
+}, IconHelp = function(props) {
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
+  return React__default.createElement("svg", {
+    className: className,
+    xmlns: "http://www.w3.org/2000/svg",
+    width: width || size,
+    height: height || size,
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("g", {
+    id: "Icon-/-30-/-Help-/-Ocean",
+    stroke: "none",
+    strokeWidth: "1",
+    fill: "none",
+    fillRule: "evenodd",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, React__default.createElement("g", {
+    id: "help-circle",
+    transform: "translate(5.000000, 5.000000)",
+    stroke: color,
+    strokeWidth: "2.3"
+  }, React__default.createElement("circle", {
+    id: "Oval",
+    cx: "10",
+    cy: "10",
+    r: "10"
+  }), React__default.createElement("path", {
+    d: "M7.09,7 C7.57543688,5.62004444 8.98538362,4.79140632 10.4271763,5.0387121 C11.868969,5.28601788 12.9221794,6.53715293 12.9200034,8 C12.9200034,10 9.92,11 9.92,11",
+    id: "Path"
+  }), React__default.createElement("path", {
+    d: "M10,15 L10,14.5",
+    id: "Path"
+  }))));
 }, IconInfo = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
@@ -2699,6 +2732,7 @@ var IconSettings = function(props) {
   eye: IconEye,
   flash: IconFlash,
   "flash-off": IconFlashOff,
+  help: IconHelp,
   info: IconInfo,
   items: IconItems,
   list: IconList,
