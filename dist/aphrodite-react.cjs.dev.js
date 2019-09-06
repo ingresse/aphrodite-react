@@ -8090,9 +8090,47 @@ function useWindowSize() {
    */
 
   function getSize() {
+    var _window = isClient ? window : {};
+
+    var width = _window.innerWidth;
+    var height = _window.innerHeight;
+    var xs = width < SCREEN_SIZES.SM;
+    var sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD;
+    var md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG;
+    var lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL;
+    var xl = width >= SCREEN_SIZES.XL;
+    var GTxs = sm || md || lg || xl;
+    var GTsm = md || lg || xl;
+    var GTmd = lg || xl;
+    var GTlg = width > SCREEN_SIZES.LG;
+    var GTxl = width > SCREEN_SIZES.XL;
+    var LTxs = xs;
+    var LTsm = xs;
+    var LTmd = xs || sm;
+    var LTlg = xs || sm || md;
+    var LTxl = xs || sm || md || lg;
     return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
+      width: width,
+      height: height,
+      xs: xs,
+      sm: sm,
+      md: md,
+      lg: lg,
+      xl: xl,
+      _lt_: {
+        xs: LTxs,
+        sm: LTsm,
+        md: LTmd,
+        lg: LTlg,
+        xl: LTxl
+      },
+      _gt_: {
+        xs: GTxs,
+        sm: GTsm,
+        md: GTmd,
+        lg: GTlg,
+        xl: GTxl
+      }
     };
   }
 

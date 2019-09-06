@@ -8077,7 +8077,7 @@ Switch.propTypes = {
 /* Hook */
 
 function useWindowSize() {
-  var isClient = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object';
+  var isClient = ( _typeof(window)) === 'object';
   /**
    * Get Window Size
    */

@@ -1,25 +1,32 @@
-import _taggedTemplateLiteral from '@babel/runtime/helpers/esm/taggedTemplateLiteral';
-import { keyframes, css, Global } from '@emotion/core';
-import ReactDOMServer from 'react-dom/server';
-import _defineProperty from '@babel/runtime/helpers/esm/defineProperty';
-import _extends from '@babel/runtime/helpers/esm/extends';
-import _styled from '@emotion/styled-base';
-import React, { forwardRef, useRef, useState, useEffect, memo } from 'react';
-import propTypes from 'prop-types';
-import _typeof from '@babel/runtime/helpers/esm/typeof';
-import chroma from 'chroma-js';
-import _slicedToArray from '@babel/runtime/helpers/esm/slicedToArray';
-import _objectWithoutProperties from '@babel/runtime/helpers/esm/objectWithoutProperties';
-import ReactClipboard from 'react-clipboard.js';
-import Formatter from 'react-number-format';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/scss/main.scss';
-import ReactTooltip from 'react-tooltip';
-import Paginator from 'rc-pagination';
-import localeInfo from 'rc-pagination/lib/locale/pt_BR';
-import '@emotion/styled';
-import InputNumber from 'react-input-number';
-import CurrencyInput from 'react-currency-input';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var _taggedTemplateLiteral = _interopDefault(require('@babel/runtime/helpers/taggedTemplateLiteral'));
+var core = require('@emotion/core');
+var ReactDOMServer = _interopDefault(require('react-dom/server'));
+var _defineProperty = _interopDefault(require('@babel/runtime/helpers/defineProperty'));
+var _extends = _interopDefault(require('@babel/runtime/helpers/extends'));
+var _styled = _interopDefault(require('@emotion/styled-base'));
+var React = require('react');
+var React__default = _interopDefault(React);
+var propTypes = _interopDefault(require('prop-types'));
+var _typeof = _interopDefault(require('@babel/runtime/helpers/typeof'));
+var chroma = _interopDefault(require('chroma-js'));
+var _slicedToArray = _interopDefault(require('@babel/runtime/helpers/slicedToArray'));
+var _objectWithoutProperties = _interopDefault(require('@babel/runtime/helpers/objectWithoutProperties'));
+var ReactClipboard = _interopDefault(require('react-clipboard.js'));
+var Formatter = _interopDefault(require('react-number-format'));
+var reactToastify = require('react-toastify');
+require('react-toastify/scss/main.scss');
+var ReactTooltip = _interopDefault(require('react-tooltip'));
+var Paginator = _interopDefault(require('rc-pagination'));
+var localeInfo = _interopDefault(require('rc-pagination/lib/locale/pt_BR'));
+require('@emotion/styled');
+var InputNumber = _interopDefault(require('react-input-number'));
+var CurrencyInput = _interopDefault(require('react-currency-input'));
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n    0% {\n        transform: scaleY(0.1);\n    }\n\n    25% {\n        transform: scaleY(1);\n    }\n\n    50% {\n        transform: scaleY(0.95);\n    }\n\n    100% {\n        transform: scaleY(1);\n    }\n"]);
@@ -42,10 +49,10 @@ function _templateObject() {
 }
 /* Animation Fade In Up */
 
-var fadeInUp = keyframes(_templateObject());
+var fadeInUp = core.keyframes(_templateObject());
 /* Animation Pull Up */
 
-var pullUp = keyframes(_templateObject2());
+var pullUp = core.keyframes(_templateObject2());
 var ANIMATIONS = {
   FADE_IN_UP: {
     animation: "".concat(fadeInUp, " 0.75s ease")
@@ -501,10 +508,10 @@ var spin = function spin() {
   var speed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '0.75s';
   var effect = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'linear';
   var loop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'infinite';
-  var animation = keyframes(_templateObject$1());
+  var animation = core.keyframes(_templateObject$1());
   return (
     /*#__PURE__*/
-    css("animation:", animation, " ", speed, " ", effect, " ", loop, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFuaW1hdGlvbnMudXRpbHMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBaUJjIiwiZmlsZSI6ImFuaW1hdGlvbnMudXRpbHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgeyBjc3MsIGtleWZyYW1lcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuXG4vKipcbiAqIEFuaW1hdGlvbnMgVXRpbHNcbiAqL1xuY29uc3Qgc3BpbiA9IChzcGVlZCA9ICcwLjc1cycsIGVmZmVjdCA9ICdsaW5lYXInLCBsb29wID0gJ2luZmluaXRlJykgPT4ge1xuICAgIGNvbnN0IGFuaW1hdGlvbiA9IGtleWZyYW1lc2BcbiAgICAgICAgZnJvbSB7XG4gICAgICAgICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgICAgICAgfVxuXG4gICAgICAgIHRvIHtcbiAgICAgICAgICAgIHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7XG4gICAgICAgIH1cbiAgICBgO1xuXG4gICAgcmV0dXJuIGNzc2BcbiAgICAgICAgYW5pbWF0aW9uOiAke2FuaW1hdGlvbn0gJHtzcGVlZH0gJHtlZmZlY3R9ICR7bG9vcH07XG4gICAgYDtcbn07XG5cbi8qIE1hcHBpbmcgKi9cbmNvbnN0IGFuaW1hdGlvbnMgPSB7XG4gICAgc3Bpbixcbn07XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgYW5pbWF0aW9ucztcbiJdfQ== */"))
+    core.css("animation:", animation, " ", speed, " ", effect, " ", loop, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFuaW1hdGlvbnMudXRpbHMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBaUJjIiwiZmlsZSI6ImFuaW1hdGlvbnMudXRpbHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgeyBjc3MsIGtleWZyYW1lcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuXG4vKipcbiAqIEFuaW1hdGlvbnMgVXRpbHNcbiAqL1xuY29uc3Qgc3BpbiA9IChzcGVlZCA9ICcwLjc1cycsIGVmZmVjdCA9ICdsaW5lYXInLCBsb29wID0gJ2luZmluaXRlJykgPT4ge1xuICAgIGNvbnN0IGFuaW1hdGlvbiA9IGtleWZyYW1lc2BcbiAgICAgICAgZnJvbSB7XG4gICAgICAgICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgICAgICAgfVxuXG4gICAgICAgIHRvIHtcbiAgICAgICAgICAgIHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7XG4gICAgICAgIH1cbiAgICBgO1xuXG4gICAgcmV0dXJuIGNzc2BcbiAgICAgICAgYW5pbWF0aW9uOiAke2FuaW1hdGlvbn0gJHtzcGVlZH0gJHtlZmZlY3R9ICR7bG9vcH07XG4gICAgYDtcbn07XG5cbi8qIE1hcHBpbmcgKi9cbmNvbnN0IGFuaW1hdGlvbnMgPSB7XG4gICAgc3Bpbixcbn07XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgYW5pbWF0aW9ucztcbiJdfQ== */"))
   );
 };
 /* Mapping */
@@ -781,12 +788,12 @@ _styled('div', {
 /* Component */
 
 
-var ActionBar = forwardRef(function (props, ref) {
+var ActionBar = React.forwardRef(function (props, ref) {
   var className = props.className,
       children = props.children,
       styles = props.styles,
       visible = props.visible;
-  return React.createElement(ActionBarStyled, _extends({}, props, {
+  return React__default.createElement(ActionBarStyled, _extends({}, props, {
     ref: ref,
     className: "aph-action-bar".concat(visible ? ' aph-action-bar--visible' : '', " ").concat(className || ''),
     styles: styles
@@ -870,7 +877,7 @@ _styled('span', {
 /* Component */
 
 
-var Badge = forwardRef(function (props, ref) {
+var Badge = React.forwardRef(function (props, ref) {
   var filled = COLORS.FILL(props.color);
   var modifier = !props.sm ? {} : {
     minHeight: '20px',
@@ -904,10 +911,10 @@ var Badge = forwardRef(function (props, ref) {
     }
   }
 
-  return React.createElement(BadgeWrapper, _extends({}, props, {
+  return React__default.createElement(BadgeWrapper, _extends({}, props, {
     styles: Object.assign({}, modifier, filled, props.styles),
     className: "aph-badge ".concat(props.className || '')
-  }), !props.prefix ? null : React.createElement(BadgePrefixWrapper, _extends({}, props.prefixProps, {
+  }), !props.prefix ? null : React__default.createElement(BadgePrefixWrapper, _extends({}, props.prefixProps, {
     styles: Object.assign({}, prefix, props.prefixStyles),
     className: "aph-badge__prefix ".concat(props.prefixClassName || '')
   }), props.prefix), props.children);
@@ -971,7 +978,7 @@ var AphButtonItemStyled = _styled("span", {
 
 /* Component Itself */
 
-var Button = forwardRef(function (props, ref) {
+var Button = React.forwardRef(function (props, ref) {
   /**
    * Component props
    */
@@ -995,9 +1002,9 @@ var Button = forwardRef(function (props, ref) {
    */
 
 
-  var childrenRef = useRef(null);
+  var childrenRef = React.useRef(null);
 
-  var _useState = useState(140),
+  var _useState = React.useState(140),
       _useState2 = _slicedToArray(_useState, 2),
       childrenWidth = _useState2[0],
       setChildrenWidth = _useState2[1];
@@ -1006,7 +1013,7 @@ var Button = forwardRef(function (props, ref) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     if (typeof loading !== 'boolean' || !childrenRef || !childrenRef.current || !childrenRef.current.offsetWidth || childrenRef.current.offsetWidth === childrenWidth) {
       return;
     }
@@ -1017,7 +1024,7 @@ var Button = forwardRef(function (props, ref) {
    * Render
    */
 
-  return React.createElement(AphButtonStyled, _extends({}, rest, {
+  return React__default.createElement(AphButtonStyled, _extends({}, rest, {
     ref: ref,
     aphsm: sm || small ? 1 : 0,
     aphblock: block ? 1 : 0,
@@ -1030,14 +1037,14 @@ var Button = forwardRef(function (props, ref) {
     aphtranslucid: translucid ? 1 : 0,
     disabled: disabled,
     className: "aph-btn".concat(loading ? ' aph-btn--loading' : '', " ").concat(className)
-  }), typeof loading !== 'boolean' ? children : React.createElement(React.Fragment, null, React.createElement(AphButtonItemStyled, {
+  }), typeof loading !== 'boolean' ? children : React__default.createElement(React__default.Fragment, null, React__default.createElement(AphButtonItemStyled, {
     className: "aph-btn__loader",
     childrenWidth: childrenWidth ? "".concat(childrenWidth, "px") : null
-  }, React.createElement(Icon, {
+  }, React__default.createElement(Icon, {
     size: 30,
     slug: "loader",
     color: ['white', 'smoke'].includes(color) ? 'secondary' : 'white'
-  })), React.createElement(AphButtonItemStyled, {
+  })), React__default.createElement(AphButtonItemStyled, {
     ref: childrenRef,
     className: "aph-btn__content"
   }, children)));
@@ -1155,9 +1162,9 @@ var AphCardStyled = _styled("div", {
 /* Component Itself */
 
 
-var Card = forwardRef(function (props, ref) {
+var Card = React.forwardRef(function (props, ref) {
   var className = props.className;
-  return React.createElement(AphCardStyled, _extends({}, props, {
+  return React__default.createElement(AphCardStyled, _extends({}, props, {
     ref: ref,
     className: "aph-card ".concat(className || '')
   }));
@@ -1243,12 +1250,12 @@ var Clipboard = function Clipboard(props) {
    */
 
 
-  var _useState = useState(null),
+  var _useState = React.useState(null),
       _useState2 = _slicedToArray(_useState, 2),
       timer = _useState2[0],
       setTimer = _useState2[1];
 
-  var _useState3 = useState(''),
+  var _useState3 = React.useState(''),
       _useState4 = _slicedToArray(_useState3, 2),
       status = _useState4[0],
       setStatus = _useState4[1];
@@ -1299,7 +1306,7 @@ var Clipboard = function Clipboard(props) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     return function () {
       clearTimeout(timer);
     };
@@ -1319,12 +1326,12 @@ var Clipboard = function Clipboard(props) {
 
 
   if (!styled) {
-    return React.createElement(AphClipboardWrapper, _extends({}, clipboardProps, {
+    return React__default.createElement(AphClipboardWrapper, _extends({}, clipboardProps, {
       className: "aph-clipboard ".concat(className || '')
     }));
   }
 
-  return React.createElement(ClipboardStyled, _extends({}, clipboardProps, {
+  return React__default.createElement(ClipboardStyled, _extends({}, clipboardProps, {
     as: ReactClipboard,
     className: "aph-clipboard".concat(status === 'success' ? ' success' : '').concat(status === 'error' ? ' error' : '', " ").concat(className || '')
   }));
@@ -1393,7 +1400,7 @@ var DropdownStyled = _styled("div", {
 
 /* Component it self */
 
-var Dropdown = forwardRef(function (props, ref) {
+var Dropdown = React.forwardRef(function (props, ref) {
   /**
    * Properties values
    */
@@ -1413,27 +1420,27 @@ var Dropdown = forwardRef(function (props, ref) {
    * State values
    */
 
-  var _useState = useState(opened),
+  var _useState = React.useState(opened),
       _useState2 = _slicedToArray(_useState, 2),
       active = _useState2[0],
       setActive = _useState2[1];
 
-  var _useState3 = useState(opened),
+  var _useState3 = React.useState(opened),
       _useState4 = _slicedToArray(_useState3, 2),
       visible = _useState4[0],
       setVisible = _useState4[1];
 
-  var _useState5 = useState(false),
+  var _useState5 = React.useState(false),
       _useState6 = _slicedToArray(_useState5, 2),
       unmounted = _useState6[0],
       setUnmounted = _useState6[1];
 
-  var _useState7 = useState(null),
+  var _useState7 = React.useState(null),
       _useState8 = _slicedToArray(_useState7, 2),
       activeTimer = _useState8[0],
       setActiveTimer = _useState8[1];
 
-  var _useState9 = useState(null),
+  var _useState9 = React.useState(null),
       _useState10 = _slicedToArray(_useState9, 2),
       visibleTimer = _useState10[0],
       setVisibleTimer = _useState10[1];
@@ -1442,7 +1449,7 @@ var Dropdown = forwardRef(function (props, ref) {
    */
 
 
-  var dropdownRef = useRef(null);
+  var dropdownRef = React.useRef(null);
   /**
    * Add click listener
    */
@@ -1533,7 +1540,7 @@ var Dropdown = forwardRef(function (props, ref) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     removeClickListener();
 
     if (!opened) {
@@ -1554,7 +1561,7 @@ var Dropdown = forwardRef(function (props, ref) {
    * Mount
    */
 
-  useEffect(function () {
+  React.useEffect(function () {
     return function cleanup() {
       removeClickListener();
     };
@@ -1563,7 +1570,7 @@ var Dropdown = forwardRef(function (props, ref) {
    * Render
    */
 
-  return React.createElement(DropdownStyled, {
+  return React__default.createElement(DropdownStyled, {
     center: center,
     up: up,
     right: right,
@@ -1574,11 +1581,11 @@ var Dropdown = forwardRef(function (props, ref) {
     styles: styles,
     ref: dropdownRef,
     className: "aph-dropdown ".concat(className || '')
-  }, !toggle ? null : React.createElement("span", {
+  }, !toggle ? null : React__default.createElement("span", {
     role: "button",
     onClick: handleToggle,
     className: "aph-dropdown__toggle"
-  }, toggle), !visible ? null : React.createElement("div", {
+  }, toggle), !visible ? null : React__default.createElement("div", {
     className: "aph-dropdown__content".concat(active ? ' active' : '').concat(visible ? ' visible' : ''),
     onClick: function onClick() {
       return handleClose();
@@ -1639,12 +1646,12 @@ function HoverActions(props) {
    */
 
 
-  return React.createElement(HoverActionsStyled, _extends({
+  return React__default.createElement(HoverActionsStyled, _extends({
     hasActions: actions ? true : false,
     className: "aph-hover-actions ".concat(className || '')
-  }, rest), React.createElement("span", {
+  }, rest), React__default.createElement("span", {
     className: "aph-hover-actions__content"
-  }, children), React.createElement("span", {
+  }, children), React__default.createElement("span", {
     className: "aph-hover-actions__items"
   }, actions));
 }
@@ -1685,19 +1692,19 @@ var IconAdjusts = function IconAdjusts(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-adjusts",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-path-adjusts",
     fill: color,
     d: "M21,22 L21,21.5 C21,20.9477153 21.4477153,20.5 22,20.5 C22.5522847,20.5 23,20.9477153 23,21.5 L23,22 L24,22 C24.5522847,22 25,22.4477153 25,23 C25,23.5522847 24.5522847,24 24,24 L23,24 L23,24.5 C23,25.0522847 22.5522847,25.5 22,25.5 C21.4477153,25.5 21,25.0522847 21,24.5 L21,24 L6,24 C5.44771525,24 5,23.5522847 5,23 C5,22.4477153 5.44771525,22 6,22 L21,22 Z M14,14 L14,13.5 C14,12.9477153 14.4477153,12.5 15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 L16,14 L24,14 C24.5522847,14 25,14.4477153 25,15 C25,15.5522847 24.5522847,16 24,16 L16,16 L16,16.5 C16,17.0522847 15.5522847,17.5 15,17.5 C14.4477153,17.5 14,17.0522847 14,16.5 L14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L14,14 Z M7,6 L7,5.5 C7,4.94771525 7.44771525,4.5 8,4.5 C8.55228475,4.5 9,4.94771525 9,5.5 L9,6 L24,6 C24.5522847,6 25,6.44771525 25,7 C25,7.55228475 24.5522847,8 24,8 L9,8 L9,8.5 C9,9.05228475 8.55228475,9.5 8,9.5 C7.44771525,9.5 7,9.05228475 7,8.5 L7,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 L7,6 Z"
@@ -1720,13 +1727,13 @@ var IconArrowUp = function IconArrowUp(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-arrow-up-group",
     stroke: "none",
     strokeWidth: "1",
@@ -1734,7 +1741,7 @@ var IconArrowUp = function IconArrowUp(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("polyline", {
+  }, React__default.createElement("polyline", {
     id: "aph-icon-arrow-up-polyline",
     stroke: color,
     strokeWidth: "2",
@@ -1759,13 +1766,13 @@ var IconArrowRight = function IconArrowRight(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-arrow-right-path",
     fill: "none",
     fillRule: "evenodd",
@@ -1793,13 +1800,13 @@ var IconArrowDown = function IconArrowDown(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-arrow-down-group",
     stroke: "none",
     strokeWidth: "1",
@@ -1807,7 +1814,7 @@ var IconArrowDown = function IconArrowDown(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("polyline", {
+  }, React__default.createElement("polyline", {
     id: "aph-icon-arrow-down-polyline",
     stroke: color,
     strokeWidth: "2",
@@ -1831,13 +1838,13 @@ var IconArrowLeft = function IconArrowLeft(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-arrow-left-path",
     fill: "none",
     fillRule: "evenodd",
@@ -1865,19 +1872,19 @@ var IconBluetooth = function IconBluetooth(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-bluetooth-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M16.9725,15.1440782 L20.5925,11.5240782 C20.7825,11.3340782 20.8825,11.0840782 20.8825,10.8140782 C20.8825,10.5440782 20.7725,10.2940782 20.5925,10.1040782 L16.2625,5.79407822 C15.9725,5.50407822 15.5425,5.42407822 15.1725,5.57407822 C14.8025,5.72407822 14.5625,6.09407822 14.5625,6.49407822 L14.5625,12.7240782 L10.7025,8.87407822 C10.3125,8.48407822 9.6825,8.48407822 9.2925,8.87407822 C8.9025,9.26407822 8.9025,9.89407822 9.2925,10.2840782 L14.1425,15.1440782 L9.2925,19.9940782 C8.9025,20.3840782 8.9025,21.0140782 9.2925,21.4040782 C9.6825,21.7940782 10.3125,21.7940782 10.7025,21.4040782 L14.5625,17.5540782 L14.5625,23.7840782 C14.5625,24.1840782 14.8025,24.5540782 15.1825,24.7040782 C15.3025,24.7540782 15.4325,24.7840782 15.5625,24.7840782 C15.8225,24.7840782 16.0825,24.6840782 16.2725,24.4940782 L20.5925,20.1740782 C20.7825,19.9840782 20.8825,19.7340782 20.8825,19.4640782 C20.8825,19.1940782 20.7725,18.9440782 20.5925,18.7540782 L16.9725,15.1440782 Z M16.5625,8.91407822 L18.4725,10.8240782 L16.5625,12.7240782 L16.5625,8.91407822 Z M16.5625,21.3740782 L16.5625,17.5540782 L18.4725,19.4640782 L16.5625,21.3740782 Z",
     id: "aph-icon-bluetooth-shape",
     fill: color
@@ -1900,24 +1907,24 @@ var IconCamera = function IconCamera(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-camera-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M6,11 L8.38196601,11 C8.76073807,11 9.10700119,10.7859976 9.2763932,10.4472136 L10.7236068,7.5527864 C10.8929988,7.21400238 11.2392619,7 11.618034,7 L18.381966,7 C18.7607381,7 19.1070012,7.21400238 19.2763932,7.5527864 L20.7236068,10.4472136 C20.8929988,10.7859976 21.2392619,11 21.618034,11 L24,11 C24.5522847,11 25,11.4477153 25,12 L25,22 C25,22.5522847 24.5522847,23 24,23 L6,23 C5.44771525,23 5,22.5522847 5,22 L5,12 C5,11.4477153 5.44771525,11 6,11 Z",
     id: "aph-icon-camera-shape",
     stroke: color,
     strokeWidth: "1.8"
-  }), React.createElement("circle", {
+  }), React__default.createElement("circle", {
     id: "aph-icon-camera-circle",
     stroke: color,
     strokeWidth: "1.8",
@@ -1943,19 +1950,19 @@ var IconCard = function IconCard(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Card-/-Ocean",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("rect", {
+  }, React__default.createElement("rect", {
     id: "Rectangle",
     stroke: color,
     strokeWidth: "2",
@@ -1964,14 +1971,14 @@ var IconCard = function IconCard(props) {
     width: "24",
     height: "16",
     rx: "0.5"
-  }), React.createElement("rect", {
+  }), React__default.createElement("rect", {
     id: "Rectangle",
     fill: color,
     x: "3",
     y: "11",
     width: "24",
     height: "2"
-  }), React.createElement("rect", {
+  }), React__default.createElement("rect", {
     id: "Rectangle-Copy-4",
     fill: "#EF3C3E",
     x: "20",
@@ -1997,42 +2004,42 @@ var IconCards = function IconCards(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Cards",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Group",
     transform: "translate(2.000000, 5.300000)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Cards",
     transform: "translate(0.000000, 1.000000)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Card-1"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M1,-0.75 L15,-0.75 C15.5983085,-0.75 16.0833333,-0.264975146 16.0833333,0.333333333 L16.0833333,7.24831355 L11.1641099,7.24831355 C10.473754,7.24831355 9.91410993,7.80795762 9.91410993,8.49831355 L9.91410993,10.0833333 L1,10.0833333 C0.401691521,10.0833333 -0.0833333333,9.59830848 -0.0833333333,9 L-0.0833333333,0.333333333 C-0.0833333333,-0.264975146 0.401691521,-0.75 1,-0.75 Z",
     id: "Rectangle",
     stroke: color,
     strokeWidth: "1.5"
-  }), React.createElement("rect", {
+  }), React__default.createElement("rect", {
     id: "Rectangle",
     fill: color,
     x: "0",
     y: "2",
     width: "16",
     height: "1.5"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Card-2",
     transform: "translate(10.000000, 8.000000)"
-  }, React.createElement("rect", {
+  }, React__default.createElement("rect", {
     id: "Rectangle",
     stroke: color,
     strokeWidth: "1.5",
@@ -2041,40 +2048,40 @@ var IconCards = function IconCards(props) {
     width: "16.1666667",
     height: "10.8333333",
     rx: "0.333333333"
-  }), React.createElement("rect", {
+  }), React__default.createElement("rect", {
     id: "Rectangle",
     fill: color,
     x: "0",
     y: "2",
     width: "16",
     height: "1.5"
-  }))), React.createElement("g", {
+  }))), React__default.createElement("g", {
     id: "Arrows",
     transform: "translate(1.500000, 0.000000)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Arrow-1",
     transform: "translate(16.000000, 0.000000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M1.75851811,5.41421356 L1.5,5.41421356 C1.22385763,5.41421356 1,5.19035594 1,4.91421356 L1,1.5 C1,1.22385763 1.22385763,1 1.5,1 L4.91421356,1 C5.19035594,1 5.41421356,1.22385763 5.41421356,1.5 L5.41421356,1.75851811 C5.41421356,2.03466048 5.19035594,2.25851811 4.91421356,2.25851811 L2.75851811,2.25851811 C2.48237573,2.25851811 2.25851811,2.48237573 2.25851811,2.75851811 L2.25851811,4.91421356 C2.25851811,5.19035594 2.03466048,5.41421356 1.75851811,5.41421356 Z",
     id: "Path-4-Copy-4",
     fill: color,
     transform: "translate(3.207107, 3.207107) rotate(-45.000000) translate(-3.207107, -3.207107) "
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "Path-9",
     stroke: color,
     strokeWidth: "1.3",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     points: "1.53553391 3.20710678 6.82504026 3.20710678 6.82504026 5.70710678"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Arrow-2",
     transform: "translate(3.500000, 15.500000) scale(-1, -1) translate(-3.500000, -15.500000) translate(0.000000, 12.000000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M1.75851811,5.41421356 L1.5,5.41421356 C1.22385763,5.41421356 1,5.19035594 1,4.91421356 L1,1.5 C1,1.22385763 1.22385763,1 1.5,1 L4.91421356,1 C5.19035594,1 5.41421356,1.22385763 5.41421356,1.5 L5.41421356,1.75851811 C5.41421356,2.03466048 5.19035594,2.25851811 4.91421356,2.25851811 L2.75851811,2.25851811 C2.48237573,2.25851811 2.25851811,2.48237573 2.25851811,2.75851811 L2.25851811,4.91421356 C2.25851811,5.19035594 2.03466048,5.41421356 1.75851811,5.41421356 Z",
     id: "Path-4-Copy-4",
     fill: color,
     transform: "translate(3.207107, 3.207107) rotate(-45.000000) translate(-3.207107, -3.207107) "
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "Path-9",
     stroke: color,
     strokeWidth: "1.3",
@@ -2100,24 +2107,24 @@ var IconCharLine = function IconCharLine(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Chart-/-White",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "chart-bar-regular",
     transform: "translate(5.000000, 7.000000)",
     fill: color,
     fillRule: "nonzero"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M16.275,11.8125 L17.19375,11.8125 C17.45625,11.8125 17.71875,11.55 17.71875,11.2875 L17.71875,1.8375 C17.71875,1.575 17.45625,1.3125 17.19375,1.3125 L16.275,1.3125 C16.0125,1.3125 15.75,1.575 15.75,1.8375 L15.75,11.2875 C15.75,11.55 16.0125,11.8125 16.275,11.8125 Z M8.4,11.8125 L9.31875,11.8125 C9.58125,11.8125 9.84375,11.55 9.84375,11.2875 L9.84375,3.15 C9.84375,2.8875 9.58125,2.625 9.31875,2.625 L8.4,2.625 C8.1375,2.625 7.875,2.8875 7.875,3.15 L7.875,11.2875 C7.875,11.55 8.1375,11.8125 8.4,11.8125 L8.4,11.8125 Z M12.3375,11.8125 L13.25625,11.8125 C13.51875,11.8125 13.78125,11.55 13.78125,11.2875 L13.78125,5.775 C13.78125,5.5125 13.51875,5.25 13.25625,5.25 L12.3375,5.25 C12.075,5.25 11.8125,5.5125 11.8125,5.775 L11.8125,11.2875 C11.8125,11.55 12.075,11.8125 12.3375,11.8125 L12.3375,11.8125 Z M20.34375,13.78125 L1.96875,13.78125 L1.96875,0.65625 C1.96875,0.293671875 1.67507813,0 1.3125,0 L0.65625,0 C0.293671875,0 0,0.293671875 0,0.65625 L0,14.4375 C0,15.1622461 0.587753906,15.75 1.3125,15.75 L20.34375,15.75 C20.7063281,15.75 21,15.4563281 21,15.09375 L21,14.4375 C21,14.0749219 20.7063281,13.78125 20.34375,13.78125 Z M4.4625,11.8125 L5.38125,11.8125 C5.64375,11.8125 5.90625,11.55 5.90625,11.2875 L5.90625,8.4 C5.90625,8.1375 5.64375,7.875 5.38125,7.875 L4.4625,7.875 C4.2,7.875 3.9375,8.1375 3.9375,8.4 L3.9375,11.2875 C3.9375,11.55 4.2,11.8125 4.4625,11.8125 L4.4625,11.8125 Z",
     id: "Shape"
   }))));
@@ -2139,13 +2146,13 @@ var IconCheckThin = function IconCheckThin(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 20 16"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "IconCheckThinWrapper",
     stroke: "none",
     strokeWidth: "1",
@@ -2153,12 +2160,12 @@ var IconCheckThin = function IconCheckThin(props) {
     strokeLinejoin: "round",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "IconCheckThinWrapperGroup",
     transform: "translate(-5.000000, -7.000000)",
     stroke: color,
     strokeWidth: "4"
-  }, React.createElement("polyline", {
+  }, React__default.createElement("polyline", {
     id: "Path",
     points: "7.5 14 13.5 21 23 9"
   }))));
@@ -2180,19 +2187,19 @@ var IconDelete = function IconDelete(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-delete-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-delete-path",
     fill: color,
     d: "M15,0 C23.2842712,-1.52179594e-15 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 C6.71572875,30 1.01453063e-15,23.2842712 0,15 C-1.01453063e-15,6.71572875 6.71572875,1.52179594e-15 15,0 Z M24.25,18 C24.6642136,18 25,17.6642136 25,17.25 L25,13.75 C25,13.3357864 24.6642136,13 24.25,13 L5.75,13 C5.33578644,13 5,13.3357864 5,13.75 L5,17.25 C5,17.6642136 5.33578644,18 5.75,18 L24.25,18 Z"
@@ -2216,13 +2223,13 @@ var IconExternalTicket = function IconExternalTicket(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-external-ticket-group",
     stroke: "none",
     strokeWidth: "1",
@@ -2230,15 +2237,15 @@ var IconExternalTicket = function IconExternalTicket(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-external-ticket-subgroup",
     transform: "translate(15.000000, 15.500000) rotate(-270.000000) translate(-15.000000, -15.500000) translate(4.000000, 4.500000)",
     stroke: color,
     strokeWidth: "2.3"
-  }, React.createElement("path", (_React$createElement = {
+  }, React__default.createElement("path", (_React$createElement = {
     id: "aph-icon-external-ticket-path-one",
     d: "M1.5,2 L19.5,2 C20.0522847,2 20.5,2.44771525 20.5,3 L20.5,7 C17.8333333,7 16.5,8 16.5,10 C16.5,12 17.8333333,13 20.5,13 L20.5,17 C20.5,17.5522847 20.0522847,18 19.5,18 L5.5,18"
-  }, _defineProperty(_React$createElement, "id", "Rectangle"), _defineProperty(_React$createElement, "transform", "translate(11.000000, 10.000000) rotate(-90.000000) translate(-11.000000, -10.000000)"), _React$createElement)), React.createElement("path", {
+  }, _defineProperty(_React$createElement, "id", "Rectangle"), _defineProperty(_React$createElement, "transform", "translate(11.000000, 10.000000) rotate(-90.000000) translate(-11.000000, -10.000000)"), _React$createElement)), React__default.createElement("path", {
     id: "aph-icon-external-ticket-path-two",
     d: "M0,21.5 L22,14.5"
   }))));
@@ -2260,19 +2267,19 @@ var IconEye = function IconEye(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-eye-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-eye-path",
     d: "M5.34544747,14.7030573 C8.56363164,11.5676858 11.7818158,10 15,10 C18.2181923,10 21.4363846,11.5676937 24.6545769,14.7030811 L24.6545535,14.7031051 C25.0946794,15.1319063 25.1038597,15.8363109 24.6750585,16.2764368 C24.6683125,16.2833609 24.6614766,16.2901967 24.6545525,16.2969427 C21.4363684,19.4323142 18.2181842,21 15,21 C11.7818077,21 8.5636154,19.4323063 5.34542309,16.2969189 L5.34544646,16.2968949 C4.90532063,15.8680937 4.89614027,15.1636891 5.32494155,14.7235632 C5.33168748,14.7166391 5.33852337,14.7098033 5.34544747,14.7030573 Z M15,18.25 C16.5362373,18.25 17.7816037,17.0187831 17.7816037,15.5 C17.7816037,13.9812169 16.5362373,12.75 15,12.75 C13.4637627,12.75 12.2183963,13.9812169 12.2183963,15.5 C12.2183963,17.0187831 13.4637627,18.25 15,18.25 Z",
     fill: color
@@ -2295,26 +2302,26 @@ var IconFilter = function IconFilter(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Filter-/-Ocean",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(5.000000, 6.000000)",
     id: "Path",
     stroke: color,
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: "2"
-  }, React.createElement("polygon", {
+  }, React__default.createElement("polygon", {
     points: "20 0 0 0 8 9.46 8 16 12 18 12 9.46"
   }))));
 };
@@ -2335,20 +2342,20 @@ var IconFlash = function IconFlash(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-flash-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd",
     strokeLinejoin: "round"
-  }, React.createElement("polygon", {
+  }, React__default.createElement("polygon", {
     id: "aph-icon-flash-polygon",
     stroke: color,
     strokeWidth: "2",
@@ -2372,25 +2379,25 @@ var IconFlashOff = function IconFlashOff(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-flash-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("polygon", {
+  }, React__default.createElement("polygon", {
     id: "aph-icon-flash-polygon",
     stroke: color,
     strokeWidth: "2",
     strokeLinejoin: "round",
     points: "17 5 9 17 15 17 13 25 21 13 15 13"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "aph-icon-flash-path",
     d: "M6,6 L24,24",
     stroke: color,
@@ -2415,13 +2422,13 @@ var IconHelp = function IconHelp(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Help-/-Ocean",
     stroke: "none",
     strokeWidth: "1",
@@ -2429,20 +2436,20 @@ var IconHelp = function IconHelp(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "help-circle",
     transform: "translate(5.000000, 5.000000)",
     stroke: color,
     strokeWidth: "2.3"
-  }, React.createElement("circle", {
+  }, React__default.createElement("circle", {
     id: "Oval",
     cx: "10",
     cy: "10",
     r: "10"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M7.09,7 C7.57543688,5.62004444 8.98538362,4.79140632 10.4271763,5.0387121 C11.868969,5.28601788 12.9221794,6.53715293 12.9200034,8 C12.9200034,10 9.92,11 9.92,11",
     id: "Path"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M10,15 L10,14.5",
     id: "Path"
   }))));
@@ -2464,19 +2471,19 @@ var IconInfo = function IconInfo(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 20 20"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-info-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-info-path",
     fill: color,
     d: "M10,3.25 C10.9664983,3.25 11.75,4.03350169 11.75,5 C11.75,5.96649831 10.9664983,6.75 10,6.75 C9.03350169,6.75 8.25,5.96649831 8.25,5 C8.25,4.03350169 9.03350169,3.25 10,3.25 Z M8.6875,8.75 L11.3125,8.75 C11.5541246,8.75 11.75,8.94587542 11.75,9.1875 L11.75,16.3125 C11.75,16.5541246 11.5541246,16.75 11.3125,16.75 L8.6875,16.75 C8.44587542,16.75 8.25,16.5541246 8.25,16.3125 L8.25,9.1875 C8.25,8.94587542 8.44587542,8.75 8.6875,8.75 Z"
@@ -2499,22 +2506,22 @@ var IconItems = function IconItems(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Tab-Destaques-/-Normal",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Eventos",
     transform: "translate(2.000000, 0.500000)"
-  }, React.createElement("rect", {
+  }, React__default.createElement("rect", {
     id: "Rectangle-Copy-3",
     stroke: color,
     strokeWidth: "1.5",
@@ -2524,7 +2531,7 @@ var IconItems = function IconItems(props) {
     width: "23.5",
     height: "15.5",
     rx: "1.05"
-  }), React.createElement("rect", {
+  }), React__default.createElement("rect", {
     id: "Rectangle-Copy-3",
     fill: color,
     transform: "translate(18.000000, 11.950000) rotate(-270.000000) translate(-18.000000, -11.950000) ",
@@ -2533,7 +2540,7 @@ var IconItems = function IconItems(props) {
     width: "22",
     height: "1.5",
     rx: "0.75"
-  }), React.createElement("rect", {
+  }), React__default.createElement("rect", {
     id: "Rectangle-Copy-5",
     fill: color,
     transform: "translate(21.000000, 11.750000) rotate(-270.000000) translate(-21.000000, -11.750000) ",
@@ -2561,19 +2568,19 @@ var IconList = function IconList(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-list-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-list-group",
     fill: color,
     d: "M7,11 C5.8954305,11 5,10.1045695 5,9 C5,7.8954305 5.8954305,7 7,7 C8.1045695,7 9,7.8954305 9,9 C9,10.1045695 8.1045695,11 7,11 Z M7,17 C5.8954305,17 5,16.1045695 5,15 C5,13.8954305 5.8954305,13 7,13 C8.1045695,13 9,13.8954305 9,15 C9,16.1045695 8.1045695,17 7,17 Z M7,23 C5.8954305,23 5,22.1045695 5,21 C5,19.8954305 5.8954305,19 7,19 C8.1045695,19 9,19.8954305 9,21 C9,22.1045695 8.1045695,23 7,23 Z M12.5,7.5 L23.5,7.5 C24.3284271,7.5 25,8.17157288 25,9 C25,9.82842712 24.3284271,10.5 23.5,10.5 L12.5,10.5 C11.6715729,10.5 11,9.82842712 11,9 C11,8.17157288 11.6715729,7.5 12.5,7.5 Z M12.5,13.5 L23.5,13.5 C24.3284271,13.5 25,14.1715729 25,15 C25,15.8284271 24.3284271,16.5 23.5,16.5 L12.5,16.5 C11.6715729,16.5 11,15.8284271 11,15 C11,14.1715729 11.6715729,13.5 12.5,13.5 Z M12.5,19.5 L23.5,19.5 C24.3284271,19.5 25,20.1715729 25,21 C25,21.8284271 24.3284271,22.5 23.5,22.5 L12.5,22.5 C11.6715729,22.5 11,21.8284271 11,21 C11,20.1715729 11.6715729,19.5 12.5,19.5 Z"
@@ -2601,13 +2608,13 @@ var IconLoaderDonut = function IconLoaderDonut(props) {
    * Render
    */
 
-  return React.createElement(IconStyled, {
+  return React__default.createElement(IconStyled, {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-loader-group",
     stroke: "none",
     strokeWidth: "1",
@@ -2615,7 +2622,7 @@ var IconLoaderDonut = function IconLoaderDonut(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-loader-path",
     stroke: color,
     strokeWidth: "4",
@@ -2655,18 +2662,18 @@ var IconLoading = function IconLoading(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size || 120,
     height: height || size || 30,
     viewBox: "0 0 120 30",
     fill: color
-  }, React.createElement("circle", {
+  }, React__default.createElement("circle", {
     cx: "15",
     cy: "15",
     r: "15"
-  }, React.createElement("animate", {
+  }, React__default.createElement("animate", {
     attributeName: "r",
     from: "15",
     to: "15",
@@ -2675,7 +2682,7 @@ var IconLoading = function IconLoading(props) {
     values: "15;9;15",
     calcMode: "linear",
     repeatCount: "indefinite"
-  }), React.createElement("animate", {
+  }), React__default.createElement("animate", {
     attributeName: "fill-opacity",
     from: "1",
     to: "1",
@@ -2684,12 +2691,12 @@ var IconLoading = function IconLoading(props) {
     values: "1;.5;1",
     calcMode: "linear",
     repeatCount: "indefinite"
-  })), React.createElement("circle", {
+  })), React__default.createElement("circle", {
     cx: "60",
     cy: "15",
     r: "9",
     fillOpacity: "0.3"
-  }, React.createElement("animate", {
+  }, React__default.createElement("animate", {
     attributeName: "r",
     from: "9",
     to: "9",
@@ -2698,7 +2705,7 @@ var IconLoading = function IconLoading(props) {
     values: "9;15;9",
     calcMode: "linear",
     repeatCount: "indefinite"
-  }), React.createElement("animate", {
+  }), React__default.createElement("animate", {
     attributeName: "fill-opacity",
     from: "0.5",
     to: "0.5",
@@ -2707,11 +2714,11 @@ var IconLoading = function IconLoading(props) {
     values: ".5;1;.5",
     calcMode: "linear",
     repeatCount: "indefinite"
-  })), React.createElement("circle", {
+  })), React__default.createElement("circle", {
     cx: "105",
     cy: "15",
     r: "15"
-  }, React.createElement("animate", {
+  }, React__default.createElement("animate", {
     attributeName: "r",
     from: "15",
     to: "15",
@@ -2720,7 +2727,7 @@ var IconLoading = function IconLoading(props) {
     values: "15;9;15",
     calcMode: "linear",
     repeatCount: "indefinite"
-  }), React.createElement("animate", {
+  }), React__default.createElement("animate", {
     attributeName: "fill-opacity",
     from: "1",
     to: "1",
@@ -2748,19 +2755,19 @@ var IconLock = function IconLock(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-lock-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("rect", {
+  }, React__default.createElement("rect", {
     id: "aph-icon-lock-rect",
     stroke: color,
     strokeWidth: "2",
@@ -2769,7 +2776,7 @@ var IconLock = function IconLock(props) {
     width: "14",
     height: "10",
     rx: "1"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "aph-icon-lock-path",
     fill: color,
     d: "M9,13 L9,11 C9,7.6862915 11.6862915,5 15,5 C18.3137085,5 21,7.6862915 21,11 L21,13 L19,13 L19,11 C19,8.790861 17.209139,7 15,7 C12.790861,7 11,8.790861 11,11 L11,13 L9,13 Z"
@@ -2792,13 +2799,13 @@ var IconLogout = function IconLogout(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Logout-/-White",
     stroke: "none",
     strokeWidth: "1",
@@ -2806,18 +2813,18 @@ var IconLogout = function IconLogout(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "log-out",
     transform: "translate(6.000000, 6.000000)",
     stroke: color,
     strokeWidth: "2.3"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M6,18 L2,18 C0.8954305,18 0,17.1045695 0,16 L0,2 C0,0.8954305 0.8954305,0 2,0 L6,0",
     id: "Path"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "Path",
     points: "13 14 18 9 13 4"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M18,9 L6,9",
     id: "Path"
   }))));
@@ -2839,19 +2846,19 @@ var IconMinus = function IconMinus(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-minus",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("rect", {
+  }, React__default.createElement("rect", {
     id: "aph-icon-rect-minus",
     fill: color,
     rx: "2.5",
@@ -2879,19 +2886,19 @@ var IconOptions = function IconOptions(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-options",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-path-options",
     fill: color,
     d: "M7.5,17.5 C6.11928813,17.5 5,16.3807119 5,15 C5,13.6192881 6.11928813,12.5 7.5,12.5 C8.88071187,12.5 10,13.6192881 10,15 C10,16.3807119 8.88071187,17.5 7.5,17.5 Z M15,17.5 C13.6192881,17.5 12.5,16.3807119 12.5,15 C12.5,13.6192881 13.6192881,12.5 15,12.5 C16.3807119,12.5 17.5,13.6192881 17.5,15 C17.5,16.3807119 16.3807119,17.5 15,17.5 Z M22.5,17.5 C21.1192881,17.5 20,16.3807119 20,15 C20,13.6192881 21.1192881,12.5 22.5,12.5 C23.8807119,12.5 25,13.6192881 25,15 C25,16.3807119 23.8807119,17.5 22.5,17.5 Z"
@@ -2914,25 +2921,25 @@ var IconPencil = function IconPencil(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-polygon-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-path-refresh",
     stroke: color,
     strokeWidth: "2",
     transform: "translate(13.427922, 16.427922) rotate(-315.000000) translate(-13.427922, -16.427922)",
     d: "M9.92792206,3.92792206 L16.9279221,3.92792206 C18.0324916,3.92792206 18.9279221,4.82335256 18.9279221,5.92792206 L18.9279221,20.0888985 C18.9279221,20.4844205 18.8106482,20.8710621 18.5909276,21.1999397 L13.8436734,28.3056257 C13.6902707,28.5352389 13.3797749,28.5970196 13.1501618,28.4436168 C13.0955478,28.4071297 13.0486578,28.3602397 13.0121707,28.3056257 L8.26491652,21.1999397 C8.04519592,20.8710621 7.92792206,20.4844205 7.92792206,20.0888985 L7.92792206,5.92792206 C7.92792206,4.82335256 8.82335256,3.92792206 9.92792206,3.92792206 Z"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "aph-icon-polygon-refresh",
     fill: color,
     transform: "translate(5.999679, 23.856166) rotate(-315.000000) translate(-5.999679, -23.856166)",
@@ -2956,19 +2963,19 @@ var IconPlus = function IconPlus(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-plus",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-path-plus",
     fill: color,
     d: "M17.5,12.5 L22.5,12.5 C23.8807119,12.5 25,13.6192881 25,15 C25,16.3807119 23.8807119,17.5 22.5,17.5 L17.5,17.5 L17.5,22.5 C17.5,23.8807119 16.3807119,25 15,25 C13.6192881,25 12.5,23.8807119 12.5,22.5 L12.5,17.5 L7.5,17.5 C6.11928813,17.5 5,16.3807119 5,15 C5,13.6192881 6.11928813,12.5 7.5,12.5 L12.5,12.5 L12.5,7.5 C12.5,6.11928813 13.6192881,5 15,5 C16.3807119,5 17.5,6.11928813 17.5,7.5 L17.5,12.5 Z"
@@ -2991,19 +2998,19 @@ var IconQRCode = function IconQRCode(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-qrcode",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-path-qrcode",
     fill: color,
     d: "M6,19 L10,19 C10.5522847,19 11,19.4477153 11,20 L11,24 C11,24.5522847 10.5522847,25 10,25 L6,25 C5.44771525,25 5,24.5522847 5,24 L5,20 C5,19.4477153 5.44771525,19 6,19 Z M7.3,20.8 C7.02385763,20.8 6.8,21.0238576 6.8,21.3 L6.8,22.8 C6.8,23.0761424 7.02385763,23.3 7.3,23.3 L8.8,23.3 C9.07614237,23.3 9.3,23.0761424 9.3,22.8 L9.3,21.3 C9.3,21.0238576 9.07614237,20.8 8.8,20.8 L7.3,20.8 Z M6,5 L10,5 C10.5522847,5 11,5.44771525 11,6 L11,10 C11,10.5522847 10.5522847,11 10,11 L6,11 C5.44771525,11 5,10.5522847 5,10 L5,6 C5,5.44771525 5.44771525,5 6,5 Z M7.3,6.8 C7.02385763,6.8 6.8,7.02385763 6.8,7.3 L6.8,8.8 C6.8,9.07614237 7.02385763,9.3 7.3,9.3 L8.8,9.3 C9.07614237,9.3 9.3,9.07614237 9.3,8.8 L9.3,7.3 C9.3,7.02385763 9.07614237,6.8 8.8,6.8 L7.3,6.8 Z M20,5 L24,5 C24.5522847,5 25,5.44771525 25,6 L25,10 C25,10.5522847 24.5522847,11 24,11 L20,11 C19.4477153,11 19,10.5522847 19,10 L19,6 C19,5.44771525 19.4477153,5 20,5 Z M21.3,6.8 C21.0238576,6.8 20.8,7.02385763 20.8,7.3 L20.8,8.8 C20.8,9.07614237 21.0238576,9.3 21.3,9.3 L22.8,9.3 C23.0761424,9.3 23.3,9.07614237 23.3,8.8 L23.3,7.3 C23.3,7.02385763 23.0761424,6.8 22.8,6.8 L21.3,6.8 Z M24,17 C24.5522847,17 25,17.4477153 25,18 L25,24 C25,24.5522847 24.5522847,25 24,25 L16,25 C15.4477153,25 15,24.5522847 15,24 C15,23.4477153 15.4477153,23 16,23 L22,23 C22.5522847,23 23,22.5522847 23,22 L23,18 C23,17.4477153 23.4477153,17 24,17 Z M14,22 C13.4477153,22 13,21.5522847 13,21 L13,19 C13,18.4477153 13.4477153,18 14,18 L20,18 C20.5522847,18 21,18.4477153 21,19 C21,19.5522847 20.5522847,20 20,20 L16,20 C15.4477153,20 15,20.4477153 15,21 C15,21.5522847 14.5522847,22 14,22 Z M14,11 C14.5522847,11 15,11.4477153 15,12 L15,15 C15,15.5522847 14.5522847,16 14,16 L6,16 C5.44771525,16 5,15.5522847 5,15 C5,14.4477153 5.44771525,14 6,14 L12,14 C12.5522847,14 13,13.5522847 13,13 L13,12 C13,11.4477153 13.4477153,11 14,11 Z M16,5 C16.5522847,5 17,5.44771525 17,6 L17,8 C17,8.55228475 16.5522847,9 16,9 C15.4477153,9 15,8.55228475 15,8 L15,6 C15,5.44771525 15.4477153,5 16,5 Z M17.9988769,13.0002805 L24.0011231,13.0019657 C24.552833,13.0021206 25,13.4494132 25,14.0011231 C25,14.5526327 24.5529131,14.9997196 24.0014035,14.9997196 C24.0013101,14.9997196 24.0012166,14.9997196 24.0011231,14.9997195 L17.9988769,14.9980343 C17.447167,14.9978794 17,14.5505868 17,13.9988769 C17,13.4473673 17.4470869,13.0002804 17.9985965,13.0002804 C17.9986899,13.0002804 17.9987834,13.0002804 17.9988769,13.0002805 Z"
@@ -3026,39 +3033,39 @@ var IconRefresh = function IconRefresh(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Refresh-/-Ocean",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Group",
     transform: "translate(1.500000, 6.000000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "Path-4-Copy-3",
     fill: color,
     transform: "translate(21.649747, 10.449747) rotate(-315.000000) translate(-21.649747, -10.449747) ",
     d: "M19.0247475,13.9497475 C18.5414983,13.9497475 18.1497475,13.5579966 18.1497475,13.0747475 L18.1497475,7.82474747 C18.1497475,7.34149831 18.5414983,6.94974747 19.0247475,6.94974747 L24.2747475,6.94974747 C24.7579966,6.94974747 25.1497475,7.34149831 25.1497475,7.82474747 C25.1497475,8.30799662 24.7579966,8.69974747 24.2747475,8.69974747 L20.7747475,8.69974747 C20.2914983,8.69974747 19.8997475,9.09149831 19.8997475,9.57474747 L19.8997475,13.0747475 C19.8997475,13.5579966 19.5079966,13.9497475 19.0247475,13.9497475 Z"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "Path-4-Copy-4",
     fill: color,
     transform: "translate(5.349747, 7.449747) rotate(-135.000000) translate(-5.349747, -7.449747) ",
     d: "M2.72474747,10.9497475 C2.24149831,10.9497475 1.84974747,10.5579966 1.84974747,10.0747475 L1.84974747,4.82474747 C1.84974747,4.34149831 2.24149831,3.94974747 2.72474747,3.94974747 L7.97474747,3.94974747 C8.45799662,3.94974747 8.84974747,4.34149831 8.84974747,4.82474747 C8.84974747,5.30799662 8.45799662,5.69974747 7.97474747,5.69974747 L4.47474747,5.69974747 C3.99149831,5.69974747 3.59974747,6.09149831 3.59974747,6.57474747 L3.59974747,10.0747475 C3.59974747,10.5579966 3.20799662,10.9497475 2.72474747,10.9497475 Z"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "Oval",
     stroke: color,
     strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     d: "M20,2.63083009 C18.4097668,1.00521174 16.2144208,0 13.789779,0 C8.93531811,0 5,4.02943725 5,9"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "Oval-Copy",
     stroke: color,
     strokeWidth: "2",
@@ -3085,47 +3092,47 @@ var IconScan = function IconScan(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-scan",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd",
     strokeLinecap: "round"
-  }, React.createElement("polyline", {
+  }, React__default.createElement("polyline", {
     id: "aph-icon-polyline-one-scan",
     stroke: color,
     strokeWidth: "2",
     strokeLinejoin: "round",
     points: "20 5 25 5 25 10"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "aph-icon-polyline-two-scan",
     stroke: color,
     strokeWidth: "2",
     strokeLinejoin: "round",
     points: "5 20 10 20 10 25",
     transform: "translate(7.500000, 22.500000) rotate(-180.000000) translate(-7.500000, -22.500000)"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "aph-icon-polyline-tree-scan",
     stroke: color,
     strokeWidth: "2",
     strokeLinejoin: "round",
     points: "5 5 10 5 10 10",
     transform: "translate(7.500000, 7.500000) rotate(-90.000000) translate(-7.500000, -7.500000)"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "aph-icon-polyline-four-scan",
     stroke: color,
     strokeWidth: "2",
     strokeLinejoin: "round",
     points: "20 20 25 20 25 25",
     transform: "translate(22.500000, 22.500000) rotate(-270.000000) translate(-22.500000, -22.500000)"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "aph-icon-path-scan",
     d: "M3,15 L27,15",
     stroke: color,
@@ -3149,13 +3156,13 @@ function IconSearch(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "IconSearchGroup",
     stroke: "none",
     strokeWidth: "1",
@@ -3163,14 +3170,14 @@ function IconSearch(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("circle", {
+  }, React__default.createElement("circle", {
     id: "IconSearchCircle",
     stroke: color,
     strokeWidth: "3.5",
     cx: "12.5",
     cy: "12.9",
     r: "6"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M17.5,17.9 L23,23.4",
     id: "IconSearchLiner",
     stroke: color,
@@ -3194,13 +3201,13 @@ var IconSettings = function IconSettings(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Settings-/-Mercury",
     stroke: "none",
     strokeWidth: "1",
@@ -3208,17 +3215,17 @@ var IconSettings = function IconSettings(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "settings",
     transform: "translate(4.000000, 4.000000)",
     stroke: color,
     strokeWidth: "2"
-  }, React.createElement("circle", {
+  }, React__default.createElement("circle", {
     id: "Oval",
     cx: "11",
     cy: "11",
     r: "3"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M18.4,14 C18.1276535,14.6170901 18.2583341,15.3378133 18.73,15.82 L18.79,15.88 C19.1655541,16.2551365 19.3765733,16.7641815 19.3765733,17.295 C19.3765733,17.8258185 19.1655541,18.3348635 18.79,18.71 C18.4148635,19.0855541 17.9058185,19.2965733 17.375,19.2965733 C16.8441815,19.2965733 16.3351365,19.0855541 15.96,18.71 L15.9,18.65 C15.4178133,18.1783341 14.6970901,18.0476535 14.08,18.32 C13.4755294,18.5790683 13.0826229,19.1723571 13.08,19.83 L13.08,20 C13.08,21.1045695 12.1845695,22 11.08,22 C9.9754305,22 9.08,21.1045695 9.08,20 L9.08,19.91 C9.0641566,19.2326708 8.63587177,18.6338652 8,18.4 C7.38290993,18.1276535 6.66218673,18.2583341 6.18,18.73 L6.12,18.79 C5.74486349,19.1655541 5.2358185,19.3765733 4.705,19.3765733 C4.1741815,19.3765733 3.66513651,19.1655541 3.29,18.79 C2.91444591,18.4148635 2.70342669,17.9058185 2.70342669,17.375 C2.70342669,16.8441815 2.91444591,16.3351365 3.29,15.96 L3.35,15.9 C3.82166588,15.4178133 3.95234646,14.6970901 3.68,14.08 C3.42093172,13.4755294 2.82764292,13.0826229 2.17,13.08 L2,13.08 C0.8954305,13.08 0,12.1845695 0,11.08 C0,9.9754305 0.8954305,9.08 2,9.08 L2.09,9.08 C2.76732918,9.0641566 3.36613483,8.63587177 3.6,8 C3.87234646,7.38290993 3.74166588,6.66218673 3.27,6.18 L3.21,6.12 C2.83444591,5.74486349 2.62342669,5.2358185 2.62342669,4.705 C2.62342669,4.1741815 2.83444591,3.66513651 3.21,3.29 C3.58513651,2.91444591 4.0941815,2.70342669 4.625,2.70342669 C5.1558185,2.70342669 5.66486349,2.91444591 6.04,3.29 L6.1,3.35 C6.58218673,3.82166588 7.30290993,3.95234646 7.92,3.68 L8,3.68 C8.60447061,3.42093172 8.99737709,2.82764292 9,2.17 L9,2 C9,0.8954305 9.8954305,0 11,0 C12.1045695,0 13,0.8954305 13,2 L13,2.09 C13.0026229,2.74764292 13.3955294,3.34093172 14,3.6 C14.6170901,3.87234646 15.3378133,3.74166588 15.82,3.27 L15.88,3.21 C16.2551365,2.83444591 16.7641815,2.62342669 17.295,2.62342669 C17.8258185,2.62342669 18.3348635,2.83444591 18.71,3.21 C19.0855541,3.58513651 19.2965733,4.0941815 19.2965733,4.625 C19.2965733,5.1558185 19.0855541,5.66486349 18.71,6.04 L18.65,6.1 C18.1783341,6.58218673 18.0476535,7.30290993 18.32,7.92 L18.32,8 C18.5790683,8.60447061 19.1723571,8.99737709 19.83,9 L20,9 C21.1045695,9 22,9.8954305 22,11 C22,12.1045695 21.1045695,13 20,13 L19.91,13 C19.2523571,13.0026229 18.6590683,13.3955294 18.4,14 Z",
     id: "Path"
   }))));
@@ -3240,13 +3247,13 @@ var IconSignal = function IconSignal(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Chart-/-White",
     stroke: "none",
     strokeWidth: "1",
@@ -3254,18 +3261,18 @@ var IconSignal = function IconSignal(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "bar-chart",
     transform: "translate(8.000000, 7.000000)",
     stroke: color,
     strokeWidth: "2.3"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M7,16 L7,6",
     id: "Path"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M13,16 L13,0",
     id: "Path"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M1,16 L1,12",
     id: "Path"
   }))));
@@ -3287,27 +3294,27 @@ var IconTicketbooth = function IconTicketbooth(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("path", {
+  }, React__default.createElement("defs", null, React__default.createElement("path", {
     id: "aph-icon-defs-path-ticketbooth",
     d: "M6,9 L24,9 C24.5522847,9 25,9.44771525 25,10 L25,13 C23.6666667,13.0001869 23,13.6668536 23,15 C23,16.3331464 23.6666667,16.9998131 25,17 L25,20 C25,20.5522847 24.5522847,21 24,21 L6,21 C5.44771525,21 5,20.5522847 5,20 L5,17 C6.33333333,16.9998131 7,16.3331464 7,15 C7,13.6668536 6.33333333,13.0001869 5,13 L5,10 C5,9.44771525 5.44771525,9 6,9 Z"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "aph-icon-group-ticketbooth",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "aph-icon-mask-ticketbooth",
     fill: color
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#aph-icon-defs-path-ticketbooth"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "aph-icon-use-ticketbooth",
     fill: color,
     xlinkHref: "#aph-icon-defs-path-ticketbooth",
@@ -3331,13 +3338,13 @@ var IconTimes = function IconTimes(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-times-group",
     stroke: "none",
     strokeWidth: "1",
@@ -3345,16 +3352,16 @@ var IconTimes = function IconTimes(props) {
     fillRule: "evenodd",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-times-subgroup",
     transform: "translate(9.000000, 9.000000)",
     stroke: color,
     strokeWidth: "4"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-times-path-one",
     d: "M0,12 L12,0 L0,12 Z",
     transform: "translate(6.000000, 6.000000) rotate(-90.000000) translate(-6.000000, -6.000000)"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "aph-icon-times-path-two",
     d: "M0,12 L12,0 L0,12 Z",
     transform: "translate(6.000000, 6.000000) rotate(-180.000000) translate(-6.000000, -6.000000)"
@@ -3377,19 +3384,19 @@ var IconTransfer = function IconTransfer(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-transfer",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "aph-icon-path-transfer",
     fill: color,
     transform: "translate(14.992641, 14.985028) rotate(-90.000000) translate(-14.992641, -14.985028)",
@@ -3413,19 +3420,19 @@ var IconUnlock = function IconUnlock(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "aph-icon-group-unlock",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("rect", {
+  }, React__default.createElement("rect", {
     id: "aph-icon-rect-unlock",
     stroke: color,
     strokeWidth: "2",
@@ -3434,7 +3441,7 @@ var IconUnlock = function IconUnlock(props) {
     width: "14",
     height: "10",
     rx: "1"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "aph-icon-path-unlock",
     fill: color,
     d: "M21,10 C21,10.5522847 20.5522847,11 20,11 C19.4477153,11 19,10.5522847 19,10 C19,8.34314575 17.6568542,7 16,7 L15,7 C12.790861,7 11,8.790861 11,11 L11,13 L9,13 L9,11 C9,7.6862915 11.6862915,5 15,5 L16,5 C18.7614237,5 21,7.23857625 21,10 Z"
@@ -3457,23 +3464,23 @@ var IconUser = function IconUser(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Page-1",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Icon-/-30-/-Perfil-/-Mercury",
     stroke: color,
     strokeWidth: "2"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M18.9132855,17.7160261 C21.1860415,17.7160261 23.9166399,19.3436924 25.000265,21.3295607 L25.5521812,22.3410109 C26.6411712,24.3367109 25.6766726,25.9545455 23.4031446,25.9545455 L7.59388622,25.9545455 C5.31801606,25.9545455 4.36122446,24.3268791 5.44484956,22.3410109 L5.99676577,21.3295607 C7.08575576,19.3338607 9.81519808,17.7160261 12.0837452,17.7160261 L18.9132855,17.7160261 Z M15.1904113,4 C17.8161848,4 19.952635,6.03450072 19.952635,8.53515134 L19.952635,10.7534959 C19.952635,13.2541466 17.8161848,15.2886473 15.1904113,15.2886473 C12.5647887,15.2886473 10.4284894,13.2541466 10.4284894,10.7534959 L10.4284894,8.53515134 C10.4284894,6.03450072 12.5647887,4 15.1904113,4 Z"
   }))));
 };
@@ -3493,52 +3500,52 @@ var IconPaymentAmex = function IconPaymentAmex(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "aph-icon-defs-rect-payment-amex",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "aph-icon-group-payment-amex",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "aph-icon-mask-payment-amex",
     fill: "#FFFFFF"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#aph-icon-defs-rect-payment-amex"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#27ADE4",
     xlinkHref: "#aph-icon-defs-rect-payment-amex"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "aph-icon-subgroup-payment-amex",
     mask: "url(#aph-icon-mask-payment-amex)",
     fillRule: "nonzero"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     id: "Shape",
     transform: "translate(0.750000, 9.800000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     fill: "#2D78BC",
     d: "M3.46580854,2.55314286 L2.95162683,1.24857143 L2.44050366,2.55314286 L3.46580854,2.55314286 Z M14.7871207,2.03357143 C14.6838951,2.09907143 14.5619012,2.10121429 14.4157171,2.10121429 L13.5033,2.10121429 L13.5033,1.3745 L14.4279512,1.3745 C14.5587732,1.3745 14.6953646,1.38014286 14.7839927,1.433 C14.8812402,1.48114286 14.9413693,1.58264286 14.9413693,1.72271429 C14.9416463,1.86542857 14.8841598,1.98064286 14.7871207,2.03357143 L14.7871207,2.03357143 Z M21.2940183,2.55314286 L20.7746232,1.24857143 L20.258078,2.55314286 L21.2940183,2.55314286 L21.2940183,2.55314286 Z M9.16455732,3.96507143 L8.39464024,3.96507143 L8.39179024,1.402 L7.30302073,3.96507143 L6.64369756,3.96507143 L5.5523561,1.39985714 L5.5523561,3.96507143 L4.02503415,3.96507143 L3.73655854,3.23514286 L2.1734378,3.23514286 L1.88183415,3.96507143 L1.0664561,3.96507143 L2.41089146,0.692642857 L3.52670122,0.692642857 L4.80350122,3.79078571 L4.80350122,0.692642857 L6.02879268,0.692642857 L7.01141707,2.91257143 L7.91396341,0.692642857 L9.16455732,0.692642857 L9.16455732,3.96507143 L9.16455732,3.96507143 L9.16455732,3.96507143 Z M12.2324085,3.96507143 L9.72406098,3.96507143 L9.72406098,0.692642857 L12.232478,0.692642857 L12.232478,1.37442857 L10.4752793,1.37442857 L10.4752793,1.96428571 L12.1903537,1.96428571 L12.1903537,2.63514286 L10.4752793,2.63514286 L10.4752793,3.28778571 L12.232478,3.28778571 L12.2324085,3.96507143 L12.2324085,3.96507143 Z M15.7689805,1.57435714 C15.7689805,2.0955 15.4344878,2.36571429 15.2397146,2.44621429 C15.404111,2.51171429 15.5445256,2.62664286 15.6111183,2.72228571 C15.7172634,2.8845 15.7356841,3.03021429 15.7356841,3.322 L15.7356841,3.96507143 L14.9782793,3.96507143 L14.9754293,3.55242857 C14.9754293,3.35542857 14.9933634,3.07185714 14.8568415,2.91471429 C14.7470817,2.79978571 14.5801134,2.77464286 14.309572,2.77464286 L13.5033,2.77464286 L13.5033,3.96507143 L12.7524293,3.96507143 L12.7524293,0.692642857 L14.4797378,0.692642857 C14.8636537,0.692642857 15.1463598,0.703071429 15.3887488,0.849285714 C15.6264805,0.996 15.7689805,1.209 15.7689805,1.57435714 L15.7689805,1.57435714 Z M16.9706378,3.96507143 L16.2046134,3.96507143 L16.2046134,0.692928571 L16.9706378,0.692928571 L16.9706378,3.96507143 Z M25.8585366,3.96507143 L24.7941659,3.96507143 L23.3711817,1.50885714 L23.3711817,3.96507143 L21.8417744,3.96507143 L21.5499622,3.23514286 L19.990178,3.23514286 L19.7064293,3.96507143 L18.8277951,3.96507143 C18.4631341,3.96507143 18.0006695,3.88085714 17.7390256,3.60292857 C17.4750183,3.32521429 17.3379402,2.94892857 17.3379402,2.35371429 C17.3379402,1.86885714 17.4196171,1.42442857 17.7429183,1.07457143 C17.9855854,0.813214286 18.3658171,0.692642857 18.8831963,0.692642857 L19.6098768,0.692642857 L19.6098768,1.39371429 L18.8982805,1.39371429 C18.6244024,1.39371429 18.4698768,1.43621429 18.3206341,1.58778571 C18.1926622,1.72592857 18.1047293,1.98628571 18.1047293,2.32921429 C18.1047293,2.67957143 18.1718085,2.93242857 18.311528,3.09735714 C18.4267793,3.227 18.6369146,3.26628571 18.8346073,3.26628571 L19.171672,3.26628571 L20.2299951,0.693 L21.355189,0.693 L22.626289,3.78821429 L22.626289,0.693 L23.7696951,0.693 L25.0894537,2.97171429 L25.0894537,0.693 L25.8585366,0.693 L25.8585366,3.96507143 L25.8585366,3.96507143 Z M1.05783659,4.60785714 L2.34061463,4.60785714 L2.62985488,3.88085714 L3.27722195,3.88085714 L3.56569756,4.60785714 L6.08996341,4.60785714 L6.08996341,4.05221429 L6.31546098,4.61 L7.62555732,4.61 L7.85077683,4.04392857 L7.85077683,4.60785714 L14.1238354,4.60785714 L14.1207073,3.4145 L14.2421451,3.4145 C14.327228,3.41771429 14.3519049,3.426 14.3519049,3.57221429 L14.3519049,4.60785714 L17.5963866,4.60785714 L17.5963866,4.33014286 C17.8583085,4.47635714 18.265372,4.60785714 18.801172,4.60785714 L20.1659049,4.60785714 L20.4579951,3.88085714 L21.1056402,3.88085714 L21.3911963,4.60785714 L24.0213293,4.60785714 L24.0213293,3.91721429 L24.4197732,4.60785714 L26.5275915,4.60785714 L26.5275915,0.044 L24.441322,0.044 L24.441322,0.583071429 L24.1495098,0.044 L22.0088817,0.044 L22.0088817,0.583071429 L21.7409817,0.044 L18.849622,0.044 C18.3660951,0.044 17.940611,0.114571429 17.5967341,0.3105 L17.5967341,0.044 L15.6015256,0.044 L15.6015256,0.3105 C15.3830488,0.108428571 15.0852585,0.044 14.7536159,0.044 L7.46435854,0.044 L6.97534024,1.22264286 L6.47311463,0.044 L4.17691829,0.044 L4.17691829,0.583071429 L3.92458902,0.044 L1.96691707,0.044 L1.05735,2.21392857 L0.014597561,4.60785714 L1.05783659,4.60785714 Z"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     fill: "#FFFFFF",
     d: "M3.46580854,2.82035714 L2.95162683,1.51578571 L2.44050366,2.82035714 L3.46580854,2.82035714 Z M14.7871207,2.30078571 C14.6838951,2.36628571 14.5619012,2.36842857 14.4157171,2.36842857 L13.5033,2.36842857 L13.5033,1.64171429 L14.4279512,1.64171429 C14.5587732,1.64171429 14.6953646,1.64735714 14.7839927,1.70021429 C14.8812402,1.74835714 14.9413693,1.84985714 14.9413693,1.98992857 C14.9416463,2.13271429 14.8841598,2.24792857 14.7871207,2.30078571 L14.7871207,2.30078571 Z M21.2940183,2.82035714 L20.7746232,1.51578571 L20.258078,2.82035714 L21.2940183,2.82035714 L21.2940183,2.82035714 Z M9.16455732,4.23235714 L8.39464024,4.23235714 L8.39179024,1.66928571 L7.30302073,4.23235714 L6.64369756,4.23235714 L5.5523561,1.66714286 L5.5523561,4.23235714 L4.02503415,4.23235714 L3.73655854,3.50242857 L2.1734378,3.50242857 L1.88183415,4.23235714 L1.0664561,4.23235714 L2.41089146,0.959928571 L3.52670122,0.959928571 L4.80350122,4.05807143 L4.80350122,0.959928571 L6.02879268,0.959928571 L7.01141707,3.17985714 L7.91396341,0.959928571 L9.16455732,0.959928571 L9.16455732,4.23235714 L9.16455732,4.23235714 L9.16455732,4.23235714 Z M12.2324085,4.23235714 L9.72406098,4.23235714 L9.72406098,0.959928571 L12.232478,0.959928571 L12.232478,1.64171429 L10.4752793,1.64171429 L10.4752793,2.23157143 L12.1903537,2.23157143 L12.1903537,2.90242857 L10.4752793,2.90242857 L10.4752793,3.55507143 L12.232478,3.55507143 L12.2324085,4.23235714 L12.2324085,4.23235714 Z M15.7689805,1.84164286 C15.7689805,2.36278571 15.4344878,2.633 15.2397146,2.7135 C15.404111,2.779 15.5445256,2.89392857 15.6111183,2.98957143 C15.7172634,3.15178571 15.7356841,3.2975 15.7356841,3.58928571 L15.7356841,4.23235714 L14.9782793,4.23235714 L14.9754293,3.81971429 C14.9754293,3.62271429 14.9933634,3.33914286 14.8568415,3.182 C14.7470817,3.06707143 14.5801134,3.04192857 14.309572,3.04192857 L13.5033,3.04192857 L13.5033,4.23235714 L12.7524293,4.23235714 L12.7524293,0.959928571 L14.4797378,0.959928571 C14.8636537,0.959928571 15.1463598,0.970357143 15.3887488,1.11657143 C15.6264805,1.26328571 15.7689805,1.47628571 15.7689805,1.84164286 L15.7689805,1.84164286 Z M16.9706378,4.23235714 L16.2046134,4.23235714 L16.2046134,0.960214286 L16.9706378,0.960214286 L16.9706378,4.23235714 Z M25.8585366,4.23235714 L24.7941659,4.23235714 L23.3711817,1.77614286 L23.3711817,4.23235714 L21.8417744,4.23235714 L21.5499622,3.50242857 L19.990178,3.50242857 L19.7064293,4.23235714 L18.8277951,4.23235714 C18.4631341,4.23235714 18.0006695,4.14814286 17.7390256,3.87021429 C17.4750183,3.5925 17.3379402,3.21621429 17.3379402,2.621 C17.3379402,2.13614286 17.4196171,1.69171429 17.7429183,1.34185714 C17.9855854,1.0805 18.3658171,0.959928571 18.8831963,0.959928571 L19.6098768,0.959928571 L19.6098768,1.661 L18.8982805,1.661 C18.6244024,1.661 18.4698768,1.7035 18.3206341,1.85507143 C18.1926622,1.99321429 18.1047293,2.25357143 18.1047293,2.5965 C18.1047293,2.94685714 18.1718085,3.19971429 18.311528,3.36464286 C18.4267793,3.49428571 18.6369146,3.53357143 18.8346073,3.53357143 L19.171672,3.53357143 L20.2299951,0.960285714 L21.355189,0.960285714 L22.626289,4.0555 L22.626289,0.960285714 L23.7696951,0.960285714 L25.0894537,3.239 L25.0894537,0.960285714 L25.8585366,0.960285714 L25.8585366,4.23235714 L25.8585366,4.23235714 Z M1.05783659,4.87514286 L2.34061463,4.87514286 L2.62985488,4.14814286 L3.27722195,4.14814286 L3.56569756,4.87514286 L6.08996341,4.87514286 L6.08996341,4.3195 L6.31546098,4.87728571 L7.62555732,4.87728571 L7.85077683,4.31121429 L7.85077683,4.87514286 L14.1238354,4.87514286 L14.1207073,3.68178571 L14.2421451,3.68178571 C14.327228,3.685 14.3519049,3.69328571 14.3519049,3.8395 L14.3519049,4.87514286 L17.5963866,4.87514286 L17.5963866,4.59742857 C17.8583085,4.74364286 18.265372,4.87514286 18.801172,4.87514286 L20.1659049,4.87514286 L20.4579951,4.14814286 L21.1056402,4.14814286 L21.3911963,4.87514286 L24.0213293,4.87514286 L24.0213293,4.1845 L24.4197732,4.87514286 L26.5275915,4.87514286 L26.5275915,0.311285714 L24.441322,0.311285714 L24.441322,0.850357143 L24.1495098,0.311285714 L22.0088817,0.311285714 L22.0088817,0.850357143 L21.7409817,0.311285714 L18.849622,0.311285714 C18.3660951,0.311285714 17.940611,0.381857143 17.5967341,0.577785714 L17.5967341,0.311285714 L15.6015256,0.311285714 L15.6015256,0.577785714 C15.3830488,0.375714286 15.0852585,0.311285714 14.7536159,0.311285714 L7.46435854,0.311285714 L6.97534024,1.48992857 L6.47311463,0.311285714 L4.17691829,0.311285714 L4.17691829,0.850357143 L3.92458902,0.311285714 L1.96691707,0.311285714 L1.05735,2.48121429 L0.014597561,4.87514286 L1.05783659,4.87514286 Z"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     fill: "#2D78BC",
     d: "M28.2120805,7.6935 L28.2120805,5.59971429 L27.6924073,5.59971429 L27.6924073,5.59971429 L26.3310805,5.59971429 C25.9115744,5.59971429 25.6064159,5.70421429 25.3908585,5.86642857 L25.3908585,5.59971429 L23.3345488,5.59971429 C23.0057561,5.59971429 22.6195463,5.68414286 22.4374939,5.86642857 L22.4374939,5.59971429 L18.7648171,5.59971429 L18.7648171,5.86642857 C18.4727268,5.64728571 17.9793293,5.59971429 17.7520244,5.59971429 L15.3297329,5.59971429 L15.3297329,5.86642857 C15.0985354,5.63364286 14.5845622,5.59971429 14.2711317,5.59971429 L11.5603646,5.59971429 L10.9400378,6.29807143 L10.3589854,5.59971429 L6.30955244,5.59971429 L6.30955244,10.1630714 L10.282522,10.1630714 L10.9218256,9.45371429 L11.5236622,10.1630714 L13.9729939,10.1657143 L13.9729939,9.09185714 L14.2135756,9.09185714 C14.5384061,9.09721429 14.9215573,9.08357143 15.2596646,8.9315 L15.2596646,10.1627857 L17.279828,10.1627857 L17.279828,8.97314286 L17.3776317,8.97314286 C17.501989,8.97314286 17.5139451,8.97878571 17.5139451,9.10785714 L17.5139451,10.1627857 L23.6502037,10.1627857 C24.0400976,10.1627857 24.447439,10.0587857 24.6731451,9.87092857 L24.6731451,10.1627857 L26.6192085,10.1627857 C27.0244646,10.1627857 27.4200585,10.1037143 27.7209768,9.95242857 L27.7209768,9.94764286 C28.160572,9.65628571 28.4528733,9.14585714 28.4528733,8.56321429 C28.4534268,8.2435 28.3645207,7.9455 28.2120805,7.6935 Z M14.24715,8.42364286 L13.309778,8.42364286 L13.309778,9.52078571 L11.8498134,9.52078571 L10.9246756,8.43778571 L9.9636,9.52078571 L6.98785244,9.52078571 L6.98785244,6.25 L10.0094085,6.25 L10.9335037,7.322 L11.8890878,6.25 L14.2895524,6.25 C14.885411,6.25 15.555161,6.42185714 15.555161,7.32735714 C15.555161,8.23628571 14.9036232,8.42364286 14.24715,8.42364286 Z M18.7679451,8.27535714 C18.8740902,8.43492857 18.8893829,8.58378571 18.892511,8.87242857 L18.892511,9.52085714 L18.1387207,9.52085714 L18.1387207,9.11164286 C18.1387207,8.91492857 18.1566549,8.62364286 18.0170049,8.47128571 C17.9069671,8.35421429 17.7402768,8.32585714 17.4658427,8.32585714 L16.6629073,8.32585714 L16.6629073,9.52078571 L15.9083524,9.52078571 L15.9083524,6.25 L17.6426817,6.25 C18.0229134,6.25 18.299711,6.26735714 18.5465488,6.4045 C18.7837939,6.55335714 18.932828,6.75728571 18.932828,7.13064286 C18.932828,7.65264286 18.5980573,7.91935714 18.4004341,8.00085714 C18.5668463,8.065 18.7039244,8.17992857 18.7679451,8.27535714 Z M21.8560939,6.92671429 L20.0968098,6.92671429 L20.0968098,7.52135714 L21.8132049,7.52135714 L21.8132049,8.18871429 L20.0968098,8.18871429 L20.0968098,8.8395 L21.8560939,8.84271429 L21.8560939,9.52128571 L19.3489976,9.52128571 L19.3489976,6.25 L21.8560939,6.25 L21.8560939,6.92671429 L21.8560939,6.92671429 Z M23.7690695,9.52107143 L22.3060463,9.52107143 L22.3060463,8.8195 L23.7636476,8.8195 C23.9061476,8.8195 24.0070793,8.80028571 24.0705439,8.73828571 C24.1217744,8.68807143 24.1592415,8.61428571 24.1592415,8.52557143 C24.1592415,8.43014286 24.1192024,8.35428571 24.0674159,8.30878571 C24.0096512,8.25857143 23.9308939,8.23635714 23.8000024,8.23635714 C23.0974427,8.21178571 22.2175573,8.25878571 22.2175573,7.22364286 C22.2175573,6.74921429 22.5041561,6.25 23.2915207,6.25 L24.7977805,6.25 L24.7977805,6.94621429 L23.4197707,6.94621429 C23.2832488,6.94621429 23.1942732,6.95157143 23.1185744,7.005 C23.0366195,7.05821429 23.0056866,7.1365 23.0056866,7.24071429 C23.0056866,7.36392857 23.0758939,7.44785714 23.1700829,7.4845 C23.2496744,7.51285714 23.3344793,7.52114286 23.4624512,7.52114286 L23.8671512,7.53314286 C24.2747012,7.543 24.5548354,7.61678571 24.7249317,7.79585714 C24.8713939,7.953 24.9493866,8.15185714 24.9493866,8.48835714 C24.949178,9.19235714 24.5270305,9.52107143 23.7690695,9.52107143 Z M27.6354768,9.20514286 C27.4375756,9.41335714 27.1183756,9.52107143 26.7019976,9.52107143 L25.251139,9.52107143 L25.251139,8.8195 L26.69595,8.8195 C26.8394927,8.8195 26.9399378,8.80028571 27.0002744,8.73828571 C27.0525476,8.68807143 27.088972,8.61428571 27.088972,8.52557143 C27.088972,8.43014286 27.0525476,8.35428571 26.9971463,8.30878571 C26.9427878,8.25857143 26.8634744,8.23635714 26.7323744,8.23635714 C26.0269646,8.21178571 25.1470793,8.25878571 25.1470793,7.22364286 C25.1470793,6.74921429 25.4363195,6.25 26.2249354,6.25 L27.6926854,6.25 L27.6926854,6.946 L26.3524207,6.946 C26.2161073,6.946 26.1251159,6.95164286 26.0483744,7.00507143 C25.969061,7.058 25.9386146,7.13657143 25.9386146,7.24028571 C25.9386146,7.364 26.0054854,7.44742857 26.103011,7.48407143 C26.1826024,7.51292857 26.2674073,7.52121429 26.3922512,7.52121429 L26.7993146,7.53271429 C27.2102707,7.54314286 27.4847049,7.61664286 27.6513951,7.796 C27.6818415,7.82085714 27.7002622,7.84892857 27.7216024,7.87671429 C27.7130524,7.86521429 27.704711,7.85428571 27.6958829,7.84278571 C27.8259402,8.02185714 27.904211,8.2445 27.904211,8.48635714 C27.9041415,8.76364286 27.8014024,9.01514286 27.6354768,9.20514286 Z M9.61951463,6.92671429 L10.4414268,7.87978571 L9.58309024,8.83928571 L7.73587317,8.83928571 L7.73587317,8.1885 L9.38518902,8.1885 L9.38518902,7.52114286 L7.73587317,7.52114286 L7.73587317,6.92671429 L9.61951463,6.92671429 L9.61951463,6.92671429 Z M11.4084805,7.891 L12.5620354,6.60142857 L12.5620354,9.22357143 L11.4084805,7.891 Z M14.7491671,7.32757143 C14.7491671,7.61114286 14.5694085,7.7595 14.2807244,7.7595 L13.3100561,7.7595 L13.3100561,6.92671429 L14.2898305,6.92671429 C14.5605805,6.92671429 14.7491671,7.04135714 14.7491671,7.32757143 Z M18.1018098,7.28 C18.1018098,7.41978571 18.0435585,7.53257143 17.9460329,7.59378571 C17.8456573,7.65578571 17.7213,7.66114286 17.5753939,7.66114286 L16.6624207,7.66114286 L16.6624207,6.92671429 L17.58735,6.92671429 C17.7213,6.92671429 17.85525,6.92964286 17.9460329,6.98578571 C18.0438366,7.03842857 18.1018098,7.13971429 18.1018098,7.28 Z"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     fill: "#FFFFFF",
     d: "M28.2120805,7.96078571 L28.2120805,5.867 L27.6924073,5.867 L27.6924073,5.867 L26.3310805,5.867 C25.9115744,5.867 25.6064159,5.9715 25.3908585,6.13371429 L25.3908585,5.867 L23.3345488,5.867 C23.0057561,5.867 22.6195463,5.95142857 22.4374939,6.13371429 L22.4374939,5.867 L18.7648171,5.867 L18.7648171,6.13371429 C18.4727268,5.91457143 17.9793293,5.867 17.7520244,5.867 L15.3297329,5.867 L15.3297329,6.13371429 C15.0985354,5.90092857 14.5845622,5.867 14.2711317,5.867 L11.5603646,5.867 L10.9400378,6.56535714 L10.3589854,5.867 L6.30955244,5.867 L6.30955244,10.4303571 L10.282522,10.4303571 L10.9218256,9.721 L11.5236622,10.4303571 L13.9729939,10.433 L13.9729939,9.35914286 L14.2135756,9.35914286 C14.5384061,9.3645 14.9215573,9.35085714 15.2596646,9.19878571 L15.2596646,10.4300714 L17.279828,10.4300714 L17.279828,9.24042857 L17.3776317,9.24042857 C17.501989,9.24042857 17.5139451,9.24607143 17.5139451,9.37514286 L17.5139451,10.4300714 L23.6502037,10.4300714 C24.0400976,10.4300714 24.447439,10.3260714 24.6731451,10.1382143 L24.6731451,10.4300714 L26.6192085,10.4300714 C27.0244646,10.4300714 27.4200585,10.371 27.7209768,10.2197143 L27.7209768,10.2149286 C28.160572,9.92357143 28.4528733,9.41314286 28.4528733,8.8305 C28.4534268,8.51078571 28.3645207,8.21278571 28.2120805,7.96078571 Z M14.24715,8.69092857 L13.309778,8.69092857 L13.309778,9.78807143 L11.8498134,9.78807143 L10.9246756,8.70507143 L9.9636,9.78807143 L6.98785244,9.78807143 L6.98785244,6.51721429 L10.0094085,6.51721429 L10.9335037,7.58921429 L11.8890878,6.51721429 L14.2895524,6.51721429 C14.885411,6.51721429 15.555161,6.68907143 15.555161,7.59457143 C15.555161,8.50357143 14.9036232,8.69092857 14.24715,8.69092857 Z M18.7679451,8.54257143 C18.8740902,8.70214286 18.8893829,8.851 18.892511,9.13964286 L18.892511,9.78807143 L18.1387207,9.78807143 L18.1387207,9.37885714 C18.1387207,9.18214286 18.1566549,8.89085714 18.0170049,8.7385 C17.9069671,8.62142857 17.7402768,8.59307143 17.4658427,8.59307143 L16.6629073,8.59307143 L16.6629073,9.788 L15.9083524,9.788 L15.9083524,6.51714286 L17.6426817,6.51714286 C18.0229134,6.51714286 18.299711,6.5345 18.5465488,6.67164286 C18.7837939,6.8205 18.932828,7.02442857 18.932828,7.39778571 C18.932828,7.91978571 18.5980573,8.1865 18.4004341,8.268 C18.5668463,8.33228571 18.7039244,8.44721429 18.7679451,8.54257143 Z M21.8560939,7.194 L20.0968098,7.194 L20.0968098,7.78864286 L21.8132049,7.78864286 L21.8132049,8.456 L20.0968098,8.456 L20.0968098,9.10678571 L21.8560939,9.11 L21.8560939,9.78857143 L19.3489976,9.78857143 L19.3489976,6.51721429 L21.8560939,6.51721429 L21.8560939,7.194 L21.8560939,7.194 Z M23.7690695,9.78835714 L22.3060463,9.78835714 L22.3060463,9.08678571 L23.7636476,9.08678571 C23.9061476,9.08678571 24.0070793,9.06757143 24.0705439,9.00557143 C24.1217744,8.95535714 24.1592415,8.88157143 24.1592415,8.79285714 C24.1592415,8.69742857 24.1192024,8.62157143 24.0674159,8.57607143 C24.0096512,8.52585714 23.9308939,8.50364286 23.8000024,8.50364286 C23.0974427,8.47907143 22.2175573,8.52607143 22.2175573,7.49092857 C22.2175573,7.0165 22.5041561,6.51728571 23.2915207,6.51728571 L24.7977805,6.51728571 L24.7977805,7.2135 L23.4197707,7.2135 C23.2832488,7.2135 23.1942732,7.21885714 23.1185744,7.27228571 C23.0366195,7.3255 23.0056866,7.40378571 23.0056866,7.508 C23.0056866,7.63121429 23.0758939,7.71514286 23.1700829,7.75178571 C23.2496744,7.78014286 23.3344793,7.78842857 23.4624512,7.78842857 L23.8671512,7.80042857 C24.2747012,7.81028571 24.5548354,7.88407143 24.7249317,8.06314286 C24.8713939,8.22028571 24.9493866,8.41914286 24.9493866,8.75564286 C24.949178,9.45957143 24.5270305,9.78835714 23.7690695,9.78835714 Z M27.6354768,9.47242857 C27.4375756,9.68064286 27.1183756,9.78835714 26.7019976,9.78835714 L25.251139,9.78835714 L25.251139,9.08678571 L26.69595,9.08678571 C26.8394927,9.08678571 26.9399378,9.06757143 27.0002744,9.00557143 C27.0525476,8.95535714 27.088972,8.88157143 27.088972,8.79285714 C27.088972,8.69742857 27.0525476,8.62157143 26.9971463,8.57607143 C26.9427878,8.52585714 26.8634744,8.50364286 26.7323744,8.50364286 C26.0269646,8.47907143 25.1470793,8.52607143 25.1470793,7.49092857 C25.1470793,7.0165 25.4363195,6.51728571 26.2249354,6.51728571 L27.6926854,6.51728571 L27.6926854,7.21328571 L26.3524207,7.21328571 C26.2161073,7.21328571 26.1251159,7.21892857 26.0483744,7.27235714 C25.969061,7.32528571 25.9386146,7.40385714 25.9386146,7.50757143 C25.9386146,7.63128571 26.0054854,7.71471429 26.103011,7.75135714 C26.1826024,7.78021429 26.2674073,7.7885 26.3922512,7.7885 L26.7993146,7.8 C27.2102707,7.81042857 27.4847049,7.88392857 27.6513951,8.06328571 C27.6818415,8.08814286 27.7002622,8.11621429 27.7216024,8.144 C27.7130524,8.1325 27.704711,8.12157143 27.6958829,8.11007143 C27.8259402,8.28914286 27.904211,8.51178571 27.904211,8.75364286 C27.9041415,9.03092857 27.8014024,9.28242857 27.6354768,9.47242857 Z M9.61951463,7.194 L10.4414268,8.14707143 L9.58309024,9.10657143 L7.73587317,9.10657143 L7.73587317,8.45578571 L9.38518902,8.45578571 L9.38518902,7.78842857 L7.73587317,7.78842857 L7.73587317,7.194 L9.61951463,7.194 L9.61951463,7.194 Z M11.4084805,8.15828571 L12.5620354,6.86871429 L12.5620354,9.49085714 L11.4084805,8.15828571 Z M14.7491671,7.59485714 C14.7491671,7.87842857 14.5694085,8.02678571 14.2807244,8.02678571 L13.3100561,8.02678571 L13.3100561,7.194 L14.2898305,7.194 C14.5605805,7.194 14.7491671,7.30864286 14.7491671,7.59485714 Z M18.1018098,7.54728571 C18.1018098,7.68707143 18.0435585,7.79985714 17.9460329,7.86107143 C17.8456573,7.92307143 17.7213,7.92842857 17.5753939,7.92842857 L16.6624207,7.92842857 L16.6624207,7.194 L17.58735,7.194 C17.7213,7.194 17.85525,7.19692857 17.9460329,7.25307143 C18.0438366,7.30571429 18.1018098,7.407 18.1018098,7.54728571 Z"
   })))));
@@ -3559,36 +3566,36 @@ var IconPaymentBankBillet = function IconPaymentBankBillet(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "aph-icon-defs-rect-payment-bank-billet",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "aph-icon-group-payment-bank-billet",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "#FFFFFF"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#aph-icon-defs-rect-payment-bank-billet"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#F8F8F8",
     xlinkHref: "#aph-icon-defs-rect-payment-bank-billet"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     fill: "#000000",
     mask: "url(#mask-2)",
     d: "M12.7692308,4 L14.3076923,4 L14.3076923,26.5 L12.7692308,26.5 L12.7692308,4 Z M17.2307692,4 L18.7692308,4 L18.7692308,26.5 L17.2307692,26.5 L17.2307692,4 Z M21.6923077,4 L25.5384615,4 L25.5384615,26.5 L21.6923077,26.5 L21.6923077,4 Z M4.46153846,4 L9.84615385,4 L9.84615385,26.5 L4.46153846,26.5 L4.46153846,4 Z M0,4 L1.53846154,4 L1.53846154,26.5 L0,26.5 L0,4 Z M28.4615385,4 L30,4 L30,26.5 L28.4615385,26.5 L28.4615385,4 Z"
@@ -3610,46 +3617,46 @@ var IconPaymentDiners = function IconPaymentDiners(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Diners",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#00529E",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Diners",
     mask: "url(#mask-2)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(5.250000, 7.500000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     id: "Path",
     fill: "#FFFFFF",
     fillRule: "evenodd",
     d: "M11.4131034,14.9672626 C15.6312672,14.9870659 19.4819569,11.631305 19.4819569,7.54826152 C19.4819569,3.08456586 15.6307069,-0.00162978907 11.4131034,5.68434189e-14 L7.78251724,5.68434189e-14 C3.51448276,-0.00162978907 -2.84217094e-14,3.08532673 -2.84217094e-14,7.54826152 C-2.84217094e-14,11.6320659 3.51448276,14.9870659 7.78251724,14.9672626 L11.4131034,14.9672626 L11.4131034,14.9672626 Z"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     id: "Shape",
     fill: "#00529E",
     fillRule: "nonzero",
@@ -3672,41 +3679,41 @@ var IconPaymentDiscover = function IconPaymentDiscover(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Discover",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#F3F2F2",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Discover",
     mask: "url(#mask-2)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(2.500000, 11.000000)"
-  }, React.createElement("ellipse", {
+  }, React__default.createElement("ellipse", {
     id: "Oval",
     fill: "#F26E21",
     fillRule: "evenodd",
@@ -3714,72 +3721,72 @@ var IconPaymentDiscover = function IconPaymentDiscover(props) {
     cy: "2.11932203",
     rx: "2.07866667",
     ry: "2.11389831"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "Path",
     fill: "#000000",
     fillRule: "evenodd",
     points: "5.70733333 7.85986441 5.70733333 5.60237288 7.223 7.21498305 7.223 5.74589831 7.5368 5.74589831 7.5368 7.98840678 6.02113333 6.37959322 6.02113333 7.85952542 5.70733333 7.85952542"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "Path",
     fill: "#000000",
     fillRule: "evenodd",
     points: "9.18193333 6.04583051 8.34853333 6.04583051 8.34853333 6.55369492 9.15773333 6.55369492 9.15773333 6.85376271 8.34853333 6.85376271 8.34853333 7.56 9.18193333 7.56 9.18193333 7.85986441 8.03493333 7.85986441 8.03493333 5.74623729 9.18193333 5.74623729 9.18193333 6.04583051"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "Path",
     fill: "#000000",
     fillRule: "evenodd",
     points: "10.1672667 6.04583051 10.1672667 7.85966102 9.85346667 7.85966102 9.85346667 6.04583051 9.3758 6.04583051 9.3758 5.7459661 10.644 5.7459661 10.644 6.04583051"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "Path",
     fill: "#000000",
     fillRule: "evenodd",
     points: "11.1500667 5.74623729 11.6914 7.15898305 12.2571333 5.64352542 12.7982 7.15898305 13.3729333 5.74623729 13.7136667 5.74623729 12.7847333 7.99410169 12.2501333 6.49640678 11.6928667 7.99566102 10.8095333 5.74630508"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M13.7738,6.79362712 C13.7738,6.49579661 13.8813333,6.24033898 14.0956,6.02698305 C14.3091333,5.81335593 14.5660667,5.70657627 14.8659333,5.70657627 C15.162,5.70657627 15.416,5.81416949 15.6277333,6.02949153 C15.8405333,6.24515254 15.9465333,6.50359322 15.9465333,6.8060339 C15.9465333,7.10969492 15.8398,7.36766102 15.6264667,7.57952542 C15.4119333,7.79213559 15.153,7.89864407 14.8496667,7.89864407 C14.5815333,7.89864407 14.3402667,7.804 14.1267333,7.61525424 C13.8915333,7.4060339 13.7738,7.1320678 13.7738,6.79362712 Z M14.0903333,6.79694915 C14.0903333,7.03030508 14.1676667,7.22210169 14.3218,7.37281356 C14.4752,7.52352542 14.6526,7.59857627 14.8538667,7.59857627 C15.0716667,7.59857627 15.2557333,7.5219661 15.4056667,7.36901695 C15.5556,7.2140339 15.6304,7.02528814 15.6304,6.80277966 C15.6304,6.57728814 15.5563333,6.38854237 15.4081333,6.23654237 C15.2609333,6.08332203 15.0788667,6.00671186 14.8616,6.00671186 C14.6453333,6.00671186 14.4627333,6.08332203 14.3140667,6.23654237 C14.1649333,6.38725424 14.0903333,6.57444068 14.0903333,6.79694915 Z",
     id: "Shape",
     fill: "#000000",
     fillRule: "nonzero"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M17.0451333,6.95905085 L17.6887333,7.85986441 L17.3050667,7.85986441 L16.7114,6.99484746 L16.6548,6.99484746 L16.6548,7.85986441 L16.341,7.85986441 L16.341,5.74623729 L16.7084667,5.74623729 C16.9833333,5.74623729 17.1814,5.79877966 17.3036667,5.90379661 C17.4384,6.02047458 17.5057333,6.17471186 17.5057333,6.36650847 C17.5057333,6.51620339 17.4636,6.64481356 17.379,6.75233898 C17.2945333,6.85986441 17.1835333,6.92908475 17.0451333,6.95905085 Z M16.6549333,6.71674576 L16.7542,6.71674576 C17.0512667,6.71674576 17.2,6.60128814 17.2,6.37044068 C17.2,6.1540339 17.0555333,6.0459661 16.7664667,6.0459661 L16.6549333,6.0459661 L16.6549333,6.71674576 L16.6549333,6.71674576 Z",
     id: "Shape",
     fill: "#000000",
     fillRule: "nonzero"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "Path",
     fill: "#000000",
     fillRule: "evenodd",
     points: "18.3148 6.58942373 19.1238 5.74616949 19.5426 5.74616949 18.6029333 6.70332203 19.5481333 7.85986441 19.1280667 7.85986441 18.3794667 6.91945763 18.3148667 6.98542373 18.3148667 7.85986441 18.0010667 7.85986441 18.0010667 5.74623729 18.3148667 5.74623729 18.3148667 6.58942373"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Group",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M2.0938,3.13152542 C1.84886667,3.35450847 1.5328,3.45118644 1.03086667,3.45118644 L0.8226,3.45118644 L0.8226,0.797220339 L1.03086667,0.797220339 C1.53273333,0.797220339 1.83633333,0.887525424 2.0938,1.12189831 C2.3622,1.36264407 2.52233333,1.73532203 2.52233333,2.12040678 C2.52233333,2.50569492 2.3622,2.89152542 2.0938,3.13152542 L2.0938,3.13152542 Z M1.18653333,0.117559322 L0.0460666667,0.117559322 L0.0460666667,4.13023729 L1.1808,4.13023729 C1.783,4.13023729 2.21826667,3.98664407 2.6002,3.66705085 C3.0532,3.2880678 3.32213333,2.71654237 3.32213333,2.12569492 C3.32206667,0.941016949 2.44453333,0.117559322 1.18653333,0.117559322 L1.18653333,0.117559322 Z",
     id: "Shape",
     fill: "#0B161F",
     fillRule: "nonzero"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "Path",
     fill: "#0B161F",
     points: "3.68 4.13023729 4.45533333 4.13023729 4.45533333 0.117559322 3.68 0.117559322 3.68 4.13023729"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M6.3534,1.65688136 C5.8874,1.48257627 5.7502,1.3679322 5.7502,1.15233898 C5.7502,0.899389831 5.9944,0.706847458 6.32893333,0.706847458 C6.56166667,0.706847458 6.75226667,0.802983051 6.95606667,1.03105085 L7.36093333,0.496271186 C7.0272,0.201016949 6.62753333,0.050779661 6.19153333,0.050779661 C5.48806667,0.050779661 4.95073333,0.54420339 4.95073333,1.19918644 C4.95073333,1.75349153 5.20093333,2.0360678 5.92933333,2.30142373 C6.23366667,2.40922034 6.38833333,2.48101695 6.46613333,2.5299661 C6.62106667,2.63247458 6.69913333,2.77627119 6.69913333,2.94474576 C6.69913333,3.27023729 6.44246667,3.51044068 6.09593333,3.51044068 C5.726,3.51044068 5.42793333,3.32427119 5.2488,2.97518644 L4.7484,3.46298305 C5.1056,3.99166102 5.5352,4.22732203 6.12633333,4.22732203 C6.93153333,4.22732203 7.49806698,3.68494915 7.49806698,2.90922034 C7.4984,2.27105085 7.23646667,1.98210169 6.3534,1.65688136",
     id: "Path",
     fill: "#0B161F"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M7.74286667,2.12569492 C7.74286667,3.30630508 8.66186667,4.22081356 9.84326667,4.22081356 C10.1775333,4.22081356 10.4634,4.15410169 10.8158667,3.98664407 L10.8158667,3.06508475 C10.5053333,3.37837288 10.2306667,3.50447458 9.87866667,3.50447458 C9.09713333,3.50447458 8.54213333,2.93267797 8.54213333,2.12013559 C8.54213333,1.35023729 9.11486667,0.742169492 9.84326667,0.742169492 C10.2124667,0.742169492 10.4933333,0.874305085 10.8158667,1.19349153 L10.8158667,0.272610169 C10.4761333,0.0985762712 10.195,0.026779661 9.86073333,0.026779661 C8.68573333,0.0270508475 7.74286667,0.95979661 7.74286667,2.12569492",
     id: "Path",
     fill: "#0B161F"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "Path",
     fill: "#0B161F",
     points: "17.1037333 2.81294915 16.0415333 0.117559322 15.1944 0.117559322 16.8834667 4.23301695 17.3005333 4.23301695 19.0192667 0.117559322 18.1778667 0.117559322 17.1037333 2.81294915"
-  }), React.createElement("polyline", {
+  }), React__default.createElement("polyline", {
     id: "Path",
     fill: "#0B161F",
     points: "19.3717333 4.13023729 21.5728667 4.13023729 21.5728667 3.45118644 20.1472667 3.45118644 20.1472667 2.36698305 21.5182667 2.36698305 21.5182667 1.68786441 20.1472667 1.68786441 20.1472667 0.797152542 21.5728667 0.797152542 21.5728667 0.117559322 19.3717333 0.117559322 19.3717333 4.13023729"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M23.0875333,1.96461017 L22.8615333,1.96461017 L22.8615333,0.748474576 L23.0997333,0.748474576 C23.5839333,0.748474576 23.8466,0.953966102 23.8466,1.34433898 C23.8466,1.74718644 23.5839333,1.96461017 23.0875333,1.96461017 L23.0875333,1.96461017 Z M24.6446,1.30176271 C24.6446,0.550101695 24.132,0.117559322 23.2364667,0.117559322 L22.0852667,0.117559322 L22.0852667,4.13023729 L22.8613333,4.13023729 L22.8613333,2.51762712 L22.9631333,2.51762712 L24.0362667,4.13023729 L24.9909333,4.13023729 L23.7374667,2.43972881 C24.3230667,2.31952542 24.6446,1.9159322 24.6446,1.30176271 L24.6446,1.30176271 Z",
     id: "Shape",
     fill: "#0B161F",
@@ -3802,49 +3809,49 @@ var IconPaymentElo = function IconPaymentElo(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Elo",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#000000",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Elo",
     mask: "url(#mask-2)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(6.750000, 7.000000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M6.77271739,3.64757702 C7.26080435,3.48604504 7.78258696,3.39912924 8.32571739,3.39912924 C10.6947174,3.39912924 12.6724783,5.06631854 13.1255,7.28253133 L16.483587,6.60387728 C15.7129783,2.8377846 12.353913,0.00348955614 8.32571739,0.00348955614 C7.40271739,0.00348955614 6.51604348,0.152484987 5.68632609,0.427082898 L6.77271739,3.64757702",
     id: "Fill-1",
     fill: "#F9C623"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M2.80971739,14.4310809 L5.08056522,11.8870868 C4.06682609,10.9971854 3.42736957,9.69853198 3.42736957,8.25174478 C3.42736957,6.80601305 4.06606522,5.50800587 5.07917391,4.61911684 L2.80778261,2.07495039 C1.08636957,3.58616514 0,5.79365405 0,8.25174478 C0,10.7115157 1.08680435,12.9196723 2.80971739,14.4310809",
     id: "Fill-3",
     fill: "#009ACB"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M13.1245217,9.22563251 C12.6696739,11.4405529 10.6938696,13.1045757 8.32571739,13.1045757 C7.78215217,13.1045757 7.259,13.0178753 6.77121739,12.8552879 L5.68343478,16.0770313 C6.51315217,16.3514354 7.40163043,16.5 8.32571739,16.5 C12.3500652,16.5 15.7084783,13.6704008 16.4821957,9.90771149 L13.1245217,9.22563251",
     id: "Fill-4",
     fill: "#DC3E2A"
@@ -3866,44 +3873,44 @@ var IconPaymentFreepass = function IconPaymentFreepass(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Cortesia",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#F882B8",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "gift-box",
     mask: "url(#mask-2)",
     fill: "#FFFFFF",
     fillRule: "nonzero"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(8.000000, 8.000000)",
     id: "Shape"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M12.4166667,0.5 L9.70833333,0.5 C9.00228881,0.5 8.40177409,0.953063948 8.17815144,1.58333333 L5.82184856,1.58333333 C5.59822591,0.953063948 4.99771119,0.5 4.29166667,0.5 L1.58333333,0.5 L1.58333333,3.75 L0.5,3.75 L0.5,7.27083333 L1.58333333,7.27083333 L1.58333333,13.5 L12.4166667,13.5 L12.4166667,7.27083333 L13.5,7.27083333 L13.5,3.75 L12.4166667,3.75 L12.4166667,0.5 Z M4.83333333,12.4166667 L2.66666667,12.4166667 L2.66666667,7.27083333 L4.83333333,7.27083333 L4.83333333,12.4166667 Z M4.83333333,6.1875 L1.58333333,6.1875 L1.58333333,4.83333333 L4.83333333,4.83333333 L4.83333333,6.1875 Z M4.83333333,2.66666667 L4.83333333,3.75 L2.66666667,3.75 L2.66666667,1.58333333 L4.29166667,1.58333333 C4.59040325,1.58333333 4.83333333,1.82626342 4.83333333,2.125 L4.83333333,2.66666667 Z M8.08333333,7.27083333 L8.08333333,12.4166667 L5.91666667,12.4166667 L5.91666667,4.83333333 L8.08333333,4.83333333 L8.08333333,7.27083333 Z M8.08333333,3.75 L5.91666667,3.75 L5.91666667,2.66666667 L8.08333333,2.66666667 L8.08333333,3.75 Z M9.16666667,2.66666667 L9.16666667,2.125 C9.16666667,1.82626342 9.40959675,1.58333333 9.70833333,1.58333333 L11.3333333,1.58333333 L11.3333333,3.75 L9.16666667,3.75 L9.16666667,2.66666667 Z M11.3333333,12.4166667 L9.16666667,12.4166667 L9.16666667,7.27083333 L11.3333333,7.27083333 L11.3333333,12.4166667 Z M12.4166667,6.1875 L9.16666667,6.1875 L9.16666667,4.83333333 L12.4166667,4.83333333 L12.4166667,6.1875 Z"
   })))));
 };
@@ -3923,55 +3930,55 @@ var IconPaymentMastercard = function IconPaymentMastercard(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Master",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#2D2D2D",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Master",
     mask: "url(#mask-2)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(3.500000, 8.500000)"
-  }, React.createElement("ellipse", {
+  }, React__default.createElement("ellipse", {
     id: "Oval",
     fill: "#EE0005",
     cx: "6.93714953",
     cy: "6.74795455",
     rx: "6.93714953",
     ry: "6.74795455"
-  }), React.createElement("ellipse", {
+  }), React__default.createElement("ellipse", {
     id: "Oval",
     fill: "#F9A000",
     cx: "15.5560164",
     cy: "6.74795455",
     rx: "6.93714953",
     ry: "6.74795455"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M8.61897196,6.74785227 C8.61897196,8.89046591 9.64577103,10.799642 11.2466355,12.0357102 C12.8474474,10.7995909 13.8742991,8.89046591 13.8742991,6.74785227 C13.8742991,4.60523864 12.8475,2.6960625 11.2466355,1.45999432 C9.6458236,2.69616477 8.61897196,4.60528977 8.61897196,6.74785227 Z",
     id: "Path",
     fill: "#FF6300"
@@ -3993,46 +4000,46 @@ var IconPaymentMoney = function IconPaymentMoney(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Dinheiro",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#59B47D",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Dinheiro",
     mask: "url(#mask-2)",
     fill: "#FFFFFF"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(7.500000, 7.500000)"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M7.5,0 C3.36441039,0 0,3.36441039 0,7.5 C0,11.6352844 3.36441039,15 7.5,15 C11.6352844,15 15,11.6352844 15,7.5 C15,3.36441039 11.6352844,0 7.5,0 Z M7.5,13.75 C4.0538025,13.75 1.25,10.9461975 1.25,7.5 C1.25,4.0538025 4.0538025,1.25 7.5,1.25 C10.9461975,1.25 13.75,4.0538025 13.75,7.5 C13.75,10.9461975 10.9461975,13.75 7.5,13.75 Z",
     id: "Shape",
     fillRule: "nonzero"
-  }), React.createElement("polygon", {
+  }), React__default.createElement("polygon", {
     id: "Path",
     fillRule: "evenodd",
     points: "8.125 2.8125 6.875 2.8125 6.875 4.375 5 4.375 5 8.125 8.75 8.125 8.75 9.375 5 9.375 5 10.625 6.875 10.625 6.875 12.1875 8.125 12.1875 8.125 10.625 10 10.625 10 6.875 6.25 6.875 6.25 5.625 10 5.625 10 4.375 8.125 4.375"
@@ -4054,44 +4061,44 @@ var IconPaymentOthers = function IconPaymentOthers(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Outros",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#6798E5",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Outros",
     mask: "url(#mask-2)",
     fill: "#FFFFFF",
     fillRule: "nonzero"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(8.500000, 8.500000)",
     id: "Shape"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M7.0414022,0 L5.95806886,0 C2.62687174,0.277241768 0,3.08227604 0,6.49257507 C0,9.90287409 2.62687174,12.7077758 5.95806886,12.9850176 L7.0414022,12.9850176 C10.3728638,12.708041 13,9.90313929 13,6.49257507 C13,3.08201084 10.3728638,0.276976574 7.0414022,0 Z M7.0414022,3.27943458 C8.57647707,3.53877691 9.74973553,4.8807013 9.74973553,6.49257507 C9.74973553,8.10444883 8.57647707,9.44637322 7.0414022,9.70571555 L7.0414022,8.59316866 C7.9743754,8.35093016 8.6664022,7.50236619 8.6664022,6.49230991 C8.6664022,5.48212101 7.9743754,4.63355704 7.0414022,4.39131854 L7.0414022,3.27943458 Z M6.49973553,7.57873695 L5.95806886,7.57873695 L5.95806886,11.8959387 C3.22487384,11.6221443 1.08333333,9.30357579 1.08333333,6.49257507 C1.08333333,3.68157434 3.22487384,1.3628733 5.95806886,1.08921142 L5.95806886,5.40641319 L6.49973553,5.40641319 C7.09720866,5.40641319 7.58306886,5.89354192 7.58306886,6.49257507 C7.58306886,7.09160821 7.09720866,7.57873695 6.49973553,7.57873695 Z M7.0414022,11.8959387 L7.0414022,10.799435 C9.17553711,10.530944 10.8330689,8.70401233 10.8330689,6.49257507 C10.8330689,4.2811378 9.17553711,2.45420612 7.0414022,2.18558257 L7.0414022,1.08921142 C9.77486165,1.3626081 11.9166667,3.68130915 11.9166667,6.49257507 C11.9166667,9.30384098 9.77486165,11.6224094 7.0414022,11.8959387 Z"
   })))));
 };
@@ -4111,51 +4118,51 @@ var IconPaymentPaypal = function IconPaymentPaypal(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-PayPal",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#FFC61E",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Logo-PayPal",
     mask: "url(#mask-2)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(9.000000, 7.000000)",
     id: "Path"
-  }, React.createElement("path", {
+  }, React__default.createElement("path", {
     d: "M3.65643871,15.3022635 L3.91962581,13.5586222 L3.33336774,13.5444505 L0.533922581,13.5444505 L2.47939355,0.678141061 C2.49136448,0.596887959 2.55859173,0.537040578 2.63740645,0.53747169 L7.35766452,0.53747169 C8.92470968,0.53747169 10.0061419,0.877594314 10.5707613,1.54891197 C10.8354581,1.86383816 11.0040387,2.19293603 11.0855613,2.55510115 C11.1711097,2.93511208 11.1726194,3.38913067 11.0890839,3.94287589 L11.0830452,3.98329142 L11.0830452,4.33810826 L11.3477419,4.4945216 C11.5498158,4.6013026 11.7314519,4.74574783 11.8836774,4.92072171 C12.110129,5.1899836 12.2565677,5.53220339 12.3184645,5.9379333 C12.3823742,6.3552105 12.3612387,6.85174412 12.2565677,7.41388737 C12.1357935,8.06053581 11.9405419,8.62372881 11.6768516,9.0845708 C11.4441941,9.4974109 11.1313769,9.85497375 10.7584645,10.1343248 C10.4082194,10.393614 9.99205161,10.5904429 9.52153548,10.7164133 C9.0656129,10.8402843 8.54578065,10.9027447 7.97562581,10.9027447 L7.60827097,10.9027447 C7.3455871,10.9027447 7.09045161,11.0014215 6.89016774,11.1783051 C6.69016783,11.357076 6.55749247,11.6040835 6.51576774,11.8753417 L6.48809032,12.0322799 L6.02310968,15.1054347 L6.00197419,15.2182832 C5.99643871,15.2539748 5.98687742,15.2718207 5.9727871,15.2838928 C5.95913757,15.2955358 5.94210854,15.3020114 5.92447742,15.3022635 L3.65643871,15.3022635 Z",
     fill: "#253B80"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M11.5983484,4.02423182 C11.5842581,4.1181848 11.5681548,4.21423729 11.5500387,4.31291416 C10.9275484,7.64640787 8.79789677,8.79798797 6.07796129,8.79798797 L4.69308387,8.79798797 C4.36045161,8.79798797 4.08015484,9.04992892 4.02832258,9.39214872 L3.31927742,14.0824494 L3.11849032,15.4119628 C3.10230332,15.5186896 3.13171569,15.6274589 3.19898398,15.7096348 C3.26625226,15.7918108 3.36463555,15.8392127 3.46823226,15.8392127 L5.92447742,15.8392127 C6.21534194,15.8392127 6.46242581,15.6187644 6.50821935,15.3195845 L6.53237419,15.189415 L6.99483871,12.1283324 L7.02452903,11.9603718 C7.06981935,11.6601422 7.31740645,11.4396938 7.60827097,11.4396938 L7.97562581,11.4396938 C10.3553806,11.4396938 12.2183226,10.43193 12.7628129,7.5157135 C12.990271,6.29747403 12.8725161,5.28026244 12.2706581,4.56485511 C12.0799004,4.34354759 11.8520761,4.16034761 11.5983484,4.02423182 L11.5983484,4.02423182 Z",
     fill: "#179BD7"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M10.9471742,3.7533953 C10.7484133,3.69342348 10.5462166,3.6466161 10.3417935,3.61325314 C9.93786423,3.5485053 9.52962978,3.5174392 9.12096774,3.52034992 L5.42125161,3.52034992 C5.13032561,3.52016288 4.8826943,3.74118491 4.8380129,4.04102788 L4.05096774,9.24045927 L4.02832258,9.39214872 C4.07898592,9.05013605 4.36128845,8.79781528 4.69308387,8.79798797 L6.07796129,8.79798797 C8.79789677,8.79798797 10.9275484,7.645883 11.5500387,4.31291416 C11.5686581,4.21423729 11.5842581,4.1181848 11.5983484,4.02423182 C11.4340881,3.93438788 11.2628949,3.85906666 11.0865677,3.7990596 C11.0403405,3.78306126 10.99387,3.76783787 10.9471742,3.7533953 L10.9471742,3.7533953 Z",
     fill: "#222D65"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M4.8380129,4.04102788 C4.88232115,3.74104677 5.13025311,3.51993221 5.42125161,3.52087479 L9.12096774,3.52087479 C9.55927742,3.52087479 9.9684,3.55079278 10.3417935,3.61377802 C10.594467,3.65519724 10.8436512,3.71714631 11.087071,3.7990596 C11.2707484,3.86256971 11.4413419,3.93762712 11.5988516,4.02423182 C11.7840387,2.79234554 11.5973419,1.95359213 10.9587484,1.19409513 C10.2547355,0.357966102 8.98409032,-1.33226763e-14 7.35816774,-1.33226763e-14 L2.63790968,-1.33226763e-14 C2.30578065,-1.33226763e-14 2.02246452,0.251940951 1.97113548,0.594685621 L0.00503225806,13.5932641 C-0.0135007605,13.7153962 0.020123745,13.8398721 0.0970608222,13.9339481 C0.173997899,14.0280242 0.286545093,14.0822822 0.405096774,14.0824494 L3.31927742,14.0824494 L4.05096774,9.24045927 L4.8380129,4.04102788 Z",
     fill: "#253B80"
   })))));
@@ -4176,61 +4183,61 @@ var IconPaymentVisa = function IconPaymentVisa(props) {
    * Render
    */
 
-  return React.createElement("svg", {
+  return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
     viewBox: "0 0 30 30"
-  }, React.createElement("defs", null, React.createElement("rect", {
+  }, React__default.createElement("defs", null, React__default.createElement("rect", {
     id: "path-1",
     x: "0",
     y: "4",
     width: "30",
     height: "22.5",
     rx: "2"
-  })), React.createElement("g", {
+  })), React__default.createElement("g", {
     id: "Pagamento-/-Visa",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
-  }, React.createElement("mask", {
+  }, React__default.createElement("mask", {
     id: "mask-2",
     fill: "white"
-  }, React.createElement("use", {
+  }, React__default.createElement("use", {
     xlinkHref: "#path-1"
-  })), React.createElement("use", {
+  })), React__default.createElement("use", {
     id: "Fundo",
     fill: "#F3F2F2",
     xlinkHref: "#path-1"
-  }), React.createElement("g", {
+  }), React__default.createElement("g", {
     id: "Visa",
     mask: "url(#mask-2)"
-  }, React.createElement("g", {
+  }, React__default.createElement("g", {
     transform: "translate(3.000000, 11.500000)"
-  }, React.createElement("polygon", {
+  }, React__default.createElement("polygon", {
     id: "Path",
     fill: "#293688",
     fillRule: "evenodd",
     points: "8.07027008 7.32904018 9.20044321 0.15890625 11.0301731 0.15890625 9.90006233 7.32904018"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M16.4139058,0.344263393 C16.0512881,0.198950893 15.4831787,0.0433258929 14.7737119,0.0433258929 C12.9653601,0.0433258929 11.6915859,1.01604911 11.6806163,2.40964286 C11.6705817,3.4396875 12.589903,4.01424107 13.2844114,4.3575 C13.9966205,4.70825893 14.2361427,4.93332589 14.2326524,5.24678571 C14.2282271,5.72738839 13.663608,5.94709821 13.1375069,5.94709821 C12.4052285,5.94683036 12.0159972,5.83834821 11.4149792,5.57075893 L11.1791967,5.45651786 L10.922223,7.06165179 C11.349723,7.261875 12.140277,7.43551339 12.9609349,7.44428571 C14.8842175,7.44381696 16.1333102,6.48314732 16.1473338,4.99453125 C16.1543144,4.17897321 15.666669,3.55828125 14.6109141,3.04640625 C13.9711911,2.71513393 13.5794044,2.49388393 13.5836427,2.15765625 C13.5836427,1.85973214 13.9154709,1.54104911 14.631669,1.54104911 C15.2300693,1.53100446 15.663615,1.67035714 16.0015512,1.81566964 L16.1652839,1.89837054 L16.4139058,0.344263393 L16.4139058,0.344263393 Z",
     id: "Path",
     fill: "#293688",
     fillRule: "evenodd"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M19.5335526,0.15890625 C19.0951454,0.15890625 18.7784003,0.302745536 18.5857479,0.769553571 L15.8739681,7.32930804 L17.8112742,7.32930804 L18.1879155,6.23055804 L20.5025485,6.23055804 L20.7175762,7.32930804 L22.4398546,7.32930804 L20.9331025,0.159107143 L19.533615,0.159107143 L19.5335526,0.15890625 L19.5335526,0.15890625 Z M18.7019252,4.79584821 C18.8530679,4.38294643 19.4307133,2.79180804 19.4307133,2.79180804 C19.4202424,2.810625 19.581108,2.37689732 19.6734765,2.10776786 L19.7973199,2.72564732 C19.7973199,2.72564732 20.1473476,4.43725446 20.220831,4.79604911 L18.7019252,4.79604911 L18.7019252,4.79584821 Z",
     id: "Shape",
     fill: "#293688",
     fillRule: "nonzero"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M4.73347645,5.07395089 L4.57229917,4.09098214 C4.2383518,2.94515625 3.20191828,1.70537946 2.04051939,1.08421875 L3.65715374,7.32904018 L5.59489612,7.32904018 L8.50094875,0.15890625 L6.56364266,0.15890625 L4.73347645,5.07395089 Z",
     id: "Path",
     fill: "#293688",
     fillRule: "evenodd"
-  }), React.createElement("path", {
+  }), React__default.createElement("path", {
     d: "M0.0512950139,0.15890625 L0.0512950139,0.2746875 C2.34729224,0.867991071 3.94130194,2.36792411 4.5723615,4.09104911 L3.90889197,0.770825893 C3.79813712,0.317075893 3.46250693,0.174709821 3.06536011,0.158973214 L0.0512950139,0.15890625 L0.0512950139,0.15890625 Z",
     id: "Path",
     fill: "#F7981D",
@@ -4325,7 +4332,7 @@ var IconWrapper = _styled("svg", {
 /* Component it self */
 
 
-var Icon = forwardRef(function (props, ref) {
+var Icon = React.forwardRef(function (props, ref) {
   var direction = props.direction,
       shape = props.shape,
       slug = props.slug;
@@ -4349,7 +4356,7 @@ var Icon = forwardRef(function (props, ref) {
    */
 
 
-  return React.createElement(IconWrapper, _extends({}, rest, {
+  return React__default.createElement(IconWrapper, _extends({}, rest, {
     ref: ref,
     as: SelectedIcon,
     aphStyles: styles,
@@ -4419,9 +4426,9 @@ _styled('img', {
 /* Component */
 
 
-var Img = forwardRef(function (props, ref) {
+var Img = React.forwardRef(function (props, ref) {
   var className = props.className;
-  return React.createElement(ImgStyled, _extends({}, props, {
+  return React__default.createElement(ImgStyled, _extends({}, props, {
     ref: ref,
     className: "aph-img ".concat(className || '')
   }));
@@ -4454,7 +4461,7 @@ var AphNumberFormatStyled = _styled("span", {
 
 /* Component */
 
-var NumberFormat = forwardRef(function (props, ref) {
+var NumberFormat = React.forwardRef(function (props, ref) {
   /**
    * Inherit Props
    */
@@ -4465,7 +4472,7 @@ var NumberFormat = forwardRef(function (props, ref) {
    */
 
 
-  return React.createElement(AphNumberFormatStyled, _extends({}, rest, {
+  return React__default.createElement(AphNumberFormatStyled, _extends({}, rest, {
     className: "aph-number-format ".concat(className || ''),
     as: Formatter,
     ref: ref
@@ -4505,10 +4512,10 @@ function _templateObject$2() {
 }
 /* Constants */
 
-var bgPlaceholder = keyframes(_templateObject$2());
+var bgPlaceholder = core.keyframes(_templateObject$2());
 /* Component Itself */
 
-var Placeholder = forwardRef(function (props, ref) {
+var Placeholder = React.forwardRef(function (props, ref) {
   var _ref = props || {},
       className = _ref.className,
       styles = _ref.styles,
@@ -4541,7 +4548,7 @@ var Placeholder = forwardRef(function (props, ref) {
     animation: "".concat(bgPlaceholder, " .9s ease infinite")
   }, styles), process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlBsYWNlaG9sZGVyLmpzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUF3QzhCIiwiZmlsZSI6IlBsYWNlaG9sZGVyLmpzeCIsInNvdXJjZXNDb250ZW50IjpbIi8qIFBhY2thZ2VzICovXG5pbXBvcnQgUmVhY3QsIHsgZm9yd2FyZFJlZiB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBwcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG5pbXBvcnQgeyBrZXlmcmFtZXMgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCBjaHJvbWEgZnJvbSAnY2hyb21hLWpzJztcblxuLyogVXRpbHMgKi9cbmltcG9ydCB7IGNvbG9ycyB9IGZyb20gJy4uLy4uL3V0aWxzJztcblxuLyogQ29uc3RhbnRzICovXG5jb25zdCBiZ1BsYWNlaG9sZGVyID0ga2V5ZnJhbWVzYFxuICAgIDAlIHtcbiAgICAgICAgYmFja2dyb3VuZC1wb3NpdGlvbjogMCUgNTAlO1xuICAgIH1cblxuICAgIDUwJSB7XG4gICAgICAgIGJhY2tncm91bmQtcG9zaXRpb246IDEwMCUgNTAlO1xuICAgIH1cblxuICAgIDEwMCUge1xuICAgICAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiAwJSA1MCU7XG4gICAgfVxuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgUGxhY2Vob2xkZXIgPSBmb3J3YXJkUmVmKChwcm9wcywgcmVmKSA9PiB7XG4gICAgY29uc3Qge1xuICAgICAgICBjbGFzc05hbWUsXG4gICAgICAgIHN0eWxlcyxcblxuICAgICAgICAuLi5yZXN0XG4gICAgfSA9IChwcm9wcyB8fCB7fSk7XG5cbiAgICBjb25zdCBpc0RhcmtNb2RlID0gKChwcm9wcy50aGVtZSAmJiBwcm9wcy50aGVtZS5pc0RhcmtNb2RlKSA/IHRydWUgOiBmYWxzZSk7XG4gICAgY29uc3QgY29sb3JUaGVtZSA9IGNvbG9ycy5nZXRGcm9tVGhlbWUocHJvcHMsICdoZWxwZXInKTtcbiAgICBjb25zdCBjb2xvckJhc2UgID0gY2hyb21hKGNvbG9yVGhlbWUpO1xuICAgIGNvbnN0IGNvbG9yU3RhcnQgPSBjb2xvckJhc2UuYWxwaGEoaXNEYXJrTW9kZSA/IDAuNSA6IDAuMDUpLmNzcygpO1xuICAgIGNvbnN0IGNvbG9yRW5kICAgPSBjb2xvckJhc2UuYWxwaGEoaXNEYXJrTW9kZSA/IDAuNzUgOiAwLjE1KS5jc3MoKTtcblxuICAgIGNvbnN0IFN0eWxlZFBsYWNlaG9sZGVyID0gc3R5bGVkKCdkaXYnKSh7XG4gICAgICAgIGZvbnRTaXplICA6ICcwJyxcbiAgICAgICAgbGluZUhlaWdodDogJzAnLFxuXG4gICAgICAgIGJveFNpemluZzogJ2JvcmRlci1ib3gnLFxuICAgICAgICBvdmVyZmxvdyA6ICdoaWRkZW4nLFxuXG4gICAgICAgIGRpc3BsYXkgIDogYCR7cHJvcHMuYmxvY2sgPyAnYmxvY2snIDogJ2lubGluZS1ibG9jayd9YCxcbiAgICAgICAgd2lkdGggICAgOiBgJHtwcm9wcy53aWR0aCA/IChwcm9wcy53aWR0aCArICdweCcpIDogJzEwMCUnfWAsXG4gICAgICAgIG1heFdpZHRoIDogYCR7cHJvcHMud2lkdGggPyAocHJvcHMud2lkdGggKyAncHgnKSA6ICcxMDAlJ31gLFxuICAgICAgICBtaW5IZWlnaHQ6IGAke3Byb3BzLmhlaWdodH1weGAsXG5cbiAgICAgICAgYm9yZGVyICAgICAgOiAocHJvcHMuYm9yZGVyIHx8IG51bGwpLFxuICAgICAgICBib3JkZXJSYWRpdXM6IGAke3Byb3BzLnJhZGl1c31weGAsXG5cbiAgICAgICAgY29sb3IgICAgICAgICA6IGNvbG9yQmFzZS5yZ2IoKSxcbiAgICAgICAgYmFja2dyb3VuZCAgICA6IGBsaW5lYXItZ3JhZGllbnQoOTBkZWcsICR7Y29sb3JTdGFydH0sICR7Y29sb3JFbmR9KWAsXG4gICAgICAgIGJhY2tncm91bmRTaXplOiAnMjAwJSAxMDAlJyxcblxuICAgICAgICBhbmltYXRpb246IGAke2JnUGxhY2Vob2xkZXJ9IC45cyBlYXNlIGluZmluaXRlYCxcblxuICAgICAgICAuLi5zdHlsZXMsXG4gICAgfSk7XG5cbiAgICByZXR1cm4gKFxuICAgICAgICA8U3R5bGVkUGxhY2Vob2xkZXJcbiAgICAgICAgICAgIHsuLi5yZXN0fVxuICAgICAgICAgICAgcmVmPXtyZWZ9XG4gICAgICAgICAgICBjbGFzc05hbWU9e2BhcGgtcGxhY2Vob2xkZXIgJHtjbGFzc05hbWUgfHwgJyd9YH0+XG4gICAgICAgICAgICB7cHJvcHMuY2hpbGRyZW59XG4gICAgICAgIDwvU3R5bGVkUGxhY2Vob2xkZXI+XG4gICAgKTtcbn0pO1xuXG4vKiBEZWZhdWx0IFByb3BlcnRpZXMgKi9cblBsYWNlaG9sZGVyLmRlZmF1bHRQcm9wcyA9IHtcbiAgICBibG9jayA6IGZhbHNlLFxuICAgIGhlaWdodDogMjAsXG4gICAgcmFkaXVzOiA0LFxuICAgIHN0eWxlczoge30sXG59O1xuXG4vKiBQcm9wZXJ0aWVzIFR5cGVzICovXG5QbGFjZWhvbGRlci5wcm9wVHlwZXMgPSB7XG4gICAgYmxvY2sgOiBwcm9wVHlwZXMuYm9vbCxcbiAgICB3aWR0aCA6IHByb3BUeXBlcy5udW1iZXIsXG4gICAgaGVpZ2h0OiBwcm9wVHlwZXMubnVtYmVyLFxuICAgIHJhZGl1czogcHJvcFR5cGVzLm51bWJlcixcbiAgICBzdHlsZSA6IHByb3BUeXBlcy5vbmVPZlR5cGUoW1xuICAgICAgICBwcm9wVHlwZXMuc3RyaW5nLFxuICAgICAgICBwcm9wVHlwZXMub2JqZWN0LFxuICAgIF0pLFxufTtcblxuLyogRXhwb3J0aW5nIENvbXBvbmVudCAqL1xuZXhwb3J0IGRlZmF1bHQgUGxhY2Vob2xkZXI7XG4iXX0= */");
 
-  return React.createElement(StyledPlaceholder, _extends({}, rest, {
+  return React__default.createElement(StyledPlaceholder, _extends({}, rest, {
     ref: ref,
     className: "aph-placeholder ".concat(className || '')
   }), props.children);
@@ -4579,7 +4586,7 @@ function _templateObject$3() {
 }
 /* Animation */
 
-var bgAnimated = keyframes(_templateObject$3());
+var bgAnimated = core.keyframes(_templateObject$3());
 /* Default Styles */
 
 var defaultStyles = {
@@ -4644,12 +4651,12 @@ function ProgressBar(props) {
    * Render
    */
 
-  return React.createElement(AphProgressBarWrapper, {
+  return React__default.createElement(AphProgressBarWrapper, {
     width: width,
     height: height,
     radius: radius,
     styles: wrapperStyles
-  }, React.createElement(AphProgressBar, {
+  }, React__default.createElement(AphProgressBar, {
     size: size,
     percentual: percent || percentual,
     color: color || '',
@@ -4768,16 +4775,16 @@ _styled('div', {
 /* Component Itself */
 
 
-var Scrollable = forwardRef(function (props, ref) {
+var Scrollable = React.forwardRef(function (props, ref) {
   var children = props.children,
       className = props.className,
       onlyXS = props.onlyXS,
       styles = props.styles;
-  return React.createElement(StyledWrapper, {
+  return React__default.createElement(StyledWrapper, {
     ref: ref,
     styles: styles,
     className: (className || '') + (onlyXS ? ' scrollable--xs' : '')
-  }, React.createElement(StyledScrollable, null, children));
+  }, React__default.createElement(StyledScrollable, null, children));
 });
 
 /**
@@ -4871,7 +4878,7 @@ var SegmentStyled = _styled("div", {
 /* Component Itself */
 
 
-var Segment = forwardRef(function (props, ref) {
+var Segment = React.forwardRef(function (props, ref) {
   var className = props.className,
       margin = props.margin,
       padding = props.padding,
@@ -4883,7 +4890,7 @@ var Segment = forwardRef(function (props, ref) {
       styles = props.styles,
       rest = _objectWithoutProperties(props, ["className", "margin", "padding", "color", "background", "hoverable", "radius", "shadow", "styles"]);
 
-  return React.createElement(SegmentStyled, _extends({}, rest, {
+  return React__default.createElement(SegmentStyled, _extends({}, rest, {
     ref: ref,
     aphmargin: margin,
     aphpadding: padding,
@@ -4936,10 +4943,10 @@ var AphTableStyled = _styled("table", {
 
 /* Component Itself */
 
-var Table = forwardRef(function (props, ref) {
+var Table = React.forwardRef(function (props, ref) {
   var className = props.className,
       children = props.children;
-  return React.createElement(AphTableStyled, _extends({}, props, {
+  return React__default.createElement(AphTableStyled, _extends({}, props, {
     ref: ref,
     className: "aph-table ".concat(className || '')
   }), children);
@@ -5127,10 +5134,10 @@ var ToastsContainer = function ToastsContainer() {
     }
   })), process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlRvYXN0c0NvbnRhaW5lci5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZStCIiwiZmlsZSI6IlRvYXN0c0NvbnRhaW5lci5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IFRvYXN0Q29udGFpbmVyIH0gZnJvbSAncmVhY3QtdG9hc3RpZnknO1xuXG4vKiBTdHlsZXMgKi9cbmltcG9ydCAncmVhY3QtdG9hc3RpZnkvc2Nzcy9tYWluLnNjc3MnO1xuXG4vKiBDb25zdGFudHMgKi9cbmltcG9ydCB7IENPTE9SUywgTUVESUFfUVVFUklFUywgU0NSRUVOX1NJWkVTLCBaSU5ERVggfSBmcm9tICcuLi8uLi9jb25zdGFudHMnO1xuXG4vKiBDb21wb25lbnQgKi9cbmNvbnN0IFRvYXN0c0NvbnRhaW5lciA9IChwcm9wcyA9IHsgc3R5bGVzOiB7fSB9KSA9PiB7XG4gICAgY29uc3Qgc3R5bGVzID0gcHJvcHMuc3R5bGVzIHx8IHt9O1xuXG4gICAgY29uc3QgQXBoVG9hc3RzQ29udGFpbmVyID0gc3R5bGVkKCdkaXYnKSh7XG4gICAgICAgIC4uLnN0eWxlcyxcbiAgICAgICAgekluZGV4ICA6IChzdHlsZXMuekluZGV4IHx8IFpJTkRFWC5UT0FTVCksXG4gICAgICAgIHBvc2l0aW9uOiAoc3R5bGVzLnBvc2l0aW9uIHx8ICdmaXhlZCcpLFxuICAgICAgICB0b3AgICAgIDogKHR5cGVvZiBzdHlsZXMudG9wID09PSAnc3RyaW5nJyA/IHN0eWxlcy50b3AgOiAnMjBweCcpLFxuICAgICAgICByaWdodCAgIDogKHR5cGVvZiBzdHlsZXMucmlnaHQgPT09ICdzdHJpbmcnID8gc3R5bGVzLnJpZ2h0IDogJzIwcHgnKSxcblxuICAgICAgICAnLlRvYXN0aWZ5X190b2FzdC1jb250YWluZXInOiB7XG4gICAgICAgICAgICBwb3NpdGlvbjogJ3JlbGF0aXZlJyxcbiAgICAgICAgICAgIHRvcCAgICAgOiAnYXV0bycsXG4gICAgICAgICAgICByaWdodCAgIDogJ2F1dG8nLFxuICAgICAgICAgICAgd2lkdGggICA6ICcxMDAlJyxcbiAgICAgICAgICAgIG1pbldpZHRoOiAnMzgwcHgnLFxuICAgICAgICAgICAgcGFkZGluZyA6IDAsXG4gICAgICAgIH0sXG5cbiAgICAgICAgJy5Ub2FzdGlmeV9fdG9hc3QnOiB7XG4gICAgICAgICAgICBtYXJnaW4gICAgICA6ICcwIDAgMTBweCcsXG4gICAgICAgICAgICBwYWRkaW5nICAgICA6ICcxNXB4IDQwcHggMTVweCAyMHB4JyxcbiAgICAgICAgICAgIGJhY2tncm91bmQgIDogJ3JnYmEoMjU1LCAyNTUsIDI1NSwgMC45NSknLFxuICAgICAgICAgICAgYm94U2hhZG93ICAgOiAnMCAwIDRweCByZ2JhKDQyLCA0MiwgNDIsIDAuMjUpJyxcbiAgICAgICAgICAgIGJvcmRlclJhZGl1czogJzRweCcsXG4gICAgICAgICAgICBtaW5IZWlnaHQgICA6ICc1MHB4JyxcbiAgICAgICAgICAgIG1heFdpZHRoICAgIDogJzM4MHB4JyxcbiAgICAgICAgICAgIHdpZHRoICAgICAgIDogJzEwMCUnLFxuXG4gICAgICAgICAgICBmb250RmFtaWx5OiAnaW5oZXJpdCcsXG4gICAgICAgICAgICBmb250V2VpZ2h0OiAnNTAwJyxcbiAgICAgICAgICAgIGZvbnRTaXplICA6ICcxNnB4JyxcbiAgICAgICAgICAgIGxpbmVIZWlnaHQ6ICcyMHB4JyxcblxuICAgICAgICAgICAgdXNlclNlbGVjdDogJ25vbmUnLFxuXG4gICAgICAgICAgICAnJi0tZGVmYXVsdCc6IHtcbiAgICAgICAgICAgICAgICBjb2xvcjogQ09MT1JTLkJMQUNLLFxuICAgICAgICAgICAgfSxcblxuICAgICAgICAgICAgJy5Ub2FzdGlmeV9fY2xvc2UtYnV0dG9uJzoge1xuICAgICAgICAgICAgICAgIHBvc2l0aW9uOiAnYWJzb2x1dGUnLFxuICAgICAgICAgICAgICAgIHRvcCAgICAgOiAnY2FsYyg1MCUgLSAxNXB4KScsXG4gICAgICAgICAgICAgICAgcmlnaHQgICA6ICcxMHB4JyxcbiAgICAgICAgICAgICAgICB3aWR0aCAgIDogJzMwcHgnLFxuICAgICAgICAgICAgICAgIGhlaWdodCAgOiAnMzBweCcsXG4gICAgICAgICAgICAgICAgcGFkZGluZyA6IDAsXG4gICAgICAgICAgICAgICAgbWFyZ2luICA6ICcwICFpbXBvcnRhbnQnLFxuICAgICAgICAgICAgICAgIG9wYWNpdHkgOiAxLFxuXG4gICAgICAgICAgICAgICAgY29sb3IgOiAndHJhbnNwYXJlbnQnLFxuICAgICAgICAgICAgICAgIGN1cnNvcjogJ3BvaW50ZXInLFxuXG4gICAgICAgICAgICAgICAgb3V0bGluZSAgICAgOiAwLFxuICAgICAgICAgICAgICAgIGJvcmRlciAgICAgIDogMCxcbiAgICAgICAgICAgICAgICBib3JkZXJSYWRpdXM6ICc1MCUnLFxuICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIDogJ3RyYW5zcGFyZW50JyxcbiAgICAgICAgICAgICAgICBib3hTaGFkb3cgICA6ICdub25lJyxcblxuICAgICAgICAgICAgICAgIHRleHRBbGlnbjogJ2NlbnRlcicsXG5cbiAgICAgICAgICAgICAgICB3aWxsVHJhbnNmb3JtOiAnYmFja2dyb3VuZCwgYm94LXNoYWRvdycsXG4gICAgICAgICAgICAgICAgdHJhbnNpdGlvbiAgIDogJ2JhY2tncm91bmQgLjI1cyBsaW5lYXIsIGJveC1zaGFkb3cgLjI1cyBsaW5lYXInLFxuXG4gICAgICAgICAgICAgICAgJyY6aG92ZXInOiB7XG4gICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6ICdyZ2JhKDQyLCA0MiwgNDIsIDAuMDUpJyxcbiAgICAgICAgICAgICAgICB9LFxuXG4gICAgICAgICAgICAgICAgJyY6YWN0aXZlLCY6Zm9jdXMnOiB7XG4gICAgICAgICAgICAgICAgICAgIGJveFNoYWRvdyA6ICdpbnNldCAxcHggMXB4IDRweCByZ2JhKDQyLCA0MiwgNDIsIDAuMTUpJyxcbiAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogJ3JnYmEoNDIsIDQyLCA0MiwgMC4xNSknLFxuICAgICAgICAgICAgICAgIH0sXG5cbiAgICAgICAgICAgICAgICAnJjpiZWZvcmUnOiB7XG4gICAgICAgICAgICAgICAgICAgIHBvc2l0aW9uOiAnYWJzb2x1dGUnLFxuICAgICAgICAgICAgICAgICAgICBjb250ZW50IDogJ1wiw5dcIicsXG4gICAgICAgICAgICAgICAgICAgIHdpZHRoICAgOiAnMTAwJScsXG4gICAgICAgICAgICAgICAgICAgIGRpc3BsYXkgOiAnYmxvY2snLFxuICAgICAgICAgICAgICAgICAgICBjb2xvciAgIDogQ09MT1JTLkJMQUNLLFxuXG4gICAgICAgICAgICAgICAgICAgIGZvbnRTaXplICA6ICcyMHB4JyxcbiAgICAgICAgICAgICAgICAgICAgbGluZUhlaWdodDogJzE2cHgnLFxuICAgICAgICAgICAgICAgICAgICB0ZXh0QWxpZ24gOiAnY2VudGVyJyxcbiAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgfSxcblxuICAgICAgICAgICAgJy5Ub2FzdGlmeV9fcHJvZ3Jlc3MtYmFyJzoge1xuICAgICAgICAgICAgICAgIGhlaWdodCAgICA6ICcycHgnLFxuICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IENPTE9SUy5CTEFDSyxcbiAgICAgICAgICAgIH0sXG5cbiAgICAgICAgICAgICcmLlRvYXN0aWZ5X190b2FzdC0tc3VjY2Vzcyc6IHtcbiAgICAgICAgICAgICAgICBjb2xvcjogQ09MT1JTLlNVQ0NFU1MsXG5cbiAgICAgICAgICAgICAgICAnLlRvYXN0aWZ5X19jbG9zZS1idXR0b24tLXN1Y2Nlc3M6YmVmb3JlJzoge1xuICAgICAgICAgICAgICAgICAgICBjb2xvcjogQ09MT1JTLlNVQ0NFU1MsXG4gICAgICAgICAgICAgICAgfSxcblxuICAgICAgICAgICAgICAgICcuVG9hc3RpZnlfX3Byb2dyZXNzLWJhci0tc3VjY2Vzcyc6IHtcbiAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogQ09MT1JTLlNVQ0NFU1MsXG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfSxcblxuICAgICAgICAgICAgJyYuVG9hc3RpZnlfX3RvYXN0LS1pbmZvJzoge1xuICAgICAgICAgICAgICAgIGNvbG9yOiBDT0xPUlMuSU5GTyxcblxuICAgICAgICAgICAgICAgICcuVG9hc3RpZnlfX2Nsb3NlLWJ1dHRvbi0taW5mbzpiZWZvcmUnOiB7XG4gICAgICAgICAgICAgICAgICAgIGNvbG9yOiBDT0xPUlMuSU5GTyxcbiAgICAgICAgICAgICAgICB9LFxuXG4gICAgICAgICAgICAgICAgJy5Ub2FzdGlmeV9fcHJvZ3Jlc3MtYmFyLS1pbmZvJzoge1xuICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiBDT0xPUlMuSU5GTyxcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9LFxuXG4gICAgICAgICAgICAnJi5Ub2FzdGlmeV9fdG9hc3QtLXdhcm5pbmcnOiB7XG4gICAgICAgICAgICAgICAgY29sb3I6IENPTE9SUy5XQVJOSU5HLFxuXG4gICAgICAgICAgICAgICAgJy5Ub2FzdGlmeV9fY2xvc2UtYnV0dG9uLS13YXJuaW5nOmJlZm9yZSc6IHtcbiAgICAgICAgICAgICAgICAgICAgY29sb3I6IENPTE9SUy5XQVJOSU5HLFxuICAgICAgICAgICAgICAgIH0sXG5cbiAgICAgICAgICAgICAgICAnLlRvYXN0aWZ5X19wcm9ncmVzcy1iYXItLXdhcm5pbmcnOiB7XG4gICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IENPTE9SUy5XQVJOSU5HLFxuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH0sXG5cbiAgICAgICAgICAgICcmLlRvYXN0aWZ5X190b2FzdC0tZXJyb3InOiB7XG4gICAgICAgICAgICAgICAgY29sb3I6IENPTE9SUy5FUlJPUixcblxuICAgICAgICAgICAgICAgICcuVG9hc3RpZnlfX2Nsb3NlLWJ1dHRvbi0tZXJyb3I6YmVmb3JlJzoge1xuICAgICAgICAgICAgICAgICAgICBjb2xvcjogQ09MT1JTLkVSUk9SLFxuICAgICAgICAgICAgICAgIH0sXG5cbiAgICAgICAgICAgICAgICAnLlRvYXN0aWZ5X19wcm9ncmVzcy1iYXItLWVycm9yJzoge1xuICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiBDT0xPUlMuRVJST1IsXG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfSxcblxuICAgICAgICAgICAgJyYuVG9hc3RpZnlfX3RvYXN0LS1pbnZlcnNlJzoge1xuICAgICAgICAgICAgICAgIGNvbG9yICAgICA6IENPTE9SUy5XSElURSxcbiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiAncmdiYSg0NSwgNDUsIDQ1LCAwLjk1KScsXG5cbiAgICAgICAgICAgICAgICAnLlRvYXN0aWZ5X19jbG9zZS1idXR0b24nOiB7XG4gICAgICAgICAgICAgICAgICAgICcmOmhvdmVyJzoge1xuICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogJ3JnYmEoNDIsIDQyLCA0MiwgMC41KScsXG4gICAgICAgICAgICAgICAgICAgIH0sXG5cbiAgICAgICAgICAgICAgICAgICAgJyY6YWN0aXZlLCY6Zm9jdXMnOiB7XG4gICAgICAgICAgICAgICAgICAgICAgICBib3hTaGFkb3cgOiAnaW5zZXQgMXB4IDFweCA0cHggcmdiKDQyLCA0MiwgNDIpJyxcbiAgICAgICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6ICdyZ2JhKDQyLCA0MiwgNDIsIDAuNSknLFxuICAgICAgICAgICAgICAgICAgICB9LFxuXG4gICAgICAgICAgICAgICAgICAgICcmOmJlZm9yZSc6IHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBDT0xPUlMuV0hJVEUsXG4gICAgICAgICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgICAgfSxcblxuICAgICAgICAgICAgICAgICcuVG9hc3RpZnlfX3Byb2dyZXNzLWJhcic6IHtcbiAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogQ09MT1JTLldISVRFLFxuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH0sXG4gICAgICAgIH0sXG5cbiAgICAgICAgW01FRElBX1FVRVJJRVMuTFQuU01dOiB7XG4gICAgICAgICAgICB3aWR0aCA6ICcxMDAlJyxcbiAgICAgICAgICAgIHRvcCAgIDogJ2F1dG8nLFxuICAgICAgICAgICAgcmlnaHQgOiAwLFxuICAgICAgICAgICAgYm90dG9tOiAwLFxuICAgICAgICAgICAgbGVmdCAgOiAwLFxuXG4gICAgICAgICAgICAnLlRvYXN0aWZ5X190b2FzdC1jb250YWluZXInOiB7XG4gICAgICAgICAgICAgICAgdG9wICAgIDogJ2F1dG8nLFxuICAgICAgICAgICAgICAgIHJpZ2h0ICA6IDAsXG4gICAgICAgICAgICAgICAgYm90dG9tIDogMCxcbiAgICAgICAgICAgICAgICBsZWZ0ICAgOiAwLFxuICAgICAgICAgICAgICAgIHBhZGRpbmc6IDAsXG5cbiAgICAgICAgICAgICAgICB3aWR0aCAgIDogJzEwMCUnLFxuICAgICAgICAgICAgICAgIG1pbldpZHRoOiAnMTAwJScsXG4gICAgICAgICAgICB9LFxuXG4gICAgICAgICAgICAnLlRvYXN0aWZ5X190b2FzdCc6IHtcbiAgICAgICAgICAgICAgICBtYXJnaW4gICAgICA6IDAsXG4gICAgICAgICAgICAgICAgcGFkZGluZyAgICAgOiAnMjBweCA0MHB4IDIwcHggMjBweCcsXG4gICAgICAgICAgICAgICAgYm94U2hhZG93ICAgOiAnMCAwIDJweCAwIHJnYmEoNDIsIDQyLCA0MiwgMC4yKScsXG4gICAgICAgICAgICAgICAgYm9yZGVyUmFkaXVzOiAwLFxuICAgICAgICAgICAgICAgIG1heFdpZHRoICAgIDogJzEwMCUnLFxuICAgICAgICAgICAgfVxuICAgICAgICB9LFxuICAgIH0pO1xuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEFwaFRvYXN0c0NvbnRhaW5lciBjbGFzc05hbWU9XCJhcGgtdG9hc3RzLWNvbnRhaW5lclwiIHN0eWxlcz17cHJvcHMuc3R5bGVzfT5cbiAgICAgICAgICAgIDxUb2FzdENvbnRhaW5lclxuICAgICAgICAgICAgICAgIHsuLi5wcm9wc31cbiAgICAgICAgICAgICAgICBjbG9zZU9uQ2xpY2s9e3Byb3BzLmNsb3NlT25DbGljayB8fCBmYWxzZX1cbiAgICAgICAgICAgIC8+XG4gICAgICAgIDwvQXBoVG9hc3RzQ29udGFpbmVyPlxuICAgICk7XG59XG5cbmV4cG9ydCBkZWZhdWx0IFRvYXN0c0NvbnRhaW5lcjtcbiJdfQ== */");
 
-  return React.createElement(AphToastsContainer, {
+  return React__default.createElement(AphToastsContainer, {
     className: "aph-toasts-container",
     styles: props.styles
-  }, React.createElement(ToastContainer, _extends({}, props, {
+  }, React__default.createElement(reactToastify.ToastContainer, _extends({}, props, {
     closeOnClick: props.closeOnClick || false
   })));
 };
@@ -5139,15 +5146,15 @@ function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if 
 
 function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-toast.inverse = function () {
+reactToastify.toast.inverse = function () {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return toast(content, _objectSpread$9({}, props, {
+  return reactToastify.toast(content, _objectSpread$9({}, props, {
     className: 'Toastify__toast--inverse'
   }));
 };
 
-toast.black = toast.inverse;
+reactToastify.toast.black = reactToastify.toast.inverse;
 
 /**
  * Customized from 'react-tooltip' project:
@@ -5284,18 +5291,18 @@ _styled('span', {
 /* Component it self */
 
 
-var Tooltip = forwardRef(function (props, ref) {
+var Tooltip = React.forwardRef(function (props, ref) {
   var customProps = Object.assign({}, props);
   customProps.id = customProps.id || "AphTooltip".concat(Math.random());
   delete customProps.children;
   delete customProps.tip;
-  return React.createElement(TooltipWrapper, _extends({}, customProps, {
+  return React__default.createElement(TooltipWrapper, _extends({}, customProps, {
     ref: ref
-  }), React.createElement("span", {
+  }), React__default.createElement("span", {
     "data-tip": props.tip,
     "data-for": customProps.id,
     className: "aph-tooltip__content"
-  }, props.children), React.createElement(ReactTooltip, _extends({}, customProps, {
+  }, props.children), React__default.createElement(ReactTooltip, _extends({}, customProps, {
     delayHide: customProps.delayHide || (window.innerWidth > SCREEN_SIZES.SM ? 500 : 0),
     className: "aph-tooltip ".concat(props.className || '')
   })));
@@ -5368,7 +5375,7 @@ var _ref = process.env.NODE_ENV === "production" ? {
   map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsLmpzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFpTzJDIiwiZmlsZSI6Ik1vZGFsLmpzeCIsInNvdXJjZXNDb250ZW50IjpbIi8qIENvcmUgUGFja2FnZXMgKi9cbmltcG9ydCBSZWFjdCwgeyBmb3J3YXJkUmVmLCB1c2VFZmZlY3QsIHVzZVN0YXRlLCB1c2VSZWYgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUHJvcFR5cGVzIGZyb20gJ3Byb3AtdHlwZXMnO1xuaW1wb3J0IHsgR2xvYmFsLCBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuLyogSGVscGVyIENvbXBvbmVudHMgKi9cbmltcG9ydCB7XG4gICAgSDEsXG4gICAgRmxleCxcbiAgICBBY3Rpb25CYXIsXG59IGZyb20gJy4uLyc7XG5cbi8qIENvbXBvbmVudCBTdHlsZXMgKi9cbmltcG9ydCBNb2RhbFN0eWxlZCBmcm9tICcuL01vZGFsU3R5bGVzJztcbmltcG9ydCBNb2RhbE92ZXJsYXlTdHlsZWQgZnJvbSAnLi9Nb2RhbE92ZXJsYXlTdHlsZXMnO1xuXG4vKiBDb21wb25lbnQgSXRzZWxmICovXG5jb25zdCBNb2RhbCA9IGZvcndhcmRSZWYoKHByb3BzLCByZWYpID0+IHtcblxuICAgIC8qKlxuICAgICAqIEdsb2JhbCBwcm9wc1xuICAgICAqL1xuICAgIGNvbnN0IHtcbiAgICAgICAgYWRkRXZlbnRMaXN0ZW5lcixcbiAgICAgICAgcmVtb3ZlRXZlbnRMaXN0ZW5lcixcbiAgICB9ID0gZG9jdW1lbnQ7XG5cbiAgICAvKipcbiAgICAgKiBJbmhlcml0IFByb3BzXG4gICAgICovXG4gICAgY29uc3Qge1xuICAgICAgICB0aXRsZSxcbiAgICAgICAgaGVhZGVyLFxuICAgICAgICBjb250ZW50SnVzdGlmeSxcbiAgICAgICAgYWxpZ25JdGVtcyxcbiAgICAgICAgY2hpbGRyZW4sXG4gICAgICAgIGZvb3RlcixcbiAgICAgICAgZm9vdGVyUHJvcHMsXG4gICAgICAgIG92ZXJsYXlQcm9wcyxcblxuICAgICAgICBjbGFzc05hbWUsXG4gICAgICAgIHN0eWxlcyxcblxuICAgICAgICBvcGVuZWQsXG4gICAgICAgIG9wZW5lZENhbGxiYWNrLFxuICAgICAgICBjbG9zZU9uRXNjYXBlLFxuICAgICAgICBjbG9zZUJ5RXNjYXBlLFxuICAgICAgICB1bmJsb2NrU2Nyb2xsaW5nLFxuXG4gICAgICAgIC4uLnJlc3RcbiAgICB9ID0gcHJvcHM7XG5cbiAgICAvKipcbiAgICAgKiBTdGF0ZSB2YWx1ZXNcbiAgICAgKi9cbiAgICBjb25zdCBbIGFjdGl2ZSwgc2V0QWN0aXZlIF0gICAgICAgICAgICAgPSB1c2VTdGF0ZShvcGVuZWQpO1xuICAgIGNvbnN0IFsgdmlzaWJsZSwgc2V0VmlzaWJsZSBdICAgICAgICAgICA9IHVzZVN0YXRlKG9wZW5lZCk7XG4gICAgY29uc3QgWyB1bm1vdW50ZWQsIHNldFVubW91bnRlZCBdICAgICAgID0gdXNlU3RhdGUoZmFsc2UpO1xuICAgIGNvbnN0IFsgYWN0aXZlVGltZXIsIHNldEFjdGl2ZVRpbWVyIF0gICA9IHVzZVN0YXRlKG51bGwpO1xuICAgIGNvbnN0IFsgdmlzaWJsZVRpbWVyLCBzZXRWaXNpYmxlVGltZXIgXSA9IHVzZVN0YXRlKG51bGwpO1xuXG4gICAgLyoqXG4gICAgICogU3RhdGUgcmVmZXJlbmNlXG4gICAgICovXG4gICAgY29uc3QgbW9kYWxSZWYgPSB1c2VSZWYobnVsbCk7XG5cbiAgICAvKipcbiAgICAgKiBIYW5kbGUgd2l0aCBjbG9zZSBieSBlc2NhcGUga2V5XG4gICAgICpcbiAgICAgKiBAcGFyYW0ge29iamVjdH0gZXZ0IC0gRE9NIGNsaWNrIGV2ZW50XG4gICAgICovXG4gICAgZnVuY3Rpb24gaGFuZGxlQ2xvc2VPblNjYXBlIChldnQpIHtcbiAgICAgICAgY29uc3QgeyBrZXksIGtleUNvZGUsIHRhcmdldCB9ID0gKGV2dCB8fCB7fSk7XG4gICAgICAgIGNvbnN0IGlzRXNjUHJlc3NlZCA9IChrZXkgPT09ICdFc2NhcGUnIHx8IGtleSA9PT0gJ0VzYycgfHwga2V5Q29kZSA9PT0gMjcpO1xuXG4gICAgICAgIGlmICghaXNFc2NQcmVzc2VkKSB7XG4gICAgICAgICAgICByZXR1cm47XG4gICAgICAgIH1cblxuICAgICAgICBpZiAoZXZ0ICYmIGV2dC5zdG9wUHJvcGFnYXRpb24gJiZcbiAgICAgICAgICAgICh0eXBlb2YgZXZ0LnN0b3BQcm9wYWdhdGlvbiA9PT0gJ2Z1bmN0aW9uJykpIHtcbiAgICAgICAgICAgIGV2dC5zdG9wUHJvcGFnYXRpb24oKTtcbiAgICAgICAgfVxuXG4gICAgICAgIGhhbmRsZUNsb3NlKCk7XG5cbiAgICAgICAgcmV0dXJuO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIEFkZCBFdmVudCBMaXN0ZW5lcnMgdG8gaGFuZGxlIHdpdGggbW9kYWwgdmlzaWJpbGl0eVxuICAgICAqL1xuICAgIGZ1bmN0aW9uIGxpc3RlbiAoKSB7XG4gICAgICAgIGlmIChjbG9zZU9uRXNjYXBlIHx8IGNsb3NlQnlFc2NhcGUpIHtcbiAgICAgICAgICAgIGFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLCBoYW5kbGVDbG9zZU9uU2NhcGUpO1xuICAgICAgICB9XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogUmVtb3ZlIEV2ZW50IExpc3RlbmVyc1xuICAgICAqL1xuICAgIGZ1bmN0aW9uIHVubGlzdGVuICgpIHtcbiAgICAgICAgY2xlYXJUaW1lb3V0KGFjdGl2ZVRpbWVyKTtcbiAgICAgICAgY2xlYXJUaW1lb3V0KHZpc2libGVUaW1lcik7XG5cbiAgICAgICAgcmVtb3ZlRXZlbnRMaXN0ZW5lcigna2V5ZG93bicsIGhhbmRsZUNsb3NlT25TY2FwZSk7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogSGFuZGxlIHdpdGggRHJvcGRvd24gY2xvc2UgZXZlbnRcbiAgICAgKlxuICAgICAqIEBwYXJhbSB7b2JqZWN0fSBldnQgLSBET00gY2xpY2sgZXZlbnRcbiAgICAgKi9cbiAgICBmdW5jdGlvbiBoYW5kbGVDbG9zZShldnQpIHtcbiAgICAgICAgY2xlYXJUaW1lb3V0KHZpc2libGVUaW1lcik7XG5cbiAgICAgICAgaWYgKHVubW91bnRlZCB8fFxuICAgICAgICAgICAgKGV2dCAmJlxuICAgICAgICAgICAgZXZ0LnRhcmdldCAmJlxuICAgICAgICAgICAgbW9kYWxSZWYgJiZcbiAgICAgICAgICAgIG1vZGFsUmVmLmN1cnJlbnQgJiZcbiAgICAgICAgICAgIG1vZGFsUmVmLmN1cnJlbnQuY29udGFpbnMoZXZ0LnRhcmdldCkpKSB7XG4gICAgICAgICAgICByZXR1cm47XG4gICAgICAgIH1cblxuICAgICAgICB1bmxpc3RlbigpO1xuICAgICAgICBzZXRBY3RpdmUoZmFsc2UpO1xuICAgICAgICBzZXRWaXNpYmxlKHRydWUpO1xuXG4gICAgICAgIHNldFZpc2libGVUaW1lcihzZXRUaW1lb3V0KCgpID0+IHtcbiAgICAgICAgICAgIGlmICh1bm1vdW50ZWQpIHtcbiAgICAgICAgICAgICAgICByZXR1cm47XG4gICAgICAgICAgICB9XG5cbiAgICAgICAgICAgIHNldFZpc2libGUoZmFsc2UpO1xuICAgICAgICAgICAgb3BlbmVkQ2FsbGJhY2soZmFsc2UpO1xuICAgICAgICAgICAgbW9kYWxSZWYuY3VycmVudC5mb2N1cygpO1xuICAgICAgICB9LCAxMDApKTtcbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBIYW5kbGUgd2l0aCBEcm9wZG93biBvcGVuIGV2ZW50XG4gICAgICpcbiAgICAgKiBAcGFyYW0ge29iamVjdH0gZXZ0IC0gRE9NIGNsaWNrIGV2ZW50XG4gICAgICovXG4gICAgZnVuY3Rpb24gaGFuZGxlT3BlbihldnQpIHtcbiAgICAgICAgY2xlYXJUaW1lb3V0KGFjdGl2ZVRpbWVyKTtcblxuICAgICAgICBpZiAodW5tb3VudGVkKSB7XG4gICAgICAgICAgICByZXR1cm47XG4gICAgICAgIH1cblxuICAgICAgICBpZiAoZXZ0ICYmIGV2dC5wcmV2ZW50RGVmYXVsdCkge1xuICAgICAgICAgICAgZXZ0LnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgIH1cblxuICAgICAgICBzZXRBY3RpdmUoZmFsc2UpO1xuICAgICAgICBzZXRWaXNpYmxlKHRydWUpO1xuXG4gICAgICAgIHNldEFjdGl2ZVRpbWVyKHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgICAgICAgaWYgKHVubW91bnRlZCkge1xuICAgICAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICAgIH1cblxuICAgICAgICAgICAgc2V0QWN0aXZlKHRydWUpO1xuICAgICAgICAgICAgbGlzdGVuKCk7XG4gICAgICAgIH0sIDUwKSk7XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogV2F0Y2ggZm9yIGBvcGVuZWRgIHByb3AgY2hhbmdlc1xuICAgICAqL1xuICAgIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgICAgIGlmICghb3BlbmVkKSB7XG4gICAgICAgICAgICBoYW5kbGVDbG9zZSgpO1xuICAgICAgICAgICAgdW5saXN0ZW4oKTtcblxuICAgICAgICAgICAgcmV0dXJuIGZ1bmN0aW9uIGNsZWFudXAoKSB7XG4gICAgICAgICAgICAgICAgdW5saXN0ZW4oKTtcbiAgICAgICAgICAgIH07XG4gICAgICAgIH1cblxuICAgICAgICBpZiAob3BlbmVkIHx8IGFjdGl2ZSkge1xuICAgICAgICAgICAgaGFuZGxlT3BlbigpO1xuICAgICAgICB9XG5cbiAgICAgICAgcmV0dXJuIGZ1bmN0aW9uIGNsZWFudXAoKSB7XG4gICAgICAgICAgICB1bmxpc3RlbigpO1xuICAgICAgICB9O1xuICAgIH0sIFsgb3BlbmVkIF0pO1xuXG4gICAgLyoqXG4gICAgICogVW5tb3VudFxuICAgICAqL1xuICAgIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgICAgIHJldHVybiBmdW5jdGlvbiBjbGVhbnVwKCkge1xuICAgICAgICAgICAgdW5saXN0ZW4oKTtcbiAgICAgICAgfTtcbiAgICB9LCBbXSk7XG5cbiAgICAvKipcbiAgICAgKiBSZW5kZXJcbiAgICAgKi9cbiAgICByZXR1cm4gKFxuICAgICAgICA8PlxuICAgICAgICAgICAgeyghYWN0aXZlIHx8ICF2aXNpYmxlKSA/IChudWxsKSA6IChcbiAgICAgICAgICAgICAgICA8TW9kYWxPdmVybGF5U3R5bGVkXG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eyhldnQpID0+IChjbG9zZU9uRXNjYXBlIHx8IGNsb3NlQnlFc2NhcGUpICYmIGhhbmRsZUNsb3NlKGV2dCl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGFwaC1tb2RhbC1vdmVybGF5ICR7YWN0aXZlID8gJyBhY3RpdmUnIDogJyd9JHt2aXNpYmxlID8gJyB2aXNpYmxlJyA6ICcnfWB9XG4gICAgICAgICAgICAgICAgICAgIHsuLi5vdmVybGF5UHJvcHN9XG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICl9XG4gICAgICAgICAgICA8TW9kYWxTdHlsZWRcbiAgICAgICAgICAgICAgICB7Li4ucmVzdH1cbiAgICAgICAgICAgICAgICByZWY9e21vZGFsUmVmfVxuICAgICAgICAgICAgICAgIG9wZW5cbiAgICAgICAgICAgICAgICBvcGVuZWQ9e2FjdGl2ZSAmJiB2aXNpYmxlfVxuICAgICAgICAgICAgICAgIHJvbGU9XCJkaWFsb2dcIlxuICAgICAgICAgICAgICAgIHN0eWxlcz17c3R5bGVzfVxuICAgICAgICAgICAgICAgIGhhc0Zvb3Rlcj17KGZvb3RlciB8fCBPYmplY3Qua2V5cyhmb290ZXJQcm9wcykubGVuZ3RoKSA/IHRydWUgOiBmYWxzZX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9e2BhcGgtbW9kYWwgJHtjbGFzc05hbWUgfHwgJyd9JHthY3RpdmUgPyAnIGFjdGl2ZScgOiAnJ30ke3Zpc2libGUgPyAnIHZpc2libGUnIDogJyd9YH0+XG4gICAgICAgICAgICAgICAgeyghYWN0aXZlIHx8ICF2aXNpYmxlKSA/IChudWxsKSA6IChcbiAgICAgICAgICAgICAgICAgICAgPD5cbiAgICAgICAgICAgICAgICAgICAgICAgIHt1bmJsb2NrU2Nyb2xsaW5nID8gKG51bGwpIDogKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxHbG9iYWxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGVzPXtjc3NgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBib2R5IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmbGV4XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZmxleERpcmVjdGlvbj1cImNvbHVtblwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiYXBoLW1vZGFsX19jb250YWluZXJcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7KCF0aXRsZSkgPyAobnVsbCkgOiAoXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxIMVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYm9sZFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2VudGVyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXJnaW49XCIwXCJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImFwaC1tb2RhbF9fY29udGFpbmVyX190aXRsZVwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3RpdGxlfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L0gxPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgeyghaGVhZGVyKSA/IChudWxsKSA6IChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGhlYWRlciBjbGFzc05hbWU9XCJhcGgtbW9kYWxfX2NvbnRhaW5lcl9faGVhZGVyXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7aGVhZGVyfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2hlYWRlcj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxGbGV4XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZsZXhcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYWxpZ25JdGVtcz1cImNlbnRlclwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PXtjb250ZW50SnVzdGlmeSB8fCAnc3RhcnQnfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZXM9e3sgZmxleDogMSwgd2lkdGg6ICcxMDAlJyB9fVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmbGV4RGlyZWN0aW9uPVwiY29sdW1uXCJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiYXBoLW1vZGFsX19jb250YWluZXJfX2NvbnRlbnRcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXggc3R5bGVzPXt7IHdpZHRoOiAnMTAwJScgfX0+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Y2hpbGRyZW59XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvRmxleD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L0ZsZXg+XG4gICAgICAgICAgICAgICAgICAgICAgICA8L0ZsZXg+XG4gICAgICAgICAgICAgICAgICAgICAgICA8QWN0aW9uQmFyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgey4uLmZvb3RlclByb3BzfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGFwaC1tb2RhbF9fY29udGVudF9fZm9vdGVyICR7Zm9vdGVyUHJvcHMuY2xhc3NOYW1lIHx8ICcnfWB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmlzaWJsZT17Zm9vdGVyUHJvcHMudmlzaWJsZSB8fCAodHlwZW9mIGZvb3RlclByb3BzLnZpc2libGUgPT09ICd1bmRlZmluZWQnICYmIGZvb3RlciA/IHRydWUgOiBmYWxzZSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGVzPXt7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC4uLmZvb3RlclByb3BzLnN0eWxlcyxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFkZGluZyAgOiAnMTBweCAwJyxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbWluSGVpZ2h0OiAnaW5pdGlhbCdcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fT5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Zm9vdGVyfVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9BY3Rpb25CYXI+XG4gICAgICAgICAgICAgICAgICAgIDwvPlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICA8L01vZGFsU3R5bGVkPlxuICAgICAgICA8Lz5cbiAgICApO1xufSk7XG5cbi8qIERlZmF1bHQgcHJvcHMgKi9cbk1vZGFsLmRlZmF1bHRQcm9wcyA9IHtcbiAgICB0aXRsZSA6ICcnLFxuICAgIGhlYWRlcjogdW5kZWZpbmVkLFxuXG4gICAgb3BlbmVkICAgICAgICAgIDogZmFsc2UsXG4gICAgb3BlbmVkQ2FsbGJhY2sgIDogKCkgPT4ge30sXG4gICAgY2xvc2VPbkVzY2FwZSAgIDogZmFsc2UsXG4gICAgdW5ibG9ja1Njcm9sbGluZzogZmFsc2UsXG5cbiAgICAvKipcbiAgICAgKiBGbGV4IGBqdXN0aWZ5LWNvbnRlbnRgXG4gICAgICogZmxleC1zdGFydCB8fCBjZW50ZXIgfHwgZmxleC1lbmRcbiAgICAgKi9cbiAgICBjb250ZW50SnVzdGlmeTogJ2ZsZXgtc3RhcnQnLFxuXG4gICAgYWxpZ25JdGVtczogJ2NlbnRlcicsXG4gICAgZm9vdGVyUHJvcHM6IHt9LFxuICAgIHN0eWxlcyAgICAgOiB7fSxcblxuICAgIG92ZXJsYXlQcm9wczoge30sXG59O1xuXG4vKiBQcm9wIFR5cGVzICovXG5Nb2RhbC5wcm9wVHlwZXMgPSB7XG4gICAgdGl0bGUgOiBQcm9wVHlwZXMuYW55LFxuICAgIGhlYWRlcjogUHJvcFR5cGVzLmFueSxcblxuICAgIG9wZW5lZCAgICAgICAgICA6IFByb3BUeXBlcy5ib29sLFxuICAgIG9wZW5lZENhbGxiYWNrICA6IFByb3BUeXBlcy5mdW5jLmlzUmVxdWlyZWQsXG4gICAgY2xvc2VPbkVzY2FwZSAgIDogUHJvcFR5cGVzLmJvb2wsXG4gICAgdW5ibG9ja1Njcm9sbGluZzogUHJvcFR5cGVzLmJvb2wsXG5cbiAgICBjb250ZW50SnVzdGlmeTogUHJvcFR5cGVzLnN0cmluZyxcbiAgICBhbGlnbkl0ZW1zOiBQcm9wVHlwZXMuc3RyaW5nLFxuXG4gICAgb3ZlcmxheVByb3BzOiBQcm9wVHlwZXMub2JqZWN0LFxufTtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBNb2RhbDtcbiJdfQ== */"
 };
 
-var Modal = forwardRef(function (props, ref) {
+var Modal = React.forwardRef(function (props, ref) {
   /**
    * Global props
    */
@@ -5400,27 +5407,27 @@ var Modal = forwardRef(function (props, ref) {
    */
 
 
-  var _useState = useState(opened),
+  var _useState = React.useState(opened),
       _useState2 = _slicedToArray(_useState, 2),
       active = _useState2[0],
       setActive = _useState2[1];
 
-  var _useState3 = useState(opened),
+  var _useState3 = React.useState(opened),
       _useState4 = _slicedToArray(_useState3, 2),
       visible = _useState4[0],
       setVisible = _useState4[1];
 
-  var _useState5 = useState(false),
+  var _useState5 = React.useState(false),
       _useState6 = _slicedToArray(_useState5, 2),
       unmounted = _useState6[0],
       setUnmounted = _useState6[1];
 
-  var _useState7 = useState(null),
+  var _useState7 = React.useState(null),
       _useState8 = _slicedToArray(_useState7, 2),
       activeTimer = _useState8[0],
       setActiveTimer = _useState8[1];
 
-  var _useState9 = useState(null),
+  var _useState9 = React.useState(null),
       _useState10 = _slicedToArray(_useState9, 2),
       visibleTimer = _useState10[0],
       setVisibleTimer = _useState10[1];
@@ -5429,7 +5436,7 @@ var Modal = forwardRef(function (props, ref) {
    */
 
 
-  var modalRef = useRef(null);
+  var modalRef = React.useRef(null);
   /**
    * Handle with close by escape key
    *
@@ -5536,7 +5543,7 @@ var Modal = forwardRef(function (props, ref) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     if (!opened) {
       handleClose();
       unlisten();
@@ -5557,7 +5564,7 @@ var Modal = forwardRef(function (props, ref) {
    * Unmount
    */
 
-  useEffect(function () {
+  React.useEffect(function () {
     return function cleanup() {
       unlisten();
     };
@@ -5566,12 +5573,12 @@ var Modal = forwardRef(function (props, ref) {
    * Render
    */
 
-  return React.createElement(React.Fragment, null, !active || !visible ? null : React.createElement(ModalOverlayStyled, _extends({
+  return React__default.createElement(React__default.Fragment, null, !active || !visible ? null : React__default.createElement(ModalOverlayStyled, _extends({
     onClick: function onClick(evt) {
       return (closeOnEscape || closeByEscape) && handleClose(evt);
     },
     className: "aph-modal-overlay ".concat(active ? ' active' : '').concat(visible ? ' visible' : '')
-  }, overlayProps)), React.createElement(ModalStyled, _extends({}, rest, {
+  }, overlayProps)), React__default.createElement(ModalStyled, _extends({}, rest, {
     ref: modalRef,
     open: true,
     opened: active && visible,
@@ -5579,20 +5586,20 @@ var Modal = forwardRef(function (props, ref) {
     styles: styles,
     hasFooter: footer || Object.keys(footerProps).length ? true : false,
     className: "aph-modal ".concat(className || '').concat(active ? ' active' : '').concat(visible ? ' visible' : '')
-  }), !active || !visible ? null : React.createElement(React.Fragment, null, unblockScrolling ? null : React.createElement(Global, {
+  }), !active || !visible ? null : React__default.createElement(React__default.Fragment, null, unblockScrolling ? null : React__default.createElement(core.Global, {
     styles: _ref
-  }), React.createElement(Flex$1, {
+  }), React__default.createElement(Flex$1, {
     flex: true,
     flexDirection: "column",
     className: "aph-modal__container"
-  }, !title ? null : React.createElement(H1, {
+  }, !title ? null : React__default.createElement(H1, {
     bold: true,
     center: true,
     margin: "0",
     className: "aph-modal__container__title"
-  }, title), !header ? null : React.createElement("header", {
+  }, title), !header ? null : React__default.createElement("header", {
     className: "aph-modal__container__header"
-  }, header), React.createElement(Flex$1, {
+  }, header), React__default.createElement(Flex$1, {
     flex: true,
     alignItems: "center",
     justifyContent: contentJustify || 'start',
@@ -5602,11 +5609,11 @@ var Modal = forwardRef(function (props, ref) {
     },
     flexDirection: "column",
     className: "aph-modal__container__content"
-  }, React.createElement(Flex$1, {
+  }, React__default.createElement(Flex$1, {
     styles: {
       width: '100%'
     }
-  }, children))), React.createElement(ActionBar, _extends({}, footerProps, {
+  }, children))), React__default.createElement(ActionBar, _extends({}, footerProps, {
     className: "aph-modal__content__footer ".concat(footerProps.className || ''),
     visible: footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false),
     styles: _objectSpread$a({}, footerProps.styles, {
@@ -5683,7 +5690,7 @@ var SidePillStyled = _styled("aside", {
 
 /* Component Itself */
 
-var SidePill = memo(function (props) {
+var SidePill = React.memo(function (props) {
   /**
    * Inherit props
    */
@@ -5695,11 +5702,11 @@ var SidePill = memo(function (props) {
    * Render
    */
 
-  return React.createElement(SidePillStyled, _extends({}, props, {
+  return React__default.createElement(SidePillStyled, _extends({}, props, {
     className: "aph-sidepill ".concat(className || '')
-  }), !hoverable ? null : React.createElement("span", {
+  }), !hoverable ? null : React__default.createElement("span", {
     className: "aph-sidepill__hoverable ".concat(right ? 'aph-sidepill__hoverable--right' : '')
-  }, hoverable), React.createElement("span", {
+  }, hoverable), React__default.createElement("span", {
     className: "aph-sidepill__content"
   }, children));
 });
@@ -5726,12 +5733,12 @@ var AStyled = _styled("a", {
 /* Component Itself */
 
 
-var A = forwardRef(function (props, ref) {
+var A = React.forwardRef(function (props, ref) {
   var className = props.className,
       color = props.color,
       rest = _objectWithoutProperties(props, ["className", "color"]);
 
-  return React.createElement(AStyled, _extends({}, rest, {
+  return React__default.createElement(AStyled, _extends({}, rest, {
     ref: ref,
     textColor: color,
     className: "aph-a ".concat(className || '')
@@ -5775,7 +5782,7 @@ var H1Styled = _styled("h1", {
 /* Component Itself */
 
 
-var H1 = forwardRef(function (props, ref) {
+var H1 = React.forwardRef(function (props, ref) {
   var className = props.className,
       color = props.color,
       align = props.align,
@@ -5786,7 +5793,7 @@ var H1 = forwardRef(function (props, ref) {
       upper = props.upper,
       rest = _objectWithoutProperties(props, ["className", "color", "align", "center", "left", "right", "lower", "upper"]);
 
-  return React.createElement(H1Styled, _extends({
+  return React__default.createElement(H1Styled, _extends({
     textAlign: align,
     textColor: color,
     textLeft: left,
@@ -5836,7 +5843,7 @@ var H2Styled = _styled("h2", {
 /* Component Itself */
 
 
-var H2 = forwardRef(function (props, ref) {
+var H2 = React.forwardRef(function (props, ref) {
   var className = props.className,
       color = props.color,
       align = props.align,
@@ -5847,7 +5854,7 @@ var H2 = forwardRef(function (props, ref) {
       upper = props.upper,
       rest = _objectWithoutProperties(props, ["className", "color", "align", "center", "left", "right", "lower", "upper"]);
 
-  return React.createElement(H2Styled, _extends({
+  return React__default.createElement(H2Styled, _extends({
     textAlign: align,
     textLeft: left,
     textCenter: center,
@@ -5897,7 +5904,7 @@ var H3Styled = _styled("h3", {
 /* Component Itself */
 
 
-var H3 = forwardRef(function (props, ref) {
+var H3 = React.forwardRef(function (props, ref) {
   var className = props.className,
       color = props.color,
       align = props.align,
@@ -5908,7 +5915,7 @@ var H3 = forwardRef(function (props, ref) {
       upper = props.upper,
       rest = _objectWithoutProperties(props, ["className", "color", "align", "center", "left", "right", "lower", "upper"]);
 
-  return React.createElement(H3Styled, _extends({
+  return React__default.createElement(H3Styled, _extends({
     textAlign: align,
     textLeft: left,
     textCenter: center,
@@ -5958,7 +5965,7 @@ var PStyled = _styled("p", {
 /* Component Itself */
 
 
-var P = forwardRef(function (props, ref) {
+var P = React.forwardRef(function (props, ref) {
   var className = props.className,
       color = props.color,
       align = props.align,
@@ -5970,7 +5977,7 @@ var P = forwardRef(function (props, ref) {
       small = props.small,
       rest = _objectWithoutProperties(props, ["className", "color", "align", "center", "left", "right", "lower", "upper", "small"]);
 
-  return React.createElement(PStyled, _extends({
+  return React__default.createElement(PStyled, _extends({
     textAlign: align,
     textLeft: left,
     textCenter: center,
@@ -6024,7 +6031,7 @@ function Label(props) {
    */
 
 
-  return React.createElement(P, _extends({
+  return React__default.createElement(P, _extends({
     bold: true,
     small: true,
     upper: true,
@@ -6063,8 +6070,8 @@ _styled('div', {
 /* Component it self */
 
 
-var Container = forwardRef(function (props, ref) {
-  return React.createElement(AphContainer, _extends({}, props, {
+var Container = React.forwardRef(function (props, ref) {
+  return React__default.createElement(AphContainer, _extends({}, props, {
     ref: ref,
     className: "aph-container ".concat(props.className || '')
   }), props.children);
@@ -6158,10 +6165,10 @@ _styled('div', {
 /* Component */
 
 
-var Row = forwardRef(function (props, ref) {
+var Row = React.forwardRef(function (props, ref) {
   var className = props.className,
       children = props.children;
-  return React.createElement(RowWrapper, _extends({}, props, {
+  return React__default.createElement(RowWrapper, _extends({}, props, {
     ref: ref,
     className: "aph-row ".concat(className || '')
   }), children);
@@ -6249,10 +6256,10 @@ _styled('div', {
 /* Component */
 
 
-var Column = forwardRef(function (props, ref) {
+var Column = React.forwardRef(function (props, ref) {
   var className = props.className,
       children = props.children;
-  return React.createElement(ColumnWrapper, _extends({}, props, {
+  return React__default.createElement(ColumnWrapper, _extends({}, props, {
     ref: ref,
     className: "aph-col ".concat(className || '')
   }), children);
@@ -6296,35 +6303,35 @@ var Flex = function Flex() {
 var FlexWrap = function FlexWrap(props) {
   return (
     /*#__PURE__*/
-    css("flex-wrap:", props.flexWrap, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUStCIiwiZmlsZSI6IkZsZXhTdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgeyBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuY29uc3QgRmxleCA9ICgpID0+IGNzc2BcbiAgICBkaXNwbGF5OiBmbGV4O1xuYDtcblxuY29uc3QgRmxleFdyYXAgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXdyYXA6ICR7cHJvcHMuZmxleFdyYXB9O1xuYDtcblxuY29uc3QgQWxpZ25JdGVtcyA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduSXRlbXN9O1xuYDtcblxuY29uc3QgQWxpZ25Db250ZW50ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24taXRlbXM6ICR7cHJvcHMuYWxpZ25Db250ZW50fTtcbmA7XG5cbmNvbnN0IEZsZXhEaXJlY3Rpb24gPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWRpcmVjdGlvbjogJHtwcm9wcy5mbGV4RGlyZWN0aW9ufTtcbmA7XG5cbmNvbnN0IEp1c3RpZnlDb250ZW50ZSA9IChwcm9wcykgPT4gY3NzYFxuICAgIGp1c3RpZnktY29udGVudDogJHtwcm9wcy5qdXN0aWZ5Q29udGVudH07XG5gO1xuXG4vKiBQcm9wZXJ0aWVzIGZvciB0aGUgQ2hpbGRyZW4gKi9cbmNvbnN0IE9yZGVyID0gKHByb3BzKSA9PiBjc3NgXG4gICAgb3JkZXI6ICR7cHJvcHMub3JkZXJ9O1xuYDtcblxuY29uc3QgRmxleEdyb3cgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWdyb3c6ICR7cHJvcHMuZmxleEdyb3d9O1xuYDtcblxuY29uc3QgQWxpZ25TZWxmID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24tc2VsZjogJHtwcm9wcy5hbGlnblNlbGZ9O1xuYDtcblxuY29uc3QgRmxleFNocmluayA9IChwcm9wcykgPT4gY3NzYFxuICAgIGZsZXgtc2hyaW5rOiAke3Byb3BzLmZsZXhTaHJpbmt9O1xuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgQXBoRmxleCA9IHN0eWxlZC5kaXZgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4ICYmIChGbGV4KX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFdyYXAgICAgICAgJiYgKEZsZXhXcmFwKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduSXRlbXMgICAgICYmIChBbGlnbkl0ZW1zKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduQ29udGVudCAgICYmIChBbGlnbkNvbnRlbnQpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleERpcmVjdGlvbiAgJiYgKEZsZXhEaXJlY3Rpb24pfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuanVzdGlmeUNvbnRlbnQgJiYgKEp1c3RpZnlDb250ZW50ZSl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLm9yZGVyICAgICAgJiYgKE9yZGVyKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhHcm93ICAgJiYgKEZsZXhHcm93KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduU2VsZiAgJiYgKEFsaWduU2VsZil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4U2hyaW5rICYmIChGbGV4U2hyaW5rKX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuc3R5bGVzfTtcbmA7XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgQXBoRmxleDtcbiJdfQ== */"))
+    core.css("flex-wrap:", props.flexWrap, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUStCIiwiZmlsZSI6IkZsZXhTdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgeyBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuY29uc3QgRmxleCA9ICgpID0+IGNzc2BcbiAgICBkaXNwbGF5OiBmbGV4O1xuYDtcblxuY29uc3QgRmxleFdyYXAgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXdyYXA6ICR7cHJvcHMuZmxleFdyYXB9O1xuYDtcblxuY29uc3QgQWxpZ25JdGVtcyA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduSXRlbXN9O1xuYDtcblxuY29uc3QgQWxpZ25Db250ZW50ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24taXRlbXM6ICR7cHJvcHMuYWxpZ25Db250ZW50fTtcbmA7XG5cbmNvbnN0IEZsZXhEaXJlY3Rpb24gPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWRpcmVjdGlvbjogJHtwcm9wcy5mbGV4RGlyZWN0aW9ufTtcbmA7XG5cbmNvbnN0IEp1c3RpZnlDb250ZW50ZSA9IChwcm9wcykgPT4gY3NzYFxuICAgIGp1c3RpZnktY29udGVudDogJHtwcm9wcy5qdXN0aWZ5Q29udGVudH07XG5gO1xuXG4vKiBQcm9wZXJ0aWVzIGZvciB0aGUgQ2hpbGRyZW4gKi9cbmNvbnN0IE9yZGVyID0gKHByb3BzKSA9PiBjc3NgXG4gICAgb3JkZXI6ICR7cHJvcHMub3JkZXJ9O1xuYDtcblxuY29uc3QgRmxleEdyb3cgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWdyb3c6ICR7cHJvcHMuZmxleEdyb3d9O1xuYDtcblxuY29uc3QgQWxpZ25TZWxmID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24tc2VsZjogJHtwcm9wcy5hbGlnblNlbGZ9O1xuYDtcblxuY29uc3QgRmxleFNocmluayA9IChwcm9wcykgPT4gY3NzYFxuICAgIGZsZXgtc2hyaW5rOiAke3Byb3BzLmZsZXhTaHJpbmt9O1xuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgQXBoRmxleCA9IHN0eWxlZC5kaXZgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4ICYmIChGbGV4KX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFdyYXAgICAgICAgJiYgKEZsZXhXcmFwKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduSXRlbXMgICAgICYmIChBbGlnbkl0ZW1zKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduQ29udGVudCAgICYmIChBbGlnbkNvbnRlbnQpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleERpcmVjdGlvbiAgJiYgKEZsZXhEaXJlY3Rpb24pfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuanVzdGlmeUNvbnRlbnQgJiYgKEp1c3RpZnlDb250ZW50ZSl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLm9yZGVyICAgICAgJiYgKE9yZGVyKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhHcm93ICAgJiYgKEZsZXhHcm93KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduU2VsZiAgJiYgKEFsaWduU2VsZil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4U2hyaW5rICYmIChGbGV4U2hyaW5rKX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuc3R5bGVzfTtcbmA7XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgQXBoRmxleDtcbiJdfQ== */"))
   );
 };
 
 var AlignItems = function AlignItems(props) {
   return (
     /*#__PURE__*/
-    css("align-items:", props.alignItems, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBWWlDIiwiZmlsZSI6IkZsZXhTdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgeyBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuY29uc3QgRmxleCA9ICgpID0+IGNzc2BcbiAgICBkaXNwbGF5OiBmbGV4O1xuYDtcblxuY29uc3QgRmxleFdyYXAgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXdyYXA6ICR7cHJvcHMuZmxleFdyYXB9O1xuYDtcblxuY29uc3QgQWxpZ25JdGVtcyA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduSXRlbXN9O1xuYDtcblxuY29uc3QgQWxpZ25Db250ZW50ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24taXRlbXM6ICR7cHJvcHMuYWxpZ25Db250ZW50fTtcbmA7XG5cbmNvbnN0IEZsZXhEaXJlY3Rpb24gPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWRpcmVjdGlvbjogJHtwcm9wcy5mbGV4RGlyZWN0aW9ufTtcbmA7XG5cbmNvbnN0IEp1c3RpZnlDb250ZW50ZSA9IChwcm9wcykgPT4gY3NzYFxuICAgIGp1c3RpZnktY29udGVudDogJHtwcm9wcy5qdXN0aWZ5Q29udGVudH07XG5gO1xuXG4vKiBQcm9wZXJ0aWVzIGZvciB0aGUgQ2hpbGRyZW4gKi9cbmNvbnN0IE9yZGVyID0gKHByb3BzKSA9PiBjc3NgXG4gICAgb3JkZXI6ICR7cHJvcHMub3JkZXJ9O1xuYDtcblxuY29uc3QgRmxleEdyb3cgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWdyb3c6ICR7cHJvcHMuZmxleEdyb3d9O1xuYDtcblxuY29uc3QgQWxpZ25TZWxmID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24tc2VsZjogJHtwcm9wcy5hbGlnblNlbGZ9O1xuYDtcblxuY29uc3QgRmxleFNocmluayA9IChwcm9wcykgPT4gY3NzYFxuICAgIGZsZXgtc2hyaW5rOiAke3Byb3BzLmZsZXhTaHJpbmt9O1xuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgQXBoRmxleCA9IHN0eWxlZC5kaXZgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4ICYmIChGbGV4KX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFdyYXAgICAgICAgJiYgKEZsZXhXcmFwKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduSXRlbXMgICAgICYmIChBbGlnbkl0ZW1zKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduQ29udGVudCAgICYmIChBbGlnbkNvbnRlbnQpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleERpcmVjdGlvbiAgJiYgKEZsZXhEaXJlY3Rpb24pfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuanVzdGlmeUNvbnRlbnQgJiYgKEp1c3RpZnlDb250ZW50ZSl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLm9yZGVyICAgICAgJiYgKE9yZGVyKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhHcm93ICAgJiYgKEZsZXhHcm93KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduU2VsZiAgJiYgKEFsaWduU2VsZil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4U2hyaW5rICYmIChGbGV4U2hyaW5rKX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuc3R5bGVzfTtcbmA7XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgQXBoRmxleDtcbiJdfQ== */"))
+    core.css("align-items:", props.alignItems, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBWWlDIiwiZmlsZSI6IkZsZXhTdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3JlIFBhY2thZ2VzICovXG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgeyBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuY29uc3QgRmxleCA9ICgpID0+IGNzc2BcbiAgICBkaXNwbGF5OiBmbGV4O1xuYDtcblxuY29uc3QgRmxleFdyYXAgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXdyYXA6ICR7cHJvcHMuZmxleFdyYXB9O1xuYDtcblxuY29uc3QgQWxpZ25JdGVtcyA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduSXRlbXN9O1xuYDtcblxuY29uc3QgQWxpZ25Db250ZW50ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24taXRlbXM6ICR7cHJvcHMuYWxpZ25Db250ZW50fTtcbmA7XG5cbmNvbnN0IEZsZXhEaXJlY3Rpb24gPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWRpcmVjdGlvbjogJHtwcm9wcy5mbGV4RGlyZWN0aW9ufTtcbmA7XG5cbmNvbnN0IEp1c3RpZnlDb250ZW50ZSA9IChwcm9wcykgPT4gY3NzYFxuICAgIGp1c3RpZnktY29udGVudDogJHtwcm9wcy5qdXN0aWZ5Q29udGVudH07XG5gO1xuXG4vKiBQcm9wZXJ0aWVzIGZvciB0aGUgQ2hpbGRyZW4gKi9cbmNvbnN0IE9yZGVyID0gKHByb3BzKSA9PiBjc3NgXG4gICAgb3JkZXI6ICR7cHJvcHMub3JkZXJ9O1xuYDtcblxuY29uc3QgRmxleEdyb3cgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LWdyb3c6ICR7cHJvcHMuZmxleEdyb3d9O1xuYDtcblxuY29uc3QgQWxpZ25TZWxmID0gKHByb3BzKSA9PiBjc3NgXG4gICAgYWxpZ24tc2VsZjogJHtwcm9wcy5hbGlnblNlbGZ9O1xuYDtcblxuY29uc3QgRmxleFNocmluayA9IChwcm9wcykgPT4gY3NzYFxuICAgIGZsZXgtc2hyaW5rOiAke3Byb3BzLmZsZXhTaHJpbmt9O1xuYDtcblxuLyogQ29tcG9uZW50IEl0c2VsZiAqL1xuY29uc3QgQXBoRmxleCA9IHN0eWxlZC5kaXZgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4ICYmIChGbGV4KX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFdyYXAgICAgICAgJiYgKEZsZXhXcmFwKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduSXRlbXMgICAgICYmIChBbGlnbkl0ZW1zKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduQ29udGVudCAgICYmIChBbGlnbkNvbnRlbnQpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleERpcmVjdGlvbiAgJiYgKEZsZXhEaXJlY3Rpb24pfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuanVzdGlmeUNvbnRlbnQgJiYgKEp1c3RpZnlDb250ZW50ZSl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLm9yZGVyICAgICAgJiYgKE9yZGVyKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhHcm93ICAgJiYgKEZsZXhHcm93KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmFsaWduU2VsZiAgJiYgKEFsaWduU2VsZil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4U2hyaW5rICYmIChGbGV4U2hyaW5rKX07XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuc3R5bGVzfTtcbmA7XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgQXBoRmxleDtcbiJdfQ== */"))
   );
 };
 
 var AlignContent = function AlignContent(props) {
   return (
     /*#__PURE__*/
-    css("align-items:", props.alignContent, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZ0JtQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("align-items:", props.alignContent, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZ0JtQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 
 var FlexDirection = function FlexDirection(props) {
   return (
     /*#__PURE__*/
-    css("flex-direction:", props.flexDirection, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBb0JvQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("flex-direction:", props.flexDirection, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBb0JvQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 
 var JustifyContente = function JustifyContente(props) {
   return (
     /*#__PURE__*/
-    css("justify-content:", props.justifyContent, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0JzQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("justify-content:", props.justifyContent, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0JzQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 /* Properties for the Children */
@@ -6333,28 +6340,28 @@ var JustifyContente = function JustifyContente(props) {
 var Order = function Order(props) {
   return (
     /*#__PURE__*/
-    css("order:", props.order, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkI0QiIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("order:", props.order, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkI0QiIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 
 var FlexGrow = function FlexGrow(props) {
   return (
     /*#__PURE__*/
-    css("flex-grow:", props.flexGrow, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBaUMrQiIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("flex-grow:", props.flexGrow, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBaUMrQiIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 
 var AlignSelf = function AlignSelf(props) {
   return (
     /*#__PURE__*/
-    css("align-self:", props.alignSelf, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUNnQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("align-self:", props.alignSelf, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUNnQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 
 var FlexShrink = function FlexShrink(props) {
   return (
     /*#__PURE__*/
-    css("flex-shrink:", props.flexShrink, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBeUNpQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
+    core.css("flex-shrink:", props.flexShrink, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZsZXhTdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBeUNpQyIsImZpbGUiOiJGbGV4U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IEZsZXggPSAoKSA9PiBjc3NgXG4gICAgZGlzcGxheTogZmxleDtcbmA7XG5cbmNvbnN0IEZsZXhXcmFwID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC13cmFwOiAke3Byb3BzLmZsZXhXcmFwfTtcbmA7XG5cbmNvbnN0IEFsaWduSXRlbXMgPSAocHJvcHMpID0+IGNzc2BcbiAgICBhbGlnbi1pdGVtczogJHtwcm9wcy5hbGlnbkl0ZW1zfTtcbmA7XG5cbmNvbnN0IEFsaWduQ29udGVudCA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLWl0ZW1zOiAke3Byb3BzLmFsaWduQ29udGVudH07XG5gO1xuXG5jb25zdCBGbGV4RGlyZWN0aW9uID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1kaXJlY3Rpb246ICR7cHJvcHMuZmxleERpcmVjdGlvbn07XG5gO1xuXG5jb25zdCBKdXN0aWZ5Q29udGVudGUgPSAocHJvcHMpID0+IGNzc2BcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICR7cHJvcHMuanVzdGlmeUNvbnRlbnR9O1xuYDtcblxuLyogUHJvcGVydGllcyBmb3IgdGhlIENoaWxkcmVuICovXG5jb25zdCBPcmRlciA9IChwcm9wcykgPT4gY3NzYFxuICAgIG9yZGVyOiAke3Byb3BzLm9yZGVyfTtcbmA7XG5cbmNvbnN0IEZsZXhHcm93ID0gKHByb3BzKSA9PiBjc3NgXG4gICAgZmxleC1ncm93OiAke3Byb3BzLmZsZXhHcm93fTtcbmA7XG5cbmNvbnN0IEFsaWduU2VsZiA9IChwcm9wcykgPT4gY3NzYFxuICAgIGFsaWduLXNlbGY6ICR7cHJvcHMuYWxpZ25TZWxmfTtcbmA7XG5cbmNvbnN0IEZsZXhTaHJpbmsgPSAocHJvcHMpID0+IGNzc2BcbiAgICBmbGV4LXNocmluazogJHtwcm9wcy5mbGV4U2hyaW5rfTtcbmA7XG5cbi8qIENvbXBvbmVudCBJdHNlbGYgKi9cbmNvbnN0IEFwaEZsZXggPSBzdHlsZWQuZGl2YFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG5cbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleCAmJiAoRmxleCl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhXcmFwICAgICAgICYmIChGbGV4V3JhcCl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkl0ZW1zICAgICAmJiAoQWxpZ25JdGVtcyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnbkNvbnRlbnQgICAmJiAoQWxpZ25Db250ZW50KX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmZsZXhEaXJlY3Rpb24gICYmIChGbGV4RGlyZWN0aW9uKX07XG4gICAgJHsocHJvcHMpID0+IHByb3BzLmp1c3RpZnlDb250ZW50ICYmIChKdXN0aWZ5Q29udGVudGUpfTtcblxuICAgICR7KHByb3BzKSA9PiBwcm9wcy5vcmRlciAgICAgICYmIChPcmRlcil9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5mbGV4R3JvdyAgICYmIChGbGV4R3Jvdyl9O1xuICAgICR7KHByb3BzKSA9PiBwcm9wcy5hbGlnblNlbGYgICYmIChBbGlnblNlbGYpfTtcbiAgICAkeyhwcm9wcykgPT4gcHJvcHMuZmxleFNocmluayAmJiAoRmxleFNocmluayl9O1xuXG4gICAgJHsocHJvcHMpID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaEZsZXg7XG4iXX0= */"))
   );
 };
 /* Component Itself */
@@ -6397,7 +6404,7 @@ function Flex$1(props) {
    * Render
    */
 
-  return React.createElement(AphFlex, _extends({}, props, {
+  return React__default.createElement(AphFlex, _extends({}, props, {
     className: "aph-flex ".concat(className)
   }));
 }
@@ -6445,9 +6452,9 @@ var AphListStyled = _styled("ul", {
 /* Component Itself */
 
 
-var List = forwardRef(function (props, ref) {
+var List = React.forwardRef(function (props, ref) {
   var className = props.className;
-  return React.createElement(AphListStyled, _extends({
+  return React__default.createElement(AphListStyled, _extends({
     role: "listbox"
   }, props, {
     ref: ref,
@@ -6496,14 +6503,14 @@ var AphListItemStyled = _styled("li", {
 /* Component Itself */
 
 
-var ListItem = forwardRef(function (props, ref) {
+var ListItem = React.forwardRef(function (props, ref) {
   var className = props.className,
       component = props.component,
       hoverable = props.hoverable;
   var AphListItem = component ? AphListItemStyled.withComponent(component, {
     target: "e6wegxb1"
   }) : AphListItemStyled;
-  return React.createElement(AphListItem, _extends({
+  return React__default.createElement(AphListItem, _extends({
     role: "option"
   }, props, {
     ref: ref,
@@ -6580,8 +6587,8 @@ _styled('div', {
 /* Component */
 
 
-var ListGroup = forwardRef(function (props, ref) {
-  return React.createElement(AphListGroup, _extends({}, props, {
+var ListGroup = React.forwardRef(function (props, ref) {
+  return React__default.createElement(AphListGroup, _extends({}, props, {
     ref: ref,
     className: "aph-list-group ".concat(props.className || '')
   }), props.children);
@@ -6612,11 +6619,11 @@ _styled('div', {
 /* Component */
 
 
-var ListGroupItem = forwardRef(function (props, ref) {
+var ListGroupItem = React.forwardRef(function (props, ref) {
   var className = props.className,
       children = props.children;
-  return React.createElement(AphListGroupItem, _extends({}, props, {
-    ref: forwardRef,
+  return React__default.createElement(AphListGroupItem, _extends({}, props, {
+    ref: React.forwardRef,
     className: "".concat(props.header ? 'aph-list-group__header ' : 'aph-list-group__item ').concat(className || '')
   }), children);
 });
@@ -6716,7 +6723,7 @@ function Accordion(props) {
    * Local values
    */
 
-  var _useState = useState(props.opened || false),
+  var _useState = React.useState(props.opened || false),
       _useState2 = _slicedToArray(_useState, 2),
       opened = _useState2[0],
       setOpened = _useState2[1];
@@ -6741,17 +6748,17 @@ function Accordion(props) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     setOpened(props.opened);
   }, [props.opened]);
   /**
    * Render
    */
 
-  return React.createElement(AphAccordion, {
+  return React__default.createElement(AphAccordion, {
     styles: styles,
     className: "aph-accordion ".concat(className)
-  }, React.createElement(ListItem, _extends({
+  }, React__default.createElement(ListItem, _extends({
     id: id
   }, headerProps, {
     header: headerDark ? true : false,
@@ -6762,15 +6769,15 @@ function Accordion(props) {
     }, headerStyles),
     onClick: toggle,
     className: "aph-accordion__header"
-  }), children ? React.createElement(Header, {
+  }), children ? React__default.createElement(Header, {
     className: "aph-accordion__header-row"
-  }, withIcon && React.createElement(IconColumn, {
+  }, withIcon && React__default.createElement(IconColumn, {
     className: "aph-accordion__header__col-icon"
-  }, React.createElement(Icon, _extends({
+  }, React__default.createElement(Icon, _extends({
     size: iconSize || _iconSize,
     slug: "arrow-".concat(opened ? 'up' : 'down', "-circle"),
     styles: iconStyles
-  }, iconProps))), React.createElement(ContentColumn, {
+  }, iconProps))), React__default.createElement(ContentColumn, {
     className: "aph-accordion__header__col-content"
   }, header)) : header), opened && children);
 }
@@ -6811,7 +6818,7 @@ function ownKeys$h(object, enumerableOnly) { var keys = Object.keys(object); if 
 function _objectSpread$h(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$h(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$h(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Itself */
 
-var Collapsible = forwardRef(function (props, ref) {
+var Collapsible = React.forwardRef(function (props, ref) {
   var header = props.header,
       headerProps = props.headerProps,
       children = props.children,
@@ -6821,25 +6828,25 @@ var Collapsible = forwardRef(function (props, ref) {
       icon = props.icon,
       iconSize = props.iconSize;
   var timerDelay = delay * 1000;
-  var wrapperRef = useRef(null);
-  var wrapperContentRef = useRef(null);
+  var wrapperRef = React.useRef(null);
+  var wrapperContentRef = React.useRef(null);
 
-  var _useState = useState(props.opened || false),
+  var _useState = React.useState(props.opened || false),
       _useState2 = _slicedToArray(_useState, 2),
       opened = _useState2[0],
       setOpened = _useState2[1];
 
-  var _useState3 = useState(null),
+  var _useState3 = React.useState(null),
       _useState4 = _slicedToArray(_useState3, 2),
       openTimer = _useState4[0],
       setOpenTimer = _useState4[1];
 
-  var _useState5 = useState(null),
+  var _useState5 = React.useState(null),
       _useState6 = _slicedToArray(_useState5, 2),
       closeTimer = _useState6[0],
       setCloseTimer = _useState6[1];
 
-  var _useState7 = useState(Object.assign({
+  var _useState7 = React.useState(Object.assign({
     transitionDuration: props.delay + 's'
   }, props.opened ? null : {
     maxHeight: 0
@@ -6941,13 +6948,13 @@ var Collapsible = forwardRef(function (props, ref) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     return function cleanup() {
       clearTimeout(openTimer);
       clearTimeout(closeTimer);
     };
   }, []);
-  return React.createElement(Card, _extends({}, props, {
+  return React__default.createElement(Card, _extends({}, props, {
     ref: ref,
     hover: true,
     className: "aph-collapsible ".concat(opened ? 'active' : ''),
@@ -6955,13 +6962,13 @@ var Collapsible = forwardRef(function (props, ref) {
       position: 'relative',
       overflow: 'hidden'
     }, props.styles)
-  }), !header ? null : React.createElement(HeaderTitle, _extends({}, headerProps, {
+  }), !header ? null : React__default.createElement(HeaderTitle, _extends({}, headerProps, {
     styles: Object.assign(headerStyles, {
       paddingRight: !icon ? null : "".concat(iconSize, "px")
     }),
     onClick: toggle,
     role: "button"
-  }), header, !icon ? null : React.createElement(Icon, {
+  }), header, !icon ? null : React__default.createElement(Icon, {
     slug: "arrow-down",
     size: iconSize,
     color: colors$1.get('mercury', 'light'),
@@ -6972,11 +6979,11 @@ var Collapsible = forwardRef(function (props, ref) {
       transform: "translateY(-50%)".concat(opened ? ' rotate(180deg)' : ''),
       transition: "transform ".concat(delay, "s linear")
     }
-  })), React.createElement(AphCollapsibleChildrenStyled, {
+  })), React__default.createElement(AphCollapsibleChildrenStyled, {
     ref: wrapperRef,
     styles: styles,
     visible: opened
-  }, React.createElement("div", {
+  }, React__default.createElement("div", {
     ref: wrapperContentRef
   }, children)));
 });
@@ -7059,17 +7066,17 @@ function Countdown(props) {
    */
 
 
-  var _useState = useState(seconds),
+  var _useState = React.useState(seconds),
       _useState2 = _slicedToArray(_useState, 2),
       countdown = _useState2[0],
       setCountdown = _useState2[1];
 
-  var _useState3 = useState(0),
+  var _useState3 = React.useState(0),
       _useState4 = _slicedToArray(_useState3, 2),
       dashoffset = _useState4[0],
       setDashoffset = _useState4[1];
 
-  var _useState5 = useState(null),
+  var _useState5 = React.useState(null),
       _useState6 = _slicedToArray(_useState5, 2),
       timer = _useState6[0],
       setTimer = _useState6[1];
@@ -7141,7 +7148,7 @@ function Countdown(props) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     var interval = handleStart();
     return function cleanup() {
       clearInterval(timer);
@@ -7152,7 +7159,7 @@ function Countdown(props) {
    * Unmount
    */
 
-  useEffect(function () {
+  React.useEffect(function () {
     return function cleanup() {
       clearInterval(timer);
     };
@@ -7161,25 +7168,25 @@ function Countdown(props) {
    * Render
    */
 
-  return React.createElement(CountdownStyled, _extends({}, rest, {
+  return React__default.createElement(CountdownStyled, _extends({}, rest, {
     aphBackground: background,
     aphColor: color,
     aphSelector: SELECTOR,
     aphSize: size,
     aphStyles: styles,
     className: "".concat(SELECTOR, "-wrapper ").concat(className || '')
-  }), React.createElement("svg", {
+  }), React__default.createElement("svg", {
     className: "".concat(SELECTOR, " ").concat(className || ''),
     width: size,
     height: size,
     viewBox: "0 0 ".concat(VIEW_BOX, " ").concat(VIEW_BOX)
-  }, React.createElement("circle", {
+  }, React__default.createElement("circle", {
     className: "".concat(SELECTOR, "__trace"),
     cx: VIEW_BOX / 2,
     cy: VIEW_BOX / 2,
     r: RADIUS$1,
     strokeWidth: strokeWidth
-  }), React.createElement("circle", {
+  }), React__default.createElement("circle", {
     className: "".concat(SELECTOR, "__line"),
     cx: VIEW_BOX / 2,
     cy: VIEW_BOX / 2,
@@ -7189,7 +7196,7 @@ function Countdown(props) {
       strokeDasharray: CIRCUMFERENCE,
       strokeDashoffset: dashoffset
     }
-  })), React.createElement("h4", {
+  })), React__default.createElement("h4", {
     className: "".concat(SELECTOR, "__count")
   }, countdown));
 }
@@ -7243,40 +7250,40 @@ function Pagination(props) {
    */
 
 
-  return React.createElement(AphPaginationStyled, _extends({
+  return React__default.createElement(AphPaginationStyled, _extends({
     locale: localeInfo,
     showLessItems: true
   }, rest, {
     as: !loading ? Paginator : Placeholder,
-    jumpPrevIcon: React.createElement(React.Fragment, null, "\u2022\u2022\u2022"),
-    jumpNextIcon: React.createElement(React.Fragment, null, "\u2022\u2022\u2022"),
-    prevIcon: React.createElement(Icon, {
+    jumpPrevIcon: React__default.createElement(React__default.Fragment, null, "\u2022\u2022\u2022"),
+    jumpNextIcon: React__default.createElement(React__default.Fragment, null, "\u2022\u2022\u2022"),
+    prevIcon: React__default.createElement(Icon, {
       slug: "arrow",
       direction: "left",
       color: "inverse",
       size: 25
     }),
-    nextIcon: React.createElement(Icon, {
+    nextIcon: React__default.createElement(Icon, {
       slug: "arrow",
       direction: "right",
       color: "inverse",
       size: 25
     }),
     className: "aph-pagination ".concat(className || '')
-  }), !loading ? null : React.createElement(React.Fragment, null, React.createElement(Placeholder, {
+  }), !loading ? null : React__default.createElement(React__default.Fragment, null, React__default.createElement(Placeholder, {
     width: 30,
     height: 30,
     className: "rc-pagination-prev"
   }), Array.from({
     length: 3
   }, function (number, index) {
-    return React.createElement(Placeholder, {
+    return React__default.createElement(Placeholder, {
       width: 30,
       height: 30,
       className: "rc-pagination-item",
       key: "rc-pagination-placeholder-".concat(index)
     });
-  }), React.createElement(Placeholder, {
+  }), React__default.createElement(Placeholder, {
     width: 30,
     height: 30,
     className: "rc-pagination-next"
@@ -7346,7 +7353,7 @@ var AphCheckboxStyled = _styled("input", {
 }, ";left:", function (props) {
   return !props.labelRight && !props.right ? '0' : null;
 }, ";}&:checked + .aph-form-control-mask:before{background-image:url('", function (props) {
-  return ICONS.ENCODE_SVG(React.createElement(IconCheckThin, {
+  return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
     color: colors$1.getFromTheme(props, props.color || 'secondary')
   }));
@@ -7355,7 +7362,7 @@ var AphCheckboxStyled = _styled("input", {
 }, ";background-color:", function (props) {
   return colors$1.getFromTheme(props, 'background');
 }, ";}&:checked + .aph-form-control-mask:before{background-image:url('", function (props) {
-  return ICONS.ENCODE_SVG(React.createElement(IconCheckThin, {
+  return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
     color: colors$1.get('mercury')
   }));
@@ -7363,7 +7370,7 @@ var AphCheckboxStyled = _styled("input", {
 /* Component Itself */
 
 
-var Checkbox = forwardRef(function (props, ref) {
+var Checkbox = React.forwardRef(function (props, ref) {
   var className = props.className,
       children = props.children,
       color = props.color,
@@ -7373,12 +7380,12 @@ var Checkbox = forwardRef(function (props, ref) {
       labelRight = props.labelRight;
   var newProps = Object.assign({}, props);
   delete newProps.children;
-  return React.createElement(AphCheckboxWrapperStyled, null, React.createElement(AphCheckboxStyled, _extends({
+  return React__default.createElement(AphCheckboxWrapperStyled, null, React__default.createElement(AphCheckboxStyled, _extends({
     className: "aph-form-control ".concat(className || '')
   }, newProps, {
     ref: ref,
     type: "checkbox"
-  })), React.createElement(AphCheckboxMaskStyled, _extends({
+  })), React__default.createElement(AphCheckboxMaskStyled, _extends({
     className: "aph-form-control-mask ".concat(className || ''),
     htmlFor: id,
     color: color,
@@ -7479,7 +7486,7 @@ var AphFormControlErrorMsgStyled = _styled("label", {
 
 /* Component Itself */
 
-var FormControlInputNumber = memo(forwardRef(function (props, ref) {
+var FormControlInputNumber = React.memo(React.forwardRef(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -7491,7 +7498,7 @@ var FormControlInputNumber = memo(forwardRef(function (props, ref) {
       error = props.error,
       errorMessage = props.errorMessage;
 
-  var _useState = useState(typeof value === 'number'),
+  var _useState = React.useState(typeof value === 'number'),
       _useState2 = _slicedToArray(_useState, 2),
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
@@ -7508,7 +7515,7 @@ var FormControlInputNumber = memo(forwardRef(function (props, ref) {
    * Trigger
    */
 
-  useEffect(function () {
+  React.useEffect(function () {
     setHasValue(typeof value === 'number');
   }, [value]);
   /**
@@ -7525,17 +7532,17 @@ var FormControlInputNumber = memo(forwardRef(function (props, ref) {
     }
   }
 
-  return React.createElement(AphFormControlWrapperStyled, null, React.createElement(FormControlStyled, _extends({}, inheritProps, {
+  return React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, inheritProps, {
     as: InputNumber,
     ref: ref,
     onChange: handleChange,
     displayType: "input",
     enableMobileNumericKeyboard: true,
     className: "aph-form-control ".concat(!label || !label && hasValue ? 'aph-form-control--middle' : '', " ").concat(className || '')
-  })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), !label ? null : React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), React.createElement(AphFormControlErrorMsgStyled, {
+  }), label), React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -7564,7 +7571,7 @@ FormControlInputNumber.propTypes = {
 
 /* Component Itself */
 
-var FormControlInputNumber$1 = memo(forwardRef(function (props, ref) {
+var FormControlInputNumber$1 = React.memo(React.forwardRef(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -7596,17 +7603,17 @@ var FormControlInputNumber$1 = memo(forwardRef(function (props, ref) {
     }
   }
 
-  return React.createElement(AphFormControlWrapperStyled, null, React.createElement(FormControlStyled, _extends({}, inheritProps, {
+  return React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, inheritProps, {
     as: CurrencyInput,
     ref: ref,
     error: error ? 'true' : null,
     onChange: function onChange() {},
     onChangeEvent: handleChange,
     className: "aph-form-control ".concat(className || '')
-  })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), !label ? null : React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label aph-form-label--top"
-  }), label), React.createElement(AphFormControlErrorMsgStyled, {
+  }), label), React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -7661,22 +7668,22 @@ var AphFormControlButtonStyled = _styled("button", {
 
 /* Component Itself */
 
-var Input = memo(forwardRef(function (props, ref) {
+var Input = React.memo(React.forwardRef(function (props, ref) {
   if (type === 'checkbox') {
-    return React.createElement(Checkbox, _extends({}, props, {
+    return React__default.createElement(Checkbox, _extends({}, props, {
       color: props.error ? 'error' : props.color,
       ref: ref
     }));
   }
 
   if (type === 'number') {
-    return React.createElement(FormControlInputNumber, _extends({}, props, {
+    return React__default.createElement(FormControlInputNumber, _extends({}, props, {
       ref: ref
     }));
   }
 
   if (type === 'currency') {
-    return React.createElement(FormControlInputNumber$1, _extends({}, props, {
+    return React__default.createElement(FormControlInputNumber$1, _extends({}, props, {
       ref: ref
     }));
   }
@@ -7697,7 +7704,7 @@ var Input = memo(forwardRef(function (props, ref) {
       errorMessage = props.errorMessage,
       color = props.color;
 
-  var _useState = useState(value ? true : false),
+  var _useState = React.useState(value ? true : false),
       _useState2 = _slicedToArray(_useState, 2),
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
@@ -7706,7 +7713,7 @@ var Input = memo(forwardRef(function (props, ref) {
    */
 
 
-  useEffect(function () {
+  React.useEffect(function () {
     setHasValue(value ? true : false);
   }, [value]);
   /**
@@ -7741,20 +7748,20 @@ var Input = memo(forwardRef(function (props, ref) {
     }
   }
 
-  return React.createElement(AphFormControlWrapperStyled, {
+  return React__default.createElement(AphFormControlWrapperStyled, {
     hasButton: btn || button ? true : false,
     buttonAlign: btn && btn.align ? btn.align : button && button.align ? button.align : ''
-  }, React.createElement(FormControlStyled, _extends({
+  }, React__default.createElement(FormControlStyled, _extends({
     name: id
   }, props, {
     ref: ref,
     onChange: handleChange,
     onPaste: handlePaste,
     className: "aph-form-control ".concat(!label || !label && hasValue ? 'aph-form-control--middle' : '', " ").concat(className || '')
-  })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), !label ? null : React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), !btn && !button ? null : React.createElement(AphFormControlButtonStyled, null, React.createElement("span", _extends({}, btn, button))), React.createElement(AphFormControlErrorMsgStyled, {
+  }), label), !btn && !button ? null : React__default.createElement(AphFormControlButtonStyled, null, React__default.createElement("span", _extends({}, btn, button))), React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -7783,7 +7790,7 @@ Input.propTypes = {
 
 /* Component Itself */
 
-var FormControlSelect = memo(forwardRef(function (props, ref) {
+var FormControlSelect = React.memo(React.forwardRef(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -7797,7 +7804,7 @@ var FormControlSelect = memo(forwardRef(function (props, ref) {
       errorMessage = props.errorMessage,
       color = props.color;
 
-  var _useState = useState(typeof value === 'number' || value ? true : false),
+  var _useState = React.useState(typeof value === 'number' || value ? true : false),
       _useState2 = _slicedToArray(_useState, 2),
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
@@ -7811,7 +7818,7 @@ var FormControlSelect = memo(forwardRef(function (props, ref) {
    * Trigger
    */
 
-  useEffect(function () {
+  React.useEffect(function () {
     setHasValue(value ? true : false);
   }, [value]);
   /**
@@ -7830,24 +7837,24 @@ var FormControlSelect = memo(forwardRef(function (props, ref) {
     }
   }
 
-  return React.createElement(AphFormControlWrapperStyled, null, React.createElement(FormControlStyled, _extends({}, props, {
+  return React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, props, {
     as: "select",
     ref: ref,
     onChange: handleChange,
     styles: Object.assign({}, styles, props.styles)
-  })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), !label ? null : React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), React.createElement(AphFormControlButtonStyled, {
+  }), label), React__default.createElement(AphFormControlButtonStyled, {
     type: "button",
     styles: {
       pointerEvents: 'none'
     }
-  }, React.createElement(Icon, {
+  }, React__default.createElement(Icon, {
     size: 30,
     slug: "arrow-down",
     color: props.disabled ? 'disabled' : 'base'
-  })), React.createElement(AphFormControlErrorMsgStyled, {
+  })), React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -7874,7 +7881,7 @@ FormControlSelect.propTypes = {
 
 /* Component Itself */
 
-var FormControlTextArea = memo(forwardRef(function (props, ref) {
+var FormControlTextArea = React.memo(React.forwardRef(function (props, ref) {
   var id = props.id,
       className = props.className,
       label = props.label,
@@ -7888,7 +7895,7 @@ var FormControlTextArea = memo(forwardRef(function (props, ref) {
       errorMessage = props.errorMessage,
       color = props.color;
 
-  var _useState = useState(value ? true : false),
+  var _useState = React.useState(value ? true : false),
       _useState2 = _slicedToArray(_useState, 2),
       hasValue = _useState2[0],
       setHasValue = _useState2[1];
@@ -7901,7 +7908,7 @@ var FormControlTextArea = memo(forwardRef(function (props, ref) {
    * Trigger
    */
 
-  useEffect(function () {
+  React.useEffect(function () {
     setHasValue(value ? true : false);
   }, [value]);
   /**
@@ -7920,15 +7927,15 @@ var FormControlTextArea = memo(forwardRef(function (props, ref) {
     }
   }
 
-  return React.createElement(AphFormControlWrapperStyled, null, React.createElement(FormControlStyled, _extends({}, props, {
+  return React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, props, {
     as: "textarea",
     onChange: handleChange,
     styles: styles
-  })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), !label ? null : React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: inputId,
     textArea: true,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), React.createElement(AphFormControlErrorMsgStyled, {
+  }), label), React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: inputId,
     styles: !errorMessage ? null : {
       maxHeight: '600px'
@@ -8014,7 +8021,7 @@ var AphFormSwitch = {
 
 /* Component Itself */
 
-var Switch = memo(forwardRef(function (props, ref) {
+var Switch = React.memo(React.forwardRef(function (props, ref) {
   var id = props.id,
       className = props.className,
       children = props.children,
@@ -8029,25 +8036,25 @@ var Switch = memo(forwardRef(function (props, ref) {
     textSmall: undefined,
     toggleAlign: undefined
   });
-  return React.createElement(AphFormSwitch.Wrapper, {
+  return React__default.createElement(AphFormSwitch.Wrapper, {
     htmlFor: id,
     className: "aph-form-switch ".concat(className || ''),
     styles: styles,
     textAlign: textAlign,
     textSmall: textSmall,
     toggleAlign: toggleAlign
-  }, React.createElement(AphFormSwitch.ToggleWrapper, {
+  }, React__default.createElement(AphFormSwitch.ToggleWrapper, {
     htmlFor: id,
     className: "aph-form-switch__wrapper"
-  }, React.createElement(AphFormSwitch.Input, _extends({}, newProps, {
+  }, React__default.createElement(AphFormSwitch.Input, _extends({}, newProps, {
     ref: ref,
     id: id,
     type: "checkbox",
     className: "aph-form-switch__input"
-  })), React.createElement(AphFormSwitch.Toggle, {
+  })), React__default.createElement(AphFormSwitch.Toggle, {
     htmlFor: id,
     className: "aph-form-switch__toggle"
-  })), !children ? null : React.createElement(AphFormSwitch.Content, {
+  })), !children ? null : React__default.createElement(AphFormSwitch.Content, {
     htmlFor: id,
     hasChildren: children ? true : false,
     toggleAlign: toggleAlign
@@ -8077,7 +8084,7 @@ Switch.propTypes = {
 /* Hook */
 
 function useWindowSize() {
-  var isClient = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object';
+  var isClient = ( _typeof(window)) === 'object';
   /**
    * Get Window Size
    */
@@ -8127,12 +8134,12 @@ function useWindowSize() {
     };
   }
 
-  var _useState = useState(getSize),
+  var _useState = React.useState(getSize),
       _useState2 = _slicedToArray(_useState, 2),
       windowSize = _useState2[0],
       setWindowSize = _useState2[1];
 
-  useEffect(function () {
+  React.useEffect(function () {
     if (!isClient) {
       return false;
     }
@@ -8223,4 +8230,68 @@ var getSizes = function getSizes() {
 
 var initialState = getSizes();
 
-export { A, ANIMATIONS, Accordion, ActionBar, Badge, Button, COLORS, Card, Checkbox, Clipboard, Column as Col, Collapsible, Column, Container, Countdown, Dropdown, FORM, Flex$1 as Flex, GRID, H1, H2, H3, HoverActions, HoverActionItem as HoverActionsItem, ICONS, Icon, Img, Input, FormControlInputNumber$1 as InputCurrency, FormControlInputNumber as InputNumber, LAYOUT, Label, A as Link, List, ListGroup, ListGroupItem, ListItem, MEDIA_QUERIES, Modal, NumberFormat, P, Pagination, Placeholder, ProgressBar, RADIUS, Row, SCREEN_SIZES, SIZES, Scrollable, Segment, FormControlSelect as Select, SidePill, Switch, Table, P as Text, FormControlTextArea as TextArea, ToastsContainer, Tooltip, ZINDEX, animations, colors$1 as colors, layoutActions, sort, toast, useWindowSize };
+exports.A = A;
+exports.ANIMATIONS = ANIMATIONS;
+exports.Accordion = Accordion;
+exports.ActionBar = ActionBar;
+exports.Badge = Badge;
+exports.Button = Button;
+exports.COLORS = COLORS;
+exports.Card = Card;
+exports.Checkbox = Checkbox;
+exports.Clipboard = Clipboard;
+exports.Col = Column;
+exports.Collapsible = Collapsible;
+exports.Column = Column;
+exports.Container = Container;
+exports.Countdown = Countdown;
+exports.Dropdown = Dropdown;
+exports.FORM = FORM;
+exports.Flex = Flex$1;
+exports.GRID = GRID;
+exports.H1 = H1;
+exports.H2 = H2;
+exports.H3 = H3;
+exports.HoverActions = HoverActions;
+exports.HoverActionsItem = HoverActionItem;
+exports.ICONS = ICONS;
+exports.Icon = Icon;
+exports.Img = Img;
+exports.Input = Input;
+exports.InputCurrency = FormControlInputNumber$1;
+exports.InputNumber = FormControlInputNumber;
+exports.LAYOUT = LAYOUT;
+exports.Label = Label;
+exports.Link = A;
+exports.List = List;
+exports.ListGroup = ListGroup;
+exports.ListGroupItem = ListGroupItem;
+exports.ListItem = ListItem;
+exports.MEDIA_QUERIES = MEDIA_QUERIES;
+exports.Modal = Modal;
+exports.NumberFormat = NumberFormat;
+exports.P = P;
+exports.Pagination = Pagination;
+exports.Placeholder = Placeholder;
+exports.ProgressBar = ProgressBar;
+exports.RADIUS = RADIUS;
+exports.Row = Row;
+exports.SCREEN_SIZES = SCREEN_SIZES;
+exports.SIZES = SIZES;
+exports.Scrollable = Scrollable;
+exports.Segment = Segment;
+exports.Select = FormControlSelect;
+exports.SidePill = SidePill;
+exports.Switch = Switch;
+exports.Table = Table;
+exports.Text = P;
+exports.TextArea = FormControlTextArea;
+exports.ToastsContainer = ToastsContainer;
+exports.Tooltip = Tooltip;
+exports.ZINDEX = ZINDEX;
+exports.animations = animations;
+exports.colors = colors$1;
+exports.layoutActions = layoutActions;
+exports.sort = sort;
+exports.toast = reactToastify.toast;
+exports.useWindowSize = useWindowSize;
