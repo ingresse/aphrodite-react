@@ -5465,6 +5465,26 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
   }, children) : null);
 }));
 
+function useWindowSize() {
+  var isClient = "object" === ("undefined" == typeof window ? "undefined" : _typeof(window));
+  function getSize() {
+    return {
+      width: isClient ? window.innerWidth : void 0,
+      height: isClient ? window.innerHeight : void 0
+    };
+  }
+  var _useState = React.useState(getSize), _useState2 = _slicedToArray(_useState, 2), windowSize = _useState2[0], setWindowSize = _useState2[1];
+  return React.useEffect(function() {
+    if (!isClient) return !1;
+    function handleResize() {
+      setWindowSize(getSize());
+    }
+    return window.addEventListener("resize", handleResize), function() {
+      return window.removeEventListener("resize", handleResize);
+    };
+  }, []), windowSize;
+}
+
 Switch.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),
   className: "",
@@ -5536,4 +5556,4 @@ exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch 
 exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX,
 exports.animations = animations, exports.colors = colors$1, exports.layoutActions = layoutActions,
-exports.sort = sort, exports.toast = reactToastify.toast;
+exports.sort = sort, exports.toast = reactToastify.toast, exports.useWindowSize = useWindowSize;

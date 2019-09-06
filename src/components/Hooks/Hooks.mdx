@@ -1,0 +1,26 @@
+---
+name : useWindowSize
+menu : Hooks
+route: /hooks/usewindowsize
+---
+
+import { useEffect, useState } from 'react';
+import { Playground } from 'docz';
+import useWindowSize from './useWindowSize';
+
+## useWindowSize
+## simple hook to return window width and height
+
+### Example
+
+<Playground>
+    {() => {
+        const size = useWindowSize();
+
+        return (
+            <>
+                {size.width}px / {size.height}px
+            </>
+        );
+    }}
+</Playground>

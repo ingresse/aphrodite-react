@@ -58,3 +58,6 @@ export { default as Checkbox } from './Form/Checkbox/FormControlCheckbox';
 export { default as Select } from './Form/Select/FormControlSelect';
 export { default as TextArea } from './Form/TextArea/FormControlTextArea';
 export { default as Switch } from './Form/Switch/FormControlSwitch';
+
+/* Hooks Components */
+export { default as useWindowSize } from './Hooks/useWindowSize';
