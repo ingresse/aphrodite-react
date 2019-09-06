@@ -14,6 +14,7 @@ const SegmentStyled = styled.div`
     display: block;
     margin : ${props => props.aphmargin  || null};
     padding: ${props => props.aphpadding || '20px 10px'};
+    text-align: ${props => props.textAlign || 'initial'};
 
     ${props => text(props)};
 
@@ -82,6 +83,7 @@ const Segment = forwardRef((props, ref) => {
 
 /* Properties Types */
 Segment.propTypes = {
+    textAlign : propTypes.string,
     margin    : propTypes.string,
     padding   : propTypes.string,
     hoverable : propTypes.bool,
