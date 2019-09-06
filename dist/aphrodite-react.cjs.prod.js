@@ -3245,6 +3245,8 @@ var StyledWrapper = _styled("div", {
   return props.aphmargin || null;
 }, ";padding:", function(props) {
   return props.aphpadding || "20px 10px";
+}, ";text-align:", function(props) {
+  return props.textAlign || "initial";
 }, ";", function(props) {
   return text(props);
 }, ";border-radius:", function(props) {
@@ -3278,6 +3280,7 @@ var StyledWrapper = _styled("div", {
 });
 
 Segment.propTypes = {
+  textAlign: propTypes.string,
   margin: propTypes.string,
   padding: propTypes.string,
   hoverable: propTypes.bool,
