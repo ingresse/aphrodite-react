@@ -8071,6 +8071,43 @@ Switch.propTypes = {
   toggleAlign: propTypes.string
 };
 
+/* Hook */
+
+function useWindowSize() {
+  var isClient = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object';
+  /**
+   * Get Window Size
+   */
+
+  function getSize() {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined
+    };
+  }
+
+  var _useState = useState(getSize),
+      _useState2 = _slicedToArray(_useState, 2),
+      windowSize = _useState2[0],
+      setWindowSize = _useState2[1];
+
+  useEffect(function () {
+    if (!isClient) {
+      return false;
+    }
+
+    function handleResize() {
+      setWindowSize(getSize());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return function () {
+      return window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  return windowSize;
+}
+
 /* Sort Filters */
 var sort = {
   byProperty: function byProperty(array, property, reverse) {
@@ -8145,4 +8182,4 @@ var getSizes = function getSizes() {
 
 var initialState = getSizes();
 
-export { A, ANIMATIONS, Accordion, ActionBar, Badge, Button, COLORS, Card, Checkbox, Clipboard, Column as Col, Collapsible, Column, Container, Countdown, Dropdown, FORM, Flex$1 as Flex, GRID, H1, H2, H3, HoverActions, HoverActionItem as HoverActionsItem, ICONS, Icon, Img, Input, FormControlInputNumber$1 as InputCurrency, FormControlInputNumber as InputNumber, LAYOUT, Label, A as Link, List, ListGroup, ListGroupItem, ListItem, MEDIA_QUERIES, Modal, NumberFormat, P, Pagination, Placeholder, ProgressBar, RADIUS, Row, SCREEN_SIZES, SIZES, Scrollable, Segment, FormControlSelect as Select, SidePill, Switch, Table, P as Text, FormControlTextArea as TextArea, ToastsContainer, Tooltip, ZINDEX, animations, colors$1 as colors, layoutActions, sort, toast };
+export { A, ANIMATIONS, Accordion, ActionBar, Badge, Button, COLORS, Card, Checkbox, Clipboard, Column as Col, Collapsible, Column, Container, Countdown, Dropdown, FORM, Flex$1 as Flex, GRID, H1, H2, H3, HoverActions, HoverActionItem as HoverActionsItem, ICONS, Icon, Img, Input, FormControlInputNumber$1 as InputCurrency, FormControlInputNumber as InputNumber, LAYOUT, Label, A as Link, List, ListGroup, ListGroupItem, ListItem, MEDIA_QUERIES, Modal, NumberFormat, P, Pagination, Placeholder, ProgressBar, RADIUS, Row, SCREEN_SIZES, SIZES, Scrollable, Segment, FormControlSelect as Select, SidePill, Switch, Table, P as Text, FormControlTextArea as TextArea, ToastsContainer, Tooltip, ZINDEX, animations, colors$1 as colors, layoutActions, sort, toast, useWindowSize };

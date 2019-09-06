@@ -8078,6 +8078,43 @@ Switch.propTypes = {
   toggleAlign: propTypes.string
 };
 
+/* Hook */
+
+function useWindowSize() {
+  var isClient = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object';
+  /**
+   * Get Window Size
+   */
+
+  function getSize() {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined
+    };
+  }
+
+  var _useState = React.useState(getSize),
+      _useState2 = _slicedToArray(_useState, 2),
+      windowSize = _useState2[0],
+      setWindowSize = _useState2[1];
+
+  React.useEffect(function () {
+    if (!isClient) {
+      return false;
+    }
+
+    function handleResize() {
+      setWindowSize(getSize());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return function () {
+      return window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  return windowSize;
+}
+
 /* Sort Filters */
 var sort = {
   byProperty: function byProperty(array, property, reverse) {
@@ -8216,3 +8253,4 @@ exports.colors = colors$1;
 exports.layoutActions = layoutActions;
 exports.sort = sort;
 exports.toast = reactToastify.toast;
+exports.useWindowSize = useWindowSize;
