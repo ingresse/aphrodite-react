@@ -6,6 +6,9 @@ route: /hooks/usewindowsize
 
 import { useEffect, useState } from 'react';
 import { Playground } from 'docz';
+
+import { H3 } from '../';
+import { colors } from '../../utils';
 import useWindowSize from './useWindowSize';
 
 ## useWindowSize
@@ -15,11 +18,32 @@ import useWindowSize from './useWindowSize';
 
 <Playground>
     {() => {
-        const size = useWindowSize();
+        const { xs, sm, md, lg, xl, width, height } = useWindowSize();
 
         return (
             <>
-                {size.width}px / {size.height}px
+                <H3 color={colors.get(xs ? 'bamboo' : 'error')}>
+                    is xs: {xs.toString()}
+                </H3>
+
+                <H3 color={colors.get(sm ? 'bamboo' : 'error')}>
+                    is sm: {sm.toString()}
+                </H3>
+
+                <H3 color={colors.get(md ? 'bamboo' : 'error')}>
+                    is md: {md.toString()}
+                </H3>
+
+                <H3 color={colors.get(lg ? 'bamboo' : 'error')}>
+                    is lg: {lg.toString()}
+                </H3>
+
+                <H3 color={colors.get(xl ? 'bamboo' : 'error')}>
+                    is xl: {xl.toString()}
+                </H3>
+
+                <H3>width: {width}px</H3>
+                <H3>height: {height}px</H3>
             </>
         );
     }}

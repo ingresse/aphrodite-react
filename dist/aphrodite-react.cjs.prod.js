@@ -5471,9 +5471,29 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
 function useWindowSize() {
   var isClient = "object" === ("undefined" == typeof window ? "undefined" : _typeof(window));
   function getSize() {
+    var _window = isClient ? window : {}, width = _window.innerWidth, height = _window.innerHeight, xs = width < SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL;
     return {
-      width: isClient ? window.innerWidth : void 0,
-      height: isClient ? window.innerHeight : void 0
+      width: width,
+      height: height,
+      xs: xs,
+      sm: sm,
+      md: md,
+      lg: lg,
+      xl: xl,
+      _lt_: {
+        xs: xs,
+        sm: xs,
+        md: xs || sm,
+        lg: xs || sm || md,
+        xl: xs || sm || md || lg
+      },
+      _gt_: {
+        xs: sm || md || lg || xl,
+        sm: md || lg || xl,
+        md: lg || xl,
+        lg: width > SCREEN_SIZES.LG,
+        xl: width > SCREEN_SIZES.XL
+      }
     };
   }
   var _useState = React.useState(getSize), _useState2 = _slicedToArray(_useState, 2), windowSize = _useState2[0], setWindowSize = _useState2[1];
