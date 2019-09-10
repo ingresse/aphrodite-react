@@ -133,6 +133,15 @@ let alias = {
     error    : Object.assign({}, ruby),
 
     link     : Object.assign({}, ocean),
+
+    approved       : Object.assign({}, bamboo),
+    authorized     : Object.assign({}, mint),
+    declined       : Object.assign({}, ruby),
+    cancelled      : Object.assign({}, mercury),
+    refund         : Object.assign({}, supernova),
+    limitExceeded  : Object.assign({}, tangerine),
+    'manual review': Object.assign({}, poison),
+    pending        : Object.assign({}, ocean),
 };
 
 
@@ -157,6 +166,15 @@ let stock = {
     success: bamboo.original,
     warning: sunflower.original,
     error  : ruby.original,
+
+    approved       : bamboo.original,
+    authorized     : mint.original,
+    declined       : ruby.original,
+    cancelled      : mercury.original,
+    refund         : supernova.original,
+    limitExceeded  : tangerine.original,
+    'manual review': poison.original,
+    pending        : ocean.original,
 
     base      : 'rgb(0, 0, 0)',
     inverse   : 'rgb(255, 255, 255)',

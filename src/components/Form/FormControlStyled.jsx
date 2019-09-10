@@ -30,11 +30,11 @@ const FormControlStyled = styled.input`
     border : 0;
     outline: 0;
 
-    transition-property       : background-color, padding;
+    transition-property       : color, padding;
     transition-timing-function: linear;
     transition-duration       : 0.15s;
 
-    will-change: background-color, padding;
+    will-change: color, padding;
 
     -webkit-appearance         : none;
     -webkit-tap-highlight-color: transparent;
@@ -47,8 +47,7 @@ const FormControlStyled = styled.input`
 
     &:active,
     &:focus {
-        color           : ${props => colors.getFromTheme(props, 'black')};
-        background-color: ${props => colors.getFromTheme(props, (props.error ? 'error' : (props.color || 'secondary')), 'crystal')};
+        color: ${props => colors.getFromTheme(props, (props.error ? 'error' : 'black'))};
 
         + .aph-form-label {
             top      : 2.5px;

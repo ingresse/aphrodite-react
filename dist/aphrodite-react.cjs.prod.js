@@ -397,7 +397,15 @@ var getShadesFormat = function(dark, original, light, crystal) {
   success: Object.assign({}, bamboo),
   warning: Object.assign({}, sunflower),
   error: Object.assign({}, ruby),
-  link: Object.assign({}, ocean)
+  link: Object.assign({}, ocean),
+  approved: Object.assign({}, bamboo),
+  authorized: Object.assign({}, mint),
+  declined: Object.assign({}, ruby),
+  cancelled: Object.assign({}, mercury),
+  refund: Object.assign({}, supernova),
+  limitExceeded: Object.assign({}, tangerine),
+  "manual review": Object.assign({}, poison),
+  pending: Object.assign({}, ocean)
 }, stock = {
   tangerine: tangerine.original,
   ocean: ocean.original,
@@ -414,6 +422,14 @@ var getShadesFormat = function(dark, original, light, crystal) {
   success: bamboo.original,
   warning: sunflower.original,
   error: ruby.original,
+  approved: bamboo.original,
+  authorized: mint.original,
+  declined: ruby.original,
+  cancelled: mercury.original,
+  refund: supernova.original,
+  limitExceeded: tangerine.original,
+  "manual review": poison.original,
+  pending: ocean.original,
   base: "rgb(0, 0, 0)",
   inverse: "rgb(255, 255, 255)",
   background: "rgb(248, 248, 248)",
@@ -5120,12 +5136,10 @@ var AphFormControlWrapperStyled = _styled("div", {
   return colors$1.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "background");
-}, ";border-radius:", RADIUS.XS, "px;border:0;outline:0;transition-property:background-color,padding;transition-timing-function:linear;transition-duration:0.15s;will-change:background-color,padding;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&::placeholder{color:", function(props) {
+}, ";border-radius:", RADIUS.XS, "px;border:0;outline:0;transition-property:color,padding;transition-timing-function:linear;transition-duration:0.15s;will-change:color,padding;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&::placeholder{color:", function(props) {
   return colors$1.getFromTheme(props, "mercury", "light");
 }, ";font-weight:300;}&:active,&:focus{color:", function(props) {
-  return colors$1.getFromTheme(props, "black");
-}, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, props.error ? "error" : props.color || "secondary", "crystal");
+  return colors$1.getFromTheme(props, props.error ? "error" : "black");
 }, ";+ .aph-form-label{top:2.5px;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", function(props) {
   return colors$1.getFromTheme(props, props.error ? "error" : props.color || "secondary");
 }, ";}}&.disabled,&:disabled{cursor:not-allowed;color:", function(props) {
@@ -5163,7 +5177,6 @@ var AphFormControlWrapperStyled = _styled("div", {
     onChange: function(inputValue) {
       setHasValue("number" == typeof inputValue), "function" == typeof onChange && onChange(inputValue);
     },
-    displayType: "input",
     enableMobileNumericKeyboard: !0,
     className: "aph-form-control ".concat(!label || !label && hasValue ? "aph-form-control--middle" : "", " ").concat(className || "")
   })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
