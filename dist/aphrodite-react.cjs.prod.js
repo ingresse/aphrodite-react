@@ -5137,11 +5137,11 @@ var AphFormControlWrapperStyled = _styled("div", {
 }, ";border-radius:", RADIUS.XS, "px;border:0;outline:0;transition-property:color,padding;transition-timing-function:linear;transition-duration:0.15s;will-change:color,padding;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&::placeholder{color:", function(props) {
   return colors$1.getFromTheme(props, "mercury", "light");
 }, ";font-weight:300;}&:active,&:focus{color:", function(props) {
-  return colors$1.getFromTheme(props, props.error ? "error" : "black");
+  return colors$1.getFromTheme(props, props.error ? "error" : "base");
 }, ";+ .aph-form-label{top:2.5px;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", function(props) {
   return colors$1.getFromTheme(props, props.error ? "error" : props.color || "secondary");
 }, ";}}&.disabled,&:disabled{cursor:not-allowed;color:", function(props) {
-  return colors$1.getFromTheme(props, "black");
+  return colors$1.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "disabled", "crystal");
 }, ";&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
