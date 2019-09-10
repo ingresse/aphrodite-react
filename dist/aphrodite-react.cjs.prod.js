@@ -3262,7 +3262,7 @@ var StyledWrapper = _styled("div", {
 }, ";padding:", function(props) {
   return props.aphpadding || "20px 10px";
 }, ";text-align:", function(props) {
-  return props.textAlign || "initial";
+  return props.textAlign || null;
 }, ";", function(props) {
   return text(props);
 }, ";border-radius:", function(props) {

@@ -14,7 +14,7 @@ const SegmentStyled = styled.div`
     display: block;
     margin : ${props => props.aphmargin  || null};
     padding: ${props => props.aphpadding || '20px 10px'};
-    text-align: ${props => props.textAlign || 'initial'};
+    text-align: ${props => props.textAlign || null};
 
     ${props => text(props)};
 
