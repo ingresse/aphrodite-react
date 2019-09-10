@@ -3,6 +3,10 @@
   "version": "1.1.0",
   "main": "dist/aphrodite-react.cjs.js",
   "module": "dist/aphrodite-react.esm.js",
+  "browser": {
+    "./dist/aphrodite-react.cjs.js": "./dist/aphrodite-react.browser.cjs.js",
+    "./dist/aphrodite-react.esm.js": "./dist/aphrodite-react.browser.esm.js"
+  },
   "license": "MIT",
   "description": "React UI library from ingresse.com",
   "peerDependencies": {
