@@ -5,8 +5,7 @@ import styled from '@emotion/styled';
 
 /* Helpers */
 import { RADIUS } from '../../constants';
-import { colors } from '../../utils';
-import { text } from '../Typography/typography';
+import { colors, text } from '../../utils';
 
 /* Component Itself */
 const SegmentStyled = styled.div`

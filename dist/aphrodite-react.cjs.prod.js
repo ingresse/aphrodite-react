@@ -468,7 +468,26 @@ var getShadesFormat = function(dark, original, light, crystal) {
   _objectSpread3));
 }, colors$1 = colors = _objectSpread({}, colors, {
   set: set
-});
+}), text = function(props) {
+  var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+  return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
+}, textAlign = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textAlign || props.textLeft || props.textCenter || props.textRight ? "\n    text-align: ".concat(props.textLeft ? "left" : props.textCenter ? "center" : props.textRight ? "right" : props.textAlign, ";\n") : "";
+}, textBreakAll = function() {
+  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).breakAll ? "\n    word-break: break-all;\n" : "";
+}, textColorfull = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
+}, textDefinitions = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+  return size ? "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n") : "";
+}, textTransform = function() {
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.textLower || props.textUpper ? "\n    text-transform: ".concat(props.textLower ? "lowercase" : "uppercase", ";\n") : "";
+}, textTruncate = function() {
+  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).truncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
+};
 
 function ownKeys$1(object, enumerableOnly) {
   var keys = Object.keys(object);
@@ -3236,26 +3255,7 @@ var StyledWrapper = _styled("div", {
     styles: styles,
     className: (className || "") + (onlyXS ? " scrollable--xs" : "")
   }, React__default.createElement(StyledScrollable, null, children));
-}), text = function(props) {
-  var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
-  return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
-}, textAlign = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textAlign || props.textLeft || props.textCenter || props.textRight ? "\n    text-align: ".concat(props.textLeft ? "left" : props.textCenter ? "center" : props.textRight ? "right" : props.textAlign, ";\n") : "";
-}, textBreakAll = function() {
-  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).breakAll ? "\n    word-break: break-all;\n" : "";
-}, textColorfull = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
-}, textDefinitions = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
-  return size ? "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n") : "";
-}, textTransform = function() {
-  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textLower || props.textUpper ? "\n    text-transform: ".concat(props.textLower ? "lowercase" : "uppercase", ";\n") : "";
-}, textTruncate = function() {
-  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).truncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
-}, SegmentStyled = _styled("div", {
+}), SegmentStyled = _styled("div", {
   target: "e1pevrxj0"
 })("box-sizing:border-box;display:block;margin:", function(props) {
   return props.aphmargin || null;
@@ -5590,4 +5590,7 @@ exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch 
 exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea, 
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX, 
 exports.animations = animations, exports.colors = colors$1, exports.layoutActions = layoutActions, 
-exports.sort = sort, exports.toast = reactToastify.toast, exports.useWindowSize = useWindowSize;
+exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll, 
+exports.textColorfull = textColorfull, exports.textDefinitions = textDefinitions, 
+exports.textTransform = textTransform, exports.textTruncate = textTruncate, exports.toast = reactToastify.toast, 
+exports.useWindowSize = useWindowSize;

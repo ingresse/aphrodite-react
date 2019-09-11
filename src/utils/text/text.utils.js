@@ -6,7 +6,7 @@
 import { SIZES } from '../../constants';
 
 /* Utils */
-import { colors } from '../../utils';
+import { colors } from '../';
 
 /**
  * Text

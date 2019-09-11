@@ -4,8 +4,7 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Helpers */
-import { colors } from '../../../utils';
-import { textColorfull } from '../typography';
+import { colors, textColorfull } from '../../../utils';
 
 /* Component Styles */
 const AStyled = styled.a`
