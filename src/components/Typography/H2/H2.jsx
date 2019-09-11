@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Commons */
-import { text } from '../typography';
+/* Utils */
+import { text } from '../../../utils';
 
 /* Component Styles */
 const H2Styled = styled.h2`
