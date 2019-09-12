@@ -40,7 +40,7 @@ const AphCheckboxMaskStyled = styled.label`
         display   : block;
         width     : 30px;
         height    : 30px;
-        border    : 1px solid  ${props => colors.getFromTheme(props, 'secondary')};
+        border    : 1px solid ${props => colors.getFromTheme(props, 'helper')};
 
         top: 0;
 
@@ -80,6 +80,14 @@ const AphCheckboxStyled = styled.input`
         left : ${props => (!props.labelRight && !props.right) ? '0' : null};
     }
 
+    &:focus,
+    &:active,
+    &:checked {
+        + .aph-form-control-mask:before {
+            border-color: ${props => colors.getFromTheme(props, (props.color || 'secondary'))};
+        }
+    }
+
     &:checked + .aph-form-control-mask:before {
         background-image: url('${props => ICONS.ENCODE_SVG(
             <IconCheckThin
@@ -100,7 +108,7 @@ const AphCheckboxStyled = styled.input`
             background-image: url('${props => ICONS.ENCODE_SVG(
                 <IconCheckThin
                     size={20}
-                    color={colors.get('mercury')}
+                    color={colors.getFromTheme(props, 'disabled')}
                 />
             )}');
         }

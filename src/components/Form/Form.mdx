@@ -197,25 +197,32 @@ import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, 
 ### Examples
 <Playground>
     <Row>
-        <Col xs={4} styles={{ margin: '10px 0' }}>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
             <Checkbox
                 id="ExampleCheckbox">
-                regular checkbox
+                regular
             </Checkbox>
         </Col>
-        <Col xs={4} styles={{ margin: '10px 0' }}>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
             <Checkbox
                 id="ExampleCheckboxDesabled"
+                disabled>
                 disabled
-                >
-                disabled checkbox
             </Checkbox>
         </Col>
-        <Col xs={4} styles={{ margin: '10px 0' }}>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
+            <Checkbox
+                id="ExampleCheckboxDesabled"
+                checked
+                disabled>
+                disabled checked
+            </Checkbox>
+        </Col>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
             <Checkbox
                 id="ExampleCheckboxRight"
                 right>
-                aligned checkbox
+                aligned
             </Checkbox>
         </Col>
     </Row>
