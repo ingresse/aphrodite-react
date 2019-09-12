@@ -37,7 +37,7 @@ export const textAlign = (props = {}) => (!props.textAlign && !props.textLeft &&
 /**
  * Text Break All words
  */
-export const textBreakAll = (props = {}) => (!props.breakAll) ? '' : `
+export const textBreakAll = (props = {}) => (!props.breakAll && !props.textBreakAll) ? '' : `
     word-break: break-all;
 `;
 
@@ -69,7 +69,7 @@ export const textTransform = (props = {}) => (!props.textLower && !props.textUpp
 /**
  * Text Truncate
  */
-export const textTruncate = (props = {}) => (!props.truncate) ? '' : `
+export const textTruncate = (props = {}) => (!props.truncate && !props.textTruncate) ? '' : `
     overflow     : hidden;
     white-space  : nowrap;
     text-overflow: ellipsis;

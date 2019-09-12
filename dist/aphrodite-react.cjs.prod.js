@@ -475,7 +475,8 @@ var getShadesFormat = function(dark, original, light, crystal) {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
   return props.textAlign || props.textLeft || props.textCenter || props.textRight ? "\n    text-align: ".concat(props.textLeft ? "left" : props.textCenter ? "center" : props.textRight ? "right" : props.textAlign, ";\n") : "";
 }, textBreakAll = function() {
-  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).breakAll ? "\n    word-break: break-all;\n" : "";
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.breakAll || props.textBreakAll ? "\n    word-break: break-all;\n" : "";
 }, textColorfull = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
   return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
@@ -486,7 +487,8 @@ var getShadesFormat = function(dark, original, light, crystal) {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
   return props.textLower || props.textUpper ? "\n    text-transform: ".concat(props.textLower ? "lowercase" : "uppercase", ";\n") : "";
 }, textTruncate = function() {
-  return (arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}).truncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
+  var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+  return props.truncate || props.textTruncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
 };
 
 function ownKeys$1(object, enumerableOnly) {
@@ -5057,8 +5059,8 @@ var AphCheckboxWrapperStyled = _styled("div", {
   return props.labelRight ? null : "40px";
 }, ";text-align:", function(props) {
   return props.right ? "right" : null;
-}, ';&:before{box-sizing:border-box;content:" ";position:absolute;display:block;width:30px;height:30px;border:1px solid  ', function(props) {
-  return colors$1.getFromTheme(props, "secondary");
+}, ';&:before{box-sizing:border-box;content:" ";position:absolute;display:block;width:30px;height:30px;border:1px solid ', function(props) {
+  return colors$1.getFromTheme(props, "helper");
 }, ";top:0;border-radius:5px;transition-timing-function:ease;transition-duration:0.15s;transition-property:background-color,background-image;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);background-color:", function(props) {
   return colors$1.getFromTheme(props, "inverse");
 }, ";background-size:20px;background-position:center;background-repeat:no-repeat;}"), AphCheckboxStyled = _styled("input", {
@@ -5071,7 +5073,9 @@ var AphCheckboxWrapperStyled = _styled("div", {
   return props.labelRight || props.right ? "0" : null;
 }, ";left:", function(props) {
   return props.labelRight || props.right ? null : "0";
-}, ";}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
+}, ";}&:focus,&:active,&:checked{+ .aph-form-control-mask:before{border-color:", function(props) {
+  return colors$1.getFromTheme(props, props.color || "secondary");
+}, ";}}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
   return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
     color: colors$1.getFromTheme(props, props.color || "secondary")
@@ -5083,7 +5087,7 @@ var AphCheckboxWrapperStyled = _styled("div", {
 }, ";}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
   return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
-    color: colors$1.get("mercury")
+    color: colors$1.getFromTheme(props, "disabled")
   }));
 }, "');}}"), Checkbox = React.forwardRef(function(props, ref) {
   var className = props.className, children = props.children, color = props.color, id = props.id, right = props.right, labelProps = props.labelProps, labelRight = props.labelRight, newProps = Object.assign({}, props);
