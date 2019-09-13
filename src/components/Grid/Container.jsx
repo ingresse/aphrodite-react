@@ -14,7 +14,7 @@ const AphContainer = styled('div')(props => ({
     padding  :  (props.noPadding ? 0 : `0 ${(GRID.CONTAINER_PADDING + GRID.UNIT)}`),
     width    : '100%',
 
-    maxWidth : (
+    maxWidth : (props.maxWidth || (
         (props.fluid ? '100%' :
             (props.xs ? (GRID.CONTAINER.XS + GRID.UNIT) :
                 (props.sm ? (GRID.CONTAINER.SM + GRID.UNIT) :
@@ -26,7 +26,7 @@ const AphContainer = styled('div')(props => ({
                 )
             )
         )
-    ),
+    )),
 
     [MEDIA_QUERIES.LT.SM]: {
         paddingRight: (props.noPadding ? 0 : (GRID.CONTAINER_PADDING_XS + GRID.UNIT)),
