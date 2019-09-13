@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 /* Constants Helpers */
 import { GRID, MEDIA_QUERIES } from '../../constants';
 
-/* Wrapper Styles */
-const ColumnWrapper = styled('div')((props) => {
+/* Component */
+const Column = forwardRef((props, ref) => {
     const {
         first,
         last,
@@ -21,8 +21,16 @@ const ColumnWrapper = styled('div')((props) => {
         md,
         lg,
         xl,
+
+        className,
+        children,
+
+        ...rest
     } = props;
 
+    /**
+     * Order
+     */
     const ORDER = (
         (first === 'xxs' || first === 'xs') ? -1 : (
             (last === 'xxs' || last === 'xs') ? 1 : null
@@ -42,7 +50,8 @@ const ColumnWrapper = styled('div')((props) => {
         );
     }
 
-    return ({
+    /* Component Styles */
+    const ColStyled = styled('div')({
         boxSizing    : 'border-box',
         flex         : '0 0 auto',
         flexGrow     : 1,
@@ -89,19 +98,17 @@ const ColumnWrapper = styled('div')((props) => {
             order    : getOrder('xl'),
         },
     });
-});
 
-/* Component */
-const Column = forwardRef((props, ref) => {
-    const { className, children } = props;
-
+    /**
+     * Render
+     */
     return (
-        <ColumnWrapper
-            {...props}
+        <ColStyled
+            {...rest}
             ref={ref}
             className={`aph-col ${className || ''}`}>
             {children}
-        </ColumnWrapper>
+        </ColStyled>
     );
 });
 
