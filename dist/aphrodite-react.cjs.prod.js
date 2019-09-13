@@ -4302,21 +4302,21 @@ Row.propTypes = {
   horizontal: "left"
 };
 
-var ColumnWrapper = _styled("div", {
-  target: "e1fg9ilu0"
-})(function(props) {
-  var _objectSpread2, _objectSpread3, first = props.first, last = props.last, width = props.width, styles = props.styles, xxs = props.xxs, xs = props.xs, sm = props.sm, md = props.md, lg = props.lg, xl = props.xl;
+var Column = React.forwardRef(function(props, ref) {
+  var _objectSpread2, _objectSpread3, first = props.first, last = props.last, width = props.width, styles = props.styles, xxs = props.xxs, xs = props.xs, sm = props.sm, md = props.md, lg = props.lg, xl = props.xl, className = props.className, children = props.children, rest = _objectWithoutProperties(props, [ "first", "last", "width", "styles", "xxs", "xs", "sm", "md", "lg", "xl", "className", "children" ]), ORDER = "xxs" === first || "xs" === first ? -1 : "xxs" === last || "xs" === last ? 1 : null;
   function getOrder() {
     var size = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "xs";
     return first === size ? -1 : last === size ? 1 : null;
   }
-  return _objectSpread$d((_objectSpread2 = {
+  var ColStyled = _styled("div", {
+    target: "e1fg9ilu0"
+  })(_objectSpread$d((_objectSpread2 = {
     boxSizing: "border-box",
     flex: "0 0 auto",
     flexGrow: 1,
     flexBasis: 0,
     flexDirection: "column",
-    order: "xxs" === first || "xs" === first ? -1 : "xxs" === last || "xs" === last ? 1 : null,
+    order: ORDER,
     paddingRight: GRID.COLUMNS_PADDING,
     paddingLeft: GRID.COLUMNS_PADDING
   }, _defineProperty(_objectSpread2, "flexBasis", width || GRID.COLUMNS_GET_WIDTH(xxs || xs) || "100%"),
@@ -4341,10 +4341,8 @@ var ColumnWrapper = _styled("div", {
     flexBasis: GRID.COLUMNS_GET_WIDTH(xl),
     maxWidth: GRID.COLUMNS_GET_WIDTH(xl),
     order: getOrder("xl")
-  }), _objectSpread3));
-}, ""), Column = React.forwardRef(function(props, ref) {
-  var className = props.className, children = props.children;
-  return React__default.createElement(ColumnWrapper, _extends({}, props, {
+  }), _objectSpread3)), "");
+  return React__default.createElement(ColStyled, _extends({}, rest, {
     ref: ref,
     className: "aph-col ".concat(className || "")
   }), children);
