@@ -134,7 +134,12 @@ const Modal = forwardRef((props, ref) => {
 
             setVisible(false);
             openedCallback(false);
-            modalRef.current.focus();
+
+            if (modalRef &&
+                modalRef.current &&
+                modalRef.current.focus) {
+                modalRef.current.focus();
+            }
         }, 100));
     }
 

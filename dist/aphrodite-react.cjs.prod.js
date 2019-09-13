@@ -3786,7 +3786,7 @@ var _ref = {
   function handleClose(evt) {
     clearTimeout(visibleTimer), unmounted || evt && evt.target && modalRef && modalRef.current && modalRef.current.contains(evt.target) || (unlisten(),
     setActive(!1), setVisible(!0), setVisibleTimer(setTimeout(function() {
-      unmounted || (setVisible(!1), openedCallback(!1), modalRef.current.focus());
+      unmounted || (setVisible(!1), openedCallback(!1), modalRef && modalRef.current && modalRef.current.focus && modalRef.current.focus());
     }, 100)));
   }
   function handleOpen(evt) {
@@ -4179,7 +4179,7 @@ var AphContainer = _styled("div", {
     margin: "0 auto",
     padding: props.noPadding ? 0 : "0 ".concat(GRID.CONTAINER_PADDING + GRID.UNIT),
     width: "100%",
-    maxWidth: props.fluid ? "100%" : props.xs ? GRID.CONTAINER.XS + GRID.UNIT : props.sm ? GRID.CONTAINER.SM + GRID.UNIT : props.md ? GRID.CONTAINER.MD + GRID.UNIT : props.xl ? GRID.CONTAINER.XL + GRID.UNIT : GRID.CONTAINER.LG + GRID.UNIT
+    maxWidth: props.maxWidth || (props.fluid ? "100%" : props.xs ? GRID.CONTAINER.XS + GRID.UNIT : props.sm ? GRID.CONTAINER.SM + GRID.UNIT : props.md ? GRID.CONTAINER.MD + GRID.UNIT : props.xl ? GRID.CONTAINER.XL + GRID.UNIT : GRID.CONTAINER.LG + GRID.UNIT)
   }, MEDIA_QUERIES.LT.SM, {
     paddingRight: props.noPadding ? 0 : GRID.CONTAINER_PADDING_XS + GRID.UNIT,
     paddingLeft: props.noPadding ? 0 : GRID.CONTAINER_PADDING_XS + GRID.UNIT
@@ -4302,47 +4302,59 @@ Row.propTypes = {
   horizontal: "left"
 };
 
-var Column = React.forwardRef(function(props, ref) {
-  var _objectSpread2, _objectSpread3, first = props.first, last = props.last, width = props.width, styles = props.styles, xxs = props.xxs, xs = props.xs, sm = props.sm, md = props.md, lg = props.lg, xl = props.xl, className = props.className, children = props.children, rest = _objectWithoutProperties(props, [ "first", "last", "width", "styles", "xxs", "xs", "sm", "md", "lg", "xl", "className", "children" ]), ORDER = "xxs" === first || "xs" === first ? -1 : "xxs" === last || "xs" === last ? 1 : null;
+var ColStyled = _styled("div", {
+  target: "e1fg9ilu0"
+})(function(props) {
+  var _objectSpread2, _objectSpread3, _ref = props || {}, gridWidth = _ref.gridWidth, gridStyles = _ref.gridStyles, gridFirst = _ref.gridFirst, gridLast = _ref.gridLast, gridXS = _ref.gridXS, gridXXS = _ref.gridXXS, gridSM = _ref.gridSM, gridMD = _ref.gridMD, gridLG = _ref.gridLG, gridXL = _ref.gridXL;
   function getOrder() {
     var size = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "xs";
-    return first === size ? -1 : last === size ? 1 : null;
+    return gridFirst === size ? -1 : gridLast === size ? 1 : null;
   }
-  var ColStyled = _styled("div", {
-    target: "e1fg9ilu0"
-  })(_objectSpread$d((_objectSpread2 = {
+  return _objectSpread$d((_objectSpread2 = {
     boxSizing: "border-box",
     flex: "0 0 auto",
     flexGrow: 1,
     flexBasis: 0,
     flexDirection: "column",
-    order: ORDER,
+    order: "xxs" === gridFirst || "xs" === gridFirst ? -1 : "xxs" === gridLast || "xs" === gridLast ? 1 : null,
     paddingRight: GRID.COLUMNS_PADDING,
     paddingLeft: GRID.COLUMNS_PADDING
-  }, _defineProperty(_objectSpread2, "flexBasis", width || GRID.COLUMNS_GET_WIDTH(xxs || xs) || "100%"),
-  _defineProperty(_objectSpread2, "maxWidth", width || GRID.COLUMNS_GET_WIDTH(xxs || xs) || "100%"),
-  _objectSpread2), styles, (_defineProperty(_objectSpread3 = {}, MEDIA_QUERIES.LT.SM, {
-    flexBasis: GRID.COLUMNS_GET_WIDTH(xs),
-    maxWidth: GRID.COLUMNS_GET_WIDTH(xs),
+  }, _defineProperty(_objectSpread2, "flexBasis", gridWidth || GRID.COLUMNS_GET_WIDTH(gridXXS || gridXS) || null),
+  _defineProperty(_objectSpread2, "maxWidth", gridWidth || GRID.COLUMNS_GET_WIDTH(gridXXS || gridXS) || null),
+  _objectSpread2), gridStyles, (_defineProperty(_objectSpread3 = {}, MEDIA_QUERIES.LT.SM, {
+    flexBasis: GRID.COLUMNS_GET_WIDTH(gridXS),
+    maxWidth: GRID.COLUMNS_GET_WIDTH(gridXS),
     order: getOrder("xs")
   }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.SM, {
-    flexBasis: GRID.COLUMNS_GET_WIDTH(sm),
-    maxWidth: GRID.COLUMNS_GET_WIDTH(sm),
+    flexBasis: GRID.COLUMNS_GET_WIDTH(gridSM),
+    maxWidth: GRID.COLUMNS_GET_WIDTH(gridSM),
     order: getOrder("sm")
   }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.MD, {
-    flexBasis: GRID.COLUMNS_GET_WIDTH(md),
-    maxWidth: GRID.COLUMNS_GET_WIDTH(md),
+    flexBasis: GRID.COLUMNS_GET_WIDTH(gridMD),
+    maxWidth: GRID.COLUMNS_GET_WIDTH(gridMD),
     order: getOrder("md")
   }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.LG, {
-    flexBasis: GRID.COLUMNS_GET_WIDTH(lg),
-    maxWidth: GRID.COLUMNS_GET_WIDTH(lg),
+    flexBasis: GRID.COLUMNS_GET_WIDTH(gridLG),
+    maxWidth: GRID.COLUMNS_GET_WIDTH(gridLG),
     order: getOrder("lg")
   }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.XL, {
-    flexBasis: GRID.COLUMNS_GET_WIDTH(xl),
-    maxWidth: GRID.COLUMNS_GET_WIDTH(xl),
+    flexBasis: GRID.COLUMNS_GET_WIDTH(gridXL),
+    maxWidth: GRID.COLUMNS_GET_WIDTH(gridXL),
     order: getOrder("xl")
-  }), _objectSpread3)), "");
+  }), _objectSpread3));
+}, ""), Column = React.forwardRef(function(props, ref) {
+  var first = props.first, last = props.last, width = props.width, styles = props.styles, xxs = props.xxs, xs = props.xs, sm = props.sm, md = props.md, lg = props.lg, xl = props.xl, className = props.className, children = props.children, rest = _objectWithoutProperties(props, [ "first", "last", "width", "styles", "xxs", "xs", "sm", "md", "lg", "xl", "className", "children" ]);
   return React__default.createElement(ColStyled, _extends({}, rest, {
+    gridFirst: first,
+    gridLast: last,
+    gridXXS: xxs,
+    gridXS: xs,
+    gridSM: sm,
+    gridMD: md,
+    gridLG: lg,
+    gridXL: xl,
+    gridWidth: width,
+    gridStyles: styles,
     ref: ref,
     className: "aph-col ".concat(className || "")
   }), children);
