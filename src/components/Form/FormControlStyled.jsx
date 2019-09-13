@@ -78,7 +78,7 @@ const FormControlStyled = styled.input`
         &:active,
         &:focus {
             + .aph-form-label {
-                color: ${props => colors.getFromTheme(props, 'disabled')};
+                color: ${props => colors.getFromTheme(props, 'helper')};
             }
         }
     }

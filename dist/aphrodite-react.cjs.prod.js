@@ -3734,7 +3734,13 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
   return props.styles;
 }, ";", MEDIA_QUERIES.LT.SM, "{top:20px;right:10px;left:10px;", selector$1, "{&__container{&__title{padding:25px 0 15px;}&__header{padding-top:0;}}}}"), ModalOverlayStyled = _styled("div", {
   target: "e1bytuoh0"
-})("position:fixed;z-index:", ZINDEX.MODAL - 1, ";top:0;right:0;bottom:0;left:0;", function(props) {
+})("position:fixed;z-index:", ZINDEX.MODAL - 1, ";top:", function(props) {
+  return props.isOpened ? "0" : "100%";
+}, ";right:0;bottom:0;left:0;opacity:", function(props) {
+  return props.isOpened ? "1" : "0";
+}, ";backdrop-filter:blur(2px);background-color:", colors$1.get("black", "normal", .2), ";will-change:opacity top;transition:opacity 0.2s linear,top 0.", function(props) {
+  return props.isOpened ? 1 : 4;
+}, "s linear;", function(props) {
   return props.styles;
 }, ";");
 
@@ -3799,12 +3805,13 @@ var _ref = {
     return function() {
       unlisten();
     };
-  }, []), React__default.createElement(React__default.Fragment, null, active && visible ? React__default.createElement(ModalOverlayStyled, _extends({
+  }, []), React__default.createElement(React__default.Fragment, null, React__default.createElement(ModalOverlayStyled, _extends({
+    isOpened: active && visible,
     onClick: function(evt) {
       return (closeOnEscape || closeByEscape) && handleClose(evt);
     },
-    className: "aph-modal-overlay ".concat(active ? " active" : "").concat(visible ? " visible" : "")
-  }, overlayProps)) : null, React__default.createElement(ModalStyled, _extends({}, rest, {
+    className: "aph-modal-overlay".concat(active ? " active" : "").concat(visible ? " visible" : "")
+  }, overlayProps)), React__default.createElement(ModalStyled, _extends({}, rest, {
     ref: modalRef,
     open: !0,
     opened: active && visible,
@@ -5149,7 +5156,7 @@ var AphFormControlWrapperStyled = _styled("div", {
 }, ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "disabled", "crystal");
 }, ";&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled");
+  return colors$1.getFromTheme(props, "helper");
 }, ";}}}&.aph-form-control--middle{padding:10px;}", function(props) {
   return props.error ? "\n        color: ".concat(function(props) {
     return colors$1.getFromTheme(props, "error");
@@ -5424,14 +5431,14 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
   target: "e64k3mr1"
 })(aphFormSwitchCommonStyles, ";position:absolute;display:block;top:50%;transform:translateY(-50%);line-height:0;"), AphFormSwitchToggle = _styled("label", {
   target: "e64k3mr2"
-})(aphFormSwitchCommonStyles, ";position:absolute;top:0;width:30px;height:30px;transition-property:right,left;transition-duration:0.25s;transition-timing-function:ease;border-radius:50%;background-color:", function(props) {
+})(aphFormSwitchCommonStyles, ";position:absolute;top:0;width:30px;height:30px;transition-property:right,left;transition-duration:0.25s;transition-timing-function:ease;border-radius:50%;box-shadow:0 0 5px 0 ", colors$1.get("black", "original", .25), ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "white");
-}, ";box-shadow:0 0 5px 0 ", colors$1.get("black", "original", .25), ";"), AphFormSwitchInput = _styled("input", {
+}, ";"), AphFormSwitchInput = _styled("input", {
   target: "e64k3mr3"
 })(aphFormSwitchCommonStyles, ";padding:0;margin:5px 0;width:50px;height:20px;border-radius:15px;background-color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled");
+  return colors$1.getFromTheme(props, "mercury", "light");
 }, ";border:0;outline:0;transition-property:background-color;transition-duration:0.25s;transition-timing-function:ease;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&.disabled,&:disabled{background-color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled", "light", .5);
+  return colors$1.getFromTheme(props, "disabled");
 }, ";}&:checked{background-color:", function(props) {
   return colors$1.getFromTheme(props, props.color || "success");
 }, ";+ .aph-form-switch{&__toggle{left:20px;}}&:disabled{background-color:", function(props) {
