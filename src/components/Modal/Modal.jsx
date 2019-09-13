@@ -203,13 +203,12 @@ const Modal = forwardRef((props, ref) => {
      */
     return (
         <>
-            {(!active || !visible) ? (null) : (
-                <ModalOverlayStyled
-                    onClick={(evt) => (closeOnEscape || closeByEscape) && handleClose(evt)}
-                    className={`aph-modal-overlay ${active ? ' active' : ''}${visible ? ' visible' : ''}`}
-                    {...overlayProps}
-                />
-            )}
+            <ModalOverlayStyled
+                isOpened={active && visible}
+                onClick={(evt) => (closeOnEscape || closeByEscape) && handleClose(evt)}
+                className={`aph-modal-overlay${active ? ' active' : ''}${visible ? ' visible' : ''}`}
+                {...overlayProps}
+            />
             <ModalStyled
                 {...rest}
                 ref={modalRef}
