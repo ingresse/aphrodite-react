@@ -79,11 +79,13 @@ const Button = forwardRef((props, ref) => {
                     <AphButtonItemStyled
                         className="aph-btn__loader"
                         childrenWidth={childrenWidth ? `${childrenWidth}px` : null}>
-                        <Icon
-                            size={30}
-                            slug="loader"
-                            color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
-                        />
+                        {(!loading) ? (null) : (
+                            <Icon
+                                size={30}
+                                slug="loader"
+                                color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
+                            />
+                        )}
                     </AphButtonItemStyled>
                     <AphButtonItemStyled
                         ref={childrenRef}

@@ -111,10 +111,6 @@ const AphButtonStyled = styled.button`
 
             &__loader {
                 opacity: 1;
-
-                .aph-icon-wrapper {
-                    ${animations.spin('4s')};
-                }
             }
         }
     }

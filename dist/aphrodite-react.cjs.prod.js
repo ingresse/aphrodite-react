@@ -702,7 +702,7 @@ var AphButtonStyled = _styled("button", {
   return props.aphlink ? colors$1.getFromTheme(props, "smoke") : props.aphtranslucid ? colors$1.getFromTheme(props, "smoke", "", .5) : colors$1.getFromTheme(props, "mercury", "crystal");
 }, ";}.aph-btn{&__content{opacity:1;}&__loader{position:absolute;top:calc(50% - 15px);left:50%;transform:translate(-50%);opacity:0;}}&.aph-btn--loading{&:hover,&:disabled{background-color:", function(props) {
   return props.aphlink ? "transparent" : colors$1.getFromTheme(props, props.aphcolor || "secondary");
-}, ";}.aph-btn{&__content{opacity:0;}&__loader{opacity:1;.aph-icon-wrapper{", animations.spin("4s"), ";}}}}", function(props) {
+}, ";}.aph-btn{&__content{opacity:0;}&__loader{opacity:1;}}}", function(props) {
   return props.aphstyles;
 }, ";"), AphButtonItemStyled = _styled("span", {
   target: "e1q9vwyj0"
@@ -728,11 +728,11 @@ var AphButtonStyled = _styled("button", {
   }), "boolean" != typeof loading ? children : React__default.createElement(React__default.Fragment, null, React__default.createElement(AphButtonItemStyled, {
     className: "aph-btn__loader",
     childrenWidth: childrenWidth ? "".concat(childrenWidth, "px") : null
-  }, React__default.createElement(Icon, {
+  }, loading ? React__default.createElement(Icon, {
     size: 30,
     slug: "loader",
     color: [ "white", "smoke" ].includes(color) ? "secondary" : "white"
-  })), React__default.createElement(AphButtonItemStyled, {
+  }) : null), React__default.createElement(AphButtonItemStyled, {
     ref: childrenRef,
     className: "aph-btn__content"
   }, children)));
