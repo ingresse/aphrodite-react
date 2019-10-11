@@ -24,6 +24,7 @@ const AStyled = styled.a`
     &:visited {
         border : 0;
         outline: 0;
+        color  : inherit;
     }
 
     ${props => props.styles};
