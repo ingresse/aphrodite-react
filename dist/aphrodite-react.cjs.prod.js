@@ -3929,7 +3929,9 @@ var AStyled = _styled("a", {
   target: "e93yvql0"
 })("box-sizing:border-box;cursor:pointer;text-decoration:none;", function(props) {
   return textColorfull(props);
-}, ";border:0;outline:0;&:active,&:focus,&:hover,&:visited{border:0;outline:0;color:inherit;}", function(props) {
+}, ";border:0;outline:0;&:active,&:focus,&:hover,&:visited{border:0;outline:0;color:", function(props) {
+  return props.textColor ? props.textColor : "inherit";
+}, ";}", function(props) {
   return props.styles;
 }, ";"), A = React.forwardRef(function(props, ref) {
   var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
