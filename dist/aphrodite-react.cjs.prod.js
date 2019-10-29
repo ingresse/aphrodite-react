@@ -5502,6 +5502,47 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
   }, children) : null);
 }));
 
+Switch.defaultProps = {
+  id: "formControlRandomID".concat(Math.random()),
+  className: "",
+  styles: {},
+  textSmall: !1,
+  textAlign: "left",
+  toggleAlign: "left"
+}, Switch.propTypes = {
+  id: propTypes.string,
+  className: propTypes.string,
+  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ]),
+  textSmall: propTypes.bool,
+  textAlign: propTypes.string,
+  toggleAlign: propTypes.string
+};
+
+var RadioButtonWrapper = _styled("label", {
+  target: "e1opukke0"
+})({
+  name: "1uu9qb9",
+  styles: "display:flex;align-items:center;cursor:pointer;position:relative;padding-top:5px;padding-left:40px;padding-bottom:5px;"
+}), RadioButtonInput = _styled("input", {
+  target: "e1opukke1"
+})("position:absolute;left:0;display:none;width:30px;height:30px;~ i{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;left:0;width:30px;height:30px;border-radius:100%;border:1px solid ", colors$1.get("mercury", "original"), ";}&:checked ~ i{border:1px solid ", colors$1.get("secondary"), ';&:before{content:" ";position:absolute;display:block;width:14px;height:14px;background-color:', function(props) {
+  return props.disabled ? colors$1.get("disabled") : colors$1.get("secondary");
+}, ";border-radius:100%;}}&:disabled ~ i{border:1px solid ", colors$1.get("disabled"), ";}");
+
+function RadioButton(_ref) {
+  var id = _ref.id, name = _ref.name, children = _ref.children, checked = _ref.checked, type = _ref.type, value = _ref.value, disabled = _ref.disabled, rest = _objectWithoutProperties(_ref, [ "id", "name", "children", "checked", "type", "value", "disabled" ]);
+  return React__default.createElement(RadioButtonWrapper, _extends({
+    htmlFor: id
+  }, rest), React__default.createElement(RadioButtonInput, {
+    id: id,
+    name: name,
+    defaultChecked: checked,
+    type: type,
+    value: value,
+    disabled: disabled
+  }), React__default.createElement("i", null), React__default.createElement("span", null, children));
+}
+
 function useWindowSize() {
   var isClient = "object" === ("undefined" == typeof window ? "undefined" : _typeof(window));
   function getSize() {
@@ -5542,20 +5583,28 @@ function useWindowSize() {
   }, []), windowSize;
 }
 
-Switch.defaultProps = {
-  id: "formControlRandomID".concat(Math.random()),
-  className: "",
-  styles: {},
-  textSmall: !1,
-  textAlign: "left",
-  toggleAlign: "left"
-}, Switch.propTypes = {
-  id: propTypes.string,
-  className: propTypes.string,
-  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ]),
-  textSmall: propTypes.bool,
-  textAlign: propTypes.string,
-  toggleAlign: propTypes.string
+RadioButton.defaultProps = {
+  id: null,
+  type: "radio",
+  name: null,
+  value: "",
+  children: function() {
+    return null;
+  },
+  onChange: function() {
+    return null;
+  },
+  checked: !1,
+  disabled: !1
+}, RadioButton.propTypes = {
+  id: propTypes.string.isRequired,
+  type: propTypes.string,
+  name: propTypes.string.isRequired,
+  value: propTypes.any,
+  children: propTypes.any,
+  onChange: propTypes.func,
+  checked: propTypes.bool,
+  disabled: propTypes.bool
 };
 
 var sort = {
@@ -5607,10 +5656,10 @@ exports.LAYOUT = LAYOUT, exports.Label = Label, exports.Link = A, exports.List =
 exports.ListGroup = ListGroup, exports.ListGroupItem = ListGroupItem, exports.ListItem = ListItem, 
 exports.MEDIA_QUERIES = MEDIA_QUERIES, exports.Modal = Modal, exports.NumberFormat = NumberFormat, 
 exports.P = P, exports.Pagination = Pagination, exports.Placeholder = Placeholder, 
-exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS, exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES, 
-exports.SIZES = SIZES, exports.Scrollable = Scrollable, exports.Segment = Segment, 
-exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch = Switch, 
-exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea, 
+exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS, exports.RadioButton = RadioButton, 
+exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES, exports.SIZES = SIZES, exports.Scrollable = Scrollable, 
+exports.Segment = Segment, exports.Select = FormControlSelect, exports.SidePill = SidePill, 
+exports.Switch = Switch, exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea, 
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX, 
 exports.animations = animations, exports.colors = colors$1, exports.layoutActions = layoutActions, 
 exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll, 

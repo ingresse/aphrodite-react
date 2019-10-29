@@ -6,7 +6,7 @@ route: /organisms/form
 
 import { useEffect, useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
+import { RadioButton, Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
 
 # Form
 #### Form components
@@ -187,6 +187,58 @@ import { Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, 
         label="TextArea Label"
         placeholder="Text Placeholder">
     </TextArea>
+</Playground>
+
+---
+
+## Radio Button
+<Props of={RadioButton} />
+
+<Playground>
+    <Row>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
+            <RadioButton
+                id="regularRadioButton"
+                name="selectByGroup"
+                onChange={(evt) => alert(evt.target.value)}
+                value="regularRadioButtonValue">
+                Regular Radio Button
+            </RadioButton>
+        </Col>
+    </Row>
+    <Row>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
+            <RadioButton
+                id="mascRadioButton"
+                name="gender">
+                Gender (MASC)
+            </RadioButton>
+        </Col>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
+            <RadioButton
+                id="femRadioButton"
+                name="gender">
+                Gender (FEM)
+            </RadioButton>
+        </Col>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
+            <RadioButton
+                id="disbledRadioButton"
+                name="disbledRadioButton"
+                disabled={true}>
+                Disabled Radio Button
+            </RadioButton>
+        </Col>
+        <Col xs={6} sm={3} styles={{ margin: '10px 0' }}>
+            <RadioButton
+                id="disbledCheckedRadioButton"
+                name="disbledCheckedRadioButton"
+                checked={true}
+                disabled={true}>
+                Disabled Checked
+            </RadioButton>
+        </Col>
+    </Row>
 </Playground>
 
 ---
