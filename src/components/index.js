@@ -4,6 +4,7 @@ export { default as Badge } from './Badge/Badge';
 export { default as Button } from './Button/Button';
 export { default as Card } from './Card/Card';
 export { default as Clipboard } from './Clipboard/Clipboard';
+export { default as Dialog } from './Dialog/Dialog';
 export { default as Dropdown } from './Dropdown/Dropdown';
 export { default as HoverActions } from './HoverActions/HoverActions';
 export { default as HoverActionsItem } from './HoverActions/HoverActionsItem';
