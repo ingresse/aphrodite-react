@@ -897,6 +897,60 @@ Clipboard.defaultProps = {
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
+var DialogWrapper = _styled("section", {
+  target: "e146lnst0"
+})("display:flex;align-items:", function(props) {
+  return props.align;
+}, ";justify-content:", function(props) {
+  return props.justify;
+}, ";padding:", function(props) {
+  return props.padding;
+}, ";background-color:rgba(0,0,0,0.25);position:fixed;left:0;top:0;z-index:100;height:100%;width:100%;opacity:0;visibility:hidden;transition:all 195ms cubic-bezier(0.4,0,0.2,1) 0ms;&.act{opacity:1;visibility:visible;}"), DialogContent = _styled("div", {
+  target: "e146lnst1"
+})({
+  name: "djj6yk",
+  styles: "opacity:0;transform:scale(0);transition:all 400ms cubic-bezier(0.68,-0.55,0.265,1.55);&.act{z-index:2;opacity:1;transform:scale(1);}"
+});
+
+function Dialog(_ref) {
+  var opened = _ref.opened, onClose = _ref.onClose, align = _ref.align, justify = _ref.justify, children = _ref.children, padding = _ref.padding, closeArea = _ref.closeArea;
+  return React__default.createElement(DialogWrapper, {
+    className: "aph-dialog__wrapper ".concat(opened ? "act" : ""),
+    align: align,
+    justify: justify,
+    padding: padding
+  }, React__default.createElement(DialogContent, {
+    className: "aph-dialog__content ".concat(opened ? "act" : "")
+  }, children), closeArea && React__default.createElement("div", {
+    className: "aph-dialog__close__area",
+    onClick: onClose,
+    style: {
+      zIndex: "-1",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0
+    }
+  }));
+}
+
+Dialog.propTypes = {
+  opened: propTypes.bool.isRequired,
+  onClose: propTypes.func.isRequired,
+  closeArea: propTypes.bool,
+  align: propTypes.string,
+  justify: propTypes.string,
+  padding: propTypes.string,
+  children: propTypes.any
+}, Dialog.defaultProps = {
+  children: null,
+  closeArea: !0,
+  padding: "0",
+  align: "center",
+  justify: "center"
+};
+
 var DISTANCE = "calc(100% + 10px)", DropdownStyled = _styled("div", {
   target: "e14owjh0"
 })("box-sizing:border-box;position:relative;display:block;width:100%;z-index:901;-webkit-box-orient:vertical;-webkit-box-direction:normal;.aph{&-dropdown{&__toggle,&__content{box-sizing:border-box;}&__toggle{display:", function(props) {
@@ -5647,9 +5701,9 @@ exports.A = A, exports.ANIMATIONS = ANIMATIONS, exports.Accordion = Accordion, e
 exports.Badge = Badge, exports.Button = Button, exports.COLORS = COLORS, exports.Card = Card,
 exports.Checkbox = Checkbox, exports.Clipboard = Clipboard, exports.Col = Column,
 exports.Collapsible = Collapsible, exports.Column = Column, exports.Container = Container,
-exports.Countdown = Countdown, exports.Dropdown = Dropdown, exports.FORM = FORM,
-exports.Flex = Flex$1, exports.GRID = GRID, exports.H1 = H1, exports.H2 = H2, exports.H3 = H3,
-exports.HoverActions = HoverActions, exports.HoverActionsItem = HoverActionItem,
+exports.Countdown = Countdown, exports.Dialog = Dialog, exports.Dropdown = Dropdown,
+exports.FORM = FORM, exports.Flex = Flex$1, exports.GRID = GRID, exports.H1 = H1,
+exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions, exports.HoverActionsItem = HoverActionItem,
 exports.ICONS = ICONS, exports.Icon = Icon, exports.Img = Img, exports.Input = Input,
 exports.InputCurrency = FormControlInputNumber$1, exports.InputNumber = FormControlInputNumber,
 exports.LAYOUT = LAYOUT, exports.Label = Label, exports.Link = A, exports.List = List,
