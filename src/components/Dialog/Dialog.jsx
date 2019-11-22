@@ -11,6 +11,7 @@ function Dialog({
     justify,
 
     children,
+    styles,
 
     padding,
     closeArea,
@@ -18,6 +19,7 @@ function Dialog({
     return (
         <DialogWrapper
             className={`aph-dialog__wrapper ${opened  ? 'act' : ''}`}
+            styles={styles}
             align={align}
             justify={justify}
             padding={padding}
@@ -53,6 +55,7 @@ Dialog.propTypes = {
     justify: PropTypes.string,
     padding: PropTypes.string,
 
+    styles: PropTypes.object,
     children: PropTypes.any,
 };
 
@@ -62,7 +65,7 @@ Dialog.defaultProps = {
     closeArea: true,
 
     padding: '0',
-
+    styles: {},
     align: 'center',
     justify: 'center',
 };

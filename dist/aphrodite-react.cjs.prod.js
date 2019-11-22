@@ -905,7 +905,9 @@ var DialogWrapper = _styled("section", {
   return props.justify;
 }, ";padding:", function(props) {
   return props.padding;
-}, ";background-color:rgba(0,0,0,0.25);position:fixed;left:0;top:0;z-index:100;height:100%;width:100%;opacity:0;visibility:hidden;transition:all 195ms cubic-bezier(0.4,0,0.2,1) 0ms;&.act{opacity:1;visibility:visible;}"), DialogContent = _styled("div", {
+}, ";background-color:rgba(0,0,0,0.25);position:fixed;left:0;top:0;z-index:9999;height:100%;width:100%;opacity:0;visibility:hidden;transition:all 195ms cubic-bezier(0.4,0,0.2,1) 0ms;", function(props) {
+  return props.styles;
+}, " &.act{opacity:1;visibility:visible;}"), DialogContent = _styled("div", {
   target: "e146lnst1"
 })({
   name: "djj6yk",
@@ -913,9 +915,10 @@ var DialogWrapper = _styled("section", {
 });
 
 function Dialog(_ref) {
-  var opened = _ref.opened, onClose = _ref.onClose, align = _ref.align, justify = _ref.justify, children = _ref.children, padding = _ref.padding, closeArea = _ref.closeArea;
+  var opened = _ref.opened, onClose = _ref.onClose, align = _ref.align, justify = _ref.justify, children = _ref.children, styles = _ref.styles, padding = _ref.padding, closeArea = _ref.closeArea;
   return React__default.createElement(DialogWrapper, {
     className: "aph-dialog__wrapper ".concat(opened ? "act" : ""),
+    styles: styles,
     align: align,
     justify: justify,
     padding: padding
@@ -942,11 +945,13 @@ Dialog.propTypes = {
   align: propTypes.string,
   justify: propTypes.string,
   padding: propTypes.string,
+  styles: propTypes.object,
   children: propTypes.any
 }, Dialog.defaultProps = {
   children: null,
   closeArea: !0,
   padding: "0",
+  styles: {},
   align: "center",
   justify: "center"
 };
