@@ -67,5 +67,22 @@
   "authors": [
     "Ingresse",
     "Udimberto Silvestre Junior"
+  ],
+  "author": "Ingresse Dev Team <devel@ingresse.com>",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ingresse/aphrodite-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ingresse/aphrodite-react/issues"
+  },
+  "homepage": "https://github.com/ingresse/aphrodite-react",
+  "keywords": [
+    "ingresse",
+    "aphrodite",
+    "react",
+    "ui",
+    "library",
   ]
 }
