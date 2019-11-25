@@ -5229,13 +5229,7 @@ var AphFormControlWrapperStyled = _styled("div", {
 }, ";&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
   return colors$1.getFromTheme(props, "helper");
 }, ";}}}&.aph-form-control--middle{padding:10px;}", function(props) {
-  return props.error ? "\n        color: ".concat(function(props) {
-    return colors$1.getFromTheme(props, "error");
-  }, ";\n\n        + .aph-form-label {\n            color: ").concat(function(props) {
-    return colors$1.getFromTheme(props, "error");
-  }, ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(function(props) {
-    return colors$1.getFromTheme(props, "error");
-  }, ";\n            }\n        }\n    ") : null;
+  return props.error ? "\n        color: ".concat(colors$1.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$1.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$1.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;
 }, " ", function(props) {
   return props.styles;
 }, ";"), AphFormControlErrorMsgStyled = _styled("label", {

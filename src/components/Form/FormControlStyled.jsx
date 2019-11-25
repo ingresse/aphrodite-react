@@ -88,17 +88,17 @@ const FormControlStyled = styled.input`
     }
 
     ${props => !props.error ? null : `
-        color: ${props => colors.getFromTheme(props, 'error')};
+        color: ${colors.getFromTheme(props, 'error')};
 
         + .aph-form-label {
-            color: ${props => colors.getFromTheme(props, 'error')};
+            color: ${colors.getFromTheme(props, 'error')};
         }
 
         &:hover,
         &:active,
         &:focus {
             + .aph-form-label {
-                color: ${props => colors.getFromTheme(props, 'error')};
+                color: ${colors.getFromTheme(props, 'error')};
             }
         }
     `}
