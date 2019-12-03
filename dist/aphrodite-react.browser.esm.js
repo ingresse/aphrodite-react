@@ -8306,7 +8306,7 @@ function useWindowSize() {
 
     var width = _window.innerWidth;
     var height = _window.innerHeight;
-    var xs = width < SCREEN_SIZES.SM;
+    var xs = width <= SCREEN_SIZES.SM;
     var sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD;
     var md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG;
     var lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL;

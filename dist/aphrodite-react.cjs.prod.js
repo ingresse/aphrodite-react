@@ -5599,7 +5599,7 @@ function RadioButton(_ref) {
 function useWindowSize() {
   var isClient = "object" === ("undefined" == typeof window ? "undefined" : _typeof(window));
   function getSize() {
-    var _window = isClient ? window : {}, width = _window.innerWidth, height = _window.innerHeight, xs = width < SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL;
+    var _window = isClient ? window : {}, width = _window.innerWidth, height = _window.innerHeight, xs = width <= SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL;
     return {
       width: width,
       height: height,
