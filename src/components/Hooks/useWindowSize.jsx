@@ -15,7 +15,7 @@ function useWindowSize() {
 
         const width  = (_window.innerWidth);
         const height = (_window.innerHeight);
-        const xs     = (width < SCREEN_SIZES.SM);
+        const xs     = (width <= SCREEN_SIZES.SM);
         const sm     = (width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD);
         const md     = (width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG);
         const lg     = (width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL);
