@@ -50,7 +50,7 @@ const FormControlStyled = styled.input`
         color: ${props => colors.getFromTheme(props, (props.error ? 'error' : 'base'))};
 
         + .aph-form-label {
-            top      : 2.5px;
+            top      : 0;
             font-size: ${SIZES.SM.FONT_SIZE};
             transform: translateY(0);
         }
@@ -73,6 +73,10 @@ const FormControlStyled = styled.input`
 
         color           : ${props => colors.getFromTheme(props, 'base')};
         background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
+
+        + .aph-form-label {
+            background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
+        }
 
         &:hover,
         &:active,

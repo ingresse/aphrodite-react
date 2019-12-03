@@ -5206,11 +5206,13 @@ var AphFormControlWrapperStyled = _styled("div", {
   target: "e17pdeij0"
 })("box-sizing:border-box;position:absolute;top:", function(props) {
   return props.textArea ? "15px" : "50%";
-}, ";left:10px;display:inline-block;pointer-events:none;color:", function(props) {
+}, ";left:0;right:0;display:block;padding:2.5px 10px;border-radius:5px;pointer-events:none;color:", function(props) {
   return colors$1.getFromTheme(props, "helper");
+}, ";background-color:", function(props) {
+  return colors$1.getFromTheme(props, "background");
 }, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";text-transform:uppercase;transform:", function(props) {
   return props.textArea ? null : "translateY(-50%)";
-}, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:2.5px;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}"), FormControlStyled = _styled("input", {
+}, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}"), FormControlStyled = _styled("input", {
   target: "eub2l8f0"
 })("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:20px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
   return colors$1.getFromTheme(props, "base");
@@ -5220,13 +5222,15 @@ var AphFormControlWrapperStyled = _styled("div", {
   return colors$1.getFromTheme(props, "mercury", "light");
 }, ";font-weight:300;}&:active,&:focus{color:", function(props) {
   return colors$1.getFromTheme(props, props.error ? "error" : "base");
-}, ";+ .aph-form-label{top:2.5px;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", function(props) {
+}, ";+ .aph-form-label{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", function(props) {
   return colors$1.getFromTheme(props, props.error ? "error" : props.color || "secondary");
 }, ";}}&.disabled,&:disabled{cursor:not-allowed;color:", function(props) {
   return colors$1.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "disabled", "crystal");
-}, ";&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
+}, ";+ .aph-form-label{background-color:", function(props) {
+  return colors$1.getFromTheme(props, "disabled", "crystal");
+}, ";}&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
   return colors$1.getFromTheme(props, "helper");
 }, ";}}}&.aph-form-control--middle{padding:10px;}", function(props) {
   return props.error ? "\n        color: ".concat(colors$1.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$1.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$1.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;

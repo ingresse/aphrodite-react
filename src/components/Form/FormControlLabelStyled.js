@@ -10,12 +10,16 @@ const AphFormControlLabelStyled = styled.label`
     box-sizing: border-box;
     position  : absolute;
     top       : ${props => props.textArea ? '15px' : '50%'};
-    left      : 10px;
-    display   : inline-block;
+    left      : 0;
+    right     : 0;
+    display   : block;
+    padding   : 2.5px 10px;
+    border-radius: 5px;
 
     pointer-events: none;
 
     color: ${props => colors.getFromTheme(props, 'helper')};
+    background-color: ${props => colors.getFromTheme(props, 'background')};
 
     font-size  : ${SIZES.MD.FONT_SIZE};
     line-height: ${SIZES.MD.LINE_HEIGHT};
@@ -28,7 +32,7 @@ const AphFormControlLabelStyled = styled.label`
     transition-duration       : 0.15s;
 
     &.aph-form-label--top {
-        top      : 2.5px;
+        top      : 0;
         font-size: ${SIZES.SM.FONT_SIZE};
         transform: translateY(0);
     }
