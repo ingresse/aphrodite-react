@@ -5378,7 +5378,9 @@ var AphFormControlButtonStyled = _styled("button", {
   })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? "aph-form-label--top" : "")
-  }), label) : null, btn || button ? React__default.createElement(AphFormControlButtonStyled, null, React__default.createElement("span", _extends({}, btn, button))) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
+  }), label) : null, btn || button ? React__default.createElement(AphFormControlButtonStyled, {
+    as: btn || button
+  }) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: errorMessage ? {
       maxHeight: "600px"
