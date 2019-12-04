@@ -5214,7 +5214,7 @@ var AphFormControlWrapperStyled = _styled("div", {
   return props.textArea ? null : "translateY(-50%)";
 }, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}"), FormControlStyled = _styled("input", {
   target: "eub2l8f0"
-})("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:20px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
+})("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:30px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
   return colors$1.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
   return colors$1.getFromTheme(props, "background");
