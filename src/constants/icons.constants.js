@@ -43,6 +43,7 @@ export const ICONS = Object.assign([
     'transfer',
     'pencil',
     'user',
+    'facebook-icon',
 
     'payment-amex',
     'payment-bankbillet',

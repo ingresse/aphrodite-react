@@ -24,6 +24,7 @@ import Eye from './IconEye';
 import Filter from './IconFilter';
 import Flash from './IconFlash';
 import FlashOff from './IconFlashOff';
+import Facebook from './IconFacebook';
 import Help from './IconHelp';
 import Info from './IconInfo';
 import Items from './IconItems';
@@ -80,6 +81,7 @@ const ICONS = {
     'filter'            : Filter,
     'flash'             : Flash,
     'flash-off'         : FlashOff,
+    'facebook-icon'     : Facebook,
     'help'              : Help,
     'info'              : Info,
     'items'             : Items,
