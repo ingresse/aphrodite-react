@@ -7906,9 +7906,7 @@ var Input = memo(forwardRef(function (props, ref) {
   })), !label ? null : React.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? 'aph-form-label--top' : '')
-  }), label), !btn && !button ? null : React.createElement(AphFormControlButtonStyled, {
-    as: btn || button
-  }), React.createElement(AphFormControlErrorMsgStyled, {
+  }), label), !btn && !button ? null : React.createElement(AphFormControlButtonStyled, null, React.createElement("span", _extends({}, btn, button))), React.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: !errorMessage ? null : {
       maxHeight: '600px'

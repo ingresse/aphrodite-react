@@ -124,7 +124,12 @@ const Input = memo(forwardRef((props, ref) => {
                 </AphFormControlLabelStyled>
             )}
             {(!btn && !button) ? (null) : (
-                <AphFormControlButtonStyled as={btn || button} />
+                <AphFormControlButtonStyled>
+                    <span
+                        {...btn}
+                        {...button}
+                    />
+                </AphFormControlButtonStyled>
             )}
             <AphFormControlErrorMsgStyled
                 htmlFor={id}
@@ -138,11 +143,11 @@ const Input = memo(forwardRef((props, ref) => {
 
 /* Default Properties */
 Input.defaultProps = {
-    id      : `formControlRandomID${Math.random()}`,
-    label   : '',
-    btn     : null,
-    button  : null,
-    styles  : {},
+    id    : `formControlRandomID${Math.random()}`,
+    label : '',
+    btn   : null,
+    button: null,
+    styles: {},
 };
 
 /* Properties Types */
