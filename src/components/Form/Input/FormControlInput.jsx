@@ -111,6 +111,7 @@ const Input = memo(forwardRef((props, ref) => {
                 name={id}
                 {...props}
                 ref={ref}
+                hasLabel={label ? true : false}
                 onChange={handleChange}
                 onPaste={handlePaste}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}

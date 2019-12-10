@@ -60,6 +60,13 @@ const FormControlTextArea = memo(forwardRef((props, ref) => {
             min-height: 230px;
         }
 
+        + .aph-form-label {
+            display: block;
+            top    : 0;
+
+            background-color: ${props => colors.getFromTheme(props, 'background')};
+        }
+
         ${props => props.styles};
     `;
 
@@ -91,6 +98,7 @@ const FormControlTextArea = memo(forwardRef((props, ref) => {
             <AphFormControlStyled
                 {...props}
                 as="textarea"
+                hasLabel={label ? true : false}
                 onChange={handleChange}
                 styles={styles}
             />
@@ -98,7 +106,6 @@ const FormControlTextArea = memo(forwardRef((props, ref) => {
                 <AphFormControlLabelStyled
                     {...labelProps}
                     htmlFor={inputId}
-                    textArea={true}
                     className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
                 </AphFormControlLabelStyled>

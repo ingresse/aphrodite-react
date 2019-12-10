@@ -17,7 +17,7 @@ const FormControlStyled = styled.input`
     width     : 100%;
     margin    : 0;
     min-height: 50px;
-    padding   : 30px 10px 0;
+    padding   : ${props => props.hasLabel ? 2 : 1}0px 10px 0;
 
     font-weight: ${SIZES.MD.FONT_WEIGHT};
     font-size  : ${SIZES.MD.FONT_SIZE};

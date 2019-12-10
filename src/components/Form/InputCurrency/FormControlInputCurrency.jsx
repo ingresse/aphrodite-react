@@ -59,6 +59,7 @@ const FormControlInputNumber = memo(forwardRef((props, ref) => {
                 {...inheritProps}
                 as={CurrencyInput}
                 ref={ref}
+                hasLabel={label ? true : false}
                 error={error ? 'true' : null}
                 onChange={() => {}}
                 onChangeEvent={handleChange}

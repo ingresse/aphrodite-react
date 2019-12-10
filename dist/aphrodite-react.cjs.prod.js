@@ -455,18 +455,18 @@ var getShadesFormat = function(dark, original, light, crystal) {
   if ("object" !== _typeof(theme) || !theme[colorKey]) return get(colorKey, colorShade, opacity);
   var themeShades = theme.shades && theme.shades[colorKey] ? theme.shades[colorKey] : theme[colorKey];
   return "object" !== _typeof(themeShades) ? themeShades || "" : getOpacity(opacity, themeShades[colorShade]);
-}, colors = _objectSpread({}, all, {
+}, colors$1 = _objectSpread({}, all, {
   getFromTheme: getFromTheme,
   getOpacity: getOpacity,
   get: get
 }), set = function(colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) {
   var _objectSpread3;
-  if ("string" != typeof colorKey || "string" != typeof shadeOriginal) return colors;
+  if ("string" != typeof colorKey || "string" != typeof shadeOriginal) return colors$1;
   var colorOriginal = "rgb(".concat(chroma(shadeOriginal).rgb().join(","), ")"), colorDark = shadeDark || chroma(colorOriginal).darken().css(), colorLight = shadeLight || chroma(colorOriginal).brighten(.5).css(), colorCrystal = shadeCrystal || chroma(colorOriginal).brighten(1).css();
-  return colors = _objectSpread({}, colors, (_defineProperty(_objectSpread3 = {}, colorKey, colorOriginal),
-  _defineProperty(_objectSpread3, "shades", _objectSpread({}, colors.shades, _defineProperty({}, colorKey, getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal)))),
+  return colors$1 = _objectSpread({}, colors$1, (_defineProperty(_objectSpread3 = {}, colorKey, colorOriginal),
+  _defineProperty(_objectSpread3, "shades", _objectSpread({}, colors$1.shades, _defineProperty({}, colorKey, getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal)))),
   _objectSpread3));
-}, colors$1 = colors = _objectSpread({}, colors, {
+}, colors$2 = colors$1 = _objectSpread({}, colors$1, {
   set: set
 }), text = function(props) {
   var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
@@ -479,7 +479,7 @@ var getShadesFormat = function(dark, original, light, crystal) {
   return props.breakAll || props.textBreakAll ? "\n    word-break: break-all;\n" : "";
 }, textColorfull = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
+  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$2.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
 }, textDefinitions = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
   return size ? "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n") : "";
@@ -528,8 +528,8 @@ var ActionBarStyled = _styled("div", {
     bottom: 0,
     left: 0,
     padding: "20px 0",
-    backgroundColor: colors$1.getFromTheme(props, "white"),
-    boxShadow: "0 0 4px 0 ".concat(colors$1.getFromTheme(props, "shadow")),
+    backgroundColor: colors$2.getFromTheme(props, "white"),
+    boxShadow: "0 0 4px 0 ".concat(colors$2.getFromTheme(props, "shadow")),
     transform: "translateY(110%)",
     willChange: "transform",
     transition: "transform 0.3s ease-out 0s, background-color 0.2s linear",
@@ -687,21 +687,21 @@ var AphButtonStyled = _styled("button", {
 }, ";text-align:center;text-transform:uppercase;font-size:16px;line-height:20px;border-radius:", function(props) {
   return (props.aphradius || 25) + ((props.aphradius + "").includes("px") ? "" : "px");
 }, ";border:0;outline:0;-webkit-tap-highlight-color:", function(props) {
-  return colors$1.getFromTheme(props, props.aphcolor || "secondary", "crystal", .5);
+  return colors$2.getFromTheme(props, props.aphcolor || "secondary", "crystal", .5);
 }, ";color:", function(props) {
-  return props.aphlink ? colors$1.getFromTheme(props, props.aphcolor || "secondary") : colors$1.getFromTheme(props, [ "white", "smoke" ].includes(props.aphcolor) ? "secondary" : "white");
+  return props.aphlink ? colors$2.getFromTheme(props, props.aphcolor || "secondary") : colors$2.getFromTheme(props, [ "white", "smoke" ].includes(props.aphcolor) ? "secondary" : "white");
 }, ";background-color:", function(props) {
-  return props.aphlink ? "transparent" : colors$1.getFromTheme(props, props.aphcolor || "secondary");
+  return props.aphlink ? "transparent" : colors$2.getFromTheme(props, props.aphcolor || "secondary");
 }, ";transition-timing-function:ease;transition-duration:0.2s;transition-property:background-color,color,width;&:hover{background-color:", function(props) {
-  return props.aphlink ? colors$1.getFromTheme(props, "smoke") : colors$1.getFromTheme(props, props.aphcolor || "secondary", "light");
+  return props.aphlink ? colors$2.getFromTheme(props, "smoke") : colors$2.getFromTheme(props, props.aphcolor || "secondary", "light");
 }, ";}&:active,&:focus{background-color:", function(props) {
-  return props.aphlink ? colors$1.getFromTheme(props, "smoke") : colors$1.getFromTheme(props, props.aphcolor || "secondary", "dark");
+  return props.aphlink ? colors$2.getFromTheme(props, "smoke") : colors$2.getFromTheme(props, props.aphcolor || "secondary", "dark");
 }, ";}&:disabled{cursor:not-allowed;color:", function(props) {
-  return colors$1.getFromTheme(props, "mercury", props.aphtranslucid ? "crystal" : "light");
+  return colors$2.getFromTheme(props, "mercury", props.aphtranslucid ? "crystal" : "light");
 }, ";background-color:", function(props) {
-  return props.aphlink ? colors$1.getFromTheme(props, "smoke") : props.aphtranslucid ? colors$1.getFromTheme(props, "smoke", "", .5) : colors$1.getFromTheme(props, "mercury", "crystal");
+  return props.aphlink ? colors$2.getFromTheme(props, "smoke") : props.aphtranslucid ? colors$2.getFromTheme(props, "smoke", "", .5) : colors$2.getFromTheme(props, "mercury", "crystal");
 }, ";}.aph-btn{&__content{opacity:1;}&__loader{position:absolute;top:calc(50% - 15px);left:50%;transform:translate(-50%);opacity:0;}}&.aph-btn--loading{&:hover,&:disabled{background-color:", function(props) {
-  return props.aphlink ? "transparent" : colors$1.getFromTheme(props, props.aphcolor || "secondary");
+  return props.aphlink ? "transparent" : colors$2.getFromTheme(props, props.aphcolor || "secondary");
 }, ";}.aph-btn{&__content{opacity:0;}&__loader{opacity:1;}}}", function(props) {
   return props.aphstyles;
 }, ";"), AphButtonItemStyled = _styled("span", {
@@ -769,24 +769,24 @@ var AphCardStyled = _styled("div", {
   return props.margin || null;
 }, ";padding:", function(props) {
   return props.padding || "10px";
-}, ";border-radius:", RADIUS.SM, "px;color:", colors$1.get("black"), ";background:", colors$1.get("white"), ";transition:background-color 0.25s linear,box-shadow 0.25s linear,padding 0.25s linear;will-change:box-shadow,padding;", function(props) {
+}, ";border-radius:", RADIUS.SM, "px;color:", colors$2.get("black"), ";background:", colors$2.get("white"), ";transition:background-color 0.25s linear,box-shadow 0.25s linear,padding 0.25s linear;will-change:box-shadow,padding;", function(props) {
   return props.boxShadow ? {
-    boxShadow: "0 0 5px ".concat(colors$1.get("black", "original", .25))
+    boxShadow: "0 0 5px ".concat(colors$2.get("black", "original", .25))
   } : null;
 }, ";", function(props) {
   return props.onClick ? {
     "&:hover": {
-      background: colors$1.get("smoke")
+      background: colors$2.get("smoke")
     }
   } : null;
 }, ";&.active,&:hover{", function(props) {
   return props.boxShadow ? {
-    boxShadow: "0 0 20px ".concat(colors$1.get("black", "original", .25))
+    boxShadow: "0 0 20px ".concat(colors$2.get("black", "original", .25))
   } : null;
 }, ";}&:hover{", function(props) {
   return props.hover ? function() {
     if (!(props.className.split("active").length > 1)) return {
-      backgroundColor: "".concat(colors$1.get("smoke"))
+      backgroundColor: "".concat(colors$2.get("smoke"))
     };
   } : null;
 }, ";}.aph-card{box-shadow:none !important;}", function(props) {
@@ -814,17 +814,17 @@ Card.defaultProps = {
 var _SIZES$XS = SIZES.XS, FONT_SIZE = _SIZES$XS.FONT_SIZE, LINE_HEIGHT = _SIZES$XS.LINE_HEIGHT, HoverActionItem = _styled("button", {
   target: "ezj1zsv0"
 })("box-sizing:border-box;display:inline-block;padding:6px 5px 4px;margin:0;font-weight:bold;font-size:", FONT_SIZE, ";line-height:", LINE_HEIGHT, ";text-transform:uppercase;border:0;outline:0;text-decoration:none;border-radius:", RADIUS.XS, "px;cursor:pointer;color:", function(props) {
-  return props.color ? colors$1.getFromTheme(props, props.color) : null;
+  return props.color ? colors$2.getFromTheme(props, props.color) : null;
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "inverse", null, .75);
+  return colors$2.getFromTheme(props, "inverse", null, .75);
 }, ";box-shadow:0 0 5px ", function(props) {
-  return colors$1.getFromTheme(props, "shadow");
+  return colors$2.getFromTheme(props, "shadow");
 }, ";transition:color 0.25s linear,background-color 0.25s linear;&:active,&:focus,&:hover{border:0;outline:0;background-color:", function(props) {
-  return colors$1.getFromTheme(props, "inverse", null, 1);
+  return colors$2.getFromTheme(props, "inverse", null, 1);
 }, ";}&.success{color:", function(props) {
-  return colors$1.getFromTheme(props, "success");
+  return colors$2.getFromTheme(props, "success");
 }, ";}&.error{color:", function(props) {
-  return colors$1.getFromTheme(props, "error");
+  return colors$2.getFromTheme(props, "error");
 }, ";}", function(props) {
   return props.styles;
 }, ";"), ClipboardStyled = _styled(HoverActionItem, {
@@ -979,11 +979,11 @@ var DISTANCE = "calc(100% + 10px)", DropdownStyled = _styled("div", {
 }, "s linear,opacity ", function(props) {
   return props.opened ? .15 : .25;
 }, "s linear;color:", function(props) {
-  return colors$1.getFromTheme(props, "black");
+  return colors$2.getFromTheme(props, "black");
 }, ";background:", function(props) {
-  return colors$1.getFromTheme(props, "white");
+  return colors$2.getFromTheme(props, "white");
 }, ";box-shadow:0 0 5px ", function(props) {
-  return colors$1.getFromTheme(props, "shadow");
+  return colors$2.getFromTheme(props, "shadow");
 }, ";padding:", function(props) {
   return props.thin ? "0" : "15px 10px";
 }, ";border-radius:", RADIUS.XS, "px;text-align:", function(props) {
@@ -2968,7 +2968,7 @@ var IconSettings = function(props) {
     ref: ref,
     as: SelectedIcon,
     aphStyles: styles,
-    color: colors$1.getFromTheme(props, color),
+    color: colors$2.getFromTheme(props, color),
     className: "aph-icon aph-icon-wrapper ".concat(className || "")
   }));
 });
@@ -3112,7 +3112,7 @@ NumberFormat.defaultProps = {
 };
 
 var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.forwardRef(function(props, ref) {
-  var _ref = props || {}, className = _ref.className, styles = _ref.styles, rest = _objectWithoutProperties(_ref, [ "className", "styles" ]), isDarkMode = !(!props.theme || !props.theme.isDarkMode), colorTheme = colors$1.getFromTheme(props, "helper"), colorBase = chroma(colorTheme), colorStart = colorBase.alpha(isDarkMode ? .5 : .05).css(), colorEnd = colorBase.alpha(isDarkMode ? .75 : .15).css(), StyledPlaceholder = _styled("div", {
+  var _ref = props || {}, className = _ref.className, styles = _ref.styles, rest = _objectWithoutProperties(_ref, [ "className", "styles" ]), isDarkMode = !(!props.theme || !props.theme.isDarkMode), colorTheme = colors$2.getFromTheme(props, "helper"), colorBase = chroma(colorTheme), colorStart = colorBase.alpha(isDarkMode ? .5 : .05).css(), colorEnd = colorBase.alpha(isDarkMode ? .75 : .15).css(), StyledPlaceholder = _styled("div", {
     target: "ejqn05n0"
   })(_objectSpread$5({
     fontSize: "0",
@@ -3193,7 +3193,7 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
     marginRight: "auto",
     marginLeft: "auto",
     borderRadius: !props.radius && 0 !== props.radius || "number" != typeof parseInt(props.radius, 10) ? "10px" : parseInt(props.radius, 10) + (props.radius.toString().includes("%") ? "%" : "px"),
-    background: colors$1.getFromTheme(props, "disabled")
+    background: colors$2.getFromTheme(props, "disabled")
   }, props.styles);
 }, ""), AphProgressBar = _styled("div", {
   target: "e1pp9vj71"
@@ -3201,7 +3201,7 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
   return _objectSpread$6({}, defaultStyles, {
     height: props.height || "10px",
     width: props.size || (props.percentual && props.percentual > 100 ? 100 : props.percentual || 0) + "%",
-    background: props.color ? colors$1.getFromTheme(props, props.color) : props.animated ? "linear-gradient(270deg, ".concat(colors$1.getFromTheme(props, props.gradientStart || "secondary"), " 0%, ").concat(colors$1.getFromTheme(props, props.gradientEnd || "secondary"), " 100%)") : colors$1.getFromTheme(props, "secondary"),
+    background: props.color ? colors$2.getFromTheme(props, props.color) : props.animated ? "linear-gradient(270deg, ".concat(colors$2.getFromTheme(props, props.gradientStart || "secondary"), " 0%, ").concat(colors$2.getFromTheme(props, props.gradientEnd || "secondary"), " 100%)") : colors$2.getFromTheme(props, "secondary"),
     backgroundSize: "200% 100%",
     animation: "".concat(bgAnimated, " .9s ease infinite"),
     willChange: "width",
@@ -3257,8 +3257,8 @@ ProgressBar.defaultProps = {
   percentual: 0,
   size: "",
   gradient: {
-    start: colors$1.get("secondary"),
-    end: colors$1.get("secondary", "light")
+    start: colors$2.get("secondary"),
+    end: colors$2.get("secondary", "light")
   },
   styles: {},
   width: "100%",
@@ -3297,11 +3297,11 @@ var StyledWrapper = _styled("div", {
     },
     "&:before": {
       left: 0,
-      background: "linear-gradient(to right, ".concat(colors$1.getFromTheme(props, "inverse"), " 50%, ").concat(colors$1.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 80%)")
+      background: "linear-gradient(to right, ".concat(colors$2.getFromTheme(props, "inverse"), " 50%, ").concat(colors$2.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 80%)")
     },
     "&:after": {
       right: 0,
-      background: "linear-gradient(to right, ".concat(colors$1.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 0%, ").concat(colors$1.getFromTheme(props, "inverse"), " 50%)")
+      background: "linear-gradient(to right, ".concat(colors$2.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 0%, ").concat(colors$2.getFromTheme(props, "inverse"), " 50%)")
     },
     "&.scrollable--xs": {
       "&:before,&:after": {
@@ -3355,15 +3355,15 @@ var StyledWrapper = _styled("div", {
 }, ";border-radius:", function(props) {
   return props.aphradius ? "".concat(props.aphradius, "px") : null;
 }, ";box-shadow:", function(props) {
-  return props.aphshadow ? "0 0 3px ".concat(colors$1.getFromTheme(props, "oil", "dark", .25)) : props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))) : null;
+  return props.aphshadow ? "0 0 3px ".concat(colors$2.getFromTheme(props, "oil", "dark", .25)) : props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper"))) : null;
 }, ";color:", function(props) {
-  return props.aphcolor ? colors$1.getFromTheme(props, props.aphcolor) : null;
+  return props.aphcolor ? colors$2.getFromTheme(props, props.aphcolor) : null;
 }, ";background-color:", function(props) {
-  return props.aphbackground ? colors$1.getFromTheme(props, props.aphbackground) : null;
+  return props.aphbackground ? colors$2.getFromTheme(props, props.aphbackground) : null;
 }, ";", function(props) {
   return props.aphhoverable ? "\n        outline: 0;\n        border : 0;\n\n        border-radius: ".concat(RADIUS.LG, "px;\n        box-shadow   : ").concat(function(props) {
-    return props.aphshadow ? "0 0 3px ".concat(colors$1.getFromTheme(props, "oil", "dark", .25)) : null;
-  }, ";\n        transition   : box-shadow 0.15s linear;\n\n        &:hover,\n        &:focus {\n            box-shadow: 0 0 10px ").concat(colors$1.getFromTheme(props, "oil", "dark", .25), ";\n        }\n    ") : null;
+    return props.aphshadow ? "0 0 3px ".concat(colors$2.getFromTheme(props, "oil", "dark", .25)) : null;
+  }, ";\n        transition   : box-shadow 0.15s linear;\n\n        &:hover,\n        &:focus {\n            box-shadow: 0 0 10px ").concat(colors$2.getFromTheme(props, "oil", "dark", .25), ";\n        }\n    ") : null;
 }, " ", function(props) {
   return props.aphstyles;
 }, ";"), Segment = React.forwardRef(function(props, ref) {
@@ -3812,11 +3812,11 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
 }, "s linear,transform ", function(props) {
   return props.opened ? .2 : .1;
 }, "s linear;color:", function(props) {
-  return colors$1.getFromTheme(props, "black");
+  return colors$2.getFromTheme(props, "black");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "white");
+  return colors$2.getFromTheme(props, "white");
 }, ";box-shadow:0 0 10px 0 ", function(props) {
-  return colors$1.getFromTheme(props, "shadow");
+  return colors$2.getFromTheme(props, "shadow");
 }, ";border-radius:", SIZES.LG.RADIUS, " ", SIZES.LG.RADIUS, " 0 0;&.visible{display:block;}&.active{opacity:1;}*{box-sizing:border-box;}", selector$1, "{&__container{min-height:100%;max-height:100%;overflow:auto;&__title{padding:45px 0 15px;}&__header{padding-top:5px;padding-bottom:5px;}&__content{width:100%;}}&__footer{max-height:", SIZES.ACTION_BAR_HEIGHT, ";}}", function(props) {
   return props.styles;
 }, ";", MEDIA_QUERIES.LT.SM, "{top:20px;right:10px;left:10px;", selector$1, "{&__container{&__title{padding:25px 0 15px;}&__header{padding-top:0;}}}}"), ModalOverlayStyled = _styled("div", {
@@ -3825,7 +3825,7 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
   return props.isOpened ? "0" : "100%";
 }, ";right:0;bottom:0;left:0;opacity:", function(props) {
   return props.isOpened ? "1" : "0";
-}, ";backdrop-filter:blur(2px);background-color:", colors$1.get("black", "normal", .2), ";will-change:opacity top;transition:opacity 0.2s linear,top 0.", function(props) {
+}, ";backdrop-filter:blur(2px);background-color:", colors$2.get("black", "normal", .2), ";will-change:opacity top;transition:opacity 0.2s linear,top 0.", function(props) {
   return props.isOpened ? 1 : 4;
 }, "s linear;", function(props) {
   return props.styles;
@@ -3980,11 +3980,11 @@ var SidePillStyled = _styled("aside", {
 }, ";flex-direction:", function(props) {
   return props.right ? "row-reverse" : null;
 }, ";font-weight:500;font-size:20px;line-height:30px;color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+  return colors$2.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "background");
+  return colors$2.getFromTheme(props, "background");
 }, ";box-shadow:0 0 5px 0 ", function(props) {
-  return colors$1.getFromTheme(props, "black", "original", .25);
+  return colors$2.getFromTheme(props, "black", "original", .25);
 }, ";border-radius:", function(props) {
   return props.center ? "30px" : props.right ? "30px 0 0 30px" : "0 30px 30px 0";
 }, ";transition:all 0.15s linear 0s;img{margin-left:", function(props) {
@@ -4571,24 +4571,24 @@ List.defaultProps = {
 var AphListItemStyled = _styled("li", {
   target: "e6wegxb0"
 })("box-sizing:border-box;display:block;margin:0;padding:10px;background-color:transparent;box-shadow:", function(props) {
-  return props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))) : null;
+  return props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper"))) : null;
 }, ";transition:color 0.15s linear,background-color 0.15s linear;will-change:color,background-color;&.active{color:", function(props) {
-  return colors$1.getFromTheme(props, "secondary");
+  return colors$2.getFromTheme(props, "secondary");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "secondary", "crystal");
+  return colors$2.getFromTheme(props, "secondary", "crystal");
 }, ";}", function(props) {
   return props.onClick ? {
     cursor: "pointer",
-    color: colors$1.getFromTheme(props, "secondary"),
+    color: colors$2.getFromTheme(props, "secondary"),
     "&:hover": {
-      color: colors$1.getFromTheme(props, "secondary"),
-      backgroundColor: colors$1.getFromTheme(props, "secondary", "crystal")
+      color: colors$2.getFromTheme(props, "secondary"),
+      backgroundColor: colors$2.getFromTheme(props, "secondary", "crystal")
     }
   } : null;
 }, ";", function(props) {
   return props.hoverable ? {
     "&:hover": {
-      backgroundColor: colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))
+      backgroundColor: colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper"))
     }
   } : null;
 }, ";", function(props) {
@@ -4650,18 +4650,18 @@ var AphListGroup = _styled("div", {
     margin: 0,
     listStyle: "none",
     borderRadius: (isNaN(props.radius) ? RADIUS : props.radius) + GRID.UNIT,
-    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), "\n        ") : "\n            inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 1px 0 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset -1px 0 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 0 1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), "\n        "),
+    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), "\n        ") : "\n            inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 1px 0 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset -1px 0 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 0 1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), "\n        "),
     ".aph-list__header, .aph-list__item": {
-      boxShadow: "\n            inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent\n        "),
+      boxShadow: "\n            inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent\n        "),
       "+ .aph-list__header, + .aph-list__item": {
-        boxShadow: "\n                inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent\n            ")
+        boxShadow: "\n                inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent\n            ")
       }
     },
     ".aph-list__header": {
-      backgroundColor: colors$1.getFromTheme(props, "helper")
+      backgroundColor: colors$2.getFromTheme(props, "helper")
     },
     ".aph-list__item": {
-      backgroundColor: colors$1.getFromTheme(props, "background")
+      backgroundColor: colors$2.getFromTheme(props, "background")
     },
     "div:first-of-type": {
       ".aph-list__header, > .aph-list__item": {
@@ -4669,7 +4669,7 @@ var AphListGroup = _styled("div", {
           marginTop: "-1px",
           borderTopRightRadius: (isNaN(props.radius) ? RADIUS : props.radius) - 2 + GRID.UNIT,
           borderTopLeftRadius: (isNaN(props.radius) ? RADIUS : props.radius) - 2 + GRID.UNIT,
-          boxShadow: "\n                    inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n                    inset 0 0 0 0 transparent,\n                    inset 0 0 0 0 transparent,\n                    inset 0 1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), "\n                ")
+          boxShadow: "\n                    inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n                    inset 0 0 0 0 transparent,\n                    inset 0 0 0 0 transparent,\n                    inset 0 1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), "\n                ")
         }
       }
     },
@@ -4895,7 +4895,7 @@ var Collapsible = React.forwardRef(function(props, ref) {
     margin: "-10px",
     padding: headerProps && headerProps.lg ? "15px 10px" : "10px",
     cursor: "pointer",
-    color: colors$1.get(disabled ? "mercury" : "secondary")
+    color: colors$2.get(disabled ? "mercury" : "secondary")
   }, headerProps && headerProps.styles ? headerProps.styles : {}), HeaderTitle = headerProps && headerProps.lg ? H2 : H3;
   function handleToggle(isOpened) {
     var openStyles, closeStyles;
@@ -4945,7 +4945,7 @@ var Collapsible = React.forwardRef(function(props, ref) {
   }), header, icon ? React__default.createElement(Icon, {
     slug: "arrow-down",
     size: iconSize,
-    color: colors$1.get("mercury", "light"),
+    color: colors$2.get("mercury", "light"),
     styles: {
       position: "absolute",
       top: "50%",
@@ -4993,15 +4993,15 @@ var CountdownStyled = _styled("div", {
 }, "px;.", function(props) {
   return props.aphSelector;
 }, "{box-sizing:border-box;position:relative;transform:rotate(-90deg) scaleY(-1);&__trace,&__line{fill:none;}&__trace{stroke:", function(props) {
-  return colors$1.getFromTheme(props, props.aphBackground);
+  return colors$2.getFromTheme(props, props.aphBackground);
 }, ";}&__line{stroke:", function(props) {
-  return colors$1.getFromTheme(props, props.aphColor);
+  return colors$2.getFromTheme(props, props.aphColor);
 }, ";stroke-linecap:round;transition:stroke-dashoffset 0.1s linear;}&__count{position:absolute;top:0;right:0;bottom:0;left:0;margin:0;display:block;text-align:center;font-weight:normal;font-size:", function(props) {
   return props.aphSize / 2;
 }, "px;line-height:", function(props) {
   return props.aphSize;
 }, "px;color:", function(props) {
-  return colors$1.getFromTheme(props, props.aphColor);
+  return colors$2.getFromTheme(props, props.aphColor);
 }, ";}}", function(props) {
   return props.aphStyles;
 }, ";"), SELECTOR = "aph-countdown", LOG_PREFIX = "Aphrodite Countdown:", RADIUS$1 = 54, VIEW_BOX = 120, CIRCUMFERENCE = 2 * Math.PI * RADIUS$1;
@@ -5064,7 +5064,7 @@ function Countdown(props) {
 }
 
 Countdown.defaultProps = {
-  color: colors$1.get("helper"),
+  color: colors$2.get("helper"),
   background: "transparent",
   seconds: 10,
   size: 32,
@@ -5077,19 +5077,19 @@ Countdown.defaultProps = {
 var AphPaginationStyled = _styled("section", {
   target: "e12zcqyq0"
 })("box-sizing:border-box;position:relative;display:block;width:auto;margin:40px auto;padding:10px 60px;max-width:460px;min-height:50px;list-style-type:none;text-align:center;user-select:none;border-radius:5px;background-color:", function(props) {
-  return colors$1.getFromTheme(props, "background");
+  return colors$2.getFromTheme(props, "background");
 }, ";transition:background-color .2s linear;*{box-sizing:border-box;user-select:none;}.rc-pagination{&-prev,&-next,&-jump-next,&-jump-prev,&-item{display:inline-block;vertical-align:middle;text-align:center;min-width:30px;font-weight:bold;font-size:16px;line-height:20px;border-radius:5px;transition:background-color 0.2s linear;outline:0;border:0;&:not(.rc-pagination-item-active){cursor:pointer;}}&-prev,&-next{position:absolute;padding:2px 2.5px 2.5px;color:", function(props) {
-  return colors$1.getFromTheme(props, "inverse");
+  return colors$2.getFromTheme(props, "inverse");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "secondary");
+  return colors$2.getFromTheme(props, "secondary");
 }, ";}&-prev{left:15px;}&-next{right:15px;padding-left:1.5px;}&-disabled{background-color:", function(props) {
-  return colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled");
+  return colors$2.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled");
 }, ";}&-item,&-jump-prev,&-jump-next{padding:5px;margin:0 5px;color:", function(props) {
-  return colors$1.getFromTheme(props, "secondary");
+  return colors$2.getFromTheme(props, "secondary");
 }, ";background-color:transparent;&-active{color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+  return colors$2.getFromTheme(props, "base");
 }, ";}&:active,&:hover{outline:0;border:0;&:not(.rc-pagination-item-active){background-color:", function(props) {
-  return colors$1.getOpacity(.5, colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled"));
+  return colors$2.getOpacity(.5, colors$2.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled"));
 }, ";}}}}", function(props) {
   return props.styles;
 }, ";");
@@ -5166,9 +5166,9 @@ var AphCheckboxWrapperStyled = _styled("div", {
 }, ";text-align:", function(props) {
   return props.right ? "right" : null;
 }, ';&:before{box-sizing:border-box;content:" ";position:absolute;display:block;width:30px;height:30px;border:1px solid ', function(props) {
-  return colors$1.getFromTheme(props, "helper");
+  return colors$2.getFromTheme(props, "helper");
 }, ";top:0;border-radius:5px;transition-timing-function:ease;transition-duration:0.15s;transition-property:background-color,background-image;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);background-color:", function(props) {
-  return colors$1.getFromTheme(props, "inverse");
+  return colors$2.getFromTheme(props, "inverse");
 }, ";background-size:20px;background-position:center;background-repeat:no-repeat;}"), AphCheckboxStyled = _styled("input", {
   target: "e1a240py2"
 })("box-sizing:border-box;position:absolute;display:block;width:30px;height:30px;margin:0;opacity:0;top:0;right:", function(props) {
@@ -5180,20 +5180,20 @@ var AphCheckboxWrapperStyled = _styled("div", {
 }, ";left:", function(props) {
   return props.labelRight || props.right ? null : "0";
 }, ";}&:focus,&:active,&:checked{+ .aph-form-control-mask:before{border-color:", function(props) {
-  return colors$1.getFromTheme(props, props.color || "secondary");
+  return colors$2.getFromTheme(props, props.color || "secondary");
 }, ";}}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
   return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
-    color: colors$1.getFromTheme(props, props.color || "secondary")
+    color: colors$2.getFromTheme(props, props.color || "secondary")
   }));
 }, "');}&.disabled,&:disabled{+ .aph-form-control-mask:before{border-color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled");
+  return colors$2.getFromTheme(props, "disabled");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "background");
+  return colors$2.getFromTheme(props, "background");
 }, ";}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
   return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
-    color: colors$1.getFromTheme(props, "disabled")
+    color: colors$2.getFromTheme(props, "disabled")
   }));
 }, "');}}"), Checkbox = React.forwardRef(function(props, ref) {
   var className = props.className, children = props.children, color = props.color, id = props.id, right = props.right, labelProps = props.labelProps, labelRight = props.labelRight, newProps = Object.assign({}, props);
@@ -5232,42 +5232,38 @@ var AphFormControlWrapperStyled = _styled("div", {
   styles: "box-sizing:border-box;position:relative;display:block;"
 }), AphFormControlLabelStyled = _styled("label", {
   target: "e17pdeij0"
-})("box-sizing:border-box;position:absolute;top:", function(props) {
-  return props.textArea ? "15px" : "50%";
-}, ";left:0;right:0;display:block;padding:2.5px 10px;border-radius:5px;pointer-events:none;color:", function(props) {
-  return colors$1.getFromTheme(props, "helper");
-}, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "background");
-}, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";text-transform:uppercase;transform:", function(props) {
-  return props.textArea ? null : "translateY(-50%)";
-}, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}"), FormControlStyled = _styled("input", {
+})("box-sizing:border-box;position:absolute;top:12.5px;left:0;right:0;display:inline-block;padding:2.5px 10px;border-radius:5px;pointer-events:none;font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
+  return colors$2.getFromTheme(props, "helper");
+}, ";text-transform:uppercase;transition-property:top,font-size;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:0;font-size:", SIZES.SM.FONT_SIZE, ";}"), FormControlStyled = _styled("input", {
   target: "eub2l8f0"
-})("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:30px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+})("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:", function(props) {
+  return props.hasLabel ? 2 : 1;
+}, "0px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
+  return colors$2.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "background");
+  return colors$2.getFromTheme(props, "background");
 }, ";border-radius:", RADIUS.XS, "px;border:0;outline:0;transition-property:color,padding;transition-timing-function:linear;transition-duration:0.15s;will-change:color,padding;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&::placeholder{color:", function(props) {
-  return colors$1.getFromTheme(props, "mercury", "light");
+  return colors$2.getFromTheme(props, "mercury", "light");
 }, ";font-weight:300;}&:active,&:focus{color:", function(props) {
-  return colors$1.getFromTheme(props, props.error ? "error" : "base");
+  return colors$2.getFromTheme(props, props.error ? "error" : "base");
 }, ";+ .aph-form-label{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", function(props) {
-  return colors$1.getFromTheme(props, props.error ? "error" : props.color || "secondary");
+  return colors$2.getFromTheme(props, props.error ? "error" : props.color || "secondary");
 }, ";}}&.disabled,&:disabled{cursor:not-allowed;color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+  return colors$2.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled", "crystal");
+  return colors$2.getFromTheme(props, "disabled", "crystal");
 }, ";+ .aph-form-label{background-color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled", "crystal");
+  return colors$2.getFromTheme(props, "disabled", "crystal");
 }, ";}&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
-  return colors$1.getFromTheme(props, "helper");
+  return colors$2.getFromTheme(props, "helper");
 }, ";}}}&.aph-form-control--middle{padding:10px;}", function(props) {
-  return props.error ? "\n        color: ".concat(colors$1.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$1.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$1.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;
+  return props.error ? "\n        color: ".concat(colors$2.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$2.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$2.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;
 }, " ", function(props) {
   return props.styles;
 }, ";"), AphFormControlErrorMsgStyled = _styled("label", {
   target: "epzfivm0"
 })("box-sizing:border-box;display:block;padding:0 10px;max-height:0;color:", function(props) {
-  return colors$1.getFromTheme(props, "error");
+  return colors$2.getFromTheme(props, "error");
 }, ";font-size:", SIZES.SM.FONT_SIZE, ";line-height:", SIZES.SM.LINE_HEIGHT, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;transition-property:max-height;", function(props) {
   return props.styles;
 }, ";"), FormControlInputNumber = React.memo(React.forwardRef(function(props, ref) {
@@ -5280,6 +5276,7 @@ var AphFormControlWrapperStyled = _styled("div", {
   }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, inheritProps, {
     as: InputNumber,
     ref: ref,
+    hasLabel: !!label,
     onChange: function(inputValue) {
       setHasValue("number" == typeof inputValue), "function" == typeof onChange && onChange(inputValue);
     },
@@ -5319,6 +5316,7 @@ var FormControlInputNumber$1 = React.memo(React.forwardRef(function(props, ref) 
   }), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, inheritProps, {
     as: CurrencyInput,
     ref: ref,
+    hasLabel: !!label,
     error: error ? "true" : null,
     onChange: function() {},
     onChangeEvent: function(evt, maskedValue, floatValue) {
@@ -5368,7 +5366,7 @@ FormControlInputNumber$1.defaultProps = {
 var AphFormControlButtonStyled = _styled("button", {
   target: "ect8n7f0"
 })("box-sizing:border-box;position:absolute;display:block;padding:0;margin:0;width:30px;height:30px;top:10px;z-index:10;font-size:30px;line-height:30px;border:0;outline:0;background:transparent;text-align:center;&:active,&:focus,&:hover{color:", function(props) {
-  return colors$1.getFromTheme(props, "base");
+  return colors$2.getFromTheme(props, "base");
 }, ";border:0;outline:0;background:transparent;}", function(props) {
   return props.left ? "left" : "right";
 }, ":5px;", function(props) {
@@ -5395,6 +5393,7 @@ var AphFormControlButtonStyled = _styled("button", {
     name: id
   }, props, {
     ref: ref,
+    hasLabel: !!label,
     onChange: function(evt) {
       var inputValue = evt.target.value;
       setHasValue(!!inputValue), "function" == typeof onChange && onChange(Object.assign({}, evt), inputValue);
@@ -5437,6 +5436,7 @@ var FormControlSelect = React.memo(React.forwardRef(function(props, ref) {
   }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, props, {
     as: "select",
     ref: ref,
+    hasLabel: !!label,
     onChange: function(evt) {
       var inputValue = evt.target.value;
       setHasValue(!("number" != typeof inputValue && !inputValue)), "function" == typeof onChange && onChange(Object.assign({}, evt), inputValue);
@@ -5481,13 +5481,16 @@ FormControlSelect.defaultProps = {
 
 var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
   var id = props.id, label = (props.className, props.label), labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = (props.type,
-  props.btn, props.error, props.errorMessage), _useState = (props.color, React.useState(!!value)), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1], inputId = "".concat(id || "formControl"), styles = '\n        max-width : 100%;\n        min-width : 100%;\n        min-height: 90px;\n        padding-bottom: 10px;\n\n        &[rows="4"] {\n            min-height: 110px;\n        }\n\n        &[rows="5"] {\n            min-height: 130px;\n        }\n\n        &[rows="6"] {\n            min-height: 150px;\n        }\n\n        &[rows="7"] {\n            min-height: 170px;\n        }\n\n        &[rows="8"] {\n            min-height: 190px;\n        }\n\n        &[rows="9"] {\n            min-height: 210px;\n        }\n\n        &[rows="10"] {\n            min-height: 230px;\n        }\n\n        '.concat(function(props) {
+  props.btn, props.error, props.errorMessage), _useState = (props.color, React.useState(!!value)), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1], inputId = "".concat(id || "formControl"), styles = '\n        max-width : 100%;\n        min-width : 100%;\n        min-height: 90px;\n        padding-bottom: 10px;\n\n        &[rows="4"] {\n            min-height: 110px;\n        }\n\n        &[rows="5"] {\n            min-height: 130px;\n        }\n\n        &[rows="6"] {\n            min-height: 150px;\n        }\n\n        &[rows="7"] {\n            min-height: 170px;\n        }\n\n        &[rows="8"] {\n            min-height: 190px;\n        }\n\n        &[rows="9"] {\n            min-height: 210px;\n        }\n\n        &[rows="10"] {\n            min-height: 230px;\n        }\n\n        + .aph-form-label {\n            display: block;\n            top    : 0;\n\n            background-color: '.concat(function(props) {
+    return colors.getFromTheme(props, "background");
+  }, ";\n        }\n\n        ").concat(function(props) {
     return props.styles;
   }, ";\n    ");
   return React.useEffect(function() {
     setHasValue(!!value);
   }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, props, {
     as: "textarea",
+    hasLabel: !!label,
     onChange: function(evt) {
       var inputValue = evt.target.value;
       setHasValue(!!inputValue), "function" == typeof onChange && onChange(Object.assign({}, evt));
@@ -5495,7 +5498,6 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
     styles: styles
   })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
     htmlFor: inputId,
-    textArea: !0,
     className: "aph-form-label ".concat(placeholder || hasValue ? "aph-form-label--top" : "")
   }), label) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: inputId,
@@ -5528,18 +5530,18 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
   target: "e64k3mr1"
 })(aphFormSwitchCommonStyles, ";position:absolute;display:block;top:50%;transform:translateY(-50%);line-height:0;"), AphFormSwitchToggle = _styled("label", {
   target: "e64k3mr2"
-})(aphFormSwitchCommonStyles, ";position:absolute;top:0;width:30px;height:30px;transition-property:right,left;transition-duration:0.25s;transition-timing-function:ease;border-radius:50%;box-shadow:0 0 5px 0 ", colors$1.get("black", "original", .25), ";background-color:", function(props) {
-  return colors$1.getFromTheme(props, "white");
+})(aphFormSwitchCommonStyles, ";position:absolute;top:0;width:30px;height:30px;transition-property:right,left;transition-duration:0.25s;transition-timing-function:ease;border-radius:50%;box-shadow:0 0 5px 0 ", colors$2.get("black", "original", .25), ";background-color:", function(props) {
+  return colors$2.getFromTheme(props, "white");
 }, ";"), AphFormSwitchInput = _styled("input", {
   target: "e64k3mr3"
 })(aphFormSwitchCommonStyles, ";padding:0;margin:5px 0;width:50px;height:20px;border-radius:15px;background-color:", function(props) {
-  return colors$1.getFromTheme(props, "mercury", "light");
+  return colors$2.getFromTheme(props, "mercury", "light");
 }, ";border:0;outline:0;transition-property:background-color;transition-duration:0.25s;transition-timing-function:ease;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&.disabled,&:disabled{background-color:", function(props) {
-  return colors$1.getFromTheme(props, "disabled");
+  return colors$2.getFromTheme(props, "disabled");
 }, ";}&:checked{background-color:", function(props) {
-  return colors$1.getFromTheme(props, props.color || "success");
+  return colors$2.getFromTheme(props, props.color || "success");
 }, ";+ .aph-form-switch{&__toggle{left:20px;}}&:disabled{background-color:", function(props) {
-  return colors$1.getFromTheme(props, props.color || "success", "light", .5);
+  return colors$2.getFromTheme(props, props.color || "success", "light", .5);
 }, ";}}+ .aph-form-switch{&__toggle{left:0;}}"), AphFormSwitchContent = _styled("label", {
   target: "e64k3mr4"
 })(aphFormSwitchCommonStyles, ";display:block;width:100%;word-break:break-word;", function(props) {
@@ -5610,9 +5612,9 @@ var RadioButtonWrapper = _styled("label", {
   styles: "display:flex;align-items:center;cursor:pointer;position:relative;padding-top:5px;padding-left:40px;padding-bottom:5px;"
 }), RadioButtonInput = _styled("input", {
   target: "e1opukke1"
-})("position:absolute;left:0;display:none;width:30px;height:30px;~ i{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;left:0;width:30px;height:30px;border-radius:100%;border:1px solid ", colors$1.get("mercury", "original"), ";}&:checked ~ i{border:1px solid ", colors$1.get("secondary"), ';&:before{content:" ";position:absolute;display:block;width:14px;height:14px;background-color:', function(props) {
-  return props.disabled ? colors$1.get("disabled") : colors$1.get("secondary");
-}, ";border-radius:100%;}}&:disabled ~ i{border:1px solid ", colors$1.get("disabled"), ";}");
+})("position:absolute;left:0;display:none;width:30px;height:30px;~ i{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;left:0;width:30px;height:30px;border-radius:100%;border:1px solid ", colors$2.get("mercury", "original"), ";}&:checked ~ i{border:1px solid ", colors$2.get("secondary"), ';&:before{content:" ";position:absolute;display:block;width:14px;height:14px;background-color:', function(props) {
+  return props.disabled ? colors$2.get("disabled") : colors$2.get("secondary");
+}, ";border-radius:100%;}}&:disabled ~ i{border:1px solid ", colors$2.get("disabled"), ";}");
 
 function RadioButton(_ref) {
   var id = _ref.id, name = _ref.name, children = _ref.children, checked = _ref.checked, type = _ref.type, value = _ref.value, disabled = _ref.disabled, rest = _objectWithoutProperties(_ref, [ "id", "name", "children", "checked", "type", "value", "disabled" ]);
@@ -5746,7 +5748,7 @@ exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES, exports.SIZES = SIZES, e
 exports.Segment = Segment, exports.Select = FormControlSelect, exports.SidePill = SidePill,
 exports.Switch = Switch, exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX,
-exports.animations = animations, exports.colors = colors$1, exports.layoutActions = layoutActions,
+exports.animations = animations, exports.colors = colors$2, exports.layoutActions = layoutActions,
 exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll,
 exports.textColorfull = textColorfull, exports.textDefinitions = textDefinitions,
 exports.textTransform = textTransform, exports.textTruncate = textTruncate, exports.toast = reactToastify.toast,

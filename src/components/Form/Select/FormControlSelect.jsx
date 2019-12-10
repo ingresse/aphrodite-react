@@ -68,6 +68,7 @@ const FormControlSelect = memo(forwardRef((props, ref) => {
                 {...props}
                 as="select"
                 ref={ref}
+                hasLabel={label ? true : false}
                 onChange={handleChange}
                 styles={Object.assign({}, styles, props.styles)}
             />
