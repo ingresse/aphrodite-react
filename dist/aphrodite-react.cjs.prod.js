@@ -140,7 +140,7 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
   COLUMNS_GET_WIDTH: function(columnNumber) {
     return !(columnNumber = parseInt(columnNumber, 10)) || "number" != typeof columnNumber || columnNumber < 1 || columnNumber > COLUMNS ? null : 10 * columnNumber / 12 * 10 + "%";
   }
-}, ICONS = Object.assign([ "adjusts", "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "filter", "flash", "flash-off", "help", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "signal", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "user", "facebook-icon", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
+}, ICONS = Object.assign([ "adjusts", "arrow-up", "arrow-down", "arrow-left", "arrow-right", "bluetooth", "camera", "card", "cards", "chart-line", "check", "delete", "external-ticket", "eye", "facebook", "filter", "flash", "flash-off", "help", "info", "items", "list", "loader", "loading", "logout", "lock", "unlock", "search", "settings", "signal", "options", "minus", "plus", "times", "qrcode", "refresh", "scan", "ticketbooth", "transfer", "pencil", "user", "payment-amex", "payment-bankbillet", "payment-diners", "payment-discover", "payment-elo", "payment-freepass", "payment-mastercard", "payment-money", "payment-others", "payment-paypal", "payment-visa" ], {
   ENCODE_SVG: function(reactElement) {
     return "data:image/svg+xml," + escape(ReactDOMServer.renderToStaticMarkup(reactElement));
   }
@@ -362,9 +362,9 @@ function ownKeys(object, enumerableOnly) {
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -505,9 +505,9 @@ function ownKeys$1(object, enumerableOnly) {
 function _objectSpread$1(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$1(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$1(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -560,9 +560,9 @@ function ownKeys$2(object, enumerableOnly) {
 function _objectSpread$2(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$2(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$2(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -847,9 +847,9 @@ function ownKeys$3(object, enumerableOnly) {
 function _objectSpread$3(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$3(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$3(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -1560,27 +1560,27 @@ var IconAdjusts = function(props) {
   return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
-    xmlnsXlink: "http://www.w3.org/1999/xlink",
     width: width || size,
     height: height || size,
-    viewBox: "0 0 30 30"
+    viewBox: "0 0 20 20",
+    id: "aph-icon-facebook"
   }, React__default.createElement("g", {
-    id: "Symbols-Backoffice",
+    id: "aph-icon-facebook-group",
     stroke: "none",
     strokeWidth: "1",
     fill: "none",
     fillRule: "evenodd"
   }, React__default.createElement("g", {
-    id: "User-/-Details",
+    id: "aph-icon-facebook-group-2",
     transform: "translate(-610.000000, -110.000000)",
     fill: "#0084FF",
     fillRule: "nonzero"
   }, React__default.createElement("g", {
-    id: "Icon-/-20-/-Facebook-/-Blue",
+    id: "aph-icon-facebook-group-3",
     transform: "translate(610.000000, 110.000000)"
   }, React__default.createElement("path", {
-    d: "M9.97964286,0.041547619 C4.46809524,0.041547619 0,4.50964286 0,10.0211905 C0,14.9644048 3.59785714,19.0582143 8.3152381,19.8509524 L8.3152381,12.1032143 L5.90785714,12.1032143 L5.90785714,9.31511905 L8.3152381,9.31511905 L8.3152381,7.25928571 C8.3152381,4.87392857 9.77214286,3.57404762 11.9003571,3.57404762 C12.9196429,3.57404762 13.7955952,3.65 14.049881,3.68345238 L14.049881,6.17678571 L12.5738095,6.1775 C11.4166667,6.1775 11.1935714,6.7272619 11.1935714,7.53428571 L11.1935714,9.31369048 L13.9546429,9.31369048 L13.5945238,12.1017857 L11.1935714,12.1017857 L11.1935714,19.917619 C16.1311905,19.3166667 19.9591667,15.1185714 19.9591667,10.0183333 C19.9591667,4.50964286 15.4910714,0.041547619 9.97964286,0.041547619 Z",
-    id: "Path"
+    id: "aph-icon-facebook-path",
+    d: "M9.97964286,0.041547619 C4.46809524,0.041547619 0,4.50964286 0,10.0211905 C0,14.9644048 3.59785714,19.0582143 8.3152381,19.8509524 L8.3152381,12.1032143 L5.90785714,12.1032143 L5.90785714,9.31511905 L8.3152381,9.31511905 L8.3152381,7.25928571 C8.3152381,4.87392857 9.77214286,3.57404762 11.9003571,3.57404762 C12.9196429,3.57404762 13.7955952,3.65 14.049881,3.68345238 L14.049881,6.17678571 L12.5738095,6.1775 C11.4166667,6.1775 11.1935714,6.7272619 11.1935714,7.53428571 L11.1935714,9.31369048 L13.9546429,9.31369048 L13.5945238,12.1017857 L11.1935714,12.1017857 L11.1935714,19.917619 C16.1311905,19.3166667 19.9591667,15.1185714 19.9591667,10.0183333 C19.9591667,4.50964286 15.4910714,0.041547619 9.97964286,0.041547619 Z"
   })))));
 }, IconHelp = function(props) {
   var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
@@ -2987,9 +2987,9 @@ function ownKeys$4(object, enumerableOnly) {
 function _objectSpread$4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$4(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$4(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3081,9 +3081,9 @@ function ownKeys$5(object, enumerableOnly) {
 function _objectSpread$5(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$5(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$5(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3150,9 +3150,9 @@ function ownKeys$6(object, enumerableOnly) {
 function _objectSpread$6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$6(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$6(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3242,9 +3242,9 @@ function ownKeys$7(object, enumerableOnly) {
 function _objectSpread$7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$7(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$7(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3436,9 +3436,9 @@ function ownKeys$8(object, enumerableOnly) {
 function _objectSpread$8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$8(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$8(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3634,9 +3634,9 @@ function ownKeys$9(object, enumerableOnly) {
 function _objectSpread$9(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$9(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$9(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3845,9 +3845,9 @@ function ownKeys$a(object, enumerableOnly) {
 function _objectSpread$a(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$a(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$a(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4229,9 +4229,9 @@ function ownKeys$b(object, enumerableOnly) {
 function _objectSpread$b(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$b(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$b(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4294,9 +4294,9 @@ function ownKeys$c(object, enumerableOnly) {
 function _objectSpread$c(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$c(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$c(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4372,9 +4372,9 @@ function ownKeys$d(object, enumerableOnly) {
 function _objectSpread$d(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$d(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$d(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4620,9 +4620,9 @@ function ownKeys$e(object, enumerableOnly) {
 function _objectSpread$e(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$e(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$e(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4704,9 +4704,9 @@ function ownKeys$f(object, enumerableOnly) {
 function _objectSpread$f(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$f(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$f(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4749,9 +4749,9 @@ function ownKeys$g(object, enumerableOnly) {
 function _objectSpread$g(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$g(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$g(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4872,9 +4872,9 @@ function ownKeys$h(object, enumerableOnly) {
 function _objectSpread$h(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$h(source, !0).forEach(function(key) {
+    i % 2 ? ownKeys$h(Object(source), !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(source).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
