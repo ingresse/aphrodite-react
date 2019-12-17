@@ -32,6 +32,7 @@
     "react-dom": "16.8.6",
     "react-input-number": "5.0.7",
     "react-number-format": "4.0.4",
+    "react-select": "^3.0.8",
     "react-toastify": "4.4.1",
     "react-tooltip": "3.9.0"
   },

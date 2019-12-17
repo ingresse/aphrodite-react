@@ -6,7 +6,7 @@ route: /organisms/form
 
 import { useEffect, useState } from 'react';
 import { Playground, Props } from 'docz';
-import { RadioButton, Input, InputNumber, InputCurrency, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
+import { RadioButton, Input, InputNumber, InputCurrency, Autocomplete, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
 
 # Form
 #### Form components
@@ -171,6 +171,184 @@ import { RadioButton, Input, InputNumber, InputCurrency, Select, TextArea, Check
                 <option value="aphrodite">Aphrodite</option>
                 <option value="react">React</option>
             </Select>
+        );
+    }}
+</Playground>
+
+---
+
+## Autocomplete
+<Props of={Autocomplete} />
+
+### Examples
+
+#### Sync
+<Playground>
+    {() => {
+        const [selected, setSelected] = useState(null);
+        const selectOptions = [
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+        ];
+
+        /**
+         * Handle Selected option
+         *
+         * @param {object} evt
+         */
+        function handleSelected(selected) {
+            setSelected(selected.value);
+        }
+
+        return (
+            <>
+                Selected {selected}
+                <Autocomplete
+                    id="aph-autoselect1"
+                    className="aph aph-autoselect"
+                    placeholder="Custom placeholder"
+                    onChange={handleSelected}
+                    options={selectOptions}
+                    error={selected === "vanilla" ? "Erro aqui" : false}
+                />
+            </>
+        );
+    }}
+</Playground>
+
+#### Disabled
+<Playground>
+    <Autocomplete
+        isDisabled
+    />
+</Playground>
+
+#### Async
+
+<Playground>
+    {() => {
+        const [input, setInput] = useState("");
+        const [selected, setSelected] = useState(null);
+        const selectOptions = [
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+        ];
+
+        const filterColors = (inputValue) => {
+            return selectOptions.filter(i =>
+                i.label.toLowerCase().includes(inputValue.toLowerCase())
+            );
+        };
+
+        const promiseOptions = (inputValue) =>
+            new Promise(resolve => {
+                setTimeout(() => {
+                resolve(filterColors(inputValue));
+                }, 1000);
+            }
+        );
+
+        /**
+         * Handle Selected option
+         *
+         * @param {object} evt
+         */
+        function handleSelected(selected) {
+            setSelected(selected.value);
+        }
+
+        /**
+         * Handle Input Value
+         *
+         * @param {string} newValue
+         */
+        function handleInput(newValue) {
+            const inputValue = newValue.replace(/\W/g, "");
+            setInput(inputValue);
+
+            return inputValue;
+        }
+
+        return (
+            <>
+                <p>Input value: {input}</p>
+                <p>Selected {selected}</p>
+                <Autocomplete
+                    isAsync
+                    loadOptions={promiseOptions}
+                    defaultOptions={selectOptions}
+                    onInputChange={handleInput}
+                    onChange={handleSelected}
+                    error={selected === "vanilla" ? "Erro aqui" : false}
+                />
+            </>
+        );
+    }}
+</Playground>
+
+#### Multi Select
+
+<Playground>
+    {() => {
+        const [input, setInput] = useState("");
+        const [selected, setSelected] = useState(null);
+        const selectOptions = [
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+        ];
+
+        const filterColors = (inputValue) => {
+            return selectOptions.filter(i =>
+                i.label.toLowerCase().includes(inputValue.toLowerCase())
+            );
+        };
+
+        const promiseOptions = (inputValue) =>
+            new Promise(resolve => {
+                setTimeout(() => {
+                resolve(filterColors(inputValue));
+                }, 1000);
+            }
+        );
+
+        /**
+         * Handle Selected option
+         *
+         * @param {object} evt
+         */
+        function handleSelected(selected) {
+            setSelected(selected.value);
+        }
+
+        /**
+         * Handle Input Value
+         *
+         * @param {string} newValue
+         */
+        function handleInput(newValue) {
+            const inputValue = newValue.replace(/\W/g, "");
+            setInput(inputValue);
+
+            return inputValue;
+        }
+
+        return (
+            <>
+                <p>Input value: {input}</p>
+                <p>Selected {selected}</p>
+                <Autocomplete
+                    isAsync
+                    isMulti
+                    loadOptions={promiseOptions}
+                    defaultOptions={selectOptions}
+                    onInputChange={handleInput}
+                    onChange={handleSelected}
+                    error={selected === "vanilla" ? "Erro aqui" : false}
+                />
+            </>
         );
     }}
 </Playground>
