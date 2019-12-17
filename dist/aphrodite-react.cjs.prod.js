@@ -16,7 +16,7 @@ var ReactTooltip = _interopDefault(require("react-tooltip")), Paginator = _inter
 
 require("@emotion/styled");
 
-var InputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input"));
+var InputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), Select = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral([ "\n    0% {\n        transform: scaleY(0.1);\n    }\n\n    25% {\n        transform: scaleY(1);\n    }\n\n    50% {\n        transform: scaleY(0.95);\n    }\n\n    100% {\n        transform: scaleY(1);\n    }\n" ]);
@@ -5414,6 +5414,29 @@ var AphFormControlButtonStyled = _styled("button", {
   }, errorMessage || ""));
 }));
 
+function ownKeys$i(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$i(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$i(Object(source), !0).forEach(function(key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(Object(source)).forEach(function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+  return target;
+}
+
 Input.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),
   label: "",
@@ -5426,6 +5449,83 @@ Input.defaultProps = {
   btn: propTypes.object,
   button: propTypes.object,
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
+};
+
+var customStyles = {
+  control: function(provided, state) {
+    return _objectSpread$i({}, provided, {}, {
+      fontSize: "16px",
+      border: "none",
+      minHeight: "50px",
+      boxShadow: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+      padding: "0 2px",
+      background: state.isFocused ? colors$2.get("ocean", "crystal") : state.isDisabled ? colors$2.get("mercury", "crystal") : colors$2.get("smoke")
+    });
+  },
+  indicatorSeparator: function() {
+    return _objectSpread$i({}, {
+      display: "none"
+    });
+  },
+  dropdownIndicator: function() {
+    return _objectSpread$i({}, {
+      display: "flex",
+      color: colors$2.get("black"),
+      padding: "8px"
+    });
+  },
+  menu: function(provided) {
+    var menuStyles = _objectSpread$i({}, provided, {
+      padding: "10px 0"
+    });
+    return _objectSpread$i({}, provided, {}, menuStyles);
+  },
+  option: function(provided, state) {
+    return _objectSpread$i({}, provided, {}, {
+      fontSize: "16px",
+      cursor: "pointer",
+      color: colors$2.get("ocean", "original"),
+      background: state.isFocused || state.isSelected ? colors$2.get("ocean", "crystal") : "none",
+      "&:hover": {
+        background: colors$2.get("ocean", "crystal")
+      }
+    });
+  }
+};
+
+function Autocomplete(props) {
+  var error = props.error, isAsync = props.isAsync;
+  return React__default.createElement(AphFormControlWrapperStyled, null, isAsync ? React__default.createElement(AsyncSelect, _extends({
+    styles: customStyles
+  }, props)) : React__default.createElement(Select, _extends({
+    styles: customStyles
+  }, props)), error && React__default.createElement(AphFormControlErrorMsgStyled, null, error));
+}
+
+Autocomplete.propTypes = {
+  id: propTypes.number,
+  className: propTypes.string,
+  placeholder: propTypes.string,
+  onChange: propTypes.func,
+  options: propTypes.any,
+  error: propTypes.string,
+  isAsync: propTypes.bool,
+  isMulti: propTypes.bool,
+  isDisabled: propTypes.bool
+}, Autocomplete.defaultProps = {
+  id: "formControlRandomID".concat(Math.random()),
+  className: "Aph aph-select",
+  placeholder: "Custom placeholder",
+  onChange: function() {
+    return null;
+  },
+  options: null,
+  error: "",
+  isAsync: !1,
+  isMulti: !1,
+  isDisabled: !1
 };
 
 var FormControlSelect = React.memo(React.forwardRef(function(props, ref) {
@@ -5731,22 +5831,23 @@ var sort = {
 }, initialState = getSizes();
 
 exports.A = A, exports.ANIMATIONS = ANIMATIONS, exports.Accordion = Accordion, exports.ActionBar = ActionBar,
-exports.Badge = Badge, exports.Button = Button, exports.COLORS = COLORS, exports.Card = Card,
-exports.Checkbox = Checkbox, exports.Clipboard = Clipboard, exports.Col = Column,
-exports.Collapsible = Collapsible, exports.Column = Column, exports.Container = Container,
-exports.Countdown = Countdown, exports.Dialog = Dialog, exports.Dropdown = Dropdown,
-exports.FORM = FORM, exports.Flex = Flex$1, exports.GRID = GRID, exports.H1 = H1,
-exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions, exports.HoverActionsItem = HoverActionItem,
-exports.ICONS = ICONS, exports.Icon = Icon, exports.Img = Img, exports.Input = Input,
-exports.InputCurrency = FormControlInputNumber$1, exports.InputNumber = FormControlInputNumber,
-exports.LAYOUT = LAYOUT, exports.Label = Label, exports.Link = A, exports.List = List,
-exports.ListGroup = ListGroup, exports.ListGroupItem = ListGroupItem, exports.ListItem = ListItem,
-exports.MEDIA_QUERIES = MEDIA_QUERIES, exports.Modal = Modal, exports.NumberFormat = NumberFormat,
-exports.P = P, exports.Pagination = Pagination, exports.Placeholder = Placeholder,
-exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS, exports.RadioButton = RadioButton,
-exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES, exports.SIZES = SIZES, exports.Scrollable = Scrollable,
-exports.Segment = Segment, exports.Select = FormControlSelect, exports.SidePill = SidePill,
-exports.Switch = Switch, exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
+exports.Autocomplete = Autocomplete, exports.Badge = Badge, exports.Button = Button,
+exports.COLORS = COLORS, exports.Card = Card, exports.Checkbox = Checkbox, exports.Clipboard = Clipboard,
+exports.Col = Column, exports.Collapsible = Collapsible, exports.Column = Column,
+exports.Container = Container, exports.Countdown = Countdown, exports.Dialog = Dialog,
+exports.Dropdown = Dropdown, exports.FORM = FORM, exports.Flex = Flex$1, exports.GRID = GRID,
+exports.H1 = H1, exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions,
+exports.HoverActionsItem = HoverActionItem, exports.ICONS = ICONS, exports.Icon = Icon,
+exports.Img = Img, exports.Input = Input, exports.InputCurrency = FormControlInputNumber$1,
+exports.InputNumber = FormControlInputNumber, exports.LAYOUT = LAYOUT, exports.Label = Label,
+exports.Link = A, exports.List = List, exports.ListGroup = ListGroup, exports.ListGroupItem = ListGroupItem,
+exports.ListItem = ListItem, exports.MEDIA_QUERIES = MEDIA_QUERIES, exports.Modal = Modal,
+exports.NumberFormat = NumberFormat, exports.P = P, exports.Pagination = Pagination,
+exports.Placeholder = Placeholder, exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS,
+exports.RadioButton = RadioButton, exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES,
+exports.SIZES = SIZES, exports.Scrollable = Scrollable, exports.Segment = Segment,
+exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch = Switch,
+exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX,
 exports.animations = animations, exports.colors = colors$2, exports.layoutActions = layoutActions,
 exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll,

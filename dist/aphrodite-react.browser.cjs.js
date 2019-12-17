@@ -27,6 +27,8 @@ var localeInfo = _interopDefault(require('rc-pagination/lib/locale/pt_BR'));
 require('@emotion/styled');
 var InputNumber = _interopDefault(require('react-input-number'));
 var CurrencyInput = _interopDefault(require('react-currency-input'));
+var Select = _interopDefault(require('react-select'));
+var AsyncSelect = _interopDefault(require('react-select/async'));
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n    0% {\n        transform: scaleY(0.1);\n    }\n\n    25% {\n        transform: scaleY(1);\n    }\n\n    50% {\n        transform: scaleY(0.95);\n    }\n\n    100% {\n        transform: scaleY(1);\n    }\n"]);
@@ -7982,6 +7984,97 @@ Input.propTypes = {
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
+function ownKeys$i(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$i(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$i(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$i(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var customStyles = {
+  control: function control(provided, state) {
+    var controlStyles = {
+      fontSize: "16px",
+      border: "none",
+      minHeight: "50px",
+      boxShadow: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+      padding: "0 2px",
+      background: state.isFocused ? colors$2.get('ocean', 'crystal') : state.isDisabled ? colors$2.get('mercury', 'crystal') : colors$2.get('smoke')
+    };
+    return _objectSpread$i({}, provided, {}, controlStyles);
+  },
+  indicatorSeparator: function indicatorSeparator() {
+    var separatorStyles = {
+      display: "none"
+    };
+    return _objectSpread$i({}, separatorStyles);
+  },
+  dropdownIndicator: function dropdownIndicator() {
+    var indicatorStyles = {
+      display: "flex",
+      color: colors$2.get('black'),
+      padding: "8px"
+    };
+    return _objectSpread$i({}, indicatorStyles);
+  },
+  menu: function menu(provided) {
+    var menuStyles = _objectSpread$i({}, provided, {
+      padding: "10px 0"
+    });
+
+    return _objectSpread$i({}, provided, {}, menuStyles);
+  },
+  option: function option(provided, state) {
+    var optionStyles = {
+      fontSize: "16px",
+      cursor: "pointer",
+      color: colors$2.get('ocean', 'original'),
+      background: state.isFocused || state.isSelected ? colors$2.get('ocean', 'crystal') : "none",
+      "&:hover": {
+        background: colors$2.get('ocean', 'crystal')
+      }
+    };
+    return _objectSpread$i({}, provided, {}, optionStyles);
+  }
+};
+
+function Autocomplete(props) {
+  var error = props.error,
+      isAsync = props.isAsync;
+  return React__default.createElement(AphFormControlWrapperStyled, null, isAsync ? React__default.createElement(AsyncSelect, _extends({
+    styles: customStyles
+  }, props)) : React__default.createElement(Select, _extends({
+    styles: customStyles
+  }, props)), error && React__default.createElement(AphFormControlErrorMsgStyled, null, error));
+}
+/* Prop Types */
+
+
+Autocomplete.propTypes = {
+  id: propTypes.number,
+  className: propTypes.string,
+  placeholder: propTypes.string,
+  onChange: propTypes.func,
+  options: propTypes.any,
+  error: propTypes.string,
+  isAsync: propTypes.bool,
+  isMulti: propTypes.bool,
+  isDisabled: propTypes.bool
+};
+/* Default Props */
+
+Autocomplete.defaultProps = {
+  id: "formControlRandomID".concat(Math.random()),
+  className: "Aph aph-select",
+  placeholder: "Custom placeholder",
+  onChange: function onChange() {
+    return null;
+  },
+  options: null,
+  error: '',
+  isAsync: false,
+  isMulti: false,
+  isDisabled: false
+};
+
 /* Component Itself */
 
 var FormControlSelect = React.memo(React.forwardRef(function (props, ref) {
@@ -8502,6 +8595,7 @@ exports.A = A;
 exports.ANIMATIONS = ANIMATIONS;
 exports.Accordion = Accordion;
 exports.ActionBar = ActionBar;
+exports.Autocomplete = Autocomplete;
 exports.Badge = Badge;
 exports.Button = Button;
 exports.COLORS = COLORS;
