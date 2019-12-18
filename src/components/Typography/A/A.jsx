@@ -24,7 +24,7 @@ const AStyled = styled.a`
     &:visited {
         border : 0;
         outline: 0;
-        color  : ${(props) => props.textColor ? props.textColor : 'inherit'};
+        color  : ${(props) => props.textColor || null};
     }
 
     ${props => props.styles};
@@ -57,7 +57,6 @@ A.defaultProps = {
     upper : false,
     small : false,
     helper: false,
-    margin: '10px 0',
     color : '',
     styles: {},
 };

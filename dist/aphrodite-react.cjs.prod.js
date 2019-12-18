@@ -3033,9 +3033,15 @@ var ImgStyled = _styled("img", {
     borderRadius: circle ? "50%" : rounded ? RADIUS + "px" : radius || null
   }, styles, {}, _extraStyles);
 }, ""), Img = React.forwardRef(function(props, ref) {
-  var className = props.className;
+  var src = props.src, srcFallback = props.srcFallback, className = props.className, onError = props.onError, _useState = (_objectWithoutProperties(props, [ "src", "srcFallback", "className", "onError" ]),
+  React.useState(src)), _useState2 = _slicedToArray(_useState, 2), managedSRC = _useState2[0], setManagedSRC = _useState2[1], _useState3 = React.useState(!1), _useState4 = _slicedToArray(_useState3, 2), appliedSRC = _useState4[0], setAppliedSRC = _useState4[1];
   return React__default.createElement(ImgStyled, _extends({}, props, {
     ref: ref,
+    src: managedSRC,
+    onError: function(errorEvt) {
+      !appliedSRC && srcFallback && "string" == typeof srcFallback && (setAppliedSRC(!0),
+      setManagedSRC(srcFallback)), "function" == typeof onError && onError(_objectSpread$4({}, errorEvt || {}));
+    },
     className: "aph-img ".concat(className || "")
   }));
 });
@@ -3045,12 +3051,14 @@ Img.defaultProps = {
   rounded: !1,
   radius: "",
   maxWidthXS: "",
+  srcFallback: "",
   styles: {}
 }, Img.propTypes = {
   circle: propTypes.bool,
   rounded: propTypes.bool,
   radius: propTypes.string,
   maxWidthXS: propTypes.string,
+  srcFallback: propTypes.string,
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
@@ -4017,7 +4025,7 @@ var AStyled = _styled("a", {
 })("box-sizing:border-box;cursor:pointer;text-decoration:none;", function(props) {
   return textColorfull(props);
 }, ";border:0;outline:0;&:active,&:focus,&:hover,&:visited{border:0;outline:0;color:", function(props) {
-  return props.textColor ? props.textColor : "inherit";
+  return props.textColor || null;
 }, ";}", function(props) {
   return props.styles;
 }, ";"), A = React.forwardRef(function(props, ref) {
@@ -4036,7 +4044,6 @@ A.defaultProps = {
   upper: !1,
   small: !1,
   helper: !1,
-  margin: "10px 0",
   color: "",
   styles: {}
 }, A.propTypes = {
