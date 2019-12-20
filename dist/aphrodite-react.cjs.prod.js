@@ -16,7 +16,7 @@ var ReactTooltip = _interopDefault(require("react-tooltip")), Paginator = _inter
 
 require("@emotion/styled");
 
-var InputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), Select = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
+var InputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), LibInputMask = _interopDefault(require("react-input-mask")), CNPJ = require("@fnando/cnpj"), CPF = require("@fnando/cpf"), Select = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral([ "\n    0% {\n        transform: scaleY(0.1);\n    }\n\n    25% {\n        transform: scaleY(1);\n    }\n\n    50% {\n        transform: scaleY(0.95);\n    }\n\n    100% {\n        transform: scaleY(1);\n    }\n" ]);
@@ -362,9 +362,9 @@ function ownKeys(object, enumerableOnly) {
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -505,9 +505,9 @@ function ownKeys$1(object, enumerableOnly) {
 function _objectSpread$1(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$1(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$1(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -560,9 +560,9 @@ function ownKeys$2(object, enumerableOnly) {
 function _objectSpread$2(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$2(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$2(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -847,9 +847,9 @@ function ownKeys$3(object, enumerableOnly) {
 function _objectSpread$3(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$3(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$3(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -2987,9 +2987,9 @@ function ownKeys$4(object, enumerableOnly) {
 function _objectSpread$4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$4(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$4(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3089,9 +3089,9 @@ function ownKeys$5(object, enumerableOnly) {
 function _objectSpread$5(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$5(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$5(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3158,9 +3158,9 @@ function ownKeys$6(object, enumerableOnly) {
 function _objectSpread$6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$6(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$6(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3250,9 +3250,9 @@ function ownKeys$7(object, enumerableOnly) {
 function _objectSpread$7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$7(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$7(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3444,9 +3444,9 @@ function ownKeys$8(object, enumerableOnly) {
 function _objectSpread$8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$8(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$8(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3642,9 +3642,9 @@ function ownKeys$9(object, enumerableOnly) {
 function _objectSpread$9(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$9(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$9(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3853,9 +3853,9 @@ function ownKeys$a(object, enumerableOnly) {
 function _objectSpread$a(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$a(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$a(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4236,9 +4236,9 @@ function ownKeys$b(object, enumerableOnly) {
 function _objectSpread$b(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$b(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$b(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4301,9 +4301,9 @@ function ownKeys$c(object, enumerableOnly) {
 function _objectSpread$c(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$c(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$c(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4379,9 +4379,9 @@ function ownKeys$d(object, enumerableOnly) {
 function _objectSpread$d(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$d(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$d(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4627,9 +4627,9 @@ function ownKeys$e(object, enumerableOnly) {
 function _objectSpread$e(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$e(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$e(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4711,9 +4711,9 @@ function ownKeys$f(object, enumerableOnly) {
 function _objectSpread$f(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$f(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$f(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4756,9 +4756,9 @@ function ownKeys$g(object, enumerableOnly) {
 function _objectSpread$g(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$g(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$g(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4879,9 +4879,9 @@ function ownKeys$h(object, enumerableOnly) {
 function _objectSpread$h(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$h(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$h(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -5421,6 +5421,26 @@ var AphFormControlButtonStyled = _styled("button", {
   }, errorMessage || ""));
 }));
 
+function InputMask(props) {
+  return React__default.createElement(LibInputMask, props, function(inputProps) {
+    return React__default.createElement(Input, inputProps);
+  });
+}
+
+function cnpjValidator() {
+  var cnpj = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
+  return CNPJ.isValid(cnpj);
+}
+
+function cpfValidator() {
+  var cpf = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
+  return CPF.isValid(cpf);
+}
+
+function emailValidator(email) {
+  return /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
 function ownKeys$i(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -5435,9 +5455,45 @@ function ownKeys$i(object, enumerableOnly) {
 function _objectSpread$i(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$i(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$i(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(source).forEach(function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+  return target;
+}
+
+function InputCpf(_ref) {
+  var error = _ref.error, onChange = _ref.onChange, pMask = _ref.mask, rest = _objectWithoutProperties(_ref, [ "error", "onChange", "mask" ]), mask = pMask || "999.999.999-99", _useState = React.useState(error || !1), _useState2 = _slicedToArray(_useState, 2), hasError = _useState2[0], setHasError = _useState2[1];
+  return React__default.createElement(InputMask, _extends({
+    mask: mask,
+    error: error || hasError,
+    onChange: function(evt) {
+      var value = ((evt || {}).target || {}).value, isValid = cpfValidator(value);
+      setHasError(!(!value || isValid)), onChange(_objectSpread$i({}, evt || {}));
+    },
+    pattern: "\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}"
+  }, rest));
+}
+
+function ownKeys$j(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$j(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$j(source, !0).forEach(function(key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$j(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -5456,11 +5512,21 @@ Input.defaultProps = {
   btn: propTypes.object,
   button: propTypes.object,
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
+}, InputMask.defaultProps = {
+  mask: ""
+}, InputMask.propTypes = {
+  mask: propTypes.string
+}, InputCpf.defaultProps = {
+  mask: "",
+  onChange: function() {}
+}, InputCpf.propTypes = {
+  mask: propTypes.string,
+  onChange: propTypes.func
 };
 
 var customStyles = {
   control: function(provided, state) {
-    return _objectSpread$i({}, provided, {}, {
+    return _objectSpread$j({}, provided, {}, {
       fontSize: "16px",
       border: "none",
       minHeight: "50px",
@@ -5472,25 +5538,25 @@ var customStyles = {
     });
   },
   indicatorSeparator: function() {
-    return _objectSpread$i({}, {
+    return _objectSpread$j({}, {
       display: "none"
     });
   },
   dropdownIndicator: function() {
-    return _objectSpread$i({}, {
+    return _objectSpread$j({}, {
       display: "flex",
       color: colors$2.get("black"),
       padding: "8px"
     });
   },
   menu: function(provided) {
-    var menuStyles = _objectSpread$i({}, provided, {
+    var menuStyles = _objectSpread$j({}, provided, {
       padding: "10px 0"
     });
-    return _objectSpread$i({}, provided, {}, menuStyles);
+    return _objectSpread$j({}, provided, {}, menuStyles);
   },
   option: function(provided, state) {
-    return _objectSpread$i({}, provided, {}, {
+    return _objectSpread$j({}, provided, {}, {
       fontSize: "16px",
       cursor: "pointer",
       color: colors$2.get("ocean", "original"),
@@ -5845,18 +5911,19 @@ exports.Container = Container, exports.Countdown = Countdown, exports.Dialog = D
 exports.Dropdown = Dropdown, exports.FORM = FORM, exports.Flex = Flex$1, exports.GRID = GRID,
 exports.H1 = H1, exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions,
 exports.HoverActionsItem = HoverActionItem, exports.ICONS = ICONS, exports.Icon = Icon,
-exports.Img = Img, exports.Input = Input, exports.InputCurrency = FormControlInputNumber$1,
-exports.InputNumber = FormControlInputNumber, exports.LAYOUT = LAYOUT, exports.Label = Label,
-exports.Link = A, exports.List = List, exports.ListGroup = ListGroup, exports.ListGroupItem = ListGroupItem,
-exports.ListItem = ListItem, exports.MEDIA_QUERIES = MEDIA_QUERIES, exports.Modal = Modal,
-exports.NumberFormat = NumberFormat, exports.P = P, exports.Pagination = Pagination,
+exports.Img = Img, exports.Input = Input, exports.InputCpf = InputCpf, exports.InputCurrency = FormControlInputNumber$1,
+exports.InputMask = InputMask, exports.InputNumber = FormControlInputNumber, exports.LAYOUT = LAYOUT,
+exports.Label = Label, exports.Link = A, exports.List = List, exports.ListGroup = ListGroup,
+exports.ListGroupItem = ListGroupItem, exports.ListItem = ListItem, exports.MEDIA_QUERIES = MEDIA_QUERIES,
+exports.Modal = Modal, exports.NumberFormat = NumberFormat, exports.P = P, exports.Pagination = Pagination,
 exports.Placeholder = Placeholder, exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS,
 exports.RadioButton = RadioButton, exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES,
 exports.SIZES = SIZES, exports.Scrollable = Scrollable, exports.Segment = Segment,
 exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch = Switch,
 exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX,
-exports.animations = animations, exports.colors = colors$2, exports.layoutActions = layoutActions,
+exports.animations = animations, exports.cnpjValidator = cnpjValidator, exports.colors = colors$2,
+exports.cpfValidator = cpfValidator, exports.emailValidator = emailValidator, exports.layoutActions = layoutActions,
 exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll,
 exports.textColorfull = textColorfull, exports.textDefinitions = textDefinitions,
 exports.textTransform = textTransform, exports.textTruncate = textTruncate, exports.toast = reactToastify.toast,

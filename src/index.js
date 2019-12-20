@@ -5,3 +5,4 @@ export * from './constants';
 export * from './filters';
 export * from './reducers';
 export * from './utils';
+export * from './validators';

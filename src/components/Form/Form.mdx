@@ -6,7 +6,24 @@ route: /organisms/form
 
 import { useEffect, useState } from 'react';
 import { Playground, Props } from 'docz';
-import { RadioButton, Input, InputNumber, InputCurrency, Autocomplete, Select, TextArea, Checkbox, Switch, Card, Segment, Placeholder, Row, Col } from '../';
+import {
+    RadioButton,
+    Input,
+    InputCpf,
+    InputMask,
+    InputNumber,
+    InputCurrency,
+    Autocomplete,
+    Select,
+    TextArea,
+    Checkbox,
+    Switch,
+    Card,
+    Segment,
+    Placeholder,
+    Row,
+    Col,
+} from '../';
 
 # Form
 #### Form components
@@ -127,6 +144,100 @@ import { RadioButton, Input, InputNumber, InputCurrency, Autocomplete, Select, T
                 onChange={handleChange}
                 value={0}
             />
+        );
+    }}
+</Playground>
+
+---
+
+## Input Mask
+#### Simple customization of awesome [react-input-maks](https://www.npmjs.com/package/react-input-mask) component.
+
+<Props of={InputMask} />
+
+### Example
+
+<Playground>
+    {() => {
+        const [ mask, setMask ]   = useState('+99 (99) 999-999-999');
+        const [ value, setValue ] = useState('5511987654321');
+
+        function handleMaskChange({ target }) {
+            const { value } = (target || {});
+
+            setMask(value);
+        }
+
+        function handleChange({ target }) {
+            const { value } = (target || {});
+
+            setValue(value);
+        }
+
+        return (
+            <>
+                <Row>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <Input
+                                id="ExampleInputMaskDefinition"
+                                label="Define the input mask"
+                                onChange={handleMaskChange}
+                                value={mask}
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <InputMask
+                                id="ExampleInputMask"
+                                label="Type something"
+                                mask={mask}
+                                onChange={handleChange}
+                                value={value}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
+            </>
+        );
+    }}
+</Playground>
+
+---
+
+## Input CPF
+#### Brazilian document type, with simple mask and validation.
+
+<Props of={InputCpf} />
+
+### Example
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        function handleChange({ target }) {
+            const { value } = (target || {});
+
+            setValue(value);
+        }
+
+        return (
+            <>
+                <Row>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <InputCpf
+                                id="ExampleInputCpf"
+                                label="Document Number"
+                                onChange={handleChange}
+                                value={value}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
+            </>
         );
     }}
 </Playground>

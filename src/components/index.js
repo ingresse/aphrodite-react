@@ -54,7 +54,9 @@ export { default as Pagination } from './Pagination/Pagination';
 /* Form Components */
 export { default as Input } from './Form/Input/FormControlInput';
 export { default as InputCurrency } from './Form/InputCurrency/FormControlInputCurrency';
+export { default as InputMask } from './Form/InputMask/InputMask';
 export { default as InputNumber } from './Form/InputNumber/FormControlInputNumber';
+export { default as InputCpf } from './Form/InputCpf/InputCpf';
 export { default as Checkbox } from './Form/Checkbox/FormControlCheckbox';
 export { default as Autocomplete } from './Form/Autocomplete/Autocomplete';
 export { default as Select } from './Form/Select/FormControlSelect';
