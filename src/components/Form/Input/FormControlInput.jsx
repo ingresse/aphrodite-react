@@ -94,6 +94,9 @@ const Input = memo(forwardRef((props, ref) => {
      * @param {object} evt - input change synthetic event
      */
     function handlePaste(evt) {
+        const { target } = (evt || {});
+        const inputValue = target.value;
+
         if (preventPaste) {
             evt.preventDefault();
         }

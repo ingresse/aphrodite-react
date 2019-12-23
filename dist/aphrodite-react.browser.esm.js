@@ -7973,6 +7973,11 @@ var Input = memo(forwardRef(function (props, ref) {
 
 
   function handlePaste(evt) {
+    var _ref = evt || {},
+        target = _ref.target;
+
+    var inputValue = target.value;
+
     if (preventPaste) {
       evt.preventDefault();
     }

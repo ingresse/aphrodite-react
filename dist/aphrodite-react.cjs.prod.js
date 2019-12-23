@@ -5406,6 +5406,7 @@ var AphFormControlButtonStyled = _styled("button", {
       setHasValue(!!inputValue), "function" == typeof onChange && onChange(Object.assign({}, evt), inputValue);
     },
     onPaste: function(evt) {
+      var inputValue = (evt || {}).target.value;
       preventPaste && evt.preventDefault(), "function" == typeof onPaste && onPaste(Object.assign({}, evt), inputValue);
     },
     className: "aph-form-control ".concat(!label || !label && hasValue ? "aph-form-control--middle" : "", " ").concat(className || "")
