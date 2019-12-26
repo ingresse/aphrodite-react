@@ -33,6 +33,7 @@ export const ICONS = Object.assign([
     'search',
     'settings',
     'signal',
+    'share-link',
     'options',
     'minus',
     'plus',

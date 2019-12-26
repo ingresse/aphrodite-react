@@ -42,6 +42,7 @@ import Refresh from './IconRefresh';
 import Scan from './IconScan';
 import Search from './IconSearch';
 import Settings from './IconSettings';
+import ShareLink from './IconShareLink';
 import Signal from './IconSignal';
 import Ticketbooth from './IconTicketbooth';
 import Times from './IconTimes';
@@ -99,6 +100,7 @@ const ICONS = {
     'search'            : Search,
     'settings'          : Settings,
     'signal'            : Signal,
+    'share-link'        : ShareLink,
     'ticketbooth'       : Ticketbooth,
     'times'             : Times,
     'transfer'          : Transfer,
