@@ -1195,11 +1195,11 @@ function Avatar(_ref) {
    */
 
   var hasName = name && !initials ? true : false;
-  var splitted = !hasName ? [] : name.split(' ');
+  var splitted = (name || '').trim().split(' ');
   var first = '' + splitted[0];
-  var last = '' + splitted[splitted.length - 1];
-  var firstLetter = !hasName ? '' : first.charAt(0);
-  var lastLetter = !hasName ? '' : last.charAt(0);
+  var last = '' + splitted[splitted.length - 1 || 0];
+  var firstLetter = !hasName ? '' : first[0];
+  var lastLetter = !hasName ? '' : last[0];
   var colorStart = gradientSelected.start;
   var colorEnd = gradientSelected.end;
 
@@ -1269,7 +1269,7 @@ function Avatar(_ref) {
     className: "aph-avatar ".concat(className)
   }, rest), React__default.createElement("figcaption", {
     className: "aph-avatar__initials"
-  }, initials || firstLetter + lastLetter));
+  }, initials ? initials : React__default.createElement(React__default.Fragment, null, firstLetter, lastLetter)));
 }
 /* Default Props */
 

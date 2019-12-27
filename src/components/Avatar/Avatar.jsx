@@ -53,11 +53,11 @@ function Avatar({
      * Local values
      */
     const hasName     = ((name && !initials) ? true : false);
-    const splitted    = (!hasName ? [] : name.split(' '));
+    const splitted    = ((name || '').trim().split(' '));
     const first       = (('' + splitted[0]));
-    const last        = (('' + splitted[splitted.length - 1]));
-    const firstLetter = (!hasName ? '' : first.charAt(0));
-    const lastLetter  = (!hasName ? '' : last.charAt(0));
+    const last        = (('' + splitted[(splitted.length - 1) || 0]));
+    const firstLetter = (!hasName ? '' : first[0]);
+    const lastLetter  = (!hasName ? '' : last[0]);
     const colorStart  = gradientSelected.start;
     const colorEnd    = gradientSelected.end;
     const [ display, setDisplay ] = useState(src ? false : true);
@@ -127,7 +127,11 @@ function Avatar({
             className={`aph-avatar ${className}`}
             {...rest}>
             <figcaption className="aph-avatar__initials">
-                {initials || (firstLetter + lastLetter)}
+                {initials ? initials : (
+                    <>
+                        {firstLetter}{lastLetter}
+                    </>
+                )}
             </figcaption>
         </AvatarStyled>
     );

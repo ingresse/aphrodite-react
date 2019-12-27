@@ -762,7 +762,7 @@ function Avatar(_ref) {
   var center = _ref.center, circle = _ref.circle, color = _ref.color, fontSize = _ref.fontSize, initials = _ref.initials, gradient = _ref.gradient, margin = _ref.margin, name = _ref.name, size = _ref.size, width = _ref.width, height = _ref.height, styles = _ref.styles, radius = _ref.radius, className = _ref.className, src = _ref.src, rest = _objectWithoutProperties(_ref, [ "center", "circle", "color", "fontSize", "initials", "gradient", "margin", "name", "size", "width", "height", "styles", "radius", "className", "src" ]), _ref2 = gradient || {}, gStart = _ref2.start, gEnd = _ref2.end, gradientOptional = gradients.palette[color] || gradients.random() || {}, gradientSelected = gStart || gEnd ? {
     start: gStart || gEnd,
     end: gEnd || gStart
-  } : gradientOptional, hasName = !(!name || initials), splitted = hasName ? name.split(" ") : [], first = "" + splitted[0], last = "" + splitted[splitted.length - 1], firstLetter = hasName ? first.charAt(0) : "", lastLetter = hasName ? last.charAt(0) : "", colorStart = gradientSelected.start, colorEnd = gradientSelected.end, _useState = React.useState(!src), _useState2 = _slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
+  } : gradientOptional, hasName = !(!name || initials), splitted = (name || "").trim().split(" "), first = "" + splitted[0], last = "" + splitted[splitted.length - 1 || 0], firstLetter = hasName ? first[0] : "", lastLetter = hasName ? last[0] : "", colorStart = gradientSelected.start, colorEnd = gradientSelected.end, _useState = React.useState(!src), _useState2 = _slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
   return React.useEffect(function() {
     setDisplay(!src);
   }, [ src ]), display ? React__default.createElement(AvatarStyled, _extends({
@@ -781,7 +781,7 @@ function Avatar(_ref) {
     className: "aph-avatar ".concat(className)
   }, rest), React__default.createElement("figcaption", {
     className: "aph-avatar__initials"
-  }, initials || firstLetter + lastLetter)) : React__default.createElement(Img, _extends({
+  }, initials || React__default.createElement(React__default.Fragment, null, firstLetter, lastLetter))) : React__default.createElement(Img, _extends({
     src: src,
     width: (width || size) + "px",
     height: (height || size) + "px",
