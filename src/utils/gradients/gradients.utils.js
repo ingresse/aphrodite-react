@@ -6,36 +6,40 @@ import colors from '../colors/colors.utils';
  */
 const palette = {
     tangerine: {
-        start: colors.shades.tangerine.light,
-        end  : colors.shades.tangerine.dark,
+        start: colors.shades.tangerine.dark,
+        end  : colors.shades.tangerine.light,
     },
     ocean    : {
-        start: colors.shades.ocean.light,
-        end  : colors.shades.ocean.dark,
+        start: colors.shades.ocean.dark,
+        end  : colors.shades.ocean.light,
     },
     bamboo   : {
-        start: colors.shades.bamboo.light,
-        end  : colors.shades.bamboo.dark,
+        start: colors.shades.bamboo.dark,
+        end  : colors.shades.bamboo.light,
     },
     sunflower: {
-        start: colors.shades.sunflower.light,
-        end  : colors.shades.sunflower.dark,
+        start: colors.shades.sunflower.dark,
+        end  : colors.shades.sunflower.light,
     },
     ruby     : {
-        start: colors.shades.ruby.light,
-        end  : colors.shades.ruby.dark,
+        start: colors.shades.ruby.dark,
+        end  : colors.shades.ruby.light,
     },
     supernova: {
-        start: colors.shades.supernova.light,
-        end  : colors.shades.supernova.dark,
+        start: colors.shades.supernova.dark,
+        end  : colors.shades.supernova.light,
     },
     mint     : {
-        start: colors.shades.mint.light,
-        end  : colors.shades.mint.dark,
+        start: colors.shades.mint.dark,
+        end  : colors.shades.mint.light,
     },
-    poison   : {
-        start: colors.shades.poison.light,
-        end  : colors.shades.poison.dark,
+    mercury  : {
+        start: colors.shades.mercury.dark,
+        end  : colors.shades.mercury.light,
+    },
+    oil      : {
+        start: colors.shades.oil.dark,
+        end  : colors.shades.oil.light,
     },
 };
 

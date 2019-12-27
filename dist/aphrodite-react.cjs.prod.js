@@ -470,36 +470,40 @@ var getShadesFormat = function(dark, original, light, crystal) {
   set: set
 }), palette = {
   tangerine: {
-    start: colors$2.shades.tangerine.light,
-    end: colors$2.shades.tangerine.dark
+    start: colors$2.shades.tangerine.dark,
+    end: colors$2.shades.tangerine.light
   },
   ocean: {
-    start: colors$2.shades.ocean.light,
-    end: colors$2.shades.ocean.dark
+    start: colors$2.shades.ocean.dark,
+    end: colors$2.shades.ocean.light
   },
   bamboo: {
-    start: colors$2.shades.bamboo.light,
-    end: colors$2.shades.bamboo.dark
+    start: colors$2.shades.bamboo.dark,
+    end: colors$2.shades.bamboo.light
   },
   sunflower: {
-    start: colors$2.shades.sunflower.light,
-    end: colors$2.shades.sunflower.dark
+    start: colors$2.shades.sunflower.dark,
+    end: colors$2.shades.sunflower.light
   },
   ruby: {
-    start: colors$2.shades.ruby.light,
-    end: colors$2.shades.ruby.dark
+    start: colors$2.shades.ruby.dark,
+    end: colors$2.shades.ruby.light
   },
   supernova: {
-    start: colors$2.shades.supernova.light,
-    end: colors$2.shades.supernova.dark
+    start: colors$2.shades.supernova.dark,
+    end: colors$2.shades.supernova.light
   },
   mint: {
-    start: colors$2.shades.mint.light,
-    end: colors$2.shades.mint.dark
+    start: colors$2.shades.mint.dark,
+    end: colors$2.shades.mint.light
   },
-  poison: {
-    start: colors$2.shades.poison.light,
-    end: colors$2.shades.poison.dark
+  mercury: {
+    start: colors$2.shades.mercury.dark,
+    end: colors$2.shades.mercury.light
+  },
+  oil: {
+    start: colors$2.shades.oil.dark,
+    end: colors$2.shades.oil.light
   }
 }, list = Object.values(palette);
 
