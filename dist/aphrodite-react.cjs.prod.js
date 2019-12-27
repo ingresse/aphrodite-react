@@ -5516,9 +5516,7 @@ var AphFormControlWrapperStyled = _styled("div", {
   return colors$2.getFromTheme(props, "base");
 }, ";background-color:", function(props) {
   return colors$2.getFromTheme(props, "disabled", "crystal");
-}, ";+ .aph-form-label{background-color:", function(props) {
-  return colors$2.getFromTheme(props, "disabled", "crystal");
-}, ";}&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
+}, ";&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
   return colors$2.getFromTheme(props, "helper");
 }, ";}}}&.aph-form-control--middle{padding:10px;}", function(props) {
   return props.error ? "\n        color: ".concat(colors$2.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$2.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$2.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;
@@ -5914,7 +5912,9 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
   var id = props.id, label = (props.className, props.label), labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = (props.type,
   props.btn, props.error, props.errorMessage), _useState = (props.color, React.useState(!!value)), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1], inputId = "".concat(id || "formControl"), styles = '\n        max-width : 100%;\n        min-width : 100%;\n        min-height: 90px;\n        padding-bottom: 10px;\n\n        &[rows="4"] {\n            min-height: 110px;\n        }\n\n        &[rows="5"] {\n            min-height: 130px;\n        }\n\n        &[rows="6"] {\n            min-height: 150px;\n        }\n\n        &[rows="7"] {\n            min-height: 170px;\n        }\n\n        &[rows="8"] {\n            min-height: 190px;\n        }\n\n        &[rows="9"] {\n            min-height: 210px;\n        }\n\n        &[rows="10"] {\n            min-height: 230px;\n        }\n\n        + .aph-form-label {\n            display: block;\n            top    : 0;\n\n            background-color: '.concat(function(props) {
     return colors.getFromTheme(props, "background");
-  }, ";\n        }\n\n        ").concat(function(props) {
+  }, ";\n        }\n\n        &:disabled {\n            + .aph-form-label {\n                background-color: ").concat(function(props) {
+    return colors.getFromTheme(props, "disabled", "crystal");
+  }, ";\n            }\n        }\n\n        ").concat(function(props) {
     return props.styles;
   }, ";\n    ");
   return React.useEffect(function() {

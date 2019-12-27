@@ -74,10 +74,6 @@ const FormControlStyled = styled.input`
         color           : ${props => colors.getFromTheme(props, 'base')};
         background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
 
-        + .aph-form-label {
-            background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
-        }
-
         &:hover,
         &:active,
         &:focus {

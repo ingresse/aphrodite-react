@@ -67,6 +67,12 @@ const FormControlTextArea = memo(forwardRef((props, ref) => {
             background-color: ${props => colors.getFromTheme(props, 'background')};
         }
 
+        &:disabled {
+            + .aph-form-label {
+                background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
+            }
+        }
+
         ${props => props.styles};
     `;
 
