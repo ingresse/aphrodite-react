@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 import _defineProperty from '@babel/runtime/helpers/esm/defineProperty';
 import _extends from '@babel/runtime/helpers/esm/extends';
 import _styled from '@emotion/styled-base';
-import React, { forwardRef, useRef, useState, useEffect, memo } from 'react';
+import React, { forwardRef, useState, useEffect, useRef, memo } from 'react';
 import propTypes from 'prop-types';
 import _typeof from '@babel/runtime/helpers/esm/typeof';
 import chroma from 'chroma-js';
@@ -521,7 +521,7 @@ var animations = {
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /**
  * Get Color Shade Format
  *
@@ -768,6 +768,68 @@ colors$1 = _objectSpread({}, colors$1, {
 
 var colors$2 = colors$1;
 
+/* Utilities */
+/**
+ * Grandrients palette
+ */
+
+var palette = {
+  tangerine: {
+    start: colors$2.shades.tangerine.light,
+    end: colors$2.shades.tangerine.dark
+  },
+  ocean: {
+    start: colors$2.shades.ocean.light,
+    end: colors$2.shades.ocean.dark
+  },
+  bamboo: {
+    start: colors$2.shades.bamboo.light,
+    end: colors$2.shades.bamboo.dark
+  },
+  sunflower: {
+    start: colors$2.shades.sunflower.light,
+    end: colors$2.shades.sunflower.dark
+  },
+  ruby: {
+    start: colors$2.shades.ruby.light,
+    end: colors$2.shades.ruby.dark
+  },
+  supernova: {
+    start: colors$2.shades.supernova.light,
+    end: colors$2.shades.supernova.dark
+  },
+  mint: {
+    start: colors$2.shades.mint.light,
+    end: colors$2.shades.mint.dark
+  },
+  poison: {
+    start: colors$2.shades.poison.light,
+    end: colors$2.shades.poison.dark
+  }
+};
+/**
+ * Gradients palette as list
+ */
+
+var list = Object.values(palette);
+/**
+ * Get random Gradient
+ */
+
+function random() {
+  return list[Math.floor(Math.random() * list.length)];
+}
+/**
+ * Mapping
+ */
+
+
+var gradients = {
+  list: list,
+  palette: palette,
+  random: random
+};
+
 /**
  * Typography common styles
  */
@@ -831,7 +893,7 @@ var textTruncate = function textTruncate() {
 
 function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Styles */
 
 var ActionBarStyled =
@@ -890,7 +952,361 @@ ActionBar.propTypes = {
 
 function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+/* Styled */
+
+var ImgStyled =
+/*#__PURE__*/
+_styled('img', {
+  target: "e1bh345u0"
+})(function (props) {
+  var center = props.center,
+      circle = props.circle,
+      rounded = props.rounded,
+      radius = props.radius,
+      maxWidthXS = props.maxWidthXS,
+      withFadeIn = props.withFadeIn,
+      styles = props.styles;
+  var _extraStyles = {};
+
+  if (center) {
+    _extraStyles = _objectSpread$2({}, _extraStyles, {
+      display: 'block',
+      margin: '0 auto'
+    });
+  }
+
+  if (maxWidthXS) {
+    _extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
+      maxWidth: maxWidthXS
+    }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {});
+  }
+
+  if (withFadeIn) {
+    _extraStyles = _objectSpread$2({}, _extraStyles, {
+      opacity: 1,
+      transition: 'opacity 0.3s linear',
+      '&.aph-img--fade-in': {
+        opacity: 0
+      }
+    });
+  }
+
+  return _objectSpread$2({
+    boxSizing: 'border-box',
+    display: 'inline-block',
+    opacity: 1,
+    maxWidth: '100%',
+    height: 'auto',
+    verticalAlign: 'middle',
+    borderRadius: circle ? '50%' : rounded ? RADIUS + 'px' : radius || null
+  }, styles, {}, _extraStyles);
+}, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkltZ1N0eWxlZC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFVa0IiLCJmaWxlIjoiSW1nU3R5bGVkLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBDb25zdGFudHMgKi9cbmltcG9ydCB7XG4gICAgTUVESUFfUVVFUklFUyxcbiAgICBSQURJVVMsXG59IGZyb20gJy4uLy4uL2NvbnN0YW50cyc7XG5cbi8qIFN0eWxlZCAqL1xuY29uc3QgSW1nU3R5bGVkID0gc3R5bGVkKCdpbWcnKSgocHJvcHMpID0+IHtcbiAgICBjb25zdCB7XG4gICAgICAgIGNlbnRlcixcbiAgICAgICAgY2lyY2xlLFxuICAgICAgICByb3VuZGVkLFxuICAgICAgICByYWRpdXMsXG5cbiAgICAgICAgbWF4V2lkdGhYUyxcbiAgICAgICAgd2l0aEZhZGVJbixcblxuICAgICAgICBzdHlsZXMsXG4gICAgfSA9IHByb3BzO1xuXG4gICAgbGV0IF9leHRyYVN0eWxlcyA9IHt9O1xuXG4gICAgaWYgKGNlbnRlcikge1xuICAgICAgICBfZXh0cmFTdHlsZXMgPSB7XG4gICAgICAgICAgICAuLi5fZXh0cmFTdHlsZXMsXG4gICAgICAgICAgICBkaXNwbGF5OiAnYmxvY2snLFxuICAgICAgICAgICAgbWFyZ2luIDogJzAgYXV0bycsXG4gICAgICAgIH07XG4gICAgfVxuXG4gICAgaWYgKG1heFdpZHRoWFMpIHtcbiAgICAgICAgX2V4dHJhU3R5bGVzW01FRElBX1FVRVJJRVMuTFQuU01dID0gT2JqZWN0LmFzc2lnbih7XG4gICAgICAgICAgICAgICAgbWF4V2lkdGg6IG1heFdpZHRoWFMsXG4gICAgICAgICAgICB9LCBzdHlsZXMgJiYgc3R5bGVzW01FRElBX1FVRVJJRVMuTFQuU01dID8gc3R5bGVzW01FRElBX1FVRVJJRVMuTFQuU01dIDoge31cbiAgICAgICAgKTtcbiAgICB9XG5cbiAgICBpZiAod2l0aEZhZGVJbikge1xuICAgICAgICBfZXh0cmFTdHlsZXMgPSB7XG4gICAgICAgICAgICAuLi5fZXh0cmFTdHlsZXMsXG4gICAgICAgICAgICBvcGFjaXR5ICAgOiAxLFxuICAgICAgICAgICAgdHJhbnNpdGlvbjogJ29wYWNpdHkgMC4zcyBsaW5lYXInLFxuXG4gICAgICAgICAgICAnJi5hcGgtaW1nLS1mYWRlLWluJzoge1xuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDAsXG4gICAgICAgICAgICB9LFxuICAgICAgICB9O1xuICAgIH1cblxuICAgIHJldHVybiB7XG4gICAgICAgIGJveFNpemluZyAgICA6ICdib3JkZXItYm94JyxcbiAgICAgICAgZGlzcGxheSAgICAgIDogJ2lubGluZS1ibG9jaycsXG4gICAgICAgIG9wYWNpdHkgICAgICA6IDEsXG4gICAgICAgIG1heFdpZHRoICAgICA6ICcxMDAlJyxcbiAgICAgICAgaGVpZ2h0ICAgICAgIDogJ2F1dG8nLFxuICAgICAgICB2ZXJ0aWNhbEFsaWduOiAnbWlkZGxlJyxcblxuICAgICAgICBib3JkZXJSYWRpdXM6IChjaXJjbGUgPyAnNTAlJyA6IHJvdW5kZWQgPyAoUkFESVVTICsgJ3B4JykgOiAocmFkaXVzIHx8IG51bGwpKSxcblxuICAgICAgICAuLi5zdHlsZXMsXG5cbiAgICAgICAgLi4uX2V4dHJhU3R5bGVzXG4gICAgfTtcbn0pO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEltZ1N0eWxlZDtcbiJdfQ== */");
+
+function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+/* Component Itself */
+
+var Img = forwardRef(function (props, ref) {
+  var center = props.center,
+      src = props.src,
+      srcFallback = props.srcFallback,
+      className = props.className,
+      onError = props.onError,
+      onLoad = props.onLoad,
+      fadeIn = props.fadeIn,
+      rest = _objectWithoutProperties(props, ["center", "src", "srcFallback", "className", "onError", "onLoad", "fadeIn"]);
+  /**
+   * Local values
+   */
+
+
+  var _useState = useState(src),
+      _useState2 = _slicedToArray(_useState, 2),
+      managedSRC = _useState2[0],
+      setManagedSRC = _useState2[1];
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      appliedSRC = _useState4[0],
+      setAppliedSRC = _useState4[1];
+
+  var _useState5 = useState(fadeIn ? true : false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      activeFade = _useState6[0],
+      setActiveFade = _useState6[1];
+  /**
+   * Handle with load
+   *
+   * @param {object} evt - synthetic event
+   */
+
+
+  function handleLoad(evt) {
+    if (typeof onLoad === 'function') {
+      onLoad(_objectSpread$3({}, evt || {}));
+    }
+
+    if (!activeFade) {
+      return;
+    }
+
+    setActiveFade(false);
+  }
+  /**
+   * Handle with error
+   *
+   * @param {object} errorEvt - error synthetic event
+   */
+
+
+  function handleError(errorEvt) {
+    if (!appliedSRC && srcFallback && typeof srcFallback === 'string') {
+      setAppliedSRC(true);
+      setManagedSRC(srcFallback);
+    }
+
+    if (typeof onError === 'function') {
+      onError(_objectSpread$3({}, errorEvt || {}));
+    }
+  }
+  /**
+   * Did update
+   */
+
+
+  useEffect(function () {
+    setManagedSRC(src);
+  }, [src]);
+  /**
+   * Render
+   */
+
+  return React.createElement(ImgStyled, _extends({}, props, {
+    center: center,
+    ref: ref,
+    src: managedSRC,
+    onLoad: handleLoad,
+    onError: handleError,
+    withFadeIn: fadeIn,
+    className: "aph-img".concat(activeFade ? ' aph-img--fade-in ' : ' ').concat(className || '')
+  }));
+});
+/* Default Properties */
+
+Img.defaultProps = {
+  circle: false,
+  rounded: false,
+  radius: '',
+  maxWidthXS: '',
+  srcFallback: '',
+  styles: {}
+};
+/* Properties Types */
+
+Img.propTypes = {
+  circle: propTypes.bool,
+  rounded: propTypes.bool,
+  radius: propTypes.string,
+  maxWidthXS: propTypes.string,
+  srcFallback: propTypes.string,
+  styles: propTypes.oneOfType([propTypes.string, propTypes.object])
+};
+
+/* Component Styles */
+
+var AvatarStyled = _styled("figure", {
+  target: "e3glzpi0"
+})("box-sizing:border-box;position:relative;display:", function (props) {
+  return props.aphCenter ? '' : 'inline-';
+}, "block;margin:", function (props) {
+  return props.aphCenter ? props.aphMargin + ' auto' : props.aphMargin;
+}, ";width:", function (props) {
+  return props.aphWidth + ((props.aphWidth + '').includes('px') ? '' : 'px');
+}, ";height:", function (props) {
+  return props.aphHeight + ((props.aphHeight + '').includes('px') ? '' : 'px');
+}, ";border-radius:", function (props) {
+  return props.aphRadius || (props.aphCircle ? '50%' : null);
+}, ";background-color:", function (props) {
+  return props.aphColorStart || props.aphColorEnd;
+}, ";background:linear-gradient(0deg,", function (props) {
+  return props.aphColorStart;
+}, " 0%,", function (props) {
+  return props.aphColorEnd;
+}, " 100%);user-select:none;", function (props) {
+  return props.aphStyles;
+}, ";.aph-avatar{&__initials{color:rgba(255,255,255,0.5);font-size:", function (props) {
+  return props.aphFontSize || (props.aphWidth + '').replace('px', '') / 2 - 8;
+}, "px;line-height:", function (props) {
+  return props.aphHeight + ((props.aphHeight + '').includes('px') ? '' : 'px');
+}, ";text-align:center;text-transform:uppercase;user-select:none;", function (props) {
+  return text(props);
+}, ";}}" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkF2YXRhclN0eWxlZC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFTa0MiLCJmaWxlIjoiQXZhdGFyU3R5bGVkLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBVdGlsaXRpZXMgKi9cbmltcG9ydCB7XG4gICAgdGV4dCxcbn0gZnJvbSAnLi4vLi4vdXRpbHMnO1xuXG4vKiBDb21wb25lbnQgU3R5bGVzICovXG5jb25zdCBBdmF0YXJTdHlsZWQgPSBzdHlsZWQuZmlndXJlYFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgcG9zaXRpb24gIDogcmVsYXRpdmU7XG4gICAgZGlzcGxheSAgIDogJHtwcm9wcyA9PiBwcm9wcy5hcGhDZW50ZXIgPyAnJyA6ICdpbmxpbmUtJ31ibG9jaztcbiAgICBtYXJnaW4gICAgOiAke3Byb3BzID0+IHByb3BzLmFwaENlbnRlciA/IChwcm9wcy5hcGhNYXJnaW4gKyAnIGF1dG8nKSA6IHByb3BzLmFwaE1hcmdpbn07XG4gICAgd2lkdGggICAgIDogJHtwcm9wcyA9PiAocHJvcHMuYXBoV2lkdGggKyAoKHByb3BzLmFwaFdpZHRoICsgJycpLmluY2x1ZGVzKCdweCcpID8gJycgOiAncHgnKSl9O1xuICAgIGhlaWdodCAgICA6ICR7cHJvcHMgPT4gKHByb3BzLmFwaEhlaWdodCArICgocHJvcHMuYXBoSGVpZ2h0ICsgJycpLmluY2x1ZGVzKCdweCcpID8gJycgOiAncHgnKSl9O1xuXG4gICAgYm9yZGVyLXJhZGl1cyAgIDogJHtwcm9wcyA9PiBwcm9wcy5hcGhSYWRpdXMgfHwgKHByb3BzLmFwaENpcmNsZSA/ICc1MCUnIDogbnVsbCl9O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICR7cHJvcHMgPT4gcHJvcHMuYXBoQ29sb3JTdGFydCB8fCBwcm9wcy5hcGhDb2xvckVuZH07XG4gICAgYmFja2dyb3VuZCAgICAgIDogbGluZWFyLWdyYWRpZW50KDBkZWcsICR7cHJvcHMgPT4gcHJvcHMuYXBoQ29sb3JTdGFydH0gMCUsICR7cHJvcHMgPT4gcHJvcHMuYXBoQ29sb3JFbmR9IDEwMCUpO1xuXG4gICAgdXNlci1zZWxlY3Q6IG5vbmU7XG5cbiAgICAke3Byb3BzID0+IHByb3BzLmFwaFN0eWxlc307XG5cbiAgICAuYXBoLWF2YXRhciB7XG4gICAgICAgICZfX2luaXRpYWxzIHtcbiAgICAgICAgICAgIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNSk7XG5cbiAgICAgICAgICAgIGZvbnQtc2l6ZSAgICAgOiAke3Byb3BzID0+IChwcm9wcy5hcGhGb250U2l6ZSB8fCAoKChwcm9wcy5hcGhXaWR0aCArICcnKS5yZXBsYWNlKCdweCcsICcnKSAvIDIpIC0gOCkpfXB4O1xuICAgICAgICAgICAgbGluZS1oZWlnaHQgICA6ICR7cHJvcHMgPT4gKHByb3BzLmFwaEhlaWdodCArICgocHJvcHMuYXBoSGVpZ2h0ICsgJycpLmluY2x1ZGVzKCdweCcpID8gJycgOiAncHgnKSl9O1xuICAgICAgICAgICAgdGV4dC1hbGlnbiAgICA6IGNlbnRlcjtcbiAgICAgICAgICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gICAgICAgICAgICB1c2VyLXNlbGVjdCAgIDogbm9uZTtcblxuICAgICAgICAgICAgJHtwcm9wcyA9PiB0ZXh0KHByb3BzKX07XG4gICAgICAgIH1cbiAgICB9XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEF2YXRhclN0eWxlZDtcbiJdfQ== */"));
+
+function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+/* Component Itself */
+
+function Avatar(_ref) {
+  var center = _ref.center,
+      circle = _ref.circle,
+      color = _ref.color,
+      fontSize = _ref.fontSize,
+      initials = _ref.initials,
+      gradient = _ref.gradient,
+      margin = _ref.margin,
+      name = _ref.name,
+      size = _ref.size,
+      width = _ref.width,
+      height = _ref.height,
+      styles = _ref.styles,
+      radius = _ref.radius,
+      className = _ref.className,
+      src = _ref.src,
+      rest = _objectWithoutProperties(_ref, ["center", "circle", "color", "fontSize", "initials", "gradient", "margin", "name", "size", "width", "height", "styles", "radius", "className", "src"]);
+
+  /**
+   * Props values
+   */
+  var _ref2 = gradient || {},
+      gStart = _ref2.start,
+      gEnd = _ref2.end;
+  /**
+   * Get a random gradient value
+   */
+
+
+  var gradientOptional = gradients.palette[color] || gradients.random() || {};
+  var gradientSelected = gStart || gEnd ? {
+    start: gStart || gEnd,
+    end: gEnd || gStart
+  } : gradientOptional;
+  /**
+   * Local values
+   */
+
+  var hasName = name && !initials ? true : false;
+  var splitted = !hasName ? [] : name.split(' ');
+  var first = '' + splitted[0] || '';
+  var last = '' + splitted[splitted.length - 1] || '';
+  var firstLetter = !hasName ? '' : first.charAt(0) || '';
+  var lastLetter = !hasName ? '' : last.charAt(0) || '';
+  var colorStart = gradientSelected.start;
+  var colorEnd = gradientSelected.end;
+
+  var _useState = useState(src ? false : true),
+      _useState2 = _slicedToArray(_useState, 2),
+      display = _useState2[0],
+      setDisplay = _useState2[1];
+  /**
+   * Handle error
+   */
+
+
+  function handleError() {
+    if (display) {
+      return;
+    }
+
+    setDisplay(true);
+  }
+  /**
+   * Did update
+   */
+
+
+  useEffect(function () {
+    setDisplay(src ? false : true);
+  }, [src]);
+  /**
+   * Display simple image
+   */
+
+  if (!display) {
+    return React.createElement(Img, _extends({
+      src: src,
+      width: (width || size) + 'px',
+      height: (height || size) + 'px',
+      circle: circle,
+      margin: margin,
+      radius: radius,
+      className: className,
+      onError: handleError,
+      fadeIn: true,
+      styles: _objectSpread$4({}, styles || {}, {}, !center ? {} : {
+        display: 'block',
+        margin: '0 auto'
+      })
+    }, rest));
+  }
+  /**
+   * Render
+   */
+
+
+  return React.createElement(AvatarStyled, _extends({
+    role: "img",
+    aphCenter: center,
+    aphCircle: circle,
+    aphFontSize: fontSize,
+    aphMargin: margin,
+    aphWidth: width || size,
+    aphHeight: height || size,
+    aphRadius: radius,
+    aphStyles: styles,
+    aphColorStart: colorStart,
+    aphColorEnd: colorEnd,
+    title: name || '',
+    className: "aph-avatar ".concat(className)
+  }, rest), React.createElement("figcaption", {
+    className: "aph-avatar__initials"
+  }, initials || firstLetter + lastLetter));
+}
+/* Default Props */
+
+
+Avatar.defaultProps = {
+  center: false,
+  circle: false,
+  color: '',
+  fontSize: 0,
+  initials: '',
+  gradient: {},
+  margin: null,
+  name: '',
+  size: 40,
+  width: null,
+  height: null,
+  styles: {},
+  radius: '',
+  src: '',
+  className: ''
+};
+/* Props Types */
+
+Avatar.propTypes = {
+  center: propTypes.bool,
+  circle: propTypes.bool,
+  color: propTypes.string,
+  fontSize: propTypes.number,
+  initials: propTypes.string,
+  gradient: propTypes.object,
+  margin: propTypes.any,
+  name: propTypes.string,
+  size: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  width: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  height: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  styles: propTypes.object,
+  radius: propTypes.string,
+  src: propTypes.string,
+  className: propTypes.string
+};
+
+function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Styles */
 
 var BadgeWrapper =
@@ -898,7 +1314,7 @@ var BadgeWrapper =
 _styled('span', {
   target: "e483s4c0"
 })(function (props) {
-  return _objectSpread$2(_defineProperty({
+  return _objectSpread$5(_defineProperty({
     boxSizing: 'border-box',
     position: 'relative',
     display: props.block ? 'block' : 'inline-block',
@@ -934,7 +1350,7 @@ var BadgePrefixWrapper =
 _styled('span', {
   target: "e483s4c1"
 })(function (props) {
-  return _objectSpread$2(_defineProperty({
+  return _objectSpread$5(_defineProperty({
     boxSizing: 'border-box',
     display: 'inline-block',
     padding: '5px 15px',
@@ -1296,9 +1712,9 @@ _styled(HoverActionItem, {
   return props.styles;
 }, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNsaXBib2FyZFN0eWxlZC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFPZ0QiLCJmaWxlIjoiQ2xpcGJvYXJkU3R5bGVkLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogQ29yZSBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBDb21wb25lbnQgQmFzZSAqL1xuaW1wb3J0IEhvdmVyQWN0aW9uc0l0ZW0gZnJvbSAnLi4vSG92ZXJBY3Rpb25zL0hvdmVyQWN0aW9uc0l0ZW0nO1xuXG4vKiBDb21wb25lbnQgU3R5bGVzICovXG5jb25zdCBDbGlwYm9hcmRTdHlsZWQgPSBzdHlsZWQoSG92ZXJBY3Rpb25zSXRlbSlgXG4gICAgJHtwcm9wcyA9PiBwcm9wcy5zdHlsZXN9O1xuYDtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBDbGlwYm9hcmRTdHlsZWQ7XG4iXX0= */"));
 
-function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var AphClipboardWrapper =
 /*#__PURE__*/
@@ -1359,7 +1775,7 @@ var Clipboard = function Clipboard(props) {
     _applyStatus('error');
 
     if (typeof onError === 'function') {
-      onError(_objectSpread$3({}, evt));
+      onError(_objectSpread$6({}, evt));
     }
   }
   /**
@@ -1373,7 +1789,7 @@ var Clipboard = function Clipboard(props) {
     _applyStatus('success');
 
     if (typeof onSuccess === 'function') {
-      onSuccess(_objectSpread$3({}, evt));
+      onSuccess(_objectSpread$6({}, evt));
     }
   }
   /**
@@ -1390,7 +1806,7 @@ var Clipboard = function Clipboard(props) {
    * Common Props
    */
 
-  var clipboardProps = _objectSpread$3({}, rest, {
+  var clipboardProps = _objectSpread$6({}, rest, {
     styles: styles,
     onError: _onError,
     onSuccess: _onSuccess
@@ -4649,111 +5065,6 @@ Icon.propTypes = {
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-/* Styled */
-
-var ImgStyled =
-/*#__PURE__*/
-_styled('img', {
-  target: "essx23r0"
-})(function (props) {
-  var circle = props.circle,
-      rounded = props.rounded,
-      radius = props.radius,
-      maxWidthXS = props.maxWidthXS,
-      styles = props.styles;
-  var _extraStyles = {};
-
-  if (maxWidthXS) {
-    _extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
-      maxWidth: maxWidthXS
-    }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {});
-  }
-
-  return _objectSpread$4({
-    boxSizing: 'border-box',
-    display: 'inline-block',
-    maxWidth: '100%',
-    height: 'auto',
-    verticalAlign: 'middle',
-    borderRadius: circle ? '50%' : rounded ? RADIUS + 'px' : radius || null
-  }, styles, {}, _extraStyles);
-}, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkltZy5qc3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBU2tCIiwiZmlsZSI6IkltZy5qc3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IFJlYWN0LCB7IHVzZVN0YXRlLCBmb3J3YXJkUmVmIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHByb3BUeXBlcyBmcm9tICdwcm9wLXR5cGVzJztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogQ29uc3RhbnRzICovXG5pbXBvcnQgeyBNRURJQV9RVUVSSUVTLCBSQURJVVMgfSBmcm9tICcuLi8uLi9jb25zdGFudHMnO1xuXG4vKiBTdHlsZWQgKi9cbmNvbnN0IEltZ1N0eWxlZCA9IHN0eWxlZCgnaW1nJykoKHByb3BzKSA9PiB7XG4gICAgY29uc3Qge1xuICAgICAgICBjaXJjbGUsXG4gICAgICAgIHJvdW5kZWQsXG4gICAgICAgIHJhZGl1cyxcblxuICAgICAgICBtYXhXaWR0aFhTLFxuXG4gICAgICAgIHN0eWxlcyxcbiAgICB9ID0gcHJvcHM7XG5cbiAgICBsZXQgX2V4dHJhU3R5bGVzID0ge307XG5cbiAgICBpZiAobWF4V2lkdGhYUykge1xuICAgICAgICBfZXh0cmFTdHlsZXNbTUVESUFfUVVFUklFUy5MVC5TTV0gPSBPYmplY3QuYXNzaWduKHtcbiAgICAgICAgICAgICAgICBtYXhXaWR0aDogbWF4V2lkdGhYUyxcbiAgICAgICAgICAgIH0sIHN0eWxlcyAmJiBzdHlsZXNbTUVESUFfUVVFUklFUy5MVC5TTV0gPyBzdHlsZXNbTUVESUFfUVVFUklFUy5MVC5TTV0gOiB7fVxuICAgICAgICApO1xuICAgIH1cblxuICAgIHJldHVybiB7XG4gICAgICAgIGJveFNpemluZyAgICA6ICdib3JkZXItYm94JyxcbiAgICAgICAgZGlzcGxheSAgICAgIDogJ2lubGluZS1ibG9jaycsXG4gICAgICAgIG1heFdpZHRoICAgICA6ICcxMDAlJyxcbiAgICAgICAgaGVpZ2h0ICAgICAgIDogJ2F1dG8nLFxuICAgICAgICB2ZXJ0aWNhbEFsaWduOiAnbWlkZGxlJyxcblxuICAgICAgICBib3JkZXJSYWRpdXM6IChjaXJjbGUgPyAnNTAlJyA6IHJvdW5kZWQgPyAoUkFESVVTICsgJ3B4JykgOiAocmFkaXVzIHx8IG51bGwpKSxcblxuICAgICAgICAuLi5zdHlsZXMsXG5cbiAgICAgICAgLi4uX2V4dHJhU3R5bGVzXG4gICAgfTtcbn0pO1xuXG4vKiBDb21wb25lbnQgKi9cbmNvbnN0IEltZyA9IGZvcndhcmRSZWYoKHByb3BzLCByZWYpID0+IHtcbiAgICBjb25zdCB7XG4gICAgICAgIHNyYyxcbiAgICAgICAgc3JjRmFsbGJhY2ssXG4gICAgICAgIGNsYXNzTmFtZSxcbiAgICAgICAgb25FcnJvcixcbiAgICAgICAgLi4ucmVzdFxuICAgIH0gPSBwcm9wcztcbiAgICAvKipcbiAgICAgKiBMb2NhbCB2YWx1ZXNcbiAgICAgKi9cbiAgICBjb25zdCBbIG1hbmFnZWRTUkMsIHNldE1hbmFnZWRTUkMgXSA9IHVzZVN0YXRlKHNyYyk7XG4gICAgY29uc3QgWyBhcHBsaWVkU1JDLCBzZXRBcHBsaWVkU1JDIF0gPSB1c2VTdGF0ZShmYWxzZSk7XG5cbiAgICAvKipcbiAgICAgKiBIYW5kbGUgd2l0aCBlcnJvclxuICAgICAqXG4gICAgICogQHBhcmFtIHtvYmplY3R9IGVycm9yRXZ0IC0gZXJyb3Igc3ludGhldGljIGV2ZW50XG4gICAgICovXG4gICAgZnVuY3Rpb24gaGFuZGxlRXJyb3IoZXJyb3JFdnQpIHtcbiAgICAgICAgaWYgKCFhcHBsaWVkU1JDICYmIHNyY0ZhbGxiYWNrICYmXG4gICAgICAgICAgICAodHlwZW9mIHNyY0ZhbGxiYWNrID09PSAnc3RyaW5nJykpIHtcbiAgICAgICAgICAgIHNldEFwcGxpZWRTUkModHJ1ZSk7XG4gICAgICAgICAgICBzZXRNYW5hZ2VkU1JDKHNyY0ZhbGxiYWNrKTtcbiAgICAgICAgfVxuXG4gICAgICAgIGlmICh0eXBlb2Ygb25FcnJvciA9PT0gJ2Z1bmN0aW9uJykge1xuICAgICAgICAgICAgb25FcnJvcih7XG4gICAgICAgICAgICAgICAgLi4uKGVycm9yRXZ0IHx8IHt9KSxcbiAgICAgICAgICAgIH0pO1xuICAgICAgICB9XG4gICAgfVxuXG4gICAgLyoqXG4gICAgICogUmVuZGVyXG4gICAgICovXG4gICAgcmV0dXJuIChcbiAgICAgICAgPEltZ1N0eWxlZFxuICAgICAgICAgICAgey4uLnByb3BzfVxuICAgICAgICAgICAgcmVmPXtyZWZ9XG4gICAgICAgICAgICBzcmM9e21hbmFnZWRTUkN9XG4gICAgICAgICAgICBvbkVycm9yPXtoYW5kbGVFcnJvcn1cbiAgICAgICAgICAgIGNsYXNzTmFtZT17YGFwaC1pbWcgJHtjbGFzc05hbWUgfHwgJyd9YH1cbiAgICAgICAgLz5cbiAgICApO1xufSk7XG5cbi8qIERlZmF1bHQgUHJvcGVydGllcyAqL1xuSW1nLmRlZmF1bHRQcm9wcyA9IHtcbiAgICBjaXJjbGUgICAgOiBmYWxzZSxcbiAgICByb3VuZGVkICAgOiBmYWxzZSxcblxuICAgIHJhZGl1cyAgICAgOiAnJyxcbiAgICBtYXhXaWR0aFhTIDogJycsXG4gICAgc3JjRmFsbGJhY2s6ICcnLFxuXG4gICAgc3R5bGVzICAgIDoge30sXG59O1xuXG4vKiBQcm9wZXJ0aWVzIFR5cGVzICovXG5JbWcucHJvcFR5cGVzID0ge1xuICAgIGNpcmNsZSAgICA6IHByb3BUeXBlcy5ib29sLFxuICAgIHJvdW5kZWQgICA6IHByb3BUeXBlcy5ib29sLFxuXG4gICAgcmFkaXVzICAgICA6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgbWF4V2lkdGhYUyA6IHByb3BUeXBlcy5zdHJpbmcsXG4gICAgc3JjRmFsbGJhY2s6IHByb3BUeXBlcy5zdHJpbmcsXG5cbiAgICBzdHlsZXMgICAgOiBwcm9wVHlwZXMub25lT2ZUeXBlKFtcbiAgICAgICAgcHJvcFR5cGVzLnN0cmluZyxcbiAgICAgICAgcHJvcFR5cGVzLm9iamVjdCxcbiAgICBdKSxcbn07XG5cbi8qIEV4cG9ydGluZyAqL1xuZXhwb3J0IGRlZmF1bHQgSW1nO1xuIl19 */");
-/* Component */
-
-
-var Img = forwardRef(function (props, ref) {
-  var src = props.src,
-      srcFallback = props.srcFallback,
-      className = props.className,
-      onError = props.onError,
-      rest = _objectWithoutProperties(props, ["src", "srcFallback", "className", "onError"]);
-  /**
-   * Local values
-   */
-
-
-  var _useState = useState(src),
-      _useState2 = _slicedToArray(_useState, 2),
-      managedSRC = _useState2[0],
-      setManagedSRC = _useState2[1];
-
-  var _useState3 = useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      appliedSRC = _useState4[0],
-      setAppliedSRC = _useState4[1];
-  /**
-   * Handle with error
-   *
-   * @param {object} errorEvt - error synthetic event
-   */
-
-
-  function handleError(errorEvt) {
-    if (!appliedSRC && srcFallback && typeof srcFallback === 'string') {
-      setAppliedSRC(true);
-      setManagedSRC(srcFallback);
-    }
-
-    if (typeof onError === 'function') {
-      onError(_objectSpread$4({}, errorEvt || {}));
-    }
-  }
-  /**
-   * Render
-   */
-
-
-  return React.createElement(ImgStyled, _extends({}, props, {
-    ref: ref,
-    src: managedSRC,
-    onError: handleError,
-    className: "aph-img ".concat(className || '')
-  }));
-});
-/* Default Properties */
-
-Img.defaultProps = {
-  circle: false,
-  rounded: false,
-  radius: '',
-  maxWidthXS: '',
-  srcFallback: '',
-  styles: {}
-};
-/* Properties Types */
-
-Img.propTypes = {
-  circle: propTypes.bool,
-  rounded: propTypes.bool,
-  radius: propTypes.string,
-  maxWidthXS: propTypes.string,
-  srcFallback: propTypes.string,
-  styles: propTypes.oneOfType([propTypes.string, propTypes.object])
-};
-
 /* Component Styles */
 var AphNumberFormatStyled = _styled("span", {
   target: "e1vp335j0"
@@ -4799,9 +5110,9 @@ NumberFormat.propTypes = {
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _templateObject$2() {
   var data = _taggedTemplateLiteral(["\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n"]);
@@ -4833,7 +5144,7 @@ var Placeholder = forwardRef(function (props, ref) {
   /*#__PURE__*/
   _styled('div', {
     target: "ejqn05n0"
-  })(_objectSpread$5({
+  })(_objectSpread$7({
     fontSize: '0',
     lineHeight: '0',
     boxSizing: 'border-box',
@@ -4873,9 +5184,9 @@ Placeholder.propTypes = {
   style: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _templateObject$3() {
   var data = _taggedTemplateLiteral(["\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n"]);
@@ -4902,7 +5213,7 @@ var AphProgressBarWrapper =
 _styled('div', {
   target: "e1pp9vj70"
 })(function (props) {
-  return _objectSpread$6({}, defaultStyles, {
+  return _objectSpread$8({}, defaultStyles, {
     height: props.height || '10px',
     overflow: 'hidden',
     width: '100%',
@@ -4921,7 +5232,7 @@ var AphProgressBar =
 _styled('div', {
   target: "e1pp9vj71"
 })(function (props) {
-  return _objectSpread$6({}, defaultStyles, {
+  return _objectSpread$8({}, defaultStyles, {
     height: props.height || '10px',
     width: props.size || (props.percentual && props.percentual > 100 ? 100 : props.percentual || 0) + '%',
     background: props.color ? colors$2.getFromTheme(props, props.color) : !props.animated ? colors$2.getFromTheme(props, 'secondary') : "linear-gradient(270deg, ".concat(colors$2.getFromTheme(props, props.gradientStart || 'secondary'), " 0%, ").concat(colors$2.getFromTheme(props, props.gradientEnd || 'secondary'), " 100%)"),
@@ -5001,9 +5312,9 @@ ProgressBar.propTypes = {
   wrapperStyles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Style Wrapper */
 
 var StyledWrapper =
@@ -5011,7 +5322,7 @@ var StyledWrapper =
 _styled('div', {
   target: "e19gg4i70"
 })(function (props) {
-  return _objectSpread$7({}, props.styles, _defineProperty({
+  return _objectSpread$9({}, props.styles, _defineProperty({
     position: 'relative',
     paddingTop: '10px',
     paddingBottom: '10px',
@@ -5207,9 +5518,9 @@ Table.propTypes = {
   striped: propTypes.bool
 };
 
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component */
 
 var ToastsContainer = function ToastsContainer() {
@@ -5222,7 +5533,7 @@ var ToastsContainer = function ToastsContainer() {
   /*#__PURE__*/
   _styled('div', {
     target: "ej5e3vp0"
-  })(_objectSpread$8({}, styles, _defineProperty({
+  })(_objectSpread$a({}, styles, _defineProperty({
     zIndex: styles.zIndex || ZINDEX.TOAST,
     position: styles.position || 'fixed',
     top: typeof styles.top === 'string' ? styles.top : '20px',
@@ -5381,14 +5692,14 @@ var ToastsContainer = function ToastsContainer() {
   })));
 };
 
-function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 toast.inverse = function () {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return toast(content, _objectSpread$9({}, props, {
+  return toast(content, _objectSpread$b({}, props, {
     className: 'Toastify__toast--inverse'
   }));
 };
@@ -5606,9 +5917,9 @@ var ModalOverlayStyled = _styled("div", {
   return props.styles;
 }, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsT3ZlcmxheVN0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFVcUMiLCJmaWxlIjoiTW9kYWxPdmVybGF5U3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyogUGFja2FnZXMgKi9cbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuLyogVXRpbGl0aWVzICovXG5pbXBvcnQgeyBjb2xvcnMgfSBmcm9tICcuLi8uLi91dGlscyc7XG5cbi8qIENvbnN0YW50cyAqL1xuaW1wb3J0IHsgWklOREVYIH0gZnJvbSAnLi4vLi4vY29uc3RhbnRzJztcblxuLyogTW9kYWwgT3ZlcmxheSBTdHlsZXMgKi9cbmNvbnN0IE1vZGFsT3ZlcmxheVN0eWxlZCA9IHN0eWxlZC5kaXZgXG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHotaW5kZXggOiAke1pJTkRFWC5NT0RBTCAtIDF9O1xuICAgIHRvcCAgICAgOiAke3Byb3BzID0+IHByb3BzLmlzT3BlbmVkID8gJzAnIDogJzEwMCUnfTtcbiAgICByaWdodCAgIDogMDtcbiAgICBib3R0b20gIDogMDtcbiAgICBsZWZ0ICAgIDogMDtcbiAgICBvcGFjaXR5IDogJHtwcm9wcyA9PiBwcm9wcy5pc09wZW5lZCA/ICcxJyA6ICcwJ307XG5cbiAgICBiYWNrZHJvcC1maWx0ZXIgOiBibHVyKDJweCk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogJHtjb2xvcnMuZ2V0KCdibGFjaycsICdub3JtYWwnLCAwLjIpfTtcblxuICAgIHdpbGwtY2hhbmdlOiBvcGFjaXR5IHRvcDtcbiAgICB0cmFuc2l0aW9uIDpcbiAgICAgICAgb3BhY2l0eSAwLjJzIGxpbmVhcixcbiAgICAgICAgdG9wIDAuJHtwcm9wcyA9PiBwcm9wcy5pc09wZW5lZCA/IDEgOiA0fXMgbGluZWFyXG4gICAgO1xuXG4gICAgJHtwcm9wcyA9PiBwcm9wcy5zdHlsZXN9O1xuYDtcblxuLyogRXhwb3J0aW5nICovXG5leHBvcnQgZGVmYXVsdCBNb2RhbE92ZXJsYXlTdHlsZWQ7XG4iXX0= */"));
 
-function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__$1() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /* Component Itself */
@@ -5868,7 +6179,7 @@ var Modal = forwardRef(function (props, ref) {
   }, children))), React.createElement(ActionBar, _extends({}, footerProps, {
     className: "aph-modal__content__footer ".concat(footerProps.className || ''),
     visible: footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false),
-    styles: _objectSpread$a({}, footerProps.styles, {
+    styles: _objectSpread$c({}, footerProps.styles, {
       padding: '10px 0',
       minHeight: 'initial'
     })
@@ -6298,9 +6609,9 @@ function Label(props) {
   }, rest));
 }
 
-function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper styles */
 
 var AphContainer =
@@ -6308,7 +6619,7 @@ var AphContainer =
 _styled('div', {
   target: "e1js7dhi0"
 })(function (props) {
-  return _objectSpread$b(_defineProperty({
+  return _objectSpread$d(_defineProperty({
     boxSizing: 'border-box',
     display: 'block',
     margin: '0 auto',
@@ -6348,9 +6659,9 @@ Container.defaultProps = {
   noPadding: false
 };
 
-function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$e(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$e(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$e(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$e(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Sizes */
 
 var MARGIN = '-' + GRID.COLUMNS_PADDING + GRID.UNIT;
@@ -6402,7 +6713,7 @@ _styled('div', {
     }
   }
 
-  return _objectSpread$c((_objectSpread2 = {
+  return _objectSpread$e((_objectSpread2 = {
     boxSizing: 'border-box',
     position: 'relative',
     display: 'flex',
@@ -6441,9 +6752,9 @@ Row.defaultProps = {
   horizontal: 'left'
 };
 
-function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$f(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$f(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$f(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$f(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Styles */
 
 var ColStyled =
@@ -6488,7 +6799,7 @@ _styled('div', {
    */
 
 
-  return _objectSpread$d((_objectSpread2 = {
+  return _objectSpread$f((_objectSpread2 = {
     boxSizing: 'border-box',
     flex: '0 0 auto',
     flexGrow: 1,
@@ -6825,9 +7136,9 @@ ListItem.propTypes = {
   styles: propTypes.oneOfType([propTypes.string, propTypes.object])
 };
 
-function ownKeys$e(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$g(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$e(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$e(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$e(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$g(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$g(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$g(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper styles */
 
 var AphListGroup =
@@ -6835,7 +7146,7 @@ var AphListGroup =
 _styled('div', {
   target: "ey9rber0"
 })(function (props) {
-  return _objectSpread$e({
+  return _objectSpread$g({
     boxSizing: 'border-box',
     position: 'relative',
     overflow: 'hidden',
@@ -6889,9 +7200,9 @@ var ListGroup = forwardRef(function (props, ref) {
   }), props.children);
 });
 
-function ownKeys$f(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$h(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$f(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$f(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$f(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$h(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$h(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$h(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Wrapper styles */
 
 var AphListGroupItem =
@@ -6899,7 +7210,7 @@ var AphListGroupItem =
 _styled('div', {
   target: "evs8czu0"
 })(function (props) {
-  return _objectSpread$f(_defineProperty({
+  return _objectSpread$h(_defineProperty({
     boxSizing: 'border-box',
     position: 'relative',
     overflow: 'hidden',
@@ -6923,9 +7234,9 @@ var ListGroupItem = forwardRef(function (props, ref) {
   }), children);
 });
 
-function ownKeys$g(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$i(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$g(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$g(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$g(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$i(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$i(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$i(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Styles */
 
 var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30;
@@ -6938,7 +7249,7 @@ var AphAccordion =
 _styled('div', {
   target: "e869uf0"
 })(function (props) {
-  return _objectSpread$g({
+  return _objectSpread$i({
     boxSizing: 'border-box',
     display: 'block',
     fontSize: SIZES.MD.FONT_SIZE,
@@ -6974,7 +7285,7 @@ var IconColumn =
 _styled('div', {
   target: "e869uf2"
 })(function (props) {
-  return _objectSpread$g({}, columnStyles, _defineProperty({
+  return _objectSpread$i({}, columnStyles, _defineProperty({
     width: iconColumn,
     lineHeight: 0,
     margin: '-2px 0'
@@ -6990,7 +7301,7 @@ var ContentColumn =
 _styled('div', {
   target: "e869uf3"
 })(function (props) {
-  return _objectSpread$g({}, columnStyles, {
+  return _objectSpread$i({}, columnStyles, {
     width: "calc(100% - ".concat(iconColumn, ")"),
     lineHeight: '20px'
   });
@@ -7057,7 +7368,7 @@ function Accordion(props) {
     id: id
   }, headerProps, {
     header: headerDark ? true : false,
-    styles: _objectSpread$g({
+    styles: _objectSpread$i({
       cursor: 'pointer',
       paddingRight: '15px',
       paddingLeft: '15px'
@@ -7108,9 +7419,9 @@ var AphCollapsibleChildrenStyled = _styled("div", {
   return props.styles;
 }, ";" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbGxhcHNpYmxlQ2hpbGRyZW5TdHlsZWQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSStDIiwiZmlsZSI6IkNvbGxhcHNpYmxlQ2hpbGRyZW5TdHlsZWQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQYWNrYWdlcyAqL1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG4vKiBDb21wb25lbnQgSXRzZWxmICovXG5jb25zdCBBcGhDb2xsYXBzaWJsZUNoaWxkcmVuU3R5bGVkID0gc3R5bGVkLmRpdmBcbiAgICBkaXNwbGF5IDogYmxvY2s7XG4gICAgb3BhY2l0eSA6IDE7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG5cbiAgICBtYXJnaW4tcmlnaHQ6IC0xMHB4O1xuICAgIG1hcmdpbi1sZWZ0IDogLTEwcHg7XG5cbiAgICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogbGluZWFyO1xuICAgIHRyYW5zaXRpb24tcHJvcGVydHkgICAgICAgOiBtYXgtaGVpZ2h0LCBvcGFjaXR5O1xuXG4gICAgd2lsbC1jaGFuZ2U6IG1heC1oZWlnaHQsIG9wYWNpdHk7XG5cbiAgICAke3Byb3BzID0+IHByb3BzLnN0eWxlc307XG5gO1xuXG4vKiBFeHBvcnRpbmcgKi9cbmV4cG9ydCBkZWZhdWx0IEFwaENvbGxhcHNpYmxlQ2hpbGRyZW5TdHlsZWQ7XG4iXX0= */"));
 
-function ownKeys$h(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$j(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$h(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$h(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$h(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$j(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$j(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$j(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Itself */
 
 var Collapsible = forwardRef(function (props, ref) {
@@ -7170,7 +7481,7 @@ var Collapsible = forwardRef(function (props, ref) {
    */
 
   function handleOpen() {
-    var openStyles = _objectSpread$h({}, styles, {
+    var openStyles = _objectSpread$j({}, styles, {
       maxHeight: 0,
       display: 'block'
     });
@@ -7178,12 +7489,12 @@ var Collapsible = forwardRef(function (props, ref) {
     clearTimeout(closeTimer);
     setStyles(openStyles);
     setTimeout(function () {
-      setStyles(_objectSpread$h({}, openStyles, {
+      setStyles(_objectSpread$j({}, openStyles, {
         maxHeight: wrapperContentRef.current.clientHeight
       }));
       clearTimeout(openTimer);
       setOpenTimer(setTimeout(function () {
-        setStyles(_objectSpread$h({}, openStyles, {
+        setStyles(_objectSpread$j({}, openStyles, {
           maxHeight: null
         }));
       }, timerDelay));
@@ -7195,19 +7506,19 @@ var Collapsible = forwardRef(function (props, ref) {
 
 
   function handleClose() {
-    var closeStyles = _objectSpread$h({}, styles, {
+    var closeStyles = _objectSpread$j({}, styles, {
       maxHeight: wrapperContentRef.current.clientHeight
     });
 
     clearTimeout(openTimer);
     setStyles(closeStyles);
     setTimeout(function () {
-      setStyles(_objectSpread$h({}, closeStyles, {
+      setStyles(_objectSpread$j({}, closeStyles, {
         maxHeight: 0
       }));
       clearTimeout(closeTimer);
       setCloseTimer(setTimeout(function () {
-        setStyles(_objectSpread$h({}, closeStyles, {
+        setStyles(_objectSpread$j({}, closeStyles, {
           display: 'none'
         }));
       }, timerDelay + 10));
@@ -8159,9 +8470,9 @@ function emailValidator(email) {
   return regex.test(email);
 }
 
-function ownKeys$i(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$k(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$i(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$i(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$i(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$k(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$k(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$k(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 /* Component Itself */
 
 function InputCpf(_ref) {
@@ -8195,7 +8506,7 @@ function InputCpf(_ref) {
 
     var isValid = cpfValidator(value);
     setHasError(value && !isValid ? true : false);
-    onChange(_objectSpread$i({}, evt || {}));
+    onChange(_objectSpread$k({}, evt || {}));
   }
   /**
    * Render
@@ -8234,9 +8545,9 @@ InputCpf.propTypes = {
   onChange: propTypes.func
 };
 
-function ownKeys$j(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$l(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$j(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$j(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$j(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$l(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$l(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$l(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var customStyles = {
   control: function control(provided, state) {
     var controlStyles = {
@@ -8249,13 +8560,13 @@ var customStyles = {
       padding: "0 2px",
       background: state.isFocused ? colors$2.get('ocean', 'crystal') : state.isDisabled ? colors$2.get('mercury', 'crystal') : colors$2.get('smoke')
     };
-    return _objectSpread$j({}, provided, {}, controlStyles);
+    return _objectSpread$l({}, provided, {}, controlStyles);
   },
   indicatorSeparator: function indicatorSeparator() {
     var separatorStyles = {
       display: "none"
     };
-    return _objectSpread$j({}, separatorStyles);
+    return _objectSpread$l({}, separatorStyles);
   },
   dropdownIndicator: function dropdownIndicator() {
     var indicatorStyles = {
@@ -8263,14 +8574,14 @@ var customStyles = {
       color: colors$2.get('black'),
       padding: "8px"
     };
-    return _objectSpread$j({}, indicatorStyles);
+    return _objectSpread$l({}, indicatorStyles);
   },
   menu: function menu(provided) {
-    var menuStyles = _objectSpread$j({}, provided, {
+    var menuStyles = _objectSpread$l({}, provided, {
       padding: "10px 0"
     });
 
-    return _objectSpread$j({}, provided, {}, menuStyles);
+    return _objectSpread$l({}, provided, {}, menuStyles);
   },
   option: function option(provided, state) {
     var optionStyles = {
@@ -8282,7 +8593,7 @@ var customStyles = {
         background: colors$2.get('ocean', 'crystal')
       }
     };
-    return _objectSpread$j({}, provided, {}, optionStyles);
+    return _objectSpread$l({}, provided, {}, optionStyles);
   }
 };
 
@@ -8841,4 +9152,4 @@ var getSizes = function getSizes() {
 
 var initialState = getSizes();
 
-export { A, ANIMATIONS, Accordion, ActionBar, Autocomplete, Badge, Button, COLORS, Card, Checkbox, Clipboard, Column as Col, Collapsible, Column, Container, Countdown, Dialog, Dropdown, FORM, Flex$1 as Flex, GRID, H1, H2, H3, HoverActions, HoverActionItem as HoverActionsItem, ICONS, Icon, Img, Input, InputCpf, FormControlInputNumber$1 as InputCurrency, InputMask, FormControlInputNumber as InputNumber, LAYOUT, Label, A as Link, List, ListGroup, ListGroupItem, ListItem, MEDIA_QUERIES, Modal, NumberFormat, P, Pagination, Placeholder, ProgressBar, RADIUS, RadioButton, Row, SCREEN_SIZES, SIZES, Scrollable, Segment, FormControlSelect as Select, SidePill, Switch, Table, P as Text, FormControlTextArea as TextArea, ToastsContainer, Tooltip, ZINDEX, animations, cnpjValidator, colors$2 as colors, cpfValidator, emailValidator, layoutActions, sort, text, textAlign, textBreakAll, textColorfull, textDefinitions, textTransform, textTruncate, toast, useWindowSize };
+export { A, ANIMATIONS, Accordion, ActionBar, Autocomplete, Avatar, Badge, Button, COLORS, Card, Checkbox, Clipboard, Column as Col, Collapsible, Column, Container, Countdown, Dialog, Dropdown, FORM, Flex$1 as Flex, GRID, H1, H2, H3, HoverActions, HoverActionItem as HoverActionsItem, ICONS, Icon, Img, Input, InputCpf, FormControlInputNumber$1 as InputCurrency, InputMask, FormControlInputNumber as InputNumber, LAYOUT, Label, A as Link, List, ListGroup, ListGroupItem, ListItem, MEDIA_QUERIES, Modal, NumberFormat, P, Pagination, Placeholder, ProgressBar, RADIUS, RadioButton, Row, SCREEN_SIZES, SIZES, Scrollable, Segment, FormControlSelect as Select, SidePill, Switch, Table, P as Text, FormControlTextArea as TextArea, ToastsContainer, Tooltip, ZINDEX, animations, cnpjValidator, colors$2 as colors, cpfValidator, emailValidator, gradients, layoutActions, sort, text, textAlign, textBreakAll, textColorfull, textDefinitions, textTransform, textTruncate, toast, useWindowSize };

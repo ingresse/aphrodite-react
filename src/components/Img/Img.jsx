@@ -1,54 +1,20 @@
 /* Packages */
-import React, { useState, forwardRef } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import propTypes from 'prop-types';
-import styled from '@emotion/styled';
 
-/* Constants */
-import { MEDIA_QUERIES, RADIUS } from '../../constants';
+/* Component styles */
+import ImgStyled from './ImgStyled';
 
-/* Styled */
-const ImgStyled = styled('img')((props) => {
-    const {
-        circle,
-        rounded,
-        radius,
-
-        maxWidthXS,
-
-        styles,
-    } = props;
-
-    let _extraStyles = {};
-
-    if (maxWidthXS) {
-        _extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
-                maxWidth: maxWidthXS,
-            }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {}
-        );
-    }
-
-    return {
-        boxSizing    : 'border-box',
-        display      : 'inline-block',
-        maxWidth     : '100%',
-        height       : 'auto',
-        verticalAlign: 'middle',
-
-        borderRadius: (circle ? '50%' : rounded ? (RADIUS + 'px') : (radius || null)),
-
-        ...styles,
-
-        ..._extraStyles
-    };
-});
-
-/* Component */
+/* Component Itself */
 const Img = forwardRef((props, ref) => {
     const {
+        center,
         src,
         srcFallback,
         className,
         onError,
+        onLoad,
+        fadeIn,
         ...rest
     } = props;
     /**
@@ -56,6 +22,26 @@ const Img = forwardRef((props, ref) => {
      */
     const [ managedSRC, setManagedSRC ] = useState(src);
     const [ appliedSRC, setAppliedSRC ] = useState(false);
+    const [ activeFade, setActiveFade ] = useState(fadeIn ? true : false);
+
+    /**
+     * Handle with load
+     *
+     * @param {object} evt - synthetic event
+     */
+    function handleLoad(evt) {
+        if (typeof onLoad === 'function') {
+            onLoad({
+                ...(evt || {}),
+            });
+        }
+
+        if (!activeFade) {
+            return;
+        }
+
+        setActiveFade(false);
+    }
 
     /**
      * Handle with error
@@ -77,15 +63,25 @@ const Img = forwardRef((props, ref) => {
     }
 
     /**
+     * Did update
+     */
+    useEffect(() => {
+        setManagedSRC(src);
+    }, [ src ]);
+
+    /**
      * Render
      */
     return (
         <ImgStyled
             {...props}
+            center={center}
             ref={ref}
             src={managedSRC}
+            onLoad={handleLoad}
             onError={handleError}
-            className={`aph-img ${className || ''}`}
+            withFadeIn={fadeIn}
+            className={`aph-img${activeFade ? ' aph-img--fade-in ' : ' '}${className || ''}`}
         />
     );
 });

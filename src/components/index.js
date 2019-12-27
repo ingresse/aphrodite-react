@@ -1,5 +1,6 @@
 /* Generic Components */
 export { default as ActionBar } from './ActionBar/ActionBar';
+export { default as Avatar } from './Avatar/Avatar';
 export { default as Badge } from './Badge/Badge';
 export { default as Button } from './Button/Button';
 export { default as Card } from './Card/Card';

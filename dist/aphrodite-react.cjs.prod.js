@@ -362,9 +362,9 @@ function ownKeys(object, enumerableOnly) {
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -468,7 +468,50 @@ var getShadesFormat = function(dark, original, light, crystal) {
   _objectSpread3));
 }, colors$2 = colors$1 = _objectSpread({}, colors$1, {
   set: set
-}), text = function(props) {
+}), palette = {
+  tangerine: {
+    start: colors$2.shades.tangerine.light,
+    end: colors$2.shades.tangerine.dark
+  },
+  ocean: {
+    start: colors$2.shades.ocean.light,
+    end: colors$2.shades.ocean.dark
+  },
+  bamboo: {
+    start: colors$2.shades.bamboo.light,
+    end: colors$2.shades.bamboo.dark
+  },
+  sunflower: {
+    start: colors$2.shades.sunflower.light,
+    end: colors$2.shades.sunflower.dark
+  },
+  ruby: {
+    start: colors$2.shades.ruby.light,
+    end: colors$2.shades.ruby.dark
+  },
+  supernova: {
+    start: colors$2.shades.supernova.light,
+    end: colors$2.shades.supernova.dark
+  },
+  mint: {
+    start: colors$2.shades.mint.light,
+    end: colors$2.shades.mint.dark
+  },
+  poison: {
+    start: colors$2.shades.poison.light,
+    end: colors$2.shades.poison.dark
+  }
+}, list = Object.values(palette);
+
+function random() {
+  return list[Math.floor(Math.random() * list.length)];
+}
+
+var gradients = {
+  list: list,
+  palette: palette,
+  random: random
+}, text = function(props) {
   var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
   return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
 }, textAlign = function() {
@@ -505,9 +548,9 @@ function ownKeys$1(object, enumerableOnly) {
 function _objectSpread$1(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$1(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$1(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -560,9 +603,9 @@ function ownKeys$2(object, enumerableOnly) {
 function _objectSpread$2(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$2(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$2(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -578,10 +621,246 @@ ActionBar.defaultProps = {
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
+var ImgStyled = _styled("img", {
+  target: "e1bh345u0"
+})(function(props) {
+  var center = props.center, circle = props.circle, rounded = props.rounded, radius = props.radius, maxWidthXS = props.maxWidthXS, withFadeIn = props.withFadeIn, styles = props.styles, _extraStyles = {};
+  return center && (_extraStyles = _objectSpread$2({}, _extraStyles, {
+    display: "block",
+    margin: "0 auto"
+  })), maxWidthXS && (_extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
+    maxWidth: maxWidthXS
+  }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {})), withFadeIn && (_extraStyles = _objectSpread$2({}, _extraStyles, {
+    opacity: 1,
+    transition: "opacity 0.3s linear",
+    "&.aph-img--fade-in": {
+      opacity: 0
+    }
+  })), _objectSpread$2({
+    boxSizing: "border-box",
+    display: "inline-block",
+    opacity: 1,
+    maxWidth: "100%",
+    height: "auto",
+    verticalAlign: "middle",
+    borderRadius: circle ? "50%" : rounded ? RADIUS + "px" : radius || null
+  }, styles, {}, _extraStyles);
+}, "");
+
+function ownKeys$3(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$3(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$3(source, !0).forEach(function(key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(source).forEach(function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+  return target;
+}
+
+var Img = React.forwardRef(function(props, ref) {
+  var center = props.center, src = props.src, srcFallback = props.srcFallback, className = props.className, onError = props.onError, onLoad = props.onLoad, fadeIn = props.fadeIn, _useState = (_objectWithoutProperties(props, [ "center", "src", "srcFallback", "className", "onError", "onLoad", "fadeIn" ]),
+  React.useState(src)), _useState2 = _slicedToArray(_useState, 2), managedSRC = _useState2[0], setManagedSRC = _useState2[1], _useState3 = React.useState(!1), _useState4 = _slicedToArray(_useState3, 2), appliedSRC = _useState4[0], setAppliedSRC = _useState4[1], _useState5 = React.useState(!!fadeIn), _useState6 = _slicedToArray(_useState5, 2), activeFade = _useState6[0], setActiveFade = _useState6[1];
+  return React.useEffect(function() {
+    setManagedSRC(src);
+  }, [ src ]), React__default.createElement(ImgStyled, _extends({}, props, {
+    center: center,
+    ref: ref,
+    src: managedSRC,
+    onLoad: function(evt) {
+      "function" == typeof onLoad && onLoad(_objectSpread$3({}, evt || {})), activeFade && setActiveFade(!1);
+    },
+    onError: function(errorEvt) {
+      !appliedSRC && srcFallback && "string" == typeof srcFallback && (setAppliedSRC(!0),
+      setManagedSRC(srcFallback)), "function" == typeof onError && onError(_objectSpread$3({}, errorEvt || {}));
+    },
+    withFadeIn: fadeIn,
+    className: "aph-img".concat(activeFade ? " aph-img--fade-in " : " ").concat(className || "")
+  }));
+});
+
+Img.defaultProps = {
+  circle: !1,
+  rounded: !1,
+  radius: "",
+  maxWidthXS: "",
+  srcFallback: "",
+  styles: {}
+}, Img.propTypes = {
+  circle: propTypes.bool,
+  rounded: propTypes.bool,
+  radius: propTypes.string,
+  maxWidthXS: propTypes.string,
+  srcFallback: propTypes.string,
+  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
+};
+
+var AvatarStyled = _styled("figure", {
+  target: "e3glzpi0"
+})("box-sizing:border-box;position:relative;display:", function(props) {
+  return props.aphCenter ? "" : "inline-";
+}, "block;margin:", function(props) {
+  return props.aphCenter ? props.aphMargin + " auto" : props.aphMargin;
+}, ";width:", function(props) {
+  return props.aphWidth + ((props.aphWidth + "").includes("px") ? "" : "px");
+}, ";height:", function(props) {
+  return props.aphHeight + ((props.aphHeight + "").includes("px") ? "" : "px");
+}, ";border-radius:", function(props) {
+  return props.aphRadius || (props.aphCircle ? "50%" : null);
+}, ";background-color:", function(props) {
+  return props.aphColorStart || props.aphColorEnd;
+}, ";background:linear-gradient(0deg,", function(props) {
+  return props.aphColorStart;
+}, " 0%,", function(props) {
+  return props.aphColorEnd;
+}, " 100%);user-select:none;", function(props) {
+  return props.aphStyles;
+}, ";.aph-avatar{&__initials{color:rgba(255,255,255,0.5);font-size:", function(props) {
+  return props.aphFontSize || (props.aphWidth + "").replace("px", "") / 2 - 8;
+}, "px;line-height:", function(props) {
+  return props.aphHeight + ((props.aphHeight + "").includes("px") ? "" : "px");
+}, ";text-align:center;text-transform:uppercase;user-select:none;", function(props) {
+  return text(props);
+}, ";}}");
+
+function ownKeys$4(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$4(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$4(source, !0).forEach(function(key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(source).forEach(function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+  return target;
+}
+
+function Avatar(_ref) {
+  var center = _ref.center, circle = _ref.circle, color = _ref.color, fontSize = _ref.fontSize, initials = _ref.initials, gradient = _ref.gradient, margin = _ref.margin, name = _ref.name, size = _ref.size, width = _ref.width, height = _ref.height, styles = _ref.styles, radius = _ref.radius, className = _ref.className, src = _ref.src, rest = _objectWithoutProperties(_ref, [ "center", "circle", "color", "fontSize", "initials", "gradient", "margin", "name", "size", "width", "height", "styles", "radius", "className", "src" ]), _ref2 = gradient || {}, gStart = _ref2.start, gEnd = _ref2.end, gradientOptional = gradients.palette[color] || gradients.random() || {}, gradientSelected = gStart || gEnd ? {
+    start: gStart || gEnd,
+    end: gEnd || gStart
+  } : gradientOptional, hasName = !(!name || initials), splitted = hasName ? name.split(" ") : [], first = "" + splitted[0] || "", last = "" + splitted[splitted.length - 1] || "", firstLetter = hasName && first.charAt(0) || "", lastLetter = hasName && last.charAt(0) || "", colorStart = gradientSelected.start, colorEnd = gradientSelected.end, _useState = React.useState(!src), _useState2 = _slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
+  return React.useEffect(function() {
+    setDisplay(!src);
+  }, [ src ]), display ? React__default.createElement(AvatarStyled, _extends({
+    role: "img",
+    aphCenter: center,
+    aphCircle: circle,
+    aphFontSize: fontSize,
+    aphMargin: margin,
+    aphWidth: width || size,
+    aphHeight: height || size,
+    aphRadius: radius,
+    aphStyles: styles,
+    aphColorStart: colorStart,
+    aphColorEnd: colorEnd,
+    title: name || "",
+    className: "aph-avatar ".concat(className)
+  }, rest), React__default.createElement("figcaption", {
+    className: "aph-avatar__initials"
+  }, initials || firstLetter + lastLetter)) : React__default.createElement(Img, _extends({
+    src: src,
+    width: (width || size) + "px",
+    height: (height || size) + "px",
+    circle: circle,
+    margin: margin,
+    radius: radius,
+    className: className,
+    onError: function() {
+      display || setDisplay(!0);
+    },
+    fadeIn: !0,
+    styles: _objectSpread$4({}, styles || {}, {}, center ? {
+      display: "block",
+      margin: "0 auto"
+    } : {})
+  }, rest));
+}
+
+function ownKeys$5(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$5(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$5(source, !0).forEach(function(key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(source).forEach(function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+  return target;
+}
+
+Avatar.defaultProps = {
+  center: !1,
+  circle: !1,
+  color: "",
+  fontSize: 0,
+  initials: "",
+  gradient: {},
+  margin: null,
+  name: "",
+  size: 40,
+  width: null,
+  height: null,
+  styles: {},
+  radius: "",
+  src: "",
+  className: ""
+}, Avatar.propTypes = {
+  center: propTypes.bool,
+  circle: propTypes.bool,
+  color: propTypes.string,
+  fontSize: propTypes.number,
+  initials: propTypes.string,
+  gradient: propTypes.object,
+  margin: propTypes.any,
+  name: propTypes.string,
+  size: propTypes.oneOfType([ propTypes.number, propTypes.string ]),
+  width: propTypes.oneOfType([ propTypes.number, propTypes.string ]),
+  height: propTypes.oneOfType([ propTypes.number, propTypes.string ]),
+  styles: propTypes.object,
+  radius: propTypes.string,
+  src: propTypes.string,
+  className: propTypes.string
+};
+
 var BadgeWrapper = _styled("span", {
   target: "e483s4c0"
 })(function(props) {
-  return _objectSpread$2(_defineProperty({
+  return _objectSpread$5(_defineProperty({
     boxSizing: "border-box",
     position: "relative",
     display: props.block ? "block" : "inline-block",
@@ -611,7 +890,7 @@ var BadgeWrapper = _styled("span", {
 }, ""), BadgePrefixWrapper = _styled("span", {
   target: "e483s4c1"
 })(function(props) {
-  return _objectSpread$2(_defineProperty({
+  return _objectSpread$5(_defineProperty({
     boxSizing: "border-box",
     display: "inline-block",
     padding: "5px 15px",
@@ -833,7 +1112,7 @@ var _SIZES$XS = SIZES.XS, FONT_SIZE = _SIZES$XS.FONT_SIZE, LINE_HEIGHT = _SIZES$
   return props.styles;
 }, ";");
 
-function ownKeys$3(object, enumerableOnly) {
+function ownKeys$6(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -844,12 +1123,12 @@ function ownKeys$3(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$3(target) {
+function _objectSpread$6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$3(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$6(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -872,13 +1151,13 @@ var AphClipboardWrapper = _styled(ReactClipboard, {
       clearTimeout(timer);
     };
   }, []);
-  var clipboardProps = _objectSpread$3({}, rest, {
+  var clipboardProps = _objectSpread$6({}, rest, {
     styles: styles,
     onError: function(evt) {
-      _applyStatus("error"), "function" == typeof onError && onError(_objectSpread$3({}, evt));
+      _applyStatus("error"), "function" == typeof onError && onError(_objectSpread$6({}, evt));
     },
     onSuccess: function(evt) {
-      _applyStatus("success"), "function" == typeof onSuccess && onSuccess(_objectSpread$3({}, evt));
+      _applyStatus("success"), "function" == typeof onSuccess && onSuccess(_objectSpread$6({}, evt));
     }
   });
   return styled ? React__default.createElement(ClipboardStyled, _extends({}, clipboardProps, {
@@ -3018,29 +3297,6 @@ var IconSettings = function(props) {
   }));
 });
 
-function ownKeys$4(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-
-function _objectSpread$4(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$4(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(Object(source)).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-  return target;
-}
-
 Icon.defaultProps = {
   slug: "",
   direction: "",
@@ -3063,50 +3319,6 @@ Icon.defaultProps = {
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
-var ImgStyled = _styled("img", {
-  target: "essx23r0"
-})(function(props) {
-  var circle = props.circle, rounded = props.rounded, radius = props.radius, maxWidthXS = props.maxWidthXS, styles = props.styles, _extraStyles = {};
-  return maxWidthXS && (_extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
-    maxWidth: maxWidthXS
-  }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {})), _objectSpread$4({
-    boxSizing: "border-box",
-    display: "inline-block",
-    maxWidth: "100%",
-    height: "auto",
-    verticalAlign: "middle",
-    borderRadius: circle ? "50%" : rounded ? RADIUS + "px" : radius || null
-  }, styles, {}, _extraStyles);
-}, ""), Img = React.forwardRef(function(props, ref) {
-  var src = props.src, srcFallback = props.srcFallback, className = props.className, onError = props.onError, _useState = (_objectWithoutProperties(props, [ "src", "srcFallback", "className", "onError" ]),
-  React.useState(src)), _useState2 = _slicedToArray(_useState, 2), managedSRC = _useState2[0], setManagedSRC = _useState2[1], _useState3 = React.useState(!1), _useState4 = _slicedToArray(_useState3, 2), appliedSRC = _useState4[0], setAppliedSRC = _useState4[1];
-  return React__default.createElement(ImgStyled, _extends({}, props, {
-    ref: ref,
-    src: managedSRC,
-    onError: function(errorEvt) {
-      !appliedSRC && srcFallback && "string" == typeof srcFallback && (setAppliedSRC(!0),
-      setManagedSRC(srcFallback)), "function" == typeof onError && onError(_objectSpread$4({}, errorEvt || {}));
-    },
-    className: "aph-img ".concat(className || "")
-  }));
-});
-
-Img.defaultProps = {
-  circle: !1,
-  rounded: !1,
-  radius: "",
-  maxWidthXS: "",
-  srcFallback: "",
-  styles: {}
-}, Img.propTypes = {
-  circle: propTypes.bool,
-  rounded: propTypes.bool,
-  radius: propTypes.string,
-  maxWidthXS: propTypes.string,
-  srcFallback: propTypes.string,
-  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
-};
-
 var AphNumberFormatStyled = _styled("span", {
   target: "e1vp335j0"
 })("box-sizing:border-box;", function(props) {
@@ -3120,7 +3332,7 @@ var AphNumberFormatStyled = _styled("span", {
   }));
 });
 
-function ownKeys$5(object, enumerableOnly) {
+function ownKeys$7(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3131,12 +3343,12 @@ function ownKeys$5(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$5(target) {
+function _objectSpread$7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$5(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$7(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3167,7 +3379,7 @@ NumberFormat.defaultProps = {
 var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.forwardRef(function(props, ref) {
   var _ref = props || {}, className = _ref.className, styles = _ref.styles, rest = _objectWithoutProperties(_ref, [ "className", "styles" ]), isDarkMode = !(!props.theme || !props.theme.isDarkMode), colorTheme = colors$2.getFromTheme(props, "helper"), colorBase = chroma(colorTheme), colorStart = colorBase.alpha(isDarkMode ? .5 : .05).css(), colorEnd = colorBase.alpha(isDarkMode ? .75 : .15).css(), StyledPlaceholder = _styled("div", {
     target: "ejqn05n0"
-  })(_objectSpread$5({
+  })(_objectSpread$7({
     fontSize: "0",
     lineHeight: "0",
     boxSizing: "border-box",
@@ -3189,7 +3401,7 @@ var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.for
   }), props.children);
 });
 
-function ownKeys$6(object, enumerableOnly) {
+function ownKeys$8(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3200,12 +3412,12 @@ function ownKeys$6(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$6(target) {
+function _objectSpread$8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$6(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$8(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3238,7 +3450,7 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
 }, AphProgressBarWrapper = _styled("div", {
   target: "e1pp9vj70"
 })(function(props) {
-  return _objectSpread$6({}, defaultStyles, {
+  return _objectSpread$8({}, defaultStyles, {
     height: props.height || "10px",
     overflow: "hidden",
     width: "100%",
@@ -3251,7 +3463,7 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
 }, ""), AphProgressBar = _styled("div", {
   target: "e1pp9vj71"
 })(function(props) {
-  return _objectSpread$6({}, defaultStyles, {
+  return _objectSpread$8({}, defaultStyles, {
     height: props.height || "10px",
     width: props.size || (props.percentual && props.percentual > 100 ? 100 : props.percentual || 0) + "%",
     background: props.color ? colors$2.getFromTheme(props, props.color) : props.animated ? "linear-gradient(270deg, ".concat(colors$2.getFromTheme(props, props.gradientStart || "secondary"), " 0%, ").concat(colors$2.getFromTheme(props, props.gradientEnd || "secondary"), " 100%)") : colors$2.getFromTheme(props, "secondary"),
@@ -3281,7 +3493,7 @@ function ProgressBar(props) {
   }));
 }
 
-function ownKeys$7(object, enumerableOnly) {
+function ownKeys$9(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3292,12 +3504,12 @@ function ownKeys$7(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$7(target) {
+function _objectSpread$9(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$7(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$9(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3334,7 +3546,7 @@ ProgressBar.defaultProps = {
 var StyledWrapper = _styled("div", {
   target: "e19gg4i70"
 })(function(props) {
-  return _objectSpread$7({}, props.styles, _defineProperty({
+  return _objectSpread$9({}, props.styles, _defineProperty({
     position: "relative",
     paddingTop: "10px",
     paddingBottom: "10px",
@@ -3475,7 +3687,7 @@ var AphTableStyled = _styled("table", {
   }), children);
 });
 
-function ownKeys$8(object, enumerableOnly) {
+function ownKeys$a(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3486,12 +3698,12 @@ function ownKeys$8(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$8(target) {
+function _objectSpread$a(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$8(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$a(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3515,7 +3727,7 @@ var ToastsContainer = function() {
     styles: {}
   }, styles = props.styles || {}, AphToastsContainer = _styled("div", {
     target: "ej5e3vp0"
-  })(_objectSpread$8({}, styles, _defineProperty({
+  })(_objectSpread$a({}, styles, _defineProperty({
     zIndex: styles.zIndex || ZINDEX.TOAST,
     position: styles.position || "fixed",
     top: "string" == typeof styles.top ? styles.top : "20px",
@@ -3673,7 +3885,7 @@ var ToastsContainer = function() {
   })));
 };
 
-function ownKeys$9(object, enumerableOnly) {
+function ownKeys$b(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3684,12 +3896,12 @@ function ownKeys$9(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$9(target) {
+function _objectSpread$b(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$9(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$b(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3698,7 +3910,7 @@ function _objectSpread$9(target) {
 
 reactToastify.toast.inverse = function() {
   var content = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", props = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-  return reactToastify.toast(content, _objectSpread$9({}, props, {
+  return reactToastify.toast(content, _objectSpread$b({}, props, {
     className: "Toastify__toast--inverse"
   }));
 }, reactToastify.toast.black = reactToastify.toast.inverse;
@@ -3884,7 +4096,7 @@ var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
   return props.styles;
 }, ";");
 
-function ownKeys$a(object, enumerableOnly) {
+function ownKeys$c(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -3895,12 +4107,12 @@ function ownKeys$a(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$a(target) {
+function _objectSpread$c(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$a(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$c(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -3989,7 +4201,7 @@ var _ref = {
   }, children))), React__default.createElement(ActionBar, _extends({}, footerProps, {
     className: "aph-modal__content__footer ".concat(footerProps.className || ""),
     visible: footerProps.visible || !(void 0 !== footerProps.visible || !footer),
-    styles: _objectSpread$a({}, footerProps.styles, {
+    styles: _objectSpread$c({}, footerProps.styles, {
       padding: "10px 0",
       minHeight: "initial"
     })
@@ -4267,7 +4479,7 @@ function Label(props) {
   }, rest));
 }
 
-function ownKeys$b(object, enumerableOnly) {
+function ownKeys$d(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4278,12 +4490,12 @@ function ownKeys$b(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$b(target) {
+function _objectSpread$d(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$b(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$d(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4314,7 +4526,7 @@ P.defaultProps = {
 var AphContainer = _styled("div", {
   target: "e1js7dhi0"
 })(function(props) {
-  return _objectSpread$b(_defineProperty({
+  return _objectSpread$d(_defineProperty({
     boxSizing: "border-box",
     display: "block",
     margin: "0 auto",
@@ -4332,7 +4544,7 @@ var AphContainer = _styled("div", {
   }), props.children);
 });
 
-function ownKeys$c(object, enumerableOnly) {
+function ownKeys$e(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4343,12 +4555,12 @@ function ownKeys$c(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$c(target) {
+function _objectSpread$e(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$c(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$e(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4390,7 +4602,7 @@ var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div",
     WebkitBoxAlign: vertical,
     MsFlexAlign: vertical,
     alignItems: "flex-".concat(vertical)
-  })), _objectSpread$c((_defineProperty(_objectSpread2 = {
+  })), _objectSpread$e((_defineProperty(_objectSpread2 = {
     boxSizing: "border-box",
     position: "relative",
     display: "flex",
@@ -4410,7 +4622,7 @@ var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div",
   }), children);
 });
 
-function ownKeys$d(object, enumerableOnly) {
+function ownKeys$f(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4421,12 +4633,12 @@ function ownKeys$d(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$d(target) {
+function _objectSpread$f(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$d(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$f(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4451,7 +4663,7 @@ var ColStyled = _styled("div", {
     var size = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "xs";
     return gridFirst === size ? -1 : gridLast === size ? 1 : null;
   }
-  return _objectSpread$d((_objectSpread2 = {
+  return _objectSpread$f((_objectSpread2 = {
     boxSizing: "border-box",
     flex: "0 0 auto",
     flexGrow: 1,
@@ -4658,7 +4870,7 @@ var AphListItemStyled = _styled("li", {
   }));
 });
 
-function ownKeys$e(object, enumerableOnly) {
+function ownKeys$g(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4669,12 +4881,12 @@ function ownKeys$e(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$e(target) {
+function _objectSpread$g(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$e(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$g(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4692,7 +4904,7 @@ ListItem.defaultProps = {
 var AphListGroup = _styled("div", {
   target: "ey9rber0"
 })(function(props) {
-  return _objectSpread$e({
+  return _objectSpread$g({
     boxSizing: "border-box",
     position: "relative",
     overflow: "hidden",
@@ -4742,7 +4954,7 @@ var AphListGroup = _styled("div", {
   }), props.children);
 });
 
-function ownKeys$f(object, enumerableOnly) {
+function ownKeys$h(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4753,12 +4965,12 @@ function ownKeys$f(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$f(target) {
+function _objectSpread$h(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$f(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$h(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4768,7 +4980,7 @@ function _objectSpread$f(target) {
 var AphListGroupItem = _styled("div", {
   target: "evs8czu0"
 })(function(props) {
-  return _objectSpread$f(_defineProperty({
+  return _objectSpread$h(_defineProperty({
     boxSizing: "border-box",
     position: "relative",
     overflow: "hidden",
@@ -4787,7 +4999,7 @@ var AphListGroupItem = _styled("div", {
   }), children);
 });
 
-function ownKeys$g(object, enumerableOnly) {
+function ownKeys$i(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4798,12 +5010,12 @@ function ownKeys$g(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$g(target) {
+function _objectSpread$i(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$g(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$i(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4813,7 +5025,7 @@ function _objectSpread$g(target) {
 var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _iconSize + GRID.CONTAINER_PADDING / 2 + GRID.UNIT, AphAccordion = _styled("div", {
   target: "e869uf0"
 })(function(props) {
-  return _objectSpread$g({
+  return _objectSpread$i({
     boxSizing: "border-box",
     display: "block",
     fontSize: SIZES.MD.FONT_SIZE,
@@ -4834,7 +5046,7 @@ var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _ico
 }, IconColumn = _styled("div", {
   target: "e869uf2"
 })(function(props) {
-  return _objectSpread$g({}, columnStyles, _defineProperty({
+  return _objectSpread$i({}, columnStyles, _defineProperty({
     width: iconColumn,
     lineHeight: 0,
     margin: "-2px 0"
@@ -4844,7 +5056,7 @@ var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _ico
 }, ""), ContentColumn = _styled("div", {
   target: "e869uf3"
 })(function(props) {
-  return _objectSpread$g({}, columnStyles, {
+  return _objectSpread$i({}, columnStyles, {
     width: "calc(100% - ".concat(iconColumn, ")"),
     lineHeight: "20px"
   });
@@ -4861,7 +5073,7 @@ function Accordion(props) {
     id: id
   }, headerProps, {
     header: !!headerDark,
-    styles: _objectSpread$g({
+    styles: _objectSpread$i({
       cursor: "pointer",
       paddingRight: "15px",
       paddingLeft: "15px"
@@ -4910,7 +5122,7 @@ var AphCollapsibleChildrenStyled = _styled("div", {
   return props.styles;
 }, ";");
 
-function ownKeys$h(object, enumerableOnly) {
+function ownKeys$j(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -4921,12 +5133,12 @@ function ownKeys$h(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$h(target) {
+function _objectSpread$j(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$h(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$j(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$j(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -4951,24 +5163,24 @@ var Collapsible = React.forwardRef(function(props, ref) {
   }, headerProps && headerProps.styles ? headerProps.styles : {}), HeaderTitle = headerProps && headerProps.lg ? H2 : H3;
   function handleToggle(isOpened) {
     var openStyles, closeStyles;
-    isOpened ? (closeStyles = _objectSpread$h({}, styles, {
+    isOpened ? (closeStyles = _objectSpread$j({}, styles, {
       maxHeight: wrapperContentRef.current.clientHeight
     }), clearTimeout(openTimer), setStyles(closeStyles), setTimeout(function() {
-      setStyles(_objectSpread$h({}, closeStyles, {
+      setStyles(_objectSpread$j({}, closeStyles, {
         maxHeight: 0
       })), clearTimeout(closeTimer), setCloseTimer(setTimeout(function() {
-        setStyles(_objectSpread$h({}, closeStyles, {
+        setStyles(_objectSpread$j({}, closeStyles, {
           display: "none"
         }));
       }, timerDelay + 10));
-    }, 10)) : (openStyles = _objectSpread$h({}, styles, {
+    }, 10)) : (openStyles = _objectSpread$j({}, styles, {
       maxHeight: 0,
       display: "block"
     }), clearTimeout(closeTimer), setStyles(openStyles), setTimeout(function() {
-      setStyles(_objectSpread$h({}, openStyles, {
+      setStyles(_objectSpread$j({}, openStyles, {
         maxHeight: wrapperContentRef.current.clientHeight
       })), clearTimeout(openTimer), setOpenTimer(setTimeout(function() {
-        setStyles(_objectSpread$h({}, openStyles, {
+        setStyles(_objectSpread$j({}, openStyles, {
           maxHeight: null
         }));
       }, timerDelay));
@@ -5487,7 +5699,7 @@ function emailValidator(email) {
   return /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
-function ownKeys$i(object, enumerableOnly) {
+function ownKeys$k(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -5498,12 +5710,12 @@ function ownKeys$i(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$i(target) {
+function _objectSpread$k(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$i(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$k(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$k(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -5517,13 +5729,13 @@ function InputCpf(_ref) {
     error: error || hasError,
     onChange: function(evt) {
       var value = ((evt || {}).target || {}).value, isValid = cpfValidator(value);
-      setHasError(!(!value || isValid)), onChange(_objectSpread$i({}, evt || {}));
+      setHasError(!(!value || isValid)), onChange(_objectSpread$k({}, evt || {}));
     },
     pattern: "\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}"
   }, rest));
 }
 
-function ownKeys$j(object, enumerableOnly) {
+function ownKeys$l(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
@@ -5534,12 +5746,12 @@ function ownKeys$j(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread$j(target) {
+function _objectSpread$l(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$j(Object(source), !0).forEach(function(key) {
+    i % 2 ? ownKeys$l(source, !0).forEach(function(key) {
       _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$j(Object(source)).forEach(function(key) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$l(source).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -5572,7 +5784,7 @@ Input.defaultProps = {
 
 var customStyles = {
   control: function(provided, state) {
-    return _objectSpread$j({}, provided, {}, {
+    return _objectSpread$l({}, provided, {}, {
       fontSize: "16px",
       border: "none",
       minHeight: "50px",
@@ -5584,25 +5796,25 @@ var customStyles = {
     });
   },
   indicatorSeparator: function() {
-    return _objectSpread$j({}, {
+    return _objectSpread$l({}, {
       display: "none"
     });
   },
   dropdownIndicator: function() {
-    return _objectSpread$j({}, {
+    return _objectSpread$l({}, {
       display: "flex",
       color: colors$2.get("black"),
       padding: "8px"
     });
   },
   menu: function(provided) {
-    var menuStyles = _objectSpread$j({}, provided, {
+    var menuStyles = _objectSpread$l({}, provided, {
       padding: "10px 0"
     });
-    return _objectSpread$j({}, provided, {}, menuStyles);
+    return _objectSpread$l({}, provided, {}, menuStyles);
   },
   option: function(provided, state) {
-    return _objectSpread$j({}, provided, {}, {
+    return _objectSpread$l({}, provided, {}, {
       fontSize: "16px",
       cursor: "pointer",
       color: colors$2.get("ocean", "original"),
@@ -5950,12 +6162,12 @@ var sort = {
 }, initialState = getSizes();
 
 exports.A = A, exports.ANIMATIONS = ANIMATIONS, exports.Accordion = Accordion, exports.ActionBar = ActionBar,
-exports.Autocomplete = Autocomplete, exports.Badge = Badge, exports.Button = Button,
-exports.COLORS = COLORS, exports.Card = Card, exports.Checkbox = Checkbox, exports.Clipboard = Clipboard,
-exports.Col = Column, exports.Collapsible = Collapsible, exports.Column = Column,
-exports.Container = Container, exports.Countdown = Countdown, exports.Dialog = Dialog,
-exports.Dropdown = Dropdown, exports.FORM = FORM, exports.Flex = Flex$1, exports.GRID = GRID,
-exports.H1 = H1, exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions,
+exports.Autocomplete = Autocomplete, exports.Avatar = Avatar, exports.Badge = Badge,
+exports.Button = Button, exports.COLORS = COLORS, exports.Card = Card, exports.Checkbox = Checkbox,
+exports.Clipboard = Clipboard, exports.Col = Column, exports.Collapsible = Collapsible,
+exports.Column = Column, exports.Container = Container, exports.Countdown = Countdown,
+exports.Dialog = Dialog, exports.Dropdown = Dropdown, exports.FORM = FORM, exports.Flex = Flex$1,
+exports.GRID = GRID, exports.H1 = H1, exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions,
 exports.HoverActionsItem = HoverActionItem, exports.ICONS = ICONS, exports.Icon = Icon,
 exports.Img = Img, exports.Input = Input, exports.InputCpf = InputCpf, exports.InputCurrency = FormControlInputNumber$1,
 exports.InputMask = InputMask, exports.InputNumber = FormControlInputNumber, exports.LAYOUT = LAYOUT,
@@ -5969,8 +6181,8 @@ exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch 
 exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
 exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX,
 exports.animations = animations, exports.cnpjValidator = cnpjValidator, exports.colors = colors$2,
-exports.cpfValidator = cpfValidator, exports.emailValidator = emailValidator, exports.layoutActions = layoutActions,
-exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll,
-exports.textColorfull = textColorfull, exports.textDefinitions = textDefinitions,
-exports.textTransform = textTransform, exports.textTruncate = textTruncate, exports.toast = reactToastify.toast,
-exports.useWindowSize = useWindowSize;
+exports.cpfValidator = cpfValidator, exports.emailValidator = emailValidator, exports.gradients = gradients,
+exports.layoutActions = layoutActions, exports.sort = sort, exports.text = text,
+exports.textAlign = textAlign, exports.textBreakAll = textBreakAll, exports.textColorfull = textColorfull,
+exports.textDefinitions = textDefinitions, exports.textTransform = textTransform,
+exports.textTruncate = textTruncate, exports.toast = reactToastify.toast, exports.useWindowSize = useWindowSize;
