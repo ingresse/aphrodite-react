@@ -1189,8 +1189,8 @@ function Avatar(_ref) {
 
   var hasName = name && !initials ? true : false;
   var splitted = !hasName ? [] : name.split(' ');
-  var first = '' + splitted[0] || '';
-  var last = '' + splitted[splitted.length - 1] || '';
+  var first = '' + splitted[0];
+  var last = '' + splitted[splitted.length - 1];
   var firstLetter = !hasName ? '' : first.charAt(0);
   var lastLetter = !hasName ? '' : last.charAt(0);
   var colorStart = gradientSelected.start;

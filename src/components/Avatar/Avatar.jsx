@@ -54,8 +54,8 @@ function Avatar({
      */
     const hasName     = ((name && !initials) ? true : false);
     const splitted    = (!hasName ? [] : name.split(' '));
-    const first       = (('' + splitted[0]) || '');
-    const last        = (('' + splitted[splitted.length - 1]) || '');
+    const first       = (('' + splitted[0]));
+    const last        = (('' + splitted[splitted.length - 1]));
     const firstLetter = (!hasName ? '' : first.charAt(0));
     const lastLetter  = (!hasName ? '' : last.charAt(0));
     const colorStart  = gradientSelected.start;
