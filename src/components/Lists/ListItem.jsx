@@ -12,7 +12,7 @@ const AphListItemStyled = styled.li`
 
     display: block;
     margin : 0;
-    padding: 10px;
+    padding: ${props => props.aphpadding};
 
     background-color: transparent;
     box-shadow      : ${props => ((!props.borderTop && !props.borderBottom) ? null : `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))}`)};
@@ -31,14 +31,24 @@ const AphListItemStyled = styled.li`
         background-color: ${props => colors.getFromTheme(props, 'secondary', 'crystal')};
     }
 
-    ${props => (props.onClick) ? {
+    ${props => (props.onClick || props.withLink) ? {
         cursor: 'pointer',
         color : colors.getFromTheme(props, 'secondary'),
+
+        padding: (!props.withLink ? null : '0'),
 
         '&:hover': {
             color          : colors.getFromTheme(props, 'secondary'),
             backgroundColor: colors.getFromTheme(props, 'secondary', 'crystal'),
-        }
+        },
+
+        '.aph-list__item__link': {
+            display: 'block',
+            width  : '100%',
+            color  : 'inherit',
+            padding: (!props.withLink ? null : props.aphpadding),
+            textDecoration: 'none',
+        },
     } : null};
 
     ${props => (props.hoverable) ? {
@@ -55,7 +65,10 @@ const ListItem = forwardRef((props, ref) => {
     const {
         className,
         component,
-        hoverable,
+        withLink,
+        padding,
+
+        ...rest
     } = props;
 
     const AphListItem = (component ? AphListItemStyled.withComponent(component) : AphListItemStyled);
@@ -63,9 +76,11 @@ const ListItem = forwardRef((props, ref) => {
     return (
         <AphListItem
             role="option"
-            {...props}
+            aphpadding={padding}
+            withLink={withLink}
+            {...rest}
             ref={ref}
-            className={`aph-list__item ${className || ''}`}
+            className={`aph-list__item ${className || ''} ${!withLink ? '' : 'aph-list__item--with-link'}`}
         />
     );
 });
@@ -73,16 +88,24 @@ const ListItem = forwardRef((props, ref) => {
 /* Default Properties */
 ListItem.defaultProps = {
     hoverable: false,
+    padding  : '10px',
     styles   : {},
+
+    /**
+     * Use it when you need a link inside, such as React Router Link
+     */
+    withLink: false,
 };
 
 /* Properties Types */
 ListItem.propTypes = {
     hoverable: propTypes.bool,
+    padding  : propTypes.string,
     styles   : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),
+    withLink: propTypes.bool,
 };
 
 /* Exporting */
