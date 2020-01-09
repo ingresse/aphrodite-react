@@ -7,6 +7,7 @@ export { default as Card } from './Card/Card';
 export { default as Clipboard } from './Clipboard/Clipboard';
 export { default as Dialog } from './Dialog/Dialog';
 export { default as Dropdown } from './Dropdown/Dropdown';
+export { default as ExpansionPanel } from './ExpansionPanel/ExpansionPanel';
 export { default as HoverActions } from './HoverActions/HoverActions';
 export { default as HoverActionsItem } from './HoverActions/HoverActionsItem';
 export { default as Icon } from './Icons/Icon';
