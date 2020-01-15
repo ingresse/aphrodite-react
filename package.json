@@ -26,18 +26,31 @@
     "react-tooltip": "3.11.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@preconstruct/cli": "^1.1.4",
+    "@storybook/addon-actions": "^5.3.3",
+    "@storybook/addon-docs": "^5.3.3",
+    "@storybook/addon-links": "^5.3.3",
+    "@storybook/addon-storysource": "^5.3.3",
+    "@storybook/addons": "^5.3.3",
+    "@storybook/react": "^5.3.3",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "babel-loader": "^8.0.6",
     "chai": "4.2.0",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
-    "gh-pages": "2.0.1"
+    "gh-pages": "2.2.0"
   },
   "scripts": {
-    "build": "yarn preconstruct build"
+    "dev": "start-storybook -p 6006",
+    "build": "yarn preconstruct build",
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages",
+    "deploy": "npm run build && clear && npm run deploy-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"

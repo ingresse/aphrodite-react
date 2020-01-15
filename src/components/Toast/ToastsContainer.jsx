@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { ToastContainer } from 'react-toastify';
 
 /* Styles */
-import 'react-toastify/scss/main.scss';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 /* Constants */
 import { COLORS, MEDIA_QUERIES, SCREEN_SIZES, ZINDEX } from '../../constants';
