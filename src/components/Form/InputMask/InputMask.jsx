@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import LibInputMask from 'react-input-mask';
 
 /* Composition Componets */
-import Input from '../Input/FormControlInput';
+import Input from '../Input/Input';
 
 /* Component Itself */
 function InputMask(props) {

@@ -1,8 +1,6 @@
 /* Core Packages */
 import React, { useEffect, useState } from 'react';
-
-/* Utilities */
-import { colors } from '../../utils';
+import propTypes from 'prop-types';
 
 /* Component Styles */
 import CountdownStyled from './CountdownStyled';
@@ -15,24 +13,19 @@ const VIEW_BOX      = 120;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 /* Component Itself */
-function Countdown(props) {
-    /**
-     * Inherit props
-     */
-    const {
-        background,
-        className,
-        color,
-        log,
-        size,
-        seconds,
-        strokeWidth,
-        styles,
-        onFinishCallback,
+function Countdown({
+    background,
+    className,
+    color,
+    log,
+    size,
+    seconds,
+    strokeWidth,
+    styles,
+    onFinishCallback,
 
-        ...rest
-    } = props;
-
+    ...rest
+}) {
     /**
      * Local values
      */
@@ -174,12 +167,26 @@ function Countdown(props) {
 
 /* Default Props */
 Countdown.defaultProps = {
-    color           : colors.get('helper'),
+    color           : 'helper',
     background      : 'transparent',
     seconds         : 10,
     size            : 32,
     strokeWidth     : 8,
     onFinishCallback: (seconds, log) => log && console.log(LOG_PREFIX, seconds, 'seconds finished;'),
+};
+
+/* Properties Types */
+Countdown.propTypes = {
+    color           : propTypes.string,
+    background      : propTypes.string,
+    seconds         : propTypes.number,
+    size            : propTypes.number,
+    strokeWidth     : propTypes.number,
+    onFinishCallback: propTypes.func,
+    styles          : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

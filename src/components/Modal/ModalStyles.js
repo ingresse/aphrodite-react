@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../utils';
 
 /* Constants */
-import { GRID, MEDIA_QUERIES, SIZES, ZINDEX } from '../../constants';
+import { MEDIA_QUERIES, SIZES, ZINDEX } from '../../constants';
 
 /* CSS Selector */
 const selector = '.aph-modal';

@@ -3,7 +3,6 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 /* Component Helpers */
-import { colors } from '../../utils';
 import { Icon } from '../';
 
 /* Component Styles */

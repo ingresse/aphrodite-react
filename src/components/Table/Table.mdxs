@@ -1,0 +1,190 @@
+---
+name : Table
+menu : › Components
+route: /components/table
+---
+
+import { Playground, Props } from 'docz';
+import { Table } from '../';
+
+# Table
+```jsx
+import { Table } from 'aphrodite-react';
+
+<Table bordered condensed hoverable striped>
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                100
+            </td>
+        </tr>
+        <tr>
+            <td>
+                110
+            </td>
+        </tr>
+    </tbody>
+</Table>
+```
+
+## Properties
+<Props of={Table} />
+
+## Examples
+
+### Regular
+<Playground>
+    <Table>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    110
+                </td>
+            </tr>
+        </tbody>
+    </Table>
+</Playground>
+
+### Bordered
+<Playground>
+    <Table bordered>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    110
+                </td>
+            </tr>
+        </tbody>
+    </Table>
+</Playground>
+
+### Hoverable
+<Playground>
+    <Table hoverable>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    110
+                </td>
+            </tr>
+        </tbody>
+    </Table>
+</Playground>
+
+### Striped
+<Playground>
+    <Table striped>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    110
+                </td>
+            </tr>
+        </tbody>
+    </Table>
+</Playground>
+
+### Condensed
+<Playground>
+    <Table condensed>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    110
+                </td>
+            </tr>
+        </tbody>
+    </Table>
+</Playground>
+
+### All possible properties together
+<Playground>
+    <Table bordered condensed hoverable striped>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    110
+                </td>
+            </tr>
+        </tbody>
+    </Table>
+</Playground>

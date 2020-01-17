@@ -1,15 +1,17 @@
 ---
 name : Action Bar
-menu : Atoms
-route: /atoms/action-bar
+menu : › Components
+route: /components/action-bar
 ---
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { ActionBar, Button, Segment } from '../';
+import { ActionBar, Button, Container, Segment } from '../';
+
 
 # Action Bar
-#### Toggle visibility of action elements
+### Toggle visibility of action elements
+
 ```jsx
 import { ActionBar, Button } from 'aphrodite-react';
 
@@ -22,47 +24,45 @@ import { ActionBar, Button } from 'aphrodite-react';
 </ActionBar>
 ```
 
-## Properties
-<Props of={ActionBar} />
 
 ## Example
+
 <Playground>
     {() => {
         const [ visible, setVisible ] = useState(true);
 
-        function toggle() {
-            setVisible(!visible);
-        }
-
         return (
             <Segment
-                style={{
-                    position    : 'relative',
-                    minHeight   : '240px',
-                    border      : '1px solid rgba(0, 0, 0, 0.1)',
-                    borderRadius: '4px',
-                    overflow    : 'hidden',
-                    padding     : '15px 0 0',
-                    textAlign   : 'center',
+                shadow
+                radius={4}
+                padding="0"
+                textColor="base"
+                textAlign="center"
+                background="background"
+                styles={{
+                    position : 'relative',
+                    overflow : 'hidden !important',
+                    minHeight: '160px',
                 }}>
-                <Segment>
-                    The Page Container
-                </Segment>
-
-                <Button
-                    link
-                    onClick={toggle}>
-                    Toggle Action Bar
-                </Button>
-
+                <Container xs>
+                    <Segment padding="30px 0 50px">
+                        Page content.
+                    </Segment>
+                    <Button
+                        link
+                        color={!visible ? 'success' : 'error'}
+                        onClick={() => setVisible(true)}>
+                        {visible ? 'Can\'t see anymore' : 'Open Action Bar'}
+                    </Button>
+                </Container>
                 <ActionBar
                     visible={visible}
                     styles={{
-                        position : 'absolute', // Just to fit in this example. Default: 'fixed',
+                        position : 'absolute',
+                        textAlign: 'center',
                     }}>
                     <Button
-                        color="primary"
-                        onClick={toggle}>
+                        onClick={() => setVisible(false)}>
                         Close Action Bar
                     </Button>
                 </ActionBar>
@@ -70,3 +70,8 @@ import { ActionBar, Button } from 'aphrodite-react';
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={ActionBar} />

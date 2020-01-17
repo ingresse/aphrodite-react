@@ -22,21 +22,21 @@ function Dialog({
             styles={styles}
             align={align}
             justify={justify}
-            padding={padding}
-        >
-            <DialogContent className={`aph-dialog__content ${opened  ? 'act' : ''}`}>
+            padding={padding}>
+            <DialogContent
+                className={`aph-dialog__content ${opened  ? 'act' : ''}`}>
                 {children}
             </DialogContent>
-
-            {closeArea && (
+            {!closeArea ? null : (
                 <div
-                    className={`aph-dialog__close__area`} onClick={onClose}
+                    onClick={onClose}
+                    className={`aph-dialog__close__area`}
                     style={{
-                        zIndex: '-1',
+                        zIndex  : '-1',
                         position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
+                        top   : 0,
+                        left  : 0,
+                        right : 0,
                         bottom: 0,
                     }}
                 />
@@ -47,27 +47,30 @@ function Dialog({
 
 /* Prop Types */
 Dialog.propTypes = {
-    opened: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
+    opened   : PropTypes.bool.isRequired,
+    onClose  : PropTypes.func.isRequired,
     closeArea: PropTypes.bool,
 
-    align: PropTypes.string,
+    align  : PropTypes.string,
     justify: PropTypes.string,
     padding: PropTypes.string,
 
-    styles: PropTypes.object,
     children: PropTypes.any,
+    styles  : PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Default props */
 Dialog.defaultProps = {
-    children: null,
+    children : null,
     closeArea: true,
 
     padding: '0',
-    styles: {},
-    align: 'center',
+    align  : 'center',
     justify: 'center',
+    styles : {},
 };
 
 export default Dialog;

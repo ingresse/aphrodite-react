@@ -1,0 +1,183 @@
+---
+name : Icons
+menu : › Components
+route: /components/icons
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { Icon, Input, Select, Card, Row, Col, Segment } from '../';
+import { ICONS } from '../../constants';
+import { colors } from '../../utils';
+import IconExample from './IconExample';
+
+# Icon
+#### Simple SVG icons
+
+```jsx
+import { Icon } from 'aphrodite-react';
+...
+<Icon
+    slug="arrow-up"
+    size={30}
+    color="ruby"
+/>
+```
+
+## Properties
+<Props of={Icon} />
+
+---
+
+## List
+<Playground>
+    {() => {
+        /**
+         * Local values
+         */
+        const [ size, setSize ]   = useState(30);
+        const [ color, setColor ] = useState('none');
+        const [ term, setTerm ]   = useState('');
+
+        return (
+            <>
+                <form onSubmit={(evt) => evt.preventDefault()}>
+                    <Segment padding="0">
+                        <Row vertical="middle" horizontal="center">
+                            <Col xs={12} sm={8} first="sm" last="xs">
+                                <Segment padding="0 0 20px">
+                                    <Input
+                                        id="aph_icons_search"
+                                        type="search"
+                                        autoComplete="off"
+                                        label={`Search over ${ICONS.length} icons`}
+                                        value={term}
+                                        onChange={(evt, value) => setTerm(value)}
+                                    />
+                                </Segment>
+                            </Col>
+                            <Col xs={6} sm={2}>
+                                <Segment padding="0 0 20px">
+                                    <Select
+                                        id="aph_icons_size"
+                                        label="Size"
+                                        value={size}
+                                        onChange={(evt, value) => setSize(value)}>
+                                        <option value={20}>
+                                            20
+                                        </option>
+                                        <option value={30}>
+                                            30
+                                        </option>
+                                        <option value={40}>
+                                            40
+                                        </option>
+                                    </Select>
+                                </Segment>
+                            </Col>
+                            <Col xs={6} sm={2}>
+                                <Segment padding="0 0 20px">
+                                    <Select
+                                        id="aph_icons_color"
+                                        label="Color"
+                                        value={color}
+                                        onChange={(evt, value) => setColor(value)}>
+                                        <option value={'none'}>
+                                            random
+                                        </option>
+                                        {Object.keys(colors.shades).map((colorKey) => (
+                                            <option key={`aph_icons_color_${colorKey}`} value={colorKey}>
+                                                {colorKey}
+                                            </option>
+                                        ))}
+                                    </Select>
+                                </Segment>
+                            </Col>
+                        </Row>
+                    </Segment>
+
+                    <Row vertical="middle" horizontal="center">
+                        {ICONS.map((ICON_SLUG, INDEX) => {
+                            if (term && !ICON_SLUG.toLowerCase().includes(term.toLowerCase())) {
+                                return (null);
+                            }
+
+                            const iconMarkup =
+                                `<Icon slug="${ICON_SLUG}" size={${size}} color="${color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}" />`
+                            ;
+
+                            return (
+                                <Col xs={12} sm={4} md={3} key={`aph_icon_${INDEX}`}>
+                                    <IconExample
+                                        id={`aph_icon_${INDEX}`}
+                                        color={color}
+                                        slug={ICON_SLUG}
+                                        markup={iconMarkup}>
+                                        <Icon
+                                            slug={ICON_SLUG}
+                                            size={parseInt(size, 10)}
+                                            color={color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}
+                                            {...props}
+                                        />
+                                    </IconExample>
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                </form>
+            </>
+        );
+    }}
+</Playground>
+
+---
+
+## Width & Height
+<Playground>
+    <Segment padding="20px 0 0">
+        <Row vertical="middle" horizontal="center">
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={20} height={5} color="primary" />`}>
+                    <Icon
+                        slug="loading"
+                        width={20}
+                        height={5}
+                        color="primary"
+                    />
+                </IconExample>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={40} height={10} />`}>
+                    <Icon
+                        slug="loading"
+                        width={40}
+                        height={10}
+                    />
+                </IconExample>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={80} height={20} color="primary" />`}>
+                    <Icon
+                        slug="loading"
+                        width={80}
+                        height={20}
+                        color="primary"
+                    />
+                </IconExample>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+                <IconExample
+                    markup={`<Icon slug="loading" width={120} height={30} />`}>
+                    <Icon
+                        slug="loading"
+                        width={120}
+                        height={30}
+                    />
+                </IconExample>
+            </Col>
+        </Row>
+    </Segment>
+</Playground>

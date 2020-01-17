@@ -1,0 +1,61 @@
+---
+name : Img
+menu : › Components
+route: /components/img
+---
+
+import { Playground, Props } from 'docz';
+import { Img } from '../';
+
+# Img
+#### A styled component to images, with some facilities.
+```jsx
+import { Img } from 'aphrodite-react';
+
+<Img
+    circle
+    alt="My Awesome Circle Image"
+    src="https://placehold.it/200"
+/>
+```
+
+## Properties
+<Props of={Img} />
+
+## Example
+<Playground>
+    {() => {
+        const imgCustomStyles = {
+            margin: '20px',
+        };
+
+        return (
+            <div>
+                <Img
+                    circle
+                    alt="My Awesome Circle Image"
+                    src="https://placehold.it/200?text=circle"
+                    styles={imgCustomStyles}
+                />
+                <Img
+                    radius="40px"
+                    alt="My Awesome Image, with custom border-radius"
+                    src="https://placehold.it/200?text=radius%3D%2240px%22"
+                    styles={imgCustomStyles}
+                />
+                <Img
+                    rounded
+                    alt="My Awesome Circle Image"
+                    src="https://placehold.it/200?text=rounded"
+                    styles={imgCustomStyles}
+                />
+                <Img
+                    maxWidthXS="140px"
+                    alt="My Awesome Regular Image"
+                    src="https://placehold.it/200?text=maxWidthXS%3D%22140px%22"
+                    styles={imgCustomStyles}
+                />
+            </div>
+        );
+    }}
+</Playground>

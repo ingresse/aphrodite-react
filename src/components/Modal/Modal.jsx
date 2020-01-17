@@ -70,8 +70,8 @@ const Modal = forwardRef((props, ref) => {
      * @param {object} evt - DOM click event
      */
     function handleCloseOnScape (evt) {
-        const { key, keyCode, target } = (evt || {});
-        const isEscPressed = (key === 'Escape' || key === 'Esc' || keyCode === 27);
+        const { key, keyCode } = (evt || {});
+        const isEscPressed     = ((key === 'Escape') || (key === 'Esc') || (keyCode === 27));
 
         if (!isEscPressed) {
             return;
@@ -199,6 +199,7 @@ const Modal = forwardRef((props, ref) => {
      */
     useEffect(() => {
         return function cleanup() {
+            setUnmounted(true);
             unlisten();
         };
     }, []);

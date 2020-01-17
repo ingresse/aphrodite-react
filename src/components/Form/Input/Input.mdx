@@ -1,0 +1,98 @@
+---
+name : Form | Input
+menu : › Components
+route: /components/form/input
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    Input,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+
+# Form | Input
+### Styled form input component.
+
+
+## Examples
+
+<Playground>
+    <Row>
+        <Col xs={12} sm={12} md={6}>
+            <Segment padding="10px 0">
+                <Input
+                    type="email"
+                    name="email"
+                    id="ExampleInputWithoutPlaceholder"
+                    label="E-mail (example)"
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={12} md={6}>
+            <Segment padding="10px 0">
+                <Input
+                    type="text"
+                    id="ExampleInputWithPlaceholder"
+                    placeholder="Field Placeholder"
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={12} md={6}>
+            <Segment padding="10px 0">
+                <Input
+                    type="text"
+                    id="ExampleInput"
+                    label="Field Label"
+                    placeholder="Field Placeholder"
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={12} md={6}>
+            <Segment padding="10px 0">
+                <Input
+                    type="text"
+                    id="ExampleInputError"
+                    value="With error"
+                    label="Field Label"
+                    placeholder="Field Placeholder"
+                    error
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={12} md={6}>
+            <Segment padding="10px 0">
+                <Input
+                    type="text"
+                    id="ExampleInputErrorWithMsg"
+                    value="With error"
+                    label="Field Label"
+                    placeholder="Field Placeholder"
+                    error
+                    errorMessage="And with error message"
+                />
+            </Segment>
+        </Col>
+        <Col xs={12} sm={12} md={6}>
+            <Segment padding="10px 0">
+                <Input
+                    type="text"
+                    id="ExampleInputErrorWithMsg"
+                    value="With error and disabled"
+                    label="Field Label"
+                    placeholder="Field Placeholder"
+                    error
+                    errorMessage="And with error message"
+                    disabled
+                />
+            </Segment>
+        </Col>
+    </Row>
+</Playground>
+
+
+## Properties
+<Props of={Input} />

@@ -19,7 +19,6 @@ const Collapsible = forwardRef((props, ref) => {
         children,
         disabled,
         delay,
-        hover,
         icon,
         iconSize,
     } = props;

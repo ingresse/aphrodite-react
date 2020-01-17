@@ -1,15 +1,20 @@
 ---
 name : Collapsible
-menu : Organisms
-route: /organisms/collapsible
+menu : › Components
+route: /components/collapsible
 ---
 
 import { Playground, Props } from 'docz';
-import { Collapsible, Segment, Text } from '../';
 import { colors } from '../../utils';
+import {
+    Collapsible,
+    Segment,
+    Text,
+} from '../';
+
 
 # Collapsible
-#### An alternative to Accordion.
+### An alternative to accordion.
 
 ```jsx
 import { Collapsible, Segment } from 'aphrodite-react';
@@ -23,11 +28,10 @@ import { Collapsible, Segment } from 'aphrodite-react';
 </Collapsible>
 ```
 
-## Properties
-<Props of={Collapsible} />
 
 ## Regular Example
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     <Collapsible
         header="Collapsible component with 'Segment' component inside" hover>
         <Segment
@@ -52,8 +56,10 @@ import { Collapsible, Segment } from 'aphrodite-react';
     </Collapsible>
 </Playground>
 
+
 ## Custom Example
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     <Collapsible
         opened
         delay={0.75}
@@ -87,3 +93,8 @@ import { Collapsible, Segment } from 'aphrodite-react';
         </Segment>
     </Collapsible>
 </Playground>
+
+
+## Properties
+
+<Props of={Collapsible} />

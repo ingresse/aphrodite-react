@@ -1,83 +1,78 @@
 ---
 name : Button
-menu : Atoms
-route: /atoms/button
+menu : › Components
+route: /components/button
 ---
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Button, Container, Segment, Row, Col } from '../';
 import { colors } from '../../utils';
+import { Button, Container, Segment, Row, Col } from '../';
+
 
 # Button
-#### Button styled with Aphrodite definitions.
+### Button styled with Aphrodite definitions.
+
 ```jsx
 import { Button } from 'aphrodite-react';
 
 <Button>Hello, you</Button>
 ```
 
-## Properties
-<Props of={Button} />
-
----
 
 ## Regular
 
 <Playground>
-    <Segment styles={{ textAlign: 'center' }}>
+    <Segment textAlign="center">
         <Button>
             Hello
         </Button>
     </Segment>
 </Playground>
 
----
 
 ## Link
 
 <Playground>
-    <Segment styles={{ textAlign: 'center' }}>
+    <Segment textAlign="center">
         <Button link>
             Hello
         </Button>
     </Segment>
 </Playground>
 
----
 
 ## Small
 
 <Playground>
-    <Segment styles={{ textAlign: 'center' }}>
+    <Segment textAlign="center">
         <Button small>
             Hello
         </Button>
     </Segment>
 </Playground>
 
----
 
 ## Basic Colors
 
 <Playground>
     <Row horizontal="center">
-        <Col xs={12} sm={4} md={3}>
-            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('info') }}>
+        <Col xs={12} sm={4}>
+            <Segment padding="10px 20px" background={colors.get('info')}>
                 <Button block margin="10px 0" color="black">
                     black
                 </Button>
             </Segment>
         </Col>
-        <Col xs={12} sm={4} md={3}>
-            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('secondary') }}>
+        <Col xs={12} sm={4}>
+            <Segment padding="10px 20px" background={colors.get('secondary')}>
                 <Button block margin="10px 0" color="white">
                     white
                 </Button>
             </Segment>
         </Col>
-        <Col xs={12} sm={4} md={3}>
-            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('success') }}>
+        <Col xs={12} sm={4}>
+            <Segment padding="10px 20px" background={colors.get('success')}>
                 <Button block margin="10px 0" color="smoke">
                     smoke
                 </Button>
@@ -86,7 +81,6 @@ import { Button } from 'aphrodite-react';
     </Row>
 </Playground>
 
----
 
 ## Colors Alias
 
@@ -99,7 +93,7 @@ import { Button } from 'aphrodite-react';
                 <Segment padding="20px 0">
                     <Row horizontal="center" vertical="middle">
                         {colorsAlias.map((colorKey) => (
-                            <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                            <Col xs={6} sm={4} md={4} lg={3} key={`color-${colorKey}`}>
                                 <Button block margin="10px 0" color={colorKey}>
                                     {colorKey}
                                 </Button>
@@ -113,7 +107,7 @@ import { Button } from 'aphrodite-react';
                 <Segment padding="20px 0">
                     <Row horizontal="center" vertical="middle">
                         {colorsAlias.map((colorKey) => (
-                            <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                            <Col xs={6} sm={4} md={4} lg={3} key={`color-${colorKey}`}>
                                 <Button link block margin="10px 0" color={colorKey}>
                                     {colorKey}
                                 </Button>
@@ -129,7 +123,6 @@ import { Button } from 'aphrodite-react';
     }}
 </Playground>
 
----
 
 ## Colors Shades
 
@@ -154,7 +147,7 @@ import { Button } from 'aphrodite-react';
                     }
 
                     return (
-                        <Col xs={6} sm={4} md={3} lg={2} key={`color-${colorKey}`}>
+                        <Col xs={6} sm={4} md={4} lg={3} key={`color-${colorKey}`}>
                             <Button block margin="10px 0" color={colorKey}>
                                 {colorKey}
                             </Button>
@@ -169,14 +162,13 @@ import { Button } from 'aphrodite-react';
     }}
 </Playground>
 
----
 
 ## Translucid
 
 <Playground>
     <Row horizontal="center">
         <Col xs={12} sm={4} md={3}>
-            <Segment padding="10px 20px" styles={{ backgroundColor: colors.get('success') }}>
+            <Segment padding="10px 20px" background={colors.get('success')}>
                 <Button block margin="10px 0" color="translucid">
                     translucid
                 </Button>
@@ -185,7 +177,6 @@ import { Button } from 'aphrodite-react';
     </Row>
 </Playground>
 
----
 
 ## Customized Radius
 
@@ -214,7 +205,6 @@ import { Button } from 'aphrodite-react';
     </Row>
 </Playground>
 
----
 
 ## Block
 
@@ -224,7 +214,6 @@ import { Button } from 'aphrodite-react';
     </Button>
 </Playground>
 
----
 
 ## Custom Component
 
@@ -235,7 +224,7 @@ import { Button } from 'aphrodite-react';
         );
 
         return (
-            <Segment styles={{ textAlign: 'center' }}>
+            <Segment textAlign="center">
                 <Button as={Span}>
                     Custom Component
                 </Button>
@@ -244,35 +233,38 @@ import { Button } from 'aphrodite-react';
     }}
 </Playground>
 
----
 
 ## Loading State
 
 <Playground>
     {() => {
-        const [ btnText, setBtnText ] = useState('Loading Button');
+        const [ btnText, setBtnText ] = useState('Load');
         const [ loading, setLoading ] = useState(false);
 
         function toggleLoading() {
             setLoading(!loading);
-            setBtnText('Loading Button Tested');
 
             setTimeout(() => {
-                setLoading(loading);
+                setBtnText('Done');
+                setLoading(false);
+
+                setTimeout(() => {
+                    setBtnText('Again');
+                }, 1000);
             }, 5000);
         }
 
         return (
             <Row horizontal="center">
                 <Col xs={12} sm={6}>
-                    <Segment styles={{ textAlign: 'center' }}>
+                    <Segment textAlign="center">
                         <Button onClick={toggleLoading} loading={loading}>
                             {btnText}
                         </Button>
                     </Segment>
                 </Col>
                 <Col xs={12} sm={6}>
-                    <Segment styles={{ textAlign: 'center' }}>
+                    <Segment textAlign="center">
                         <Button small onClick={toggleLoading} loading={loading}>
                             {btnText}
                         </Button>
@@ -283,13 +275,12 @@ import { Button } from 'aphrodite-react';
     }}
 </Playground>
 
----
 
 ## Disabled
 Ignore `color` attribute
 
 <Playground>
-    <Segment styles={{ textAlign: 'center' }}>
+    <Segment textAlign="center">
         <Row horizontal="center">
             <Col xs={6} sm={4}>
                 <Button disabled block color="success">
@@ -309,3 +300,7 @@ Ignore `color` attribute
         </Row>
     </Segment>
 </Playground>
+
+
+## Properties
+<Props of={Button} />

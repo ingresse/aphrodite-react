@@ -1,69 +1,80 @@
 ---
 name : Avatar
-menu : Atoms
-route: /atoms/avatar
+menu : › Components
+route: /components/avatar
 ---
+
 import { Playground, Props } from 'docz';
-import { Avatar, Col, Row } from '../';
+import { Avatar, Col, Row, Segment } from '../';
+
 
 # Avatar
-#### A styled component to avatar, with some facilities.
-```jsx
-import { Avatar } from 'aphrodite-react';
+### A styled component to avatar, with some facilities.
 
-<Avatar
-    circle
-    alt="My Awesome Circle Avatar"
-    width="100px"
-    height="100px"
-/>
-```
-
-## Properties
-<Props of={Avatar} />
 
 ## Example
+
 <Playground>
     {() => {
-        const imgCustomStyles = {
-            marginBottom: '20px',
-        };
+        const size = '140px';
 
         return (
-            <div>
-                <Row>
-                    <Col>
-                        <Avatar
-                            circle
-                            alt="My Awesome Circle Avatar"
-                            width="200px"
-                            height="200px"
-                        />
+            <Segment padding="30px 20px">
+                <Row horizontal="center">
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                circle
+                                width={size}
+                                height={size}
+                                color="ocean"
+                                alt="My Awesome Circle Avatar"
+                            />
+                        </Segment>
                     </Col>
-                    <Col>
-                        <Avatar
-                            size="200px"
-                            alt="My Awesome Regular Avatar"
-                        />
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                size={size}
+                                color="tangerine"
+                                alt="My Awesome Regular Avatar"
+                            />
+                        </Segment>
                     </Col>
-                    <Col>
-                        <Avatar
-                            circle
-                            alt="My Awesome Circle Initials"
-                            width="200px"
-                            height="200px"
-                            initials="AR"
-                        />
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                circle
+                                width={size}
+                                height={size}
+                                color="bamboo"
+                                name="My Awesome Circle Initials"
+                            />
+                        </Segment>
                     </Col>
-                    <Col>
-                        <Avatar
-                            alt="My Awesome Regular Placeholder"
-                            size="200"
-                            src="https://placehold.it/200?text=size=200px"
-                        />
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                size={size.replace('px', '')}
+                                color="supernova"
+                                alt="My Awesome Regular Placeholder"
+                                src={`https://placehold.it/200?text=size=${size}`}
+                            />
+                        </Segment>
                     </Col>
                 </Row>
-            </div>
+            </Segment>
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props
+    of={Avatar}
+/>

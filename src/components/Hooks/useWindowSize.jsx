@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /* Constants */
-import { LAYOUT, SCREEN_SIZES } from '../../constants';
+import { SCREEN_SIZES } from '../../constants';
 
 /* Hook */
 function useWindowSize() {

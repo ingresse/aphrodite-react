@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 /* Constants */
-import { COLORS, MEDIA_QUERIES, SCREEN_SIZES, ZINDEX } from '../../constants';
+import { COLORS, MEDIA_QUERIES, ZINDEX } from '../../constants';
 
 /* Component */
 const ToastsContainer = (props = { styles: {} }) => {

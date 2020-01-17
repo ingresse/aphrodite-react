@@ -1,5 +1,5 @@
 /* Packages */
-import React, { Component } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';

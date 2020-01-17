@@ -172,6 +172,7 @@ let stock = {
     declined       : ruby.original,
     cancelled      : mercury.original,
     refund         : supernova.original,
+    limitexceeded  : tangerine.original,
     limitExceeded  : tangerine.original,
     'manual review': poison.original,
     pending        : ocean.original,

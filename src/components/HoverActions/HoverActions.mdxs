@@ -1,0 +1,83 @@
+---
+name : HoverActions
+menu : › Components
+route: /components/hover-actions
+---
+
+import { Playground, Props } from 'docz';
+import { HoverActions, HoverActionsItem, Img, Container } from '../';
+
+# HoverActions
+####
+
+```jsx
+import { HoverActions, HoverActionsItem } from 'aphrodite-react';
+
+...
+
+<HoverActions
+    actions={(
+        <>
+            <HoverActionsItem>
+                Useless
+            </HoverActionsItem>
+            <HoverActionsItem>
+                Useless
+            </HoverActionsItem>
+        </>
+    )}>
+    My Hoverable Element expecting some surprising actions
+</HoverActions>
+```
+
+## Properties
+<Props of={HoverActions} />
+
+---
+
+## Examples
+<Playground style={{ padding: '20px' }}>
+    <Container styles={{ padding: '20px', textAlign: 'center' }}>
+        <HoverActions
+            actions={(
+                <>
+                    <HoverActionsItem color="ocean">
+                        A button for some action
+                    </HoverActionsItem>
+                    <HoverActionsItem>
+                        Another button
+                    </HoverActionsItem>
+                </>
+            )}>
+            My Hoverable Element expecting some surprising actions
+        </HoverActions>
+    </Container>
+
+    <Container styles={{ padding: '20px', textAlign: 'center' }}>
+        <HoverActions>
+            My Hoverable Element without actions
+        </HoverActions>
+    </Container>
+
+    <Container styles={{ padding: '20px', textAlign: 'center' }}>
+        <HoverActions
+            actions={(
+                <>
+                    <HoverActionsItem
+                        as="a"
+                        target="_blank"
+                        color="tangerine"
+                        href="https://placehold.it/200?text=circle"
+                        styles={{ padding: '6px 5px 4px' }}>
+                        Open image in a new tab
+                    </HoverActionsItem>
+                </>
+            )}>
+            <Img
+                circle
+                alt="My Awesome Circle Image"
+                src="https://placehold.it/200?text=circle"
+            />
+        </HoverActions>
+    </Container>
+</Playground>

@@ -1,0 +1,176 @@
+---
+name : Modal
+menu : › Components
+route: /components/modal
+---
+
+import { useState } from 'react';
+import {
+    Modal,
+    Button,
+    Segment,
+    Container,
+    Placeholder,
+    Row,
+    Col,
+    Input,
+    Select,
+    Switch,
+} from '../';
+
+import { Playground, Props } from 'docz';
+
+# Modal
+#### A simple dialog implementation
+
+## Properties
+<Props of={Modal} />
+
+## Example
+<Playground style={{ margin: '-20px', padding: '0 !important' }}>
+    {() => {
+        // import { Modal, Segment, Button, Placeholder } from 'aphrodite-react';
+
+        const [ opened, setOpened ]                     = useState(false);
+        const [ title, setTitle ]                       = useState('Oi, eu sou o Goku');
+        const [ header, setHeader ]                     = useState('');
+        const [ closeOnEscape, setCloseOnEscape ]       = useState(true);
+        const [ unblockScrolling, setUnblockScrolling ] = useState(false);
+        const [ contentJustify, setContentJustify ]     = useState('center');
+
+        /** All the `styles` in Modal was only customized to this example */
+        return (
+            <Segment
+                padding="0"
+                styles={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    height  : '720px'
+                }}>
+
+                <Container>
+                    <Segment padding="20px 0" styles={{ textAlign: 'center' }}>
+                        <Segment padding="10px 0">
+                            <Row horizontal="center">
+                                <Col xs={6} sm={4}>
+                                    <Segment
+                                        padding="10px 0">
+                                        <Switch
+                                            id="modal_unblock_scrolling"
+                                            textAlign="right"
+                                            toggleAlign="right"
+                                            checked={unblockScrolling}
+                                            onChange={(evt) => setUnblockScrolling(evt.target.checked)}>
+                                            Unblock Scrolling
+                                        </Switch>
+                                    </Segment>
+                                </Col>
+                                <Col xs={6} sm={4}>
+                                    <Segment
+                                        padding="10px 0">
+                                        <Switch
+                                            id="modal_close_on_escape"
+                                            checked={closeOnEscape}
+                                            onChange={(evt) => setCloseOnEscape(evt.target.checked)}>
+                                            Close On Escape
+                                        </Switch>
+                                    </Segment>
+                                </Col>
+                            </Row>
+                        </Segment>
+                        <Segment padding="10px 0">
+                            <Row horizontal="center">
+                                <Col xs={12} sm={4}>
+                                    <Segment
+                                        padding="10px 0">
+                                        <Input
+                                            type="text"
+                                            value={title}
+                                            label="Title"
+                                            autoComplete="off"
+                                            onChange={(evt, value) => setTitle(value)}
+                                        />
+                                    </Segment>
+                                </Col>
+                                <Col xs={12} sm={4}>
+                                    <Segment
+                                        padding="10px 0">
+                                        <Input
+                                            type="text"
+                                            value={header}
+                                            label="Header"
+                                            autoComplete="off"
+                                            placeholder="Components, such as in footer"
+                                            onChange={(evt, value) => setHeader(value)}
+                                        />
+                                    </Segment>
+                                </Col>
+                                <Col xs={12} sm={4}>
+                                    <Segment
+                                        padding="10px 0">
+                                        <Select
+                                            value={contentJustify}
+                                            label="Content Justify"
+                                            onChange={(evt, value) => setContentJustify(value)}>
+                                            <option value="flex-start">flex-start</option>
+                                            <option value="center">center</option>
+                                            <option value="flex-end">flex-end</option>
+                                        </Select>
+                                    </Segment>
+                                </Col>
+                            </Row>
+                        </Segment>
+                        <Segment padding="20px 0">
+                            <Button
+                                color="primary"
+                                onClick={() => setOpened(true)}>
+                                Open Modal
+                            </Button>
+                        </Segment>
+                    </Segment>
+                </Container>
+
+                <Modal
+                    title={title}
+                    header={header}
+                    opened={opened}
+                    openedCallback={setOpened}
+                    closeOnEscape={closeOnEscape}
+                    contentJustify={contentJustify}
+                    unblockScrolling={unblockScrolling}
+                    styles={{
+                        position: 'absolute',
+                    }}
+                    overlayProps={{
+                        styles: {
+                            position: 'absolute',
+                        },
+                    }}
+                    footerProps={{
+                        styles: {
+                            position : 'absolute',
+                            textAlign: 'center',
+                        },
+                    }}
+                    footer={
+                        <Button onClick={() => setOpened(false)}>
+                            Close Modal
+                        </Button>
+                    }>
+                    <Container sm>
+                        <Placeholder>
+                            <iframe
+                                width="100%"
+                                height="325"
+                                src="https://www.youtube-nocookie.com/embed/oyTZ267Xg70?autoplay=true&volume=0.3&start=4"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </Placeholder>
+                    </Container>
+                </Modal>
+            </Segment>
+        );
+    }}
+</Playground>

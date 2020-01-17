@@ -1,15 +1,25 @@
 ---
 name : Dropdown
-menu : Organisms
-route: /organisms/dropdown
+menu : › Components
+route: /components/dropdown
 ---
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Dropdown, Row, Col, Segment, H3, Button, Input, List, ListItem } from '../';
+import {
+    Dropdown,
+    Row,
+    Col,
+    Segment,
+    H3,
+    Button,
+    Input,
+    List,
+    ListItem,
+} from '../';
 
 # Dropdown
-#### A white block, rounded, with simple shadow effect, downing from some other component.
+### A white block, rounded, with simple shadow effect, downing from some other component.
 
 ```jsx
 import { Dropdown } from 'aphrodite-react';
@@ -21,11 +31,10 @@ import { Dropdown } from 'aphrodite-react';
 </Dropdown>
 ```
 
-## Properties
-<Props of={Dropdown} />
 
 ## Examples
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     {() => {
         function logClick (dropdownItemId) {
             console.log('Dropdown Item click', dropdownItemId);
@@ -97,8 +106,10 @@ import { Dropdown } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ## Advanced Examples
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     {() => {
         const [ dropdownVisible, setDropdownVisible ] = useState(false);
         const [ dropdownValue, setDropdownValue ]     = useState('Dropdown Item B');
@@ -166,3 +177,8 @@ import { Dropdown } from 'aphrodite-react';
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={Dropdown} />

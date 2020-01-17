@@ -1,7 +1,7 @@
 /* Core Packages */
 import React, { useState } from 'react';
 
-/* Helper Components */
+/* Composition Components */
 import {
     Button,
     Segment,
@@ -12,10 +12,14 @@ import ActionBar from './ActionBar';
 
 /* Component Stories */
 export default {
-    component: ActionBar,
-    title    : 'Components/ActionBar',
+    component : ActionBar,
+    title     : 'Components/ActionBar',
+    parameters: {
+        componentSubtitle: 'Toggle visibility of action elements',
+    },
 };
 
+/* Component Example */
 export const example = () => {
     /**
      * Example values
@@ -46,6 +50,7 @@ export const example = () => {
                     id="action-bar-example-btn-toggle"
                     type="button"
                     color="secondary"
+                    link={true}
                     onClick={toggle}>
                     {visible ? 'Hide' : 'Visible'}
                 </Button>
@@ -57,7 +62,13 @@ export const example = () => {
                 styles={{
                     textAlign: 'center',
                 }}>
-                Action Bar Content
+                <Button
+                    id="action-bar-example-btn-action"
+                    type="button"
+                    color="success"
+                    onClick={toggle}>
+                    Toggle
+                </Button>
             </ActionBar>
             {/* Component Usage Example */}
         </>

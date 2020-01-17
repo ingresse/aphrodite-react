@@ -6,5 +6,5 @@ import theme from './aphrodite.theme';
 
 /* Apply custom settings */
 addons.setConfig({
-    theme: theme,
+    theme,
 });

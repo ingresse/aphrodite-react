@@ -1,21 +1,27 @@
 ---
-name : ExpansionPanel
-menu : Organisms
-route: /organisms/expansionpanel
+name : Expansion Panel
+menu : › Components
+route: /components/expansion-panel
 ---
 
 import { useState } from 'react';
-import { ExpansionPanel, Segment, Row, Col, Button } from '../';
-import { colors } from '../../utils';
 import { Playground, Props } from 'docz';
+import {
+    ExpansionPanel,
+    Segment,
+    Row,
+    Col,
+    Button,
+} from '../';
+import { colors } from '../../utils';
 
-# ExpansionPanel
-#### A simple component to help out with ExpansionPanel stuffs
 
-## Properties
-<Props of={ExpansionPanel} />
+# Expansion Panel
+### A simple component to help out with Expansion Panel stuffs.
+
 
 ## Example
+
 <Playground>
     {() => {
         // import { ExpansionPanel } from 'aphrodite-react';
@@ -23,15 +29,19 @@ import { Playground, Props } from 'docz';
         return (
             <ExpansionPanel
                 header={
-                    <Segment margin="0" padding="0">Expansion panel 1</Segment>}
-            >
+                    <Segment margin="0" padding="0">
+                        Expansion panel 1
+                    </Segment>
+                }>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
             </ExpansionPanel>
         );
     }}
 </Playground>
 
+
 ## Example with custom styles
+
 <Playground>
     {() => {
         const headerStyles = {
@@ -53,8 +63,10 @@ import { Playground, Props } from 'docz';
                 styles={styles}
                 headerStyles={headerStyles}
                 header={
-                    <Segment margin="0" padding="0 20px">with custom styles</Segment>}
-            >
+                    <Segment margin="0" padding="0 20px">
+                        with custom styles
+                    </Segment>
+                }>
                 <Segment margin="0" padding="20px">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
                 </Segment>
@@ -63,10 +75,13 @@ import { Playground, Props } from 'docz';
     }}
 </Playground>
 
+
 ## With a advanced state managament
+
 <Playground>
     {() => {
         const items = [{ id: 1 }, { id: 2 }, { id: 3 }, { id:4 }, { id: 5 }];
+
         const [openedPanels, setOpenedPanels] = useState([]);
 
         /**
@@ -108,9 +123,8 @@ import { Playground, Props } from 'docz';
                     <Col sm={4}>
                         <Button
                             block
-                            onClick={handleExpandedAll}
-                        >
-                             {`${(openedPanels.length) ? 'Fechar' : 'Abrir'} tudo`}
+                            onClick={handleExpandedAll}>
+                             {`${(openedPanels.length) ? 'Close' : 'Open'} all`}
                         </Button>
                     </Col>
                 </Row>
@@ -122,9 +136,10 @@ import { Playground, Props } from 'docz';
                             expandedCallback={() => handleHasOpened(item.id)}
                             styles={{ marginBottom: '15px' }}
                             header={
-                                <Segment margin="0" padding="0">Expansion panel {item.id}</Segment>
-                            }
-                        >
+                                <Segment margin="0" padding="0">
+                                    Expansion panel {item.id}
+                                </Segment>
+                            }>
                             <Segment margin="0" padding="0">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
                             </Segment>
@@ -136,3 +151,8 @@ import { Playground, Props } from 'docz';
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={ExpansionPanel} />

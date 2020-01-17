@@ -1,6 +1,7 @@
 ---
-name : Getting Started
 route: /
+menu : Introduction
+name : Getting Started
 ---
 
 # Aphrodite
@@ -17,45 +18,48 @@ yarn add https://github.com/ingresse/aphrodite-react.git
 ---
 
 ## Usage Example
-#### Include Aphrodite Components inside your React application:
+#### Include Aphrodite Components inside your React application.
 
+`src/components/index.js`:
+```js
+export {
+    Button,
+    Container,
+    Segment,
+} from 'aphrodite-react';
+```
+
+`src/App.jsx`:
 ```jsx
 /* Core Packages */
 import React from 'react';
 import propTypes from 'prop-types';
 
-/* UI Library Components */
-import { Container, Button } from 'aphrodite-react';
+/* Components */
+import {
+    Button,
+    Container,
+    Segment,
+} from './components';
 
 /* Component Itself */
-const MyComponent = (props) => {
-    const { handleClick } = props;
+function App() {
+    function handleClick(evt) {
+        console.log('button click', evt);
+    }
 
     return (
         <Container>
-            <Button onClick={handleClick}>
-                My Button
-            </Button>
+            <Segment
+                textAlign="center">
+                <Button onClick={handleClick}>
+                    Aphrodite Button
+                </Button>
+            </Segment>
         </Container>
     );
-};
-
-/* Component Default Properties */
-MyComponent.defaultProps = {
-    /**
-     * Handle with Button Click
-     *
-     * @param {object} e - Virtual DOM Synthetic Click Event
-     */
-    handleClick: (e) => { console.log('handleClick acting', e) },
-};
-
-/* Component Properties Types */
-MyComponent.propTypes = {
-    handleClick: propTypes.func.isRequired,
-};
+}
 
 /* Exporting */
-export default MyComponent;
-
+export default App;
 ```

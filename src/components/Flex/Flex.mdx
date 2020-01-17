@@ -1,21 +1,23 @@
 ---
 name : Flex
-menu : Atoms
-route: /atoms/flex
+menu : › Components
+route: /components/flex
 ---
 
 import { useState } from 'react';
-import { Flex, Segment } from '../';
-
 import { Playground, Props } from 'docz';
+import {
+    Flex,
+    Segment,
+} from '../';
+
 
 # Flex
-#### A simple component to help out with flex stuffs
+### A simple component to help out with flex stuffs
 
-## Properties
-<Props of={Flex} />
 
 ## Example
+
 <Playground style={{ margin: '-20px', padding: '0 !important' }}>
     {() => {
         // import { Flex } from 'aphrodite-react';
@@ -65,3 +67,8 @@ import { Playground, Props } from 'docz';
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={Flex} />

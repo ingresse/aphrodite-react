@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
 /* Constants */
-import { COLORS, GRID, RADIUS } from '../../constants';
+import { GRID, RADIUS } from '../../constants';
 
 /* Utils */
 import { colors } from '../../utils';

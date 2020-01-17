@@ -17,7 +17,6 @@ export const FORM = {
             display  : 'block',
             width    : '100%',
             height   : '40px',
-            border   : 0,
             margin   : 0,
             padding  : '0 15px',
 
@@ -26,7 +25,6 @@ export const FORM = {
 
             color          : COLORS.BLACK,
             backgroundColor: COLORS.WHITE,
-            borderRadius   : RADIUS,
             boxShadow      : `inset 0 0 2px 0 ${COLORS.GET('DARK_BLACK', 0.3)}`,
 
             borderRadius: RADIUS.XS,

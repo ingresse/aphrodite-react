@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
 /* Constants */
-import { COLORS, GRID, MEDIA_QUERIES, RADIUS } from '../../constants';
+import { GRID, MEDIA_QUERIES } from '../../constants';
 
 /* Wrapper styles */
 const AphListGroupItem = styled('div')(props => ({

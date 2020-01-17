@@ -1,15 +1,24 @@
 ---
 name : Dialog
-menu : Organisms
-route: /organisms/dialog
+menu : › Components
+route: /components/dialog
 ---
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Dialog, Row, Col, Segment, Button, H1 } from '../';
+import {
+    Dialog,
+    Row,
+    Col,
+    Segment,
+    Container,
+    Button,
+    H1,
+} from '../';
+
 
 # Dialog
-#### Dialog boxes tell users about a task and can contain critical information, require decisions, or involve multiple tasks.
+### Dialog boxes tell users about a task and can contain critical information, require decisions, or involve multiple tasks.
 
 ```jsx
 import { Dialog } from 'aphrodite-react';
@@ -18,23 +27,20 @@ import { Dialog } from 'aphrodite-react';
 
 <Dialog
     opened={opened}
-    onClose={() => setOpened(false)}
->
+    onClose={() => setOpened(false)}>
     <Button
-        onClick={() => setOpened(false)}
-    >
+        onClick={() => setOpened(false)}>
         Close
     </Button>
 </Dialog>
 ```
 
-## Properties
-<Props of={Dialog} />
 
-## Examples
-<Playground style={{ padding: '20px' }}>
+## Example
+
+<Playground>
     {() => {
-        const [opened, setOpened] = useState(false);
+        const [ opened, setOpened ] = useState(false);
 
         function handleDialog() {
             setOpened(!opened);
@@ -43,14 +49,15 @@ import { Dialog } from 'aphrodite-react';
         return (
             <Row>
                 <Col xs={12}>
-                    <Button onClick={handleDialog}>Open a simple Dialog</Button>
+                    <Button
+                        onClick={handleDialog}>
+                        Open a simple Dialog
+                    </Button>
                     <Dialog
                         opened={opened}
-                        onClose={() => setOpened(false)}
-                    >
+                        onClose={() => setOpened(false)}>
                         <Button
-                            onClick={() => setOpened(false)}
-                        >
+                            onClick={() => setOpened(false)}>
                             Close
                         </Button>
                     </Dialog>
@@ -60,8 +67,10 @@ import { Dialog } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ## Without close area
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     {() => {
         const [opened, setOpened] = useState(false);
 
@@ -70,115 +79,120 @@ import { Dialog } from 'aphrodite-react';
         }
 
         return (
-             <Row>
-                <Col xs={12}>
-                    <Button onClick={handleDialog}>Without close area</Button>
-                    <Dialog
-                        opened={opened}
-                        onClose={() => setOpened(false)}
-                        closeArea={false}
-                    >
-                        <Segment background="white">
-                            <Button
-                                onClick={() => setOpened(false)}
-                            >
-                                Close
-                            </Button>
-                        </Segment>
-                    </Dialog>
-                </Col>
-            </Row>
+             <Segment
+                padding="0">
+                <Button onClick={handleDialog}>
+                    Without close area
+                </Button>
+                <Dialog
+                    opened={opened}
+                    onClose={() => setOpened(false)}
+                    closeArea={false}>
+                    <Segment background="white">
+                        <Button
+                            onClick={() => setOpened(false)}>
+                            Close
+                        </Button>
+                    </Segment>
+                </Dialog>
+            </Segment>
         );
     }}
 </Playground>
 
+
 ## Position Usage
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     {() => {
-        const [opened, setOpened] = useState(false);
+        const [ opened, setOpened ] = useState(false);
 
         function handleDialog() {
             setOpened(!opened);
         }
 
         return (
-             <Row>
-                <Col xs={12}>
-                    <Button onClick={handleDialog}>Position Usage</Button>
-                    <Dialog
-                        align="flex-start"
-                        justify="flex-end"
-                        padding="30px 0"
-                        closeArea={false}
-                        opened={opened}
-                        onClose={() => setOpened(false)}
-                    >
-                        <Segment
-                            padding="0"
-                            textAlign="center"
-                            background="primary"
-                        >
-                            <Button color="success" onClick={() => setOpened(false)}>
-                                Close
-                            </Button>
-                        </Segment>
-                    </Dialog>
-                </Col>
-            </Row>
+             <Segment padding="0">
+                <Button onClick={handleDialog}>
+                    Position Usage
+                </Button>
+                <Dialog
+                    align="flex-start"
+                    justify="flex-end"
+                    padding="30px 0"
+                    closeArea={false}
+                    opened={opened}
+                    onClose={() => setOpened(false)}>
+                    <Segment
+                        padding="0"
+                        textAlign="center"
+                        background="primary">
+                        <Button color="success" onClick={() => setOpened(false)}>
+                            Close
+                        </Button>
+                    </Segment>
+                </Dialog>
+            </Segment>
         );
     }}
 </Playground>
 
 
 ## Advanced Usage
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     {() => {
-        const [opened, setOpened] = useState(false);
+        const [ opened, setOpened ] = useState(false);
 
         function handleDialog() {
             setOpened(!opened);
         }
 
         return (
-             <Row>
-                <Col xs={12}>
-                    <Button onClick={handleDialog}>Advanced Usage</Button>
-                    <Dialog
-                        opened={opened}
-                        onClose={() => setOpened(false)}
-                    >
-                        <Row horizontal="center">
-                            <Col xs={12} sm={8}>
-                                <Segment background="white" padding="40px" textAlign="center">
-                                    <H1 margin="0 0 20px">Alteração Realizada</H1>
-                                    <Segment padding="0 0 40px">
-                                        Alteração realizada com sucesso. Deseja avançar para a próxima transação ou voltar para lista de transações?
-                                    </Segment>
-                                    <Row>
-                                        <Col xs={12} sm={6}>
-                                            <Button
-                                                block
-                                                color="success"
-                                                onClick={() => alert('confirm')}
-                                            >
-                                                Entendi
-                                            </Button>
-                                        </Col>
-                                        <Col xs={12} sm={6}>
-                                            <Button
-                                                block
-                                                onClick={() => setOpened(false)}
-                                            >
-                                                Close
-                                            </Button>
-                                        </Col>
-                                    </Row>
-                                </Segment>
-                            </Col>
-                        </Row>
-                    </Dialog>
-                </Col>
-            </Row>
+             <Segment padding ="0">
+                <Button onClick={handleDialog}>
+                    Advanced Usage
+                </Button>
+                <Dialog
+                    opened={opened}
+                    onClose={() => setOpened(false)}>
+                    <Container sm>
+                        <Segment
+                            padding="40px"
+                            textAlign="center"
+                            background="white">
+                            <H1 margin="0 0 20px">
+                                Update Success
+                            </H1>
+                            <Segment padding="0 0 40px">
+                                Want to continue to the next transaction or go back to the entire list?
+                            </Segment>
+                            <Row>
+                                <Col xs={6}>
+                                    <Button
+                                        block
+                                        color="success"
+                                        onClick={() => alert('confirm')}>
+                                        Continue
+                                    </Button>
+                                </Col>
+                                <Col xs={6}>
+                                    <Button
+                                        block
+                                        onClick={() => setOpened(false)}>
+                                        Close
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Segment>
+                    </Container>
+                </Dialog>
+            </Segment>
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={Dialog} />

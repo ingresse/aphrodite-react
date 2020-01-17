@@ -55,7 +55,6 @@ const ColStyled = styled('div')((props) => {
         boxSizing    : 'border-box',
         flex         : '0 0 auto',
         flexGrow     : 1,
-        flexBasis    : 0,
         flexDirection: 'column',
 
         order: ORDER,

@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import Paginator from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/pt_BR';
 
-/* UI Library Helpers */
-import { colors } from '../../utils';
-
 /* Helper Components */
 import { Icon, Placeholder } from '../';
 

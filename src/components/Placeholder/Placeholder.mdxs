@@ -1,0 +1,60 @@
+---
+name : Placeholder
+menu : › Components
+route: /components/placeholder
+---
+
+import { Playground, Props } from 'docz';
+import { Button, Placeholder } from '../';
+
+# Placeholder
+#### A simple way to make a "shadow" of your components, when your application is loading the real content.
+```jsx
+import { Placeholder } from 'aphrodite-react';
+
+<Placeholder />
+```
+
+## Properties
+<Props of={Placeholder} />
+
+## Simple
+<Playground>
+    <Placeholder />
+    <Placeholder height={200} />
+</Playground>
+
+## Nested
+<Playground>
+    {() => {
+        let columns = {
+            boxSizing    : 'border-box',
+            verticalAlign: 'middle',
+            display: 'inline-block',
+            width  : '49.5%',
+            padding: '0 10px',
+        };
+
+        let loaded = {
+            boxSizing   : 'border-box',
+            padding     : '20px',
+            boxShadow   : '0 0 8px rgba(42, 42, 42, 0.2)',
+            borderRadius: '4px',
+        };
+
+        return (
+            <div>
+                <div style={columns}>
+                    <Placeholder block={true} height={60} styles={{ padding: '20px' }}>
+                        <Placeholder width={90} height={20} />
+                    </Placeholder>
+                </div>
+                <div style={columns}>
+                    <div style={loaded}>
+                        Loaded
+                    </div>
+                </div>
+            </div>
+        );
+    }}
+</Playground>

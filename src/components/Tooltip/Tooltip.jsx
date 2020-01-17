@@ -1,5 +1,5 @@
 /* Packages */
-import React, { Component, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import propTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
@@ -155,7 +155,7 @@ const TooltipWrapper = styled('span')(props => ({
         '&__content': {
             display      : 'inline-block',
             verticalAlign: 'middle',
-            minHeight    : props.style && props.style.height || null,
+            minHeight    : ((props.style && props.style.height) ? props.style.height : null),
         },
     },
 

@@ -1,5 +1,5 @@
 /* Packages */
-import React, { Component, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Formatter from 'react-number-format';
 

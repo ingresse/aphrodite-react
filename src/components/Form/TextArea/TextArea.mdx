@@ -1,0 +1,61 @@
+---
+name : Form | TextArea
+menu : › Components
+route: /components/form/text-area
+---
+
+import { useEffect, useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    TextArea,
+    Segment,
+} from '../../';
+
+
+# Form | TextArea
+### Form Text Area component styled.
+
+
+## Example
+
+<Playground>
+    <Segment padding="10px 0">
+        <TextArea
+            label="A lot of words"
+        />
+    </Segment>
+</Playground>
+
+
+## Delayed
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        useEffect(() => {
+            setTimeout(() => {
+                setValue('aphrodite');
+            }, 2500);
+        }, []);
+
+        function handleChange(evt) {
+            setValue(evt.target.value);
+        }
+
+        return (
+            <Segment padding="10px 0">
+                <TextArea
+                    label="Big content goes here"
+                    value={value}
+                    onChange={handleChange}
+                />
+            </Segment>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={TextArea} />

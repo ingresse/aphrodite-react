@@ -1,0 +1,52 @@
+---
+name : Lists
+menu : › Components
+route: /components/lists
+---
+
+import { Playground, Props } from 'docz';
+import { List, ListItem } from '../';
+
+# Lists
+#### Organizing information with an alternative to tables.
+
+```jsx
+import { List, ListItem } from 'aphrodite-react';
+
+...
+
+return (
+    <List>
+        <ListItem>
+            Ingresse
+        </ListItem>
+        <ListItem>
+            Aphrodite
+        </ListItem>
+        <ListItem hoverable>
+            React
+        </ListItem>
+    </List>
+);
+```
+
+### LIST PROPERTIES
+<Props of={List} />
+
+### LIST ITEM PROPERTIES
+<Props of={ListItem} />
+
+### EXAMPLE
+<Playground>
+    <List>
+        <ListItem>
+            Ingresse
+        </ListItem>
+        <ListItem>
+            Aphrodite
+        </ListItem>
+        <ListItem hoverable>
+            React
+        </ListItem>
+    </List>
+</Playground>

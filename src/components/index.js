@@ -53,16 +53,16 @@ export { default as Countdown } from './Countdown/Countdown';
 export { default as Pagination } from './Pagination/Pagination';
 
 /* Form Components */
-export { default as Input } from './Form/Input/FormControlInput';
-export { default as InputCurrency } from './Form/InputCurrency/FormControlInputCurrency';
+export { default as Input } from './Form/Input/Input';
+export { default as InputCurrency } from './Form/InputCurrency/InputCurrency';
 export { default as InputMask } from './Form/InputMask/InputMask';
-export { default as InputNumber } from './Form/InputNumber/FormControlInputNumber';
+export { default as InputNumber } from './Form/InputNumber/InputNumber';
 export { default as InputCpf } from './Form/InputCpf/InputCpf';
-export { default as Checkbox } from './Form/Checkbox/FormControlCheckbox';
+export { default as Checkbox } from './Form/Checkbox/Checkbox';
 export { default as Autocomplete } from './Form/Autocomplete/Autocomplete';
-export { default as Select } from './Form/Select/FormControlSelect';
-export { default as TextArea } from './Form/TextArea/FormControlTextArea';
-export { default as Switch } from './Form/Switch/FormControlSwitch';
+export { default as Select } from './Form/Select/Select';
+export { default as TextArea } from './Form/TextArea/TextArea';
+export { default as Switch } from './Form/Switch/Switch';
 export { default as RadioButton } from './Form/RadioButton/RadioButton';
 
 /* Hooks Components */

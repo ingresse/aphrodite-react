@@ -17,12 +17,12 @@ export const DialogWrapper = styled.section`
     visibility: hidden;
     transition: all 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
-    ${(props) => props.styles}
-
     &.act {
         opacity: 1;
         visibility: visible;
     }
+
+    ${(props) => props.styles}
 `;
 
 export const DialogContent = styled.div`

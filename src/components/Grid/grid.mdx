@@ -1,7 +1,7 @@
 ---
 name : Grid
-menu : Organisms
-route: /organisms/grid
+menu : › Components
+route: /components/grid
 ---
 
 import { Playground, Props } from 'docz';
@@ -9,8 +9,9 @@ import { Container, Row, Col } from '../';
 import { colors } from '../../utils';
 import { GRID, RADIUS } from '../../constants';
 
+
 # Grid
-#### Align the components with Aphrodite standards
+### Align the components with Aphrodite standards
 
 ```jsx
 import { Container, Row, Col } from 'aphrodite-react';
@@ -24,12 +25,14 @@ import { Container, Row, Col } from 'aphrodite-react';
 </Container>
 ```
 
+
 ## Container
 #### We use to delimitate the content area, centralizing this block in the screen.
 ...
+
 <Props of={Container} />
 
-<Playground style={{ padding: '0 25px 0 20px' }}>
+<Playground>
     {() => {
         const containerExample = {
             color       : colors.get('mercury', 'dark'),
@@ -53,7 +56,6 @@ import { Container, Row, Col } from 'aphrodite-react';
 
         return (
             <div>
-
                 <Container xl styles={containerExample}>
                     Container <code>XL</code> maximum width is <strong>{GRID.CONTAINER.XL + GRID.UNIT}</strong>.
                     <div style={contentExample}>
@@ -102,6 +104,7 @@ import { Container, Row, Col } from 'aphrodite-react';
         );
     }}
 </Playground>
+
 
 ## Row & Column
 #### Based in [FlexboxGrid](http://flexboxgrid.com/) awesome system.
@@ -193,11 +196,12 @@ import { Container, Row, Col } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ### Ordering
 
-<Playground style={{ padding: '0 20px' }}>
+<Playground>
     {() => {
-        // DON'T DO THIS
+        // Example custom styles
         const containerExample = {
             color       : colors.get('mercury', 'dark'),
             background  : colors.get('mercury', 'crystal'),
@@ -270,18 +274,19 @@ import { Container, Row, Col } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ### Horizontal Alignment
 
 <Playground style={{ padding: '0 20px' }}>
     {() => {
-        // DON'T DO THIS
+        // Examples
         const containerExample = {
             color       : colors.get('mercury', 'dark'),
             background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
-            marginTop    : '10px',
-            marginBottom : '10px',
+            marginTop   : '10px',
+            marginBottom: '10px',
 
             paddingTop: '15px',
 
@@ -353,6 +358,7 @@ import { Container, Row, Col } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ### Vertical Alignment
 
 <Playground style={{ padding: '0 20px' }}>
@@ -363,8 +369,8 @@ import { Container, Row, Col } from 'aphrodite-react';
             background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
-            marginTop    : '10px',
-            marginBottom : '10px',
+            marginTop   : '10px',
+            marginBottom: '10px',
 
             paddingTop: '15px',
 

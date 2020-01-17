@@ -11,7 +11,7 @@ const AvatarStyled = styled.figure`
     box-sizing: border-box;
     position  : relative;
     display   : ${props => props.aphCenter ? '' : 'inline-'}block;
-    margin    : ${props => props.aphCenter ? (props.aphMargin + ' auto') : props.aphMargin};
+    margin    : ${props => props.aphCenter ? ((props.aphMargin || '0') + ' auto') : props.aphMargin};
     width     : ${props => (props.aphWidth + ((props.aphWidth + '').includes('px') ? '' : 'px'))};
     height    : ${props => (props.aphHeight + ((props.aphHeight + '').includes('px') ? '' : 'px'))};
 

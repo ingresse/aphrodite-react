@@ -1,0 +1,83 @@
+---
+name : Form | Radio
+menu : › Components
+route: /components/form/radio
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    RadioButton,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+
+# Form | Radio Button
+### Form input radio styled.
+
+
+## Example
+
+<Playground>
+    <Row>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    id="regularRadioButton"
+                    name="selectByGroup"
+                    onChange={(evt) => alert(evt.target.value)}
+                    value="regularRadioButtonValue">
+                    Regular Radio Button
+                </RadioButton>
+            </Segment>
+        </Col>
+    </Row>
+    <Row>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    id="mascRadioButton"
+                    name="gender">
+                    Gender (MASC)
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    id="femRadioButton"
+                    name="gender">
+                    Gender (FEM)
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    id="disbledRadioButton"
+                    name="disbledRadioButton"
+                    disabled={true}>
+                    Disabled Radio Button
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    id="disbledCheckedRadioButton"
+                    name="disbledCheckedRadioButton"
+                    checked={true}
+                    disabled={true}>
+                    Disabled Checked
+                </RadioButton>
+            </Segment>
+        </Col>
+    </Row>
+</Playground>
+
+
+## Properties
+
+<Props of={RadioButton} />

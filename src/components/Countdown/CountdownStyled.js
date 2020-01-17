@@ -25,13 +25,17 @@ const CountdownStyled = styled.div`
         }
 
         &__trace {
-            stroke: ${props => colors.getFromTheme(props, props.aphBackground)};
+            stroke: ${props => (colors[props.aphBackground] ?
+                colors.getFromTheme(props, props.aphBackground) : props.aphBackground
+            )};
         }
 
         &__line {
-            stroke        : ${props => colors.getFromTheme(props, props.aphColor)};
+            transition: stroke-dashoffset 0.1s linear;
             stroke-linecap: round;
-            transition    : stroke-dashoffset 0.1s linear;
+            stroke: ${props => (colors[props.aphColor] ?
+                colors.getFromTheme(props, props.aphColor) : props.aphColor
+            )};
         }
 
         &__count {
@@ -48,7 +52,9 @@ const CountdownStyled = styled.div`
             font-size  : ${props => props.aphSize / 2}px;
             line-height: ${props => props.aphSize}px;
 
-            color: ${props => colors.getFromTheme(props, props.aphColor)};
+            color: ${props => (colors[props.aphColor] ?
+                colors.getFromTheme(props, props.aphColor) : props.aphColor
+            )};
         }
     }
 

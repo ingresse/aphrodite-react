@@ -1,0 +1,49 @@
+---
+name : Form | Input Currency
+menu : › Components
+route: /components/form/input-currency
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    InputCurrency,
+    Container,
+    Segment,
+} from '../../';
+
+
+# Form | Input Currency
+### Simple customization of awesome [react-currency-input](https://npmjs.com/package/react-currency-input) component.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ amount, setAmount ] = useState(3.45);
+
+        function handleChange(evt, floatValue, maskedValue) {
+            console.log('Input Currency changed', floatValue, maskedValue);
+            setAmount(floatValue);
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    <InputCurrency
+                        id="ExampleInputCurrency"
+                        label="Total Amount"
+                        onChange={handleChange}
+                        value={amount}
+                    />
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputCurrency} />

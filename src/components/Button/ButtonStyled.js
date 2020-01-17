@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 
 /* UI Library definitions */
-import { animations, colors } from '../../utils';
+import { colors } from '../../utils';
 
 /* Component Itself */
 const AphButtonStyled = styled.button`

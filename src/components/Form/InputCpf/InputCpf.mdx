@@ -1,0 +1,50 @@
+---
+name : Form | Input CPF
+menu : › Components
+route: /components/form/input-cpf
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    InputCpf,
+    Container,
+    Segment,
+} from '../../';
+
+
+# From | Input CPF
+### Brazilian document type, with simple mask and validation.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        function handleChange({ target }) {
+            const { value } = (target || {});
+
+            setValue(value);
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    <InputCpf
+                        id="ExampleInputCpf"
+                        label="Document Number"
+                        onChange={handleChange}
+                        value={value}
+                    />
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputCpf} />
