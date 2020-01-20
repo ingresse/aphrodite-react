@@ -8,23 +8,27 @@ import { Playground, Props } from 'docz';
 import { Button, Placeholder } from '../';
 
 # Placeholder
-#### A simple way to make a "shadow" of your components, when your application is loading the real content.
+### A simple way to make a "shadow" of your components, when your application is loading the real content.
+
 ```jsx
 import { Placeholder } from 'aphrodite-react';
 
 <Placeholder />
 ```
 
-## Properties
-<Props of={Placeholder} />
 
-## Simple
+## Example
+
 <Playground>
     <Placeholder />
-    <Placeholder height={200} />
+    <Placeholder
+        height={200}
+    />
 </Playground>
 
+
 ## Nested
+
 <Playground>
     {() => {
         let columns = {
@@ -58,3 +62,8 @@ import { Placeholder } from 'aphrodite-react';
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={Placeholder} />

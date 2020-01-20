@@ -32,7 +32,7 @@ export { default as H2 } from './Typography/H2/H2';
 export { default as H3 } from './Typography/H3/H3';
 export { default as P } from './Typography/P/P';
 export { default as Text } from './Typography/P/P';
-export { default as Label } from './Label/Label';
+export { default as Label } from './Typography/Label/Label';
 
 /* Grid Components */
 export { default as Container } from './Grid/Container';
@@ -64,6 +64,3 @@ export { default as Select } from './Form/Select/Select';
 export { default as TextArea } from './Form/TextArea/TextArea';
 export { default as Switch } from './Form/Switch/Switch';
 export { default as RadioButton } from './Form/RadioButton/RadioButton';
-
-/* Hooks Components */
-export { default as useWindowSize } from './Hooks/useWindowSize';

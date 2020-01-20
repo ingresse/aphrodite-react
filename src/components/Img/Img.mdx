@@ -7,22 +7,24 @@ route: /components/img
 import { Playground, Props } from 'docz';
 import { Img } from '../';
 
+
 # Img
-#### A styled component to images, with some facilities.
+### A styled component to images, with some facilities.
+
 ```jsx
 import { Img } from 'aphrodite-react';
 
 <Img
     circle
-    alt="My Awesome Circle Image"
+    fadeIn
+    alt="My Awesome Faded Circle Image"
     src="https://placehold.it/200"
 />
 ```
 
-## Properties
-<Props of={Img} />
 
 ## Example
+
 <Playground>
     {() => {
         const imgCustomStyles = {
@@ -59,3 +61,8 @@ import { Img } from 'aphrodite-react';
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={Img} />

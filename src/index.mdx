@@ -18,7 +18,14 @@ yarn add https://github.com/ingresse/aphrodite-react.git
 ---
 
 ## Usage Example
-#### Include Aphrodite Components inside your React application.
+#### Re-export the Aphrodite tools through your React application folder structure.
+
+`src/utils/index.js`:
+```js
+export {
+    colors,
+} from 'aphrodite-react';
+```
 
 `src/components/index.js`:
 ```js
@@ -29,11 +36,11 @@ export {
 } from 'aphrodite-react';
 ```
 
+#### Then, it's easy to use
 `src/App.jsx`:
 ```jsx
 /* Core Packages */
 import React from 'react';
-import propTypes from 'prop-types';
 
 /* Components */
 import {

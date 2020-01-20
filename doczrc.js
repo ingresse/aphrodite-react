@@ -9,7 +9,7 @@ import theme from './settings/docs.theme';
 
 /* Docz Configs */
 export default {
-    base: `${pkg.repository && pkg.repository.slug ? pkg.repository.slug : ''}/`,
+    base: `${(pkg.repository && pkg.repository.slug) ? pkg.repository.slug : ''}/`,
     src : './src/',
     dest: './docs/',
 

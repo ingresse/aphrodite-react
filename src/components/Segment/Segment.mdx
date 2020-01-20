@@ -1,0 +1,69 @@
+---
+name : Segment
+menu : › Components
+route: /components/segment
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { Segment, Container, Row, Col, Card, Switch } from '../';
+
+# Segment
+### A simple block, with default paddings of `20px 10px`.
+
+```jsx
+import { Segment } from 'aphrodite-react';
+
+...
+
+<Segment>
+    Hello
+</Segment>
+```
+
+## Examples
+
+<Playground>
+    {() => {
+        const [ hasCustomStyles, setHasCustomStyles ] = useState(true);
+
+        return (
+            <Container sm>
+                <Segment>
+                    Default Segment.
+                </Segment>
+
+                <Segment color="supernova">
+                    Segment with custom color prop.
+                </Segment>
+
+                <Segment
+                    textUpper={hasCustomStyles}
+                    radius={hasCustomStyles ? 10 : 0}
+                    color={hasCustomStyles ? 'inverse' : ''}
+                    background={hasCustomStyles ? 'success' : ''}>
+                    <div>
+                        This is a `Segment`.
+                    </div>
+                    A simple block to segmentate all the things.
+                </Segment>
+
+                <Segment padding="40px 0 10px">
+                    <Card>
+                        <Switch
+                            value={hasCustomStyles}
+                            defaultChecked={hasCustomStyles}
+                            onChange={() => setHasCustomStyles(!hasCustomStyles)}>
+                            Display with custom styles.
+                        </Switch>
+                    </Card>
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={Segment} />

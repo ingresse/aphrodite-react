@@ -1,0 +1,80 @@
+---
+name : Gradients
+menu : › Utilities
+route: /utils/gradients
+---
+
+import { Playground } from 'docz';
+import { Row, Col, Segment } from '../../components';
+import { colors, gradients } from '../';
+
+
+# Utilities | Gradients
+### Tools to made easy the development with our gradients presets.
+
+## Usage
+#### The `gradients` utility will help you to get the desired color from Aphrodite React's Gradients Palette.
+```
+import { gradients } from 'aphrodite-react';
+
+gradients.palette; // All availables gradients palette.
+gradients.keys; // All availables gradients palette keys.
+gradients.list; // All availables gradients palette values.
+
+gradients.random();         // Get a random gradient start/end object.
+gradients.get('tangerine'); // Get specific gradient.
+
+gradients.backgroundLinear('tangerine', 45); // CSS string to apply as background.
+```
+
+
+## Examples
+
+<Playground>
+    {() => {
+        const gradientItemStyles = {
+            padding: '15px 20px',
+            margin : '10px 0',
+        };
+
+        return (
+            <Segment
+                padding="0"
+                styles={{
+                    fontSize  : '16px',
+                    lineHeight: '20px',
+                }}>
+                <Row vertical="start">
+                    {gradients.keys.map((gradientKey, index) => {
+                        const gradient = gradients.palette[gradientKey];
+
+                        return (
+                            <Col xs={12} sm={6} key={`gradient-${index}`}>
+                                <Segment
+                                    className="aph-color"
+                                    role="button"
+                                    color="inverse"
+                                    tabIndex={`10${index}`}
+                                    hoverable
+                                    styles={{
+                                        ...gradientItemStyles,
+                                        background: gradients.backgroundLinear(gradientKey, 45),
+                                    }}>
+                                    <div>
+                                        key: <strong>{gradientKey}</strong>
+                                    </div>
+                                    <div>
+                                        start: {gradient.start}
+                                    </div>
+                                    <div>
+                                        end: {gradient.end}
+                                    </div>
+                                </Segment>
+                            </Col>
+                        );
+                    })}
+                </Row>
+            </Segment>
+        );
+    }}
+</Playground>

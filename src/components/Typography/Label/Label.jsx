@@ -2,7 +2,7 @@
 import React from 'react';
 
 /* Base Component */
-import P from '../Typography/P/P';
+import P from '../P/P';
 
 /* Component Itself */
 function Label(props) {

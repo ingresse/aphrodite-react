@@ -79,6 +79,28 @@ const Segment = forwardRef((props, ref) => {
     );
 });
 
+/* Default Properties */
+Segment.defaultProps = {
+    textAlign : '',
+    margin    : '',
+    padding   : '20px 10px',
+    hoverable : false,
+
+    /**
+     * Text color
+     */
+    color: '',
+
+    /**
+     * Background color
+     */
+    background: '',
+
+    radius: 0,
+    shadow: false,
+    styles: {},
+};
+
 /* Properties Types */
 Segment.propTypes = {
     textAlign : propTypes.string,

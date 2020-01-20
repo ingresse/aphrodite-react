@@ -88,8 +88,13 @@ const Img = forwardRef((props, ref) => {
 
 /* Default Properties */
 Img.defaultProps = {
-    circle    : false,
-    rounded   : false,
+    circle : false,
+    rounded: false,
+
+    /**
+     * Simple opacity transition on load image source
+     */
+    fadeIn: false,
 
     radius     : '',
     maxWidthXS : '',
@@ -100,8 +105,9 @@ Img.defaultProps = {
 
 /* Properties Types */
 Img.propTypes = {
-    circle    : propTypes.bool,
-    rounded   : propTypes.bool,
+    circle : propTypes.bool,
+    rounded: propTypes.bool,
+    fadeIn : propTypes.bool,
 
     radius     : propTypes.string,
     maxWidthXS : propTypes.string,

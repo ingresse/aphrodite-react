@@ -11,18 +11,30 @@ You can install with Yarn or NPM in your App Project, but using GitHub repositor
 yarn add https://github.com/ingresse/aphrodite-react.git
 ```
 
-Include Aphrodite Components inside your React Application.
+Re-export the Aphrodite tools through your React application folder structure.
+
+`src/utils/index.js`:
+```js
+export {
+    colors,
+} from 'aphrodite-react';
+```
 
 `src/components/index.js`:
-```jsx
+```js
 export {
     Button,
+    Container,
     Segment,
 } from 'aphrodite-react';
 ```
 
 `src/App.jsx`:
 ```jsx
+/* Core Packages */
+import React from 'react';
+
+/* Your Project Components */
 import {
     Button,
     Segment,

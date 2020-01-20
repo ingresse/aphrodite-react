@@ -1,11 +1,21 @@
-import { useState, useEffect } from 'react';
+/* Core Packages */
+import {
+    useState,
+    useEffect,
+} from 'react';
 
 /* Constants */
 import { SCREEN_SIZES } from '../../constants';
 
-/* Hook */
-function useWindowSize() {
-    const isClient = typeof window === 'object';
+/**
+ * Hook: Window Size
+ *
+ * @param {integer} delay - resize handler delay to apply new sizes
+ *
+ * @return {object}
+ */
+function useWindowSize(delay = 500) {
+    const isClient = (typeof window === 'object');
 
     /**
      * Get Window Size
@@ -58,20 +68,29 @@ function useWindowSize() {
         };
     }
 
-    const [windowSize, setWindowSize] = useState(getSize);
+    let timer = null;
+    const [ windowSize, setWindowSize ] = useState(getSize);
 
     useEffect(() => {
         if (!isClient) {
-          return false;
+            return false;
         }
 
         function handleResize() {
-          setWindowSize(getSize());
+            clearTimeout(timer);
+
+            timer = setTimeout(() => {
+                console.log('resize handler acting');
+                setWindowSize(getSize());
+            }, delay);
         }
 
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+    }, [ timer, delay ]);
 
     return windowSize;
 }

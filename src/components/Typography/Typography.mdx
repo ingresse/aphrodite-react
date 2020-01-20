@@ -5,15 +5,15 @@ route: /components/typography
 ---
 
 import { Playground, Props } from 'docz';
-import { H1, H2, H3, P, Row, Col } from '../';
+import { H1, H2, H3, P, Label, Row, Col } from '../';
 
 # Typography
-#### Components to help with text issues.
+### Components to help with text issues.
 
 ---
 
 ## H1
-#### Title component
+## Title component
 
 ```jsx
 import { H1 } from 'aphrodite-react';
@@ -23,11 +23,10 @@ import { H1 } from 'aphrodite-react';
 </H1>
 ```
 
-### Properties
-<Props of={H1} />
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+### H1 Examples
+
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
             <H1>
@@ -52,6 +51,11 @@ import { H1 } from 'aphrodite-react';
     </Row>
 </Playground>
 
+
+### H1 Properties
+
+<Props of={H1} />
+
 ---
 
 ## H2
@@ -65,11 +69,9 @@ import { H2 } from 'aphrodite-react';
 </H2>
 ```
 
-### Properties
-<Props of={H2} />
+### H2 Examples
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
             <H2>
@@ -94,6 +96,10 @@ import { H2 } from 'aphrodite-react';
     </Row>
 </Playground>
 
+### H2 Properties
+
+<Props of={H2} />
+
 ---
 
 ## H3
@@ -107,11 +113,9 @@ import { H3 } from 'aphrodite-react';
 </H3>
 ```
 
-### Properties
-<Props of={H3} />
+### H3 Examples
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
             <H3>
@@ -136,9 +140,13 @@ import { H3 } from 'aphrodite-react';
     </Row>
 </Playground>
 
+### H3 Properties
+
+<Props of={H3} />
+
 ---
 
-## P
+## `P` or `Text`
 #### Paragraph component
 
 ```jsx
@@ -149,11 +157,10 @@ import { P } from 'aphrodite-react';
 </P>
 ```
 
-### Properties
-<Props of={P} />
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+### P Examples
+
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
             <P>
@@ -182,3 +189,49 @@ import { P } from 'aphrodite-react';
         </Col>
     </Row>
 </Playground>
+
+
+### P Properties
+
+<Props of={P} />
+
+---
+
+## Label
+#### Content label component
+
+```jsx
+import { Label } from 'aphrodite-react';
+...
+<Label>
+    Hello
+</Label>
+```
+
+
+### Label Examples
+
+<Playground>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <Label>
+                regular
+            </Label>
+        </Col>
+        <Col xs={6} sm={4}>
+            <Label center link>
+                with link appearance
+            </Label>
+        </Col>
+        <Col xs={6} sm={4}>
+            <Label center color="mint">
+                custom color
+            </Label>
+        </Col>
+    </Row>
+</Playground>
+
+
+### Label Properties
+
+<Props of={Label} />

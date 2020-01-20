@@ -1,0 +1,41 @@
+---
+name : Number Format
+menu : › Components
+route: /components/number-format
+---
+
+import { Playground, Props } from 'docz';
+import { Button, NumberFormat } from '../';
+
+
+# Number Format
+### Format numbers to become human readable.
+### A simple implementation of awesome library [React Number Format](https://npmjs.com/package/react-number-format), check it out there to more usage details.
+
+
+```jsx
+import { NumberFormat } from 'aphrodite-react';
+...
+
+function ExampleComponent() {
+    return (
+        <div>
+            <NumberFormat value={300000} /> events found.
+        </div>
+    );
+}
+```
+
+
+## Example
+
+<Playground>
+    <div>
+        <NumberFormat value={300000} /> events found.
+    </div>
+</Playground>
+
+
+## Properties
+
+<Props of={NumberFormat} />

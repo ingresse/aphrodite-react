@@ -6,26 +6,24 @@ const themeColor = 'secondary';
 
 /* Theme Colors */
 const colors = {
-    // sidebar background (dark), table header background (dark),
-    // preview handle background (dark), <blockquote> background, <code> background
     blackLight: palette.get('oil', 'light'),
-    black     : palette.get('oil'), // page background (dark)
-    blackDark : palette.get('oil', 'dark'), // text
+    black     : palette.get('oil'),
+    blackDark : palette.get('oil', 'dark'),
 
-    whiteLight: palette.get('smoke'), // text
-    white     : palette.get('white'), // page background (light)
-    whiteDark : palette.get('smoke'), // sidebar background (light), table header background (light), preview handle background (light), <blockquote> background, <code> background
+    grey: palette.get('disabled'),
 
-    grey: palette.get('disabled'), // table border, preview border, preview handle bars
+    whiteLight: palette.get('smoke'),
+    white     : palette.get('white'),
+    whiteDark : palette.get('smoke'),
 
-    primaryLight: palette.get(themeColor, 'crystal'), // sidebar menu item (hovered)
-    primary     : palette.get(themeColor), // brand background, link, thematic break, preview error type, props table property name, <h1>, <blockquote> border left, search result
-    primaryDark : palette.get(themeColor, 'dark'), // link (hovered)
+    primaryLight: palette.get(themeColor, 'crystal'),
+    primary     : palette.get(themeColor),
+    primaryDark : palette.get(themeColor, 'dark'),
 
-    secondary: palette.get(themeColor, 'light'), // props table shape type, brand background, <hr>, search result
+    secondary: palette.get(themeColor, 'light'),
 
-    highlight: palette.get(themeColor, 'crystal', 0.5), // matched search query
-    error    : palette.get('error', 'regular', 0.8), // preview error background
+    highlight: palette.get(themeColor, 'crystal', 0.5),
+    error    : palette.get('error', 'regular', 0.8),
 };
 
 /* Exporting */

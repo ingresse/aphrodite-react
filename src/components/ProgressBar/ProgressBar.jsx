@@ -64,7 +64,7 @@ const AphProgressBar = styled('div')(props => ({
     ...props.styles,
 }));
 
-/* Component it self */
+/* Component itself */
 function ProgressBar(props) {
     /**
      * Inherit props
