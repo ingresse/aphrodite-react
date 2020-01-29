@@ -8,15 +8,11 @@ Object.defineProperty(exports, "__esModule", {
   value: !0
 });
 
-var _taggedTemplateLiteral = _interopDefault(require("@babel/runtime/helpers/taggedTemplateLiteral")), core = require("@emotion/core"), ReactDOMServer = _interopDefault(require("react-dom/server")), _defineProperty = _interopDefault(require("@babel/runtime/helpers/defineProperty")), _extends = _interopDefault(require("@babel/runtime/helpers/extends")), _styled = _interopDefault(require("@emotion/styled-base")), React = require("react"), React__default = _interopDefault(React), propTypes = _interopDefault(require("prop-types")), _typeof = _interopDefault(require("@babel/runtime/helpers/typeof")), chroma = _interopDefault(require("chroma-js")), _slicedToArray = _interopDefault(require("@babel/runtime/helpers/slicedToArray")), _objectWithoutProperties = _interopDefault(require("@babel/runtime/helpers/objectWithoutProperties")), ReactClipboard = _interopDefault(require("react-clipboard.js")), Formatter = _interopDefault(require("react-number-format")), reactToastify = require("react-toastify");
+var core = require("@emotion/core"), ReactDOMServer = _interopDefault(require("react-dom/server")), React = require("react"), React__default = _interopDefault(React), propTypes = _interopDefault(require("prop-types")), _styled = _interopDefault(require("@emotion/styled-base")), chroma = _interopDefault(require("chroma-js")), ReactClipboard = _interopDefault(require("react-clipboard.js")), Formatter = _interopDefault(require("react-number-format")), reactToastify = require("react-toastify");
 
-require("react-toastify/scss/main.scss");
+require("react-toastify/dist/ReactToastify.min.css");
 
-var ReactTooltip = _interopDefault(require("react-tooltip")), Paginator = _interopDefault(require("rc-pagination")), localeInfo = _interopDefault(require("rc-pagination/lib/locale/pt_BR"));
-
-require("@emotion/styled");
-
-var InputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), LibInputMask = _interopDefault(require("react-input-mask")), CNPJ = require("@fnando/cnpj"), CPF = require("@fnando/cpf"), Select = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
+var ReactTooltip = _interopDefault(require("react-tooltip")), Paginator = _interopDefault(require("rc-pagination")), localeInfo = _interopDefault(require("rc-pagination/lib/locale/pt_BR")), LibInputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), LibInputMask = _interopDefault(require("react-input-mask")), CNPJ = require("@fnando/cnpj"), CPF = require("@fnando/cpf"), Select$1 = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral([ "\n    0% {\n        transform: scaleY(0.1);\n    }\n\n    25% {\n        transform: scaleY(1);\n    }\n\n    50% {\n        transform: scaleY(0.95);\n    }\n\n    100% {\n        transform: scaleY(1);\n    }\n" ]);
@@ -32,7 +28,15 @@ function _templateObject() {
   }, data;
 }
 
-var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyframes(_templateObject2()), ANIMATIONS = {
+function _taggedTemplateLiteral(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
+}
+
+var fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyframes(_templateObject2()), ANIMATIONS = {
   FADE_IN_UP: {
     animation: "".concat(fadeInUp, " 0.75s ease")
   },
@@ -104,8 +108,8 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
     var color = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "BLACK", opacity = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1;
     if (!color || "string" != typeof color) return _TONED.BLACK;
     var selected = _TONED[color.toUpperCase()];
-    return selected || color.includes("rgb(") ? (!selected && color.includes("rgb(") && (selected = color),
-    !isNaN(opacity) && opacity >= 0 && opacity <= 1 && (selected = (selected = selected.replace("rgb", "rgba")).replace(")", ", ".concat(opacity, ")"))),
+    return selected || color.includes("rgb(") ? (!selected && color.includes("rgb(") && (selected = color), 
+    !isNaN(opacity) && opacity >= 0 && opacity <= 1 && (selected = (selected = selected.replace("rgb", "rgba")).replace(")", ", ".concat(opacity, ")"))), 
     selected) : _TONED.BLACK;
   },
   FILL: function() {
@@ -114,9 +118,9 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
       color: _TONED.BLACK,
       background: _TONED.SMOKE
     };
-    var _color = color.toUpperCase(), selected = _TONED[_color];
+    var _color = color.toUpperCase(), selected = _TONED[_color], inverse = [ "WHITE", "SMOKE", "DARK_SMOKE", "GREY_SMOKE", "LIGHT_GREY", "YELLOW", "WARNING", "INVERSE" ];
     return selected ? {
-      color: [ "WHITE", "SMOKE", "DARK_SMOKE", "GREY_SMOKE", "LIGHT_GREY", "YELLOW", "WARNING", "INVERSE" ].includes(_color) ? _TONED.BLACK : _TONED.WHITE,
+      color: inverse.includes(_color) ? _TONED.BLACK : _TONED.WHITE,
       background: selected
     } : {
       color: _TONED.BLACK,
@@ -230,35 +234,49 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
   NAVBAR: 9e3,
   MODAL: 1e4,
   TOAST: 10010
-}, FORM = {
+};
+
+function _defineProperty(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+var FORM = {
   TYPES: {
     DEFAULT: [ "text", "number", "date" ]
   },
   STYLES: {
-    DEFAULT: (_DEFAULT = {
+    DEFAULT: _defineProperty({
       boxSizing: "border-box",
       position: "relative",
       display: "block",
       width: "100%",
       height: "40px",
-      border: 0,
       margin: 0,
       padding: "0 15px",
       fontSize: "16px",
       lineHeight: "20px",
       color: COLORS.BLACK,
       backgroundColor: COLORS.WHITE,
-      borderRadius: RADIUS,
-      boxShadow: "inset 0 0 2px 0 ".concat(COLORS.GET("DARK_BLACK", .3))
-    }, _defineProperty(_DEFAULT, "borderRadius", RADIUS.XS), _defineProperty(_DEFAULT, "border", 0),
-    _defineProperty(_DEFAULT, "outline", 0), _defineProperty(_DEFAULT, "transition", "box-shadow 0.15s linear"),
-    _defineProperty(_DEFAULT, "willChange", "box-shadow"), _defineProperty(_DEFAULT, "&.error", {
-      boxShadow: "inset 0 0 2px 0 ".concat(COLORS.GET("RED", .3))
-    }), _defineProperty(_DEFAULT, "&:focus, &:active, &.error:focus, &.error:active", {
-      boxShadow: "inset 0 0 2px 0 ".concat(COLORS.GET("DARK_BLACK", .6))
-    }), _defineProperty(_DEFAULT, MEDIA_QUERIES.LT.SM, {
+      boxShadow: "inset 0 0 2px 0 ".concat(COLORS.GET("DARK_BLACK", .3)),
+      borderRadius: RADIUS.XS,
+      border: 0,
+      outline: 0,
+      transition: "box-shadow 0.15s linear",
+      willChange: "box-shadow",
+      "&.error": {
+        boxShadow: "inset 0 0 2px 0 ".concat(COLORS.GET("RED", .3))
+      },
+      "&:focus, &:active, &.error:focus, &.error:active": {
+        boxShadow: "inset 0 0 2px 0 ".concat(COLORS.GET("DARK_BLACK", .6))
+      }
+    }, MEDIA_QUERIES.LT.SM, {
       height: "50px"
-    }), _DEFAULT),
+    }),
     CHECKBOX: {
       boxSizing: "border-box",
       position: "absolute",
@@ -335,10 +353,18 @@ var _DEFAULT, fadeInUp = core.keyframes(_templateObject()), pullUp = core.keyfra
 };
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteral([ "\n        from {\n            transform: rotate(0deg);\n        }\n\n        to {\n            transform: rotate(360deg);\n        }\n    " ]);
+  var data = _taggedTemplateLiteral$1([ "\n        from {\n            transform: rotate(0deg);\n        }\n\n        to {\n            transform: rotate(360deg);\n        }\n    " ]);
   return _templateObject$1 = function() {
     return data;
   }, data;
+}
+
+function _taggedTemplateLiteral$1(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
 }
 
 var spin = function() {
@@ -348,13 +374,21 @@ var spin = function() {
   spin: spin
 };
 
+function _typeof(obj) {
+  return (_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+    return typeof obj;
+  } : function(obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  })(obj);
+}
+
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
@@ -362,13 +396,22 @@ function ownKeys(object, enumerableOnly) {
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys(Object(source), !0).forEach((function(key) {
+      _defineProperty$1(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$1(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 var getShadesFormat = function(dark, original, light, crystal) {
@@ -427,6 +470,7 @@ var getShadesFormat = function(dark, original, light, crystal) {
   declined: ruby.original,
   cancelled: mercury.original,
   refund: supernova.original,
+  limitexceeded: tangerine.original,
   limitExceeded: tangerine.original,
   "manual review": poison.original,
   pending: ocean.original,
@@ -455,66 +499,62 @@ var getShadesFormat = function(dark, original, light, crystal) {
   if ("object" !== _typeof(theme) || !theme[colorKey]) return get(colorKey, colorShade, opacity);
   var themeShades = theme.shades && theme.shades[colorKey] ? theme.shades[colorKey] : theme[colorKey];
   return "object" !== _typeof(themeShades) ? themeShades || "" : getOpacity(opacity, themeShades[colorShade]);
-}, colors$1 = _objectSpread({}, all, {
+}, colors = _objectSpread({}, all, {
   getFromTheme: getFromTheme,
   getOpacity: getOpacity,
   get: get
 }), set = function(colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) {
   var _objectSpread3;
-  if ("string" != typeof colorKey || "string" != typeof shadeOriginal) return colors$1;
+  if ("string" != typeof colorKey || "string" != typeof shadeOriginal) return colors;
   var colorOriginal = "rgb(".concat(chroma(shadeOriginal).rgb().join(","), ")"), colorDark = shadeDark || chroma(colorOriginal).darken().css(), colorLight = shadeLight || chroma(colorOriginal).brighten(.5).css(), colorCrystal = shadeCrystal || chroma(colorOriginal).brighten(1).css();
-  return colors$1 = _objectSpread({}, colors$1, (_defineProperty(_objectSpread3 = {}, colorKey, colorOriginal),
-  _defineProperty(_objectSpread3, "shades", _objectSpread({}, colors$1.shades, _defineProperty({}, colorKey, getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal)))),
+  return colors = _objectSpread({}, colors, (_defineProperty$1(_objectSpread3 = {}, colorKey, colorOriginal), 
+  _defineProperty$1(_objectSpread3, "shades", _objectSpread({}, colors.shades, _defineProperty$1({}, colorKey, getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal)))), 
   _objectSpread3));
-}, colors$2 = colors$1 = _objectSpread({}, colors$1, {
+}, colors$1 = colors = _objectSpread({}, colors, {
   set: set
-}), palette = {
-  tangerine: {
-    start: colors$2.shades.tangerine.dark,
-    end: colors$2.shades.tangerine.light
-  },
-  ocean: {
-    start: colors$2.shades.ocean.dark,
-    end: colors$2.shades.ocean.light
-  },
-  bamboo: {
-    start: colors$2.shades.bamboo.dark,
-    end: colors$2.shades.bamboo.light
-  },
-  sunflower: {
-    start: colors$2.shades.sunflower.dark,
-    end: colors$2.shades.sunflower.light
-  },
-  ruby: {
-    start: colors$2.shades.ruby.dark,
-    end: colors$2.shades.ruby.light
-  },
-  supernova: {
-    start: colors$2.shades.supernova.dark,
-    end: colors$2.shades.supernova.light
-  },
-  mint: {
-    start: colors$2.shades.mint.dark,
-    end: colors$2.shades.mint.light
-  },
-  mercury: {
-    start: colors$2.shades.mercury.dark,
-    end: colors$2.shades.mercury.light
-  },
-  oil: {
-    start: colors$2.shades.oil.dark,
-    end: colors$2.shades.oil.light
-  }
-}, list = Object.values(palette);
+});
+
+function _typeof$1(obj) {
+  return (_typeof$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+    return typeof obj;
+  } : function(obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  })(obj);
+}
+
+var palette = {};
+
+for (var colorKey in colors$1.shades) {
+  var color = colors$1.shades[colorKey];
+  "translucid" !== colorKey && "object" === _typeof$1(color) && color.light && color.dark && (palette[colorKey] = {
+    start: color.dark,
+    end: color.light
+  });
+}
+
+var list = Object.values(palette), keys = Object.keys(palette);
 
 function random() {
   return list[Math.floor(Math.random() * list.length)];
 }
 
+function get$1() {
+  var paletteShade = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
+  return palette[paletteShade] || null;
+}
+
+function backgroundLinear() {
+  var paletteShade = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", deg = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0, _ref = get$1(paletteShade) || {}, start = _ref.start, end = _ref.end;
+  return start && end ? "linear-gradient(".concat(deg, "deg, ").concat(start, ", ").concat(end, ")") : null;
+}
+
 var gradients = {
+  get: get$1,
   list: list,
+  keys: keys,
   palette: palette,
-  random: random
+  random: random,
+  backgroundLinear: backgroundLinear
 }, text = function(props) {
   var size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
   return "\n    ".concat(props.margin ? "\n        margin: ".concat(props.margin, ";\n    ") : "", ";\n    ").concat(props.padding ? "\n        padding: ".concat(props.padding, ";\n    ") : "", ";\n\n    ").concat(textDefinitions(props, size), ";\n    ").concat(textAlign(props), ";\n    ").concat(textTransform(props), ";\n    ").concat(textBreakAll(props), ";\n    ").concat(textColorfull(props), ";\n    ").concat(textTruncate(props), ";\n");
@@ -526,7 +566,7 @@ var gradients = {
   return props.breakAll || props.textBreakAll ? "\n    word-break: break-all;\n" : "";
 }, textColorfull = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$2.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
+  return props.textColor || props.link || props.helper ? "\n    color: ".concat(colors$1.getFromTheme(props, props.link ? "link" : props.helper ? "helper" : props.textColor), ";\n") : "";
 }, textDefinitions = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, size = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
   return size ? "\n    font-weight: ".concat(SIZES[props.bold ? "XL" : "MD"].FONT_WEIGHT, ";\n    font-size  : ").concat(SIZES[size].FONT_SIZE, ";\n    line-height: ").concat(SIZES[size].LINE_HEIGHT, ";\n") : "";
@@ -536,15 +576,58 @@ var gradients = {
 }, textTruncate = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
   return props.truncate || props.textTruncate ? "\n    overflow     : hidden;\n    white-space  : nowrap;\n    text-overflow: ellipsis;\n" : "";
-};
+}, ActionBarStyled = _styled("div", {
+  target: "ecm04x90"
+})("box-sizing:border-box;display:block;width:100%;min-height:", SIZES.ACTION_BAR_HEIGHT, ";z-index:", ZINDEX.ACTION_BAR, ";position:fixed;right:0;bottom:0;left:0;padding:20px 0;background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "inverse");
+}), ";box-shadow:0 0 4px 0 ", (function(props) {
+  return colors$1.getFromTheme(props, "shadow");
+}), ";transform:translateY(110%);will-change:transform;transition:transform 0.3s ease-out 0s,background-color 0.2s linear;&.aph-action-bar--visible{transform:translateY(0);}", (function(props) {
+  return props.styles;
+}), ";");
+
+function _extends() {
+  return (_extends = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var ActionBar = React.forwardRef((function(_ref, ref) {
+  var className = _ref.className, visible = _ref.visible, rest = _objectWithoutProperties(_ref, [ "className", "visible" ]);
+  return React__default.createElement(ActionBarStyled, _extends({}, rest, {
+    ref: ref,
+    className: "aph-action-bar".concat(visible ? " aph-action-bar--visible" : "", " ").concat(className || "")
+  }));
+}));
 
 function ownKeys$1(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
@@ -552,68 +635,22 @@ function ownKeys$1(object, enumerableOnly) {
 function _objectSpread$1(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$1(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$1(Object(source), !0).forEach((function(key) {
+      _defineProperty$2(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
-var ActionBarStyled = _styled("div", {
-  target: "ef9z5pb0"
-})(function(props) {
-  return _objectSpread$1({
-    boxSizing: "border-box",
-    display: "block",
-    width: "100%",
-    minHeight: SIZES.ACTION_BAR_HEIGHT,
-    zIndex: ZINDEX.ACTION_BAR,
-    position: "fixed",
-    right: 0,
-    bottom: 0,
-    left: 0,
-    padding: "20px 0",
-    backgroundColor: colors$2.getFromTheme(props, "white"),
-    boxShadow: "0 0 4px 0 ".concat(colors$2.getFromTheme(props, "shadow")),
-    transform: "translateY(110%)",
-    willChange: "transform",
-    transition: "transform 0.3s ease-out 0s, background-color 0.2s linear",
-    "&.aph-action-bar--visible": {
-      transform: "translateY(0)"
-    }
-  }, props.styles);
-}, ""), ActionBar = React.forwardRef(function(props, ref) {
-  var className = props.className, children = props.children, styles = props.styles, visible = props.visible;
-  return React__default.createElement(ActionBarStyled, _extends({}, props, {
-    ref: ref,
-    className: "aph-action-bar".concat(visible ? " aph-action-bar--visible" : "", " ").concat(className || ""),
-    styles: styles
-  }), children);
-});
-
-function ownKeys$2(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-
-function _objectSpread$2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$2(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(Object(source)).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-  return target;
+function _defineProperty$2(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 ActionBar.defaultProps = {
@@ -627,20 +664,20 @@ ActionBar.defaultProps = {
 
 var ImgStyled = _styled("img", {
   target: "e1bh345u0"
-})(function(props) {
+})((function(props) {
   var center = props.center, circle = props.circle, rounded = props.rounded, radius = props.radius, maxWidthXS = props.maxWidthXS, withFadeIn = props.withFadeIn, styles = props.styles, _extraStyles = {};
-  return center && (_extraStyles = _objectSpread$2({}, _extraStyles, {
+  return center && (_extraStyles = _objectSpread$1({}, _extraStyles, {
     display: "block",
     margin: "0 auto"
   })), maxWidthXS && (_extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
     maxWidth: maxWidthXS
-  }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {})), withFadeIn && (_extraStyles = _objectSpread$2({}, _extraStyles, {
+  }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {})), withFadeIn && (_extraStyles = _objectSpread$1({}, _extraStyles, {
     opacity: 1,
     transition: "opacity 0.3s linear",
     "&.aph-img--fade-in": {
       opacity: 0
     }
-  })), _objectSpread$2({
+  })), _objectSpread$1({
     boxSizing: "border-box",
     display: "inline-block",
     opacity: 1,
@@ -649,55 +686,122 @@ var ImgStyled = _styled("img", {
     verticalAlign: "middle",
     borderRadius: circle ? "50%" : rounded ? RADIUS + "px" : radius || null
   }, styles, {}, _extraStyles);
-}, "");
+}), "");
 
-function ownKeys$3(object, enumerableOnly) {
+function _extends$1() {
+  return (_extends$1 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$2(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$3(target) {
+function _objectSpread$2(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$3(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$2(Object(source), !0).forEach((function(key) {
+      _defineProperty$3(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$2(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
-var Img = React.forwardRef(function(props, ref) {
-  var center = props.center, src = props.src, srcFallback = props.srcFallback, className = props.className, onError = props.onError, onLoad = props.onLoad, fadeIn = props.fadeIn, _useState = (_objectWithoutProperties(props, [ "center", "src", "srcFallback", "className", "onError", "onLoad", "fadeIn" ]),
-  React.useState(src)), _useState2 = _slicedToArray(_useState, 2), managedSRC = _useState2[0], setManagedSRC = _useState2[1], _useState3 = React.useState(!1), _useState4 = _slicedToArray(_useState3, 2), appliedSRC = _useState4[0], setAppliedSRC = _useState4[1], _useState5 = React.useState(!!fadeIn), _useState6 = _slicedToArray(_useState5, 2), activeFade = _useState6[0], setActiveFade = _useState6[1];
-  return React.useEffect(function() {
+function _defineProperty$3(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$1(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$1(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$1(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var Img = React.forwardRef((function(props, ref) {
+  var center = props.center, src = props.src, srcFallback = props.srcFallback, className = props.className, onError = props.onError, onLoad = props.onLoad, fadeIn = props.fadeIn, rest = _objectWithoutProperties$1(props, [ "center", "src", "srcFallback", "className", "onError", "onLoad", "fadeIn" ]), _useState2 = _slicedToArray(React.useState(src), 2), managedSRC = _useState2[0], setManagedSRC = _useState2[1], _useState4 = _slicedToArray(React.useState(!1), 2), appliedSRC = _useState4[0], setAppliedSRC = _useState4[1], _useState6 = _slicedToArray(React.useState(!!fadeIn), 2), activeFade = _useState6[0], setActiveFade = _useState6[1];
+  return React.useEffect((function() {
     setManagedSRC(src);
-  }, [ src ]), React__default.createElement(ImgStyled, _extends({}, props, {
+  }), [ src ]), React__default.createElement(ImgStyled, _extends$1({}, rest, {
     center: center,
     ref: ref,
     src: managedSRC,
     onLoad: function(evt) {
-      "function" == typeof onLoad && onLoad(_objectSpread$3({}, evt || {})), activeFade && setActiveFade(!1);
+      "function" == typeof onLoad && onLoad(_objectSpread$2({}, evt || {})), activeFade && setActiveFade(!1);
     },
     onError: function(errorEvt) {
-      !appliedSRC && srcFallback && "string" == typeof srcFallback && (setAppliedSRC(!0),
-      setManagedSRC(srcFallback)), "function" == typeof onError && onError(_objectSpread$3({}, errorEvt || {}));
+      !appliedSRC && srcFallback && "string" == typeof srcFallback && (setAppliedSRC(!0), 
+      setManagedSRC(srcFallback)), "function" == typeof onError && onError(_objectSpread$2({}, errorEvt || {}));
     },
     withFadeIn: fadeIn,
     className: "aph-img".concat(activeFade ? " aph-img--fade-in " : " ").concat(className || "")
   }));
-});
+}));
 
 Img.defaultProps = {
   circle: !1,
   rounded: !1,
+  fadeIn: !1,
   radius: "",
   maxWidthXS: "",
   srcFallback: "",
@@ -705,6 +809,7 @@ Img.defaultProps = {
 }, Img.propTypes = {
   circle: propTypes.bool,
   rounded: propTypes.bool,
+  fadeIn: propTypes.bool,
   radius: propTypes.string,
   maxWidthXS: propTypes.string,
   srcFallback: propTypes.string,
@@ -713,63 +818,130 @@ Img.defaultProps = {
 
 var AvatarStyled = _styled("figure", {
   target: "e3glzpi0"
-})("box-sizing:border-box;position:relative;display:", function(props) {
+})("box-sizing:border-box;position:relative;display:", (function(props) {
   return props.aphCenter ? "" : "inline-";
-}, "block;margin:", function(props) {
-  return props.aphCenter ? props.aphMargin + " auto" : props.aphMargin;
-}, ";width:", function(props) {
+}), "block;margin:", (function(props) {
+  return props.aphCenter ? (props.aphMargin || "0") + " auto" : props.aphMargin;
+}), ";width:", (function(props) {
   return props.aphWidth + ((props.aphWidth + "").includes("px") ? "" : "px");
-}, ";height:", function(props) {
+}), ";height:", (function(props) {
   return props.aphHeight + ((props.aphHeight + "").includes("px") ? "" : "px");
-}, ";border-radius:", function(props) {
+}), ";border-radius:", (function(props) {
   return props.aphRadius || (props.aphCircle ? "50%" : null);
-}, ";background-color:", function(props) {
+}), ";background-color:", (function(props) {
   return props.aphColorStart || props.aphColorEnd;
-}, ";background:linear-gradient(0deg,", function(props) {
+}), ";background:linear-gradient(0deg,", (function(props) {
   return props.aphColorStart;
-}, " 0%,", function(props) {
+}), " 0%,", (function(props) {
   return props.aphColorEnd;
-}, " 100%);user-select:none;", function(props) {
+}), " 100%);user-select:none;", (function(props) {
   return props.aphStyles;
-}, ";.aph-avatar{&__initials{color:rgba(255,255,255,0.5);font-size:", function(props) {
+}), ";.aph-avatar{&__initials{color:rgba(255,255,255,0.5);font-size:", (function(props) {
   return props.aphFontSize || (props.aphWidth + "").replace("px", "") / 2 - 8;
-}, "px;line-height:", function(props) {
+}), "px;line-height:", (function(props) {
   return props.aphHeight + ((props.aphHeight + "").includes("px") ? "" : "px");
-}, ";text-align:center;text-transform:uppercase;user-select:none;", function(props) {
+}), ";text-align:center;text-transform:uppercase;user-select:none;", (function(props) {
   return text(props);
-}, ";}}");
+}), ";}}");
 
-function ownKeys$4(object, enumerableOnly) {
+function _extends$2() {
+  return (_extends$2 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$3(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$4(target) {
+function _objectSpread$3(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$4(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$3(Object(source), !0).forEach((function(key) {
+      _defineProperty$4(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$3(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
+function _defineProperty$4(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _slicedToArray$1(arr, i) {
+  return _arrayWithHoles$1(arr) || _iterableToArrayLimit$1(arr, i) || _nonIterableRest$1();
+}
+
+function _nonIterableRest$1() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$1(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$1(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$2(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$2(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$2(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
 function Avatar(_ref) {
-  var center = _ref.center, circle = _ref.circle, color = _ref.color, fontSize = _ref.fontSize, initials = _ref.initials, gradient = _ref.gradient, margin = _ref.margin, name = _ref.name, size = _ref.size, width = _ref.width, height = _ref.height, styles = _ref.styles, radius = _ref.radius, className = _ref.className, src = _ref.src, rest = _objectWithoutProperties(_ref, [ "center", "circle", "color", "fontSize", "initials", "gradient", "margin", "name", "size", "width", "height", "styles", "radius", "className", "src" ]), _ref2 = gradient || {}, gStart = _ref2.start, gEnd = _ref2.end, gradientOptional = gradients.palette[color] || gradients.random() || {}, gradientSelected = gStart || gEnd ? {
+  var center = _ref.center, circle = _ref.circle, color = _ref.color, fontSize = _ref.fontSize, initials = _ref.initials, gradient = _ref.gradient, margin = _ref.margin, name = _ref.name, size = _ref.size, width = _ref.width, height = _ref.height, styles = _ref.styles, radius = _ref.radius, className = _ref.className, src = _ref.src, rest = _objectWithoutProperties$2(_ref, [ "center", "circle", "color", "fontSize", "initials", "gradient", "margin", "name", "size", "width", "height", "styles", "radius", "className", "src" ]), _ref2 = gradient || {}, gStart = _ref2.start, gEnd = _ref2.end, gradientOptional = gradients.palette[color] || gradients.random() || {}, gradientSelected = gStart || gEnd ? {
     start: gStart || gEnd,
     end: gEnd || gStart
-  } : gradientOptional, hasName = !(!name || initials), splitted = (name || "").trim().split(" "), first = "" + splitted[0], last = "" + splitted[splitted.length - 1 || 0], firstLetter = hasName ? first[0] : "", lastLetter = hasName ? last[0] : "", colorStart = gradientSelected.start, colorEnd = gradientSelected.end, _useState = React.useState(!src), _useState2 = _slicedToArray(_useState, 2), display = _useState2[0], setDisplay = _useState2[1];
-  return React.useEffect(function() {
+  } : gradientOptional, hasName = !(!name || initials), splitted = (name || "").trim().split(" "), first = "" + splitted[0], last = "" + splitted[splitted.length - 1 || 0], firstLetter = hasName ? first[0] : "", lastLetter = hasName ? last[0] : "", colorStart = gradientSelected.start, colorEnd = gradientSelected.end, _useState2 = _slicedToArray$1(React.useState(!src), 2), display = _useState2[0], setDisplay = _useState2[1];
+  return React.useEffect((function() {
     setDisplay(!src);
-  }, [ src ]), display ? React__default.createElement(AvatarStyled, _extends({
+  }), [ src ]), display ? React__default.createElement(AvatarStyled, _extends$2({
     role: "img",
     aphCenter: center,
     aphCircle: circle,
@@ -785,7 +957,7 @@ function Avatar(_ref) {
     className: "aph-avatar ".concat(className)
   }, rest), React__default.createElement("figcaption", {
     className: "aph-avatar__initials"
-  }, initials || React__default.createElement(React__default.Fragment, null, firstLetter, lastLetter))) : React__default.createElement(Img, _extends({
+  }, initials || React__default.createElement(React__default.Fragment, null, firstLetter, lastLetter))) : React__default.createElement(Img, _extends$2({
     src: src,
     width: (width || size) + "px",
     height: (height || size) + "px",
@@ -797,34 +969,174 @@ function Avatar(_ref) {
       display || setDisplay(!0);
     },
     fadeIn: !0,
-    styles: _objectSpread$4({}, styles || {}, {}, center ? {
+    styles: _objectSpread$3({}, styles || {}, {}, center ? {
       display: "block",
       margin: "0 auto"
     } : {})
   }, rest));
 }
 
-function ownKeys$5(object, enumerableOnly) {
+function _slicedToArray$2(arr, i) {
+  return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _nonIterableRest$2();
+}
+
+function _nonIterableRest$2() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$2(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$2(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _typeof$2(obj) {
+  return (_typeof$2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+    return typeof obj;
+  } : function(obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  })(obj);
+}
+
+function useWindowSize() {
+  var delay = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 500, isClient = "object" === ("undefined" == typeof window ? "undefined" : _typeof$2(window));
+  function getSize() {
+    var _window = isClient ? window : {}, width = _window.innerWidth, height = _window.innerHeight, xs = width <= SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL;
+    return {
+      width: width,
+      height: height,
+      xs: xs,
+      sm: sm,
+      md: md,
+      lg: lg,
+      xl: xl,
+      _lt_: {
+        xs: xs,
+        sm: xs,
+        md: xs || sm,
+        lg: xs || sm || md,
+        xl: xs || sm || md || lg
+      },
+      _gt_: {
+        xs: sm || md || lg || xl,
+        sm: md || lg || xl,
+        md: lg || xl,
+        lg: width > SCREEN_SIZES.LG,
+        xl: width > SCREEN_SIZES.XL
+      }
+    };
+  }
+  var timer = null, _useState = React.useState(getSize), _useState2 = _slicedToArray$2(_useState, 2), windowSize = _useState2[0], setWindowSize = _useState2[1];
+  return React.useEffect((function() {
+    if (!isClient) return !1;
+    function handleResize() {
+      clearTimeout(timer), timer = setTimeout((function() {
+        console.log("resize handler acting"), setWindowSize(getSize());
+      }), delay);
+    }
+    return window.addEventListener("resize", handleResize), function() {
+      window.removeEventListener("resize", handleResize);
+    };
+  }), [ timer, delay ]), windowSize;
+}
+
+function _extends$3() {
+  return (_extends$3 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$4(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$5(target) {
+function _objectSpread$4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$5(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$4(Object(source), !0).forEach((function(key) {
+      _defineProperty$5(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$4(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$5(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _objectWithoutProperties$3(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$3(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$3(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+function Badge(_ref) {
+  var padding = _ref.padding, radius = _ref.radius, styles = _ref.styles, className = _ref.className, prefix = _ref.prefix, suffix = _ref.suffix, children = _ref.children, rest = _objectWithoutProperties$3(_ref, [ "padding", "radius", "styles", "className", "prefix", "suffix", "children" ]), xs = useWindowSize().xs;
+  return React__default.createElement(Segment, _extends$3({}, rest, {
+    className: "aph-badge ".concat(className || ""),
+    padding: padding || (xs ? "5px 10px" : "0 10px"),
+    radius: radius || 2,
+    styles: _objectSpread$4({
+      position: "relative",
+      display: "inline-block",
+      fontSize: (xs ? 14 : 12) + "px",
+      lineHeight: "20px"
+    }, styles)
+  }), prefix ? React__default.createElement(Segment, _extends$3({
+    padding: "0"
+  }, prefix, {
+    className: "aph-badge__prefix ".concat(prefix.className || "")
+  })) : null, children, suffix ? React__default.createElement(Segment, _extends$3({
+    padding: "0"
+  }, suffix, {
+    className: "aph-badge__suffix ".concat(suffix.className || "")
+  })) : null);
 }
 
 Avatar.defaultProps = {
@@ -859,143 +1171,121 @@ Avatar.defaultProps = {
   radius: propTypes.string,
   src: propTypes.string,
   className: propTypes.string
-};
-
-var BadgeWrapper = _styled("span", {
-  target: "e483s4c0"
-})(function(props) {
-  return _objectSpread$5(_defineProperty({
-    boxSizing: "border-box",
-    position: "relative",
-    display: props.block ? "block" : "inline-block",
-    minWidth: isNaN(props.width) ? props.width || null : parseInt(props.width, 10) + GRID.UNIT,
-    padding: "5px 15px",
-    margin: 0,
-    minHeight: "30px",
-    verticalAlign: "top",
-    fontSize: "12px",
-    lineHeight: "20px",
-    textTransform: "uppercase",
-    textAlign: props.prefix ? "left" : "center",
-    boxShadow: "0 0 1px 0 ".concat(COLORS.GET("DARK_BLACK", .2)),
-    borderRadius: RADIUS.XS + GRID.UNIT,
-    "&:after": {
-      display: "table",
-      clear: "both"
-    }
-  }, MEDIA_QUERIES.LT.SM, {
-    display: props.blockXs ? "block" : null,
-    fontSize: "16px",
-    lineHeight: "20px",
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    borderRadius: RADIUS.XXS + GRID.UNIT
-  }), props.styles);
-}, ""), BadgePrefixWrapper = _styled("span", {
-  target: "e483s4c1"
-})(function(props) {
-  return _objectSpread$5(_defineProperty({
-    boxSizing: "border-box",
-    display: "inline-block",
-    padding: "5px 15px",
-    margin: "-5px 10px -5px -15px",
-    textAlign: "center",
-    borderRadius: "".concat(RADIUS.XS + GRID.UNIT, " 0 0 ").concat(RADIUS.XS + GRID.UNIT)
-  }, MEDIA_QUERIES.LT.SM, {
-    fontSize: "16px",
-    lineHeight: "20px",
-    margin: "-10px 10px -10px -15px",
-    padding: "5px 6px",
-    borderRadius: "".concat(RADIUS.XS + GRID.UNIT, " 0 0 ").concat(RADIUS.XS + GRID.UNIT)
-  }), props.styles);
-}, ""), Badge = React.forwardRef(function(props, ref) {
-  var filled = COLORS.FILL(props.color), modifier = props.sm ? {
-    minHeight: "20px",
-    fontSize: "10px",
-    lineHeight: "10px",
-    paddingRight: "8px",
-    paddingLeft: "8px",
-    borderRadius: RADIUS.XXS + GRID.UNIT
-  } : {}, prefix = props.sm ? _defineProperty({
-    paddingRight: "8px",
-    paddingLeft: "8px",
-    marginLeft: "-8px",
-    marginRight: "6px",
-    borderRadius: "".concat(RADIUS.XXS + GRID.UNIT, " 0 0 ").concat(RADIUS.XXS + GRID.UNIT)
-  }, MEDIA_QUERIES.LT.SM, {
-    fontSize: "16px",
-    lineHeight: "20px",
-    margin: "-10px 10px -10px -15px",
-    padding: "5px 8px",
-    borderRadius: "".concat(RADIUS.XS + GRID.UNIT, " 0 0 ").concat(RADIUS.XS + GRID.UNIT)
-  }) : {};
-  if (props.color) {
-    var toned = COLORS.TONES[props.color.toUpperCase()];
-    toned && (prefix = Object.assign({}, prefix, {
-      backgroundColor: toned
-    }));
-  }
-  return React__default.createElement(BadgeWrapper, _extends({}, props, {
-    styles: Object.assign({}, modifier, filled, props.styles),
-    className: "aph-badge ".concat(props.className || "")
-  }), props.prefix ? React__default.createElement(BadgePrefixWrapper, _extends({}, props.prefixProps, {
-    styles: Object.assign({}, prefix, props.prefixStyles),
-    className: "aph-badge__prefix ".concat(props.prefixClassName || "")
-  }), props.prefix) : null, props.children);
-});
-
-Badge.propTypes = {
-  block: propTypes.bool,
-  blockXs: propTypes.bool,
-  sm: propTypes.bool,
-  width: propTypes.any,
-  styles: propTypes.object,
-  className: propTypes.string,
-  prefixStyles: propTypes.object,
-  prefixClassName: propTypes.string
+}, Badge.defaultProps = {
+  color: "white",
+  background: "secondary",
+  prefix: null,
+  suffix: null,
+  styles: {}
+}, Badge.propTypes = {
+  color: propTypes.string,
+  background: propTypes.string,
+  prefix: propTypes.object,
+  suffix: propTypes.object,
+  styles: propTypes.object
 };
 
 var AphButtonStyled = _styled("button", {
   target: "ebr9uys0"
-})("box-sizing:border-box;position:relative;overflow:hidden;cursor:pointer;display:", function(props) {
+})("box-sizing:border-box;position:relative;overflow:hidden;cursor:pointer;display:", (function(props) {
   return props.aphblock ? "" : "inline-";
-}, "block;width:", function(props) {
+}), "block;width:", (function(props) {
   return props.aphblock ? "100%" : "auto";
-}, ";min-width:", function(props) {
+}), ";min-width:", (function(props) {
   return props.aphcircle ? props.aphsm || props.aphsmall ? "30px" : "40px" : "140px";
-}, ";padding:", function(props) {
+}), ";padding:", (function(props) {
   return props.aphsm || props.aphsmall ? "5px ".concat(props.aphcircle ? 0 : "15px") : "10px  ".concat(props.aphcircle ? 0 : "20px");
-}, ";margin:", function(props) {
+}), ";margin:", (function(props) {
   return props.aphmargin;
-}, ";text-align:center;text-transform:uppercase;font-size:16px;line-height:20px;border-radius:", function(props) {
+}), ";text-align:center;text-transform:uppercase;font-size:16px;line-height:20px;border-radius:", (function(props) {
   return (props.aphradius || 25) + ((props.aphradius + "").includes("px") ? "" : "px");
-}, ";border:0;outline:0;-webkit-tap-highlight-color:", function(props) {
-  return colors$2.getFromTheme(props, props.aphcolor || "secondary", "crystal", .5);
-}, ";color:", function(props) {
-  return props.aphlink ? colors$2.getFromTheme(props, props.aphcolor || "secondary") : colors$2.getFromTheme(props, [ "white", "smoke" ].includes(props.aphcolor) ? "secondary" : "white");
-}, ";background-color:", function(props) {
-  return props.aphlink ? "transparent" : colors$2.getFromTheme(props, props.aphcolor || "secondary");
-}, ";transition-timing-function:ease;transition-duration:0.2s;transition-property:background-color,color,width;&:hover{background-color:", function(props) {
-  return props.aphlink ? colors$2.getFromTheme(props, "smoke") : colors$2.getFromTheme(props, props.aphcolor || "secondary", "light");
-}, ";}&:active,&:focus{background-color:", function(props) {
-  return props.aphlink ? colors$2.getFromTheme(props, "smoke") : colors$2.getFromTheme(props, props.aphcolor || "secondary", "dark");
-}, ";}&:disabled{cursor:not-allowed;color:", function(props) {
-  return colors$2.getFromTheme(props, "mercury", props.aphtranslucid ? "crystal" : "light");
-}, ";background-color:", function(props) {
-  return props.aphlink ? colors$2.getFromTheme(props, "smoke") : props.aphtranslucid ? colors$2.getFromTheme(props, "smoke", "", .5) : colors$2.getFromTheme(props, "mercury", "crystal");
-}, ";}.aph-btn{&__content{opacity:1;}&__loader{position:absolute;top:calc(50% - 15px);left:50%;transform:translate(-50%);opacity:0;}}&.aph-btn--loading{&:hover,&:disabled{background-color:", function(props) {
-  return props.aphlink ? "transparent" : colors$2.getFromTheme(props, props.aphcolor || "secondary");
-}, ";}.aph-btn{&__content{opacity:0;}&__loader{opacity:1;}}}", function(props) {
+}), ";border:0;outline:0;-webkit-tap-highlight-color:", (function(props) {
+  return colors$1.getFromTheme(props, props.aphcolor || "secondary", "crystal", .5);
+}), ";color:", (function(props) {
+  return props.aphlink ? colors$1.getFromTheme(props, props.aphcolor || "secondary") : colors$1.getFromTheme(props, [ "white", "smoke" ].includes(props.aphcolor) ? "secondary" : "white");
+}), ";background-color:", (function(props) {
+  return props.aphlink ? "transparent" : colors$1.getFromTheme(props, props.aphcolor || "secondary");
+}), ";transition-timing-function:ease;transition-duration:0.2s;transition-property:background-color,color,width;&:hover{background-color:", (function(props) {
+  return props.aphlink ? colors$1.getFromTheme(props, "smoke") : colors$1.getFromTheme(props, props.aphcolor || "secondary", "light");
+}), ";}&:active,&:focus{background-color:", (function(props) {
+  return props.aphlink ? colors$1.getFromTheme(props, "smoke") : colors$1.getFromTheme(props, props.aphcolor || "secondary", "dark");
+}), ";}&:disabled{cursor:not-allowed;color:", (function(props) {
+  return colors$1.getFromTheme(props, "mercury", props.aphtranslucid ? "crystal" : "light");
+}), ";background-color:", (function(props) {
+  return props.aphlink ? colors$1.getFromTheme(props, "smoke") : props.aphtranslucid ? colors$1.getFromTheme(props, "smoke", "", .5) : colors$1.getFromTheme(props, "mercury", "crystal");
+}), ";}.aph-btn{&__content{opacity:1;}&__loader{position:absolute;top:calc(50% - 15px);left:50%;transform:translate(-50%);opacity:0;}}&.aph-btn--loading{&:hover,&:disabled{background-color:", (function(props) {
+  return props.aphlink ? "transparent" : colors$1.getFromTheme(props, props.aphcolor || "secondary");
+}), ";}.aph-btn{&__content{opacity:0;}&__loader{opacity:1;}}}", (function(props) {
   return props.aphstyles;
-}, ";"), AphButtonItemStyled = _styled("span", {
+}), ";"), AphButtonItemStyled = _styled("span", {
   target: "e1q9vwyj0"
-})("box-sizing:border-box;position:relative;display:inline-block;top:0;min-width:", function(props) {
+})("box-sizing:border-box;position:relative;display:inline-block;top:0;min-width:", (function(props) {
   return props.childrenWidth || null;
-}, ";margin:0;padding:0;text-align:center;transition-timing-function:linear;transition-duration:0.25s;transition-property:opacity;"), Button = React.forwardRef(function(props, ref) {
-  var block = props.block, circle = props.circle, className = props.className, color = props.color, children = props.children, loading = props.loading, disabled = props.disabled, margin = props.margin, link = props.link, radius = props.radius, sm = props.sm, small = props.small, styles = props.styles, translucid = props.translucid, rest = _objectWithoutProperties(props, [ "block", "circle", "className", "color", "children", "loading", "disabled", "margin", "link", "radius", "sm", "small", "styles", "translucid" ]), childrenRef = React.useRef(null), _useState = React.useState(140), _useState2 = _slicedToArray(_useState, 2), childrenWidth = _useState2[0], setChildrenWidth = _useState2[1];
-  return React.useEffect(function() {
+}), ";margin:0;padding:0;text-align:center;transition-timing-function:linear;transition-duration:0.25s;transition-property:opacity;");
+
+function _extends$4() {
+  return (_extends$4 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$3(arr, i) {
+  return _arrayWithHoles$3(arr) || _iterableToArrayLimit$3(arr, i) || _nonIterableRest$3();
+}
+
+function _nonIterableRest$3() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$3(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$3(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$4(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$4(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$4(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var Button = React.forwardRef((function(props, ref) {
+  var block = props.block, circle = props.circle, className = props.className, color = props.color, children = props.children, loading = props.loading, disabled = props.disabled, margin = props.margin, link = props.link, radius = props.radius, sm = props.sm, small = props.small, styles = props.styles, translucid = props.translucid, rest = _objectWithoutProperties$4(props, [ "block", "circle", "className", "color", "children", "loading", "disabled", "margin", "link", "radius", "sm", "small", "styles", "translucid" ]), childrenRef = React.useRef(null), _useState2 = _slicedToArray$3(React.useState(140), 2), childrenWidth = _useState2[0], setChildrenWidth = _useState2[1];
+  return React.useEffect((function() {
     "boolean" == typeof loading && childrenRef && childrenRef.current && childrenRef.current.offsetWidth && childrenRef.current.offsetWidth !== childrenWidth && setChildrenWidth(childrenRef.current.offsetWidth);
-  }, [ children ]), React__default.createElement(AphButtonStyled, _extends({}, rest, {
+  }), [ children ]), React__default.createElement(AphButtonStyled, _extends$4({}, rest, {
     ref: ref,
     aphsm: sm || small ? 1 : 0,
     aphblock: block ? 1 : 0,
@@ -1019,7 +1309,17 @@ var AphButtonStyled = _styled("button", {
     ref: childrenRef,
     className: "aph-btn__content"
   }, children)));
-});
+}));
+
+function _extends$5() {
+  return (_extends$5 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
 
 Button.defaultProps = {
   as: "button",
@@ -1048,126 +1348,197 @@ Button.defaultProps = {
 
 var AphCardStyled = _styled("div", {
   target: "ef3ubj80"
-})("box-sizing:border-box;display:block;margin:", function(props) {
+})("box-sizing:border-box;display:block;margin:", (function(props) {
   return props.margin || null;
-}, ";padding:", function(props) {
+}), ";padding:", (function(props) {
   return props.padding || "10px";
-}, ";border-radius:", RADIUS.SM, "px;color:", colors$2.get("black"), ";background:", colors$2.get("white"), ";transition:background-color 0.25s linear,box-shadow 0.25s linear,padding 0.25s linear;will-change:box-shadow,padding;", function(props) {
-  return props.boxShadow ? {
-    boxShadow: "0 0 5px ".concat(colors$2.get("black", "original", .25))
+}), ";border-radius:", RADIUS.SM, "px;color:", (function(props) {
+  return colors$1.get(props.background ? "white" : "black");
+}), ";background:", (function(props) {
+  return colors$1.get(props.background || "white");
+}), ";transition:background-color 0.25s linear,box-shadow 0.25s linear,padding 0.25s linear;will-change:box-shadow,padding;", (function(props) {
+  return props.shadow ? {
+    boxShadow: "0 0 5px ".concat(colors$1.get("black", "original", .25))
   } : null;
-}, ";", function(props) {
-  return props.onClick ? {
+}), ";", (function(props) {
+  return !props.background && props.onClick ? {
     "&:hover": {
-      background: colors$2.get("smoke")
+      background: colors$1.get("smoke")
     }
   } : null;
-}, ";&.active,&:hover{", function(props) {
-  return props.boxShadow ? {
-    boxShadow: "0 0 20px ".concat(colors$2.get("black", "original", .25))
+}), ";&.active,&:hover{", (function(props) {
+  return props.shadow && props.hover ? {
+    boxShadow: "0 0 20px ".concat(colors$1.get("black", "original", .25))
   } : null;
-}, ";}&:hover{", function(props) {
+}), ";}&:hover{", (function(props) {
   return props.hover ? function() {
     if (!(props.className.split("active").length > 1)) return {
-      backgroundColor: "".concat(colors$2.get("smoke"))
+      backgroundColor: "".concat(colors$1.get("smoke"))
     };
   } : null;
-}, ";}.aph-card{box-shadow:none !important;}", function(props) {
+}), ";}.aph-card{box-shadow:none !important;}", (function(props) {
   return props.styles;
-}, ";"), Card = React.forwardRef(function(props, ref) {
+}), ";"), Card = React.forwardRef((function(props, ref) {
   var className = props.className;
-  return React__default.createElement(AphCardStyled, _extends({}, props, {
+  return React__default.createElement(AphCardStyled, _extends$5({}, props, {
     ref: ref,
     className: "aph-card ".concat(className || "")
   }));
-});
+}));
 
 Card.defaultProps = {
   margin: void 0,
   padding: "10px",
-  styles: {},
-  boxShadow: !1
+  shadow: !0,
+  styles: {}
 }, Card.propTypes = {
   margin: propTypes.string,
   padding: propTypes.string,
-  boxShadow: propTypes.bool,
+  shadow: propTypes.bool,
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
 var _SIZES$XS = SIZES.XS, FONT_SIZE = _SIZES$XS.FONT_SIZE, LINE_HEIGHT = _SIZES$XS.LINE_HEIGHT, HoverActionItem = _styled("button", {
   target: "ezj1zsv0"
-})("box-sizing:border-box;display:inline-block;padding:6px 5px 4px;margin:0;font-weight:bold;font-size:", FONT_SIZE, ";line-height:", LINE_HEIGHT, ";text-transform:uppercase;border:0;outline:0;text-decoration:none;border-radius:", RADIUS.XS, "px;cursor:pointer;color:", function(props) {
-  return props.color ? colors$2.getFromTheme(props, props.color) : null;
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "inverse", null, .75);
-}, ";box-shadow:0 0 5px ", function(props) {
-  return colors$2.getFromTheme(props, "shadow");
-}, ";transition:color 0.25s linear,background-color 0.25s linear;&:active,&:focus,&:hover{border:0;outline:0;background-color:", function(props) {
-  return colors$2.getFromTheme(props, "inverse", null, 1);
-}, ";}&.success{color:", function(props) {
-  return colors$2.getFromTheme(props, "success");
-}, ";}&.error{color:", function(props) {
-  return colors$2.getFromTheme(props, "error");
-}, ";}", function(props) {
+})("box-sizing:border-box;display:inline-block;padding:6px 5px 4px;margin:0;font-weight:bold;font-size:", FONT_SIZE, ";line-height:", LINE_HEIGHT, ";text-transform:uppercase;border:0;outline:0;text-decoration:none;border-radius:", RADIUS.XS, "px;cursor:pointer;color:", (function(props) {
+  return props.color ? colors$1.getFromTheme(props, props.color) : null;
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "inverse", null, .75);
+}), ";box-shadow:0 0 5px ", (function(props) {
+  return colors$1.getFromTheme(props, "shadow");
+}), ";transition:color 0.25s linear,background-color 0.25s linear;&:active,&:focus,&:hover{border:0;outline:0;background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "inverse", null, 1);
+}), ";}&.success{color:", (function(props) {
+  return colors$1.getFromTheme(props, "success");
+}), ";}&.error{color:", (function(props) {
+  return colors$1.getFromTheme(props, "error");
+}), ";}", (function(props) {
   return props.styles;
-}, ";"), ClipboardStyled = _styled(HoverActionItem, {
+}), ";"), ClipboardStyled = _styled(HoverActionItem, {
   target: "e9smf1z0"
-})(function(props) {
+})((function(props) {
   return props.styles;
-}, ";");
+}), ";");
 
-function ownKeys$6(object, enumerableOnly) {
+function _extends$6() {
+  return (_extends$6 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$5(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$6(target) {
+function _objectSpread$5(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$6(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$5(Object(source), !0).forEach((function(key) {
+      _defineProperty$6(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
+  return target;
+}
+
+function _defineProperty$6(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _slicedToArray$4(arr, i) {
+  return _arrayWithHoles$4(arr) || _iterableToArrayLimit$4(arr, i) || _nonIterableRest$4();
+}
+
+function _nonIterableRest$4() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$4(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$4(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$5(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$5(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$5(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
   return target;
 }
 
 var AphClipboardWrapper = _styled(ReactClipboard, {
   target: "e1icbit10"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return props.styles;
-}, ";"), Clipboard = function(props) {
-  var styled = props.styled, styles = props.styles, className = props.className, onSuccess = props.onSuccess, onError = props.onError, rest = _objectWithoutProperties(props, [ "styled", "styles", "className", "onSuccess", "onError" ]), _useState = React.useState(null), _useState2 = _slicedToArray(_useState, 2), timer = _useState2[0], setTimer = _useState2[1], _useState3 = React.useState(""), _useState4 = _slicedToArray(_useState3, 2), status = _useState4[0], setStatus = _useState4[1];
+}), ";"), Clipboard = function(props) {
+  var styled = props.styled, styles = props.styles, className = props.className, onSuccess = props.onSuccess, onError = props.onError, rest = _objectWithoutProperties$5(props, [ "styled", "styles", "className", "onSuccess", "onError" ]), _useState2 = _slicedToArray$4(React.useState(null), 2), timer = _useState2[0], setTimer = _useState2[1], _useState4 = _slicedToArray$4(React.useState(""), 2), status = _useState4[0], setStatus = _useState4[1];
   function _applyStatus(_status) {
-    clearTimeout(timer), setStatus(_status), setTimer(setTimeout(function() {
+    clearTimeout(timer), setStatus(_status), setTimer(setTimeout((function() {
       setStatus("");
-    }, 1e3));
+    }), 1e3));
   }
-  React.useEffect(function() {
+  React.useEffect((function() {
     return function() {
       clearTimeout(timer);
     };
-  }, []);
-  var clipboardProps = _objectSpread$6({}, rest, {
+  }), []);
+  var clipboardProps = _objectSpread$5({}, rest, {
     styles: styles,
     onError: function(evt) {
-      _applyStatus("error"), "function" == typeof onError && onError(_objectSpread$6({}, evt));
+      _applyStatus("error"), "function" == typeof onError && onError(_objectSpread$5({}, evt));
     },
     onSuccess: function(evt) {
-      _applyStatus("success"), "function" == typeof onSuccess && onSuccess(_objectSpread$6({}, evt));
+      _applyStatus("success"), "function" == typeof onSuccess && onSuccess(_objectSpread$5({}, evt));
     }
   });
-  return styled ? React__default.createElement(ClipboardStyled, _extends({}, clipboardProps, {
+  return styled ? React__default.createElement(ClipboardStyled, _extends$6({}, clipboardProps, {
     as: ReactClipboard,
     className: "aph-clipboard".concat("success" === status ? " success" : "").concat("error" === status ? " error" : "", " ").concat(className || "")
-  })) : React__default.createElement(AphClipboardWrapper, _extends({}, clipboardProps, {
+  })) : React__default.createElement(AphClipboardWrapper, _extends$6({}, clipboardProps, {
     className: "aph-clipboard ".concat(className || "")
   }));
 };
@@ -1182,15 +1553,15 @@ Clipboard.defaultProps = {
 
 var DialogWrapper = _styled("section", {
   target: "e146lnst0"
-})("display:flex;align-items:", function(props) {
+})("display:flex;align-items:", (function(props) {
   return props.align;
-}, ";justify-content:", function(props) {
+}), ";justify-content:", (function(props) {
   return props.justify;
-}, ";padding:", function(props) {
+}), ";padding:", (function(props) {
   return props.padding;
-}, ";background-color:rgba(0,0,0,0.25);position:fixed;left:0;top:0;z-index:9999;height:100%;width:100%;opacity:0;visibility:hidden;transition:all 195ms cubic-bezier(0.4,0,0.2,1) 0ms;", function(props) {
+}), ";background-color:rgba(0,0,0,0.25);position:fixed;left:0;top:0;z-index:9999;height:100%;width:100%;opacity:0;visibility:hidden;transition:all 195ms cubic-bezier(0.4,0,0.2,1) 0ms;&.act{opacity:1;visibility:visible;}", (function(props) {
   return props.styles;
-}, " &.act{opacity:1;visibility:visible;}"), DialogContent = _styled("div", {
+}), ""), DialogContent = _styled("div", {
   target: "e146lnst1"
 })({
   name: "djj6yk",
@@ -1207,9 +1578,9 @@ function Dialog(_ref) {
     padding: padding
   }, React__default.createElement(DialogContent, {
     className: "aph-dialog__content ".concat(opened ? "act" : "")
-  }, children), closeArea && React__default.createElement("div", {
-    className: "aph-dialog__close__area",
+  }, children), closeArea ? React__default.createElement("div", {
     onClick: onClose,
+    className: "aph-dialog__close__area",
     style: {
       zIndex: "-1",
       position: "absolute",
@@ -1218,7 +1589,7 @@ function Dialog(_ref) {
       right: 0,
       bottom: 0
     }
-  }));
+  }) : null);
 }
 
 Dialog.propTypes = {
@@ -1228,54 +1599,87 @@ Dialog.propTypes = {
   align: propTypes.string,
   justify: propTypes.string,
   padding: propTypes.string,
-  styles: propTypes.object,
-  children: propTypes.any
+  children: propTypes.any,
+  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 }, Dialog.defaultProps = {
   children: null,
   closeArea: !0,
   padding: "0",
-  styles: {},
   align: "center",
-  justify: "center"
+  justify: "center",
+  styles: {}
 };
 
 var DISTANCE = "calc(100% + 10px)", DropdownStyled = _styled("div", {
   target: "e14owjh0"
-})("box-sizing:border-box;position:relative;display:block;width:100%;z-index:901;-webkit-box-orient:vertical;-webkit-box-direction:normal;.aph{&-dropdown{&__toggle,&__content{box-sizing:border-box;}&__toggle{display:", function(props) {
+})("box-sizing:border-box;position:relative;display:block;width:100%;z-index:901;-webkit-box-orient:vertical;-webkit-box-direction:normal;.aph{&-dropdown{&__toggle,&__content{box-sizing:border-box;}&__toggle{display:", (function(props) {
   return props.toggleBlock ? "" : "inline-";
-}, "block;width:", function(props) {
+}), "block;width:", (function(props) {
   return props.toggleBlock ? "100%" : null;
-}, ";cursor:pointer;border:0;outline:0;color:inherit;background:transparent;}&__content{display:none;position:absolute;top:", function(props) {
+}), ";cursor:pointer;border:0;outline:0;color:inherit;background:transparent;}&__content{display:none;position:absolute;top:", (function(props) {
   return props.up ? null : DISTANCE;
-}, ";bottom:", function(props) {
+}), ";bottom:", (function(props) {
   return props.up ? DISTANCE : null;
-}, ";left:", function(props) {
+}), ";left:", (function(props) {
   return props.center ? "50%" : props.right ? null : "0";
-}, ";right:", function(props) {
+}), ";right:", (function(props) {
   return props.right && !props.center ? "0" : null;
-}, ";transform:", function(props) {
+}), ";transform:", (function(props) {
   return props.center ? "translateX(-50%)" : null;
-}, ";opacity:0;width:", function(props) {
+}), ";opacity:0;width:", (function(props) {
   return props.contentWidth || null;
-}, ";will-change:z-index,opacity;transition:display ", function(props) {
+}), ";will-change:z-index,opacity;transition:display ", (function(props) {
   return props.opened ? .25 : .1;
-}, "s linear,opacity ", function(props) {
+}), "s linear,opacity ", (function(props) {
   return props.opened ? .15 : .25;
-}, "s linear;color:", function(props) {
-  return colors$2.getFromTheme(props, "black");
-}, ";background:", function(props) {
-  return colors$2.getFromTheme(props, "white");
-}, ";box-shadow:0 0 5px ", function(props) {
-  return colors$2.getFromTheme(props, "shadow");
-}, ";padding:", function(props) {
+}), "s linear;color:", (function(props) {
+  return colors$1.getFromTheme(props, "black");
+}), ";background:", (function(props) {
+  return colors$1.getFromTheme(props, "white");
+}), ";box-shadow:0 0 5px ", (function(props) {
+  return colors$1.getFromTheme(props, "shadow");
+}), ";padding:", (function(props) {
   return props.thin ? "0" : "15px 10px";
-}, ";border-radius:", RADIUS.XS, "px;text-align:", function(props) {
+}), ";border-radius:", RADIUS.XS, "px;text-align:", (function(props) {
   return props.right ? "left" : null;
-}, ";align-self:center;overflow:hidden;&.visible{display:block;}&.active{opacity:1;}}}&-list{&__item:not(.aph-list__item--with-link){padding-right:20px;padding-left:20px;}}}&.up{.aph-dropdown{&__content{top:auto;bottom:100%;}}}", function(props) {
+}), ";align-self:center;overflow:hidden;&.visible{display:block;}&.active{opacity:1;}}}&-list{&__item:not(.aph-list__item--with-link){padding-right:20px;padding-left:20px;}}}&.up{.aph-dropdown{&__content{top:auto;bottom:100%;}}}", (function(props) {
   return props.styles;
-}, ";"), Dropdown = React.forwardRef(function(props, ref) {
-  var className = props.className, children = props.children, toggle = props.toggle, toggleBlock = props.toggleBlock, width = props.width, center = props.center, up = props.up, right = props.right, left = props.left, thin = props.thin, opened = props.opened, styles = props.styles, _useState = React.useState(opened), _useState2 = _slicedToArray(_useState, 2), active = _useState2[0], setActive = _useState2[1], _useState3 = React.useState(opened), _useState4 = _slicedToArray(_useState3, 2), visible = _useState4[0], setVisible = _useState4[1], _useState5 = React.useState(!1), _useState6 = _slicedToArray(_useState5, 2), unmounted = _useState6[0], _useState7 = (_useState6[1],
-  React.useState(null)), _useState8 = _slicedToArray(_useState7, 2), activeTimer = _useState8[0], setActiveTimer = _useState8[1], _useState9 = React.useState(null), _useState10 = _slicedToArray(_useState9, 2), visibleTimer = _useState10[0], setVisibleTimer = _useState10[1], dropdownRef = React.useRef(null);
+}), ";");
+
+function _slicedToArray$5(arr, i) {
+  return _arrayWithHoles$5(arr) || _iterableToArrayLimit$5(arr, i) || _nonIterableRest$5();
+}
+
+function _nonIterableRest$5() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$5(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$5(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+var Dropdown = React.forwardRef((function(props, ref) {
+  var className = props.className, children = props.children, toggle = props.toggle, toggleBlock = props.toggleBlock, width = props.width, center = props.center, up = props.up, right = props.right, left = props.left, thin = props.thin, opened = props.opened, styles = props.styles, _useState2 = _slicedToArray$5(React.useState(opened), 2), active = _useState2[0], setActive = _useState2[1], _useState4 = _slicedToArray$5(React.useState(opened), 2), visible = _useState4[0], setVisible = _useState4[1], _useState6 = _slicedToArray$5(React.useState(!1), 2), unmounted = _useState6[0], _useState8 = (_useState6[1], 
+  _slicedToArray$5(React.useState(null), 2)), activeTimer = _useState8[0], setActiveTimer = _useState8[1], _useState10 = _slicedToArray$5(React.useState(null), 2), visibleTimer = _useState10[0], setVisibleTimer = _useState10[1], dropdownRef = React.useRef(null);
   function addClickListener() {
     document.addEventListener("click", handleClose);
   }
@@ -1283,28 +1687,28 @@ var DISTANCE = "calc(100% + 10px)", DropdownStyled = _styled("div", {
     clearTimeout(activeTimer), clearTimeout(visibleTimer), document.removeEventListener("click", handleClose);
   }
   function handleClose(evt) {
-    clearTimeout(visibleTimer), unmounted || evt && evt.target && dropdownRef && dropdownRef.current && dropdownRef.current.contains(evt.target) || (setActive(!1),
-    setVisible(!0), setVisibleTimer(setTimeout(function() {
+    clearTimeout(visibleTimer), unmounted || evt && evt.target && dropdownRef && dropdownRef.current && dropdownRef.current.contains(evt.target) || (setActive(!1), 
+    setVisible(!0), setVisibleTimer(setTimeout((function() {
       unmounted || (setVisible(!1), removeClickListener());
-    }, 250)));
+    }), 250)));
   }
   function handleOpen(evt) {
-    clearTimeout(activeTimer), unmounted || (evt && evt.preventDefault && evt.preventDefault(),
-    setActive(!1), setVisible(!0), setActiveTimer(setTimeout(function() {
+    clearTimeout(activeTimer), unmounted || (evt && evt.preventDefault && evt.preventDefault(), 
+    setActive(!1), setVisible(!0), setActiveTimer(setTimeout((function() {
       unmounted || (setActive(!0), addClickListener());
-    }, 50)));
+    }), 50)));
   }
-  return React.useEffect(function() {
-    if (removeClickListener(), opened) return (opened || active) && (addClickListener(),
+  return React.useEffect((function() {
+    if (removeClickListener(), opened) return (opened || active) && (addClickListener(), 
     handleOpen()), function() {
       removeClickListener();
     };
     handleClose();
-  }, [ opened ]), React.useEffect(function() {
+  }), [ opened ]), React.useEffect((function() {
     return function() {
       removeClickListener();
     };
-  }, []), React__default.createElement(DropdownStyled, {
+  }), []), React__default.createElement(DropdownStyled, {
     center: center,
     up: up,
     right: right,
@@ -1328,7 +1732,7 @@ var DISTANCE = "calc(100% + 10px)", DropdownStyled = _styled("div", {
       return handleClose();
     }
   }, children) : null);
-});
+}));
 
 Dropdown.defaultProps = {
   className: "",
@@ -1354,25 +1758,83 @@ Dropdown.defaultProps = {
 
 var ExpansionPanelWrapper = _styled("div", {
   target: "e1ipd8jg0"
-})("position:relative;box-shadow:inset 0 -1px 0 0 ", colors$2.get("mercury", "crystal"), ";", function(props) {
+})("position:relative;box-shadow:inset 0 -1px 0 0 ", colors$1.get("mercury", "crystal"), ";", (function(props) {
   return props.styles;
-}, ";"), ExpansionPanelHeader = _styled("div", {
+}), ";"), ExpansionPanelHeader = _styled("div", {
   target: "e1ipd8jg1"
-})("cursor:pointer;padding:15px 0;transition:background-color 0.3s linear;&:hover{background-color:", colors$2.get("smoke"), ";}", function(props) {
+})("cursor:pointer;padding:15px 0;transition:background-color 0.3s linear;&:hover{background-color:", colors$1.get("smoke"), ";}", (function(props) {
   return props.headerStyles;
-}, ";"), ExpansionPanelContent = _styled("div", {
+}), ";"), ExpansionPanelContent = _styled("div", {
   target: "e1ipd8jg2"
-})("overflow:", function(props) {
+})("overflow:", (function(props) {
   return props.opened ? "visible" : "hidden";
-}, ";height:", function(props) {
+}), ";height:", (function(props) {
   return props.opened ? "auto" : 0;
-}, ";");
+}), ";");
+
+function _extends$7() {
+  return (_extends$7 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$6(arr, i) {
+  return _arrayWithHoles$6(arr) || _iterableToArrayLimit$6(arr, i) || _nonIterableRest$6();
+}
+
+function _nonIterableRest$6() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$6(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$6(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$6(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$6(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$6(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 function ExpansionPanel(props) {
-  var header = props.header, children = props.children, expanded = props.expanded, expandedCallback = props.expandedCallback, styles = props.styles, headerStyles = props.headerStyles, rest = _objectWithoutProperties(props, [ "header", "children", "expanded", "expandedCallback", "styles", "headerStyles" ]), _useState = React.useState(expanded), _useState2 = _slicedToArray(_useState, 2), opened = _useState2[0], setOpened = _useState2[1];
-  return React.useEffect(function() {
+  var header = props.header, children = props.children, expanded = props.expanded, expandedCallback = props.expandedCallback, styles = props.styles, headerStyles = props.headerStyles, rest = _objectWithoutProperties$6(props, [ "header", "children", "expanded", "expandedCallback", "styles", "headerStyles" ]), _useState2 = _slicedToArray$6(React.useState(expanded), 2), opened = _useState2[0], setOpened = _useState2[1];
+  return React.useEffect((function() {
     setOpened(expanded);
-  }, [ expanded ]), React__default.createElement(ExpansionPanelWrapper, _extends({}, rest, {
+  }), [ expanded ]), React__default.createElement(ExpansionPanelWrapper, _extends$7({}, rest, {
     styles: styles,
     className: "aph-expansion-panel"
   }), React__default.createElement(ExpansionPanelHeader, {
@@ -1405,15 +1867,42 @@ ExpansionPanel.defaultProps = {
 
 var selector = ".aph-hover-actions", HoverActionsStyled = _styled("span", {
   target: "ez3ukd00"
-})("box-sizing:border-box;position:relative;display:inline-block;z-index:1;", selector, "{&__content{z-index:1;filter:none;display:block;transition:filter 0.15s linear;}&__items{position:absolute;top:0;right:0;bottom:0;left:0;opacity:0;display:flex;z-index:-1;justify-content:space-evenly;align-items:center;transition:opacity 0.25s linear,z-index 0.25s linear;text-align:center;vertical-align:middle;}}", function(props) {
+})("box-sizing:border-box;position:relative;display:inline-block;z-index:1;", selector, "{&__content{z-index:1;filter:none;display:block;transition:filter 0.15s linear;}&__items{position:absolute;top:0;right:0;bottom:0;left:0;opacity:0;display:flex;z-index:-1;justify-content:space-evenly;align-items:center;transition:opacity 0.25s linear,z-index 0.25s linear;text-align:center;vertical-align:middle;}}", (function(props) {
   return props.hasActions ? "\n        &:hover,\n        &:active,\n        &:focus {\n            ".concat(selector, " {\n                &__content {\n                    filter: blur(1px);\n                }\n\n                &__items {\n                    opacity: 1;\n                    z-index: 10;\n                }\n            }\n        }\n    ") : null;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";");
+}), ";");
+
+function _extends$8() {
+  return (_extends$8 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$7(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$7(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$7(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 function HoverActions(props) {
-  var actions = props.actions, className = props.className, children = props.children, rest = _objectWithoutProperties(props, [ "actions", "className", "children" ]);
-  return React__default.createElement(HoverActionsStyled, _extends({
+  var actions = props.actions, className = props.className, children = props.children, rest = _objectWithoutProperties$7(props, [ "actions", "className", "children" ]);
+  return React__default.createElement(HoverActionsStyled, _extends$8({
     hasActions: !!actions,
     className: "aph-hover-actions ".concat(className || "")
   }, rest), React__default.createElement("span", {
@@ -1770,7 +2259,7 @@ var IconAdjusts = function(props) {
     d: "M15,0 C23.2842712,-1.52179594e-15 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 C6.71572875,30 1.01453063e-15,23.2842712 0,15 C-1.01453063e-15,6.71572875 6.71572875,1.52179594e-15 15,0 Z M24.25,18 C24.6642136,18 25,17.6642136 25,17.25 L25,13.75 C25,13.3357864 24.6642136,13 24.25,13 L5.75,13 C5.33578644,13 5,13.3357864 5,13.75 L5,17.25 C5,17.6642136 5.33578644,18 5.75,18 L24.25,18 Z"
   })));
 }, IconExternalTicket = function(props) {
-  var _React$createElement, size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
+  var size = props.size, width = props.width, height = props.height, color = props.color, className = props.className;
   return React__default.createElement("svg", {
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
@@ -1790,11 +2279,11 @@ var IconAdjusts = function(props) {
     transform: "translate(15.000000, 15.500000) rotate(-270.000000) translate(-15.000000, -15.500000) translate(4.000000, 4.500000)",
     stroke: color,
     strokeWidth: "2.3"
-  }, React__default.createElement("path", (_defineProperty(_React$createElement = {
+  }, React__default.createElement("path", {
     id: "aph-icon-external-ticket-path-one",
-    d: "M1.5,2 L19.5,2 C20.0522847,2 20.5,2.44771525 20.5,3 L20.5,7 C17.8333333,7 16.5,8 16.5,10 C16.5,12 17.8333333,13 20.5,13 L20.5,17 C20.5,17.5522847 20.0522847,18 19.5,18 L5.5,18"
-  }, "id", "Rectangle"), _defineProperty(_React$createElement, "transform", "translate(11.000000, 10.000000) rotate(-90.000000) translate(-11.000000, -10.000000)"),
-  _React$createElement)), React__default.createElement("path", {
+    d: "M1.5,2 L19.5,2 C20.0522847,2 20.5,2.44771525 20.5,3 L20.5,7 C17.8333333,7 16.5,8 16.5,10 C16.5,12 17.8333333,13 20.5,13 L20.5,17 C20.5,17.5522847 20.0522847,18 19.5,18 L5.5,18",
+    transform: "translate(11.000000, 10.000000) rotate(-90.000000) translate(-11.000000, -10.000000)"
+  }), React__default.createElement("path", {
     id: "aph-icon-external-ticket-path-two",
     d: "M0,21.5 L22,14.5"
   }))));
@@ -3261,7 +3750,36 @@ var IconSignal = function(props) {
     fill: "#F7981D",
     fillRule: "evenodd"
   })))));
-}, ICONS$1 = {
+};
+
+function _extends$9() {
+  return (_extends$9 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$8(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$8(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$8(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var ICONS$1 = {
   adjusts: IconAdjusts,
   "arrow-up": IconArrowUp,
   "arrow-right": IconArrowRight,
@@ -3337,20 +3855,20 @@ var IconSignal = function(props) {
   "payment-visa": IconPaymentVisa
 }, IconWrapper = _styled("svg", {
   target: "e34a6r20"
-})("display:inline-block;line-height:0;vertical-align:middle;", function(props) {
+})("display:inline-block;line-height:0;vertical-align:middle;", (function(props) {
   return props.aphStyles;
-}, ";"), Icon = React.forwardRef(function(props, ref) {
+}), ";"), Icon = React.forwardRef((function(props, ref) {
   var direction = props.direction, shape = props.shape, slug = props.slug, SelectedIcon = ICONS$1[slug + (direction ? "-" + direction : "") + (shape ? "-" + shape : "")];
   if (!SelectedIcon) return null;
-  var color = props.color, className = props.className, styles = props.styles, rest = _objectWithoutProperties(props, [ "color", "className", "styles" ]);
-  return React__default.createElement(IconWrapper, _extends({}, rest, {
+  var color = props.color, className = props.className, styles = props.styles, rest = _objectWithoutProperties$8(props, [ "color", "className", "styles" ]);
+  return React__default.createElement(IconWrapper, _extends$9({}, rest, {
     ref: ref,
     as: SelectedIcon,
     aphStyles: styles,
-    color: colors$2.getFromTheme(props, color),
+    color: colors$1.getFromTheme(props, color),
     className: "aph-icon aph-icon-wrapper ".concat(className || "")
   }));
-});
+}));
 
 Icon.defaultProps = {
   slug: "",
@@ -3376,45 +3894,118 @@ Icon.defaultProps = {
 
 var AphNumberFormatStyled = _styled("span", {
   target: "e1vp335j0"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return props.styles;
-}, ";"), NumberFormat = React.forwardRef(function(props, ref) {
-  var className = props.className, rest = _objectWithoutProperties(props, [ "className" ]);
-  return React__default.createElement(AphNumberFormatStyled, _extends({}, rest, {
-    className: "aph-number-format ".concat(className || ""),
-    as: Formatter,
-    ref: ref
-  }));
-});
+}), ";");
 
-function ownKeys$7(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
+function _extends$a() {
+  return (_extends$a = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
 }
 
-function _objectSpread$7(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$7(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+function _objectWithoutProperties$9(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$9(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
   }
   return target;
 }
 
+function _objectWithoutPropertiesLoose$9(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var NumberFormat = React.forwardRef((function(props, ref) {
+  var className = props.className, rest = _objectWithoutProperties$9(props, [ "className" ]);
+  return React__default.createElement(AphNumberFormatStyled, _extends$a({}, rest, {
+    className: "aph-number-format ".concat(className || ""),
+    as: Formatter,
+    ref: ref
+  }));
+}));
+
+function _extends$b() {
+  return (_extends$b = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$6(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    }))), keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+
+function _objectSpread$6(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$6(Object(source), !0).forEach((function(key) {
+      _defineProperty$7(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach((function(key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    }));
+  }
+  return target;
+}
+
+function _defineProperty$7(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _objectWithoutProperties$a(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$a(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$a(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
 function _templateObject$2() {
-  var data = _taggedTemplateLiteral([ "\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n" ]);
+  var data = _taggedTemplateLiteral$2([ "\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n" ]);
   return _templateObject$2 = function() {
     return data;
   }, data;
+}
+
+function _taggedTemplateLiteral$2(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
 }
 
 NumberFormat.defaultProps = {
@@ -3431,10 +4022,10 @@ NumberFormat.defaultProps = {
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
-var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.forwardRef(function(props, ref) {
-  var _ref = props || {}, className = _ref.className, styles = _ref.styles, rest = _objectWithoutProperties(_ref, [ "className", "styles" ]), isDarkMode = !(!props.theme || !props.theme.isDarkMode), colorTheme = colors$2.getFromTheme(props, "helper"), colorBase = chroma(colorTheme), colorStart = colorBase.alpha(isDarkMode ? .5 : .05).css(), colorEnd = colorBase.alpha(isDarkMode ? .75 : .15).css(), StyledPlaceholder = _styled("div", {
+var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.forwardRef((function(props, ref) {
+  var _ref = props || {}, className = _ref.className, styles = _ref.styles, rest = _objectWithoutProperties$a(_ref, [ "className", "styles" ]), isDarkMode = !(!props.theme || !props.theme.isDarkMode), colorTheme = colors$1.getFromTheme(props, "helper"), colorBase = chroma(colorTheme), colorStart = colorBase.alpha(isDarkMode ? .5 : .05).css(), colorEnd = colorBase.alpha(isDarkMode ? .75 : .15).css(), StyledPlaceholder = _styled("div", {
     target: "ejqn05n0"
-  })(_objectSpread$7({
+  })(_objectSpread$6({
     fontSize: "0",
     lineHeight: "0",
     boxSizing: "border-box",
@@ -3450,40 +4041,57 @@ var bgPlaceholder = core.keyframes(_templateObject$2()), Placeholder = React.for
     backgroundSize: "200% 100%",
     animation: "".concat(bgPlaceholder, " .9s ease infinite")
   }, styles), "");
-  return React__default.createElement(StyledPlaceholder, _extends({}, rest, {
+  return React__default.createElement(StyledPlaceholder, _extends$b({}, rest, {
     ref: ref,
     className: "aph-placeholder ".concat(className || "")
   }), props.children);
-});
+}));
 
-function ownKeys$8(object, enumerableOnly) {
+function ownKeys$7(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$8(target) {
+function _objectSpread$7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$8(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$7(Object(source), !0).forEach((function(key) {
+      _defineProperty$8(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
+function _defineProperty$8(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
 function _templateObject$3() {
-  var data = _taggedTemplateLiteral([ "\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n" ]);
+  var data = _taggedTemplateLiteral$3([ "\n    0% {\n        background-position: 0% 50%;\n    }\n\n    50% {\n        background-position: 100% 50%;\n    }\n\n    100% {\n        background-position: 0% 50%;\n    }\n" ]);
   return _templateObject$3 = function() {
     return data;
   }, data;
+}
+
+function _taggedTemplateLiteral$3(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
 }
 
 Placeholder.defaultProps = {
@@ -3504,8 +4112,8 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
   display: "block"
 }, AphProgressBarWrapper = _styled("div", {
   target: "e1pp9vj70"
-})(function(props) {
-  return _objectSpread$8({}, defaultStyles, {
+})((function(props) {
+  return _objectSpread$7({}, defaultStyles, {
     height: props.height || "10px",
     overflow: "hidden",
     width: "100%",
@@ -3513,21 +4121,21 @@ var bgAnimated = core.keyframes(_templateObject$3()), defaultStyles = {
     marginRight: "auto",
     marginLeft: "auto",
     borderRadius: !props.radius && 0 !== props.radius || "number" != typeof parseInt(props.radius, 10) ? "10px" : parseInt(props.radius, 10) + (props.radius.toString().includes("%") ? "%" : "px"),
-    background: colors$2.getFromTheme(props, "disabled")
+    background: colors$1.getFromTheme(props, "disabled")
   }, props.styles);
-}, ""), AphProgressBar = _styled("div", {
+}), ""), AphProgressBar = _styled("div", {
   target: "e1pp9vj71"
-})(function(props) {
-  return _objectSpread$8({}, defaultStyles, {
+})((function(props) {
+  return _objectSpread$7({}, defaultStyles, {
     height: props.height || "10px",
     width: props.size || (props.percentual && props.percentual > 100 ? 100 : props.percentual || 0) + "%",
-    background: props.color ? colors$2.getFromTheme(props, props.color) : props.animated ? "linear-gradient(270deg, ".concat(colors$2.getFromTheme(props, props.gradientStart || "secondary"), " 0%, ").concat(colors$2.getFromTheme(props, props.gradientEnd || "secondary"), " 100%)") : colors$2.getFromTheme(props, "secondary"),
+    background: props.color ? colors$1.getFromTheme(props, props.color) : props.animated ? "linear-gradient(270deg, ".concat(colors$1.getFromTheme(props, props.gradientStart || "secondary"), " 0%, ").concat(colors$1.getFromTheme(props, props.gradientEnd || "secondary"), " 100%)") : colors$1.getFromTheme(props, "secondary"),
     backgroundSize: "200% 100%",
     animation: "".concat(bgAnimated, " .9s ease infinite"),
     willChange: "width",
     transition: "width .15s ease-in"
   }, props.styles);
-}, "");
+}), "");
 
 function ProgressBar(props) {
   var animated = props.animated, size = props.size, percent = props.percent, percentual = props.percentual, gradient = props.gradient, styles = props.styles, width = props.width, height = props.height, radius = props.radius, color = props.color, wrapperStyles = props.wrapperStyles;
@@ -3548,27 +4156,36 @@ function ProgressBar(props) {
   }));
 }
 
-function ownKeys$9(object, enumerableOnly) {
+function ownKeys$8(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$9(target) {
+function _objectSpread$8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$9(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$8(Object(source), !0).forEach((function(key) {
+      _defineProperty$9(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$9(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 ProgressBar.defaultProps = {
@@ -3577,8 +4194,8 @@ ProgressBar.defaultProps = {
   percentual: 0,
   size: "",
   gradient: {
-    start: colors$2.get("secondary"),
-    end: colors$2.get("secondary", "light")
+    start: colors$1.get("secondary"),
+    end: colors$1.get("secondary", "light")
   },
   styles: {},
   width: "100%",
@@ -3600,8 +4217,8 @@ ProgressBar.defaultProps = {
 
 var StyledWrapper = _styled("div", {
   target: "e19gg4i70"
-})(function(props) {
-  return _objectSpread$9({}, props.styles, _defineProperty({
+})((function(props) {
+  return _objectSpread$8({}, props.styles, _defineProperty$9({
     position: "relative",
     paddingTop: "10px",
     paddingBottom: "10px",
@@ -3617,11 +4234,11 @@ var StyledWrapper = _styled("div", {
     },
     "&:before": {
       left: 0,
-      background: "linear-gradient(to right, ".concat(colors$2.getFromTheme(props, "inverse"), " 50%, ").concat(colors$2.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 80%)")
+      background: "linear-gradient(to right, ".concat(colors$1.getFromTheme(props, "inverse"), " 50%, ").concat(colors$1.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 80%)")
     },
     "&:after": {
       right: 0,
-      background: "linear-gradient(to right, ".concat(colors$2.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 0%, ").concat(colors$2.getFromTheme(props, "inverse"), " 50%)")
+      background: "linear-gradient(to right, ".concat(colors$1.getFromTheme(props, "inverse").replace("rgb(", "rgba(").replace(")", ", 0)"), " 0%, ").concat(colors$1.getFromTheme(props, "inverse"), " 50%)")
     },
     "&.scrollable--xs": {
       "&:before,&:after": {
@@ -3635,9 +4252,9 @@ var StyledWrapper = _styled("div", {
       content: '" "'
     }
   }));
-}, ""), StyledScrollable = _styled("div", {
+}), ""), StyledScrollable = _styled("div", {
   target: "e19gg4i71"
-})(_defineProperty({
+})(_defineProperty$9({
   overflow: "auto",
   overflowY: "hidden",
   whiteSpace: "nowrap",
@@ -3657,38 +4274,67 @@ var StyledWrapper = _styled("div", {
       marginRight: "20px"
     }
   }
-}), ""), Scrollable = React.forwardRef(function(props, ref) {
+}), ""), Scrollable = React.forwardRef((function(props, ref) {
   var children = props.children, className = props.className, onlyXS = props.onlyXS, styles = props.styles;
   return React__default.createElement(StyledWrapper, {
     ref: ref,
     styles: styles,
     className: (className || "") + (onlyXS ? " scrollable--xs" : "")
   }, React__default.createElement(StyledScrollable, null, children));
-}), SegmentStyled = _styled("div", {
+}));
+
+function _extends$c() {
+  return (_extends$c = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$b(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$b(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$b(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var SegmentStyled = _styled("div", {
   target: "e1pevrxj0"
-})("box-sizing:border-box;display:block;margin:", function(props) {
+})("box-sizing:border-box;display:block;margin:", (function(props) {
   return props.aphmargin || null;
-}, ";padding:", function(props) {
+}), ";padding:", (function(props) {
   return props.aphpadding || "20px 10px";
-}, ";", function(props) {
+}), ";", (function(props) {
   return text(props);
-}, ";border-radius:", function(props) {
+}), ";border-radius:", (function(props) {
   return props.aphradius ? "".concat(props.aphradius, "px") : null;
-}, ";box-shadow:", function(props) {
-  return props.aphshadow ? "0 0 3px ".concat(colors$2.getFromTheme(props, "oil", "dark", .25)) : props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper"))) : null;
-}, ";color:", function(props) {
-  return props.aphcolor ? colors$2.getFromTheme(props, props.aphcolor) : null;
-}, ";background-color:", function(props) {
-  return props.aphbackground ? colors$2.getFromTheme(props, props.aphbackground) : null;
-}, ";", function(props) {
-  return props.aphhoverable ? "\n        outline: 0;\n        border : 0;\n\n        border-radius: ".concat(RADIUS.LG, "px;\n        box-shadow   : ").concat(function(props) {
-    return props.aphshadow ? "0 0 3px ".concat(colors$2.getFromTheme(props, "oil", "dark", .25)) : null;
-  }, ";\n        transition   : box-shadow 0.15s linear;\n\n        &:hover,\n        &:focus {\n            box-shadow: 0 0 10px ").concat(colors$2.getFromTheme(props, "oil", "dark", .25), ";\n        }\n    ") : null;
-}, " ", function(props) {
+}), ";box-shadow:", (function(props) {
+  return props.aphshadow ? "0 0 3px ".concat(colors$1.getFromTheme(props, "oil", "dark", .25)) : props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))) : null;
+}), ";color:", (function(props) {
+  return props.aphcolor ? colors$1.getFromTheme(props, props.aphcolor) : null;
+}), ";background-color:", (function(props) {
+  return props.aphbackground ? colors$1.getFromTheme(props, props.aphbackground) : null;
+}), ";", (function(props) {
+  return props.aphhoverable ? "\n        outline: 0;\n        border : 0;\n\n        border-radius: ".concat(RADIUS.LG, "px;\n        box-shadow   : ").concat((function(props) {
+    return props.aphshadow ? "0 0 3px ".concat(colors$1.getFromTheme(props, "oil", "dark", .25)) : null;
+  }), ";\n        transition   : box-shadow 0.15s linear;\n\n        &:hover,\n        &:focus {\n            box-shadow: 0 0 10px ").concat(colors$1.getFromTheme(props, "oil", "dark", .25), ";\n        }\n    ") : null;
+}), " ", (function(props) {
   return props.aphstyles;
-}, ";"), Segment = React.forwardRef(function(props, ref) {
-  var className = props.className, margin = props.margin, padding = props.padding, color = props.color, background = props.background, hoverable = props.hoverable, radius = props.radius, shadow = props.shadow, styles = props.styles, rest = _objectWithoutProperties(props, [ "className", "margin", "padding", "color", "background", "hoverable", "radius", "shadow", "styles" ]);
-  return React__default.createElement(SegmentStyled, _extends({}, rest, {
+}), ";"), Segment = React.forwardRef((function(props, ref) {
+  var className = props.className, margin = props.margin, padding = props.padding, color = props.color, background = props.background, hoverable = props.hoverable, radius = props.radius, shadow = props.shadow, styles = props.styles, rest = _objectWithoutProperties$b(props, [ "className", "margin", "padding", "color", "background", "hoverable", "radius", "shadow", "styles" ]);
+  return React__default.createElement(SegmentStyled, _extends$c({}, rest, {
     ref: ref,
     aphmargin: margin,
     aphpadding: padding,
@@ -3700,9 +4346,19 @@ var StyledWrapper = _styled("div", {
     aphstyles: styles,
     className: "aph-segment ".concat(className || "")
   }));
-});
+}));
 
-Segment.propTypes = {
+Segment.defaultProps = {
+  textAlign: "",
+  margin: "",
+  padding: "20px 10px",
+  hoverable: !1,
+  color: "",
+  background: "",
+  radius: 0,
+  shadow: !1,
+  styles: {}
+}, Segment.propTypes = {
   textAlign: propTypes.string,
   margin: propTypes.string,
   padding: propTypes.string,
@@ -3716,53 +4372,84 @@ Segment.propTypes = {
 
 var AphTableStyled = _styled("table", {
   target: "e10yuwue0"
-})("box-sizing:border-box;min-width:100%;border-collapse:collapse;border-style:hidden;", function(props) {
+})("box-sizing:border-box;min-width:100%;border-collapse:collapse;border-style:hidden;", (function(props) {
   return props.styles;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.rounded ? "\n        position     : relative;\n        overflow     : hidden;\n        border-radius: ".concat(RADIUS.SM, "px;\n    ") : null;
-}, " ", function(props) {
+}), " ", (function(props) {
   return props.striped ? "\n        tbody {\n            tr:nth-child(even) {\n                background-color: ".concat(COLORS.SMOKE, ";\n            }\n        }\n    ") : null;
-}, " thead,tfoot{background-color:", COLORS.LIGHT_GREY, ";text-align:left;}th{font-weight:700;padding:", function(props) {
+}), " thead,tfoot{background-color:", COLORS.LIGHT_GREY, ";text-align:left;}th{font-weight:700;padding:", (function(props) {
   return props.condensed ? "6px" : "11px";
-}, " 10px ", function(props) {
+}), " 10px ", (function(props) {
   return props.condensed ? "4px" : "9px";
-}, ";}td{padding:", function(props) {
+}), ";}td{padding:", (function(props) {
   return props.condensed ? "5px" : props.bordered ? "10px" : "11px";
-}, " 10px ", function(props) {
+}), " 10px ", (function(props) {
   return props.condensed ? props.bordered ? "4px" : "5px" : "9px";
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.bordered ? "\n            border-top: 1px solid ".concat(COLORS.LIGHT_GREY, ";\n        ") : null;
-}, "}tbody{", function(props) {
+}), "}tbody{", (function(props) {
   return props.hoverable ? "\n            tr {\n                background-color: transparent;\n                transition: background-color 0.25s linear;\n\n                &:hover {\n                    background-color: ".concat(COLORS.SMOKE, ";\n                }\n            }\n        ") : null;
-}, "}"), Table = React.forwardRef(function(props, ref) {
+}), "}");
+
+function _extends$d() {
+  return (_extends$d = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+var Table = React.forwardRef((function(props, ref) {
   var className = props.className, children = props.children;
-  return React__default.createElement(AphTableStyled, _extends({}, props, {
+  return React__default.createElement(AphTableStyled, _extends$d({}, props, {
     ref: ref,
     className: "aph-table ".concat(className || "")
   }), children);
-});
+}));
 
-function ownKeys$a(object, enumerableOnly) {
+function _extends$e() {
+  return (_extends$e = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$9(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$a(target) {
+function _objectSpread$9(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$a(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$9(Object(source), !0).forEach((function(key) {
+      _defineProperty$a(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$9(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$a(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 Table.defaultProps = {
@@ -3782,7 +4469,7 @@ var ToastsContainer = function() {
     styles: {}
   }, styles = props.styles || {}, AphToastsContainer = _styled("div", {
     target: "ej5e3vp0"
-  })(_objectSpread$a({}, styles, _defineProperty({
+  })(_objectSpread$9({}, styles, _defineProperty$a({
     zIndex: styles.zIndex || ZINDEX.TOAST,
     position: styles.position || "fixed",
     top: "string" == typeof styles.top ? styles.top : "20px",
@@ -3935,45 +4622,73 @@ var ToastsContainer = function() {
   return React__default.createElement(AphToastsContainer, {
     className: "aph-toasts-container",
     styles: props.styles
-  }, React__default.createElement(reactToastify.ToastContainer, _extends({}, props, {
+  }, React__default.createElement(reactToastify.ToastContainer, _extends$e({}, props, {
     closeOnClick: props.closeOnClick || !1
   })));
 };
 
-function ownKeys$b(object, enumerableOnly) {
+function ownKeys$a(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$b(target) {
+function _objectSpread$a(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$b(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$a(Object(source), !0).forEach((function(key) {
+      _defineProperty$b(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$a(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
+function _defineProperty$b(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _extends$f() {
+  return (_extends$f = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _defineProperty$c(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
 reactToastify.toast.inverse = function() {
   var content = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", props = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-  return reactToastify.toast(content, _objectSpread$b({}, props, {
+  return reactToastify.toast(content, _objectSpread$a({}, props, {
     className: "Toastify__toast--inverse"
   }));
 }, reactToastify.toast.black = reactToastify.toast.inverse;
 
 var TooltipWrapper = _styled("span", {
   target: "e1rfaqp00"
-})(function(props) {
-  return _defineProperty({
+})((function(props) {
+  return _defineProperty$c({
     display: "inline-block",
     verticalAlign: "middle",
     lineHeight: 0,
@@ -4081,7 +4796,7 @@ var TooltipWrapper = _styled("span", {
       "&__content": {
         display: "inline-block",
         verticalAlign: "middle",
-        minHeight: props.style && props.style.height || null
+        minHeight: props.style && props.style.height ? props.style.height : null
       }
     }
   }, MEDIA_QUERIES.XS, {
@@ -4090,20 +4805,20 @@ var TooltipWrapper = _styled("span", {
       lineHeight: "20px"
     }
   });
-}, ""), Tooltip = React.forwardRef(function(props, ref) {
+}), ""), Tooltip = React.forwardRef((function(props, ref) {
   var customProps = Object.assign({}, props);
-  return customProps.id = customProps.id || "AphTooltip".concat(Math.random()), delete customProps.children,
-  delete customProps.tip, React__default.createElement(TooltipWrapper, _extends({}, customProps, {
+  return customProps.id = customProps.id || "AphTooltip".concat(Math.random()), delete customProps.children, 
+  delete customProps.tip, React__default.createElement(TooltipWrapper, _extends$f({}, customProps, {
     ref: ref
   }), React__default.createElement("span", {
     "data-tip": props.tip,
     "data-for": customProps.id,
     className: "aph-tooltip__content"
-  }, props.children), React__default.createElement(ReactTooltip, _extends({}, customProps, {
+  }, props.children), React__default.createElement(ReactTooltip, _extends$f({}, customProps, {
     delayHide: customProps.delayHide || (window.innerWidth > SCREEN_SIZES.SM ? 500 : 0),
     className: "aph-tooltip ".concat(props.className || "")
   })));
-});
+}));
 
 Tooltip.defaultProps = {
   border: !1,
@@ -4121,104 +4836,169 @@ Tooltip.defaultProps = {
 
 var selector$1 = ".aph-modal", ModalStyled = _styled("dialog", {
   target: "e173h3s00"
-})("box-sizing:border-box;overflow:hidden;position:fixed;display:none;opacity:0;z-index:", ZINDEX.MODAL, ";width:auto;height:auto;top:40px;right:40px;bottom:0;left:40px;margin:0;padding:0 0 ", function(props) {
+})("box-sizing:border-box;overflow:hidden;position:fixed;display:none;opacity:0;z-index:", ZINDEX.MODAL, ";width:auto;height:auto;top:40px;right:40px;bottom:0;left:40px;margin:0;padding:0 0 ", (function(props) {
   return props.hasFooter ? SIZES.ACTION_BAR_HEIGHT : 0;
-}, ";border:0;outline:0;transform:translateY(", function(props) {
+}), ";border:0;outline:0;transform:translateY(", (function(props) {
   return props.opened ? "0" : "50%";
-}, ");will-change:z-index,opacity,transform;transition:display ", function(props) {
+}), ");will-change:z-index,opacity,transform;transition:display ", (function(props) {
   return props.opened ? .2 : .1;
-}, "s linear,opacity ", function(props) {
+}), "s linear,opacity ", (function(props) {
   return props.opened ? .1 : .2;
-}, "s linear,transform ", function(props) {
+}), "s linear,transform ", (function(props) {
   return props.opened ? .2 : .1;
-}, "s linear;color:", function(props) {
-  return colors$2.getFromTheme(props, "black");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "white");
-}, ";box-shadow:0 0 10px 0 ", function(props) {
-  return colors$2.getFromTheme(props, "shadow");
-}, ";border-radius:", SIZES.LG.RADIUS, " ", SIZES.LG.RADIUS, " 0 0;&.visible{display:block;}&.active{opacity:1;}*{box-sizing:border-box;}", selector$1, "{&__container{min-height:100%;max-height:100%;overflow:auto;&__title{padding:45px 0 15px;}&__header{padding-top:5px;padding-bottom:5px;}&__content{width:100%;}}&__footer{max-height:", SIZES.ACTION_BAR_HEIGHT, ";}}", function(props) {
+}), "s linear;color:", (function(props) {
+  return colors$1.getFromTheme(props, "black");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "white");
+}), ";box-shadow:0 0 10px 0 ", (function(props) {
+  return colors$1.getFromTheme(props, "shadow");
+}), ";border-radius:", SIZES.LG.RADIUS, " ", SIZES.LG.RADIUS, " 0 0;&.visible{display:block;}&.active{opacity:1;}*{box-sizing:border-box;}", selector$1, "{&__container{min-height:100%;max-height:100%;overflow:auto;&__title{padding:45px 0 15px;}&__header{padding-top:5px;padding-bottom:5px;}&__content{width:100%;}}&__footer{max-height:", SIZES.ACTION_BAR_HEIGHT, ";}}", (function(props) {
   return props.styles;
-}, ";", MEDIA_QUERIES.LT.SM, "{top:20px;right:10px;left:10px;", selector$1, "{&__container{&__title{padding:25px 0 15px;}&__header{padding-top:0;}}}}"), ModalOverlayStyled = _styled("div", {
+}), ";", MEDIA_QUERIES.LT.SM, "{top:20px;right:10px;left:10px;", selector$1, "{&__container{&__title{padding:25px 0 15px;}&__header{padding-top:0;}}}}"), ModalOverlayStyled = _styled("div", {
   target: "e1bytuoh0"
-})("position:fixed;z-index:", ZINDEX.MODAL - 1, ";top:", function(props) {
+})("position:fixed;z-index:", ZINDEX.MODAL - 1, ";top:", (function(props) {
   return props.isOpened ? "0" : "100%";
-}, ";right:0;bottom:0;left:0;opacity:", function(props) {
+}), ";right:0;bottom:0;left:0;opacity:", (function(props) {
   return props.isOpened ? "1" : "0";
-}, ";backdrop-filter:blur(2px);background-color:", colors$2.get("black", "normal", .2), ";will-change:opacity top;transition:opacity 0.2s linear,top 0.", function(props) {
+}), ";backdrop-filter:blur(2px);background-color:", colors$1.get("black", "normal", .2), ";will-change:opacity top;transition:opacity 0.2s linear,top 0.", (function(props) {
   return props.isOpened ? 1 : 4;
-}, "s linear;", function(props) {
+}), "s linear;", (function(props) {
   return props.styles;
-}, ";");
+}), ";");
 
-function ownKeys$c(object, enumerableOnly) {
+function ownKeys$b(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$c(target) {
+function _objectSpread$b(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$c(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$b(Object(source), !0).forEach((function(key) {
+      _defineProperty$d(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$b(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
+  return target;
+}
+
+function _defineProperty$d(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _extends$g() {
+  return (_extends$g = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$7(arr, i) {
+  return _arrayWithHoles$7(arr) || _iterableToArrayLimit$7(arr, i) || _nonIterableRest$7();
+}
+
+function _nonIterableRest$7() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$7(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$7(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$c(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$c(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$c(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
   return target;
 }
 
 var _ref = {
   name: "1sy9iaq",
   styles: "body{overflow:hidden;}"
-}, Modal = React.forwardRef(function(props, ref) {
-  var _document = document, addEventListener = _document.addEventListener, removeEventListener = _document.removeEventListener, title = props.title, header = props.header, contentJustify = props.contentJustify, children = (props.alignItems,
-  props.children), footer = props.footer, footerProps = props.footerProps, overlayProps = props.overlayProps, className = props.className, styles = props.styles, opened = props.opened, openedCallback = props.openedCallback, closeOnEscape = props.closeOnEscape, closeByEscape = props.closeByEscape, unblockScrolling = props.unblockScrolling, rest = _objectWithoutProperties(props, [ "title", "header", "contentJustify", "alignItems", "children", "footer", "footerProps", "overlayProps", "className", "styles", "opened", "openedCallback", "closeOnEscape", "closeByEscape", "unblockScrolling" ]), _useState = React.useState(opened), _useState2 = _slicedToArray(_useState, 2), active = _useState2[0], setActive = _useState2[1], _useState3 = React.useState(opened), _useState4 = _slicedToArray(_useState3, 2), visible = _useState4[0], setVisible = _useState4[1], _useState5 = React.useState(!1), _useState6 = _slicedToArray(_useState5, 2), unmounted = _useState6[0], _useState7 = (_useState6[1],
-  React.useState(null)), _useState8 = _slicedToArray(_useState7, 2), activeTimer = _useState8[0], setActiveTimer = _useState8[1], _useState9 = React.useState(null), _useState10 = _slicedToArray(_useState9, 2), visibleTimer = _useState10[0], setVisibleTimer = _useState10[1], modalRef = React.useRef(null);
+}, Modal = React.forwardRef((function(props, ref) {
+  var _document = document, addEventListener = _document.addEventListener, removeEventListener = _document.removeEventListener, title = props.title, header = props.header, contentJustify = props.contentJustify, children = (props.alignItems, 
+  props.children), footer = props.footer, footerProps = props.footerProps, overlayProps = props.overlayProps, className = props.className, styles = props.styles, opened = props.opened, openedCallback = props.openedCallback, closeOnEscape = props.closeOnEscape, closeByEscape = props.closeByEscape, unblockScrolling = props.unblockScrolling, rest = _objectWithoutProperties$c(props, [ "title", "header", "contentJustify", "alignItems", "children", "footer", "footerProps", "overlayProps", "className", "styles", "opened", "openedCallback", "closeOnEscape", "closeByEscape", "unblockScrolling" ]), _useState2 = _slicedToArray$7(React.useState(opened), 2), active = _useState2[0], setActive = _useState2[1], _useState4 = _slicedToArray$7(React.useState(opened), 2), visible = _useState4[0], setVisible = _useState4[1], _useState6 = _slicedToArray$7(React.useState(!1), 2), unmounted = _useState6[0], setUnmounted = _useState6[1], _useState8 = _slicedToArray$7(React.useState(null), 2), activeTimer = _useState8[0], setActiveTimer = _useState8[1], _useState10 = _slicedToArray$7(React.useState(null), 2), visibleTimer = _useState10[0], setVisibleTimer = _useState10[1], modalRef = React.useRef(null);
   function handleCloseOnScape(evt) {
     var _ref2 = evt || {}, key = _ref2.key, keyCode = _ref2.keyCode;
-    _ref2.target;
-    ("Escape" === key || "Esc" === key || 27 === keyCode) && (evt && evt.stopPropagation && "function" == typeof evt.stopPropagation && evt.stopPropagation(),
+    ("Escape" === key || "Esc" === key || 27 === keyCode) && (evt && evt.stopPropagation && "function" == typeof evt.stopPropagation && evt.stopPropagation(), 
     handleClose());
   }
   function unlisten() {
     clearTimeout(activeTimer), clearTimeout(visibleTimer), removeEventListener("keydown", handleCloseOnScape);
   }
   function handleClose(evt) {
-    clearTimeout(visibleTimer), unmounted || evt && evt.target && modalRef && modalRef.current && modalRef.current.contains(evt.target) || (unlisten(),
-    setActive(!1), setVisible(!0), setVisibleTimer(setTimeout(function() {
+    clearTimeout(visibleTimer), unmounted || evt && evt.target && modalRef && modalRef.current && modalRef.current.contains(evt.target) || (unlisten(), 
+    setActive(!1), setVisible(!0), setVisibleTimer(setTimeout((function() {
       unmounted || (setVisible(!1), openedCallback(!1), modalRef && modalRef.current && modalRef.current.focus && modalRef.current.focus());
-    }, 100)));
+    }), 100)));
   }
   function handleOpen(evt) {
-    clearTimeout(activeTimer), unmounted || (evt && evt.preventDefault && evt.preventDefault(),
-    setActive(!1), setVisible(!0), setActiveTimer(setTimeout(function() {
+    clearTimeout(activeTimer), unmounted || (evt && evt.preventDefault && evt.preventDefault(), 
+    setActive(!1), setVisible(!0), setActiveTimer(setTimeout((function() {
       unmounted || (setActive(!0), (closeOnEscape || closeByEscape) && addEventListener("keydown", handleCloseOnScape));
-    }, 50)));
+    }), 50)));
   }
-  return React.useEffect(function() {
+  return React.useEffect((function() {
     return opened ? ((opened || active) && handleOpen(), function() {
       unlisten();
     }) : (handleClose(), unlisten(), function() {
       unlisten();
     });
-  }, [ opened ]), React.useEffect(function() {
+  }), [ opened ]), React.useEffect((function() {
     return function() {
-      unlisten();
+      setUnmounted(!0), unlisten();
     };
-  }, []), React__default.createElement(React__default.Fragment, null, React__default.createElement(ModalOverlayStyled, _extends({
+  }), []), React__default.createElement(React__default.Fragment, null, React__default.createElement(ModalOverlayStyled, _extends$g({
     isOpened: active && visible,
     onClick: function(evt) {
       return (closeOnEscape || closeByEscape) && handleClose(evt);
     },
     className: "aph-modal-overlay".concat(active ? " active" : "").concat(visible ? " visible" : "")
-  }, overlayProps)), React__default.createElement(ModalStyled, _extends({}, rest, {
+  }, overlayProps)), React__default.createElement(ModalStyled, _extends$g({}, rest, {
     ref: modalRef,
     open: !0,
     opened: active && visible,
@@ -4253,15 +5033,15 @@ var _ref = {
     styles: {
       width: "100%"
     }
-  }, children))), React__default.createElement(ActionBar, _extends({}, footerProps, {
+  }, children))), React__default.createElement(ActionBar, _extends$g({}, footerProps, {
     className: "aph-modal__content__footer ".concat(footerProps.className || ""),
     visible: footerProps.visible || !(void 0 !== footerProps.visible || !footer),
-    styles: _objectSpread$c({}, footerProps.styles, {
+    styles: _objectSpread$b({}, footerProps.styles, {
       padding: "10px 0",
       minHeight: "initial"
     })
   }), footer)) : null));
-});
+}));
 
 Modal.defaultProps = {
   title: "",
@@ -4289,42 +5069,81 @@ Modal.defaultProps = {
 
 var SidePillStyled = _styled("aside", {
   target: "e1pc5nzq0"
-})("box-sizing:border-box;display:flex;align-items:center;justify-content:", function(props) {
+})("box-sizing:border-box;display:flex;align-items:center;justify-content:", (function(props) {
   return props.center ? "center" : props.right ? "flex-end" : "flex-start";
-}, ";min-width:70px;min-height:60px;padding:", function(props) {
+}), ";min-width:70px;min-height:60px;padding:", (function(props) {
   return props.right ? "0 15px 0 25px" : "0 20px";
-}, ";position:absolute;top:10px;left:", function(props) {
+}), ";position:absolute;top:10px;left:", (function(props) {
   return props.center ? "50%" : props.right ? null : "-15%";
-}, ";right:", function(props) {
+}), ";right:", (function(props) {
   return props.right && !props.center ? "-15%" : null;
-}, ";flex-direction:", function(props) {
+}), ";flex-direction:", (function(props) {
   return props.right ? "row-reverse" : null;
-}, ";font-weight:500;font-size:20px;line-height:30px;color:", function(props) {
-  return colors$2.getFromTheme(props, "base");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "background");
-}, ";box-shadow:0 0 5px 0 ", function(props) {
-  return colors$2.getFromTheme(props, "black", "original", .25);
-}, ";border-radius:", function(props) {
+}), ";font-weight:500;font-size:20px;line-height:30px;color:", (function(props) {
+  return colors$1.getFromTheme(props, "base");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "background");
+}), ";box-shadow:0 0 5px 0 ", (function(props) {
+  return colors$1.getFromTheme(props, "black", "original", .25);
+}), ";border-radius:", (function(props) {
   return props.center ? "30px" : props.right ? "30px 0 0 30px" : "0 30px 30px 0";
-}, ";transition:all 0.15s linear 0s;img{margin-left:", function(props) {
+}), ";transition:all 0.15s linear 0s;img{margin-left:", (function(props) {
   return props.right ? 0 : "20px";
-}, ";margin-right:", function(props) {
+}), ";margin-right:", (function(props) {
   return props.right ? "20px" : 0;
-}, ";}.aph-sidepill{&__content,&__hoverable{display:flex;align-items:center;padding:0;margin:0;}}&:hover{left:", function(props) {
+}), ";}.aph-sidepill{&__content,&__hoverable{display:flex;align-items:center;padding:0;margin:0;}}&:hover{left:", (function(props) {
   return props.right ? null : "0";
-}, ";right:", function(props) {
+}), ";right:", (function(props) {
   return props.right ? "0" : null;
-}, ";}"), SidePill = React.memo(function(props) {
+}), ";}");
+
+function _extends$h() {
+  return (_extends$h = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+var SidePill = React.memo((function(props) {
   var className = props.className, children = props.children, right = props.right, hoverable = props.hoverable;
-  return React__default.createElement(SidePillStyled, _extends({}, props, {
+  return React__default.createElement(SidePillStyled, _extends$h({}, props, {
     className: "aph-sidepill ".concat(className || "")
   }), hoverable ? React__default.createElement("span", {
     className: "aph-sidepill__hoverable ".concat(right ? "aph-sidepill__hoverable--right" : "")
   }, hoverable) : null, React__default.createElement("span", {
     className: "aph-sidepill__content"
   }, children));
-});
+}));
+
+function _extends$i() {
+  return (_extends$i = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$d(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$d(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$d(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 SidePill.defaultProps = {
   right: !1
@@ -4334,20 +5153,47 @@ SidePill.defaultProps = {
 
 var AStyled = _styled("a", {
   target: "e93yvql0"
-})("box-sizing:border-box;cursor:pointer;text-decoration:none;", function(props) {
+})("box-sizing:border-box;cursor:pointer;text-decoration:none;", (function(props) {
   return textColorfull(props);
-}, ";border:0;outline:0;&:active,&:focus,&:hover,&:visited{border:0;outline:0;color:", function(props) {
+}), ";border:0;outline:0;&:active,&:focus,&:hover,&:visited{border:0;outline:0;color:", (function(props) {
   return props.textColor || null;
-}, ";}", function(props) {
+}), ";}", (function(props) {
   return props.styles;
-}, ";"), A = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, rest = _objectWithoutProperties(props, [ "className", "color" ]);
-  return React__default.createElement(AStyled, _extends({}, rest, {
+}), ";"), A = React.forwardRef((function(props, ref) {
+  var className = props.className, color = props.color, rest = _objectWithoutProperties$d(props, [ "className", "color" ]);
+  return React__default.createElement(AStyled, _extends$i({}, rest, {
     ref: ref,
     textColor: color,
     className: "aph-a ".concat(className || "")
   }));
-});
+}));
+
+function _extends$j() {
+  return (_extends$j = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$e(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$e(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$e(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 A.defaultProps = {
   link: !1,
@@ -4371,13 +5217,13 @@ A.defaultProps = {
 
 var H1Styled = _styled("h1", {
   target: "ezvpeh30"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return text(props, "XXL");
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), H1 = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
-  return React__default.createElement(H1Styled, _extends({
+}), ";"), H1 = React.forwardRef((function(props, ref) {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties$e(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
+  return React__default.createElement(H1Styled, _extends$j({
     textAlign: align,
     textColor: color,
     textLeft: left,
@@ -4389,7 +5235,34 @@ var H1Styled = _styled("h1", {
     ref: ref,
     className: "aph-h1 ".concat(className || "")
   }));
-});
+}));
+
+function _extends$k() {
+  return (_extends$k = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$f(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$f(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$f(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 H1.defaultProps = {
   link: !1,
@@ -4413,13 +5286,13 @@ H1.defaultProps = {
 
 var H2Styled = _styled("h2", {
   target: "e1knkmrf0"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return text(props, "XL");
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), H2 = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
-  return React__default.createElement(H2Styled, _extends({
+}), ";"), H2 = React.forwardRef((function(props, ref) {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties$f(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
+  return React__default.createElement(H2Styled, _extends$k({
     textAlign: align,
     textLeft: left,
     textCenter: center,
@@ -4431,7 +5304,34 @@ var H2Styled = _styled("h2", {
     ref: ref,
     className: "aph-h2 ".concat(className || "")
   }));
-});
+}));
+
+function _extends$l() {
+  return (_extends$l = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$g(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$g(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$g(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 H2.defaultProps = {
   link: !1,
@@ -4455,13 +5355,13 @@ H2.defaultProps = {
 
 var H3Styled = _styled("h3", {
   target: "e181c9j70"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return text(props, "LG");
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), H3 = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
-  return React__default.createElement(H3Styled, _extends({
+}), ";"), H3 = React.forwardRef((function(props, ref) {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, rest = _objectWithoutProperties$g(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper" ]);
+  return React__default.createElement(H3Styled, _extends$l({
     textAlign: align,
     textLeft: left,
     textCenter: center,
@@ -4473,7 +5373,34 @@ var H3Styled = _styled("h3", {
     ref: ref,
     className: "aph-h3 ".concat(className || "")
   }));
-});
+}));
+
+function _extends$m() {
+  return (_extends$m = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$h(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$h(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$h(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 H3.defaultProps = {
   link: !1,
@@ -4497,13 +5424,13 @@ H3.defaultProps = {
 
 var PStyled = _styled("p", {
   target: "enm91qe0"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return text(props, props.textSmall ? "SM" : "MD");
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), P = React.forwardRef(function(props, ref) {
-  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, small = props.small, rest = _objectWithoutProperties(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper", "small" ]);
-  return React__default.createElement(PStyled, _extends({
+}), ";"), P = React.forwardRef((function(props, ref) {
+  var className = props.className, color = props.color, align = props.align, center = props.center, left = props.left, right = props.right, lower = props.lower, upper = props.upper, small = props.small, rest = _objectWithoutProperties$h(props, [ "className", "color", "align", "center", "left", "right", "lower", "upper", "small" ]);
+  return React__default.createElement(PStyled, _extends$m({
     textAlign: align,
     textLeft: left,
     textCenter: center,
@@ -4516,11 +5443,38 @@ var PStyled = _styled("p", {
     ref: ref,
     className: "aph-p ".concat(className || "")
   }));
-});
+}));
+
+function _extends$n() {
+  return (_extends$n = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$i(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$i(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$i(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 function Label(props) {
-  var className = props.className, styles = props.styles, rest = _objectWithoutProperties(props, [ "className", "styles" ]);
-  return React__default.createElement(P, _extends({
+  var className = props.className, styles = props.styles, rest = _objectWithoutProperties$i(props, [ "className", "styles" ]);
+  return React__default.createElement(P, _extends$n({
     bold: !0,
     small: !0,
     upper: !0,
@@ -4534,27 +5488,46 @@ function Label(props) {
   }, rest));
 }
 
-function ownKeys$d(object, enumerableOnly) {
+function _extends$o() {
+  return (_extends$o = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$c(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$d(target) {
+function _objectSpread$c(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$d(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$c(Object(source), !0).forEach((function(key) {
+      _defineProperty$e(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$c(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$e(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 P.defaultProps = {
@@ -4580,8 +5553,8 @@ P.defaultProps = {
 
 var AphContainer = _styled("div", {
   target: "e1js7dhi0"
-})(function(props) {
-  return _objectSpread$d(_defineProperty({
+})((function(props) {
+  return _objectSpread$c(_defineProperty$e({
     boxSizing: "border-box",
     display: "block",
     margin: "0 auto",
@@ -4592,34 +5565,53 @@ var AphContainer = _styled("div", {
     paddingRight: props.noPadding ? 0 : GRID.CONTAINER_PADDING_XS + GRID.UNIT,
     paddingLeft: props.noPadding ? 0 : GRID.CONTAINER_PADDING_XS + GRID.UNIT
   }), props.styles);
-}, ""), Container = React.forwardRef(function(props, ref) {
-  return React__default.createElement(AphContainer, _extends({}, props, {
+}), ""), Container = React.forwardRef((function(props, ref) {
+  return React__default.createElement(AphContainer, _extends$o({}, props, {
     ref: ref,
     className: "aph-container ".concat(props.className || "")
   }), props.children);
-});
+}));
 
-function ownKeys$e(object, enumerableOnly) {
+function _extends$p() {
+  return (_extends$p = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$d(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$e(target) {
+function _objectSpread$d(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$e(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$d(Object(source), !0).forEach((function(key) {
+      _defineProperty$f(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$d(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$f(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 Container.propTypes = {
@@ -4638,9 +5630,8 @@ Container.propTypes = {
 
 var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div", {
   target: "e134hck50"
-})(function(props) {
-  props.alignment;
-  var _objectSpread2, vertical = props.vertical, horizontal = props.horizontal, reverse = props.reverse, styles = props.styles, _extraStyles = {};
+})((function(props) {
+  var vertical = props.vertical, horizontal = props.horizontal, reverse = props.reverse, styles = props.styles, _extraStyles = {};
   return horizontal && (_extraStyles = "center" === horizontal || "middle" === horizontal ? {
     WebkitBoxPack: "center",
     MsFlexPack: "center",
@@ -4657,47 +5648,84 @@ var MARGIN = "-" + GRID.COLUMNS_PADDING + GRID.UNIT, RowWrapper = _styled("div",
     WebkitBoxAlign: vertical,
     MsFlexAlign: vertical,
     alignItems: "flex-".concat(vertical)
-  })), _objectSpread$e((_defineProperty(_objectSpread2 = {
+  })), _objectSpread$d({
     boxSizing: "border-box",
     position: "relative",
     display: "flex",
     flex: "0 1 auto",
-    flexDirection: "row",
     flexWrap: "wrap",
     marginRight: MARGIN,
-    marginLeft: MARGIN
-  }, "flexDirection", reverse ? "row-reverse" : null), _defineProperty(_objectSpread2, "&:before, &:after", {
-    clear: "both"
-  }), _objectSpread2), styles, {}, _extraStyles);
-}, ""), Row = React.forwardRef(function(props, ref) {
+    marginLeft: MARGIN,
+    flexDirection: reverse ? "row-reverse" : "row",
+    "&:before, &:after": {
+      clear: "both"
+    }
+  }, styles, {}, _extraStyles);
+}), ""), Row = React.forwardRef((function(props, ref) {
   var className = props.className, children = props.children;
-  return React__default.createElement(RowWrapper, _extends({}, props, {
+  return React__default.createElement(RowWrapper, _extends$p({}, props, {
     ref: ref,
     className: "aph-row ".concat(className || "")
   }), children);
-});
+}));
 
-function ownKeys$f(object, enumerableOnly) {
+function _extends$q() {
+  return (_extends$q = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$j(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$j(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$j(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+function ownKeys$e(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$f(target) {
+function _objectSpread$e(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$f(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$e(Object(source), !0).forEach((function(key) {
+      _defineProperty$g(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$e(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$g(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 Row.propTypes = {
@@ -4712,47 +5740,46 @@ Row.propTypes = {
 
 var ColStyled = _styled("div", {
   target: "e1fg9ilu0"
-})(function(props) {
-  var _objectSpread2, _objectSpread3, _ref = props || {}, gridWidth = _ref.gridWidth, gridStyles = _ref.gridStyles, gridFirst = _ref.gridFirst, gridLast = _ref.gridLast, gridXS = _ref.gridXS, gridXXS = _ref.gridXXS, gridSM = _ref.gridSM, gridMD = _ref.gridMD, gridLG = _ref.gridLG, gridXL = _ref.gridXL;
+})((function(props) {
+  var _objectSpread2, _ref = props || {}, gridWidth = _ref.gridWidth, gridStyles = _ref.gridStyles, gridFirst = _ref.gridFirst, gridLast = _ref.gridLast, gridXS = _ref.gridXS, gridXXS = _ref.gridXXS, gridSM = _ref.gridSM, gridMD = _ref.gridMD, gridLG = _ref.gridLG, gridXL = _ref.gridXL;
   function getOrder() {
     var size = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "xs";
     return gridFirst === size ? -1 : gridLast === size ? 1 : null;
   }
-  return _objectSpread$f((_objectSpread2 = {
+  return _objectSpread$e({
     boxSizing: "border-box",
     flex: "0 0 auto",
     flexGrow: 1,
-    flexBasis: 0,
     flexDirection: "column",
     order: "xxs" === gridFirst || "xs" === gridFirst ? -1 : "xxs" === gridLast || "xs" === gridLast ? 1 : null,
     paddingRight: GRID.COLUMNS_PADDING,
-    paddingLeft: GRID.COLUMNS_PADDING
-  }, _defineProperty(_objectSpread2, "flexBasis", gridWidth || GRID.COLUMNS_GET_WIDTH(gridXXS || gridXS) || null),
-  _defineProperty(_objectSpread2, "maxWidth", gridWidth || GRID.COLUMNS_GET_WIDTH(gridXXS || gridXS) || null),
-  _objectSpread2), gridStyles, (_defineProperty(_objectSpread3 = {}, MEDIA_QUERIES.LT.SM, {
+    paddingLeft: GRID.COLUMNS_PADDING,
+    flexBasis: gridWidth || GRID.COLUMNS_GET_WIDTH(gridXXS || gridXS) || null,
+    maxWidth: gridWidth || GRID.COLUMNS_GET_WIDTH(gridXXS || gridXS) || null
+  }, gridStyles, (_defineProperty$g(_objectSpread2 = {}, MEDIA_QUERIES.LT.SM, {
     flexBasis: GRID.COLUMNS_GET_WIDTH(gridXS),
     maxWidth: GRID.COLUMNS_GET_WIDTH(gridXS),
     order: getOrder("xs")
-  }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.SM, {
+  }), _defineProperty$g(_objectSpread2, MEDIA_QUERIES.GT.SM, {
     flexBasis: GRID.COLUMNS_GET_WIDTH(gridSM),
     maxWidth: GRID.COLUMNS_GET_WIDTH(gridSM),
     order: getOrder("sm")
-  }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.MD, {
+  }), _defineProperty$g(_objectSpread2, MEDIA_QUERIES.GT.MD, {
     flexBasis: GRID.COLUMNS_GET_WIDTH(gridMD),
     maxWidth: GRID.COLUMNS_GET_WIDTH(gridMD),
     order: getOrder("md")
-  }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.LG, {
+  }), _defineProperty$g(_objectSpread2, MEDIA_QUERIES.GT.LG, {
     flexBasis: GRID.COLUMNS_GET_WIDTH(gridLG),
     maxWidth: GRID.COLUMNS_GET_WIDTH(gridLG),
     order: getOrder("lg")
-  }), _defineProperty(_objectSpread3, MEDIA_QUERIES.GT.XL, {
+  }), _defineProperty$g(_objectSpread2, MEDIA_QUERIES.GT.XL, {
     flexBasis: GRID.COLUMNS_GET_WIDTH(gridXL),
     maxWidth: GRID.COLUMNS_GET_WIDTH(gridXL),
     order: getOrder("xl")
-  }), _objectSpread3));
-}, ""), Column = React.forwardRef(function(props, ref) {
-  var first = props.first, last = props.last, width = props.width, styles = props.styles, xxs = props.xxs, xs = props.xs, sm = props.sm, md = props.md, lg = props.lg, xl = props.xl, className = props.className, children = props.children, rest = _objectWithoutProperties(props, [ "first", "last", "width", "styles", "xxs", "xs", "sm", "md", "lg", "xl", "className", "children" ]);
-  return React__default.createElement(ColStyled, _extends({}, rest, {
+  }), _objectSpread2));
+}), ""), Column = React.forwardRef((function(props, ref) {
+  var first = props.first, last = props.last, width = props.width, styles = props.styles, xxs = props.xxs, xs = props.xs, sm = props.sm, md = props.md, lg = props.lg, xl = props.xl, className = props.className, children = props.children, rest = _objectWithoutProperties$j(props, [ "first", "last", "width", "styles", "xxs", "xs", "sm", "md", "lg", "xl", "className", "children" ]);
+  return React__default.createElement(ColStyled, _extends$q({}, rest, {
     gridFirst: first,
     gridLast: last,
     gridXXS: xxs,
@@ -4766,7 +5793,7 @@ var ColStyled = _styled("div", {
     ref: ref,
     className: "aph-col ".concat(className || "")
   }), children);
-}), sizesTypes = propTypes.oneOfType([ propTypes.string, propTypes.number ]);
+})), sizesTypes = propTypes.oneOfType([ propTypes.string, propTypes.number ]);
 
 Column.propTypes = {
   xss: sizesTypes,
@@ -4808,35 +5835,55 @@ var _ref$1 = {
   return core.css("flex-shrink:", props.flexShrink, ";");
 }, AphFlex = _styled("div", {
   target: "ek8mijm0"
-})("box-sizing:border-box;", function(props) {
+})("box-sizing:border-box;", (function(props) {
   return props.flex && Flex;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.flexWrap && FlexWrap;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.alignItems && AlignItems;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.alignContent && AlignContent;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.flexDirection && FlexDirection;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.justifyContent && JustifyContente;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.order && Order;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.flexGrow && FlexGrow;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.alignSelf && AlignSelf;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.flexShrink && FlexShrink;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";");
+}), ";");
+
+function _extends$r() {
+  return (_extends$r = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
 
 function Flex$1(props) {
   var className = props.className;
-  return React__default.createElement(AphFlex, _extends({}, props, {
+  return React__default.createElement(AphFlex, _extends$r({}, props, {
     className: "aph-flex ".concat(className)
   }));
+}
+
+function _extends$s() {
+  return (_extends$s = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
 }
 
 Flex$1.defaultProps = {
@@ -4867,19 +5914,46 @@ Flex$1.defaultProps = {
 
 var AphListStyled = _styled("ul", {
   target: "e32bd8t0"
-})("box-sizing:border-box;display:block;margin:0;padding:0;overflow:hidden;border-radius:", RADIUS.SM, "px;list-style-type:", function(props) {
+})("box-sizing:border-box;display:block;margin:0;padding:0;overflow:hidden;border-radius:", RADIUS.SM, "px;list-style-type:", (function(props) {
   return props.type || "none";
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), List = React.forwardRef(function(props, ref) {
+}), ";"), List = React.forwardRef((function(props, ref) {
   var className = props.className;
-  return React__default.createElement(AphListStyled, _extends({
+  return React__default.createElement(AphListStyled, _extends$s({
     role: "listbox"
   }, props, {
     ref: ref,
     className: "aph-list ".concat(className || "")
   }));
-});
+}));
+
+function _extends$t() {
+  return (_extends$t = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$k(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$k(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$k(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 List.defaultProps = {
   styles: {}
@@ -4889,22 +5963,22 @@ List.defaultProps = {
 
 var AphListItemStyled = _styled("li", {
   target: "e6wegxb0"
-})("box-sizing:border-box;display:block;margin:0;padding:", function(props) {
+})("box-sizing:border-box;display:block;margin:0;padding:", (function(props) {
   return props.aphpadding;
-}, ";background-color:transparent;box-shadow:", function(props) {
-  return props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper"))) : null;
-}, ";transition:color 0.15s linear,background-color 0.15s linear;will-change:color,background-color;&.active{color:", function(props) {
-  return colors$2.getFromTheme(props, "secondary");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "secondary", "crystal");
-}, ";}", function(props) {
+}), ";background-color:transparent;box-shadow:", (function(props) {
+  return props.borderTop || props.borderBottom ? "inset 0 ".concat(props.borderBottom ? "-" : "", "1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))) : null;
+}), ";transition:color 0.15s linear,background-color 0.15s linear;will-change:color,background-color;&.active{color:", (function(props) {
+  return colors$1.getFromTheme(props, "secondary");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "secondary", "crystal");
+}), ";}", (function(props) {
   return props.onClick || props.withLink ? {
     cursor: "pointer",
-    color: colors$2.getFromTheme(props, "secondary"),
+    color: colors$1.getFromTheme(props, "secondary"),
     padding: props.withLink ? "0" : null,
     "&:hover": {
-      color: colors$2.getFromTheme(props, "secondary"),
-      backgroundColor: colors$2.getFromTheme(props, "secondary", "crystal")
+      color: colors$1.getFromTheme(props, "secondary"),
+      backgroundColor: colors$1.getFromTheme(props, "secondary", "crystal")
     },
     ".aph-list__item__link": {
       display: "block",
@@ -4914,19 +5988,19 @@ var AphListItemStyled = _styled("li", {
       textDecoration: "none"
     }
   } : null;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.hoverable ? {
     "&:hover": {
-      backgroundColor: colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper"))
+      backgroundColor: colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper"))
     }
   } : null;
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), ListItem = React.forwardRef(function(props, ref) {
-  var className = props.className, component = props.component, withLink = props.withLink, padding = props.padding, rest = _objectWithoutProperties(props, [ "className", "component", "withLink", "padding" ]), AphListItem = component ? AphListItemStyled.withComponent(component, {
+}), ";"), ListItem = React.forwardRef((function(props, ref) {
+  var className = props.className, component = props.component, withLink = props.withLink, padding = props.padding, rest = _objectWithoutProperties$k(props, [ "className", "component", "withLink", "padding" ]), AphListItem = component ? AphListItemStyled.withComponent(component, {
     target: "e6wegxb1"
   }) : AphListItemStyled;
-  return React__default.createElement(AphListItem, _extends({
+  return React__default.createElement(AphListItem, _extends$t({
     role: "option",
     aphpadding: padding,
     withLink: withLink
@@ -4934,29 +6008,48 @@ var AphListItemStyled = _styled("li", {
     ref: ref,
     className: "aph-list__item ".concat(className || "", " ").concat(withLink ? "aph-list__item--with-link" : "")
   }));
-});
+}));
 
-function ownKeys$g(object, enumerableOnly) {
+function _extends$u() {
+  return (_extends$u = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$f(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$g(target) {
+function _objectSpread$f(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$g(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$f(Object(source), !0).forEach((function(key) {
+      _defineProperty$h(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$f(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$h(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 ListItem.defaultProps = {
@@ -4973,8 +6066,8 @@ ListItem.defaultProps = {
 
 var AphListGroup = _styled("div", {
   target: "ey9rber0"
-})(function(props) {
-  return _objectSpread$g({
+})((function(props) {
+  return _objectSpread$f({
     boxSizing: "border-box",
     position: "relative",
     overflow: "hidden",
@@ -4984,18 +6077,18 @@ var AphListGroup = _styled("div", {
     margin: 0,
     listStyle: "none",
     borderRadius: (isNaN(props.radius) ? RADIUS : props.radius) + GRID.UNIT,
-    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), "\n        ") : "\n            inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 1px 0 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset -1px 0 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 0 1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), "\n        "),
+    boxShadow: props.noSideBorders ? "\n            inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), "\n        ") : "\n            inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 1px 0 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset -1px 0 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 0 1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), "\n        "),
     ".aph-list__header, .aph-list__item": {
-      boxShadow: "\n            inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent\n        "),
+      boxShadow: "\n            inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent,\n            inset 0 0 0 0 transparent\n        "),
       "+ .aph-list__header, + .aph-list__item": {
-        boxShadow: "\n                inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent\n            ")
+        boxShadow: "\n                inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent,\n                inset 0 0 0 0 transparent\n            ")
       }
     },
     ".aph-list__header": {
-      backgroundColor: colors$2.getFromTheme(props, "helper")
+      backgroundColor: colors$1.getFromTheme(props, "helper")
     },
     ".aph-list__item": {
-      backgroundColor: colors$2.getFromTheme(props, "background")
+      backgroundColor: colors$1.getFromTheme(props, "background")
     },
     "div:first-of-type": {
       ".aph-list__header, > .aph-list__item": {
@@ -5003,7 +6096,7 @@ var AphListGroup = _styled("div", {
           marginTop: "-1px",
           borderTopRightRadius: (isNaN(props.radius) ? RADIUS : props.radius) - 2 + GRID.UNIT,
           borderTopLeftRadius: (isNaN(props.radius) ? RADIUS : props.radius) - 2 + GRID.UNIT,
-          boxShadow: "\n                    inset 0 -1px 0 0 ".concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), ",\n                    inset 0 0 0 0 transparent,\n                    inset 0 0 0 0 transparent,\n                    inset 0 1px 0 0 ").concat(colors$2.getOpacity(.25, colors$2.getFromTheme(props, "helper")), "\n                ")
+          boxShadow: "\n                    inset 0 -1px 0 0 ".concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), ",\n                    inset 0 0 0 0 transparent,\n                    inset 0 0 0 0 transparent,\n                    inset 0 1px 0 0 ").concat(colors$1.getOpacity(.25, colors$1.getFromTheme(props, "helper")), "\n                ")
         }
       }
     },
@@ -5017,40 +6110,59 @@ var AphListGroup = _styled("div", {
       }
     }
   }, props.styles);
-}, ""), ListGroup = React.forwardRef(function(props, ref) {
-  return React__default.createElement(AphListGroup, _extends({}, props, {
+}), ""), ListGroup = React.forwardRef((function(props, ref) {
+  return React__default.createElement(AphListGroup, _extends$u({}, props, {
     ref: ref,
     className: "aph-list-group ".concat(props.className || "")
   }), props.children);
-});
+}));
 
-function ownKeys$h(object, enumerableOnly) {
+function _extends$v() {
+  return (_extends$v = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$g(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$h(target) {
+function _objectSpread$g(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$h(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$g(Object(source), !0).forEach((function(key) {
+      _defineProperty$i(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$g(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
+function _defineProperty$i(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
 var AphListGroupItem = _styled("div", {
   target: "evs8czu0"
-})(function(props) {
-  return _objectSpread$h(_defineProperty({
+})((function(props) {
+  return _objectSpread$g(_defineProperty$i({
     boxSizing: "border-box",
     position: "relative",
     overflow: "hidden",
@@ -5061,167 +6173,97 @@ var AphListGroupItem = _styled("div", {
     paddingRight: GRID.CONTAINER_PADDING - 5 + GRID.UNIT,
     paddingLeft: GRID.CONTAINER_PADDING - 5 + GRID.UNIT
   }), props.styles);
-}, ""), ListGroupItem = React.forwardRef(function(props, ref) {
+}), ""), ListGroupItem = React.forwardRef((function(props, ref) {
   var className = props.className, children = props.children;
-  return React__default.createElement(AphListGroupItem, _extends({}, props, {
+  return React__default.createElement(AphListGroupItem, _extends$v({}, props, {
     ref: React.forwardRef,
     className: "".concat(props.header ? "aph-list-group__header " : "aph-list-group__item ").concat(className || "")
   }), children);
-});
-
-function ownKeys$i(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-
-function _objectSpread$i(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$i(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(Object(source)).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
-  }
-  return target;
-}
-
-var _iconSize = window.innerWidth > SCREEN_SIZES.SM ? 22 : 30, iconColumn = _iconSize + GRID.CONTAINER_PADDING / 2 + GRID.UNIT, AphAccordion = _styled("div", {
-  target: "e869uf0"
-})(function(props) {
-  return _objectSpread$i({
-    boxSizing: "border-box",
-    display: "block",
-    fontSize: SIZES.MD.FONT_SIZE,
-    lineHeight: SIZES.MD.LINE_HEIGHT
-  }, props.styles);
-}, ""), Header = _styled("div", {
-  target: "e869uf1"
-})(function(props) {
-  return {
-    boxSizing: "border-box",
-    display: "block",
-    lineHeight: 0
-  };
-}, ""), columnStyles = {
-  boxSizing: "border-box",
-  display: "inline-block",
-  verticalAlign: "middle"
-}, IconColumn = _styled("div", {
-  target: "e869uf2"
-})(function(props) {
-  return _objectSpread$i({}, columnStyles, _defineProperty({
-    width: iconColumn,
-    lineHeight: 0,
-    margin: "-2px 0"
-  }, MEDIA_QUERIES.LT.SM, {
-    margin: 0
-  }));
-}, ""), ContentColumn = _styled("div", {
-  target: "e869uf3"
-})(function(props) {
-  return _objectSpread$i({}, columnStyles, {
-    width: "calc(100% - ".concat(iconColumn, ")"),
-    lineHeight: "20px"
-  });
-}, "");
-
-function Accordion(props) {
-  var header = props.header, headerDark = props.headerDark, headerProps = props.headerProps, headerStyles = props.headerStyles, children = props.children, className = props.className, id = props.id, styles = props.styles, withIcon = props.withIcon, iconSize = props.iconSize, iconProps = props.iconProps, iconStyles = props.iconStyles, _useState = React.useState(props.opened || !1), _useState2 = _slicedToArray(_useState, 2), opened = _useState2[0], setOpened = _useState2[1];
-  return React.useEffect(function() {
-    setOpened(props.opened);
-  }, [ props.opened ]), React__default.createElement(AphAccordion, {
-    styles: styles,
-    className: "aph-accordion ".concat(className)
-  }, React__default.createElement(ListItem, _extends({
-    id: id
-  }, headerProps, {
-    header: !!headerDark,
-    styles: _objectSpread$i({
-      cursor: "pointer",
-      paddingRight: "15px",
-      paddingLeft: "15px"
-    }, headerStyles),
-    onClick: function() {
-      var toggleCallback = props.toggleCallback || props.openedCallback, isOpened = !opened;
-      setOpened(isOpened), "function" == typeof toggleCallback && toggleCallback(isOpened);
-    },
-    className: "aph-accordion__header"
-  }), children ? React__default.createElement(Header, {
-    className: "aph-accordion__header-row"
-  }, withIcon && React__default.createElement(IconColumn, {
-    className: "aph-accordion__header__col-icon"
-  }, React__default.createElement(Icon, _extends({
-    size: iconSize || _iconSize,
-    slug: "arrow-".concat(opened ? "up" : "down", "-circle"),
-    styles: iconStyles
-  }, iconProps))), React__default.createElement(ContentColumn, {
-    className: "aph-accordion__header__col-content"
-  }, header)) : header), opened && children);
-}
-
-Accordion.defaultProps = {
-  opened: !1,
-  header: "",
-  className: "",
-  withIcon: !0
-}, Accordion.propTypes = {
-  opened: propTypes.bool,
-  openedCallback: propTypes.func,
-  header: propTypes.any,
-  headerDark: propTypes.bool,
-  headerStyles: propTypes.object,
-  children: propTypes.any,
-  className: propTypes.string,
-  styles: propTypes.object,
-  withIcon: propTypes.bool,
-  iconSize: propTypes.number,
-  iconStyles: propTypes.object,
-  toggleCallback: propTypes.func
-};
-
-var AphCollapsibleChildrenStyled = _styled("div", {
+})), AphCollapsibleChildrenStyled = _styled("div", {
   target: "e19izkhd0"
-})("display:block;opacity:1;overflow:hidden;position:relative;margin-right:-10px;margin-left:-10px;transition-timing-function:linear;transition-property:max-height,opacity;will-change:max-height,opacity;", function(props) {
+})("display:block;opacity:1;overflow:hidden;position:relative;margin-right:-10px;margin-left:-10px;transition-timing-function:linear;transition-property:max-height,opacity;will-change:max-height,opacity;", (function(props) {
   return props.styles;
-}, ";");
+}), ";");
 
-function ownKeys$j(object, enumerableOnly) {
+function _extends$w() {
+  return (_extends$w = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$h(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$j(target) {
+function _objectSpread$h(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$j(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$j(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$h(Object(source), !0).forEach((function(key) {
+      _defineProperty$j(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$h(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
-var Collapsible = React.forwardRef(function(props, ref) {
-  var header = props.header, headerProps = props.headerProps, children = props.children, disabled = props.disabled, delay = props.delay, icon = (props.hover,
-  props.icon), iconSize = props.iconSize, timerDelay = 1e3 * delay, wrapperRef = React.useRef(null), wrapperContentRef = React.useRef(null), _useState = React.useState(props.opened || !1), _useState2 = _slicedToArray(_useState, 2), opened = _useState2[0], setOpened = _useState2[1], _useState3 = React.useState(null), _useState4 = _slicedToArray(_useState3, 2), openTimer = _useState4[0], setOpenTimer = _useState4[1], _useState5 = React.useState(null), _useState6 = _slicedToArray(_useState5, 2), closeTimer = _useState6[0], setCloseTimer = _useState6[1], _useState7 = React.useState(Object.assign({
+function _defineProperty$j(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _slicedToArray$8(arr, i) {
+  return _arrayWithHoles$8(arr) || _iterableToArrayLimit$8(arr, i) || _nonIterableRest$8();
+}
+
+function _nonIterableRest$8() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$8(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$8(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+var Collapsible = React.forwardRef((function(props, ref) {
+  var header = props.header, headerProps = props.headerProps, children = props.children, disabled = props.disabled, delay = props.delay, icon = props.icon, iconSize = props.iconSize, timerDelay = 1e3 * delay, wrapperRef = React.useRef(null), wrapperContentRef = React.useRef(null), _useState2 = _slicedToArray$8(React.useState(props.opened || !1), 2), opened = _useState2[0], setOpened = _useState2[1], _useState4 = _slicedToArray$8(React.useState(null), 2), openTimer = _useState4[0], setOpenTimer = _useState4[1], _useState6 = _slicedToArray$8(React.useState(null), 2), closeTimer = _useState6[0], setCloseTimer = _useState6[1], _useState8 = _slicedToArray$8(React.useState(Object.assign({
     transitionDuration: props.delay + "s"
   }, props.opened ? null : {
     maxHeight: 0
-  })), _useState8 = _slicedToArray(_useState7, 2), styles = _useState8[0], setStyles = _useState8[1], headerStyles = Object.assign({
+  })), 2), styles = _useState8[0], setStyles = _useState8[1], headerStyles = Object.assign({
     position: "relative",
     display: "flex",
     alignItems: "center",
@@ -5229,38 +6271,38 @@ var Collapsible = React.forwardRef(function(props, ref) {
     margin: "-10px",
     padding: headerProps && headerProps.lg ? "15px 10px" : "10px",
     cursor: "pointer",
-    color: colors$2.get(disabled ? "mercury" : "secondary")
+    color: colors$1.get(disabled ? "mercury" : "secondary")
   }, headerProps && headerProps.styles ? headerProps.styles : {}), HeaderTitle = headerProps && headerProps.lg ? H2 : H3;
   function handleToggle(isOpened) {
     var openStyles, closeStyles;
-    isOpened ? (closeStyles = _objectSpread$j({}, styles, {
+    isOpened ? (closeStyles = _objectSpread$h({}, styles, {
       maxHeight: wrapperContentRef.current.clientHeight
-    }), clearTimeout(openTimer), setStyles(closeStyles), setTimeout(function() {
-      setStyles(_objectSpread$j({}, closeStyles, {
+    }), clearTimeout(openTimer), setStyles(closeStyles), setTimeout((function() {
+      setStyles(_objectSpread$h({}, closeStyles, {
         maxHeight: 0
-      })), clearTimeout(closeTimer), setCloseTimer(setTimeout(function() {
-        setStyles(_objectSpread$j({}, closeStyles, {
+      })), clearTimeout(closeTimer), setCloseTimer(setTimeout((function() {
+        setStyles(_objectSpread$h({}, closeStyles, {
           display: "none"
         }));
-      }, timerDelay + 10));
-    }, 10)) : (openStyles = _objectSpread$j({}, styles, {
+      }), timerDelay + 10));
+    }), 10)) : (openStyles = _objectSpread$h({}, styles, {
       maxHeight: 0,
       display: "block"
-    }), clearTimeout(closeTimer), setStyles(openStyles), setTimeout(function() {
-      setStyles(_objectSpread$j({}, openStyles, {
+    }), clearTimeout(closeTimer), setStyles(openStyles), setTimeout((function() {
+      setStyles(_objectSpread$h({}, openStyles, {
         maxHeight: wrapperContentRef.current.clientHeight
-      })), clearTimeout(openTimer), setOpenTimer(setTimeout(function() {
-        setStyles(_objectSpread$j({}, openStyles, {
+      })), clearTimeout(openTimer), setOpenTimer(setTimeout((function() {
+        setStyles(_objectSpread$h({}, openStyles, {
           maxHeight: null
         }));
-      }, timerDelay));
-    }, 1));
+      }), timerDelay));
+    }), 1));
   }
-  return React.useEffect(function() {
+  return React.useEffect((function() {
     return function() {
       clearTimeout(openTimer), clearTimeout(closeTimer);
     };
-  }, []), React__default.createElement(Card, _extends({}, props, {
+  }), []), React__default.createElement(Card, _extends$w({}, props, {
     ref: ref,
     hover: !0,
     className: "aph-collapsible ".concat(opened ? "active" : ""),
@@ -5268,7 +6310,7 @@ var Collapsible = React.forwardRef(function(props, ref) {
       position: "relative",
       overflow: "hidden"
     }, props.styles)
-  }), header ? React__default.createElement(HeaderTitle, _extends({}, headerProps, {
+  }), header ? React__default.createElement(HeaderTitle, _extends$w({}, headerProps, {
     styles: Object.assign(headerStyles, {
       paddingRight: icon ? "".concat(iconSize, "px") : null
     }),
@@ -5279,7 +6321,7 @@ var Collapsible = React.forwardRef(function(props, ref) {
   }), header, icon ? React__default.createElement(Icon, {
     slug: "arrow-down",
     size: iconSize,
-    color: colors$2.get("mercury", "light"),
+    color: colors$1.get("mercury", "light"),
     styles: {
       position: "absolute",
       top: "50%",
@@ -5294,7 +6336,7 @@ var Collapsible = React.forwardRef(function(props, ref) {
   }, React__default.createElement("div", {
     ref: wrapperContentRef
   }, children)));
-});
+}));
 
 Collapsible.defaultProps = {
   opened: !1,
@@ -5320,51 +6362,111 @@ Collapsible.defaultProps = {
 
 var CountdownStyled = _styled("div", {
   target: "e1mleeg60"
-})("box-sizing:border-box;position:relative;display:block;margin:0 auto;width:", function(props) {
+})("box-sizing:border-box;position:relative;display:block;margin:0 auto;width:", (function(props) {
   return props.aphSize;
-}, "px;height:", function(props) {
+}), "px;height:", (function(props) {
   return props.aphSize;
-}, "px;.", function(props) {
+}), "px;.", (function(props) {
   return props.aphSelector;
-}, "{box-sizing:border-box;position:relative;transform:rotate(-90deg) scaleY(-1);&__trace,&__line{fill:none;}&__trace{stroke:", function(props) {
-  return colors$2.getFromTheme(props, props.aphBackground);
-}, ";}&__line{stroke:", function(props) {
-  return colors$2.getFromTheme(props, props.aphColor);
-}, ";stroke-linecap:round;transition:stroke-dashoffset 0.1s linear;}&__count{position:absolute;top:0;right:0;bottom:0;left:0;margin:0;display:block;text-align:center;font-weight:normal;font-size:", function(props) {
+}), "{box-sizing:border-box;position:relative;transform:rotate(-90deg) scaleY(-1);&__trace,&__line{fill:none;}&__trace{stroke:", (function(props) {
+  return colors$1[props.aphBackground] ? colors$1.getFromTheme(props, props.aphBackground) : props.aphBackground;
+}), ";}&__line{transition:stroke-dashoffset 0.1s linear;stroke-linecap:round;stroke:", (function(props) {
+  return colors$1[props.aphColor] ? colors$1.getFromTheme(props, props.aphColor) : props.aphColor;
+}), ";}&__count{position:absolute;top:0;right:0;bottom:0;left:0;margin:0;display:block;text-align:center;font-weight:normal;font-size:", (function(props) {
   return props.aphSize / 2;
-}, "px;line-height:", function(props) {
+}), "px;line-height:", (function(props) {
   return props.aphSize;
-}, "px;color:", function(props) {
-  return colors$2.getFromTheme(props, props.aphColor);
-}, ";}}", function(props) {
+}), "px;color:", (function(props) {
+  return colors$1[props.aphColor] ? colors$1.getFromTheme(props, props.aphColor) : props.aphColor;
+}), ";}}", (function(props) {
   return props.aphStyles;
-}, ";"), SELECTOR = "aph-countdown", LOG_PREFIX = "Aphrodite Countdown:", RADIUS$1 = 54, VIEW_BOX = 120, CIRCUMFERENCE = 2 * Math.PI * RADIUS$1;
+}), ";");
 
-function Countdown(props) {
-  var background = props.background, className = props.className, color = props.color, log = props.log, size = props.size, seconds = props.seconds, strokeWidth = props.strokeWidth, styles = props.styles, onFinishCallback = props.onFinishCallback, rest = _objectWithoutProperties(props, [ "background", "className", "color", "log", "size", "seconds", "strokeWidth", "styles", "onFinishCallback" ]), _useState = React.useState(seconds), _useState2 = _slicedToArray(_useState, 2), countdown = _useState2[0], setCountdown = _useState2[1], _useState3 = React.useState(0), _useState4 = _slicedToArray(_useState3, 2), dashoffset = _useState4[0], setDashoffset = _useState4[1], _useState5 = React.useState(null), _useState6 = _slicedToArray(_useState5, 2), timer = _useState6[0], setTimer = _useState6[1];
+function _extends$x() {
+  return (_extends$x = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$9(arr, i) {
+  return _arrayWithHoles$9(arr) || _iterableToArrayLimit$9(arr, i) || _nonIterableRest$9();
+}
+
+function _nonIterableRest$9() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$9(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$9(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$l(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$l(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$l(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
+var SELECTOR = "aph-countdown", LOG_PREFIX = "Aphrodite Countdown:", RADIUS$1 = 54, VIEW_BOX = 120, CIRCUMFERENCE = 2 * Math.PI * RADIUS$1;
+
+function Countdown(_ref) {
+  var background = _ref.background, className = _ref.className, color = _ref.color, log = _ref.log, size = _ref.size, seconds = _ref.seconds, strokeWidth = _ref.strokeWidth, styles = _ref.styles, onFinishCallback = _ref.onFinishCallback, rest = _objectWithoutProperties$l(_ref, [ "background", "className", "color", "log", "size", "seconds", "strokeWidth", "styles", "onFinishCallback" ]), _useState2 = _slicedToArray$9(React.useState(seconds), 2), countdown = _useState2[0], setCountdown = _useState2[1], _useState4 = _slicedToArray$9(React.useState(0), 2), dashoffset = _useState4[0], setDashoffset = _useState4[1], _useState6 = _slicedToArray$9(React.useState(null), 2), timer = _useState6[0], setTimer = _useState6[1];
   function handleStart() {
     var _timer = null, _count = 0, _current = seconds, _progress = _current / seconds * 100;
     function _decrease() {
-      if (_count > seconds) return "function" == typeof onFinishCallback && onFinishCallback(seconds, log),
+      if (_count > seconds) return "function" == typeof onFinishCallback && onFinishCallback(seconds, log), 
       clearInterval(timer), void clearInterval(_timer);
       var value, _dashoffset;
-      setDashoffset(_dashoffset = CIRCUMFERENCE * (1 - (value = _progress) / 100)), log && console.log(LOG_PREFIX, value + "%", "|", "offset:", _dashoffset + ";"),
+      setDashoffset(_dashoffset = CIRCUMFERENCE * (1 - (value = _progress) / 100)), log && console.log(LOG_PREFIX, value + "%", "|", "offset:", _dashoffset + ";"), 
       setCountdown(seconds - _count), _count += 1, _progress = (_current -= 1) / seconds * 100;
     }
-    return log && console.log(LOG_PREFIX, seconds, "seconds to decrease;"), clearInterval(timer),
-    clearInterval(_timer), _decrease(), _timer = setInterval(_decrease, 1e3), setTimer(_timer),
+    return log && console.log(LOG_PREFIX, seconds, "seconds to decrease;"), clearInterval(timer), 
+    clearInterval(_timer), _decrease(), _timer = setInterval(_decrease, 1e3), setTimer(_timer), 
     _timer;
   }
-  return React.useEffect(function() {
+  return React.useEffect((function() {
     var interval = handleStart();
     return function() {
       clearInterval(timer), clearInterval(interval);
     };
-  }, [ seconds ]), React.useEffect(function() {
+  }), [ seconds ]), React.useEffect((function() {
     return function() {
       clearInterval(timer);
     };
-  }, []), React__default.createElement(CountdownStyled, _extends({}, rest, {
+  }), []), React__default.createElement(CountdownStyled, _extends$x({}, rest, {
     aphBackground: background,
     aphColor: color,
     aphSelector: SELECTOR,
@@ -5398,7 +6500,7 @@ function Countdown(props) {
 }
 
 Countdown.defaultProps = {
-  color: colors$2.get("helper"),
+  color: "helper",
   background: "transparent",
   seconds: 10,
   size: 32,
@@ -5406,31 +6508,66 @@ Countdown.defaultProps = {
   onFinishCallback: function(seconds, log) {
     return log && console.log(LOG_PREFIX, seconds, "seconds finished;");
   }
+}, Countdown.propTypes = {
+  color: propTypes.string,
+  background: propTypes.string,
+  seconds: propTypes.number,
+  size: propTypes.number,
+  strokeWidth: propTypes.number,
+  onFinishCallback: propTypes.func,
+  styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
 var AphPaginationStyled = _styled("section", {
   target: "e12zcqyq0"
-})("box-sizing:border-box;position:relative;display:block;width:auto;margin:40px auto;padding:10px 60px;max-width:460px;min-height:50px;list-style-type:none;text-align:center;user-select:none;border-radius:5px;background-color:", function(props) {
-  return colors$2.getFromTheme(props, "background");
-}, ";transition:background-color .2s linear;*{box-sizing:border-box;user-select:none;}.rc-pagination{&-prev,&-next,&-jump-next,&-jump-prev,&-item{display:inline-block;vertical-align:middle;text-align:center;min-width:30px;font-weight:bold;font-size:16px;line-height:20px;border-radius:5px;transition:background-color 0.2s linear;outline:0;border:0;&:not(.rc-pagination-item-active){cursor:pointer;}}&-prev,&-next{position:absolute;padding:2px 2.5px 2.5px;color:", function(props) {
-  return colors$2.getFromTheme(props, "inverse");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "secondary");
-}, ";}&-prev{left:15px;}&-next{right:15px;padding-left:1.5px;}&-disabled{background-color:", function(props) {
-  return colors$2.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled");
-}, ";}&-item,&-jump-prev,&-jump-next{padding:5px;margin:0 5px;color:", function(props) {
-  return colors$2.getFromTheme(props, "secondary");
-}, ";background-color:transparent;&-active{color:", function(props) {
-  return colors$2.getFromTheme(props, "base");
-}, ";}&:active,&:hover{outline:0;border:0;&:not(.rc-pagination-item-active){background-color:", function(props) {
-  return colors$2.getOpacity(.5, colors$2.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled"));
-}, ";}}}}", function(props) {
+})("box-sizing:border-box;position:relative;display:block;width:auto;margin:40px auto;padding:10px 60px;max-width:460px;min-height:50px;list-style-type:none;text-align:center;user-select:none;border-radius:5px;background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "background");
+}), ";transition:background-color .2s linear;*{box-sizing:border-box;user-select:none;}.rc-pagination{&-prev,&-next,&-jump-next,&-jump-prev,&-item{display:inline-block;vertical-align:middle;text-align:center;min-width:30px;font-weight:bold;font-size:16px;line-height:20px;border-radius:5px;transition:background-color 0.2s linear;outline:0;border:0;&:not(.rc-pagination-item-active){cursor:pointer;}}&-prev,&-next{position:absolute;padding:2px 2.5px 2.5px;color:", (function(props) {
+  return colors$1.getFromTheme(props, "inverse");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "secondary");
+}), ";}&-prev{left:15px;}&-next{right:15px;padding-left:1.5px;}&-disabled{background-color:", (function(props) {
+  return colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled");
+}), ";}&-item,&-jump-prev,&-jump-next{padding:5px;margin:0 5px;color:", (function(props) {
+  return colors$1.getFromTheme(props, "secondary");
+}), ";background-color:transparent;&-active{color:", (function(props) {
+  return colors$1.getFromTheme(props, "base");
+}), ";}&:active,&:hover{outline:0;border:0;&:not(.rc-pagination-item-active){background-color:", (function(props) {
+  return colors$1.getOpacity(.5, colors$1.getFromTheme(props, props.theme && props.theme.isDarkMode ? "inverse" : "disabled"));
+}), ";}}}}", (function(props) {
   return props.styles;
-}, ";");
+}), ";");
+
+function _extends$y() {
+  return (_extends$y = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$m(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$m(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$m(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 function Pagination(props) {
-  var loading = props.loading, className = props.className, rest = _objectWithoutProperties(props, [ "loading", "className" ]);
-  return React__default.createElement(AphPaginationStyled, _extends({
+  var loading = props.loading, className = props.className, rest = _objectWithoutProperties$m(props, [ "loading", "className" ]);
+  return React__default.createElement(AphPaginationStyled, _extends$y({
     locale: localeInfo,
     showLessItems: !0
   }, rest, {
@@ -5456,18 +6593,28 @@ function Pagination(props) {
     className: "rc-pagination-prev"
   }), Array.from({
     length: 3
-  }, function(number, index) {
+  }, (function(number, index) {
     return React__default.createElement(Placeholder, {
       width: 30,
       height: 30,
       className: "rc-pagination-item",
       key: "rc-pagination-placeholder-".concat(index)
     });
-  }), React__default.createElement(Placeholder, {
+  })), React__default.createElement(Placeholder, {
     width: 30,
     height: 30,
     className: "rc-pagination-next"
   })) : null);
+}
+
+function _extends$z() {
+  return (_extends$z = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
 }
 
 Pagination.defaultProps = {
@@ -5487,63 +6634,63 @@ Pagination.defaultProps = {
 };
 
 var AphCheckboxWrapperStyled = _styled("div", {
-  target: "e1a240py0"
+  target: "e19t1ysp0"
 })({
   name: "g9qje4",
   styles: "box-sizing:border-box;display:block;position:relative;"
 }), AphCheckboxMaskStyled = _styled("label", {
-  target: "e1a240py1"
-})("box-sizing:border-box;display:block;position:relative;cursor:pointer;padding-top:5px;padding-bottom:5px;padding-right:", function(props) {
+  target: "e19t1ysp1"
+})("box-sizing:border-box;display:block;position:relative;cursor:pointer;padding-top:5px;padding-bottom:5px;padding-right:", (function(props) {
   return props.labelRight ? "40px" : null;
-}, ";padding-left:", function(props) {
+}), ";padding-left:", (function(props) {
   return props.labelRight ? null : "40px";
-}, ";text-align:", function(props) {
+}), ";text-align:", (function(props) {
   return props.right ? "right" : null;
-}, ';&:before{box-sizing:border-box;content:" ";position:absolute;display:block;width:30px;height:30px;border:1px solid ', function(props) {
-  return colors$2.getFromTheme(props, "helper");
-}, ";top:0;border-radius:5px;transition-timing-function:ease;transition-duration:0.15s;transition-property:background-color,background-image;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);background-color:", function(props) {
-  return colors$2.getFromTheme(props, "inverse");
-}, ";background-size:20px;background-position:center;background-repeat:no-repeat;}"), AphCheckboxStyled = _styled("input", {
-  target: "e1a240py2"
-})("box-sizing:border-box;position:absolute;display:block;width:30px;height:30px;margin:0;opacity:0;top:0;right:", function(props) {
+}), ';&:before{box-sizing:border-box;content:" ";position:absolute;display:block;width:30px;height:30px;border:1px solid ', (function(props) {
+  return colors$1.getFromTheme(props, "helper");
+}), ";top:0;border-radius:5px;transition-timing-function:ease;transition-duration:0.15s;transition-property:background-color,background-image;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "inverse");
+}), ";background-size:20px;background-position:center;background-repeat:no-repeat;}"), AphCheckboxStyled = _styled("input", {
+  target: "e19t1ysp2"
+})("box-sizing:border-box;position:absolute;display:block;width:30px;height:30px;margin:0;opacity:0;top:0;right:", (function(props) {
   return props.labelRight ? "0" : null;
-}, ";left:", function(props) {
+}), ";left:", (function(props) {
   return props.labelRight ? null : "0";
-}, ";vertical-align:middle;+ .aph-form-control-mask:before{right:", function(props) {
+}), ";vertical-align:middle;+ .aph-form-control-mask:before{right:", (function(props) {
   return props.labelRight || props.right ? "0" : null;
-}, ";left:", function(props) {
+}), ";left:", (function(props) {
   return props.labelRight || props.right ? null : "0";
-}, ";}&:focus,&:active,&:checked{+ .aph-form-control-mask:before{border-color:", function(props) {
-  return colors$2.getFromTheme(props, props.color || "secondary");
-}, ";}}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
+}), ";}&:focus,&:active,&:checked{+ .aph-form-control-mask:before{border-color:", (function(props) {
+  return colors$1.getFromTheme(props, props.color || "secondary");
+}), ";}}&:checked + .aph-form-control-mask:before{background-image:url('", (function(props) {
   return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
-    color: colors$2.getFromTheme(props, props.color || "secondary")
+    color: colors$1.getFromTheme(props, props.color || "secondary")
   }));
-}, "');}&.disabled,&:disabled{+ .aph-form-control-mask:before{border-color:", function(props) {
-  return colors$2.getFromTheme(props, "disabled");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "background");
-}, ";}&:checked + .aph-form-control-mask:before{background-image:url('", function(props) {
+}), "');}&.disabled,&:disabled{+ .aph-form-control-mask:before{border-color:", (function(props) {
+  return colors$1.getFromTheme(props, "disabled");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "background");
+}), ";}&:checked + .aph-form-control-mask:before{background-image:url('", (function(props) {
   return ICONS.ENCODE_SVG(React__default.createElement(IconCheckThin, {
     size: 20,
-    color: colors$2.getFromTheme(props, "disabled")
+    color: colors$1.getFromTheme(props, "disabled")
   }));
-}, "');}}"), Checkbox = React.forwardRef(function(props, ref) {
+}), "');}}"), Checkbox = React.forwardRef((function(props, ref) {
   var className = props.className, children = props.children, color = props.color, id = props.id, right = props.right, labelProps = props.labelProps, labelRight = props.labelRight, newProps = Object.assign({}, props);
-  return delete newProps.children, React__default.createElement(AphCheckboxWrapperStyled, null, React__default.createElement(AphCheckboxStyled, _extends({
+  return delete newProps.children, React__default.createElement(AphCheckboxWrapperStyled, null, React__default.createElement(AphCheckboxStyled, _extends$z({
     className: "aph-form-control ".concat(className || "")
   }, newProps, {
     ref: ref,
     type: "checkbox"
-  })), React__default.createElement(AphCheckboxMaskStyled, _extends({
+  })), React__default.createElement(AphCheckboxMaskStyled, _extends$z({
     className: "aph-form-control-mask ".concat(className || ""),
     htmlFor: id,
     color: color,
     right: right,
     labelRight: labelRight || right
   }, labelProps), children));
-});
+}));
 
 Checkbox.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),
@@ -5566,47 +6713,89 @@ var AphFormControlWrapperStyled = _styled("div", {
   styles: "box-sizing:border-box;position:relative;display:block;"
 }), AphFormControlLabelStyled = _styled("label", {
   target: "e17pdeij0"
-})("box-sizing:border-box;position:absolute;top:12.5px;left:0;right:0;display:inline-block;padding:2.5px 10px;border-radius:5px;pointer-events:none;font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
-  return colors$2.getFromTheme(props, "helper");
-}, ";text-transform:uppercase;transition-property:top,font-size;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:0;font-size:", SIZES.SM.FONT_SIZE, ";}"), FormControlStyled = _styled("input", {
+})("box-sizing:border-box;position:absolute;top:12.5px;left:0;right:0;display:inline-block;padding:2.5px 10px;border-radius:5px;pointer-events:none;font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", (function(props) {
+  return colors$1.getFromTheme(props, "helper");
+}), ";text-transform:uppercase;transition-property:top,font-size;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;&.aph-form-label--top{top:0;font-size:", SIZES.SM.FONT_SIZE, ";}"), FormControlStyled = _styled("input", {
   target: "eub2l8f0"
-})("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:", function(props) {
+})("box-sizing:border-box;display:block;width:100%;margin:0;min-height:50px;padding:", (function(props) {
   return props.hasLabel ? 2 : 1;
-}, "0px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", function(props) {
-  return colors$2.getFromTheme(props, "base");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "background");
-}, ";border-radius:", RADIUS.XS, "px;border:0;outline:0;transition-property:color,padding;transition-timing-function:linear;transition-duration:0.15s;will-change:color,padding;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&::placeholder{color:", function(props) {
-  return colors$2.getFromTheme(props, "mercury", "light");
-}, ";font-weight:300;}&:active,&:focus{color:", function(props) {
-  return colors$2.getFromTheme(props, props.error ? "error" : "base");
-}, ";+ .aph-form-label{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", function(props) {
-  return colors$2.getFromTheme(props, props.error ? "error" : props.color || "secondary");
-}, ";}}&.disabled,&:disabled{cursor:not-allowed;color:", function(props) {
-  return colors$2.getFromTheme(props, "base");
-}, ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "disabled", "crystal");
-}, ";&:hover,&:active,&:focus{+ .aph-form-label{color:", function(props) {
-  return colors$2.getFromTheme(props, "helper");
-}, ";}}}&.aph-form-control--middle{padding:10px;}", function(props) {
-  return props.error ? "\n        color: ".concat(colors$2.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$2.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$2.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;
-}, " ", function(props) {
+}), "0px 10px 0;font-weight:", SIZES.MD.FONT_WEIGHT, ";font-size:", SIZES.MD.FONT_SIZE, ";line-height:", SIZES.MD.LINE_HEIGHT, ";color:", (function(props) {
+  return colors$1.getFromTheme(props, "base");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "background");
+}), ";border-radius:", RADIUS.XS, "px;border:0;outline:0;transition-property:color,padding;transition-timing-function:linear;transition-duration:0.15s;will-change:color,padding;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&::placeholder{color:", (function(props) {
+  return colors$1.getFromTheme(props, "mercury", "light");
+}), ";font-weight:300;}&:active,&:focus{color:", (function(props) {
+  return colors$1.getFromTheme(props, props.error ? "error" : "base");
+}), ";+ .aph-form-label{top:0;font-size:", SIZES.SM.FONT_SIZE, ";transform:translateY(0);}}&:hover,&:active,&:focus{border:0;outline:0;+ .aph-form-label{color:", (function(props) {
+  return colors$1.getFromTheme(props, props.error ? "error" : props.color || "secondary");
+}), ";}}&.disabled,&:disabled{cursor:not-allowed;color:", (function(props) {
+  return colors$1.getFromTheme(props, "base");
+}), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "disabled", "crystal");
+}), ";&:hover,&:active,&:focus{+ .aph-form-label{color:", (function(props) {
+  return colors$1.getFromTheme(props, "helper");
+}), ";}}}&.aph-form-control--middle{padding:10px;}", (function(props) {
+  return props.error ? "\n        color: ".concat(colors$1.getFromTheme(props, "error"), ";\n\n        + .aph-form-label {\n            color: ").concat(colors$1.getFromTheme(props, "error"), ";\n        }\n\n        &:hover,\n        &:active,\n        &:focus {\n            + .aph-form-label {\n                color: ").concat(colors$1.getFromTheme(props, "error"), ";\n            }\n        }\n    ") : null;
+}), " ", (function(props) {
   return props.styles;
-}, ";"), AphFormControlErrorMsgStyled = _styled("label", {
+}), ";"), AphFormControlErrorMsgStyled = _styled("label", {
   target: "epzfivm0"
-})("box-sizing:border-box;display:block;padding:0 10px;max-height:0;color:", function(props) {
-  return colors$2.getFromTheme(props, "error");
-}, ";font-size:", SIZES.SM.FONT_SIZE, ";line-height:", SIZES.SM.LINE_HEIGHT, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;transition-property:max-height;", function(props) {
+})("box-sizing:border-box;display:block;padding:0 10px;max-height:0;color:", (function(props) {
+  return colors$1.getFromTheme(props, "error");
+}), ";font-size:", SIZES.SM.FONT_SIZE, ";line-height:", SIZES.SM.LINE_HEIGHT, ";transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:0.15s;transition-property:max-height;", (function(props) {
   return props.styles;
-}, ";"), FormControlInputNumber = React.memo(React.forwardRef(function(props, ref) {
-  var id = props.id, className = props.className, label = props.label, labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = (props.prefix,
-  props.error, props.errorMessage), _useState = React.useState("number" == typeof value), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1], inheritProps = Object.assign({}, props);
-  return [ "label", "labelProps", "errorMessage" ].map(function(excludedProp) {
+}), ";");
+
+function _extends$A() {
+  return (_extends$A = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$a(arr, i) {
+  return _arrayWithHoles$a(arr) || _iterableToArrayLimit$a(arr, i) || _nonIterableRest$a();
+}
+
+function _nonIterableRest$a() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$a(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$a(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+var InputNumber = React.memo(React.forwardRef((function(props, ref) {
+  var id = props.id, className = props.className, label = props.label, labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = props.errorMessage, _useState2 = _slicedToArray$a(React.useState("number" == typeof value), 2), hasValue = _useState2[0], setHasValue = _useState2[1], inheritProps = Object.assign({}, props);
+  return [ "label", "labelProps", "errorMessage" ].map((function(excludedProp) {
     return delete inheritProps[excludedProp], !0;
-  }), React.useEffect(function() {
+  })), React.useEffect((function() {
     setHasValue("number" == typeof value);
-  }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, inheritProps, {
-    as: InputNumber,
+  }), [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends$A({}, inheritProps, {
+    as: LibInputNumber,
     ref: ref,
     hasLabel: !!label,
     onChange: function(inputValue) {
@@ -5614,7 +6803,7 @@ var AphFormControlWrapperStyled = _styled("div", {
     },
     enableMobileNumericKeyboard: !0,
     className: "aph-form-control ".concat(!label || !label && hasValue ? "aph-form-control--middle" : "", " ").concat(className || "")
-  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends$A({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? "aph-form-label--top" : "")
   }), label) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
@@ -5624,15 +6813,25 @@ var AphFormControlWrapperStyled = _styled("div", {
     } : null,
     className: "aph-form-error"
   }, errorMessage || ""));
-}));
+})));
 
-FormControlInputNumber.defaultProps = {
+function _extends$B() {
+  return (_extends$B = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+InputNumber.defaultProps = {
   id: "",
   label: "",
   labelProps: {},
   type: "tel",
   styles: {}
-}, FormControlInputNumber.propTypes = {
+}, InputNumber.propTypes = {
   id: propTypes.string.isRequired,
   label: propTypes.string,
   labelProps: propTypes.object,
@@ -5640,12 +6839,11 @@ FormControlInputNumber.defaultProps = {
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
-var FormControlInputNumber$1 = React.memo(React.forwardRef(function(props, ref) {
-  var id = props.id, className = props.className, label = props.label, labelProps = props.labelProps, onChange = (props.placeholder,
-  props.value, props.onChange), error = props.error, errorMessage = props.errorMessage, inheritProps = Object.assign({}, props);
-  return [ "label", "labelProps", "errorMessage" ].map(function(excludedProp) {
+var InputNumber$1 = React.memo(React.forwardRef((function(props, ref) {
+  var id = props.id, className = props.className, label = props.label, labelProps = props.labelProps, onChange = props.onChange, error = props.error, errorMessage = props.errorMessage, inheritProps = Object.assign({}, props);
+  return [ "label", "labelProps", "errorMessage" ].map((function(excludedProp) {
     return delete inheritProps[excludedProp], !0;
-  }), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, inheritProps, {
+  })), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends$B({}, inheritProps, {
     as: CurrencyInput,
     ref: ref,
     hasLabel: !!label,
@@ -5655,7 +6853,7 @@ var FormControlInputNumber$1 = React.memo(React.forwardRef(function(props, ref) 
       "function" == typeof onChange && onChange(Object.assign({}, evt), floatValue, maskedValue);
     },
     className: "aph-form-control ".concat(className || "")
-  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends$B({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label aph-form-label--top"
   }), label) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
@@ -5665,9 +6863,9 @@ var FormControlInputNumber$1 = React.memo(React.forwardRef(function(props, ref) 
     } : null,
     className: "aph-form-error"
   }, errorMessage || ""));
-}));
+})));
 
-FormControlInputNumber$1.defaultProps = {
+InputNumber$1.defaultProps = {
   id: "",
   label: "",
   btn: null,
@@ -5680,7 +6878,7 @@ FormControlInputNumber$1.defaultProps = {
   precision: 2,
   allowEmpty: !0,
   allowNegative: !0
-}, FormControlInputNumber$1.propTypes = {
+}, InputNumber$1.propTypes = {
   id: propTypes.string.isRequired,
   label: propTypes.string,
   btn: propTypes.object,
@@ -5697,31 +6895,74 @@ FormControlInputNumber$1.defaultProps = {
 
 var AphFormControlButtonStyled = _styled("button", {
   target: "ect8n7f0"
-})("box-sizing:border-box;position:absolute;display:block;padding:0;margin:0;width:30px;height:30px;top:10px;z-index:10;font-size:30px;line-height:30px;border:0;outline:0;background:transparent;text-align:center;&:active,&:focus,&:hover{color:", function(props) {
-  return colors$2.getFromTheme(props, "base");
-}, ";border:0;outline:0;background:transparent;}", function(props) {
+})("box-sizing:border-box;position:absolute;display:block;padding:0;margin:0;width:30px;height:30px;top:10px;z-index:10;font-size:30px;line-height:30px;border:0;outline:0;background:transparent;text-align:center;&:active,&:focus,&:hover{color:", (function(props) {
+  return colors$1.getFromTheme(props, "base");
+}), ";border:0;outline:0;background:transparent;}", (function(props) {
   return props.left ? "left" : "right";
-}, ":5px;", function(props) {
+}), ":5px;", (function(props) {
   return props.styles;
-}, ";"), Input = React.memo(React.forwardRef(function(props, ref) {
-  if ("checkbox" === type) return React__default.createElement(Checkbox, _extends({}, props, {
-    color: props.error ? "error" : props.color,
+}), ";");
+
+function _slicedToArray$b(arr, i) {
+  return _arrayWithHoles$b(arr) || _iterableToArrayLimit$b(arr, i) || _nonIterableRest$b();
+}
+
+function _nonIterableRest$b() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$b(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$b(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _extends$C() {
+  return (_extends$C = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+var Input = React.memo(React.forwardRef((function(props, ref) {
+  var _ref = props || {}, color = _ref.color, error = _ref.error, type = _ref.type;
+  if ("checkbox" === type) return React__default.createElement(Checkbox, _extends$C({}, props, {
+    color: error ? "error" : color,
     ref: ref
   }));
-  if ("number" === type) return React__default.createElement(FormControlInputNumber, _extends({}, props, {
+  if ("number" === type) return React__default.createElement(InputNumber, _extends$C({}, props, {
     ref: ref
   }));
-  if ("currency" === type) return React__default.createElement(FormControlInputNumber$1, _extends({}, props, {
+  if ("currency" === type) return React__default.createElement(InputNumber$1, _extends$C({}, props, {
     ref: ref
   }));
-  var id = props.id, className = props.className, label = props.label, labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, onPaste = props.onPaste, preventPaste = props.preventPaste, type = props.type, btn = props.btn, button = props.button, errorMessage = (props.error,
-  props.errorMessage), _useState = (props.color, React.useState(!!value)), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1];
-  return React.useEffect(function() {
+  var id = props.id, className = props.className, label = props.label, labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, onPaste = props.onPaste, preventPaste = props.preventPaste, btn = props.btn, button = props.button, errorMessage = props.errorMessage, _useState2 = _slicedToArray$b(React.useState(!!value), 2), hasValue = _useState2[0], setHasValue = _useState2[1];
+  return React.useEffect((function() {
     setHasValue(!!value);
-  }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, {
+  }), [ value ]), React__default.createElement(AphFormControlWrapperStyled, {
     hasButton: !(!btn && !button),
     buttonAlign: btn && btn.align ? btn.align : button && button.align ? button.align : ""
-  }, React__default.createElement(FormControlStyled, _extends({
+  }, React__default.createElement(FormControlStyled, _extends$C({
     name: id
   }, props, {
     ref: ref,
@@ -5735,22 +6976,22 @@ var AphFormControlButtonStyled = _styled("button", {
       preventPaste && evt.preventDefault(), "function" == typeof onPaste && onPaste(Object.assign({}, evt), inputValue);
     },
     className: "aph-form-control ".concat(!label || !label && hasValue ? "aph-form-control--middle" : "", " ").concat(className || "")
-  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends$C({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? "aph-form-label--top" : "")
-  }), label) : null, btn || button ? React__default.createElement(AphFormControlButtonStyled, null, React__default.createElement("span", _extends({}, btn, button))) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
+  }), label) : null, btn || button ? React__default.createElement(AphFormControlButtonStyled, null, React__default.createElement("span", _extends$C({}, btn, button))) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
     htmlFor: id,
     styles: errorMessage ? {
       maxHeight: "600px"
     } : null,
     className: "aph-form-error"
   }, errorMessage || ""));
-}));
+})));
 
 function InputMask(props) {
-  return React__default.createElement(LibInputMask, props, function(inputProps) {
+  return React__default.createElement(LibInputMask, props, (function(inputProps) {
     return React__default.createElement(Input, inputProps);
-  });
+  }));
 }
 
 function cnpjValidator() {
@@ -5767,63 +7008,139 @@ function emailValidator(email) {
   return /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
-function ownKeys$k(object, enumerableOnly) {
+function _extends$D() {
+  return (_extends$D = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function ownKeys$i(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$k(target) {
+function _objectSpread$i(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$k(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$k(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$i(Object(source), !0).forEach((function(key) {
+      _defineProperty$k(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$i(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
 }
 
+function _defineProperty$k(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
+}
+
+function _slicedToArray$c(arr, i) {
+  return _arrayWithHoles$c(arr) || _iterableToArrayLimit$c(arr, i) || _nonIterableRest$c();
+}
+
+function _nonIterableRest$c() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$c(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$c(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _objectWithoutProperties$n(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$n(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$n(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
+
 function InputCpf(_ref) {
-  var error = _ref.error, onChange = _ref.onChange, pMask = _ref.mask, rest = _objectWithoutProperties(_ref, [ "error", "onChange", "mask" ]), mask = pMask || "999.999.999-99", _useState = React.useState(error || !1), _useState2 = _slicedToArray(_useState, 2), hasError = _useState2[0], setHasError = _useState2[1];
-  return React__default.createElement(InputMask, _extends({
+  var error = _ref.error, onChange = _ref.onChange, pMask = _ref.mask, rest = _objectWithoutProperties$n(_ref, [ "error", "onChange", "mask" ]), mask = pMask || "999.999.999-99", _useState2 = _slicedToArray$c(React.useState(error || !1), 2), hasError = _useState2[0], setHasError = _useState2[1];
+  return React__default.createElement(InputMask, _extends$D({
     mask: mask,
     error: error || hasError,
     onChange: function(evt) {
       var value = ((evt || {}).target || {}).value, isValid = cpfValidator(value);
-      setHasError(!(!value || isValid)), onChange(_objectSpread$k({}, evt || {}));
+      setHasError(!(!value || isValid)), onChange(_objectSpread$i({}, evt || {}));
     },
     pattern: "\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}"
   }, rest));
 }
 
-function ownKeys$l(object, enumerableOnly) {
+function ownKeys$j(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
+    enumerableOnly && (symbols = symbols.filter((function(sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    }))), keys.push.apply(keys, symbols);
   }
   return keys;
 }
 
-function _objectSpread$l(target) {
+function _objectSpread$j(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$l(Object(source), !0).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$l(Object(source)).forEach(function(key) {
+    i % 2 ? ownKeys$j(Object(source), !0).forEach((function(key) {
+      _defineProperty$l(target, key, source[key]);
+    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$j(Object(source)).forEach((function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-    });
+    }));
   }
   return target;
+}
+
+function _defineProperty$l(obj, key, value) {
+  return key in obj ? Object.defineProperty(obj, key, {
+    value: value,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : obj[key] = value, obj;
 }
 
 Input.defaultProps = {
@@ -5852,7 +7169,7 @@ Input.defaultProps = {
 
 var customStyles = {
   control: function(provided, state) {
-    return _objectSpread$l({}, provided, {}, {
+    return _objectSpread$j({}, provided, {}, {
       fontSize: "16px",
       border: "none",
       minHeight: "50px",
@@ -5860,47 +7177,98 @@ var customStyles = {
       borderRadius: "5px",
       cursor: "pointer",
       padding: "0 2px",
-      background: state.isFocused ? colors$2.get("ocean", "crystal") : state.isDisabled ? colors$2.get("mercury", "crystal") : colors$2.get("smoke")
+      background: state.isFocused ? colors$1.get("ocean", "crystal") : state.isDisabled ? colors$1.get("mercury", "crystal") : colors$1.get("smoke")
     });
   },
   indicatorSeparator: function() {
-    return _objectSpread$l({}, {
+    return _objectSpread$j({}, {
       display: "none"
     });
   },
   dropdownIndicator: function() {
-    return _objectSpread$l({}, {
+    return _objectSpread$j({}, {
       display: "flex",
-      color: colors$2.get("black"),
+      color: colors$1.get("black"),
       padding: "8px"
     });
   },
   menu: function(provided) {
-    var menuStyles = _objectSpread$l({}, provided, {
+    var menuStyles = _objectSpread$j({}, provided, {
       padding: "10px 0"
     });
-    return _objectSpread$l({}, provided, {}, menuStyles);
+    return _objectSpread$j({}, provided, {}, menuStyles);
   },
   option: function(provided, state) {
-    return _objectSpread$l({}, provided, {}, {
+    return _objectSpread$j({}, provided, {}, {
       fontSize: "16px",
       cursor: "pointer",
-      color: colors$2.get("ocean", "original"),
-      background: state.isFocused || state.isSelected ? colors$2.get("ocean", "crystal") : "none",
+      color: colors$1.get("ocean", "original"),
+      background: state.isFocused || state.isSelected ? colors$1.get("ocean", "crystal") : "none",
       "&:hover": {
-        background: colors$2.get("ocean", "crystal")
+        background: colors$1.get("ocean", "crystal")
       }
     });
   }
 };
 
+function _extends$E() {
+  return (_extends$E = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
 function Autocomplete(props) {
   var error = props.error, isAsync = props.isAsync;
-  return React__default.createElement(AphFormControlWrapperStyled, null, isAsync ? React__default.createElement(AsyncSelect, _extends({
+  return React__default.createElement(AphFormControlWrapperStyled, null, isAsync ? React__default.createElement(AsyncSelect, _extends$E({
     styles: customStyles
-  }, props)) : React__default.createElement(Select, _extends({
+  }, props)) : React__default.createElement(Select$1, _extends$E({
     styles: customStyles
   }, props)), error && React__default.createElement(AphFormControlErrorMsgStyled, null, error));
+}
+
+function _extends$F() {
+  return (_extends$F = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$d(arr, i) {
+  return _arrayWithHoles$d(arr) || _iterableToArrayLimit$d(arr, i) || _nonIterableRest$d();
+}
+
+function _nonIterableRest$d() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$d(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$d(arr) {
+  if (Array.isArray(arr)) return arr;
 }
 
 Autocomplete.propTypes = {
@@ -5927,12 +7295,11 @@ Autocomplete.propTypes = {
   isDisabled: !1
 };
 
-var FormControlSelect = React.memo(React.forwardRef(function(props, ref) {
-  var id = props.id, label = (props.className, props.label), labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = (props.type,
-  props.btn, props.error, props.errorMessage), _useState = (props.color, React.useState(!("number" != typeof value && !value))), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1];
-  return React.useEffect(function() {
+var Select = React.memo(React.forwardRef((function(props, ref) {
+  var id = props.id, label = props.label, labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = props.errorMessage, _useState2 = _slicedToArray$d(React.useState(!("number" != typeof value && !value)), 2), hasValue = _useState2[0], setHasValue = _useState2[1];
+  return React.useEffect((function() {
     setHasValue(!!value);
-  }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, props, {
+  }), [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends$F({}, props, {
     as: "select",
     ref: ref,
     hasLabel: !!label,
@@ -5945,11 +7312,12 @@ var FormControlSelect = React.memo(React.forwardRef(function(props, ref) {
       cursor: "pointer",
       paddingRight: "40px"
     }, props.styles)
-  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends$F({}, labelProps, {
     htmlFor: id,
     className: "aph-form-label ".concat(placeholder || hasValue ? "aph-form-label--top" : "")
   }), label) : null, React__default.createElement(AphFormControlButtonStyled, {
     type: "button",
+    zIndex: "-1",
     styles: {
       pointerEvents: "none"
     }
@@ -5964,32 +7332,72 @@ var FormControlSelect = React.memo(React.forwardRef(function(props, ref) {
     } : null,
     className: "aph-form-error"
   }, errorMessage || ""));
-}));
+})));
 
-FormControlSelect.defaultProps = {
+function _extends$G() {
+  return (_extends$G = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _slicedToArray$e(arr, i) {
+  return _arrayWithHoles$e(arr) || _iterableToArrayLimit$e(arr, i) || _nonIterableRest$e();
+}
+
+function _nonIterableRest$e() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit$e(arr, i) {
+  if (Symbol.iterator in Object(arr) || "[object Arguments]" === Object.prototype.toString.call(arr)) {
+    var _arr = [], _n = !0, _d = !1, _e = void 0;
+    try {
+      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), 
+      !i || _arr.length !== i); _n = !0) ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        _n || null == _i.return || _i.return();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayWithHoles$e(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+Select.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),
   label: "",
   btn: null,
   styles: {}
-}, FormControlSelect.propTypes = {
+}, Select.propTypes = {
   id: propTypes.string.isRequired,
   label: propTypes.string,
   btn: propTypes.object,
   styles: propTypes.oneOfType([ propTypes.string, propTypes.object ])
 };
 
-var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
-  var id = props.id, label = (props.className, props.label), labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = (props.type,
-  props.btn, props.error, props.errorMessage), _useState = (props.color, React.useState(!!value)), _useState2 = _slicedToArray(_useState, 2), hasValue = _useState2[0], setHasValue = _useState2[1], inputId = "".concat(id || "formControl"), styles = '\n        max-width : 100%;\n        min-width : 100%;\n        min-height: 90px;\n        padding-bottom: 10px;\n\n        &[rows="4"] {\n            min-height: 110px;\n        }\n\n        &[rows="5"] {\n            min-height: 130px;\n        }\n\n        &[rows="6"] {\n            min-height: 150px;\n        }\n\n        &[rows="7"] {\n            min-height: 170px;\n        }\n\n        &[rows="8"] {\n            min-height: 190px;\n        }\n\n        &[rows="9"] {\n            min-height: 210px;\n        }\n\n        &[rows="10"] {\n            min-height: 230px;\n        }\n\n        + .aph-form-label {\n            display: block;\n            top    : 0;\n\n            background-color: '.concat(function(props) {
-    return colors.getFromTheme(props, "background");
-  }, ";\n        }\n\n        &:disabled {\n            + .aph-form-label {\n                background-color: ").concat(function(props) {
-    return colors.getFromTheme(props, "disabled", "crystal");
-  }, ";\n            }\n        }\n\n        ").concat(function(props) {
+var TextArea = React.memo(React.forwardRef((function(props, ref) {
+  var id = props.id, label = props.label, labelProps = props.labelProps, placeholder = props.placeholder, value = props.value, onChange = props.onChange, errorMessage = props.errorMessage, _useState2 = _slicedToArray$e(React.useState(!!value), 2), hasValue = _useState2[0], setHasValue = _useState2[1], inputId = "".concat(id || "formControl"), styles = '\n        max-width : 100%;\n        min-width : 100%;\n        min-height: 90px;\n        padding-bottom: 10px;\n\n        &[rows="4"] {\n            min-height: 110px;\n        }\n\n        &[rows="5"] {\n            min-height: 130px;\n        }\n\n        &[rows="6"] {\n            min-height: 150px;\n        }\n\n        &[rows="7"] {\n            min-height: 170px;\n        }\n\n        &[rows="8"] {\n            min-height: 190px;\n        }\n\n        &[rows="9"] {\n            min-height: 210px;\n        }\n\n        &[rows="10"] {\n            min-height: 230px;\n        }\n\n        + .aph-form-label {\n            display: block;\n            top    : 0;\n\n            background-color: '.concat((function(props) {
+    return colors$1.getFromTheme(props, "background");
+  }), ";\n        }\n\n        &:disabled {\n            + .aph-form-label {\n                background-color: ").concat((function(props) {
+    return colors$1.getFromTheme(props, "disabled", "crystal");
+  }), ";\n            }\n        }\n\n        ").concat((function(props) {
     return props.styles;
-  }, ";\n    ");
-  return React.useEffect(function() {
+  }), ";\n    ");
+  return React.useEffect((function() {
     setHasValue(!!value);
-  }, [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends({}, props, {
+  }), [ value ]), React__default.createElement(AphFormControlWrapperStyled, null, React__default.createElement(FormControlStyled, _extends$G({}, props, {
     as: "textarea",
     hasLabel: !!label,
     onChange: function(evt) {
@@ -5997,7 +7405,7 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
       setHasValue(!!inputValue), "function" == typeof onChange && onChange(Object.assign({}, evt));
     },
     styles: styles
-  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends({}, labelProps, {
+  })), label ? React__default.createElement(AphFormControlLabelStyled, _extends$G({}, labelProps, {
     htmlFor: inputId,
     className: "aph-form-label ".concat(placeholder || hasValue ? "aph-form-label--top" : "")
   }), label) : null, React__default.createElement(AphFormControlErrorMsgStyled, {
@@ -6007,13 +7415,13 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
     } : null,
     className: "aph-form-error"
   }, errorMessage || ""));
-})), aphFormSwitchCommonStyles = "\n    box-sizing: border-box;\n    cursor    : pointer;\n", AphFormSwitchWrapper = _styled("label", {
-  target: "e64k3mr0"
-})(aphFormSwitchCommonStyles, ";position:relative;display:flex;min-width:50px;min-height:30px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:", function(props) {
+}))), aphFormSwitchCommonStyles = "\n    box-sizing: border-box;\n    cursor    : pointer;\n", AphFormSwitchWrapper = _styled("label", {
+  target: "e3wo45e0"
+})(aphFormSwitchCommonStyles, ";position:relative;display:flex;min-width:50px;min-height:30px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:", (function(props) {
   return props.textSmall ? SIZES.SM.FONT_SIZE : null;
-}, ";text-align:", function(props) {
+}), ";text-align:", (function(props) {
   return props.textAlign || "left";
-}, ";", function(props) {
+}), ";", (function(props) {
   return "right" !== props.toggleAlign ? {
     paddingLeft: "50px",
     ".aph-form-switch__wrapper": {
@@ -6025,39 +7433,51 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
       right: 0
     }
   };
-}, ";", function(props) {
+}), ";", (function(props) {
   return props.styles;
-}, ";"), AphFormSwitchToggleWrapper = _styled("label", {
-  target: "e64k3mr1"
+}), ";"), AphFormSwitchToggleWrapper = _styled("label", {
+  target: "e3wo45e1"
 })(aphFormSwitchCommonStyles, ";position:absolute;display:block;top:50%;transform:translateY(-50%);line-height:0;"), AphFormSwitchToggle = _styled("label", {
-  target: "e64k3mr2"
-})(aphFormSwitchCommonStyles, ";position:absolute;top:0;width:30px;height:30px;transition-property:right,left;transition-duration:0.25s;transition-timing-function:ease;border-radius:50%;box-shadow:0 0 5px 0 ", colors$2.get("black", "original", .25), ";background-color:", function(props) {
-  return colors$2.getFromTheme(props, "white");
-}, ";"), AphFormSwitchInput = _styled("input", {
-  target: "e64k3mr3"
-})(aphFormSwitchCommonStyles, ";padding:0;margin:5px 0;width:50px;height:20px;border-radius:15px;background-color:", function(props) {
-  return colors$2.getFromTheme(props, "mercury", "light");
-}, ";border:0;outline:0;transition-property:background-color;transition-duration:0.25s;transition-timing-function:ease;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&.disabled,&:disabled{background-color:", function(props) {
-  return colors$2.getFromTheme(props, "disabled");
-}, ";}&:checked{background-color:", function(props) {
-  return colors$2.getFromTheme(props, props.color || "success");
-}, ";+ .aph-form-switch{&__toggle{left:20px;}}&:disabled{background-color:", function(props) {
-  return colors$2.getFromTheme(props, props.color || "success", "light", .5);
-}, ";}}+ .aph-form-switch{&__toggle{left:0;}}"), AphFormSwitchContent = _styled("label", {
-  target: "e64k3mr4"
-})(aphFormSwitchCommonStyles, ";display:block;width:100%;word-break:break-word;", function(props) {
+  target: "e3wo45e2"
+})(aphFormSwitchCommonStyles, ";position:absolute;top:0;width:30px;height:30px;transition-property:right,left;transition-duration:0.25s;transition-timing-function:ease;border-radius:50%;box-shadow:0 0 5px 0 ", colors$1.get("black", "original", .25), ";background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "white");
+}), ";"), AphFormSwitchInput = _styled("input", {
+  target: "e3wo45e3"
+})(aphFormSwitchCommonStyles, ";padding:0;margin:5px 0;width:50px;height:20px;border-radius:15px;background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "mercury", "light");
+}), ";border:0;outline:0;transition-property:background-color;transition-duration:0.25s;transition-timing-function:ease;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;&.disabled,&:disabled{background-color:", (function(props) {
+  return colors$1.getFromTheme(props, "disabled");
+}), ";}&:checked{background-color:", (function(props) {
+  return colors$1.getFromTheme(props, props.color || "success");
+}), ";+ .aph-form-switch{&__toggle{left:20px;}}&:disabled{background-color:", (function(props) {
+  return colors$1.getFromTheme(props, props.color || "success", "light", .5);
+}), ";}}+ .aph-form-switch{&__toggle{left:0;}}"), AphFormSwitchContent = _styled("label", {
+  target: "e3wo45e4"
+})(aphFormSwitchCommonStyles, ";display:block;width:100%;word-break:break-word;", (function(props) {
   return props.hasChildren ? "right" !== props.toggleAlign ? {
     paddingLeft: "10px"
   } : {
     paddingRight: "10px"
   } : null;
-}, ";"), AphFormSwitch = {
+}), ";"), SwitchStyled = {
   Wrapper: AphFormSwitchWrapper,
   ToggleWrapper: AphFormSwitchToggleWrapper,
   Toggle: AphFormSwitchToggle,
   Input: AphFormSwitchInput,
   Content: AphFormSwitchContent
-}, Switch = React.memo(React.forwardRef(function(props, ref) {
+};
+
+function _extends$H() {
+  return (_extends$H = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+var Switch = React.memo(React.forwardRef((function(props, ref) {
   var id = props.id, className = props.className, children = props.children, styles = props.styles, textAlign = props.textAlign, textSmall = props.textSmall, toggleAlign = props.toggleAlign, newProps = Object.assign({}, props, {
     children: void 0,
     styles: void 0,
@@ -6065,30 +7485,30 @@ var FormControlTextArea = React.memo(React.forwardRef(function(props, ref) {
     textSmall: void 0,
     toggleAlign: void 0
   });
-  return React__default.createElement(AphFormSwitch.Wrapper, {
+  return React__default.createElement(SwitchStyled.Wrapper, {
     htmlFor: id,
     className: "aph-form-switch ".concat(className || ""),
     styles: styles,
     textAlign: textAlign,
     textSmall: textSmall,
     toggleAlign: toggleAlign
-  }, React__default.createElement(AphFormSwitch.ToggleWrapper, {
+  }, React__default.createElement(SwitchStyled.ToggleWrapper, {
     htmlFor: id,
     className: "aph-form-switch__wrapper"
-  }, React__default.createElement(AphFormSwitch.Input, _extends({}, newProps, {
+  }, React__default.createElement(SwitchStyled.Input, _extends$H({}, newProps, {
     ref: ref,
     id: id,
     type: "checkbox",
     className: "aph-form-switch__input"
-  })), React__default.createElement(AphFormSwitch.Toggle, {
+  })), React__default.createElement(SwitchStyled.Toggle, {
     htmlFor: id,
     className: "aph-form-switch__toggle"
-  })), children ? React__default.createElement(AphFormSwitch.Content, {
+  })), children ? React__default.createElement(SwitchStyled.Content, {
     htmlFor: id,
     hasChildren: !!children,
     toggleAlign: toggleAlign
   }, children) : null);
-}));
+})));
 
 Switch.defaultProps = {
   id: "formControlRandomID".concat(Math.random()),
@@ -6113,13 +7533,40 @@ var RadioButtonWrapper = _styled("label", {
   styles: "display:flex;align-items:center;cursor:pointer;position:relative;padding-top:5px;padding-left:40px;padding-bottom:5px;"
 }), RadioButtonInput = _styled("input", {
   target: "e1opukke1"
-})("position:absolute;left:0;display:none;width:30px;height:30px;~ i{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;left:0;width:30px;height:30px;border-radius:100%;border:1px solid ", colors$2.get("mercury", "original"), ";}&:checked ~ i{border:1px solid ", colors$2.get("secondary"), ';&:before{content:" ";position:absolute;display:block;width:14px;height:14px;background-color:', function(props) {
-  return props.disabled ? colors$2.get("disabled") : colors$2.get("secondary");
-}, ";border-radius:100%;}}&:disabled ~ i{border:1px solid ", colors$2.get("disabled"), ";}");
+})("position:absolute;left:0;display:none;width:30px;height:30px;~ i{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;left:0;width:30px;height:30px;border-radius:100%;border:1px solid ", colors$1.get("mercury", "original"), ";}&:checked ~ i{border:1px solid ", colors$1.get("secondary"), ';&:before{content:" ";position:absolute;display:block;width:14px;height:14px;background-color:', (function(props) {
+  return props.disabled ? colors$1.get("disabled") : colors$1.get("secondary");
+}), ";border-radius:100%;}}&:disabled ~ i{border:1px solid ", colors$1.get("disabled"), ";}");
+
+function _extends$I() {
+  return (_extends$I = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
+    }
+    return target;
+  }).apply(this, arguments);
+}
+
+function _objectWithoutProperties$o(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = _objectWithoutPropertiesLoose$o(source, excluded);
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) key = sourceSymbolKeys[i], excluded.indexOf(key) >= 0 || Object.prototype.propertyIsEnumerable.call(source, key) && (target[key] = source[key]);
+  }
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$o(source, excluded) {
+  if (null == source) return {};
+  var key, i, target = {}, sourceKeys = Object.keys(source);
+  for (i = 0; i < sourceKeys.length; i++) key = sourceKeys[i], excluded.indexOf(key) >= 0 || (target[key] = source[key]);
+  return target;
+}
 
 function RadioButton(_ref) {
-  var id = _ref.id, name = _ref.name, children = _ref.children, checked = _ref.checked, type = _ref.type, value = _ref.value, disabled = _ref.disabled, rest = _objectWithoutProperties(_ref, [ "id", "name", "children", "checked", "type", "value", "disabled" ]);
-  return React__default.createElement(RadioButtonWrapper, _extends({
+  var id = _ref.id, name = _ref.name, children = _ref.children, checked = _ref.checked, type = _ref.type, value = _ref.value, disabled = _ref.disabled, rest = _objectWithoutProperties$o(_ref, [ "id", "name", "children", "checked", "type", "value", "disabled" ]);
+  return React__default.createElement(RadioButtonWrapper, _extends$I({
     htmlFor: id
   }, rest), React__default.createElement(RadioButtonInput, {
     id: id,
@@ -6131,44 +7578,11 @@ function RadioButton(_ref) {
   }), React__default.createElement("i", null), React__default.createElement("span", null, children));
 }
 
-function useWindowSize() {
-  var isClient = "object" === ("undefined" == typeof window ? "undefined" : _typeof(window));
-  function getSize() {
-    var _window = isClient ? window : {}, width = _window.innerWidth, height = _window.innerHeight, xs = width <= SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL;
-    return {
-      width: width,
-      height: height,
-      xs: xs,
-      sm: sm,
-      md: md,
-      lg: lg,
-      xl: xl,
-      _lt_: {
-        xs: xs,
-        sm: xs,
-        md: xs || sm,
-        lg: xs || sm || md,
-        xl: xs || sm || md || lg
-      },
-      _gt_: {
-        xs: sm || md || lg || xl,
-        sm: md || lg || xl,
-        md: lg || xl,
-        lg: width > SCREEN_SIZES.LG,
-        xl: width > SCREEN_SIZES.XL
-      }
-    };
-  }
-  var _useState = React.useState(getSize), _useState2 = _slicedToArray(_useState, 2), windowSize = _useState2[0], setWindowSize = _useState2[1];
-  return React.useEffect(function() {
-    if (!isClient) return !1;
-    function handleResize() {
-      setWindowSize(getSize());
-    }
-    return window.addEventListener("resize", handleResize), function() {
-      return window.removeEventListener("resize", handleResize);
-    };
-  }, []), windowSize;
+function byProperty() {
+  var array = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], property = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "", reverse = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
+  return array.sort((function(a, b) {
+    return a[property] < b[property] ? reverse ? 1 : -1 : a[property] > b[property] ? reverse ? -1 : 1 : 0;
+  })), array;
 }
 
 RadioButton.defaultProps = {
@@ -6195,17 +7609,15 @@ RadioButton.defaultProps = {
   disabled: propTypes.bool
 };
 
-var sort = {
-  byProperty: function(array, property, reverse) {
-    return array.sort(function(a, b) {
-      return a[property] < b[property] ? reverse ? 1 : -1 : a[property] > b[property] ? reverse ? -1 : 1 : 0;
-    }), array;
-  }
-}, getSizes = function() {
+var sort = byProperty;
+
+sort.byProperty = byProperty;
+
+var getSizes = function() {
   var _window = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {
     innerWidth: 1280,
     innerHeight: 768
-  }, width = _window.innerWidth, height = _window.innerHeight, xs = width < SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL;
+  }, width = _window.innerWidth, height = _window.innerHeight, xs = width < SCREEN_SIZES.SM, sm = width >= SCREEN_SIZES.SM && width < SCREEN_SIZES.MD, md = width >= SCREEN_SIZES.MD && width < SCREEN_SIZES.LG, lg = width >= SCREEN_SIZES.LG && width < SCREEN_SIZES.XL, xl = width >= SCREEN_SIZES.XL, GTxs = sm || md || lg || xl, GTsm = md || lg || xl, GTmd = lg || xl, GTlg = width > SCREEN_SIZES.LG, GTxl = width > SCREEN_SIZES.XL, LTmd = xs || sm, LTlg = xs || sm || md, LTxl = xs || sm || md || lg;
   return {
     width: width,
     height: height,
@@ -6217,43 +7629,43 @@ var sort = {
     _lt_: {
       xs: xs,
       sm: xs,
-      md: xs || sm,
-      lg: xs || sm || md,
-      xl: xs || sm || md || lg
+      md: LTmd,
+      lg: LTlg,
+      xl: LTxl
     },
     _gt_: {
-      xs: sm || md || lg || xl,
-      sm: md || lg || xl,
-      md: lg || xl,
-      lg: width > SCREEN_SIZES.LG,
-      xl: width > SCREEN_SIZES.XL
+      xs: GTxs,
+      sm: GTsm,
+      md: GTmd,
+      lg: GTlg,
+      xl: GTxl
     }
   };
 }, initialState = getSizes();
 
-exports.A = A, exports.ANIMATIONS = ANIMATIONS, exports.Accordion = Accordion, exports.ActionBar = ActionBar,
-exports.Autocomplete = Autocomplete, exports.Avatar = Avatar, exports.Badge = Badge,
-exports.Button = Button, exports.COLORS = COLORS, exports.Card = Card, exports.Checkbox = Checkbox,
-exports.Clipboard = Clipboard, exports.Col = Column, exports.Collapsible = Collapsible,
-exports.Column = Column, exports.Container = Container, exports.Countdown = Countdown,
-exports.Dialog = Dialog, exports.Dropdown = Dropdown, exports.ExpansionPanel = ExpansionPanel,
-exports.FORM = FORM, exports.Flex = Flex$1, exports.GRID = GRID, exports.H1 = H1,
-exports.H2 = H2, exports.H3 = H3, exports.HoverActions = HoverActions, exports.HoverActionsItem = HoverActionItem,
-exports.ICONS = ICONS, exports.Icon = Icon, exports.Img = Img, exports.Input = Input,
-exports.InputCpf = InputCpf, exports.InputCurrency = FormControlInputNumber$1, exports.InputMask = InputMask,
-exports.InputNumber = FormControlInputNumber, exports.LAYOUT = LAYOUT, exports.Label = Label,
-exports.Link = A, exports.List = List, exports.ListGroup = ListGroup, exports.ListGroupItem = ListGroupItem,
-exports.ListItem = ListItem, exports.MEDIA_QUERIES = MEDIA_QUERIES, exports.Modal = Modal,
-exports.NumberFormat = NumberFormat, exports.P = P, exports.Pagination = Pagination,
-exports.Placeholder = Placeholder, exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS,
-exports.RadioButton = RadioButton, exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES,
-exports.SIZES = SIZES, exports.Scrollable = Scrollable, exports.Segment = Segment,
-exports.Select = FormControlSelect, exports.SidePill = SidePill, exports.Switch = Switch,
-exports.Table = Table, exports.Text = P, exports.TextArea = FormControlTextArea,
-exports.ToastsContainer = ToastsContainer, exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX,
-exports.animations = animations, exports.cnpjValidator = cnpjValidator, exports.colors = colors$2,
-exports.cpfValidator = cpfValidator, exports.emailValidator = emailValidator, exports.gradients = gradients,
-exports.layoutActions = layoutActions, exports.sort = sort, exports.text = text,
-exports.textAlign = textAlign, exports.textBreakAll = textBreakAll, exports.textColorfull = textColorfull,
-exports.textDefinitions = textDefinitions, exports.textTransform = textTransform,
-exports.textTruncate = textTruncate, exports.toast = reactToastify.toast, exports.useWindowSize = useWindowSize;
+exports.A = A, exports.ANIMATIONS = ANIMATIONS, exports.ActionBar = ActionBar, exports.Autocomplete = Autocomplete, 
+exports.Avatar = Avatar, exports.Badge = Badge, exports.Button = Button, exports.COLORS = COLORS, 
+exports.Card = Card, exports.Checkbox = Checkbox, exports.Clipboard = Clipboard, 
+exports.Col = Column, exports.Collapsible = Collapsible, exports.Column = Column, 
+exports.Container = Container, exports.Countdown = Countdown, exports.Dialog = Dialog, 
+exports.Dropdown = Dropdown, exports.ExpansionPanel = ExpansionPanel, exports.FORM = FORM, 
+exports.Flex = Flex$1, exports.GRID = GRID, exports.H1 = H1, exports.H2 = H2, exports.H3 = H3, 
+exports.HoverActions = HoverActions, exports.HoverActionsItem = HoverActionItem, 
+exports.ICONS = ICONS, exports.Icon = Icon, exports.Img = Img, exports.Input = Input, 
+exports.InputCpf = InputCpf, exports.InputCurrency = InputNumber$1, exports.InputMask = InputMask, 
+exports.InputNumber = InputNumber, exports.LAYOUT = LAYOUT, exports.Label = Label, 
+exports.Link = A, exports.List = List, exports.ListGroup = ListGroup, exports.ListGroupItem = ListGroupItem, 
+exports.ListItem = ListItem, exports.MEDIA_QUERIES = MEDIA_QUERIES, exports.Modal = Modal, 
+exports.NumberFormat = NumberFormat, exports.P = P, exports.Pagination = Pagination, 
+exports.Placeholder = Placeholder, exports.ProgressBar = ProgressBar, exports.RADIUS = RADIUS, 
+exports.RadioButton = RadioButton, exports.Row = Row, exports.SCREEN_SIZES = SCREEN_SIZES, 
+exports.SIZES = SIZES, exports.Scrollable = Scrollable, exports.Segment = Segment, 
+exports.Select = Select, exports.SidePill = SidePill, exports.Switch = Switch, exports.Table = Table, 
+exports.Text = P, exports.TextArea = TextArea, exports.ToastsContainer = ToastsContainer, 
+exports.Tooltip = Tooltip, exports.ZINDEX = ZINDEX, exports.animations = animations, 
+exports.cnpjValidator = cnpjValidator, exports.colors = colors$1, exports.cpfValidator = cpfValidator, 
+exports.emailValidator = emailValidator, exports.gradients = gradients, exports.layoutActions = layoutActions, 
+exports.sort = sort, exports.text = text, exports.textAlign = textAlign, exports.textBreakAll = textBreakAll, 
+exports.textColorfull = textColorfull, exports.textDefinitions = textDefinitions, 
+exports.textTransform = textTransform, exports.textTruncate = textTruncate, exports.toast = reactToastify.toast, 
+exports.useWindowSize = useWindowSize;
