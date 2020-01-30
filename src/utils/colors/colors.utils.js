@@ -108,13 +108,13 @@ const poison = getShadesFormat(
 let shades = {
     tangerine,
     ocean,
+    oil,
     mercury,
     bamboo,
     sunflower,
     ruby,
     supernova,
     mint,
-    oil,
     translucid,
     poison,
 };
@@ -328,8 +328,25 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
  */
 colors = {
     ...colors,
-
     set,
+    aliasKeys: [
+        'info',
+        'success',
+        'warning',
+        'error',
+        'link',
+    ],
+    statusKeys  : [
+        'approved',
+        'authorized',
+        'declined',
+        'cancelled',
+        'refund',
+        'limitexceeded',
+        'limitExceeded',
+        'manual review',
+        'pending',
+    ],
 };
 
 

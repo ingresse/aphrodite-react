@@ -4,12 +4,18 @@ import colors from '../colors/colors.utils';
 /**
  * Grandrients palette
  */
-let palette = {};
+let palette    = {};
+const excluded = [
+    ...colors.aliasKeys,
+    ...colors.statusKeys,
+    'poison',
+    'translucid',
+];
 
 for (const colorKey in colors.shades) {
     const color = colors.shades[colorKey];
 
-    if (colorKey !== 'translucid' &&
+    if (!excluded.includes(colorKey) &&
         (typeof color === 'object') && color.light && color.dark) {
         palette[colorKey] = {
             start: color.dark,

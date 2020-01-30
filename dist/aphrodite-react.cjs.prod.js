@@ -8,11 +8,7 @@ Object.defineProperty(exports, "__esModule", {
   value: !0
 });
 
-var core = require("@emotion/core"), ReactDOMServer = _interopDefault(require("react-dom/server")), React = require("react"), React__default = _interopDefault(React), propTypes = _interopDefault(require("prop-types")), _styled = _interopDefault(require("@emotion/styled-base")), chroma = _interopDefault(require("chroma-js")), ReactClipboard = _interopDefault(require("react-clipboard.js")), Formatter = _interopDefault(require("react-number-format")), reactToastify = require("react-toastify");
-
-require("react-toastify/dist/ReactToastify.min.css");
-
-var ReactTooltip = _interopDefault(require("react-tooltip")), Paginator = _interopDefault(require("rc-pagination")), localeInfo = _interopDefault(require("rc-pagination/lib/locale/pt_BR")), LibInputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), LibInputMask = _interopDefault(require("react-input-mask")), CNPJ = require("@fnando/cnpj"), CPF = require("@fnando/cpf"), Select$1 = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
+var core = require("@emotion/core"), ReactDOMServer = _interopDefault(require("react-dom/server")), React = require("react"), React__default = _interopDefault(React), propTypes = _interopDefault(require("prop-types")), _styled = _interopDefault(require("@emotion/styled-base")), chroma = _interopDefault(require("chroma-js")), ReactClipboard = _interopDefault(require("react-clipboard.js")), Formatter = _interopDefault(require("react-number-format")), reactToastify = require("react-toastify"), ReactTooltip = _interopDefault(require("react-tooltip")), Paginator = _interopDefault(require("rc-pagination")), localeInfo = _interopDefault(require("rc-pagination/lib/locale/pt_BR")), LibInputNumber = _interopDefault(require("react-input-number")), CurrencyInput = _interopDefault(require("react-currency-input")), LibInputMask = _interopDefault(require("react-input-mask")), CNPJ = require("@fnando/cnpj"), CPF = require("@fnando/cpf"), Select$1 = _interopDefault(require("react-select")), AsyncSelect = _interopDefault(require("react-select/async"));
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral([ "\n    0% {\n        transform: scaleY(0.1);\n    }\n\n    25% {\n        transform: scaleY(1);\n    }\n\n    50% {\n        transform: scaleY(0.95);\n    }\n\n    100% {\n        transform: scaleY(1);\n    }\n" ]);
@@ -424,13 +420,13 @@ var getShadesFormat = function(dark, original, light, crystal) {
 }, tangerine = getShadesFormat("rgb(250, 132, 9)", "rgb(252, 163, 17)", "rgb(252, 190, 24)", "rgb(254, 232, 195)"), ocean = getShadesFormat("rgb(0, 134, 201)", "rgb(0, 165, 219)", "rgb(0, 192, 232)", "rgb(191, 232, 246)"), mercury = getShadesFormat("rgb(90, 96, 101)", "rgb(122, 128, 133)", "rgb(152, 159, 163)", "rgb(221, 223, 224)"), bamboo = getShadesFormat("rgb(66, 173, 60)", "rgb(96, 198, 89)", "rgb(126, 218, 118)", "rgb(157, 235, 149)"), sunflower = getShadesFormat("rgb(255, 173, 17)", "rgb(255, 198, 30)", "rgb(255, 218, 43)", "rgb(255, 240, 198)"), ruby = getShadesFormat("rgb(230, 38, 39)", "rgb(239, 60, 62)", "rgb(245, 83, 86)", "rgb(251, 206, 206)"), supernova = getShadesFormat("rgb(141, 77, 156)", "rgb(172, 108, 184)", "rgb(198, 138, 207)", "rgb(234, 218, 237)"), mint = getShadesFormat("rgb(38, 168, 134)", "rgb(60, 194, 165)", "rgb(83, 215, 192)", "rgb(206, 239, 232)"), oil = getShadesFormat("rgb(27, 27, 27)", "rgb(45, 45, 45)", "rgb(64, 64, 64)", "rgb(202, 202, 202)"), translucid = getShadesFormat("rgba(255, 255, 255, 0.1)", "rgba(255, 255, 255, 0.2)", "rgba(255, 255, 255, 0.3)", "rgba(255, 255, 255, 0.1)"), poison = getShadesFormat("rgb(81, 108, 178)", "rgb(81, 108, 178)", "rgb(81, 108, 178)", "rgb(81, 108, 178)"), shades = {
   tangerine: tangerine,
   ocean: ocean,
+  oil: oil,
   mercury: mercury,
   bamboo: bamboo,
   sunflower: sunflower,
   ruby: ruby,
   supernova: supernova,
   mint: mint,
-  oil: oil,
   translucid: translucid,
   poison: poison
 }, alias = {
@@ -511,7 +507,9 @@ var getShadesFormat = function(dark, original, light, crystal) {
   _defineProperty$1(_objectSpread3, "shades", _objectSpread({}, colors.shades, _defineProperty$1({}, colorKey, getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal)))), 
   _objectSpread3));
 }, colors$1 = colors = _objectSpread({}, colors, {
-  set: set
+  set: set,
+  aliasKeys: [ "info", "success", "warning", "error", "link" ],
+  statusKeys: [ "approved", "authorized", "declined", "cancelled", "refund", "limitexceeded", "limitExceeded", "manual review", "pending" ]
 });
 
 function _typeof$1(obj) {
@@ -522,11 +520,30 @@ function _typeof$1(obj) {
   })(obj);
 }
 
-var palette = {};
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || "[object Arguments]" === Object.prototype.toString.call(iter)) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+    return arr2;
+  }
+}
+
+var palette = {}, excluded = [].concat(_toConsumableArray(colors$1.aliasKeys), _toConsumableArray(colors$1.statusKeys), [ "poison", "translucid" ]);
 
 for (var colorKey in colors$1.shades) {
   var color = colors$1.shades[colorKey];
-  "translucid" !== colorKey && "object" === _typeof$1(color) && color.light && color.dark && (palette[colorKey] = {
+  !excluded.includes(colorKey) && "object" === _typeof$1(color) && color.light && color.dark && (palette[colorKey] = {
     start: color.dark,
     end: color.light
   });
@@ -4410,6 +4427,29 @@ var Table = React.forwardRef((function(props, ref) {
   }), children);
 }));
 
+Table.defaultProps = {
+  bordered: !1,
+  condensed: !1,
+  hoverable: !1,
+  striped: !1
+}, Table.propTypes = {
+  bordered: propTypes.bool,
+  condensed: propTypes.bool,
+  hoverable: propTypes.bool,
+  striped: propTypes.bool
+};
+
+var _ref = {
+  name: "94kjoh",
+  styles: ".Toastify__toast-container{z-index:9999;position:fixed;padding:4px;width:320px;box-sizing:border-box;color:#fff}.Toastify__toast-container--top-left{top:1em;left:1em}.Toastify__toast-container--top-center{top:1em;left:50%;margin-left:-160px}.Toastify__toast-container--top-right{top:1em;right:1em}.Toastify__toast-container--bottom-left{bottom:1em;left:1em}.Toastify__toast-container--bottom-center{bottom:1em;left:50%;margin-left:-160px}.Toastify__toast-container--bottom-right{bottom:1em;right:1em}@media only screen and (max-width:480px){.Toastify__toast-container{width:100vw;padding:0;left:0;margin:0}.Toastify__toast-container--top-center,.Toastify__toast-container--top-left,.Toastify__toast-container--top-right{top:0}.Toastify__toast-container--bottom-center,.Toastify__toast-container--bottom-left,.Toastify__toast-container--bottom-right{bottom:0}.Toastify__toast-container--rtl{right:0;left:auto}}.Toastify__toast{position:relative;min-height:64px;box-sizing:border-box;margin-bottom:1rem;padding:8px;border-radius:1px;box-shadow:0 1px 10px 0 rgba(0,0,0,.1),0 2px 15px 0 rgba(0,0,0,.05);display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;max-height:800px;overflow:hidden;font-family:sans-serif;cursor:pointer;direction:ltr}.Toastify__toast--rtl{direction:rtl}.Toastify__toast--default{background:#fff;color:#aaa}.Toastify__toast--info{background:#3498db}.Toastify__toast--success{background:#07bc0c}.Toastify__toast--warning{background:#f1c40f}.Toastify__toast--error{background:#e74c3c}.Toastify__toast-body{margin:auto 0;-ms-flex:1;flex:1}@media only screen and (max-width:480px){.Toastify__toast{margin-bottom:0}}.Toastify__close-button{color:#fff;font-weight:700;font-size:14px;background:transparent;outline:none;border:none;padding:0;cursor:pointer;opacity:.7;transition:.3s ease;-ms-flex-item-align:start;align-self:flex-start}.Toastify__close-button--default{color:#000;opacity:.3}.Toastify__close-button:focus,.Toastify__close-button:hover{opacity:1}@keyframes Toastify__trackProgress{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Toastify__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:5px;z-index:9999;opacity:.7;background-color:hsla(0,0%,100%,.7);transform-origin:left}.Toastify__progress-bar--animated{animation:Toastify__trackProgress linear 1 forwards}.Toastify__progress-bar--controlled{transition:transform .2s}.Toastify__progress-bar--rtl{right:0;left:auto;transform-origin:right}.Toastify__progress-bar--default{background:linear-gradient(90deg,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55)}@keyframes Toastify__bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutRight{20%{opacity:1;transform:translate3d(-20px,0,0)}to{opacity:0;transform:translate3d(2000px,0,0)}}@keyframes Toastify__bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutLeft{20%{opacity:1;transform:translate3d(20px,0,0)}to{opacity:0;transform:translate3d(-2000px,0,0)}}@keyframes Toastify__bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes Toastify__bounceOutUp{20%{transform:translate3d(0,-10px,0)}40%,45%{opacity:1;transform:translate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes Toastify__bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes Toastify__bounceOutDown{20%{transform:translate3d(0,10px,0)}40%,45%{opacity:1;transform:translate3d(0,-20px,0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Toastify__bounce-enter--bottom-left,.Toastify__bounce-enter--top-left{animation-name:Toastify__bounceInLeft}.Toastify__bounce-enter--bottom-right,.Toastify__bounce-enter--top-right{animation-name:Toastify__bounceInRight}.Toastify__bounce-enter--top-center{animation-name:Toastify__bounceInDown}.Toastify__bounce-enter--bottom-center{animation-name:Toastify__bounceInUp}.Toastify__bounce-exit--bottom-left,.Toastify__bounce-exit--top-left{animation-name:Toastify__bounceOutLeft}.Toastify__bounce-exit--bottom-right,.Toastify__bounce-exit--top-right{animation-name:Toastify__bounceOutRight}.Toastify__bounce-exit--top-center{animation-name:Toastify__bounceOutUp}.Toastify__bounce-exit--bottom-center{animation-name:Toastify__bounceOutDown}@keyframes Toastify__zoomIn{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes Toastify__zoomOut{0%{opacity:1}50%{opacity:0;transform:scale3d(.3,.3,.3)}to{opacity:0}}.Toastify__zoom-enter{animation-name:Toastify__zoomIn}.Toastify__zoom-exit{animation-name:Toastify__zoomOut}@keyframes Toastify__flipIn{0%{transform:perspective(400px) rotateX(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateX(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateX(10deg);opacity:1}80%{transform:perspective(400px) rotateX(-5deg)}to{transform:perspective(400px)}}@keyframes Toastify__flipOut{0%{transform:perspective(400px)}30%{transform:perspective(400px) rotateX(-20deg);opacity:1}to{transform:perspective(400px) rotateX(90deg);opacity:0}}.Toastify__flip-enter{animation-name:Toastify__flipIn}.Toastify__flip-exit{animation-name:Toastify__flipOut}@keyframes Toastify__slideInRight{0%{transform:translate3d(110%,0,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideInLeft{0%{transform:translate3d(-110%,0,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideInUp{0%{transform:translate3d(0,110%,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideInDown{0%{transform:translate3d(0,-110%,0);visibility:visible}to{transform:translateZ(0)}}@keyframes Toastify__slideOutRight{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(110%,0,0)}}@keyframes Toastify__slideOutLeft{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(-110%,0,0)}}@keyframes Toastify__slideOutDown{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(0,500px,0)}}@keyframes Toastify__slideOutUp{0%{transform:translateZ(0)}to{visibility:hidden;transform:translate3d(0,-500px,0)}}.Toastify__slide-enter--bottom-left,.Toastify__slide-enter--top-left{animation-name:Toastify__slideInLeft}.Toastify__slide-enter--bottom-right,.Toastify__slide-enter--top-right{animation-name:Toastify__slideInRight}.Toastify__slide-enter--top-center{animation-name:Toastify__slideInDown}.Toastify__slide-enter--bottom-center{animation-name:Toastify__slideInUp}.Toastify__slide-exit--bottom-left,.Toastify__slide-exit--top-left{animation-name:Toastify__slideOutLeft}.Toastify__slide-exit--bottom-right,.Toastify__slide-exit--top-right{animation-name:Toastify__slideOutRight}.Toastify__slide-exit--top-center{animation-name:Toastify__slideOutUp}.Toastify__slide-exit--bottom-center{animation-name:Toastify__slideOutDown}"
+};
+
+function ToastsStyles() {
+  return React__default.createElement(core.Global, {
+    styles: _ref
+  });
+}
+
 function _extends$e() {
   return (_extends$e = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -4451,18 +4491,6 @@ function _defineProperty$a(obj, key, value) {
     writable: !0
   }) : obj[key] = value, obj;
 }
-
-Table.defaultProps = {
-  bordered: !1,
-  condensed: !1,
-  hoverable: !1,
-  striped: !1
-}, Table.propTypes = {
-  bordered: propTypes.bool,
-  condensed: propTypes.bool,
-  hoverable: propTypes.bool,
-  striped: propTypes.bool
-};
 
 var ToastsContainer = function() {
   var props = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {
@@ -4622,7 +4650,7 @@ var ToastsContainer = function() {
   return React__default.createElement(AphToastsContainer, {
     className: "aph-toasts-container",
     styles: props.styles
-  }, React__default.createElement(reactToastify.ToastContainer, _extends$e({}, props, {
+  }, React__default.createElement(ToastsStyles, null), React__default.createElement(reactToastify.ToastContainer, _extends$e({}, props, {
     closeOnClick: props.closeOnClick || !1
   })));
 };
@@ -4956,7 +4984,7 @@ function _objectWithoutPropertiesLoose$c(source, excluded) {
   return target;
 }
 
-var _ref = {
+var _ref$1 = {
   name: "1sy9iaq",
   styles: "body{overflow:hidden;}"
 }, Modal = React.forwardRef((function(props, ref) {
@@ -5007,7 +5035,7 @@ var _ref = {
     hasFooter: !(!footer && !Object.keys(footerProps).length),
     className: "aph-modal ".concat(className || "").concat(active ? " active" : "").concat(visible ? " visible" : "")
   }), active && visible ? React__default.createElement(React__default.Fragment, null, unblockScrolling ? null : React__default.createElement(core.Global, {
-    styles: _ref
+    styles: _ref$1
   }), React__default.createElement(Flex$1, {
     flex: !0,
     flexDirection: "column",
@@ -5810,11 +5838,11 @@ Column.propTypes = {
   styles: {}
 };
 
-var _ref$1 = {
+var _ref$2 = {
   name: "k008qs",
   styles: "display:flex;"
 }, Flex = function() {
-  return _ref$1;
+  return _ref$2;
 }, FlexWrap = function(props) {
   return core.css("flex-wrap:", props.flexWrap, ";");
 }, AlignItems = function(props) {
