@@ -3,11 +3,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ToastContainer } from 'react-toastify';
 
-/* Styles */
-import 'react-toastify/dist/ReactToastify.min.css';
-
 /* Constants */
 import { COLORS, MEDIA_QUERIES, ZINDEX } from '../../constants';
+
+/* Component Styles */
+import ToastsStyles from './ToastsStyles';
 
 /* Component */
 const ToastsContainer = (props = { styles: {} }) => {
@@ -204,6 +204,7 @@ const ToastsContainer = (props = { styles: {} }) => {
 
     return (
         <AphToastsContainer className="aph-toasts-container" styles={props.styles}>
+            <ToastsStyles />
             <ToastContainer
                 {...props}
                 closeOnClick={props.closeOnClick || false}
