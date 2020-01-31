@@ -1,114 +1,49 @@
 ---
 name : Badge
-menu : Atoms
-route: /atoms/badge
+menu : › Components
+route: /components/badge
 ---
 
 import { Playground, Props } from 'docz';
-import styled from '@emotion/styled';
-import { Badge } from '../';
-import { COLORS, SCREEN_SIZES } from '../../constants';
-import { sort } from '../../filters';
+import {
+    Badge,
+    Container,
+    Row,
+    Col,
+} from '../';
 
 # Badge
-#### Badge styled with Aphrodite definitions.
+### Badge styled with Aphrodite definitions.
+
 ```jsx
 import { Badge } from 'aphrodite-react';
 
-<Badge>Hello, you</Badge>
+<Badge>
+    Hello, you
+</Badge>
 ```
 
+## Examples
+
+<Playground>
+    <Container>
+        <Row>
+            <Col xs={6}>
+                <Badge>
+                    Hello, you
+                </Badge>
+            </Col>
+            <Col xs={6}>
+                <Badge
+                    background="success">
+                    Hi, there
+                </Badge>
+            </Col>
+        </Row>
+    </Container>
+</Playground>
+
+
 ## Properties
+
 <Props of={Badge} />
-
-## Basic
-<Playground>
-    <Badge>Hello, you</Badge>
-</Playground>
-
-## Variations
-<Playground>
-    {() => {
-        const comStyle = {
-            boxSizing: 'border-box',
-        };
-
-        const rowStyle = Object.assign({
-            display: 'block',
-            padding: '10px',
-        }, comStyle);
-
-        const Row = styled('div')(rowStyle);
-
-        return (
-            <Row>
-                <Row>
-                    <Badge sm>sm</Badge>
-                </Row>
-                <Row>
-                    <Badge blockXs>blockXs</Badge>
-                </Row>
-                <Row>
-                    <Badge block>block</Badge>
-                </Row>
-            </Row>
-        );
-    }}
-</Playground>
-
-## Colors
-<Playground>
-    {() => {
-        const comStyle = {
-            boxSizing: 'border-box',
-
-            '&:after': {
-                display: 'table',
-                clear  : 'both',
-                content: '" "',
-                boxSizing: 'border-box',
-            },
-        };
-
-        const rowStyle = Object.assign({
-            display: 'block',
-            margin : '10px -10px',
-        }, comStyle);
-
-        const colStyle = Object.assign({
-            display: 'block',
-            float  : 'left',
-            width  : window.innerWidth < SCREEN_SIZES.SM ? '100%' : '25%',
-            padding: '10px',
-        }, comStyle);
-
-        const Row   = styled('div')(rowStyle);
-        const Col   = styled('div')(colStyle);
-        const width = window.innerWidth < SCREEN_SIZES.SM ? '100%' : '150px';
-
-        return (
-            <Row>
-                {Object.keys(COLORS).map((COLOR_KEY, index) => {
-                    if (!['GET', 'FILL', 'TONES'].includes(COLOR_KEY)) {
-                        return (
-                            <Col key={index}>
-                                <Row>
-                                    <Badge width={width} color={COLOR_KEY} prefix="KEY">
-                                        {COLOR_KEY}
-                                    </Badge>
-                                </Row>
-                                <Row>
-                                    <Badge width={width} color={COLOR_KEY} prefix="KEY" sm>
-                                        {COLOR_KEY}
-                                    </Badge>
-                                </Row>
-                            </Col>
-                        );
-                    }
-
-                    return null;
-                })}
-            </Row>
-        );
-    }}
-</Playground>

@@ -1,2 +1,2 @@
 /* Export Filters */
-export * from './sort.filters';
+export { default as sort } from './sort.filters';

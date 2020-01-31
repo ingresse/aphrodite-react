@@ -1,6 +1,7 @@
 ---
-name : 1 - Getting Started
 route: /
+menu : Introduction
+name : Getting Started
 ---
 
 # Aphrodite
@@ -9,53 +10,63 @@ route: /
 ---
 
 ## Install
-#### You can install with Yarn or NPM in your App Project, but using GitHub repository address as source:
+#### You can install with Yarn or NPM in your App Project:
 ```
-yarn add https://github.com/ingresse/aphrodite-react.git
+npm i --save @ingresse/aphrodite
 ```
 
 ---
 
 ## Usage Example
-#### Include Aphrodite Components inside your React application:
+#### Re-export the Aphrodite tools through your React application folder structure.
 
+`src/utils/index.js`:
+```js
+export {
+    colors,
+} from 'aphrodite-react';
+```
+
+`src/components/index.js`:
+```js
+export {
+    Button,
+    Container,
+    Segment,
+} from 'aphrodite-react';
+```
+
+#### Then, it's easy to use
+`src/App.jsx`:
 ```jsx
 /* Core Packages */
 import React from 'react';
-import propTypes from 'prop-types';
 
-/* UI Library Components */
-import { Container, Button } from 'aphrodite-react';
+/* Components */
+import {
+    Button,
+    Container,
+    Segment,
+} from './components';
 
 /* Component Itself */
-const MyComponent = (props) = {
-    const { handleClick } = props;
+function App() {
+    function handleClick(evt) {
+        console.log('button click', evt);
+    }
 
     return (
         <Container>
-            <Button onClick={handleClick}>
-                Aphrodite Button
-            </Button>
+            <Segment
+                textAlign="center">
+                <Button onClick={handleClick}>
+                    Aphrodite Button
+                </Button>
+            </Segment>
         </Container>
     );
-};
-
-/* Component Default Properties */
-MyComponent.defaultProps = {
-    /**
-     * Handle with Button Click
-     *
-     * @param {object} e - Virtual DOM Synthetic Click Event
-     */
-    handleClick: (e) => { console.log('handleClick acting', e) },
-};
-
-/* Component Properties Types */
-MyComponent.propTypes = {
-    handleClick: propTypes.func.isRequired,
-};
+}
 
 /* Exporting */
-export default MyComponent;
-
+export default App;
 ```

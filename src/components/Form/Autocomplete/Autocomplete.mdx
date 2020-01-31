@@ -1,0 +1,223 @@
+---
+name : Form | Autocomplete
+menu : › Components
+route: /components/form/autocomplete
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    Autocomplete,
+    Container,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+
+# Form | Autocomplete
+### A simple style customization of awesome library [react-select](https://npmjs.com/package/react-select).
+
+
+## Sync
+
+<Playground>
+    {() => {
+        const [ selected, setSelected ] = useState(null);
+        const selectOptions = [
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+        ];
+
+        /**
+         * Handle Selected option
+         *
+         * @param {object} evt
+         */
+        function handleSelected(selected) {
+            setSelected(selected.value);
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    Selected {selected}
+                </Segment>
+
+                <Segment padding="10px 0">
+                    <Autocomplete
+                        id="aph-autoselect1"
+                        className="aph aph-autoselect"
+                        placeholder="Custom placeholder"
+                        onChange={handleSelected}
+                        options={selectOptions}
+                        error={selected === "vanilla" ? "Erro aqui" : false}
+                    />
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Disabled
+
+<Playground>
+    <Container xs>
+        <Segment padding="10px 0">
+            <Autocomplete
+                isDisabled
+            />
+        </Segment>
+    </Container>
+</Playground>
+
+
+## Async
+
+<Playground>
+    {() => {
+        const [input, setInput] = useState("");
+        const [selected, setSelected] = useState(null);
+        const selectOptions = [
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" }
+        ];
+
+        const filterColors = (inputValue) => {
+            return selectOptions.filter(i =>
+                i.label.toLowerCase().includes(inputValue.toLowerCase())
+            );
+        };
+
+        const promiseOptions = (inputValue) =>
+            new Promise(resolve => {
+                setTimeout(() => {
+                resolve(filterColors(inputValue));
+                }, 1000);
+            }
+        );
+
+        /**
+         * Handle Selected option
+         *
+         * @param {object} evt
+         */
+        function handleSelected(selected) {
+            setSelected(selected.value);
+        }
+
+        /**
+         * Handle Input Value
+         *
+         * @param {string} newValue
+         */
+        function handleInput(newValue) {
+            const inputValue = newValue.replace(/\W/g, "");
+            setInput(inputValue);
+
+            return inputValue;
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    Input value: {input}
+                </Segment>
+                <Segment padding="10px 0">
+                    Selected: {selected}
+                </Segment>
+                <Segment padding="10px 0">
+                    <Autocomplete
+                        isAsync
+                        loadOptions={promiseOptions}
+                        defaultOptions={selectOptions}
+                        onInputChange={handleInput}
+                        onChange={handleSelected}
+                        error={selected === "vanilla" ? "Erro aqui" : false}
+                    />
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Multiselect
+
+<Playground>
+    {() => {
+        const [input, setInput]       = useState('');
+        const [selected, setSelected] = useState(null);
+        const selectOptions           = [
+            { value: "chocolate", label: "Chocolate" },
+            { value: "strawberry", label: "Strawberry" },
+            { value: "vanilla", label: "Vanilla" },
+        ];
+
+        const filterColors = (inputValue) => {
+            return selectOptions.filter(i =>
+                i.label.toLowerCase().includes(inputValue.toLowerCase())
+            );
+        };
+
+        const promiseOptions = (inputValue) =>
+            new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(filterColors(inputValue));
+                }, 1000);
+            }
+        );
+
+        /**
+         * Handle Selected option
+         *
+         * @param {object} evt
+         */
+        function handleSelected({ value }) {
+            setSelected(value);
+        }
+
+        /**
+         * Handle Input Value
+         *
+         * @param {string} newValue
+         */
+        function handleInput(newValue) {
+            const inputValue = newValue.replace(/\W/g, "");
+
+            setInput(inputValue);
+
+            return inputValue;
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    Input value: {input}
+                </Segment>
+                <Segment padding="10px 0">
+                    Selected: {selected}
+                </Segment>
+                <Segment padding="10px 0">
+                    <Autocomplete
+                        isAsync
+                        isMulti
+                        loadOptions={promiseOptions}
+                        defaultOptions={selectOptions}
+                        onInputChange={handleInput}
+                        onChange={handleSelected}
+                        error={selected === 'vanilla' ? 'Error' : false}
+                    />
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={Autocomplete} />

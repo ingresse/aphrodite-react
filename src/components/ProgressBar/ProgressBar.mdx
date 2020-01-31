@@ -1,67 +1,76 @@
 ---
 name : Progress Bar
-menu : Atoms
-route: /atoms/progress-bar
+menu : › Components
+route: /components/progress-bar
 ---
 
 import { Playground, Props } from 'docz';
-import { ProgressBar, toast } from '../';
-import { COLORS } from '../../constants';
+import { ProgressBar, Segment } from '../';
+import { colors } from '../../utils';
+
 
 # Progress Bar
 ```jsx
-import { COLORS, ProgressBar } from 'aphrodite-react';
+import { colors, ProgressBar } from 'aphrodite-react';
 
 <ProgressBar
     size="200px"    // Have priority
     percentual={60} // Will be used if "size" is inexistent
     animated={true}
-    gradient={{ start: COLORS.RED, end: COLORS.ORANGE }}
+    gradient={{ start: colors.get('tangerine'), end: colors.get('tangerine', 'dark') }}
     width={460}
 />
 ```
 
-## Properties
-<Props of={ProgressBar} />
-
----
 
 ## Examples
+
 <Playground>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar percentual={20} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar percentual={40} height={20} color={'purple'} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar percentual={60} height={30} color={'red'} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar percentual={80} height={40} animated={true} gradient={{ start: COLORS.ORANGE, end: COLORS.YELLOW }} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar percentual={100} height={50} radius={25} animated={true} gradient={{ start: COLORS.GREEN, end: COLORS.DARK_GREEN }} />
-    </div>
+    <Segment padding="10px 0">
+        <ProgressBar
+            percentual={20}
+        />
+    </Segment>
+    <Segment padding="10px 0">
+        <ProgressBar
+            percentual={40}
+            height={20}
+            color="supernova"
+        />
+    </Segment>
+    <Segment padding="10px 0">
+        <ProgressBar
+            percentual={60}
+            height={30}
+            color={'red'}
+        />
+    </Segment>
+    <Segment padding="10px 0">
+        <ProgressBar
+            percentual={80}
+            height={40}
+            animated={true}
+            gradient={{
+                start: colors.get('warning'),
+                end  : colors.get('error'),
+            }}
+        />
+    </Segment>
+    <Segment padding="10px 0">
+        <ProgressBar
+            percentual={100}
+            height={50}
+            radius={25}
+            animated={true}
+            gradient={{
+                start: colors.get('bamboo', 'crystal'),
+                end  : colors.get('bamboo', 'dark'),
+            }}
+        />
+    </Segment>
 </Playground>
 
----
 
-## Fixed Size
-<Playground>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar size="50px" />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar size="100px" height={20} color={'purple'} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar size="150px" height={30} color={'red'} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar size="80%" height={40} animated={true} gradient={{ start: COLORS.ORANGE, end: COLORS.YELLOW }} />
-    </div>
-    <div style={{ marginTop: '10px', marginBottom: '20px' }}>
-        <ProgressBar size="100%" height={50} radius={25} animated={true} gradient={{ start: COLORS.GREEN, end: COLORS.DARK_GREEN }} />
-    </div>
-</Playground>
+## Properties
+
+<Props of={ProgressBar} />

@@ -1,0 +1,158 @@
+---
+name : Expansion Panel
+menu : › Components
+route: /components/expansion-panel
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    ExpansionPanel,
+    Segment,
+    Row,
+    Col,
+    Button,
+} from '../';
+import { colors } from '../../utils';
+
+
+# Expansion Panel
+### A simple component to help out with Expansion Panel stuffs.
+
+
+## Example
+
+<Playground>
+    {() => {
+        // import { ExpansionPanel } from 'aphrodite-react';
+
+        return (
+            <ExpansionPanel
+                header={
+                    <Segment margin="0" padding="0">
+                        Expansion panel 1
+                    </Segment>
+                }>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+            </ExpansionPanel>
+        );
+    }}
+</Playground>
+
+
+## Example with custom styles
+
+<Playground>
+    {() => {
+        const headerStyles = {
+            borderRadius: '10px',
+            background: colors.get('bamboo', 'original'),
+            color: '#fff',
+
+            '&:hover': {
+                background: colors.get('bamboo'),
+            },
+        };
+        const styles = {
+             borderRadius: '10px',
+            background: colors.get('primary'),
+        };
+
+        return (
+            <ExpansionPanel
+                styles={styles}
+                headerStyles={headerStyles}
+                header={
+                    <Segment margin="0" padding="0 20px">
+                        with custom styles
+                    </Segment>
+                }>
+                <Segment margin="0" padding="20px">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                </Segment>
+            </ExpansionPanel>
+        );
+    }}
+</Playground>
+
+
+## With a advanced state managament
+
+<Playground>
+    {() => {
+        const items = [{ id: 1 }, { id: 2 }, { id: 3 }, { id:4 }, { id: 5 }];
+
+        const [openedPanels, setOpenedPanels] = useState([]);
+
+        /**
+        * Change opened status of all panels
+        */
+        function handleExpandedAll() {
+            if (openedPanels.length) {
+                setOpenedPanels([]);
+
+                return;
+            }
+
+            setOpenedPanels(items.map(item => item.id));
+        }
+
+        /**
+        * Validate if has any expanded panel item
+        *
+        * @param {any} item
+        */
+        function handleHasOpened(item) {
+            if (openedPanels.includes(item)) {
+                const openedItems = openedPanels.filter((panel) => panel !== item);
+
+                setOpenedPanels(openedItems);
+
+                return;
+            }
+
+            setOpenedPanels([
+                ...openedPanels,
+                item
+            ]);
+        }
+
+        return (
+            <>
+                <Row horizontal="center">
+                    <Col sm={4}>
+                        <Button
+                            block
+                            onClick={handleExpandedAll}>
+                             {`${(openedPanels.length) ? 'Close' : 'Open'} all`}
+                        </Button>
+                    </Col>
+                </Row>
+                <Row>
+                    {items.map((item, i) =>
+                        <ExpansionPanel
+                            key={i}
+                            expanded={openedPanels.includes(item.id)}
+                            expandedCallback={() => handleHasOpened(item.id)}
+                            styles={{ marginBottom: '15px' }}
+                            header={
+                                <Segment margin="0" padding="0">
+                                    Expansion panel {item.id}
+                                </Segment>
+                            }>
+                            <Segment margin="0" padding="0">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </Segment>
+                        </ExpansionPanel>
+
+                    )}
+                </Row>
+            </>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={ExpansionPanel} />

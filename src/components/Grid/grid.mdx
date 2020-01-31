@@ -1,15 +1,17 @@
 ---
 name : Grid
-menu : Organisms
-route: /organisms/grid
+menu : › Components
+route: /components/grid
 ---
 
 import { Playground, Props } from 'docz';
 import { Container, Row, Col } from '../';
-import { COLORS, GRID, RADIUS } from '../../constants';
+import { colors } from '../../utils';
+import { GRID, RADIUS } from '../../constants';
+
 
 # Grid
-#### Align the components with Aphrodite standards
+### Align the components with Aphrodite standards
 
 ```jsx
 import { Container, Row, Col } from 'aphrodite-react';
@@ -23,16 +25,18 @@ import { Container, Row, Col } from 'aphrodite-react';
 </Container>
 ```
 
+
 ## Container
 #### We use to delimitate the content area, centralizing this block in the screen.
 ...
+
 <Props of={Container} />
 
-<Playground style={{ padding: '0 25px 0 20px' }}>
+<Playground>
     {() => {
         const containerExample = {
-            color       : COLORS.DARK_GREY,
-            background  : COLORS.LIGHT_GREY,
+            color       : colors.get('mercury', 'dark'),
+            background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
             marginTop    : '20px',
@@ -43,7 +47,7 @@ import { Container, Row, Col } from 'aphrodite-react';
 
         const contentExample = {
             boxSizing   : 'border-box',
-            background  : COLORS.SMOKE,
+            background  : colors.get('smoke'),
             borderRadius: (RADIUS + GRID.UNIT),
 
             margin : '15px 0 0',
@@ -52,46 +56,55 @@ import { Container, Row, Col } from 'aphrodite-react';
 
         return (
             <div>
-
-                <Container xl style={containerExample}>
+                <Container xl styles={containerExample}>
                     Container <code>XL</code> maximum width is <strong>{GRID.CONTAINER.XL + GRID.UNIT}</strong>.
                     <div style={contentExample}>
-                        And the content maximum width is <strong>{(GRID.CONTAINER.XL - GRID.CONTAINER_PADDING) + GRID.UNIT}</strong>.
+                        And the content maximum width is <strong>{(GRID.CONTAINER.XL - (GRID.CONTAINER_PADDING * 2)) + GRID.UNIT}</strong>.
                     </div>
                 </Container>
 
-                <Container style={containerExample}>
+                <Container styles={containerExample}>
                     Container <strong>DEFAULT</strong> or <code>LG</code> maximum width is <strong>{GRID.CONTAINER + GRID.UNIT}</strong>.
                     <div style={contentExample}>
-                        And the content maximum width is <strong>{(GRID.CONTAINER - GRID.CONTAINER_PADDING) + GRID.UNIT}</strong>.
+                        And the content maximum width is <strong>{(GRID.CONTAINER - (GRID.CONTAINER_PADDING * 2)) + GRID.UNIT}</strong>.
                     </div>
                 </Container>
 
-                <Container md style={containerExample}>
+                <Container md styles={containerExample}>
                     Container <code>MD</code> maximum width is <strong>{GRID.CONTAINER.MD + GRID.UNIT}</strong>.
                     <div style={contentExample}>
-                        And the content maximum width is <strong>{(GRID.CONTAINER.MD - GRID.CONTAINER_PADDING) + GRID.UNIT}</strong>.
+                        And the content maximum width is <strong>{(GRID.CONTAINER.MD - (GRID.CONTAINER_PADDING * 2)) + GRID.UNIT}</strong>.
                     </div>
                 </Container>
 
-                <Container sm style={containerExample}>
+                <Container sm styles={containerExample}>
                     Container <code>SM</code> maximum width is <strong>{GRID.CONTAINER.SM + GRID.UNIT}</strong>.
                     <div style={contentExample}>
-                        And the content maximum width is <strong>{(GRID.CONTAINER.SM - GRID.CONTAINER_PADDING) + GRID.UNIT}</strong>.
+                        And the content maximum width is <strong>{(GRID.CONTAINER.SM - (GRID.CONTAINER_PADDING * 2)) + GRID.UNIT}</strong>.
                     </div>
                 </Container>
 
-                <Container xs style={containerExample}>
+                <Container xs styles={containerExample}>
                     Container <code>XS</code> maximum width is <strong>{GRID.CONTAINER.XS + GRID.UNIT}</strong>.
                     <div style={contentExample}>
-                        And the content maximum width is <strong>{(GRID.CONTAINER.XS - GRID.CONTAINER_PADDING) + GRID.UNIT}</strong>.
+                        And the content maximum width is <strong>{(GRID.CONTAINER.XS - (GRID.CONTAINER_PADDING * 2)) + GRID.UNIT}</strong>.
                     </div>
                 </Container>
 
+                <Container
+                    xs
+                    noPadding
+                    styles={{
+                        ...containerExample,
+                        border: `1px solid ${colors.get('mercury', 'dark')}`
+                    }}>
+                    noPadding Example
+                </Container>
             </div>
         );
     }}
 </Playground>
+
 
 ## Row & Column
 #### Based in [FlexboxGrid](http://flexboxgrid.com/) awesome system.
@@ -106,8 +119,8 @@ import { Container, Row, Col } from 'aphrodite-react';
     {() => {
         // DON'T DO THIS
         const containerExample = {
-            color       : COLORS.DARK_GREY,
-            background  : COLORS.LIGHT_GREY,
+            color       : colors.get('mercury', 'dark'),
+            background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
             marginTop    : '10px',
@@ -124,8 +137,8 @@ import { Container, Row, Col } from 'aphrodite-react';
         };
 
         const columnsExample = {
-            color       : COLORS.WHITE,
-            background  : COLORS.TONES.PURPLE,
+            color       : colors.get('white'),
+            background  : colors.get('mint'),
 
             marginTop   : '5px',
             marginBottom: '5px',
@@ -136,8 +149,8 @@ import { Container, Row, Col } from 'aphrodite-react';
             paddingRight : 0,
             paddingLeft  : 0,
 
-            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
-            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
         };
 
         return (
@@ -183,14 +196,15 @@ import { Container, Row, Col } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ### Ordering
 
-<Playground style={{ padding: '0 20px' }}>
+<Playground>
     {() => {
-        // DON'T DO THIS
+        // Example custom styles
         const containerExample = {
-            color       : COLORS.DARK_GREY,
-            background  : COLORS.LIGHT_GREY,
+            color       : colors.get('mercury', 'dark'),
+            background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
             marginTop    : '10px',
@@ -209,8 +223,8 @@ import { Container, Row, Col } from 'aphrodite-react';
         };
 
         const columnsExample = {
-            color       : COLORS.WHITE,
-            background  : COLORS.TONES.PURPLE,
+            color       : colors.get('white'),
+            background  : colors.get('mint'),
 
             marginTop   : '5px',
             marginBottom: '5px',
@@ -221,8 +235,8 @@ import { Container, Row, Col } from 'aphrodite-react';
             paddingRight : 0,
             paddingLeft  : 0,
 
-            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
-            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
         };
 
         return (
@@ -260,18 +274,19 @@ import { Container, Row, Col } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ### Horizontal Alignment
 
 <Playground style={{ padding: '0 20px' }}>
     {() => {
-        // DON'T DO THIS
+        // Examples
         const containerExample = {
-            color       : COLORS.DARK_GREY,
-            background  : COLORS.LIGHT_GREY,
+            color       : colors.get('mercury', 'dark'),
+            background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
-            marginTop    : '10px',
-            marginBottom : '10px',
+            marginTop   : '10px',
+            marginBottom: '10px',
 
             paddingTop: '15px',
 
@@ -286,8 +301,8 @@ import { Container, Row, Col } from 'aphrodite-react';
         };
 
         const columnsExample = {
-            color       : COLORS.WHITE,
-            background  : COLORS.TONES.PURPLE,
+            color       : colors.get('white'),
+            background  : colors.get('mint'),
 
             marginTop   : '5px',
             marginBottom: '5px',
@@ -298,8 +313,8 @@ import { Container, Row, Col } from 'aphrodite-react';
             paddingRight : 0,
             paddingLeft  : 0,
 
-            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
-            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
         };
 
         return (
@@ -343,18 +358,19 @@ import { Container, Row, Col } from 'aphrodite-react';
     }}
 </Playground>
 
+
 ### Vertical Alignment
 
 <Playground style={{ padding: '0 20px' }}>
     {() => {
         // DON'T DO THIS
         const containerExample = {
-            color       : COLORS.DARK_GREY,
-            background  : COLORS.LIGHT_GREY,
+            color       : colors.get('mercury', 'dark'),
+            background  : colors.get('mercury', 'crystal'),
             borderRadius: (RADIUS + GRID.UNIT),
 
-            marginTop    : '10px',
-            marginBottom : '10px',
+            marginTop   : '10px',
+            marginBottom: '10px',
 
             paddingTop: '15px',
 
@@ -369,8 +385,8 @@ import { Container, Row, Col } from 'aphrodite-react';
         };
 
         const columnsExample = {
-            color       : COLORS.WHITE,
-            background  : COLORS.TONES.PURPLE,
+            color       : colors.get('white'),
+            background  : colors.get('mint'),
 
             marginTop   : '5px',
             marginBottom: '5px',
@@ -381,8 +397,8 @@ import { Container, Row, Col } from 'aphrodite-react';
             paddingRight : 0,
             paddingLeft  : 0,
 
-            borderRight : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
-            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${COLORS.PURPLE}`,
+            borderRight : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
+            borderLeft  : `${GRID.COLUMNS_PADDING}px solid ${colors.get('mint', 'dark')}`,
         };
 
         return (
@@ -419,14 +435,15 @@ import { Container, Row, Col } from 'aphrodite-react';
 
                 <Row vertical="end" styles={rowsExample}>
 
-                    <Col xs="4" styles={columnsExample}>
-                        Column<br />xs="4"
+                    <Col width="25%" styles={columnsExample}>
+                        Column<br />width="25%"
                     </Col>
-                    <Col xs="4" styles={Object.assign({ minHeight: '120px'}, columnsExample)}>
-                        Column<br />xs="4"
+                    <Col styles={Object.assign({ minHeight: '120px'}, columnsExample)}>
+                        Column<br />
+                        without sizes
                     </Col>
-                    <Col xs="4" styles={columnsExample}>
-                        Column<br />xs="4"
+                    <Col width="160px" styles={columnsExample}>
+                        Column<br />width="160px"
                     </Col>
 
                 </Row>

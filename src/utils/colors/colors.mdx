@@ -1,6 +1,6 @@
 ---
 name : Colors
-menu : Utilities
+menu : › Utilities
 route: /utils/colors
 ---
 
@@ -8,10 +8,9 @@ import { Playground } from 'docz';
 import { Row, Col, Segment } from '../../components';
 import { colors } from '../';
 
-# Colors Utilities
-Tools to made easy the development with our colors presets.
 
----
+# Utilities | Colors
+### Tools to made easy the development with our colors presets.
 
 ## Usage
 #### The method `colors.get` will help you to get the desired color from Aphrodite React's Colors Palette.
@@ -21,13 +20,15 @@ import { colors } from 'aphrodite-react';
 colors.get('primary', 'dark', 0.1);
 ```
 
----
 
 ## Palette Shades
+
 <Playground>
     {() => {
+        const previewSize     = 32;
+        const previewColWidth = (previewSize + 20);
         const colorItemStyles = {
-            padding: '20px',
+            padding: '10px',
             margin : '0',
 
             '.aph-color': {
@@ -38,24 +39,24 @@ colors.get('primary', 'dark', 0.1);
             },
         };
         const colorBoxColStyles = {
-            minWidth: '80px',
-            maxWidth: '80px',
+            minWidth: `${previewColWidth}px`,
+            maxWidth: `${previewColWidth}px`,
         };
         const colorTextColStyles = {
-            minWidth: 'calc(100% - 80px)',
-            maxWidth: 'calc(100% - 80px)',
+            minWidth: `calc(100% - ${previewColWidth}px)`,
+            maxWidth: `calc(100% - ${previewColWidth}px)`,
 
             fontSize  : '14px',
             lineHeight: '20px',
+            paddingLeft: 0,
 
             color: colors.get('oil', 'dark'),
         };
         const colorBoxStyles = {
             borderRadius: '5px',
 
-            width : '60px',
-            height: '60px',
-            boxShadow: `0 0 2.5px ${colors.get('oil', 'dark', 0.5)}`
+            width : `${previewSize}px`,
+            height: `${previewSize}px`,
         };
 
         let colorsShades = [];
@@ -65,7 +66,8 @@ colors.get('primary', 'dark', 0.1);
 
             for (const colorShadeKey in colorShades) {
                 colorsShades.push({
-                    key  : colorKey.concat(' ', colorShadeKey),
+                    name : colorKey,
+                    shade: colorShadeKey,
                     value: colorShades[colorShadeKey],
                 });
             }
@@ -74,40 +76,56 @@ colors.get('primary', 'dark', 0.1);
         return (
             <article>
                 <Row vertical="start">
-                    {colorsShades.map((color, index) => (
-                        <Col xs={12} sm={6} md={6} lg={3} key={`color${index}`}>
-                            <Segment
-                                className="aph-color"
-                                role="button"
-                                tabIndex={`10${index}`}
-                                hoverable
-                                styles={colorItemStyles}>
-                                <Row>
-                                    <Col styles={colorBoxColStyles}>
-                                        <Segment styles={{
-                                            ...colorBoxStyles,
-                                            backgroundColor: color.value
-                                        }} />
-                                    </Col>
-                                    <Col styles={colorTextColStyles}>
-                                        <div className="aph-color__value">
-                                            {color.value}
-                                        </div>
-                                        {color.key}
-                                    </Col>
-                                </Row>
-                            </Segment>
-                        </Col>
-                    ))}
+                    {colorsShades.map((color, index) => {
+                        const {
+                            name,
+                            shade,
+                            value,
+                        } = (color || {});
+
+                        return (
+                            <Col xs={12} sm={6} md={6} lg={3} key={`color-${index}`}>
+                                <Segment
+                                    className="aph-color"
+                                    role="button"
+                                    tabIndex={`10${index}`}
+                                    hoverable
+                                    styles={colorItemStyles}>
+                                    <Row>
+                                        <Col styles={colorBoxColStyles}>
+                                            <Segment
+                                                padding="0"
+                                                styles={{
+                                                    ...colorBoxStyles,
+                                                    backgroundColor: color.value
+                                                }}
+                                            />
+                                        </Col>
+                                        <Col styles={colorTextColStyles}>
+                                            <div className="aph-color__value">
+                                                {value}
+                                            </div>
+                                            <strong>
+                                                {name}
+                                            </strong>
+                                            <div>
+                                                {shade}
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Segment>
+                            </Col>
+                        );
+                    })}
                 </Row>
             </article>
         );
     }}
 </Playground>
 
----
 
 ## Example
+
 ```
 import { colors } from 'aphrodite-react';
 
@@ -120,7 +138,7 @@ return (
 );
 ```
 
-<Playground style={{ padding: `${window.innerWidth < 768 ? '20px' : '80px'} 20px` }}>
+<Playground>
     <Row horizontal="center">
         <Col xs={12} sm={6}>
             <Segment

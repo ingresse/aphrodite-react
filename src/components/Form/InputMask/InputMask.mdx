@@ -1,0 +1,74 @@
+---
+name : Form | Input Mask
+menu : › Components
+route: /components/form/input-mask
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    InputMask,
+    Input,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+
+# Input Mask
+### Simple customization of awesome [react-input-mask](https://www.npmjs.com/package/react-input-mask) component.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ mask, setMask ]   = useState('+99 (99) 999-999-999');
+        const [ value, setValue ] = useState('5511987654321');
+
+        function handleMaskChange({ target }) {
+            const { value } = (target || {});
+
+            setMask(value);
+        }
+
+        function handleChange({ target }) {
+            const { value } = (target || {});
+
+            setValue(value);
+        }
+
+        return (
+            <>
+                <Row>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <Input
+                                id="ExampleInputMaskDefinition"
+                                label="Define the input mask"
+                                onChange={handleMaskChange}
+                                value={mask}
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <InputMask
+                                id="ExampleInputMask"
+                                label="Type something"
+                                mask={mask}
+                                onChange={handleChange}
+                                value={value}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
+            </>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputMask} />

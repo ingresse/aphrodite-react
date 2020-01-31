@@ -1,19 +1,19 @@
 ---
 name : Typography
-menu : Atoms
-route: /atoms/typography
+menu : › Components
+route: /components/typography
 ---
 
 import { Playground, Props } from 'docz';
-import { H1, H2, H3, P, Row, Col } from '../';
+import { H1, H2, H3, P, Label, Row, Col } from '../';
 
 # Typography
-#### Components to help with text issues.
+### Components to help with text issues.
 
 ---
 
 ## H1
-#### Title component
+## Title component
 
 ```jsx
 import { H1 } from 'aphrodite-react';
@@ -23,14 +23,13 @@ import { H1 } from 'aphrodite-react';
 </H1>
 ```
 
-### Properties
-<Props of={H1} />
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+### H1 Examples
+
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
-            <H1 center>
+            <H1>
                 regular
             </H1>
         </Col>
@@ -40,17 +39,22 @@ import { H1 } from 'aphrodite-react';
             </H1>
         </Col>
         <Col xs={12} sm={4}>
-            <H1 center upper>
+            <H1 right upper color="poison">
                 upper
             </H1>
         </Col>
-        <Col xs={6} sm={12}>
+        <Col xs={12}>
             <H1 center link>
                 with link appearance
             </H1>
         </Col>
     </Row>
 </Playground>
+
+
+### H1 Properties
+
+<Props of={H1} />
 
 ---
 
@@ -65,14 +69,12 @@ import { H2 } from 'aphrodite-react';
 </H2>
 ```
 
-### Properties
-<Props of={H2} />
+### H2 Examples
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
-            <H2 center>
+            <H2>
                 regular
             </H2>
         </Col>
@@ -82,7 +84,7 @@ import { H2 } from 'aphrodite-react';
             </H2>
         </Col>
         <Col xs={12} sm={4}>
-            <H2 center upper>
+            <H2 right upper color="bamboo">
                 upper
             </H2>
         </Col>
@@ -93,6 +95,10 @@ import { H2 } from 'aphrodite-react';
         </Col>
     </Row>
 </Playground>
+
+### H2 Properties
+
+<Props of={H2} />
 
 ---
 
@@ -107,14 +113,12 @@ import { H3 } from 'aphrodite-react';
 </H3>
 ```
 
-### Properties
-<Props of={H3} />
+### H3 Examples
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
-            <H3 center>
+            <H3>
                 regular
             </H3>
         </Col>
@@ -124,7 +128,7 @@ import { H3 } from 'aphrodite-react';
             </H3>
         </Col>
         <Col xs={12} sm={4}>
-            <H3 center upper>
+            <H3 right upper color="sunflower">
                 upper
             </H3>
         </Col>
@@ -136,9 +140,13 @@ import { H3 } from 'aphrodite-react';
     </Row>
 </Playground>
 
+### H3 Properties
+
+<Props of={H3} />
+
 ---
 
-## P
+## `P` or `Text`
 #### Paragraph component
 
 ```jsx
@@ -149,14 +157,13 @@ import { P } from 'aphrodite-react';
 </P>
 ```
 
-### Properties
-<Props of={P} />
 
-### Examples
-<Playground style={{ padding: '20px' }}>
+### P Examples
+
+<Playground>
     <Row horizontal="center">
         <Col xs={6} sm={4}>
-            <P center>
+            <P>
                 regular
             </P>
         </Col>
@@ -166,7 +173,7 @@ import { P } from 'aphrodite-react';
             </P>
         </Col>
         <Col xs={12} sm={4}>
-            <P center upper>
+            <P right upper color="mint">
                 upper
             </P>
         </Col>
@@ -182,3 +189,49 @@ import { P } from 'aphrodite-react';
         </Col>
     </Row>
 </Playground>
+
+
+### P Properties
+
+<Props of={P} />
+
+---
+
+## Label
+#### Content label component
+
+```jsx
+import { Label } from 'aphrodite-react';
+...
+<Label>
+    Hello
+</Label>
+```
+
+
+### Label Examples
+
+<Playground>
+    <Row horizontal="center">
+        <Col xs={6} sm={4}>
+            <Label>
+                regular
+            </Label>
+        </Col>
+        <Col xs={6} sm={4}>
+            <Label center link>
+                with link appearance
+            </Label>
+        </Col>
+        <Col xs={6} sm={4}>
+            <Label center color="mint">
+                custom color
+            </Label>
+        </Col>
+    </Row>
+</Playground>
+
+
+### Label Properties
+
+<Props of={Label} />

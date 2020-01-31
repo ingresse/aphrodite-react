@@ -3,13 +3,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ToastContainer } from 'react-toastify';
 
-const color = require('tinycolor2');
-
-/* Styles */
-import 'react-toastify/scss/main.scss';
-
 /* Constants */
-import { COLORS, MEDIA_QUERIES, SCREEN_SIZES } from '../../constants';
+import { COLORS, MEDIA_QUERIES, ZINDEX } from '../../constants';
+
+/* Component Styles */
+import ToastsStyles from './ToastsStyles';
 
 /* Component */
 const ToastsContainer = (props = { styles: {} }) => {
@@ -17,7 +15,7 @@ const ToastsContainer = (props = { styles: {} }) => {
 
     const AphToastsContainer = styled('div')({
         ...styles,
-        zIndex  : (styles.zIndex || 1000),
+        zIndex  : (styles.zIndex || ZINDEX.TOAST),
         position: (styles.position || 'fixed'),
         top     : (typeof styles.top === 'string' ? styles.top : '20px'),
         right   : (typeof styles.right === 'string' ? styles.right : '20px'),
@@ -206,6 +204,7 @@ const ToastsContainer = (props = { styles: {} }) => {
 
     return (
         <AphToastsContainer className="aph-toasts-container" styles={props.styles}>
+            <ToastsStyles />
             <ToastContainer
                 {...props}
                 closeOnClick={props.closeOnClick || false}

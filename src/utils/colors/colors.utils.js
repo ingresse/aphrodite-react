@@ -2,6 +2,8 @@
  * Utilities: Colors
  */
 
+/* Lib Helpers */
+import chroma from 'chroma-js';
 
 /**
  * Get Color Shade Format
@@ -106,13 +108,13 @@ const poison = getShadesFormat(
 let shades = {
     tangerine,
     ocean,
+    oil,
     mercury,
     bamboo,
     sunflower,
     ruby,
     supernova,
     mint,
-    oil,
     translucid,
     poison,
 };
@@ -129,6 +131,17 @@ let alias = {
     success  : Object.assign({}, bamboo),
     warning  : Object.assign({}, sunflower),
     error    : Object.assign({}, ruby),
+
+    link     : Object.assign({}, ocean),
+
+    approved       : Object.assign({}, bamboo),
+    authorized     : Object.assign({}, mint),
+    declined       : Object.assign({}, ruby),
+    cancelled      : Object.assign({}, mercury),
+    refund         : Object.assign({}, supernova),
+    limitExceeded  : Object.assign({}, tangerine),
+    'manual review': Object.assign({}, poison),
+    pending        : Object.assign({}, ocean),
 };
 
 
@@ -154,11 +167,29 @@ let stock = {
     warning: sunflower.original,
     error  : ruby.original,
 
+    approved       : bamboo.original,
+    authorized     : mint.original,
+    declined       : ruby.original,
+    cancelled      : mercury.original,
+    refund         : supernova.original,
+    limitexceeded  : tangerine.original,
+    limitExceeded  : tangerine.original,
+    'manual review': poison.original,
+    pending        : ocean.original,
+
+    base      : 'rgb(0, 0, 0)',
+    inverse   : 'rgb(255, 255, 255)',
+    background: 'rgb(248, 248, 248)',
+    disabled  : mercury.crystal,
+    helper    : mercury.original,
+    link      : ocean.original,
+
     translucid: translucid.original,
 
-    smoke: 'rgb(248, 248, 248)',
-    white: 'rgb(255, 255, 255)',
-    black: 'rgb(0, 0, 0)',
+    shadow: 'rgba(0, 0, 0, 0.2)',
+    smoke : 'rgb(248, 248, 248)',
+    white : 'rgb(255, 255, 255)',
+    black : 'rgb(0, 0, 0)',
 };
 
 
@@ -209,10 +240,38 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
     const selected = (all.shades[_color] ? all.shades[_color][shade] : all[_color]);
 
     if (typeof color !== 'string' || !selected) {
-        return getOpacity(opacity);
+        return getOpacity(opacity, (selected || _color));
     }
 
     return getOpacity(opacity, selected);
+};
+
+/**
+ * Get Color from Theme
+ *
+ * @param {object} componentProps
+ * @param {string} colorKey
+ * @param {string} colorShade
+ * @param {number} opacity
+ *
+ * @return {string} RGBA Color
+ */
+const getFromTheme = (componentProps = {}, colorKey, colorShade = 'original', opacity) => {
+    const { theme } = componentProps;
+
+    if (typeof theme !== 'object' || !theme[colorKey]) {
+        return get(colorKey, colorShade, opacity);
+    }
+
+    const themeShades = ((theme.shades && theme.shades[colorKey]) ?
+        theme.shades[colorKey] : theme[colorKey]
+    );
+
+    if (typeof themeShades !== 'object') {
+        return (themeShades || '');
+    }
+
+    return getOpacity(opacity, themeShades[colorShade]);
 };
 
 
@@ -222,6 +281,7 @@ const get = (color = 'primary', shade = 'original', opacity = 1) => {
 let colors = {
     ...all,
 
+    getFromTheme,
     getOpacity,
     get,
 };
@@ -231,28 +291,31 @@ let colors = {
  * Set Colors
  *
  * @param {string} colorKey
- * @param {string} shadeDark
  * @param {string} shadeOriginal
+ * @param {string} shadeDark
  * @param {string} shadeLight
  * @param {string} shadeCrystal
  *
  * @param {object} colors
  */
-const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
+const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
     if (typeof colorKey !== 'string' ||
-        typeof shadeDark !== 'string' ||
-        typeof shadeOriginal !== 'string' ||
-        typeof shadeLight !== 'string' ||
-        typeof shadeCrystal !== 'string') {
+        typeof shadeOriginal !== 'string') {
         return colors;
     }
 
+    const colorOriginal = `rgb(${chroma(shadeOriginal).rgb().join(',')})`;
+    const colorDark     = (shadeDark || chroma(colorOriginal).darken().css());
+    const colorLight    = (shadeLight || chroma(colorOriginal).brighten(0.5).css());
+    const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(1).css());
+
     colors = {
         ...colors,
+        [colorKey]: colorOriginal,
 
         shades: {
             ...colors.shades,
-            [colorKey]: getShadesFormat(shadeDark, shadeOriginal, shadeLight, shadeCrystal),
+            [colorKey]: getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal),
         },
     };
 
@@ -265,8 +328,25 @@ const set = (colorKey, shadeDark, shadeOriginal, shadeLight, shadeCrystal) => {
  */
 colors = {
     ...colors,
-
     set,
+    aliasKeys: [
+        'info',
+        'success',
+        'warning',
+        'error',
+        'link',
+    ],
+    statusKeys  : [
+        'approved',
+        'authorized',
+        'declined',
+        'cancelled',
+        'refund',
+        'limitexceeded',
+        'limitExceeded',
+        'manual review',
+        'pending',
+    ],
 };
 
 

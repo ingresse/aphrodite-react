@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 
 /* UI Library definitions */
-import { animations, colors } from '../../utils';
+import { colors } from '../../utils';
 
 /* Component Itself */
 const AphButtonStyled = styled.button`
@@ -11,12 +11,12 @@ const AphButtonStyled = styled.button`
     overflow  : hidden;
 
     cursor    : pointer;
-    display   : ${props => props.block ? '' : 'inline-'}block;
+    display   : ${props => props.aphblock ? '' : 'inline-'}block;
 
-    width    : ${props => props.block ? '100%' : 'auto'};
-    min-width: 140px;
-    padding  : ${props => ((props.sm || props.small) ? '5px 15px' : '10px 20px')};
-    margin   : ${props => props.margin};
+    width    : ${props => props.aphblock ? '100%' : 'auto'};
+    min-width: ${props => props.aphcircle ? ((props.aphsm || props.aphsmall) ? '30px' : '40px') : '140px'};
+    padding  : ${props => ((props.aphsm || props.aphsmall) ? `5px ${props.aphcircle ? 0 : '15px'}` : `10px  ${props.aphcircle ? 0 : '20px'}`)};
+    margin   : ${props => props.aphmargin};
 
     text-align    : center;
     text-transform: uppercase;
@@ -24,48 +24,60 @@ const AphButtonStyled = styled.button`
     font-size  : 16px;
     line-height: 20px;
 
-    border-radius: ${props => ((props.radius || 0) + ((props.radius + '').includes('px') ? '' : 'px'))};
+    border-radius: ${props => ((props.aphradius || 25) + ((props.aphradius + '').includes('px') ? '' : 'px'))};
 
     border : 0;
     outline: 0;
 
+    -webkit-tap-highlight-color: ${props => colors.getFromTheme(props, (props.aphcolor || 'secondary'), 'crystal', 0.5)};
+
     color: ${props =>
-        props.link ?
-            colors.get((props.color || 'secondary')) :
-            colors.get((['white', 'smoke'].includes(props.color)) ? 'secondary' : 'white')
+        props.aphlink ?
+            colors.getFromTheme(props, (props.aphcolor || 'secondary')) :
+            colors.getFromTheme(props, (['white', 'smoke'].includes(props.aphcolor)) ? 'secondary' : 'white')
     };
     background-color: ${props =>
-        props.link ?
+        props.aphlink ?
             'transparent' :
-            colors.get((props.color || 'secondary'))
+            colors.getFromTheme(props, (props.aphcolor || 'secondary'))
     };
 
     transition-timing-function: ease;
-    transition-duration       : 0.25s;
+    transition-duration       : 0.2s;
     transition-property       : background-color, color, width;
 
     &:hover {
         background-color: ${props =>
-            props.link ?
-                colors.get('smoke') :
-                colors.get((props.color || 'secondary'), 'light')
+            props.aphlink ?
+                colors.getFromTheme(props, 'smoke') :
+                colors.getFromTheme(props, (props.aphcolor || 'secondary'), 'light')
         };
     }
 
     &:active,
     &:focus {
         background-color: ${props =>
-            props.link ?
-                colors.get('smoke') :
-                colors.get((props.color || 'secondary'), 'dark')
+            props.aphlink ?
+                colors.getFromTheme(props, 'smoke') :
+                colors.getFromTheme(props, (props.aphcolor || 'secondary'), 'dark')
         };
     }
 
     &:disabled {
         cursor: not-allowed;
 
-        color: ${colors.get('mercury', 'light')};
-        background-color: ${colors.get('mercury', 'crystal')};
+        color: ${props => colors.getFromTheme(props,
+            'mercury',
+            (props.aphtranslucid ? 'crystal' : 'light')
+        )};
+
+        background-color: ${props =>
+            props.aphlink ?
+                colors.getFromTheme(props, 'smoke') :
+                    props.aphtranslucid ?
+                        colors.getFromTheme(props, 'smoke', '', 0.5) :
+                            colors.getFromTheme(props, 'mercury', 'crystal')
+        };
     }
 
     .aph-btn {
@@ -75,7 +87,7 @@ const AphButtonStyled = styled.button`
 
         &__loader {
             position : absolute;
-            top      : calc(50% - 11.5px);
+            top      : calc(50% - 15px);
             left     : 50%;
             transform: translate(-50%);
             opacity  : 0;
@@ -86,9 +98,9 @@ const AphButtonStyled = styled.button`
         &:hover,
         &:disabled {
             background-color: ${props =>
-                props.link ?
+                props.aphlink ?
                     'transparent' :
-                    colors.get((props.color || 'secondary'))
+                    colors.getFromTheme(props, (props.aphcolor || 'secondary'))
             };
         }
 
@@ -99,15 +111,11 @@ const AphButtonStyled = styled.button`
 
             &__loader {
                 opacity: 1;
-
-                .aph-icon-wrapper {
-                    ${animations.spin()};
-                }
             }
         }
     }
 
-    ${props => props.styles};
+    ${props => props.aphstyles};
 `;
 
 /* Exporting */

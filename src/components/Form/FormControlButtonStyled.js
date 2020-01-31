@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 
 /* Framework Definitions */
-import { SIZES } from '../../constants';
 import { colors } from '../../utils';
 
 /* Component Styles */
@@ -29,7 +28,7 @@ const AphFormControlButtonStyled = styled.button`
     &:active,
     &:focus,
     &:hover {
-        color: ${colors.get('black')};
+        color: ${props => colors.getFromTheme(props, 'base')};
 
         border    : 0;
         outline   : 0;

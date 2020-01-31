@@ -3,34 +3,46 @@ import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Helpers */
-import { SIZES } from '../../../constants';
-import { colors } from '../../../utils';
+/* Utils */
+import { text } from '../../../utils';
 
 /* Component Styles */
-const PStyled = styled.h1`
-    font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${props => (SIZES[props.small ? 'SM' : 'MD'].FONT_SIZE)};
-    line-height: ${props => (SIZES[props.small ? 'SM' : 'MD'].LINE_HEIGHT)};
+const PStyled = styled.p`
+    box-sizing: border-box;
 
-    padding: 0;
-    margin : ${props => props.margin};
-
-    text-align    : ${props => (props.center ? 'center' : null)};
-    text-transform: ${props => (props.upper ? 'uppercase' : null)};
-
-    color: ${props => (props.link ? colors.get('secondary') : null)};
+    ${props => text(props, props.textSmall ? 'SM' : 'MD')};
 
     ${props => props.styles};
 `;
 
 /* Component Itself */
 const P = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+        color,
+
+        align,
+        center,
+        left,
+        right,
+        lower,
+        upper,
+        small,
+
+        ...rest
+    } = props;
 
     return (
         <PStyled
-            {...props}
+            textAlign={align}
+            textLeft={left}
+            textCenter={center}
+            textRight={right}
+            textLower={lower}
+            textUpper={upper}
+            textColor={color}
+            textSmall={small}
+            {...rest}
             ref={ref}
             className={`aph-p ${className || ''}`}
         />
@@ -44,7 +56,9 @@ P.defaultProps = {
     center: false,
     upper : false,
     small : false,
+    helper: false,
     margin: '10px 0',
+    color : '',
     styles: {},
 };
 
@@ -54,9 +68,13 @@ P.propTypes = {
     bold  : propTypes.bool,
     center: propTypes.bool,
     upper : propTypes.bool,
-    small : propTypes.bool,
+    helper: propTypes.bool,
     margin: propTypes.string,
-    styles: propTypes.object,
+    color : propTypes.string,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

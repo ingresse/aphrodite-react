@@ -1,11 +1,11 @@
 /* Packages */
-import React, { Component } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
 /* Framework Helpers */
-import { COLORS } from '../../constants';
+import { colors } from '../../utils';
 
 /* Animation */
 const bgAnimated = keyframes`
@@ -41,7 +41,7 @@ const AphProgressBarWrapper = styled('div')(props => ({
     marginLeft : 'auto',
 
     borderRadius: (((props.radius || props.radius === 0) && typeof parseInt(props.radius, 10) === 'number') ? parseInt(props.radius, 10) + (props.radius.toString().includes('%') ? '%' : 'px') : '10px'),
-    background  : COLORS.LIGHT_GREY,
+    background  : colors.getFromTheme(props, 'disabled'),
 
     ...props.styles,
 }));
@@ -53,7 +53,7 @@ const AphProgressBar = styled('div')(props => ({
     height: (props.height || '10px'),
     width : (props.size || ((props.percentual && props.percentual > 100) ? 100 : props.percentual || 0) + '%'),
 
-    background: (props.color ? COLORS.GET(props.color) : !props.animated ? COLORS.BLUE : `linear-gradient(270deg, ${props.gradientStart || COLORS.BLUE} 0%, ${props.gradientEnd || COLORS.LIGHT_BLUE} 100%)`),
+    background: (props.color ? colors.getFromTheme(props, props.color) : !props.animated ? colors.getFromTheme(props, 'secondary') : `linear-gradient(270deg, ${colors.getFromTheme(props, props.gradientStart || 'secondary')} 0%, ${colors.getFromTheme(props, props.gradientEnd || 'secondary')} 100%)`),
     backgroundSize: '200% 100%',
 
     animation: `${bgAnimated} .9s ease infinite`,
@@ -64,64 +64,50 @@ const AphProgressBar = styled('div')(props => ({
     ...props.styles,
 }));
 
-/* Component it self */
-class ProgressBar extends Component {
+/* Component itself */
+function ProgressBar(props) {
     /**
-     * Constructor
-     *
-     * @param {object} props
+     * Inherit props
      */
-    constructor(props) {
-        super(props);
+    const {
+        animated,
 
-        this.props = props;
-        this.state = {
-            percentual: undefined,
-        };
+        size,
+        percent,
+        percentual,
+        gradient,
+        styles,
 
-        this.increment = 500;
-        this.interval  = null;
-    }
+        width,
+        height,
+        radius,
 
-    /* Render */
-    render() {
-        const {
-            animated,
+        color,
 
-            size,
-            percent,
-            percentual,
-            gradient,
-            styles,
+        wrapperStyles,
+    } = props;
 
-            width,
-            height,
-            radius,
-
-            color,
-
-            wrapperStyles,
-        } = this.props;
-
-        return (
-            <AphProgressBarWrapper
-                width={width}
+    /**
+     * Render
+     */
+    return (
+        <AphProgressBarWrapper
+            width={width}
+            height={height}
+            radius={radius}
+            styles={wrapperStyles}>
+            <AphProgressBar
+                size={size}
+                percentual={(percent || percentual)}
+                color={(color || '')}
+                animated={animated}
+                gradientStart={gradient && gradient.start}
+                gradientEnd={gradient && gradient.end}
                 height={height}
-                radius={radius}
-                styles={wrapperStyles}>
-                <AphProgressBar
-                    size={size}
-                    percentual={(percent || percentual)}
-                    color={(color || '')}
-                    animated={animated}
-                    gradientStart={gradient && gradient.start}
-                    gradientEnd={gradient && gradient.end}
-                    height={height}
-                    styles={styles}
-                />
-            </AphProgressBarWrapper>
-        );
-    }
+                styles={styles}
+            />
+        </AphProgressBarWrapper>
+    );
 };
 
 /* Default Props */
@@ -132,8 +118,8 @@ ProgressBar.defaultProps = {
     percentual   : 0,
     size         : '',
     gradient     : {
-        start: COLORS.BLUE,
-        end  : COLORS.LIGHT_BLUE,
+        start: colors.get('secondary'),
+        end  : colors.get('secondary', 'light'),
     },
     styles       : {},
 
@@ -153,14 +139,20 @@ ProgressBar.propTypes = {
     size         : propTypes.string,
     percentual   : propTypes.number,
     grandient    : propTypes.object,
-    styles       : propTypes.object,
+    styles       : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 
     width        : propTypes.any,
     height       : propTypes.number,
 
     color        : propTypes.string,
 
-    wrapperStyles: propTypes.object,
+    wrapperStyles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

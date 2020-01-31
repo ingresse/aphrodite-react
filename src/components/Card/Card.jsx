@@ -17,17 +17,17 @@ const AphCardStyled = styled.div`
 
     border-radius: ${RADIUS.SM}px;
 
-    color     : ${colors.get('black')};
-    background: ${colors.get('white')};
+    color     : ${props => colors.get(props.background ? 'white' : 'black')};
+    background: ${props => colors.get(props.background || 'white')};
 
     transition : background-color 0.25s linear, box-shadow 0.25s linear, padding 0.25s linear;
     will-change: box-shadow, padding;
 
-    ${props => props.boxShadow ? ({
+    ${props => !props.shadow ? null : ({
         boxShadow: `0 0 5px ${colors.get('black', 'original', 0.25)}`,
-    }) : null};
+    })};
 
-    ${props => props.onClick ? ({
+    ${props => (!props.background && props.onClick) ? ({
         '&:hover': {
             background: colors.get('smoke'),
         }
@@ -35,7 +35,7 @@ const AphCardStyled = styled.div`
 
     &.active,
     &:hover {
-        ${props => props.boxShadow ? ({
+        ${props => props.shadow && props.hover ? ({
             boxShadow: `0 0 20px ${colors.get('black', 'original', 0.25)}`,
         }) : null};
     }
@@ -76,16 +76,19 @@ const Card = forwardRef((props, ref) => {
 Card.defaultProps = {
     margin   : undefined,
     padding  : '10px',
+    shadow   : true,
     styles   : {},
-    boxShadow: false,
 };
 
 /* Properties Types */
 Card.propTypes = {
     margin   : propTypes.string,
     padding  : propTypes.string,
-    styles   : propTypes.object,
-    boxShadow: propTypes.bool,
+    shadow   : propTypes.bool,
+    styles   : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Framework Helpers */
-import { GRID, MEDIA_QUERIES, RADIUS } from '../../constants';
+import { GRID } from '../../constants';
 
 /* Sizes */
 const MARGIN = ('-' + GRID.COLUMNS_PADDING + GRID.UNIT);
@@ -12,7 +12,6 @@ const MARGIN = ('-' + GRID.COLUMNS_PADDING + GRID.UNIT);
 /* Wrapper Styles */
 const RowWrapper = styled('div')((props) => {
     const {
-        alignment,
         vertical,
         horizontal,
 
@@ -61,13 +60,12 @@ const RowWrapper = styled('div')((props) => {
         position     : 'relative',
         display      : 'flex',
         flex         : '0 1 auto',
-        flexDirection: 'row',
         flexWrap     : 'wrap',
 
         marginRight: MARGIN,
         marginLeft : MARGIN,
 
-        flexDirection: reverse ? 'row-reverse' : null,
+        flexDirection: reverse ? 'row-reverse' : 'row',
 
         '&:before, &:after': {
             clear: 'both',
@@ -95,9 +93,12 @@ const Row = forwardRef((props, ref) => {
 
 /* Properties Types */
 Row.propTypes = {
-    styles    : propTypes.object,
     vertical  : propTypes.string,
     horizontal: propTypes.string,
+    styles    : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Default Properties */

@@ -1,0 +1,80 @@
+---
+name : Avatar
+menu : › Components
+route: /components/avatar
+---
+
+import { Playground, Props } from 'docz';
+import { Avatar, Col, Row, Segment } from '../';
+
+
+# Avatar
+### A styled component to avatar, with some facilities.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const size = '140px';
+
+        return (
+            <Segment padding="30px 20px">
+                <Row horizontal="center">
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                circle
+                                width={size}
+                                height={size}
+                                color="ocean"
+                                alt="My Awesome Circle Avatar"
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                size={size}
+                                color="tangerine"
+                                alt="My Awesome Regular Avatar"
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                circle
+                                width={size}
+                                height={size}
+                                color="bamboo"
+                                name="My Awesome Circle Initials"
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={4} md={3}>
+                        <Segment padding="10px 0">
+                            <Avatar
+                                center
+                                size={size.replace('px', '')}
+                                color="supernova"
+                                alt="My Awesome Regular Placeholder"
+                                src={`https://placehold.it/200?text=size=${size}`}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
+            </Segment>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props
+    of={Avatar}
+/>

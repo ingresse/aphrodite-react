@@ -1,0 +1,89 @@
+---
+name : useWindowSize
+menu : › Hooks
+route: /hooks/usewindowsize
+---
+
+import { Playground } from 'docz';
+import { SCREEN_SIZES } from '../../constants';
+import { Container, H1, H3, Row, Col, Segment } from '../../components';
+import { colors } from '../../utils';
+import useWindowSize from './useWindowSize';
+
+# Hook | useWindowSize
+### Simple hook to return window width and height
+
+```jsx
+import {
+    useWindowSize,
+    H1,
+    H3,
+    Container,
+    Segment,
+} from 'aphrodite-react';
+
+function Header() {
+    const {
+        xs,
+        sm,
+        md,
+        lg,
+        xl,
+        width,
+        height,
+    } = useWindowSize();
+
+    const Title = (xs ? H3 : H1);
+
+    return (
+        <Segment
+            as="header"
+            padding={xs ? '20px 0' : '40px 0'}>
+            <Container>
+                <Title>
+                    Sales Report
+                </Title>
+            </Container>
+        </Segment>
+    );
+}
+```
+
+
+### Example
+
+<Playground>
+    {() => {
+        const sizes  = useWindowSize();
+        const { xs } = sizes;
+        const Title  = (xs ? H3 : H1);
+
+        return (
+            <>
+                <Segment
+                    radius={5}
+                    margin="0 0 20px"
+                    padding="15px 20px"
+                    background="smoke"
+                    textColor="black">
+                    <code>
+                        {JSON.stringify(sizes).replace(/,/g, ',\n')}
+                    </code>
+                </Segment>
+
+                <Segment
+                    as="header"
+                    radius={5}
+                    textColor="inverse"
+                    background="supernova"
+                    padding={xs ? '20px 0' : '40px 0'}>
+                    <Container>
+                        <Title margin="0">
+                            Component rendered based on hook values
+                        </Title>
+                    </Container>
+                </Segment>
+            </>
+        );
+    }}
+</Playground>

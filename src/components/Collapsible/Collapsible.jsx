@@ -1,22 +1,27 @@
 /* Packages */
-import React, { forwardRef, useState, useRef } from 'react';
+import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Utils */
 import { colors } from '../../utils';
 
 /* Composition Components */
-import { H2, H3, Card } from '../';
+import { H2, H3, Card, Icon } from '../';
 
 /* Component Styles */
 import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
-/* Components Helpers */
-import IconArrowDown from '../Icons/IconArrowDown';
-
 /* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
-    const { header, headerProps, children, disabled, delay, hover } = props;
+    const {
+        header,
+        headerProps,
+        children,
+        disabled,
+        delay,
+        icon,
+        iconSize,
+    } = props;
 
     const timerDelay = (delay * 1000);
 
@@ -35,12 +40,13 @@ const Collapsible = forwardRef((props, ref) => {
 
     /* Custom Styles */
     const headerStyles = Object.assign({
+        position      : 'relative',
         display       : 'flex',
         alignItems    : 'center',
         justifyContent: 'space-between',
 
-        margin : 0,
-        padding: ((headerProps && headerProps.lg) ? '5px 0' : 0),
+        margin : '-10px',
+        padding: ((headerProps && headerProps.lg) ? '15px 10px' : '10px'),
         cursor : 'pointer',
         color  : colors.get(disabled ? 'mercury' : 'secondary'),
     }, headerProps && headerProps.styles ? headerProps.styles : {});
@@ -132,6 +138,16 @@ const Collapsible = forwardRef((props, ref) => {
         setOpened(!opened);
     }
 
+    /**
+     * Unmount
+     */
+    useEffect(() => {
+        return function cleanup() {
+            clearTimeout(openTimer);
+            clearTimeout(closeTimer);
+        };
+    }, []);
+
     return (
         <Card
             {...props}
@@ -148,20 +164,26 @@ const Collapsible = forwardRef((props, ref) => {
             {!header ? null : (
                 <HeaderTitle
                     {...headerProps}
-                    styles={headerStyles}
+                    styles={Object.assign(headerStyles, {
+                        paddingRight: (!icon ? null : `${iconSize}px`),
+                    })}
                     onClick={toggle}
                     role="button">
-                        <div style={{ maxWidth: '90%' }}>
-                            {header}
-                        </div>
-                        <IconArrowDown
-                            size={30}
-                            color={colors.get('mercury', 'light')}
-                            styles={{
-                                transform: opened ? 'rotate(180deg)' : 'initial',
-                                transition:`transform ${delay}s linear`,
-                            }}
-                        />
+                        {header}
+                        {(!icon) ? (null) : (
+                            <Icon
+                                slug="arrow-down"
+                                size={iconSize}
+                                color={colors.get('mercury', 'light')}
+                                styles={{
+                                    position  : 'absolute',
+                                    top       : '50%',
+                                    right     : 0,
+                                    transform : `translateY(-50%)${opened ? ' rotate(180deg)' : ''}`,
+                                    transition: `transform ${delay}s linear`,
+                                }}
+                            />
+                        )}
                 </HeaderTitle>
             )}
 
@@ -179,10 +201,11 @@ const Collapsible = forwardRef((props, ref) => {
 Collapsible.defaultProps = {
     opened        : false,
     hover         : false,
-    delay         : 0.25,
+    delay         : 0.35,
     styles        : {},
     childrenStyles: {},
-    size          : 30,
+    icon          : true,
+    iconSize      : 40,
 
     header     : '',
     headerProps: null,
@@ -193,9 +216,16 @@ Collapsible.propTypes = {
     opened        : propTypes.bool,
     hover         : propTypes.bool,
     delay         : propTypes.number,
-    styles        : propTypes.object,
-    childrenStyles: propTypes.object,
-    size          : propTypes.number,
+    icon          : propTypes.bool,
+    iconSize      : propTypes.number,
+    styles        : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
+    childrenStyles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 
     header     : propTypes.any,
     headerProps: propTypes.object,

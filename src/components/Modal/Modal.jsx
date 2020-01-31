@@ -1,83 +1,326 @@
-import React, { useState, useEffect } from 'react';
+/* Core Packages */
+import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Global, css } from '@emotion/core';
 
-/* Helpers e Components */
-import { H1, ActionBar } from '../';
-
-/* Styled components */
+/* Helper Components */
 import {
-    ModalContainer,
-    Mask,
-    ModalDialog,
- } from './ModalStyles';
+    H1,
+    Flex,
+    ActionBar,
+} from '../';
 
-function Modal(props) {
+/* Component Styles */
+import ModalStyled from './ModalStyles';
+import ModalOverlayStyled from './ModalOverlayStyles';
+
+/* Component Itself */
+const Modal = forwardRef((props, ref) => {
+
+    /**
+     * Global props
+     */
+    const {
+        addEventListener,
+        removeEventListener,
+    } = document;
+
+    /**
+     * Inherit Props
+     */
     const {
         title,
+        header,
+        contentJustify,
+        alignItems,
         children,
         footer,
+        footerProps,
+        overlayProps,
+
+        className,
+        styles,
 
         opened,
-        animationDuration,
+        openedCallback,
+        closeOnEscape,
+        closeByEscape,
+        unblockScrolling,
+
+        ...rest
     } = props;
 
-    const [ mounted, setMounted ] = useState(false);
+    /**
+     * State values
+     */
+    const [ active, setActive ]             = useState(opened);
+    const [ visible, setVisible ]           = useState(opened);
+    const [ unmounted, setUnmounted ]       = useState(false);
+    const [ activeTimer, setActiveTimer ]   = useState(null);
+    const [ visibleTimer, setVisibleTimer ] = useState(null);
 
-    useEffect(() => {
-        if (!opened) {
-            setTimeout(() => {
-                setMounted(opened);
-            }, animationDuration);
+    /**
+     * State reference
+     */
+    const modalRef = useRef(null);
 
-            return
+    /**
+     * Handle with close by escape key
+     *
+     * @param {object} evt - DOM click event
+     */
+    function handleCloseOnScape (evt) {
+        const { key, keyCode } = (evt || {});
+        const isEscPressed     = ((key === 'Escape') || (key === 'Esc') || (keyCode === 27));
+
+        if (!isEscPressed) {
+            return;
         }
 
-        setMounted(opened)
+        if (evt && evt.stopPropagation &&
+            (typeof evt.stopPropagation === 'function')) {
+            evt.stopPropagation();
+        }
+
+        handleClose();
+
+        return;
+    }
+
+    /**
+     * Add Event Listeners to handle with modal visibility
+     */
+    function listen () {
+        if (closeOnEscape || closeByEscape) {
+            addEventListener('keydown', handleCloseOnScape);
+        }
+    }
+
+    /**
+     * Remove Event Listeners
+     */
+    function unlisten () {
+        clearTimeout(activeTimer);
+        clearTimeout(visibleTimer);
+
+        removeEventListener('keydown', handleCloseOnScape);
+    }
+
+    /**
+     * Handle with Dropdown close event
+     *
+     * @param {object} evt - DOM click event
+     */
+    function handleClose(evt) {
+        clearTimeout(visibleTimer);
+
+        if (unmounted ||
+            (evt &&
+            evt.target &&
+            modalRef &&
+            modalRef.current &&
+            modalRef.current.contains(evt.target))) {
+            return;
+        }
+
+        unlisten();
+        setActive(false);
+        setVisible(true);
+
+        setVisibleTimer(setTimeout(() => {
+            if (unmounted) {
+                return;
+            }
+
+            setVisible(false);
+            openedCallback(false);
+
+            if (modalRef &&
+                modalRef.current &&
+                modalRef.current.focus) {
+                modalRef.current.focus();
+            }
+        }, 100));
+    }
+
+    /**
+     * Handle with Dropdown open event
+     *
+     * @param {object} evt - DOM click event
+     */
+    function handleOpen(evt) {
+        clearTimeout(activeTimer);
+
+        if (unmounted) {
+            return;
+        }
+
+        if (evt && evt.preventDefault) {
+            evt.preventDefault();
+        }
+
+        setActive(false);
+        setVisible(true);
+
+        setActiveTimer(setTimeout(() => {
+            if (unmounted) {
+                return;
+            }
+
+            setActive(true);
+            listen();
+        }, 50));
+    }
+
+    /**
+     * Watch for `opened` prop changes
+     */
+    useEffect(() => {
+        if (!opened) {
+            handleClose();
+            unlisten();
+
+            return function cleanup() {
+                unlisten();
+            };
+        }
+
+        if (opened || active) {
+            handleOpen();
+        }
+
+        return function cleanup() {
+            unlisten();
+        };
     }, [ opened ]);
 
-    const style = {
-        visibility: opened ? 'visible' : 'hidden',
-        animationDuration: animationDuration + 'ms',
-        transition: 'visibility ' + animationDuration + 'ms'
-    };
+    /**
+     * Unmount
+     */
+    useEffect(() => {
+        return function cleanup() {
+            setUnmounted(true);
+            unlisten();
+        };
+    }, []);
 
-    return(mounted &&
-        <ModalContainer
-            style={style}
-            className={`${opened ? 'modal-fade-enter' : 'modal-fade-leave'}`}
-        >
-            <Mask />
-            <ModalDialog>
-
-                {title &&
-                    <H1 center bold>{title}</H1>
-                }
-
-                {children}
-
-                {footer &&
-                    <ActionBar styles={{ padding: '10px 0', minHeight: 'initial' }} visible={true}>
-                        {footer}
-                    </ActionBar>
-                }
-
-            </ModalDialog>
-        </ModalContainer>
+    /**
+     * Render
+     */
+    return (
+        <>
+            <ModalOverlayStyled
+                isOpened={active && visible}
+                onClick={(evt) => (closeOnEscape || closeByEscape) && handleClose(evt)}
+                className={`aph-modal-overlay${active ? ' active' : ''}${visible ? ' visible' : ''}`}
+                {...overlayProps}
+            />
+            <ModalStyled
+                {...rest}
+                ref={modalRef}
+                open
+                opened={active && visible}
+                role="dialog"
+                styles={styles}
+                hasFooter={(footer || Object.keys(footerProps).length) ? true : false}
+                className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
+                {(!active || !visible) ? (null) : (
+                    <>
+                        {unblockScrolling ? (null) : (
+                            <Global
+                                styles={css`
+                                    body {
+                                        overflow: hidden;
+                                    }
+                                `}
+                            />
+                        )}
+                        <Flex
+                            flex
+                            flexDirection="column"
+                            className="aph-modal__container">
+                            {(!title) ? (null) : (
+                                <H1
+                                    bold
+                                    center
+                                    margin="0"
+                                    className="aph-modal__container__title">
+                                    {title}
+                                </H1>
+                            )}
+                            {(!header) ? (null) : (
+                                <header className="aph-modal__container__header">
+                                    {header}
+                                </header>
+                            )}
+                            <Flex
+                                flex
+                                alignItems="center"
+                                justifyContent={contentJustify || 'start'}
+                                styles={{ flex: 1, width: '100%' }}
+                                flexDirection="column"
+                                className="aph-modal__container__content">
+                                <Flex styles={{ width: '100%' }}>
+                                    {children}
+                                </Flex>
+                            </Flex>
+                        </Flex>
+                        <ActionBar
+                            {...footerProps}
+                            className={`aph-modal__content__footer ${footerProps.className || ''}`}
+                            visible={footerProps.visible || (typeof footerProps.visible === 'undefined' && footer ? true : false)}
+                            styles={{
+                                ...footerProps.styles,
+                                padding  : '10px 0',
+                                minHeight: 'initial'
+                            }}>
+                            {footer}
+                        </ActionBar>
+                    </>
+                )}
+            </ModalStyled>
+        </>
     );
-}
+});
 
 /* Default props */
 Modal.defaultProps = {
-    title  : '',
-    opened : false,
-    animationDuration: '100',
+    title : '',
+    header: undefined,
+
+    opened          : false,
+    openedCallback  : () => {},
+    closeOnEscape   : false,
+    unblockScrolling: false,
+
+    /**
+     * Flex `justify-content`
+     * flex-start || center || flex-end
+     */
+    contentJustify: 'flex-start',
+
+    alignItems: 'center',
+    footerProps: {},
+    styles     : {},
+
+    overlayProps: {},
 };
 
 /* Prop Types */
 Modal.propTypes = {
-    title   : PropTypes.string,
-    opened  : PropTypes.bool,
-    animationDuration: PropTypes.string,
+    title : PropTypes.any,
+    header: PropTypes.any,
+
+    opened          : PropTypes.bool,
+    openedCallback  : PropTypes.func.isRequired,
+    closeOnEscape   : PropTypes.bool,
+    unblockScrolling: PropTypes.bool,
+
+    contentJustify: PropTypes.string,
+    alignItems: PropTypes.string,
+
+    overlayProps: PropTypes.object,
 };
 
+/* Exporting */
 export default Modal;

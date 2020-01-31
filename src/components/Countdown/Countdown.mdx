@@ -1,0 +1,148 @@
+---
+name : Countdown
+menu : › Components
+route: /components/countdown
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    Countdown,
+    Container,
+    Segment,
+    Button,
+    Card,
+    InputNumber,
+    Select,
+    Row,
+    Col,
+} from '../';
+import { colors } from '../../utils';
+
+
+# Countdown
+### Regressive seconds visual timer
+
+```jsx
+import { Countdown } from 'aphrodite-react';
+
+...
+
+function countdownFinished() {
+    alert('finished');
+}
+
+...
+
+<Countdown
+    size={120}
+    seconds={30}
+    onFinishCallback={countdownFinished}
+/>
+```
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ counting, setCounting ] = useState(false);
+        const [ seconds, setSeconds ]   = useState(5);
+        const [ color, setColor ]       = useState('helper');
+        const [ size, setSize ]         = useState(120);
+        const btnColor                  = ((color !== 'helper') ? color : 'secondary');
+
+        function countdownFinished() {
+            console.log('countdown finished');
+            setCounting(false);
+        }
+
+        return (
+            <Segment
+                padding="45px 0">
+                <Container xs>
+                    <Card padding="10px 20px">
+                        {(counting) ? (
+                            <Segment
+                                padding="10px 0"
+                                textAlign="center">
+                                <Countdown
+                                    size={size}
+                                    seconds={seconds}
+                                    color={color}
+                                    onFinishCallback={countdownFinished}
+                                />
+                                <Segment
+                                    padding="20px 0 0">
+                                    <Button
+                                        link
+                                        color={btnColor}
+                                        onClick={() => setCounting(false)}>
+                                        Cancel
+                                    </Button>
+                                </Segment>
+                            </Segment>
+                        ) : (
+                            <Segment padding="0">
+                                <Row horizontal="center">
+                                    <Col xs={6} sm={6}>
+                                        <Segment padding="10px 0">
+                                            <InputNumber
+                                                label="Size"
+                                                value={size}
+                                                onChange={setSize}
+                                            />
+                                        </Segment>
+                                    </Col>
+                                    <Col xs={6} sm={6}>
+                                        <Segment padding="10px 0">
+                                            <InputNumber
+                                                label="Seconds"
+                                                value={seconds}
+                                                onChange={setSeconds}
+                                            />
+                                        </Segment>
+                                    </Col>
+                                    <Col xs={10} sm={6}>
+                                        <Segment padding="10px 0">
+                                            <Select
+                                                label="Color"
+                                                value={color}
+                                                onChange={({ target }) => setColor(target.value)}>
+                                                <option value={Countdown.color}>
+                                                    default
+                                                </option>
+                                                {Object.keys(colors.shades).map((colorKey) => (
+                                                    <option
+                                                        key={`aph-color-${colorKey}`}
+                                                        value={colorKey}>
+                                                        {colorKey}
+                                                    </option>
+                                                ))}
+                                            </Select>
+                                        </Segment>
+                                    </Col>
+                                </Row>
+                                <Segment
+                                    padding="10px 0"
+                                    textAlign="center">
+                                    <Button
+                                        link
+                                        color={btnColor}
+                                        onClick={() => setCounting(true)}>
+                                        Start
+                                    </Button>
+                                </Segment>
+                            </Segment>
+                        )}
+                    </Card>
+                </Container>
+            </Segment>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={Countdown} />

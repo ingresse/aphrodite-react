@@ -3,35 +3,44 @@ import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-/* Helpers */
-import { COLORS, SIZES } from '../../../constants';
-import { colors } from '../../../utils';
+/* Utils */
+import { text } from '../../../utils';
 
 /* Component Styles */
 const H1Styled = styled.h1`
-    font-weight: ${props => (props.bold ? SIZES.XL.FONT_WEIGHT : SIZES.MD.FONT_WEIGHT)};
-    font-weight: ${props => (SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${props => (SIZES.XXL.FONT_SIZE)};
-    line-height: ${props => (SIZES.XXL.LINE_HEIGHT)};
+    box-sizing: border-box;
 
-    padding: 0;
-    margin : ${props => props.margin};
-
-    text-align    : ${props => (props.center ? 'center' : null)};
-    text-transform: ${props => (props.upper ? 'uppercase' : null)};
-
-    color: ${props => (props.link ? colors.get('secondary') : null)};
+    ${props => text(props, 'XXL')};
 
     ${props => props.styles};
 `;
 
 /* Component Itself */
 const H1 = forwardRef((props, ref) => {
-    const { className } = props;
+    const {
+        className,
+        color,
+
+        align,
+        center,
+        left,
+        right,
+        lower,
+        upper,
+
+        ...rest
+    } = props;
 
     return (
         <H1Styled
-            {...props}
+            textAlign={align}
+            textColor={color}
+            textLeft={left}
+            textCenter={center}
+            textRight={right}
+            textLower={lower}
+            textUpper={upper}
+            {...rest}
             ref={ref}
             className={`aph-h1 ${className || ''}`}
         />
@@ -44,7 +53,9 @@ H1.defaultProps = {
     bold  : false,
     center: false,
     upper : false,
+    helper: false,
     margin: '25px 0 15px',
+    color : '',
     styles: {},
 };
 
@@ -54,8 +65,13 @@ H1.propTypes = {
     bold  : propTypes.bool,
     center: propTypes.bool,
     upper : propTypes.bool,
+    helper: propTypes.bool,
     margin: propTypes.string,
-    styles: propTypes.object,
+    color : propTypes.string,
+    styles: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

@@ -3,7 +3,6 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 /* Component Helpers */
-import { colors } from '../../utils';
 import { Icon } from '../';
 
 /* Component Styles */
@@ -12,8 +11,32 @@ import AphButtonItemStyled from './ButtonItemStyled';
 
 /* Component Itself */
 const Button = forwardRef((props, ref) => {
-    const { className, color, children, loading, disabled } = props;
+    /**
+     * Component props
+     */
+    const {
+        block,
+        circle,
+        className,
+        color,
+        children,
+        loading,
+        disabled,
 
+        margin,
+        link,
+        radius,
+        sm,
+        small,
+        styles,
+        translucid,
+
+        ...rest
+    } = props;
+
+    /**
+     * Local values
+     */
     const childrenRef = useRef(null);
     const [ childrenWidth, setChildrenWidth ] = useState(140);
 
@@ -21,7 +44,8 @@ const Button = forwardRef((props, ref) => {
      * Children Did Update
      */
     useEffect(() => {
-        if (!childrenRef ||
+        if ((typeof loading !== 'boolean') ||
+            !childrenRef ||
             !childrenRef.current ||
             !childrenRef.current.offsetWidth ||
             childrenRef.current.offsetWidth === childrenWidth) {
@@ -31,26 +55,44 @@ const Button = forwardRef((props, ref) => {
         setChildrenWidth(childrenRef.current.offsetWidth);
     }, [ children ]);
 
+    /**
+     * Render
+     */
     return (
         <AphButtonStyled
-            {...props}
+            {...rest}
             ref={ref}
-            disabled={disabled || loading}
-            className={`aph-btn ${className} ${loading ? 'aph-btn--loading' : ''}`}>
-            <AphButtonItemStyled
-                ref={childrenRef}
-                className="aph-btn__content">
-                {children}
-            </AphButtonItemStyled>
-            <AphButtonItemStyled
-                className="aph-btn__loader"
-                childrenWidth={childrenWidth ? `${childrenWidth}px` : null}>
-                <Icon
-                    size={19}
-                    slug="loader"
-                    color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
-                />
-            </AphButtonItemStyled>
+            aphsm={(sm || small) ? 1 : 0}
+            aphblock={block ? 1 : 0}
+            aphcircle={circle}
+            aphcolor={color}
+            aphlink={link ? 1 : 0}
+            aphmargin={margin}
+            aphradius={radius}
+            aphstyles={styles}
+            aphtranslucid={translucid ? 1 : 0}
+            disabled={disabled}
+            className={`aph-btn${loading ? ' aph-btn--loading' : ''} ${className}`}>
+            {(typeof loading !== 'boolean') ? (children) : (
+                <>
+                    <AphButtonItemStyled
+                        className="aph-btn__loader"
+                        childrenWidth={childrenWidth ? `${childrenWidth}px` : null}>
+                        {(!loading) ? (null) : (
+                            <Icon
+                                size={30}
+                                slug="loader"
+                                color={['white', 'smoke'].includes(color) ? 'secondary' : 'white'}
+                            />
+                        )}
+                    </AphButtonItemStyled>
+                    <AphButtonItemStyled
+                        ref={childrenRef}
+                        className="aph-btn__content">
+                        {children}
+                    </AphButtonItemStyled>
+                </>
+            )}
         </AphButtonStyled>
     );
 });
@@ -61,12 +103,13 @@ Button.defaultProps = {
     type     : 'button',
     role     : 'button',
     color    : 'secondary',
-    radius   : '25px',
     className: '',
     margin   : null,
     small    : false,
     block    : false,
     disabled : false,
+    loading  : undefined,
+    styles   : {},
 };
 
 /* Properties Types */
@@ -81,6 +124,11 @@ Button.propTypes = {
      * Should the Button be disabled?
      */
     disabled: PropTypes.bool,
+
+    /**
+     * Loading state, replacing text by a donut spinning
+     */
+    loading: PropTypes.bool,
 
     /**
      * Renders the button using an alternative color:
@@ -117,6 +165,14 @@ Button.propTypes = {
      * Example: `Link` from react-router-dom
      */
     as: PropTypes.elementType,
+
+    /**
+     * Custom Styles
+     */
+    styles: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Exporting */

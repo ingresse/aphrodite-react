@@ -15,7 +15,7 @@ const DropdownStyled = styled.div`
     position: relative;
     display : block;
     width   : 100%;
-    z-index : 2;
+    z-index : 901;
 
     -webkit-box-orient   : vertical;
     -webkit-box-direction: normal;
@@ -52,13 +52,13 @@ const DropdownStyled = styled.div`
 
                 will-change: z-index, opacity;
                 transition :
-                    display 0.1s linear,
-                    opacity 0.25s linear
+                    display ${props => props.opened ? 0.25 : 0.1}s linear,
+                    opacity ${props => props.opened ? 0.15 : 0.25}s linear
                 ;
 
-                color     : ${colors.get('black')};
-                background: ${colors.get('white')};
-                box-shadow: 0 0 5px ${colors.get('black', '', 0.25)};
+                color     : ${props => colors.getFromTheme(props, 'black')};
+                background: ${props => colors.getFromTheme(props, 'white')};
+                box-shadow: 0 0 5px ${props => colors.getFromTheme(props, 'shadow')};
 
                 padding: ${props => (props.thin ? '0' : '15px 10px')};
                 border-radius: ${RADIUS.XS}px;
@@ -79,7 +79,7 @@ const DropdownStyled = styled.div`
         }
 
         &-list {
-            &__item {
+            &__item:not(.aph-list__item--with-link) {
                 padding-right: 20px;
                 padding-left : 20px;
             }
@@ -94,6 +94,8 @@ const DropdownStyled = styled.div`
             }
         }
     }
+
+    ${props => props.styles};
 `;
 
 /* Exporting */

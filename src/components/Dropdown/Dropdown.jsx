@@ -26,14 +26,16 @@ const Dropdown = forwardRef((props, ref) => {
         thin,
 
         opened,
+
+        styles,
     } = props;
 
     /**
      * State values
      */
-    const [ active, setActive ]       = useState(opened);
-    const [ visible, setVisible ]     = useState(opened);
-    const [ unmounted, setUnmounted ] = useState(false);
+    const [ active, setActive ]             = useState(opened);
+    const [ visible, setVisible ]           = useState(opened);
+    const [ unmounted, setUnmounted ]       = useState(false);
     const [ activeTimer, setActiveTimer ]   = useState(null);
     const [ visibleTimer, setVisibleTimer ] = useState(null);
 
@@ -43,34 +45,19 @@ const Dropdown = forwardRef((props, ref) => {
     const dropdownRef = useRef(null);
 
     /**
-     * Listen to
+     * Add click listener
      */
-    useEffect(() => {
-        if (!opened) {
-            handleClose();
-
-            return;
-        }
-
-        if (opened || active) {
-            handleOpen();
-        }
-    }, [ opened ]);
-
-    /**
-     * Mount
-     */
-    useEffect(() => {
+    function addClickListener() {
         document.addEventListener('click', handleClose);
-
-        return removeClickListener;
-    }, []);
+    }
 
     /**
      * Remove click listener
      */
-    function removeClickListener () {
-        setUnmounted(true);
+    function removeClickListener() {
+        clearTimeout(activeTimer);
+        clearTimeout(visibleTimer);
+
         document.removeEventListener('click', handleClose);
     }
 
@@ -100,6 +87,7 @@ const Dropdown = forwardRef((props, ref) => {
             }
 
             setVisible(false);
+            removeClickListener();
         }, 250));
     }
 
@@ -128,6 +116,7 @@ const Dropdown = forwardRef((props, ref) => {
             }
 
             setActive(true);
+            addClickListener();
         }, 50));
     }
 
@@ -145,6 +134,37 @@ const Dropdown = forwardRef((props, ref) => {
     }
 
     /**
+     * Listen to `opened` changes
+     */
+    useEffect(() => {
+        removeClickListener();
+
+        if (!opened) {
+            handleClose();
+
+            return;
+        }
+
+        if (opened || active) {
+            addClickListener();
+            handleOpen();
+        }
+
+        return function cleanup() {
+            removeClickListener();
+        };
+    }, [ opened ]);
+
+    /**
+     * Mount
+     */
+    useEffect(() => {
+        return function cleanup() {
+            removeClickListener();
+        };
+    }, []);
+
+    /**
      * Render
      */
     return (
@@ -156,6 +176,7 @@ const Dropdown = forwardRef((props, ref) => {
             thin={thin}
             toggleBlock={toggleBlock || center}
             contentWidth={width}
+            styles={styles}
             ref={dropdownRef}
             className={`aph-dropdown ${className || ''}`}>
             {(!toggle) ? (null) : (
@@ -188,6 +209,8 @@ Dropdown.defaultProps = {
     up   : false,
     right: false,
     left : true,
+
+    styles: {},
 };
 
 /* Component Properties Types */
@@ -206,6 +229,11 @@ Dropdown.propTypes = {
     up   : PropTypes.bool,
     right: PropTypes.bool,
     left : PropTypes.bool,
+
+    styles: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 };
 
 /* Exporting */

@@ -1,74 +1,50 @@
-/* Packages */
+/* Core Packages */
 import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
-import styled from '@emotion/styled';
 
-/* Constants */
-import { COLORS, MEDIA_QUERIES } from '../../constants';
-
-/* Styles */
-const ActionBarStyled = styled('div')(props => ({
-    boxSizing: 'border-box',
-
-    display  : 'block',
-    width    : '100%',
-    minHeight: '80px',
-
-    zIndex   : 100,
-    position : 'fixed',
-    right    : 0,
-    bottom   : 0,
-    left     : 0,
-    padding  : '20px 0',
-
-    background: COLORS.WHITE,
-    boxShadow : `0 0 4px 0 ${COLORS.GET('BLACK', 0.2)}`,
-
-    transform : `translateY(160px)`,
-    willChange: 'transform',
-    transition: '-webkit-transform 0.3s ease-out 0s',
-
-    '&.action-bar--visible': {
-        transform: 'translateY(0)',
-    },
-
-    [MEDIA_QUERIES.LT.SM]: {
-        padding: '15px 0',
-    },
-
-    ...props.styles,
-}));
+/* Component Styles */
+import ActionBarStyled from './ActionBarStyled';
 
 /* Component */
-const ActionBar = forwardRef((props, ref) => {
-    const {
-        className,
-        children,
-        styles,
-        visible,
-    } = props;
+const ActionBar = forwardRef(({
+    className,
+    visible,
 
+    ...rest
+}, ref) => {
+    /**
+     * Render
+     */
     return (
         <ActionBarStyled
+            {...rest}
             ref={ref}
-            className={`action-bar ${visible ? 'action-bar--visible' : ''} ${className || ''}`}
-            styles={styles}>
-            {children}
-        </ActionBarStyled>
+            className={`aph-action-bar${visible ? ' aph-action-bar--visible' : ''} ${className || ''}`}
+        />
     );
 });
 
 /* Default Properties */
 ActionBar.defaultProps = {
-    styles : {},
+    /**
+     * Action bar visibility
+     */
     visible: false,
+
+    /**
+     * Custom styles
+     */
+    styles : {},
 };
 
 /* Properties Types */
 ActionBar.propTypes = {
     children: propTypes.any,
-    styles  : propTypes.object,
     visible : propTypes.bool,
+    styles  : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

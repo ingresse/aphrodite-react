@@ -1,0 +1,73 @@
+---
+name : Form | Select
+menu : › Components
+route: /components/form/select
+---
+
+import { useEffect, useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    Select,
+    Container,
+    Segment,
+} from '../../';
+
+
+# Form | Select
+### Form select component styled.
+
+
+## Example
+
+<Playground>
+    <Container xs>
+        <Segment padding="10px 0">
+            <Select label="Choose one word">
+                <option value=""></option>
+                <option value="ingresse">Ingresse</option>
+                <option value="aphrodite">Aphrodite</option>
+                <option value="react">React</option>
+            </Select>
+        </Segment>
+    </Container>
+</Playground>
+
+
+## Delayed
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        useEffect(() => {
+            setTimeout(() => {
+                setValue('aphrodite');
+            }, 2500);
+        }, []);
+
+        function handleChange(evt) {
+            setValue(evt.target.value);
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    <Select
+                        label="Another word"
+                        value={value}
+                        onChange={handleChange}>
+                        <option value=""></option>
+                        <option value="ingresse">Ingresse</option>
+                        <option value="aphrodite">Aphrodite</option>
+                        <option value="react">React</option>
+                    </Select>
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={Select} />

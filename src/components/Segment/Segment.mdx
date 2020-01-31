@@ -1,17 +1,15 @@
 ---
 name : Segment
-menu : Atoms
-route: /atoms/segment
+menu : › Components
+route: /components/segment
 ---
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Segment, Container, Row, Col, Card, Switch } from '../';
-import { colors } from '../../utils';
-import { RADIUS } from '../../constants';
 
 # Segment
-#### A simple block, with default paddings of `20px 10px`.
+### A simple block, with default paddings of `20px 10px`.
 
 ```jsx
 import { Segment } from 'aphrodite-react';
@@ -23,55 +21,49 @@ import { Segment } from 'aphrodite-react';
 </Segment>
 ```
 
-## Properties
-<Props of={Segment} />
-
 ## Examples
-<Playground style={{ padding: '20px' }}>
+
+<Playground>
     {() => {
-        const customStyles = {
-            color     : colors.get('white'),
-            background: colors.get('bamboo'),
-
-            borderRadius: RADIUS.SM,
-        };
-
-        const [ segmentStyles, setSegmentStyles ] = useState(customStyles);
-
-        const toggleStyles = () => {
-            setSegmentStyles(segmentStyles ? null : customStyles);
-        };
+        const [ hasCustomStyles, setHasCustomStyles ] = useState(true);
 
         return (
-            <Container>
-                <Row horizontal="center">
-                    <Col xs={12} sm={6}>
+            <Container sm>
+                <Segment>
+                    Default Segment.
+                </Segment>
 
-                        <Segment styles={segmentStyles}>
-                            <div>
-                                This is a `Segment`.
-                            </div>
-                            A simple block to segmentate all the things.
-                        </Segment>
+                <Segment color="supernova">
+                    Segment with custom color prop.
+                </Segment>
 
-                    </Col>
-                </Row>
+                <Segment
+                    textUpper={hasCustomStyles}
+                    radius={hasCustomStyles ? 10 : 0}
+                    color={hasCustomStyles ? 'inverse' : ''}
+                    background={hasCustomStyles ? 'success' : ''}>
+                    <div>
+                        This is a `Segment`.
+                    </div>
+                    A simple block to segmentate all the things.
+                </Segment>
 
                 <Segment padding="40px 0 10px">
-                    <Row horizontal="center">
-                        <Col xs={12} sm={6}>
-                            <Card>
-                                <Switch
-                                    value={segmentStyles ? true : false}
-                                    defaultChecked={segmentStyles ? true : false}
-                                    onChange={toggleStyles}>
-                                    Display with custom styles.
-                                </Switch>
-                            </Card>
-                        </Col>
-                    </Row>
+                    <Card>
+                        <Switch
+                            value={hasCustomStyles}
+                            defaultChecked={hasCustomStyles}
+                            onChange={() => setHasCustomStyles(!hasCustomStyles)}>
+                            Display with custom styles.
+                        </Switch>
+                    </Card>
                 </Segment>
             </Container>
         );
     }}
 </Playground>
+
+
+## Properties
+
+<Props of={Segment} />

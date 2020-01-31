@@ -1,14 +1,17 @@
 ---
 name : Action Bar
-menu : Atoms
-route: /atoms/action-bar
+menu : › Components
+route: /components/action-bar
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { ActionBar, Button } from '../';
+import { ActionBar, Button, Container, Segment } from '../';
+
 
 # Action Bar
-#### Toggle visibility of action elements
+### Toggle visibility of action elements
+
 ```jsx
 import { ActionBar, Button } from 'aphrodite-react';
 
@@ -21,28 +24,54 @@ import { ActionBar, Button } from 'aphrodite-react';
 </ActionBar>
 ```
 
-## Properties
-<Props of={ActionBar} />
 
 ## Example
-<Playground>
-    <div style={{
-            position: 'relative',
-            minHeight: '180px',
-            border: '1px solid rgba(0, 0, 0, 0.1)',
-            borderRadius: '4px',
-            overflow: 'hidden',
-            padding : '15px 0 0',
-            textAlign: 'center',
-        }}>
-        The Page Container
 
-        <ActionBar
-            visible={true}
-            styles={{
-                position : 'absolute', // Just to fit in this example. Default: 'fixed',
-            }}>
-            <Button>My Action</Button>
-        </ActionBar>
-    </div>
+<Playground>
+    {() => {
+        const [ visible, setVisible ] = useState(true);
+
+        return (
+            <Segment
+                shadow
+                radius={4}
+                padding="0"
+                textColor="base"
+                textAlign="center"
+                background="background"
+                styles={{
+                    position : 'relative',
+                    overflow : 'hidden !important',
+                    minHeight: '160px',
+                }}>
+                <Container xs>
+                    <Segment padding="30px 0 50px">
+                        Page content.
+                    </Segment>
+                    <Button
+                        link
+                        color={!visible ? 'success' : 'error'}
+                        onClick={() => setVisible(true)}>
+                        {visible ? 'Can\'t see anymore' : 'Open Action Bar'}
+                    </Button>
+                </Container>
+                <ActionBar
+                    visible={visible}
+                    styles={{
+                        position : 'absolute',
+                        textAlign: 'center',
+                    }}>
+                    <Button
+                        onClick={() => setVisible(false)}>
+                        Close Action Bar
+                    </Button>
+                </ActionBar>
+            </Segment>
+        );
+    }}
 </Playground>
+
+
+## Properties
+
+<Props of={ActionBar} />

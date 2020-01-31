@@ -3,11 +3,27 @@ import React from 'react';
 
 /* Icon */
 const IconCheck = (props) => {
+    /**
+     * Inherit props
+     */
+    const {
+        size,
+        width,
+        height,
+        color,
+        className,
+    } = props;
+
+    /**
+     * Render
+     */
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width={props.size}
-             height={props.size}
-             viewBox="0 0 13 11">
+        <svg
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            width={(width || size)}
+            height={(height || size)}
+            viewBox="0 0 13 11">
             <g fill={props.color}
                fillRule="evenodd">
                 <path d="M3.291 3.462L6.54 6.71a.998.998 0 0 1-.009 1.418L5.13 9.528a1.008 1.008 0 0 1-1.42.009L.463 6.291a.998.998 0 0 1 .01-1.42l1.4-1.4a1.008 1.008 0 0 1 1.42-.009z" />

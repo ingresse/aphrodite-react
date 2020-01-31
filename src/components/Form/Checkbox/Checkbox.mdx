@@ -1,0 +1,66 @@
+---
+name : Form | Checkbox
+menu : › Components
+route: /components/form/checkbox
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    Checkbox,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+
+# Form | Checkbox
+### Styled input checkbox component.
+
+
+## Examples
+<Playground>
+    <Row>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <Checkbox
+                    id="ExampleCheckbox">
+                    regular
+                </Checkbox>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <Checkbox
+                    id="ExampleCheckboxDesabled"
+                    disabled>
+                    disabled
+                </Checkbox>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <Checkbox
+                    id="ExampleCheckboxDesabled"
+                    checked
+                    disabled>
+                    disabled checked
+                </Checkbox>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <Checkbox
+                    id="ExampleCheckboxRight"
+                    right>
+                    aligned
+                </Checkbox>
+            </Segment>
+        </Col>
+    </Row>
+</Playground>
+
+
+## Properties
+
+<Props of={Checkbox} />

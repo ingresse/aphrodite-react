@@ -1,9 +1,6 @@
 /* Core Packages */
 import styled from '@emotion/styled';
 
-/* UI Library definitions */
-import { colors } from '../../utils';
-
 /* Component Itself */
 const AphButtonItemStyled = styled.span`
     box-sizing: border-box;

@@ -1,5 +1,4 @@
 /* Packages */
-import React from 'react';
 import { toast } from 'react-toastify';
 
 toast.inverse = (content = '', props = {}) => {

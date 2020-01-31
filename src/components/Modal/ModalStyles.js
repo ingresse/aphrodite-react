@@ -1,58 +1,106 @@
+/* Packages */
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/core';
 
-const fadeEnter = keyframes`
-  from {
-        opacity: 0;
-    }
-`;
+/* Utils */
+import { colors } from '../../utils';
 
-const fadeLeave = keyframes`
-    to {
-        opacity: 0
-    }
-`;
+/* Constants */
+import { MEDIA_QUERIES, SIZES, ZINDEX } from '../../constants';
 
-const ContainerView = styled.div`
-    top    : 0;
-    left   : 0;
-    width  : 100%;
-    height : 100%;
-    z-index: 1000;
-`;
+/* CSS Selector */
+const selector = '.aph-modal';
 
-export const ModalContainer = styled(ContainerView)`
+/* Modal Styled */
+const ModalStyled = styled.dialog`
+    box-sizing: border-box;
+    overflow: hidden;
     position: fixed;
-
-    &.modal-fade-enter {
-        animation: ${fadeEnter} both ease-in;
-    }
-
-    &.modal-fade-leave {
-        animation: ${fadeLeave} both ease-out;
-    }
-
-    h1 {
-        margin-bottom: 80px;
-    }
-`;
-
-export const Mask = styled(ContainerView)`
-    position   : absolute;
-    background : rgba(0, 0, 0, .3);
-`;
-
-export const ModalDialog = styled.div`
-    position: absolute;
+    display : none;
+    opacity : 0;
+    z-index : ${ZINDEX.MODAL};
+    width   : auto;
+    height  : auto;
     top     : 40px;
-    left    : 0;
-    right   : 0;
+    right   : 40px;
     bottom  : 0;
-    margin  : auto;
+    left    : 40px;
+    margin  : 0;
+    padding : 0 0 ${props => props.hasFooter ? SIZES.ACTION_BAR_HEIGHT : 0};
 
-    padding-top     : 15px;
-    border-radius   : 10px 10px 0 0;
-    z-index         : 1001;
-    background      : #fff;
-    box-shadow      : 0 0 10px 0 rgba(0,0,0,0.25);
+    border : 0;
+    outline: 0;
+
+    transform: translateY(${props => props.opened ? '0' : '50%'});
+
+    will-change: z-index, opacity, transform;
+    transition :
+        display ${props => props.opened ? 0.2 : 0.1}s linear,
+        opacity ${props => props.opened ? 0.1 : 0.2}s linear,
+        transform ${props => props.opened ? 0.2 : 0.1}s linear
+    ;
+
+    color           : ${props => colors.getFromTheme(props, 'black')};
+    background-color: ${props => colors.getFromTheme(props, 'white')};
+    box-shadow      : 0 0 10px 0 ${props => colors.getFromTheme(props, 'shadow')};
+    border-radius   : ${SIZES.LG.RADIUS} ${SIZES.LG.RADIUS} 0 0;
+
+    &.visible {
+        display: block;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    ${selector} {
+        &__container {
+            min-height: 100%;
+            max-height: 100%;
+            overflow  : auto;
+
+            &__title {
+                padding: 45px 0 15px;
+            }
+
+            &__header {
+                padding-top   : 5px;
+                padding-bottom: 5px;
+            }
+
+            &__content {
+                width: 100%;
+            }
+        }
+
+        &__footer {
+            max-height: ${SIZES.ACTION_BAR_HEIGHT};
+        }
+    }
+
+    ${props => props.styles};
+
+    ${MEDIA_QUERIES.LT.SM} {
+        top  : 20px;
+        right: 10px;
+        left : 10px;
+
+        ${selector} {
+            &__container {
+                &__title {
+                    padding: 25px 0 15px;
+                }
+
+                &__header {
+                    padding-top: 0;
+                }
+            }
+        }
+    }
 `;
+
+/* Exporting */
+export default ModalStyled;

@@ -1,32 +1,46 @@
 /* Packages */
 import React, { forwardRef } from 'react';
-import styled from '@emotion/styled'; import { keyframes } from '@emotion/core';
-
 import propTypes from 'prop-types';
-const color = require('tinycolor2');
+import { keyframes } from '@emotion/core';
+import styled from '@emotion/styled';
+import chroma from 'chroma-js';
+
+/* Utils */
+import { colors } from '../../utils';
 
 /* Constants */
-import { COLORS } from '../../constants';
+const bgPlaceholder = keyframes`
+    0% {
+        background-position: 0% 50%;
+    }
 
-/* Component it self */
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+`;
+
+/* Component Itself */
 const Placeholder = forwardRef((props, ref) => {
-    const bgPlaceholder = keyframes`
-        0% {
-            background-position: 0% 50%;
-        }
+    const {
+        className,
+        styles,
 
-        50% {
-            background-position: 100% 50%;
-        }
+        ...rest
+    } = (props || {});
 
-        100% {
-            background-position: 0% 50%;
-        }
-    `;
+    const isDarkMode = ((props.theme && props.theme.isDarkMode) ? true : false);
+    const colorTheme = colors.getFromTheme(props, 'helper');
+    const colorBase  = chroma(colorTheme);
+    const colorStart = colorBase.alpha(isDarkMode ? 0.5 : 0.05).css();
+    const colorEnd   = colorBase.alpha(isDarkMode ? 0.75 : 0.15).css();
 
     const StyledPlaceholder = styled('div')({
-        fontSize  : '0px',
-        lineHeight: '0px',
+        fontSize  : '0',
+        lineHeight: '0',
 
         boxSizing: 'border-box',
         overflow : 'hidden',
@@ -39,28 +53,20 @@ const Placeholder = forwardRef((props, ref) => {
         border      : (props.border || null),
         borderRadius: `${props.radius}px`,
 
-        color         : COLORS.LIGHT_GREY,
-        background    : `linear-gradient(90deg, ${color(COLORS.SMOKE).toString()}, ${color(COLORS.SMOKE).darken(4).toString()})`,
+        color         : colorBase.rgb(),
+        background    : `linear-gradient(90deg, ${colorStart}, ${colorEnd})`,
         backgroundSize: '200% 100%',
 
         animation: `${bgPlaceholder} .9s ease infinite`,
 
-        '.aph-placeholder': {
-            background: `linear-gradient(90deg, ${color(COLORS.SMOKE).darken(2).toString()}, ${color(COLORS.SMOKE).darken(5).toString()})`,
-        },
-
-        ...props.styles,
+        ...styles,
     });
-
-    let _props = Object.assign({}, props);
-
-    delete _props.styles;
 
     return (
         <StyledPlaceholder
-            {..._props}
+            {...rest}
             ref={ref}
-            className={`aph-placeholder ${props.className || ''}`}>
+            className={`aph-placeholder ${className || ''}`}>
             {props.children}
         </StyledPlaceholder>
     );
@@ -80,7 +86,10 @@ Placeholder.propTypes = {
     width : propTypes.number,
     height: propTypes.number,
     radius: propTypes.number,
-    style : propTypes.object,
+    style : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting Component */

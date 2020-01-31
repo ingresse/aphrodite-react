@@ -1,80 +1,122 @@
 /* Packages */
-import React, { forwardRef } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import propTypes from 'prop-types';
-import styled from '@emotion/styled';
 
-/* Constants */
-import { MEDIA_QUERIES, RADIUS } from '../../constants';
+/* Component styles */
+import ImgStyled from './ImgStyled';
 
-/* Styled */
-const ImgStyled = styled('img')((props) => {
+/* Component Itself */
+const Img = forwardRef((props, ref) => {
     const {
-        circle,
-        rounded,
-        radius,
-
-        maxWidthXS,
-
-        styles,
+        center,
+        src,
+        srcFallback,
+        className,
+        onError,
+        onLoad,
+        fadeIn,
+        ...rest
     } = props;
+    /**
+     * Local values
+     */
+    const [ managedSRC, setManagedSRC ] = useState(src);
+    const [ appliedSRC, setAppliedSRC ] = useState(false);
+    const [ activeFade, setActiveFade ] = useState(fadeIn ? true : false);
 
-    let _extraStyles = {};
+    /**
+     * Handle with load
+     *
+     * @param {object} evt - synthetic event
+     */
+    function handleLoad(evt) {
+        if (typeof onLoad === 'function') {
+            onLoad({
+                ...(evt || {}),
+            });
+        }
 
-    if (maxWidthXS) {
-        _extraStyles[MEDIA_QUERIES.LT.SM] = Object.assign({
-                maxWidth: maxWidthXS,
-            }, styles && styles[MEDIA_QUERIES.LT.SM] ? styles[MEDIA_QUERIES.LT.SM] : {}
-        );
+        if (!activeFade) {
+            return;
+        }
+
+        setActiveFade(false);
     }
 
-    return {
-        boxSizing    : 'border-box',
-        display      : 'inline-block',
-        maxWidth     : '100%',
-        height       : 'auto',
-        verticalAlign: 'middle',
+    /**
+     * Handle with error
+     *
+     * @param {object} errorEvt - error synthetic event
+     */
+    function handleError(errorEvt) {
+        if (!appliedSRC && srcFallback &&
+            (typeof srcFallback === 'string')) {
+            setAppliedSRC(true);
+            setManagedSRC(srcFallback);
+        }
 
-        borderRadius: (circle ? '50%' : rounded ? (RADIUS + 'px') : (radius || null)),
+        if (typeof onError === 'function') {
+            onError({
+                ...(errorEvt || {}),
+            });
+        }
+    }
 
-        ...styles,
+    /**
+     * Did update
+     */
+    useEffect(() => {
+        setManagedSRC(src);
+    }, [ src ]);
 
-        ..._extraStyles
-    };
-});
-
-/* Component */
-const Img = forwardRef((props, ref) => {
-    const { className } = props;
-
+    /**
+     * Render
+     */
     return (
         <ImgStyled
-            {...props}
+            {...rest}
+            center={center}
             ref={ref}
-            className={`aph-img ${className || ''}`}
+            src={managedSRC}
+            onLoad={handleLoad}
+            onError={handleError}
+            withFadeIn={fadeIn}
+            className={`aph-img${activeFade ? ' aph-img--fade-in ' : ' '}${className || ''}`}
         />
     );
 });
 
-/* Properties Types */
-Img.propTypes = {
-    circle    : propTypes.bool,
-    rounded   : propTypes.bool,
-
-    radius    : propTypes.string,
-    maxWidthXS: propTypes.string,
-
-    styles    : propTypes.object,
-};
-
 /* Default Properties */
 Img.defaultProps = {
-    circle    : false,
-    rounded   : false,
+    circle : false,
+    rounded: false,
 
-    radius    : '',
-    maxWidthXS: '',
+    /**
+     * Simple opacity transition on load image source
+     */
+    fadeIn: false,
+
+    radius     : '',
+    maxWidthXS : '',
+    srcFallback: '',
 
     styles    : {},
+};
+
+/* Properties Types */
+Img.propTypes = {
+    circle : propTypes.bool,
+    rounded: propTypes.bool,
+    fadeIn : propTypes.bool,
+
+    radius     : propTypes.string,
+    maxWidthXS : propTypes.string,
+    srcFallback: propTypes.string,
+
+    styles    : propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+    ]),
 };
 
 /* Exporting */

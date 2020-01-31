@@ -12,7 +12,7 @@ const AphFormControlErrorMsgStyled = styled.label`
     padding   : 0 10px;
     max-height: 0;
 
-    color: ${colors.get('error')};
+    color: ${props => colors.getFromTheme(props, 'error')};
 
     font-size  : ${SIZES.SM.FONT_SIZE};
     line-height: ${SIZES.SM.LINE_HEIGHT};

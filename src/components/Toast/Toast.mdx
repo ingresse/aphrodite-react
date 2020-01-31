@@ -1,19 +1,16 @@
 ---
-name : Toast
-menu : Utilities
-route: /utils/toast
+name : Toasts
+menu : › Components
+route: /components/toasts
 ---
 
 import { Playground, Props } from 'docz';
-import { Button, ToastsContainer, toast } from '../';
+import { Container, Row, Col, Segment, Button, ToastsContainer, toast } from '../';
 import { SCREEN_SIZES } from '../../constants';
 
-# Toast
-#### Just an implementation of awesome library [**React Toastify**](https://github.com/fkhadra/react-toastify), with Aphrodite's definitions.
-#### So, it's just consult the [documentation](https://github.com/fkhadra/react-toastify) for more options.
-```jsx
-import { Button, ToastsContainer, toast } from 'aphrodite-react';
-```
+# Toasts
+### Just an implementation of awesome library [**React Toastify**](https://github.com/fkhadra/react-toastify), with Aphrodite's definitions.
+### Consult the [documentation](https://github.com/fkhadra/react-toastify) for more options.
 
 ## Example
 <Playground>
@@ -43,20 +40,91 @@ import { Button, ToastsContainer, toast } from 'aphrodite-react';
         }
 
         return (
-            <div>
-                <ToastsContainer hideProgressBar={true} autoClose={false} styles={{top: '45px', right: '45px'}} />
+            <Container>
+                <ToastsContainer
+                    hideProgressBar={true}
+                    autoClose={false}
+                    styles={{
+                        top  : '45px',
+                        right: '45px'
+                    }}
+                />
+                <Row
+                    vertical="center"
+                    horizontal="center">
+                    <Col xs={6} sm={3}>
+                        <Segment
+                            padding="10px 0">
+                            <Button
+                                block
+                                color="grey"
+                                onClick={toastDefault}>
+                                Default
+                            </Button>
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={3}>
+                        <Segment
+                            padding="10px 0">
+                            <Button
+                                block
+                                color="black"
+                                onClick={toastInverse}>
+                                Inverse
+                            </Button>
+                        </Segment>
+                    </Col>
+                </Row>
 
-                <Button color="grey" onClick={toastDefault}>Default</Button>
-                <Button color="black" onClick={toastInverse}>Inverse</Button>
-
-                <br />
-                <br />
-
-                <Button color="success" onClick={toastSuccess}>Success</Button>
-                <Button color="primary" onClick={toastInfo}>Info</Button>
-                <Button color="warning" onClick={toastWarning}>Warning</Button>
-                <Button color="error" onClick={toastError}>Error</Button>
-            </div>
+                <Row
+                    vertical="center"
+                    horizontal="center">
+                    <Col xs={6} sm={3}>
+                        <Segment
+                            padding="10px 0">
+                            <Button
+                                block
+                                color="success"
+                                onClick={toastSuccess}>
+                                Success
+                            </Button>
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={3}>
+                        <Segment
+                            padding="10px 0">
+                            <Button
+                                block
+                                color="secondary"
+                                onClick={toastInfo}>
+                                Info
+                            </Button>
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={3}>
+                        <Segment
+                            padding="10px 0">
+                            <Button
+                                block
+                                color="warning"
+                                onClick={toastWarning}>
+                                Warning
+                            </Button>
+                        </Segment>
+                    </Col>
+                    <Col xs={6} sm={3}>
+                        <Segment
+                            padding="10px 0">
+                            <Button
+                                block
+                                color="error"
+                                onClick={toastError}>
+                                Error
+                            </Button>
+                        </Segment>
+                    </Col>
+                </Row>
+            </Container>
         );
     }}
 </Playground>
