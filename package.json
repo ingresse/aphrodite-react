@@ -1,16 +1,17 @@
 {
-  "name": "aphrodite-react",
-  "version": "1.1.0",
+  "name": "@ingresse/aphrodite",
+  "version": "2.0.0",
+  "private": false,
   "license": "MIT",
   "description": "React UI library from ingresse.com",
   "homepage": "https://ingresse.github.io/aphrodite-react/",
   "repository": {
     "type": "git",
     "slug": "/aphrodite-react",
-    "url": "https://github.com/ingresse/aphrodite-react.git"
+    "url": "git+https://github.com/ingresse/aphrodite-react.git"
   },
-  "main": "dist/aphrodite-react.cjs.js",
-  "module": "dist/aphrodite-react.esm.js",
+  "main": "dist/aphrodite.cjs.js",
+  "module": "dist/aphrodite.esm.js",
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
@@ -73,5 +74,19 @@
     "Udimberto Silvestre Junior",
     "Ana Paula de Oliveira",
     "Maicon Silva"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/ingresse/aphrodite-react/issues"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "ingresse",
+    "aphrodite",
+    "react",
+    "styled",
+    "emotion"
+  ],
+  "author": "@udimberto"
 }

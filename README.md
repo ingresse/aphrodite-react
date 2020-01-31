@@ -6,9 +6,9 @@ A front-end library with Ingresse's styles, using `React` 16.
 ---
 
 ## Install
-You can install with Yarn or NPM in your App Project, but using GitHub repository address as source:
+You can install with Yarn or NPM in your App Project:
 ```
-yarn add https://github.com/ingresse/aphrodite-react.git
+npm i --save @ingresse/aphrodite
 ```
 
 Re-export the Aphrodite tools through your React application folder structure.
