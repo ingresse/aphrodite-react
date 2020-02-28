@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { colors } from '../../../utils';
 
 export const RadioButtonWrapper = styled.label`
@@ -10,6 +11,15 @@ export const RadioButtonWrapper = styled.label`
     padding-top: 5px;
     padding-left: 40px;
     padding-bottom: 5px;
+
+    span {
+        ${(props) => props.disabled &&
+            css`
+                color: ${colors.get('disabled')};
+                text-decoration: line-through;
+            `
+        }
+    }
 `;
 
 export const RadioButtonInput = styled.input`

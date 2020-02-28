@@ -22,6 +22,7 @@ function RadioButton({
     return (
         <RadioButtonWrapper
             htmlFor={id}
+            disabled={disabled}
             {...rest}
         >
             <RadioButtonInput
