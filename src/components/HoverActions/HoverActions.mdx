@@ -4,6 +4,7 @@ menu : › Components
 route: /components/hover-actions
 ---
 
+import { Fragment } from 'react';
 import { Playground, Props } from 'docz';
 import { HoverActions, HoverActionsItem, Img, Container } from '../';
 
@@ -17,14 +18,14 @@ import { HoverActions, HoverActionsItem } from 'aphrodite-react';
 
 <HoverActions
     actions={(
-        <>
+        <Fragment>
             <HoverActionsItem>
                 Useless
             </HoverActionsItem>
             <HoverActionsItem>
                 Useless
             </HoverActionsItem>
-        </>
+        </Fragment>
     )}>
     My Hoverable Element expecting some surprising actions
 </HoverActions>
@@ -37,14 +38,14 @@ import { HoverActions, HoverActionsItem } from 'aphrodite-react';
     <Container styles={{ padding: '20px', textAlign: 'center' }}>
         <HoverActions
             actions={(
-                <>
+                <Fragment>
                     <HoverActionsItem color="ocean">
                         A button for some action
                     </HoverActionsItem>
                     <HoverActionsItem>
                         Another button
                     </HoverActionsItem>
-                </>
+                </Fragment>
             )}>
             My Hoverable Element expecting some surprising actions
         </HoverActions>
@@ -59,7 +60,7 @@ import { HoverActions, HoverActionsItem } from 'aphrodite-react';
     <Container styles={{ padding: '20px', textAlign: 'center' }}>
         <HoverActions
             actions={(
-                <>
+                <Fragment>
                     <HoverActionsItem
                         as="a"
                         target="_blank"
@@ -68,7 +69,7 @@ import { HoverActions, HoverActionsItem } from 'aphrodite-react';
                         styles={{ padding: '6px 5px 4px' }}>
                         Open image in a new tab
                     </HoverActionsItem>
-                </>
+                </Fragment>
             )}>
             <Img
                 circle
