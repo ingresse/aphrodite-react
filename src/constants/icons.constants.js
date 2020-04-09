@@ -25,6 +25,7 @@ export const ICONS = Object.assign([
     'help',
     'info',
     'items',
+    'labels',
     'list',
     'loader',
     'loading',

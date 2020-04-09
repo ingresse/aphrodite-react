@@ -29,6 +29,7 @@ import Facebook from './IconFacebook';
 import Help from './IconHelp';
 import Info from './IconInfo';
 import Items from './IconItems';
+import Labels from './IconLabels';
 import List from './IconList';
 import LoaderDonut from './IconLoaderDonut';
 import Loading from './IconLoading';
@@ -88,6 +89,8 @@ const ICONS = {
     'help'           : Help,
     'info'           : Info,
     'items'          : Items,
+    'labels'         : Labels,
+    'chair'          : Labels,
     'list'           : List,
     'loader'         : LoaderDonut,
     'loading'        : Loading,
