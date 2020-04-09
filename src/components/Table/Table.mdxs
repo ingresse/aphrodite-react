@@ -9,7 +9,7 @@ import { Table } from '../';
 
 # Table
 ```jsx
-import { Table } from 'aphrodite-react';
+import { Table } from '@ingresse/aphrodite';
 
 <Table bordered condensed hoverable striped>
     <thead>

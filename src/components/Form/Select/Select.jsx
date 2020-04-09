@@ -79,7 +79,7 @@ const Select = memo(forwardRef((props, ref) => {
                 <Icon
                     size={30}
                     slug="arrow-down"
-                    color={props.disabled ? 'disabled' : 'base'}
+                    color={props.disabled ? 'helper' : 'base'}
                 />
             </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled

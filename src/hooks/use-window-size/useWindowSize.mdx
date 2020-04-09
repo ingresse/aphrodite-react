@@ -21,7 +21,7 @@ import {
     H3,
     Container,
     Segment,
-} from 'aphrodite-react';
+} from '@ingresse/aphrodite';
 
 function Header() {
     const {
@@ -41,7 +41,8 @@ function Header() {
             as="header"
             padding={xs ? '20px 0' : '40px 0'}>
             <Container>
-                <Title>
+                <Title
+                    as="h1">
                     Sales Report
                 </Title>
             </Container>

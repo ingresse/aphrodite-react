@@ -12,7 +12,7 @@ import { Img, Placeholder, SidePill } from '../';
 #### Boring
 
 ```jsx
-import { SidePill, Img } from 'aphrodite-react';
+import { SidePill, Img } from '@ingresse/aphrodite';
 
 <SidePill />
 ```

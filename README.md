@@ -17,7 +17,7 @@ Re-export the Aphrodite tools through your React application folder structure.
 ```js
 export {
     colors,
-} from 'aphrodite-react';
+} from '@ingresse/aphrodite';
 ```
 
 `src/components/index.js`:
@@ -26,7 +26,7 @@ export {
     Button,
     Container,
     Segment,
-} from 'aphrodite-react';
+} from '@ingresse/aphrodite';
 ```
 
 `src/App.jsx`:
@@ -37,6 +37,7 @@ import React from 'react';
 /* Your Project Components */
 import {
     Button,
+    Container,
     Segment,
 } from './components';
 
@@ -46,12 +47,18 @@ function App() {
     }
 
     return (
-        <Segment
-            textAlign="center">
-            <Button onClick={handleClick}>
-                Aphrodite Button
-            </Button>
-        </Segment>
+        <Container>
+            <Segment
+                as="section"
+                textAlign="center"
+                background="helper">
+                <Button
+                    color="bamboo"
+                    onClick={handleClick}>
+                    Aphrodite Button
+                </Button>
+            </Segment>
+        </Container>
     );
 }
 
