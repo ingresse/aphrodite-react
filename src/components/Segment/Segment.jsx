@@ -14,7 +14,7 @@ const SegmentStyled = styled.div`
     margin : ${props => props.aphmargin  || null};
     padding: ${props => props.aphpadding || '20px 10px'};
 
-    ${props => text(props)};
+    ${props => text(props, props.textSize)};
 
     border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
     box-shadow   : ${props => props.aphshadow ?
