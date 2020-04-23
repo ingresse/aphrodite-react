@@ -80,7 +80,6 @@ function useWindowSize(delay = 500) {
             clearTimeout(timer);
 
             timer = setTimeout(() => {
-                console.log('resize handler acting');
                 setWindowSize(getSize());
             }, delay);
         }

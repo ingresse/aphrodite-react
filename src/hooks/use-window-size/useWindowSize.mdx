@@ -4,6 +4,7 @@ menu : › Hooks
 route: /hooks/usewindowsize
 ---
 
+import { Fragment } from 'react';
 import { Playground } from 'docz';
 import { SCREEN_SIZES } from '../../constants';
 import { Container, H1, H3, Row, Col, Segment } from '../../components';
@@ -20,7 +21,7 @@ import {
     H3,
     Container,
     Segment,
-} from 'aphrodite-react';
+} from '@ingresse/aphrodite';
 
 function Header() {
     const {
@@ -40,7 +41,8 @@ function Header() {
             as="header"
             padding={xs ? '20px 0' : '40px 0'}>
             <Container>
-                <Title>
+                <Title
+                    as="h1">
                     Sales Report
                 </Title>
             </Container>
@@ -59,7 +61,7 @@ function Header() {
         const Title  = (xs ? H3 : H1);
 
         return (
-            <>
+            <Fragment>
                 <Segment
                     radius={5}
                     margin="0 0 20px"
@@ -83,7 +85,7 @@ function Header() {
                         </Title>
                     </Container>
                 </Segment>
-            </>
+            </Fragment>
         );
     }}
 </Playground>

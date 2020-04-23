@@ -1,6 +1,6 @@
 {
   "name": "@ingresse/aphrodite",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "private": false,
   "license": "MIT",
   "description": "React UI library from ingresse.com",
@@ -71,9 +71,10 @@
   ],
   "authors": [
     "Ingresse",
-    "Udimberto Silvestre Junior",
     "Ana Paula de Oliveira",
-    "Maicon Silva"
+    "Ana Flávia Rodrigues",
+    "Maicon Silva",
+    "Udimberto Silvestre Junior"
   ],
   "bugs": {
     "url": "https://github.com/ingresse/aphrodite-react/issues"

@@ -42,9 +42,8 @@ const AphListItemStyled = styled.li`
             backgroundColor: colors.getFromTheme(props, 'secondary', 'crystal'),
         },
 
-        '.aph-list__item__link': {
+        '.aph-list__item__link, a': {
             display: 'block',
-            width  : '100%',
             color  : 'inherit',
             padding: (!props.withLink ? null : props.aphpadding),
             textDecoration: 'none',

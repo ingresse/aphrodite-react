@@ -12,7 +12,7 @@ import { COLORS } from '../../constants';
 #### Just an implementation of awesome library [**React Tooltip**](https://github.com/wwayne/react-tooltip), with Aphrodite's definitions.
 #### So, it's just consult the [documentation](https://github.com/wwayne/react-tooltip) for more options.
 ```jsx
-import { Tooltip } from 'aphrodite-react';
+import { Tooltip } from '@ingresse/aphrodite';
 
 <Tooltip tip="How you doing?!">Hover me</Tooltip>
 ```

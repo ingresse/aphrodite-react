@@ -12,7 +12,7 @@ import { List, ListItem } from '../';
 ### Organizing information with an alternative to tables.
 
 ```jsx
-import { List, ListItem } from 'aphrodite-react';
+import { List, ListItem } from '@ingresse/aphrodite';
 
 ...
 
@@ -24,8 +24,16 @@ return (
         <ListItem>
             Aphrodite
         </ListItem>
-        <ListItem hoverable>
+        <ListItem padding="15px 40px">
             React
+        </ListItem>
+        <ListItem hoverable>
+            UI
+        </ListItem>
+        <ListItem withLink>
+            <a target="_blank" href="https://ingresse.github.io/aphrodite-react">
+                Facilities
+            </a>
         </ListItem>
     </List>
 );
@@ -41,8 +49,16 @@ return (
         <ListItem>
             Aphrodite
         </ListItem>
-        <ListItem hoverable>
+        <ListItem padding="15px 40px">
             React
+        </ListItem>
+        <ListItem hoverable>
+            UI
+        </ListItem>
+        <ListItem withLink  padding="15px 40px">
+            <a target="_blank" href="https://ingresse.github.io/aphrodite-react">
+                Facilities
+            </a>
         </ListItem>
     </List>
 </Playground>
