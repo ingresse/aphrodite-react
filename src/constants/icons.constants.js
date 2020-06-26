@@ -14,6 +14,7 @@ export const ICONS = Object.assign([
     'cards',
     'chart-line',
     'check',
+    'contract',
     'coupon',
     'delete',
     'external-ticket',
