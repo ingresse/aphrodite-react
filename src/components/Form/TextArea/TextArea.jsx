@@ -16,17 +16,21 @@ import {
 const TextArea = memo(forwardRef((props, ref) => {
     const {
         id,
+        className,
+        error,
+        errorMessage,
         label,
         labelProps,
         placeholder,
         value,
         onChange,
-        errorMessage,
+        styles,
+        ...rest
     } = props;
 
     const [hasValue, setHasValue] = useState(value ? true : false);
     const inputId                 = `${id || 'formControl'}`;
-    const styles                  = `
+    const _styles                 = `
         max-width : 100%;
         min-width : 100%;
         min-height: 90px;
@@ -73,7 +77,7 @@ const TextArea = memo(forwardRef((props, ref) => {
             }
         }
 
-        ${props => props.styles};
+        ${styles};
     `;
 
     /**
@@ -100,13 +104,17 @@ const TextArea = memo(forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            error={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
-                {...props}
+                {...rest}
                 as="textarea"
-                hasLabel={label ? true : false}
+                value={value}
                 onChange={handleChange}
-                styles={styles}
+                placeholder={placeholder}
+                styles={_styles}
+                className={`aph-form-control ${className || ''}`}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled

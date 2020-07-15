@@ -10,7 +10,7 @@ import AphFormControlStyled         from '../FormControlStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Itself */
-const InputNumber = memo(forwardRef((props, ref) => {
+const InputCurrency = memo(forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -21,22 +21,9 @@ const InputNumber = memo(forwardRef((props, ref) => {
 
         error,
         errorMessage,
+
+        ...rest
     } = props;
-
-    /* Inherit Props */
-    let inheritProps  = Object.assign({}, props);
-    let excludedProps = [
-        'label',
-        'labelProps',
-
-        'errorMessage',
-    ];
-
-    excludedProps.map((excludedProp) => {
-        delete inheritProps[excludedProp];
-
-        return true;
-    });
 
     /**
      * Handle with input changes
@@ -52,13 +39,14 @@ const InputNumber = memo(forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            error={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
-                {...inheritProps}
+                {...rest}
+                id={id}
                 as={CurrencyInput}
                 ref={ref}
-                hasLabel={label ? true : false}
-                error={error ? 'true' : null}
                 onChange={() => {}}
                 onChangeEvent={handleChange}
                 className={`aph-form-control ${className || ''}`}
@@ -82,7 +70,7 @@ const InputNumber = memo(forwardRef((props, ref) => {
 }));
 
 /* Default Properties */
-InputNumber.defaultProps = {
+InputCurrency.defaultProps = {
     id    : '',
     label : '',
     btn   : null,
@@ -99,7 +87,7 @@ InputNumber.defaultProps = {
 };
 
 /* Properties Types */
-InputNumber.propTypes = {
+InputCurrency.propTypes = {
     id    : propTypes.string.isRequired,
     label : propTypes.string,
     btn   : propTypes.object,
@@ -119,4 +107,4 @@ InputNumber.propTypes = {
 };
 
 /* Exporting */
-export default InputNumber;
+export default InputCurrency;

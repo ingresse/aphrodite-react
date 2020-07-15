@@ -17,14 +17,30 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 /* Component Itself */
 const Input = memo(forwardRef((props, ref) => {
     const {
-        color,
-        error,
         type,
     } = (props || {});
+    const {
+        id,
+        className,
+        color,
+        label,
+        labelProps,
+        placeholder,
+        value,
+        onChange,
+        onPaste,
+        preventPaste,
+        btn,
+        button,
+        error,
+        errorMessage,
+        ...rest
+    } = props;
 
     if (type === 'checkbox') {
         return (
             <Checkbox
+                {...rest}
                 {...props}
                 color={error ? 'error' : color}
                 ref={ref}
@@ -35,6 +51,7 @@ const Input = memo(forwardRef((props, ref) => {
     if (type === 'number') {
         return (
             <InputNumber
+                {...rest}
                 {...props}
                 ref={ref}
             />
@@ -44,34 +61,20 @@ const Input = memo(forwardRef((props, ref) => {
     if (type === 'currency') {
         return (
             <InputCurrency
+                {...rest}
                 {...props}
                 ref={ref}
             />
         );
     }
 
-    const {
-        id,
-        className,
-        label,
-        labelProps,
-        placeholder,
-        value,
-        onChange,
-        onPaste,
-        preventPaste,
-        btn,
-        button,
-        errorMessage,
-    } = props;
-
-    const [ hasValue, setHasValue ] = useState(value ? true : false);
+    const [ hasValue, setHasValue ] = useState(!!value);
 
     /**
      * Trigger
      */
     useEffect(() => {
-        setHasValue(value ? true : false);
+        setHasValue(!!value);
     }, [ value ]);
 
     /**
@@ -110,15 +113,16 @@ const Input = memo(forwardRef((props, ref) => {
 
     return (
         <AphFormControlWrapperStyled
-            hasButton={(btn || button) ? true : false}
-            buttonAlign={((btn && btn.align) ? btn.align : (button && button.align) ? button.align : '')}>
+            error={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
                 name={id}
-                {...props}
+                {...rest}
                 ref={ref}
-                hasLabel={label ? true : false}
+                value={value}
                 onChange={handleChange}
                 onPaste={handlePaste}
+                placeholder={placeholder}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
             {(!label) ? (null) : (
@@ -130,12 +134,10 @@ const Input = memo(forwardRef((props, ref) => {
                 </AphFormControlLabelStyled>
             )}
             {(!btn && !button) ? (null) : (
-                <AphFormControlButtonStyled>
-                    <span
-                        {...btn}
-                        {...button}
-                    />
-                </AphFormControlButtonStyled>
+                <AphFormControlButtonStyled
+                    {...btn}
+                    {...button}
+                />
             )}
             <AphFormControlErrorMsgStyled
                 htmlFor={id}

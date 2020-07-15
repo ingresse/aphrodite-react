@@ -16,12 +16,16 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 const Select = memo(forwardRef((props, ref) => {
     const {
         id,
+        button,
+        className,
+        error,
+        errorMessage,
         label,
         labelProps,
         placeholder,
         value,
         onChange,
-        errorMessage,
+        ...rest
     } = props;
 
     const [ hasValue, setHasValue ] = useState((typeof value === 'number' || value) ? true : false);
@@ -55,31 +59,35 @@ const Select = memo(forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            error={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
-                {...props}
+                {...rest}
                 as="select"
                 ref={ref}
-                hasLabel={label ? true : false}
+                value={value}
                 onChange={handleChange}
-                styles={Object.assign({}, styles, props.styles)}
+                placeholder={placeholder}
+                className={`aph-form-control ${className || ''}`}
+                styles={Object.assign({}, styles, rest.styles)}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled
                     {...labelProps}
                     htmlFor={id}
-                    className={`aph-form-label ${(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
+                    className={`aph-form-label ${!!(placeholder || hasValue) ? 'aph-form-label--top' : ''}`}>
                     {label}
                 </AphFormControlLabelStyled>
             )}
             <AphFormControlButtonStyled
                 type="button"
-                zIndex="-1"
+                tabIndex="-1"
                 styles={{ pointerEvents: 'none' }}>
                 <Icon
                     size={30}
                     slug="arrow-down"
-                    color={props.disabled ? 'helper' : 'base'}
+                    color={rest.disabled ? 'helper' : 'base'}
                 />
             </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled

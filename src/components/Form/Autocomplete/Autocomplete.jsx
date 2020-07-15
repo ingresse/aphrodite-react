@@ -1,28 +1,32 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import Select from "react-select";
-import AsyncSelect from "react-select/async";
+import Select from 'react-select';
+import AsyncSelect from 'react-select/async';
 
-import customStyles from "./AutocompleteStyled";
+import customStyles from './AutocompleteStyled';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
-function Autocomplete(props) {
-    const { error, isAsync } = props;
-
+function Autocomplete({
+    error,
+    errorMessage,
+    isAsync,
+    ...props
+}) {
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            error={!!error}>
             {isAsync ? (
                 <AsyncSelect styles={customStyles} {...props} />
             ) : (
                 <Select styles={customStyles} {...props} />
             )}
 
-            {error &&
+            {(errorMessage) &&
                 <AphFormControlErrorMsgStyled>
-                    {error}
+                    {errorMessage}
                 </AphFormControlErrorMsgStyled>
             }
         </AphFormControlWrapperStyled>
@@ -31,12 +35,13 @@ function Autocomplete(props) {
 
 /* Prop Types */
 Autocomplete.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     className: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
     options: PropTypes.any,
-    error: PropTypes.string,
+    error: PropTypes.bool,
+    errorMessage: PropTypes.string,
 
     isAsync: PropTypes.bool,
     isMulti: PropTypes.bool,
@@ -46,11 +51,12 @@ Autocomplete.propTypes = {
 /* Default Props */
 Autocomplete.defaultProps = {
     id: `formControlRandomID${Math.random()}`,
-    className: "Aph aph-select",
-    placeholder: "Custom placeholder",
+    className: 'Aph aph-select',
+    placeholder: 'Custom placeholder',
     onChange: () => null,
     options: null,
-    error: '',
+    error: false,
+    errorMessage: '',
 
     isAsync: false,
     isMulti: false,

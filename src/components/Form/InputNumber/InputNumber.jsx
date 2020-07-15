@@ -13,33 +13,18 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 const InputNumber = memo(forwardRef((props, ref) => {
     const {
         id,
+        error,
+        errorMessage,
         className,
         label,
         labelProps,
         placeholder,
-
         value,
         onChange,
-
-        errorMessage,
+        ...rest
     } = props;
 
     const [ hasValue, setHasValue ] = useState(typeof value === 'number');
-
-    /* Inherit Props */
-    let inheritProps  = Object.assign({}, props);
-    let excludedProps = [
-        'label',
-        'labelProps',
-
-        'errorMessage',
-    ];
-
-    excludedProps.map((excludedProp) => {
-        delete inheritProps[excludedProp];
-
-        return true;
-    });
 
     /**
      * Trigger
@@ -62,13 +47,16 @@ const InputNumber = memo(forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            error={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
-                {...inheritProps}
+                {...rest}
                 as={LibInputNumber}
                 ref={ref}
-                hasLabel={label ? true : false}
+                value={value}
                 onChange={handleChange}
+                placeholder={placeholder}
                 enableMobileNumericKeyboard
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
             />
