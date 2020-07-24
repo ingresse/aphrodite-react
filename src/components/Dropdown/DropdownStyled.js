@@ -15,7 +15,6 @@ const DropdownStyled = styled.div`
     position: relative;
     display : block;
     width   : 100%;
-    z-index : 901;
 
     -webkit-box-orient   : vertical;
     -webkit-box-direction: normal;
@@ -48,6 +47,7 @@ const DropdownStyled = styled.div`
                 transform: ${props => (props.center ? 'translateX(-50%)' : null)};
 
                 opacity: 0;
+                z-index: 901;
                 width  : ${props => (props.contentWidth || null)};
 
                 will-change: z-index, opacity;
