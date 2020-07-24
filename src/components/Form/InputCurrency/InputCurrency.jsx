@@ -26,10 +26,10 @@ const InputNumber = memo(forwardRef((props, ref) => {
     /* Inherit Props */
     let inheritProps  = Object.assign({}, props);
     let excludedProps = [
+        'error',
+        'errorMessage',
         'label',
         'labelProps',
-
-        'errorMessage',
     ];
 
     excludedProps.map((excludedProp) => {
@@ -52,15 +52,16 @@ const InputNumber = memo(forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            hasError={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
                 {...inheritProps}
                 as={CurrencyInput}
                 ref={ref}
-                hasLabel={label ? true : false}
-                error={error ? 'true' : null}
                 onChange={() => {}}
                 onChangeEvent={handleChange}
+                selectAllOnFocus={true}
                 className={`aph-form-control ${className || ''}`}
             />
             {(!label) ? (null) : (
@@ -91,11 +92,11 @@ InputNumber.defaultProps = {
     inputType        : 'tel',
     thousandSeparator: '.',
     decimalSeparator : ',',
-    prefix           : 'R$',
+    prefix           : 'R$ ',
     value            : 0,
     precision        : 2,
     allowEmpty       : true,
-    allowNegative    : true,
+    allowNegative    : false,
 };
 
 /* Properties Types */

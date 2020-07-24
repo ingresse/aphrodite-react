@@ -10,6 +10,8 @@ import {
     InputCurrency,
     Container,
     Segment,
+    Row,
+    Col,
 } from '../../';
 
 
@@ -17,27 +19,68 @@ import {
 ### Simple customization of awesome [react-currency-input](https://npmjs.com/package/react-currency-input) component.
 
 
-## Example
+## Examples
 
 <Playground>
     {() => {
-        const [ amount, setAmount ] = useState(3.45);
+        const [ amounts, setAmounts ] = useState({
+            first : null,
+            second: 2.50,
+            third : 3,
+        });
+        const hasError = (amounts.third <= 4);
 
         function handleChange(evt, floatValue, maskedValue) {
+            const { target } = evt;
+            const { name } = target;
+
             console.log('Input Currency changed', floatValue, maskedValue);
-            setAmount(floatValue);
+
+            setAmounts({
+                ...amounts,
+                [name]: floatValue,
+            });
         }
 
         return (
-            <Container xs>
-                <Segment padding="10px 0">
-                    <InputCurrency
-                        id="ExampleInputCurrency"
-                        label="Total Amount"
-                        onChange={handleChange}
-                        value={amount}
-                    />
-                </Segment>
+            <Container fluid>
+                <Row horizontal="center" vertical="start">
+                    <Col xs={12}>
+                        <Segment padding="10px 0">
+                            <InputCurrency
+                                id="ExampleInputCurrency"
+                                name="first"
+                                onChange={handleChange}
+                                value={amounts.first}
+                                placeholder="Important: To display the field empty, without mask, value must be null"
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={6}>
+                        <Segment padding="10px 0">
+                            <InputCurrency
+                                id="ExampleInputCurrencyRegular"
+                                label="Total Amount"
+                                name="second"
+                                onChange={handleChange}
+                                value={amounts.second}
+                            />
+                        </Segment>
+                    </Col>
+                    <Col xs={6}>
+                        <Segment padding="10px 0">
+                            <InputCurrency
+                                id="ExampleInputCurrencyError"
+                                label="Error example"
+                                name="third"
+                                onChange={handleChange}
+                                value={amounts.third}
+                                error={hasError}
+                                errorMessage={hasError && 'Amount must be higher than R$ 4,00'}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
             </Container>
         );
     }}
