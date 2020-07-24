@@ -11,54 +11,52 @@ import { List, ListItem } from '../';
 # Lists
 ### Organizing information with an alternative to tables.
 
-```jsx
-import { List, ListItem } from '@ingresse/aphrodite';
-
-...
-
-return (
-    <List>
-        <ListItem>
-            Ingresse
-        </ListItem>
-        <ListItem>
-            Aphrodite
-        </ListItem>
-        <ListItem padding="15px 40px">
-            React
-        </ListItem>
-        <ListItem hoverable>
-            UI
-        </ListItem>
-        <ListItem withLink>
-            <a target="_blank" href="https://ingresse.github.io/aphrodite-react">
-                Facilities
-            </a>
-        </ListItem>
-    </List>
-);
-```
-
-## Example
+## Examples
 
 <Playground>
     <List>
         <ListItem>
-            Ingresse
+            regular
         </ListItem>
-        <ListItem>
-            Aphrodite
+        <ListItem borderTop>
+            borderTop prop
         </ListItem>
-        <ListItem padding="15px 40px">
-            React
+        <ListItem borderBottom>
+            borderBottom prop
+        </ListItem>
+        <ListItem color="success">
+            color prop
+        </ListItem>
+        <ListItem disabled>
+            disabled prop
         </ListItem>
         <ListItem hoverable>
-            UI
+            hoverable prop
         </ListItem>
-        <ListItem withLink  padding="15px 40px">
+        <ListItem onClick={console.info}>
+            onClick prop
+        </ListItem>
+        <ListItem padding="10px 30px">
+            padding prop
+        </ListItem>
+        <ListItem styles={{ fontStyle: 'italic' }}>
+            styles prop
+        </ListItem>
+        <ListItem withLink>
             <a target="_blank" href="https://ingresse.github.io/aphrodite-react">
-                Facilities
+                withLink prop
             </a>
+        </ListItem>
+        <ListItem
+            borderTop
+            disabled
+            hoverable>
+            combining props
+        </ListItem>
+        <ListItem
+            color="error"
+            onClick={console.error}>
+            combining props
         </ListItem>
     </List>
 </Playground>

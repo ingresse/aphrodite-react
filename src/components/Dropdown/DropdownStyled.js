@@ -79,10 +79,7 @@ const DropdownStyled = styled.div`
         }
 
         &-list {
-            &__item:not(.aph-list__item--with-link) {
-                padding-right: 20px;
-                padding-left : 20px;
-            }
+            overflow: hidden;
         }
     }
 

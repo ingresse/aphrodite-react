@@ -14,7 +14,6 @@ const AphListStyled = styled.ul`
     margin : 0;
     padding: 0;
 
-    overflow: hidden;
     border-radius: ${RADIUS.SM}px;
 
     list-style-type: ${props => props.type || 'none'};
@@ -43,6 +42,9 @@ List.defaultProps = {
 
 /* Properties Types */
 List.propTypes = {
+    /**
+     * Custom Styles
+     */
     styles: propTypes.oneOfType([
         propTypes.string,
         propTypes.object,

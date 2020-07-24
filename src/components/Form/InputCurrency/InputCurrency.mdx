@@ -24,7 +24,7 @@ import {
 <Playground>
     {() => {
         const [ amounts, setAmounts ] = useState({
-            first : null,
+            first : 0,
             second: 2.50,
             third : 3,
         });
@@ -51,7 +51,7 @@ import {
                                 id="ExampleInputCurrency"
                                 name="first"
                                 onChange={handleChange}
-                                value={amounts.first}
+                                value={amounts.first || null}
                                 placeholder="Important: To display the field empty, without mask, value must be null"
                             />
                         </Segment>
@@ -63,7 +63,7 @@ import {
                                 label="Total Amount"
                                 name="second"
                                 onChange={handleChange}
-                                value={amounts.second}
+                                value={amounts.second || null}
                             />
                         </Segment>
                     </Col>
@@ -74,7 +74,7 @@ import {
                                 label="Error example"
                                 name="third"
                                 onChange={handleChange}
-                                value={amounts.third}
+                                value={amounts.third || null}
                                 error={hasError}
                                 errorMessage={hasError && 'Amount must be higher than R$ 4,00'}
                             />
