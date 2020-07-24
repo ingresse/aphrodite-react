@@ -21,6 +21,7 @@ const InputNumber = memo(forwardRef((props, ref) => {
         value,
         onChange,
 
+        error,
         errorMessage,
     } = props;
 
@@ -29,10 +30,10 @@ const InputNumber = memo(forwardRef((props, ref) => {
     /* Inherit Props */
     let inheritProps  = Object.assign({}, props);
     let excludedProps = [
+        'error',
+        'errorMessage',
         'label',
         'labelProps',
-
-        'errorMessage',
     ];
 
     excludedProps.map((excludedProp) => {
@@ -62,12 +63,13 @@ const InputNumber = memo(forwardRef((props, ref) => {
     }
 
     return (
-        <AphFormControlWrapperStyled>
+        <AphFormControlWrapperStyled
+            hasError={!!error}
+            hasLabel={!!label}>
             <AphFormControlStyled
                 {...inheritProps}
                 as={LibInputNumber}
                 ref={ref}
-                hasLabel={label ? true : false}
                 onChange={handleChange}
                 enableMobileNumericKeyboard
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}
