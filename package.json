@@ -1,6 +1,6 @@
 {
     "name": "@ingresse/aphrodite",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "private": false,
     "license": "MIT",
     "description": "React UI library from ingresse.com",
@@ -19,6 +19,7 @@
         "@fnando/cnpj": "^0.1.1",
         "@fnando/cpf": "^0.1.1",
         "chroma-js": "^2.1.0",
+        "dayjs": "^1.8.30",
         "prop-types": "^15.7.2",
         "rc-pagination": "^1.20.12",
         "react": "^16.8.6",
