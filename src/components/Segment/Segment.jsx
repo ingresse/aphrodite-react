@@ -11,36 +11,49 @@ import { colors, text } from '../../utils';
 const SegmentStyled = styled.div`
     box-sizing: border-box;
     display: block;
-    margin : ${props => props.aphmargin  || null};
-    padding: ${props => props.aphpadding || '20px 10px'};
+    margin : ${props => props.aphMargin  || null};
+    padding: ${props => props.withLink ? null : props.aphPadding};
+    transition: color
 
     ${props => text(props, props.textSize)};
 
-    border-radius: ${props => props.aphradius ? `${props.aphradius}px` : null};
-    box-shadow   : ${props => props.aphshadow ?
-        `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}` : (
-            (props.borderTop || props.borderBottom) ? `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getOpacity(0.25, colors.getFromTheme(props, 'helper'))}` : null
+    border-radius: ${props => props.aphRadius ? `${props.aphRadius}px` : null};
+    box-shadow   : ${props => props.aphShadow ?
+        (typeof props.aphShadow === 'string' ? props.aphShadow : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`) : (
+            (props.borderTop || props.borderBottom) ? `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}` : null
         )
     };
 
-    color           : ${props => props.aphcolor ? colors.getFromTheme(props, props.aphcolor) : null};
-    background-color: ${props => props.aphbackground ? colors.getFromTheme(props, props.aphbackground) : null};
+    color           : ${props => props.aphColor ? colors.getFromTheme(props, props.aphColor) : null};
+    background-color: ${props => props.aphBackground ? colors.getFromTheme(props, props.aphBackground) : null};
 
-    ${props => !props.aphhoverable ? null : `
+    ${props => !props.aphHoverable ? null : `
         outline: 0;
         border : 0;
 
-        border-radius: ${RADIUS.LG}px;
-        box-shadow   : ${props => !props.aphshadow ? null : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`};
+        border-radius: ${props.aphRadius || RADIUS.LG}px;
+        box-shadow   : ${!props.aphShadow ? null : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`};
         transition   : box-shadow 0.15s linear;
 
-        &:hover,
-        &:focus {
+        &:active, &:hover, &:focus {
             box-shadow: 0 0 10px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)};
         }
     `}
 
-    ${props => props.aphstyles};
+    ${props => !props.withLink ? null : `
+        a > {
+            color: ${colors.getFromTheme(props, props.aphColor || 'secondary')};
+            border-radius: ${props.aphRadius || null};
+            padding: ${props.aphPadding};
+            text-decoration: none;
+        }
+
+        &:active, &:hover, &:focus {
+            background-color: ${colors.getFromTheme(props, (props.aphBackground || props.aphColor), 'original', 0.3)};
+        }
+    `}
+
+    ${props => props.aphStyles};
 `;
 
 /* Component Itself */
@@ -58,7 +71,6 @@ const Segment = forwardRef((props, ref) => {
         shadow,
 
         styles,
-
         ...rest
     } = props;
 
@@ -66,14 +78,14 @@ const Segment = forwardRef((props, ref) => {
         <SegmentStyled
             {...rest}
             ref={ref}
-            aphmargin={margin}
-            aphpadding={padding}
-            aphhoverable={hoverable}
-            aphcolor={color}
-            aphbackground={background}
-            aphradius={radius}
-            aphshadow={shadow}
-            aphstyles={styles}
+            aphMargin={margin}
+            aphPadding={padding}
+            aphHoverable={hoverable}
+            aphColor={color}
+            aphBackground={background}
+            aphRadius={radius}
+            aphShadow={shadow}
+            aphStyles={styles}
             className={`aph-segment ${className || ''}`}
         />
     );
@@ -81,21 +93,13 @@ const Segment = forwardRef((props, ref) => {
 
 /* Default Properties */
 Segment.defaultProps = {
-    textAlign : '',
-    margin    : '',
-    padding   : '20px 10px',
-    hoverable : false,
-
-    /**
-     * Text color
-     */
+    textAlign: '',
+    textColor: '',
     color: '',
-
-    /**
-     * Background color
-     */
     background: '',
-
+    margin: '',
+    padding: '20px 10px',
+    hoverable: false,
     radius: 0,
     shadow: false,
     styles: {},
@@ -103,18 +107,69 @@ Segment.defaultProps = {
 
 /* Properties Types */
 Segment.propTypes = {
+    /**
+     * Text align
+     */
     textAlign : propTypes.string,
-    margin    : propTypes.string,
-    padding   : propTypes.string,
-    hoverable : propTypes.bool,
-    color     : propTypes.string,
+
+    /**
+     * Text color
+     */
+    textColor: propTypes.string,
+
+    /**
+     * Text color
+     */
+    color: propTypes.string,
+
+    /**
+     * Background color
+     */
     background: propTypes.string,
-    radius    : propTypes.number,
-    shadow    : propTypes.bool,
-    styles    : propTypes.oneOfType([
+
+    /**
+     * External Distance to other elements
+     */
+    margin: propTypes.string,
+
+    /**
+     * Internal spacement
+     */
+    padding: propTypes.string,
+
+    /**
+     * Background color changes on hover event
+     */
+    hoverable: propTypes.bool,
+
+    /**
+     * Custom border radius
+     */
+    radius: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.number,
+    ]),
+
+    /**
+     * Enable or customize box-shadow
+     */
+    shadow: propTypes.oneOfType([
+        propTypes.bool,
+        propTypes.string,
+    ]),
+
+    /**
+     * Custom styles
+     */
+    styles: propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),
+
+    /**
+     * Use it when you need a link inside, such as React Router Link
+     */
+    withLink: propTypes.bool,
 };
 
 /* Exporting */

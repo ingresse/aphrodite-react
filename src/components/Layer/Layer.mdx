@@ -1,0 +1,92 @@
+---
+name : Layer
+menu : › Components
+route: /components/layer
+---
+
+import { Playground, Props } from 'docz';
+import { Layer, LayerMenu, LayerStatus, Container, Link } from '../';
+
+
+# Layer
+### Organizing information with an alternative to lists.
+
+## Examples
+
+<Playground>
+    <Container styles={{ lineHeight: '20px' }}>
+        <Layer>
+            regular
+        </Layer>
+        <Layer
+            menu={{
+                width: '250px',
+                options: [
+                    'This is the layer menu content',
+                    {
+                        borderTop: true,
+                        children : 'Click to display a console error',
+                        color    : 'error',
+                        onClick  : console.error,
+                    },
+                    'See the code',
+                    {
+                        borderBottom: true,
+                        children    : (<Link target='_blank' href='https://www.ingresse.com'>Visit ingresse.com</Link>),
+                        color       : 'primary',
+                        withLink    : true,
+                    },
+                    'A lot of possibilities',
+                ]
+            }}>
+            menu prop
+        </Layer>
+        <Layer
+            status={{
+                children: 'disabled status example',
+            }}>
+            status prop
+        </Layer>
+    </Container>
+</Playground>
+
+## Advanced Examples
+
+<Playground>
+    <Container styles={{ lineHeight: '20px' }}>
+        <Layer
+            title="Hey, wait!"
+            status={{
+                children: 'status prop information',
+                color   : 'pending',
+            }}
+            menu={{
+                options: [
+                    {
+                        children: (<Link target='_blank' href='https://www.ingresse.com'>Visit ingresse.com</Link>),
+                        withLink: true,
+                    },
+                ]
+            }}>
+            <div>menu</div>
+            <div>and</div>
+            <div>status</div>
+            <div>together?</div>
+        </Layer>
+    </Container>
+</Playground>
+
+
+## Layer properties
+
+<Props of={Layer} />
+
+
+## LayerMenu properties
+
+<Props of={LayerMenu} />
+
+
+## LayerStatus properties
+
+<Props of={LayerStatus} />

@@ -91,6 +91,13 @@ const oil = getShadesFormat(
     'rgb(202, 202, 202)'
 );
 
+const poison = getShadesFormat(
+    'rgb(81, 108, 178)',
+    'rgb(81, 108, 178)',
+    'rgb(81, 108, 178)',
+    'rgb(81, 108, 178)',
+);
+
 const translucid = getShadesFormat(
     'rgba(255, 255, 255, 0.1)',
     'rgba(255, 255, 255, 0.2)',
@@ -98,11 +105,11 @@ const translucid = getShadesFormat(
     'rgba(255, 255, 255, 0.1)',
 );
 
-const poison = getShadesFormat(
-    'rgb(81, 108, 178)',
-    'rgb(81, 108, 178)',
-    'rgb(81, 108, 178)',
-    'rgb(81, 108, 178)',
+const shadow = getShadesFormat(
+    'rgba(0, 0, 0, 0.4)',
+    'rgba(0, 0, 0, 0.3)',
+    'rgba(0, 0, 0, 0.2)',
+    'rgba(0, 0, 0, 0.1)',
 );
 
 let shades = {
@@ -115,8 +122,9 @@ let shades = {
     ruby,
     supernova,
     mint,
-    translucid,
     poison,
+    translucid,
+    shadow,
 };
 
 
@@ -186,7 +194,7 @@ let stock = {
 
     translucid: translucid.original,
 
-    shadow: 'rgba(0, 0, 0, 0.2)',
+    shadow: shadow.original,
     smoke : 'rgb(248, 248, 248)',
     white : 'rgb(255, 255, 255)',
     black : 'rgb(0, 0, 0)',
