@@ -1,5 +1,5 @@
 /* Packages */
-import React, { memo, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Component Styles */
@@ -45,7 +45,8 @@ const Switch = forwardRef((props, ref) => {
                 <SwitchStyled.Content
                     htmlFor={id}
                     hasChildren={children ? true : false}
-                    toggleAlign={toggleAlign}>
+                    toggleAlign={toggleAlign}
+                    className="aph-form-switch__label">
                     {children}
                 </SwitchStyled.Content>
             )}

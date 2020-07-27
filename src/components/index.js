@@ -67,4 +67,3 @@ export { default as Select } from './Form/Select/Select';
 export { default as TextArea } from './Form/TextArea/TextArea';
 export { default as Switch } from './Form/Switch/Switch';
 export { default as RadioButton } from './Form/RadioButton/RadioButton';
-export { default as DatePicker } from './Form/DatePicker/DatePicker';

@@ -91,6 +91,7 @@ Layer.defaultProps = {
     padding: '15px',
     radius: 16,
     shadow: '0 0 5px 0 rgba(0, 0, 0, 0.1)',
+    styles: {},
     withLink: false,
     wrapperStyles: {},
 };
@@ -124,6 +125,11 @@ Layer.propTypes = {
      * LayerStatus component props
      */
     status: propTypes.object,
+
+    /**
+     * Custom styles
+     */
+    styles: propTypes.object,
 
     /**
      * Text align

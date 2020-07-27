@@ -11,16 +11,16 @@ import { colors, text } from '../../utils';
 const SegmentStyled = styled.div`
     box-sizing: border-box;
     display: block;
-    margin : ${props => props.aphMargin  || null};
+    margin : ${props => props.aphMargin || null};
     padding: ${props => props.withLink ? null : props.aphPadding};
     transition: color
 
     ${props => text(props, props.textSize)};
 
-    border-radius: ${props => props.aphRadius ? `${props.aphRadius}px` : null};
+    border-radius: ${props => !props.aphRadius ? null : ((typeof props.aphRadius === 'number') ? `${props.aphRadius}px` : props.aphRadius)};
     box-shadow   : ${props => props.aphShadow ?
         (typeof props.aphShadow === 'string' ? props.aphShadow : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`) : (
-            (props.borderTop || props.borderBottom) ? `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}` : null
+            (props.borderTop || props.borderBottom) ? `iwnset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}` : null
         )
     };
 
@@ -31,9 +31,8 @@ const SegmentStyled = styled.div`
         outline: 0;
         border : 0;
 
-        border-radius: ${props.aphRadius || RADIUS.LG}px;
-        box-shadow   : ${!props.aphShadow ? null : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`};
-        transition   : box-shadow 0.15s linear;
+        box-shadow: ${!props.aphShadow ? '' : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`};
+        transition: box-shadow 0.15s linear;
 
         &:active, &:hover, &:focus {
             box-shadow: 0 0 10px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)};
@@ -41,15 +40,12 @@ const SegmentStyled = styled.div`
     `}
 
     ${props => !props.withLink ? null : `
-        a > {
-            color: ${colors.getFromTheme(props, props.aphColor || 'secondary')};
-            border-radius: ${props.aphRadius || null};
+        > a {
+            border-radius: ${!props.aphRadius ? '' : ((typeof props.aphRadius === 'number') ? `${props.aphRadius}px` : props.aphRadius)};
+            color: inherit;
+            display: block;
             padding: ${props.aphPadding};
             text-decoration: none;
-        }
-
-        &:active, &:hover, &:focus {
-            background-color: ${colors.getFromTheme(props, (props.aphBackground || props.aphColor), 'original', 0.3)};
         }
     `}
 
@@ -103,6 +99,7 @@ Segment.defaultProps = {
     radius: 0,
     shadow: false,
     styles: {},
+    withLink: false,
 };
 
 /* Properties Types */

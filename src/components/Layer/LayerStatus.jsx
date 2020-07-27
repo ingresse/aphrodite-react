@@ -15,8 +15,8 @@ import { MEDIA_QUERIES } from '../../constants';
 const Wrapper = styled(Segment)`
     position: absolute;
     z-index : 10;
-    top     : 30%;
-    bottom  : 30%;
+    top     : 26.93%;
+    bottom  : 26.93%;
     left    : 10px;
 
     display: block;
@@ -115,7 +115,6 @@ const Wrapper = styled(Segment)`
 /* Component Itself */
 const LayerStatus = forwardRef(({
     children,
-    className,
     color,
     label,
     text,
@@ -127,7 +126,6 @@ const LayerStatus = forwardRef(({
             type="button"
             tabIndex="-10"
             textColor={color}
-            className={className}
             ref={ref}
             {...props}>
             {(children || label || text) && (
@@ -141,23 +139,15 @@ const LayerStatus = forwardRef(({
 
 /* Default Properties */
 LayerStatus.defaultProps = {
-    as: 'button',
     className: '',
     color: 'disabled',
     tabIndex: '-1',
     type: 'button',
+    styles: {},
 };
 
 /* Properties Types */
 LayerStatus.propTypes = {
-    /**
-     * Component tag/element
-     */
-    as: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.element,
-    ]),
-
     /**
      * Hover content
      */
@@ -170,6 +160,11 @@ LayerStatus.propTypes = {
      * Color name from Colors Utility
      */
     color: propTypes.string,
+
+    /**
+     * Custom styles
+     */
+    styles: propTypes.object,
 };
 
 /* Exporting */

@@ -10,19 +10,90 @@ import {
     Switch,
     Card,
     Checkbox,
+    Container,
     Input,
     Placeholder,
     Segment,
     Row,
     Col,
+    Button,
 } from '../../';
 
 
 # Switch
 ### Form checkbox styled like a switch on/off.
 
-
 ## Example
+<Playground>
+    {() => {
+        // import React, { useState } from 'react';
+        // import { Switch, Input, Button, Container, Segment } from '@ingresse/aphrodite';
+
+        const [ formData, setFormData ] = useState({
+            newsletter: false,
+            email: '',
+        });
+
+        function handleChange({ target }) {
+            const { name, checked, value } = target;
+            const fill = ((name === 'newsletter') ? checked : (value || ''));
+
+            setFormData({
+                ...formData,
+                [name]: fill,
+            });
+        }
+
+        function handleSubmit(evt) {
+            evt.preventDefault();
+
+            if (!formData.email) {
+                return;
+            }
+
+            alert(formData.email + ' ' + (formData.newsletter ? 'agree' : 'disagree') + ' to receive newsletters');
+        }
+
+        return (
+            <Container styles={{ maxWidth: '320px' }}>
+                <form
+                    noValidate
+                    onSubmit={handleSubmit}>
+                    <Segment padding="10px 0">
+                        <Input
+                            name="email"
+                            type="email"
+                            label="Your Email"
+                            id="ExampleSwitchEmail"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </Segment>
+                    <Segment padding="10px 0">
+                        <Switch
+                            name="newsletter"
+                            id="ExampleSwitchNewsletter" // REQUIRED
+                            checked={formData.newsletter}
+                            onChange={handleChange}>
+                            Like to receive our newsletter?
+                        </Switch>
+                    </Segment>
+                    <Segment padding="10px 0">
+                        <Button
+                            block
+                            type="submit"
+                            disabled={!formData.email}>
+                            Register
+                        </Button>
+                    </Segment>
+                </form>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Advanced Example
 
 <Playground>
     {() => {
