@@ -1,0 +1,57 @@
+---
+name : BlurBackground
+menu : › Components
+route: /components/blur-background
+---
+
+import { Playground, Props } from 'docz';
+import { BlurBackground, Segment, Container } from '../';
+
+
+# BlurBackground
+
+## Example
+
+<Playground>
+    <Container styles={{ lineHeight: '20px' }}>
+        <BlurBackground
+            image="https://event-kraken.s3.amazonaws.com/event/posters/41621/large.jpg">
+            <Segment
+                padding="120px 40px"
+                textAlign="center"
+                textSize="XL">
+                Hi, there
+            </Segment>
+        </BlurBackground>
+    </Container>
+</Playground>
+
+## Full Example
+
+<Playground>
+    <Container styles={{ lineHeight: '20px' }}>
+        <BlurBackground
+            blur="10px"
+            opacity={0.9}
+            image="https://event-kraken.s3.amazonaws.com/event/posters/41621/large.jpg"
+            styles={{
+                backgroundSize: '50%',
+            }}
+            wrapperStyles={{
+                borderRadius: '20px',
+                backgroundColor: 'pink',
+            }}>
+            <Segment
+                padding="120px 40px"
+                textAlign="center"
+                textSize="XL">
+                Hi, there
+            </Segment>
+        </BlurBackground>
+    </Container>
+</Playground>
+
+
+## BlurBackground properties
+
+<Props of={BlurBackground} />

@@ -1,5 +1,6 @@
 /* Core Packages */
 import React from 'react';
+import propTypes from 'prop-types';
 
 /* Component Styles */
 import {
@@ -9,10 +10,12 @@ import {
 
 /* Component Itself */
 function BlurBackground({
-    blur,
-    image,
-    opacity,
+    blur = '12px',
     children,
+    image,
+    opacity = 0.65,
+    styles,
+    wrapperStyles,
     ...rest
 }) {
     /**
@@ -20,16 +23,51 @@ function BlurBackground({
      */
     return (
         <BlurBackgroundWrapper
-            {...rest}>
+            aphWrapperStyles={wrapperStyles}>
             <BlurBackgroundImage
-                blur={blur}
-                image={image}
-                opacity={opacity}
+                aphBlur={blur}
+                aphImage={image}
+                aphStyles={styles}
+                aphOpacity={opacity}
+                {...rest}
             />
             {children}
         </BlurBackgroundWrapper>
     );
 }
+
+/* Properties Types */
+BlurBackground.propTypes = {
+    /**
+     * Blur radius
+     */
+    blur: propTypes.string,
+
+    /**
+     * Background image URL
+     */
+    image: propTypes.string.isRequired,
+
+    /**
+     * Blur opacity
+     */
+    opacity: propTypes.number,
+
+    /**
+     * Content inside
+     */
+    children: propTypes.any,
+
+    /**
+     * Custom image element styles
+     */
+    styles: propTypes.object,
+
+    /**
+     * Custom wrapper Styles
+     */
+    wrapperStyles: propTypes.object,
+};
 
 /* Exporting */
 export default BlurBackground;
