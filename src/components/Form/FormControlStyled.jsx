@@ -16,7 +16,7 @@ const FormControlStyled = styled.input`
     width     : 100%;
     margin    : 0;
     min-height: 50px;
-    padding   : ${props => props.hasLabel ? 2 : 1}0px 10px 0;
+    padding   : ${({ hasLabel }) => hasLabel ? '20px 10px 0' : '10px'};
 
     font-weight: ${SIZES.MD.FONT_WEIGHT};
     font-size  : ${SIZES.MD.FONT_SIZE};
@@ -68,7 +68,8 @@ const FormControlStyled = styled.input`
 
     &.disabled,
     &:disabled {
-        cursor: not-allowed;
+        cursor : not-allowed;
+        opacity: 1;
 
         color           : ${props => colors.getFromTheme(props, 'base')};
         background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};

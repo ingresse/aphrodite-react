@@ -66,7 +66,7 @@ const AphFormSwitchToggle = styled.label`
     width : 30px;
     height: 30px;
 
-    transition-property       : right, left;
+    transition-property       : right, left, box-shadow;
     transition-duration       : 0.25s;
     transition-timing-function: ease;
 
@@ -97,6 +97,12 @@ const AphFormSwitchInput = styled.input`
 
     -webkit-appearance         : none;
     -webkit-tap-highlight-color: transparent;
+
+    &:active, &:focus, &:hover {
+        + .aph-form-switch__toggle {
+            box-shadow: 0 0 10px 0 ${colors.get('black', 'original', 0.25)};
+        }
+    }
 
     &.disabled,
     &:disabled {

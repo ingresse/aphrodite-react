@@ -2,6 +2,7 @@
 export { default as ActionBar } from './ActionBar/ActionBar';
 export { default as Avatar } from './Avatar/Avatar';
 export { default as Badge } from './Badge/Badge';
+export { default as BlurBackground } from './BlurBackground/BlurBackground';
 export { default as Button } from './Button/Button';
 export { default as Card } from './Card/Card';
 export { default as Clipboard } from './Clipboard/Clipboard';
@@ -50,6 +51,9 @@ export { default as ListGroupItem } from './Lists/ListGroupItem';
 /* Dependent Components */
 export { default as Collapsible } from './Collapsible/Collapsible';
 export { default as Countdown } from './Countdown/Countdown';
+export { default as Layer } from './Layer/Layer';
+export { default as LayerMenu } from './Layer/LayerMenu';
+export { default as LayerStatus } from './Layer/LayerStatus';
 export { default as Pagination } from './Pagination/Pagination';
 
 /* Form Components */

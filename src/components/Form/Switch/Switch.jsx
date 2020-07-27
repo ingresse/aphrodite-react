@@ -1,12 +1,12 @@
 /* Packages */
-import React, { memo, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 
 /* Component Styles */
 import SwitchStyled from './SwitchStyled';
 
 /* Component Itself */
-const Switch = memo(forwardRef((props, ref) => {
+const Switch = forwardRef((props, ref) => {
     const {
         id,
         className,
@@ -15,15 +15,8 @@ const Switch = memo(forwardRef((props, ref) => {
         textAlign,
         textSmall,
         toggleAlign,
+        ...rest
     } = props;
-
-    let newProps = Object.assign({}, props, {
-        children   : undefined,
-        styles     : undefined,
-        textAlign  : undefined,
-        textSmall  : undefined,
-        toggleAlign: undefined,
-    });
 
     return (
         <SwitchStyled.Wrapper
@@ -37,7 +30,7 @@ const Switch = memo(forwardRef((props, ref) => {
                 htmlFor={id}
                 className="aph-form-switch__wrapper">
                 <SwitchStyled.Input
-                    {...newProps}
+                    {...rest}
                     ref={ref}
                     id={id}
                     type="checkbox"
@@ -52,17 +45,18 @@ const Switch = memo(forwardRef((props, ref) => {
                 <SwitchStyled.Content
                     htmlFor={id}
                     hasChildren={children ? true : false}
-                    toggleAlign={toggleAlign}>
+                    toggleAlign={toggleAlign}
+                    className="aph-form-switch__label">
                     {children}
                 </SwitchStyled.Content>
             )}
         </SwitchStyled.Wrapper>
     );
-}));
+});
 
 /* Default Properties */
 Switch.defaultProps = {
-    id: `formControlRandomID${Math.random()}`,
+    id: '',
 
     className: '',
     styles   : {},
@@ -74,7 +68,7 @@ Switch.defaultProps = {
 
 /* Properties Types */
 Switch.propTypes = {
-    id: propTypes.string,
+    id: propTypes.string.isRequired,
 
     className: propTypes.string,
     styles   : propTypes.oneOfType([

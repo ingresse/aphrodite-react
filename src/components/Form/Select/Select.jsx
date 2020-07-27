@@ -16,6 +16,7 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 const Select = memo(forwardRef((props, ref) => {
     const {
         id,
+        icon,
         label,
         labelProps,
         placeholder,
@@ -60,7 +61,7 @@ const Select = memo(forwardRef((props, ref) => {
                 {...props}
                 as="select"
                 ref={ref}
-                hasLabel={label ? true : false}
+                hasLabel={!!label}
                 onChange={handleChange}
                 styles={Object.assign({}, styles, props.styles)}
             />
@@ -74,17 +75,16 @@ const Select = memo(forwardRef((props, ref) => {
             )}
             <AphFormControlButtonStyled
                 type="button"
-                zIndex="-1"
+                tabIndex="-1"
+                disabled={props.disabled}
                 styles={{ pointerEvents: 'none' }}>
                 <Icon
-                    size={30}
-                    slug="arrow-down"
                     color={props.disabled ? 'helper' : 'base'}
+                    {...icon}
                 />
             </AphFormControlButtonStyled>
             <AphFormControlErrorMsgStyled
                 htmlFor={id}
-                styles={!errorMessage ? null : { maxHeight: '600px' }}
                 className="aph-form-error">
                 {errorMessage || ''}
             </AphFormControlErrorMsgStyled>
@@ -95,6 +95,10 @@ const Select = memo(forwardRef((props, ref) => {
 /* Default Properties */
 Select.defaultProps = {
     id    : `formControlRandomID${Math.random()}`,
+    icon  : {
+        size: 30,
+        slug: 'arrow-down',
+    },
     label : '',
     btn   : null,
     styles: {},
@@ -103,6 +107,7 @@ Select.defaultProps = {
 /* Properties Types */
 Select.propTypes = {
     id    : propTypes.string.isRequired,
+    icon  : propTypes.object,
     label : propTypes.string,
     btn   : propTypes.object,
     styles: propTypes.oneOfType([

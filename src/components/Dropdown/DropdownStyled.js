@@ -15,7 +15,6 @@ const DropdownStyled = styled.div`
     position: relative;
     display : block;
     width   : 100%;
-    z-index : 901;
 
     -webkit-box-orient   : vertical;
     -webkit-box-direction: normal;
@@ -48,6 +47,7 @@ const DropdownStyled = styled.div`
                 transform: ${props => (props.center ? 'translateX(-50%)' : null)};
 
                 opacity: 0;
+                z-index: 901;
                 width  : ${props => (props.contentWidth || null)};
 
                 will-change: z-index, opacity;
@@ -58,7 +58,7 @@ const DropdownStyled = styled.div`
 
                 color     : ${props => colors.getFromTheme(props, 'black')};
                 background: ${props => colors.getFromTheme(props, 'white')};
-                box-shadow: 0 0 5px ${props => colors.getFromTheme(props, 'shadow')};
+                box-shadow: 0 2px 10px 0 ${props => colors.getFromTheme(props, 'shadow', 'crystal')};
 
                 padding: ${props => (props.thin ? '0' : '15px 10px')};
                 border-radius: ${RADIUS.XS}px;
@@ -79,10 +79,7 @@ const DropdownStyled = styled.div`
         }
 
         &-list {
-            &__item:not(.aph-list__item--with-link) {
-                padding-right: 20px;
-                padding-left : 20px;
-            }
+            overflow: hidden;
         }
     }
 

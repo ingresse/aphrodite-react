@@ -12,9 +12,9 @@ const theme = {
      * Typography
      */
     fonts: {
-        code : 'monospace',
-        body : '"Roboto", sans-serif',
-        title: '"Roboto", sans-serif',
+        mono   : 'monospace',
+        display: '"Roboto", sans-serif',
+        ui     : '"Roboto", sans-serif',
     },
 };
 

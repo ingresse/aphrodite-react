@@ -10,19 +10,90 @@ import {
     Switch,
     Card,
     Checkbox,
+    Container,
     Input,
     Placeholder,
     Segment,
     Row,
     Col,
+    Button,
 } from '../../';
 
 
 # Switch
 ### Form checkbox styled like a switch on/off.
 
-
 ## Example
+<Playground>
+    {() => {
+        // import React, { useState } from 'react';
+        // import { Switch, Input, Button, Container, Segment } from '@ingresse/aphrodite';
+
+        const [ formData, setFormData ] = useState({
+            newsletter: false,
+            email: '',
+        });
+
+        function handleChange({ target }) {
+            const { name, checked, value } = target;
+            const fill = ((name === 'newsletter') ? checked : (value || ''));
+
+            setFormData({
+                ...formData,
+                [name]: fill,
+            });
+        }
+
+        function handleSubmit(evt) {
+            evt.preventDefault();
+
+            if (!formData.email) {
+                return;
+            }
+
+            alert(formData.email + ' ' + (formData.newsletter ? 'agree' : 'disagree') + ' to receive newsletters');
+        }
+
+        return (
+            <Container styles={{ maxWidth: '320px' }}>
+                <form
+                    noValidate
+                    onSubmit={handleSubmit}>
+                    <Segment padding="10px 0">
+                        <Input
+                            name="email"
+                            type="email"
+                            label="Your Email"
+                            id="ExampleSwitchEmail"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </Segment>
+                    <Segment padding="10px 0">
+                        <Switch
+                            name="newsletter"
+                            id="ExampleSwitchNewsletter" // REQUIRED
+                            checked={formData.newsletter}
+                            onChange={handleChange}>
+                            Like to receive our newsletter?
+                        </Switch>
+                    </Segment>
+                    <Segment padding="10px 0">
+                        <Button
+                            block
+                            type="submit"
+                            disabled={!formData.email}>
+                            Register
+                        </Button>
+                    </Segment>
+                </form>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Advanced Example
 
 <Playground>
     {() => {
@@ -32,6 +103,7 @@ import {
         const [ textAlign, setTextAlign ]     = useState(false);
         const [ textSmall, setTextSmall ]     = useState(false);
         const [ toggleAlign, setToggleAlign ] = useState(false);
+        const [ checked, setChecked ]         = useState(false);
 
         const BreakPointToggle = (props) => (
             <Placeholder
@@ -79,6 +151,9 @@ import {
                         <Col xs={12} sm={col}>
                             <Card>
                                 <Switch
+                                    id="SwitchExample"
+                                    checked={checked}
+                                    onChange={() => setChecked(!checked)}
                                     disabled={disabled}
                                     textSmall={textSmall}
                                     textAlign={textAlign ? 'right' : 'left'}
@@ -111,7 +186,7 @@ import {
                                         id="switchToggleAlign"
                                         value={toggleAlign ? 'right' : 'left'}
                                         defaultChecked={toggleAlign}
-                                        onChange={(e) => setToggleAlign(e.target.checked ? true : false)}>
+                                        onChange={(e) => setToggleAlign(!!e.target.checked)}>
                                         Align toggle at right
                                     </Checkbox>
                                 </Segment>
@@ -123,7 +198,7 @@ import {
                                         id="switchTextAlign"
                                         value={textAlign ? 'right' : 'left'}
                                         defaultChecked={textAlign}
-                                        onChange={(e) => setTextAlign(e.target.checked ? true : false)}>
+                                        onChange={(e) => setTextAlign(!!e.target.checked)}>
                                         Align text at right
                                     </Checkbox>
                                 </Segment>
@@ -133,9 +208,9 @@ import {
                                 <Segment padding="10px 0">
                                     <Checkbox
                                         id="switchTextSmall"
-                                        value={textSmall ? true : false}
+                                        value={!!textSmall}
                                         defaultChecked={textSmall}
-                                        onChange={(e) => setTextSmall(e.target.checked ? true : false)}>
+                                        onChange={(e) => setTextSmall(!!e.target.checked)}>
                                         Text small
                                     </Checkbox>
                                 </Segment>
@@ -145,9 +220,9 @@ import {
                                 <Segment padding="10px 0">
                                     <Checkbox
                                         id="switchDisabled"
-                                        value={disabled ? true : false}
+                                        value={disabled}
                                         defaultChecked={disabled}
-                                        onChange={(e) => setDisabled(e.target.checked ? true : false)}>
+                                        onChange={(e) => setDisabled(!!e.target.checked)}>
                                         Disabled
                                     </Checkbox>
                                 </Segment>
