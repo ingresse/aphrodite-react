@@ -22,7 +22,7 @@ const ActionBarStyled = styled.div`
     padding : 20px 0;
 
     background-color: ${(props) => colors.getFromTheme(props, 'inverse')};
-    box-shadow      : 0 0 4px 0 ${(props) => colors.getFromTheme(props, 'shadow')};
+    box-shadow: 0 0 4px 0 ${(props) => colors.getFromTheme(props, 'shadow')};
 
     transform  : translateY(110%);
     will-change: transform;

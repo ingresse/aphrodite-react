@@ -24,7 +24,6 @@ const getShadesFormat = (dark, original, light, crystal) => {
     };
 };
 
-
 /**
  * Colors Shaded
  */
@@ -127,77 +126,97 @@ let shades = {
     shadow,
 };
 
-
 /**
  * Colors Alias
  */
+const aliasKeys = [
+    'info',
+    'success',
+    'warning',
+    'error',
+    'link',
+];
 let alias = {
     primary  : Object.assign({}, tangerine),
     secondary: Object.assign({}, ocean),
 
-    info     : Object.assign({}, supernova),
-    success  : Object.assign({}, bamboo),
-    warning  : Object.assign({}, sunflower),
-    error    : Object.assign({}, ruby),
+    info: Object.assign({}, supernova),
+    success: Object.assign({}, bamboo),
+    warning: Object.assign({}, sunflower),
+    error: Object.assign({}, ruby),
 
-    link     : Object.assign({}, ocean),
+    link: Object.assign({}, ocean),
 
-    approved       : Object.assign({}, bamboo),
-    authorized     : Object.assign({}, mint),
-    declined       : Object.assign({}, ruby),
-    cancelled      : Object.assign({}, mercury),
-    refund         : Object.assign({}, supernova),
-    limitExceeded  : Object.assign({}, tangerine),
+    approved: Object.assign({}, bamboo),
+    authorized: Object.assign({}, mint),
+    declined: Object.assign({}, ruby),
+    cancelled: Object.assign({}, mercury),
+    refund: Object.assign({}, supernova),
+    limitExceeded: Object.assign({}, tangerine),
     'manual review': Object.assign({}, poison),
-    pending        : Object.assign({}, ocean),
+    pending: Object.assign({}, ocean),
 };
 
+/**
+ * Elements Status
+ */
+const statusKeys = [
+    'approved',
+    'authorized',
+    'declined',
+    'cancelled',
+    'refund',
+    'limitexceeded',
+    'limitExceeded',
+    'manual review',
+    'pending',
+];
 
 /**
  * Default Colors
  */
 let stock = {
     tangerine: tangerine.original,
-    ocean    : ocean.original,
-    mercury  : mercury.original,
-    bamboo   : bamboo.original,
+    ocean: ocean.original,
+    mercury: mercury.original,
+    bamboo: bamboo.original,
     sunflower: sunflower.original,
-    ruby     : ruby.original,
+    ruby: ruby.original,
     supernova: supernova.original,
-    mint     : mint.original,
-    oil      : oil.original,
+    mint: mint.original,
+    oil: oil.original,
 
-    primary  : tangerine.original,
+    primary: tangerine.original,
     secondary: ocean.original,
 
-    info   : supernova.original,
+    info: supernova.original,
     success: bamboo.original,
     warning: sunflower.original,
-    error  : ruby.original,
+    error: ruby.original,
 
-    approved       : bamboo.original,
-    authorized     : mint.original,
-    declined       : ruby.original,
-    cancelled      : mercury.original,
-    refund         : supernova.original,
-    limitexceeded  : tangerine.original,
-    limitExceeded  : tangerine.original,
+    approved: bamboo.original,
+    authorized: mint.original,
+    declined: ruby.original,
+    cancelled: mercury.original,
+    refund: supernova.original,
+    limitexceeded: tangerine.original,
+    limitExceeded: tangerine.original,
     'manual review': poison.original,
-    pending        : ocean.original,
+    pending: ocean.original,
 
-    base      : 'rgb(0, 0, 0)',
-    inverse   : 'rgb(255, 255, 255)',
+    base: 'rgb(0, 0, 0)',
+    inverse: 'rgb(255, 255, 255)',
     background: 'rgb(248, 248, 248)',
-    disabled  : mercury.crystal,
-    helper    : mercury.original,
-    link      : ocean.original,
-
     translucid: translucid.original,
-
     shadow: shadow.original,
-    smoke : 'rgb(248, 248, 248)',
-    white : 'rgb(255, 255, 255)',
-    black : 'rgb(0, 0, 0)',
+
+    disabled: mercury.crystal,
+    helper: mercury.original,
+    link: ocean.original,
+
+    smoke: 'rgb(248, 248, 248)',
+    white: 'rgb(255, 255, 255)',
+    black: 'rgb(0, 0, 0)',
 };
 
 
@@ -276,24 +295,18 @@ const getFromTheme = (componentProps = {}, colorKey, colorShade = 'original', op
     );
 
     if (typeof themeShades !== 'object') {
-        return (themeShades || '');
+        return getOpacity(opacity, (themeShades || ''));
     }
 
     return getOpacity(opacity, themeShades[colorShade]);
 };
-
 
 /**
  * Colors reference
  */
 let colors = {
     ...all,
-
-    getFromTheme,
-    getOpacity,
-    get,
 };
-
 
 /**
  * Set Colors
@@ -316,47 +329,38 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
     const colorDark     = (shadeDark || chroma(colorOriginal).darken().css());
     const colorLight    = (shadeLight || chroma(colorOriginal).brighten(0.5).css());
     const colorCrystal  = (shadeCrystal || chroma(colorOriginal).brighten(1).css());
+    const colorShades   = getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal);
+    const colorAlias    = (!aliasKeys.includes(colorKey) && !statusKeys.includes(colorKey)) ? {} : {
+        ...colors.alias,
+        [colorKey]: colorShades,
+    };
 
     colors = {
         ...colors,
+        alias: colorAlias,
         [colorKey]: colorOriginal,
 
         shades: {
             ...colors.shades,
-            [colorKey]: getShadesFormat(colorDark, colorOriginal, colorLight, colorCrystal),
+            [colorKey]: colorShades,
         },
     };
 
     return colors;
 };
 
-
 /**
  * Colors reference override
  */
 colors = {
     ...colors,
+    aliasKeys,
+    statusKeys,
+    getFromTheme,
+    getOpacity,
+    get,
     set,
-    aliasKeys: [
-        'info',
-        'success',
-        'warning',
-        'error',
-        'link',
-    ],
-    statusKeys  : [
-        'approved',
-        'authorized',
-        'declined',
-        'cancelled',
-        'refund',
-        'limitexceeded',
-        'limitExceeded',
-        'manual review',
-        'pending',
-    ],
 };
-
 
 /**
  * Exporting Everything

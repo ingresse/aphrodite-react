@@ -55,8 +55,8 @@ export const textColorfull = (props = {}) => (!props.textColor && !props.link &&
  */
 export const textDefinitions = (props = {}, size = '') => (!size) ? '' : `
     font-weight: ${(SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${(SIZES[size].FONT_SIZE)};
-    line-height: ${(SIZES[size].LINE_HEIGHT)};
+    font-size  : ${(SIZES[size.toUpperCase()].FONT_SIZE)};
+    line-height: ${(SIZES[size.toUpperCase()].LINE_HEIGHT)};
 `;
 
 /**

@@ -17,38 +17,29 @@ const AphCardStyled = styled.div`
 
     border-radius: ${RADIUS.SM}px;
 
-    color     : ${props => colors.get(props.background ? 'white' : 'black')};
-    background: ${props => colors.get(props.background || 'white')};
+    color: ${props => !props.color ? null : colors.getFromTheme(props, props.color)};
+    background: ${props => !props.background ? null : colors.getFromTheme(props, props.background)};
 
-    transition : background-color 0.25s linear, box-shadow 0.25s linear, padding 0.25s linear;
+    transition : background-color 0.2s linear, box-shadow 0.2s linear, padding 0.2s linear;
     will-change: box-shadow, padding;
-
-    ${props => !props.shadow ? null : ({
-        boxShadow: `0 0 5px ${colors.get('black', 'original', 0.25)}`,
-    })};
-
-    ${props => (!props.background && props.onClick) ? ({
-        '&:hover': {
-            background: colors.get('smoke'),
-        }
-    }) : null};
+    box-shadow: ${props => (!props.shadow ? null : ((typeof props.shadow === 'string') ? props.shadow : `0 0 3px ${colors.getFromTheme(props, 'shadow')}`))};
 
     &.active,
     &:hover {
-        ${props => props.shadow && props.hover ? ({
-            boxShadow: `0 0 20px ${colors.get('black', 'original', 0.25)}`,
+        ${props => props.shadow && props.hoverable ? ({
+            boxShadow: `0 0 20px ${colors.get('shadow')}`,
         }) : null};
     }
 
     &:hover {
-        ${props => props.hover ? () => {
+        ${props => props.hoverable ? () => {
             const isActive = props.className.split('active').length > 1;
 
             if (isActive) {
                 return;
             }
 
-            return ({ backgroundColor: `${colors.get('smoke')}`,})
+            return ({ backgroundColor: `${colors.get('background')}`,})
         } : null};
     }
 
