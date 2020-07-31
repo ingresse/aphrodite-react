@@ -33,16 +33,15 @@ const ModalStyled = styled.dialog`
     transform: translateY(${props => props.opened ? '0' : '50%'});
 
     will-change: z-index, opacity, transform;
-    transition :
+    transition:
         display ${props => props.opened ? 0.2 : 0.1}s linear,
         opacity ${props => props.opened ? 0.1 : 0.2}s linear,
         transform ${props => props.opened ? 0.2 : 0.1}s linear
     ;
 
-    color           : ${props => colors.getFromTheme(props, 'black')};
-    background-color: ${props => colors.getFromTheme(props, 'white')};
-    box-shadow      : 0 0 10px 0 ${props => colors.getFromTheme(props, 'shadow')};
-    border-radius   : ${SIZES.LG.RADIUS} ${SIZES.LG.RADIUS} 0 0;
+    background-color: ${props => colors.getFromTheme(props, 'inverse')};
+    box-shadow: 0 0 10px 0 ${props => colors.getFromTheme(props, 'shadow')};
+    border-radius: ${SIZES.LG.RADIUS} ${SIZES.LG.RADIUS} 0 0;
 
     &.visible {
         display: block;

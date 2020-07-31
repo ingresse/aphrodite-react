@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* UI Framework Utils */
-import { colors } from '../../utils';
+import { colors, text } from '../../utils';
 
 /* Component Itself */
 const AphListItemStyled = styled.li`
@@ -14,9 +14,11 @@ const AphListItemStyled = styled.li`
     margin : 0;
     padding: ${props => props.aphPadding};
 
-    box-shadow: ${props => ((!props.borderTop && !props.borderBottom) ? null : `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.15)}`)};
-    color     : ${props => ((!props.disabled && !props.aphColor) ? null : colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))))};
-    cursor    : ${props => (!props.disabled ? null : 'not-allowed')};
+    ${props => text(props, props.textSize)};
+
+    box-shadow: ${props => ((!props.borderTop && !props.borderBottom) ? null : `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'shadow', 'crystal')}`)};
+    color: ${props => ((!props.disabled && !props.aphColor) ? null : colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))))};
+    cursor: ${props => (!props.disabled ? null : 'not-allowed')};
 
     transition :
         color 0.15s linear,
@@ -28,18 +30,18 @@ const AphListItemStyled = styled.li`
     ;
 
     &.active {
-        color           : ${props => colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary')))};
+        color: ${props => colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary')))};
         background-color: ${props => colors.getFromTheme(props, (props.disabled ? 'disabled' : (props.aphColor || 'secondary')), 'crystal', 0.3)};
     }
 
     ${props => (props.onClick || props.withLink) ? {
         cursor: (props.disabled ? 'not-allowed' : 'pointer'),
-        color : colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))),
+        color: colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))),
 
         padding: (!props.withLink ? null : '0'),
 
         '&:hover': {
-            color          : colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))),
+            color: colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))),
             backgroundColor: colors.getFromTheme(props, (props.disabled ? 'disabled' : (props.aphColor || 'secondary')), 'crystal', 0.3),
         },
 

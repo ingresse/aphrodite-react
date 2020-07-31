@@ -11,31 +11,30 @@ import { colors, text } from '../../utils';
 const SegmentStyled = styled.div`
     box-sizing: border-box;
     display: block;
-    margin : ${props => props.aphMargin || null};
+    margin: ${props => props.aphMargin || null};
     padding: ${props => props.withLink ? null : props.aphPadding};
-    transition: color
 
     ${props => text(props, props.textSize)};
 
     border-radius: ${props => !props.aphRadius ? null : ((typeof props.aphRadius === 'number') ? `${props.aphRadius}px` : props.aphRadius)};
-    box-shadow   : ${props => props.aphShadow ?
-        (typeof props.aphShadow === 'string' ? props.aphShadow : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`) : (
-            (props.borderTop || props.borderBottom) ? `iwnset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'helper', 'original', 0.25)}` : null
+    box-shadow: ${props => props.aphShadow ?
+        (typeof props.aphShadow === 'string' ? props.aphShadow : `0 0 3px ${colors.getFromTheme(props, 'shadow')}`) : (
+            (props.borderTop || props.borderBottom) ? `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'helper', undefined, 0.15)}` : null
         )
     };
 
-    color           : ${props => props.aphColor ? colors.getFromTheme(props, props.aphColor) : null};
+    color: ${props => props.aphColor ? colors.getFromTheme(props, props.aphColor) : null};
     background-color: ${props => props.aphBackground ? colors.getFromTheme(props, props.aphBackground) : null};
 
     ${props => !props.aphHoverable ? null : `
         outline: 0;
         border : 0;
 
-        box-shadow: ${!props.aphShadow ? '' : `0 0 3px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)}`};
+        box-shadow: ${!props.aphShadow ? '' : `0 0 3px ${colors.getFromTheme(props, 'shadow')}`};
         transition: box-shadow 0.15s linear;
 
         &:active, &:hover, &:focus {
-            box-shadow: 0 0 10px ${colors.getFromTheme(props, 'oil', 'dark', 0.25)};
+            box-shadow: 0 0 10px ${colors.getFromTheme(props, 'shadow')};
         }
     `}
 
@@ -107,7 +106,7 @@ Segment.propTypes = {
     /**
      * Text align
      */
-    textAlign : propTypes.string,
+    textAlign: propTypes.string,
 
     /**
      * Text color
