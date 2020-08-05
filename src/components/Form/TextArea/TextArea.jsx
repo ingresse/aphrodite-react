@@ -126,5 +126,9 @@ const TextArea = memo(forwardRef((props, ref) => {
     );
 }));
 
+TextArea.defaultProps = {
+    defaultPadding: '10px',
+};
+
 /* Exporting */
 export default TextArea;

@@ -16,7 +16,11 @@ const FormControlStyled = styled.input`
     width     : 100%;
     margin    : 0;
     min-height: 50px;
-    padding   : ${({ hasLabel }) => hasLabel ? '20px 10px 0' : '10px'};
+
+    padding-top   : ${({ hasLabel, defaultPadding }) => hasLabel ? '20px' : defaultPadding || '10px'};
+    padding-bottom: ${({ hasLabel, defaultPadding }) => hasLabel ? '0' : defaultPadding || '10px'};
+    padding-right : ${({ hasAfter, defaultPadding }) => hasAfter ? '40px' : defaultPadding || '10px'};
+    padding-left  : ${({ hasBefore, defaultPadding }) => hasBefore ? '40px' : defaultPadding || '10px'};
 
     font-weight: ${SIZES.MD.FONT_WEIGHT};
     font-size  : ${SIZES.MD.FONT_SIZE};
@@ -29,9 +33,9 @@ const FormControlStyled = styled.input`
     border : 0;
     outline: 0;
 
-    transition-property       : color, padding;
+    transition-property       : color, padding-top, padding-bottom, padding-right;
     transition-timing-function: linear;
-    transition-duration       : 0.15s;
+    transition-duration       : 0.3s;
 
     will-change: color, padding;
 
@@ -84,7 +88,8 @@ const FormControlStyled = styled.input`
     }
 
     &.aph-form-control--middle {
-        padding: 10px;
+        padding-top: ${({ defaultPadding }) => defaultPadding};
+        padding-bottom: ${({ defaultPadding }) => defaultPadding};
     }
 
     ${props => !props.error ? null : `

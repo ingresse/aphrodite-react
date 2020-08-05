@@ -1,0 +1,76 @@
+---
+name : Form | Input Money
+menu : › Components
+route: /components/form/input-money
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { formatCurrency } from '../../../utils';
+import {
+    InputMoney,
+    Input,
+    Select,
+    Container,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+# Input Money
+### InputDiscount simplified to be a money input.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ price, setPrice ] = useState(0);
+        const [ priceType, setPriceType ] = useState('choose');
+        const [ localeCurrency, setLocaleCurrency ] = useState('pt-BR | BRL');
+        const splitted = localeCurrency.split(' | ');
+        const locale = splitted[0];
+        const currency = splitted[1];
+        const pricePlaceholder = formatCurrency(new Date().getFullYear(), locale, currency);
+
+        console.log('price', price);
+
+        return (
+            <Container sm>
+                <Row horizontal="center" vertical="center">
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <Select
+                                id="ExampleInputMoneyCurrencyLocale"
+                                label="Locale & Currency"
+                                onChange={({ target }) => setLocaleCurrency(target.value)}
+                                value={localeCurrency}>
+                                <option value="pt-BR | BRL">pt-BR | BRL</option>
+                                <option value="en-US | USD">en-US | USD</option>
+                                <option value="en-EU | EUR">en-EU | EUR</option>
+                            </Select>
+                        </Segment>
+                    </Col>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <InputMoney
+                                id="ExampleInputMoney"
+                                label="Unit Price"
+                                onChange={(e, newValue) => setPrice(newValue)}
+                                value={price || ''}
+                                locale={locale}
+                                currency={currency}
+                                placeholder={`Ex: ${pricePlaceholder}`}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputMoney} />

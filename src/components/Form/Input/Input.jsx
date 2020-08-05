@@ -149,18 +149,19 @@ const Input = memo(forwardRef((props, ref) => {
 
 /* Default Properties */
 Input.defaultProps = {
-    id    : `formControlRandomID${Math.random()}`,
-    label : '',
-    btn   : null,
+    id: `formControlRandomID${Math.random()}`,
+    label: '',
+    btn: null,
     button: null,
     styles: {},
+    defaultPadding: '10px',
 };
 
 /* Properties Types */
 Input.propTypes = {
-    id    : propTypes.string.isRequired,
-    label : propTypes.string,
-    btn   : propTypes.object,
+    id: propTypes.string.isRequired,
+    label: propTypes.string,
+    btn: propTypes.object,
     button: propTypes.object,
     styles: propTypes.oneOfType([
         propTypes.string,

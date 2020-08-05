@@ -94,22 +94,23 @@ const Select = memo(forwardRef((props, ref) => {
 
 /* Default Properties */
 Select.defaultProps = {
-    id    : `formControlRandomID${Math.random()}`,
-    icon  : {
+    id: `formControlRandomID${Math.random()}`,
+    icon: {
         size: 30,
         slug: 'arrow-down',
     },
-    label : '',
-    btn   : null,
+    label: '',
+    btn: null,
     styles: {},
+    defaultPadding: '10px',
 };
 
 /* Properties Types */
 Select.propTypes = {
-    id    : propTypes.string.isRequired,
-    icon  : propTypes.object,
-    label : propTypes.string,
-    btn   : propTypes.object,
+    id: propTypes.string.isRequired,
+    icon: propTypes.object,
+    label: propTypes.string,
+    btn: propTypes.object,
     styles: propTypes.oneOfType([
         propTypes.string,
         propTypes.object,

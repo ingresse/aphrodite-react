@@ -57,14 +57,17 @@ export { default as LayerStatus } from './Layer/LayerStatus';
 export { default as Pagination } from './Pagination/Pagination';
 
 /* Form Components */
-export { default as Input } from './Form/Input/Input';
-export { default as InputCurrency } from './Form/InputCurrency/InputCurrency';
-export { default as InputMask } from './Form/InputMask/InputMask';
-export { default as InputNumber } from './Form/InputNumber/InputNumber';
-export { default as InputCpf } from './Form/InputCpf/InputCpf';
-export { default as Checkbox } from './Form/Checkbox/Checkbox';
 export { default as Autocomplete } from './Form/Autocomplete/Autocomplete';
-export { default as Select } from './Form/Select/Select';
-export { default as TextArea } from './Form/TextArea/TextArea';
-export { default as Switch } from './Form/Switch/Switch';
+export { default as Checkbox } from './Form/Checkbox/Checkbox';
+export { default as Input } from './Form/Input/Input';
+export { default as InputCpf } from './Form/InputCpf/InputCpf';
+export { default as InputCurrency } from './Form/InputCurrency/InputCurrency';
+export { default as InputDiscount } from './Form/InputDiscount/InputDiscount';
+export { default as InputMask } from './Form/InputMask/InputMask';
+export { default as InputMoney } from './Form/InputMoney/InputMoney';
+export { default as InputNumber } from './Form/InputNumber/InputNumber';
+export { default as InputNumeric } from './Form/InputNumeric/InputNumeric';
 export { default as RadioButton } from './Form/RadioButton/RadioButton';
+export { default as Select } from './Form/Select/Select';
+export { default as Switch } from './Form/Switch/Switch';
+export { default as TextArea } from './Form/TextArea/TextArea';

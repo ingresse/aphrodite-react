@@ -84,39 +84,37 @@ const InputNumber = memo(forwardRef((props, ref) => {
 
 /* Default Properties */
 InputNumber.defaultProps = {
-    id    : '',
-    label : '',
-    btn   : null,
+    id: '',
+    label: '',
+    btn: null,
     styles: {},
-
-    inputType        : 'tel',
+    inputType: 'tel',
     thousandSeparator: '.',
     decimalSeparator : ',',
-    prefix           : 'R$ ',
-    value            : 0,
-    precision        : 2,
-    allowEmpty       : true,
-    allowNegative    : false,
+    prefix: 'R$ ',
+    value: 0,
+    precision: 2,
+    allowEmpty: true,
+    allowNegative: false,
 };
 
 /* Properties Types */
 InputNumber.propTypes = {
-    id    : propTypes.string.isRequired,
-    label : propTypes.string,
-    btn   : propTypes.object,
-    type  : propTypes.string,
+    id: propTypes.string.isRequired,
+    label: propTypes.string,
+    btn: propTypes.object,
+    type: propTypes.string,
     styles: propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),
-
     thousandSeparator: propTypes.string,
-    decimalSeparator : propTypes.string,
-    prefix           : propTypes.string,
-    value            : propTypes.number,
-    precision        : propTypes.number,
-    allowEmpty       : propTypes.bool,
-    allowNegative    : propTypes.bool,
+    decimalSeparator: propTypes.string,
+    prefix: propTypes.string,
+    value: propTypes.number,
+    precision: propTypes.number,
+    allowEmpty: propTypes.bool,
+    allowNegative: propTypes.bool,
 };
 
 /* Exporting */

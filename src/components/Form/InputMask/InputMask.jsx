@@ -26,6 +26,7 @@ function InputMask(props) {
 /* Default props */
 InputMask.defaultProps = {
     mask: '',
+    defaultPadding: '10px',
 };
 
 /* Properties types */
