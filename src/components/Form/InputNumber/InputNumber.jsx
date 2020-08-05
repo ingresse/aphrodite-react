@@ -95,22 +95,18 @@ const InputNumber = memo(forwardRef((props, ref) => {
 /* Default Properties */
 InputNumber.defaultProps = {
     id: '',
-
-    label     : '',
+    label: '',
     labelProps: {},
-
-    type  : 'tel',
+    type: 'tel',
     styles: {},
 };
 
 /* Properties Types */
 InputNumber.propTypes = {
     id: propTypes.string.isRequired,
-
-    label     : propTypes.string,
+    label: propTypes.string,
     labelProps: propTypes.object,
-
-    type  : propTypes.string,
+    type: propTypes.string,
     styles: propTypes.oneOfType([
         propTypes.string,
         propTypes.object,

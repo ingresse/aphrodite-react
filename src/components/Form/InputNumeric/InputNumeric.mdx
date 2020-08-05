@@ -1,0 +1,49 @@
+---
+name : Form | Input Numeric
+menu : › Components
+route: /components/form/input-numeric
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    InputNumeric,
+    Container,
+    Segment,
+} from '../../';
+
+
+# Input Numeric
+### Alternative to InputNumber, with basic behavior validations
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        function handleChange(evt, newValue) {
+            console.log('InputNumeric new value', newValue);
+            setValue(newValue);
+        }
+
+        return (
+            <Container xs>
+                <Segment padding="10px 0">
+                    <InputNumeric
+                        id="ExampleInputNumeric"
+                        label="Any Number"
+                        onChange={handleChange}
+                        value={value}
+                    />
+                </Segment>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputNumeric} />

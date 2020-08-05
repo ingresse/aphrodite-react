@@ -11,7 +11,8 @@ const AphFormControlWrapperStyled = styled.div`
     display   : block;
 
     .aph-form-control {
-        padding: ${({ hasLabel }) => !hasLabel ? null : '20px 10px 0'};
+        padding-top: ${({ hasLabel, defaultPadding }) => !hasLabel ? null : '20px'};
+        padding-bottom: ${({ hasLabel, defaultPadding }) => !hasLabel ? null : '0'};
     }
 
     ${props => !props.hasError ? null : `

@@ -1,0 +1,95 @@
+---
+name : Form | Input Discount
+menu : › Components
+route: /components/form/input-discount
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { formatCurrency } from '../../../utils';
+import {
+    InputDiscount,
+    Input,
+    Select,
+    Container,
+    Segment,
+    Row,
+    Col,
+} from '../../';
+
+# Input Discount
+### InputNumeric with predefined properties to discount's scenery
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ discount, setDiscount ] = useState(0);
+        const [ discountType, setDiscountType ] = useState('choose');
+        const [ currencyLocale, setCurrencyLocale ] = useState('pt-BR | BRL');
+        const splitted = currencyLocale.split(' | ');
+        const locale = splitted[0];
+        const currency = splitted[1];
+        const discountFixedPlaceholder = formatCurrency(new Date().getFullYear(), locale, currency);
+
+        console.log('discount', discount);
+
+        return (
+            <Container sm>
+                <Row horizontal="center" vertical="center">
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <Select
+                                id="ExampleInputDiscountType"
+                                label="Discount Type"
+                                onChange={({ target }) => {
+                                    setDiscountType(target.value);
+                                    setDiscount(0);
+                                }}
+                                value={discountType || ''}>
+                                <option value="choose">Select one option</option>
+                                <option value="dynamic">Dynamic (Percentage)</option>
+                                <option value="fixed">Fixed (Monetary/Currency)</option>
+                            </Select>
+                        </Segment>
+                    </Col>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <Select
+                                id="ExampleInputDiscountCurrencyLocale"
+                                label="Discount Currency Locale"
+                                onChange={({ target }) => setCurrencyLocale(target.value)}
+                                value={currencyLocale}
+                                disabled={discountType !== 'fixed'}>
+                                <option value="pt-BR | BRL">pt-BR | BRL</option>
+                                <option value="en-US | USD">en-US | USD</option>
+                                <option value="en-EU | EUR">en-EU | EUR</option>
+                            </Select>
+                        </Segment>
+                    </Col>
+                    <Col xs={12} sm={6}>
+                        <Segment padding="10px 0">
+                            <InputDiscount
+                                id="ExampleInputDiscount"
+                                label="Discount Amount"
+                                onChange={(e, newValue) => setDiscount(newValue)}
+                                value={discount || ''}
+                                disabled={discountType === 'choose'}
+                                placeholder={`Ex: ${(discountType === 'fixed') ? discountFixedPlaceholder : '15%'}`}
+                                discountType={discountType}
+                                locale={locale}
+                                currency={currency}
+                            />
+                        </Segment>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputDiscount} />
