@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon */
 const IconInfoCircle = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <defs>
                 <path id="a" d="M27 13.499c0 7.457-6.046 13.5-13.5 13.5-7.458 0-13.5-6.043-13.5-13.5C0 6.044 6.042 0 13.5 0 20.954 0 27 6.044 27 13.499z"/>
                 <mask id="b" width="30" height="29.999" x="-1.5" y="-1.5">
@@ -32,15 +14,14 @@ const IconInfoCircle = (props) => {
                 </mask>
             </defs>
             <g fill="none" fillRule="evenodd" transform="translate(1.5 1.5)">
-                <use stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" mask="url(#b)" xlinkHref="#a"/>
+                <use className="aph-icon-stroke" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" mask="url(#b)" xlinkHref="#a"/>
                 <g transform="matrix(1 0 0 -1 12 20)">
-                    <path stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1.5.5v8"/>
-                    <circle cx="1.5" cy="12" r="1" fill={color}/>
+                    <path className="aph-icon-stroke" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1.5.5v8"/>
+                    <circle cx="1.5" cy="12" r="1" className="aph-icon-fill"/>
                 </g>
             </g>
         </svg>
     );
 };
 
-/* Exporting Component */
 export default IconInfoCircle;

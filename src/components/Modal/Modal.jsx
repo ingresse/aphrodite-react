@@ -1,14 +1,12 @@
 /* Core Packages */
-import React, { forwardRef, useEffect, useState, useRef } from 'react';
+import React, { Fragment, forwardRef, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
 
 /* Helper Components */
-import {
-    H1,
-    Flex,
-    ActionBar,
-} from '../';
+import ActionBar from '../ActionBar/ActionBar';
+import Flex from '../Flex/Flex';
+import H1 from '../Typography/H1/H1';
 
 /* Component Styles */
 import ModalStyled from './ModalStyles';
@@ -23,7 +21,7 @@ const Modal = forwardRef((props, ref) => {
     const {
         addEventListener,
         removeEventListener,
-    } = document;
+    } = window;
 
     /**
      * Inherit Props
@@ -62,7 +60,7 @@ const Modal = forwardRef((props, ref) => {
     /**
      * State reference
      */
-    const modalRef = useRef(null);
+    const modalRef = useRef(ref || null);
 
     /**
      * Handle with close by escape key
@@ -208,7 +206,7 @@ const Modal = forwardRef((props, ref) => {
      * Render
      */
     return (
-        <>
+        <Fragment>
             <ModalOverlayStyled
                 isOpened={active && visible}
                 onClick={(evt) => (closeOnEscape || closeByEscape) && handleClose(evt)}
@@ -223,9 +221,10 @@ const Modal = forwardRef((props, ref) => {
                 role="dialog"
                 styles={styles}
                 hasFooter={(footer || Object.keys(footerProps).length) ? true : false}
-                className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}>
+                className={`aph-modal ${className || ''}${active ? ' active' : ''}${visible ? ' visible' : ''}`}
+            >
                 {(!active || !visible) ? (null) : (
-                    <>
+                    <Fragment>
                         {unblockScrolling ? (null) : (
                             <Global
                                 styles={css`
@@ -238,13 +237,15 @@ const Modal = forwardRef((props, ref) => {
                         <Flex
                             flex
                             flexDirection="column"
-                            className="aph-modal__container">
+                            className="aph-modal__container"
+                        >
                             {(!title) ? (null) : (
                                 <H1
                                     bold
                                     center
                                     margin="0"
-                                    className="aph-modal__container__title">
+                                    className="aph-modal__container__title"
+                                >
                                     {title}
                                 </H1>
                             )}
@@ -276,10 +277,10 @@ const Modal = forwardRef((props, ref) => {
                             }}>
                             {footer}
                         </ActionBar>
-                    </>
+                    </Fragment>
                 )}
             </ModalStyled>
-        </>
+        </Fragment>
     );
 });
 

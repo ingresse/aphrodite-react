@@ -1,12 +1,8 @@
 /**
  * Typography common styles
  */
-
-/* Helpers */
 import { SIZES } from '../../constants';
-
-/* Utils */
-import { colors } from '../';
+import colors from '../colors/colors.utils';
 
 /**
  * Text
@@ -20,6 +16,7 @@ export const text = (props, size = '') => `
     `};
 
     ${textDefinitions(props, size)};
+    ${textSizes(props)};
     ${textAlign(props)};
     ${textTransform(props)};
     ${textBreakAll(props)};
@@ -45,7 +42,7 @@ export const textBreakAll = (props = {}) => (!props.breakAll && !props.textBreak
  * Text Colorfull
  */
 export const textColorfull = (props = {}) => (!props.textColor && !props.link && !props.helper) ? '' : `
-    color: ${colors.getFromTheme(props,
+    color: ${colors.getFullColor(props,
         props.link ? 'link' : (props.helper ? 'helper' : props.textColor)
     )};
 `;
@@ -53,10 +50,29 @@ export const textColorfull = (props = {}) => (!props.textColor && !props.link &&
 /**
  * Text Definitions
  */
-export const textDefinitions = (props = {}, size = '') => (!size) ? '' : `
-    font-weight: ${(SIZES[props.bold ? 'XL' : 'MD'].FONT_WEIGHT)};
-    font-size  : ${(SIZES[size.toUpperCase()].FONT_SIZE)};
-    line-height: ${(SIZES[size.toUpperCase()].LINE_HEIGHT)};
+export const textDefinitions = (props, size = '') => `
+    font-size  : ${!size ? '' : (size.includes('px') ? size : (SIZES[size.toUpperCase()].FONT_SIZE))};
+    line-height: ${!size ? '' : (size.includes('px') ? size : (SIZES[size.toUpperCase()].LINE_HEIGHT))};
+`;
+
+/**
+ * Text Definitions
+ */
+export const textSizes = ({
+    bold,
+    fontSize,
+    fontWeight,
+    lineHeight,
+    textBold,
+    textDecoration,
+    textSmall,
+    textTransform,
+}) => `
+    font-weight    : ${(bold || textBold) ? 'bold' : (fontWeight || '')};
+    font-size      : ${textSmall ? '14px' : (fontSize || '')};
+    line-height    : ${lineHeight || ''};
+    text-decoration: ${textDecoration || ''};
+    text-transform : ${textTransform || ''};
 `;
 
 /**

@@ -23,6 +23,7 @@ function RadioButton({
         <RadioButtonWrapper
             htmlFor={id}
             disabled={disabled}
+            hasChildren={!!children}
             {...rest}
         >
             <RadioButtonInput
@@ -34,9 +35,11 @@ function RadioButton({
                 disabled={disabled}
             />
             <i />
-            <span>
-                {children}
-            </span>
+            {children && (
+                <span>
+                    {children}
+                </span>
+            )}
         </RadioButtonWrapper>
     );
 }
@@ -47,7 +50,7 @@ RadioButton.defaultProps = {
     type    : 'radio',
     name    : null,
     value   : '',
-    children: () => null,
+    children: '',
     onChange: () => null,
 
     checked : false,

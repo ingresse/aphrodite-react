@@ -34,7 +34,7 @@ import { Icon } from '@ingresse/aphrodite';
          * Local values
          */
         const [ size, setSize ]   = useState(30);
-        const [ color, setColor ] = useState('none');
+        const [ color, setColor ] = useState('supernova');
         const [ term, setTerm ]   = useState('');
 
         return (
@@ -42,7 +42,7 @@ import { Icon } from '@ingresse/aphrodite';
                 <form onSubmit={(evt) => evt.preventDefault()}>
                     <Segment padding="0">
                         <Row vertical="middle" horizontal="center">
-                            <Col xs={12} sm={8} first="sm" last="xs">
+                            <Col xs={12} sm={6} first="sm" last="xs">
                                 <Segment padding="0 0 20px">
                                     <Input
                                         id="aph_icons_search"
@@ -54,7 +54,7 @@ import { Icon } from '@ingresse/aphrodite';
                                     />
                                 </Segment>
                             </Col>
-                            <Col xs={6} sm={2}>
+                            <Col xs={6} sm={3}>
                                 <Segment padding="0 0 20px">
                                     <Select
                                         id="aph_icons_size"
@@ -73,16 +73,13 @@ import { Icon } from '@ingresse/aphrodite';
                                     </Select>
                                 </Segment>
                             </Col>
-                            <Col xs={6} sm={2}>
+                            <Col xs={6} sm={3}>
                                 <Segment padding="0 0 20px">
                                     <Select
                                         id="aph_icons_color"
                                         label="Color"
                                         value={color}
                                         onChange={(evt, value) => setColor(value)}>
-                                        <option value={'none'}>
-                                            random
-                                        </option>
                                         {Object.keys(colors.shades).map((colorKey) => (
                                             <option key={`aph_icons_color_${colorKey}`} value={colorKey}>
                                                 {colorKey}
@@ -101,11 +98,11 @@ import { Icon } from '@ingresse/aphrodite';
                             }
 
                             const iconMarkup =
-                                `<Icon slug="${ICON_SLUG}" size={${size}} color="${color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}" />`
+                                `<Icon slug="${ICON_SLUG}" size={${size}} color="${color}" />`
                             ;
 
                             return (
-                                <Col xs={12} sm={4} md={3} key={`aph_icon_${INDEX}`}>
+                                <Col xs={12} sm={4} md={3} key={`aph_icon_${INDEX}`} styles={{ lineHeight: 0 }}>
                                     <IconExample
                                         id={`aph_icon_${INDEX}`}
                                         color={color}
@@ -114,7 +111,7 @@ import { Icon } from '@ingresse/aphrodite';
                                         <Icon
                                             slug={ICON_SLUG}
                                             size={parseInt(size, 10)}
-                                            color={color !== 'none' ? color : ((INDEX % 2) ? 'primary' : 'secondary')}
+                                            color={color}
                                             {...props}
                                         />
                                     </IconExample>
@@ -134,7 +131,7 @@ import { Icon } from '@ingresse/aphrodite';
 <Playground>
     <Segment padding="20px 0 0">
         <Row vertical="middle" horizontal="center">
-            <Col xs={12} sm={6} md={3}>
+            <Col xs={12} sm={6} md={3} styles={{ lineHeight: 0 }}>
                 <IconExample
                     markup={`<Icon slug="loading" width={20} height={5} color="primary" />`}>
                     <Icon
@@ -145,7 +142,7 @@ import { Icon } from '@ingresse/aphrodite';
                     />
                 </IconExample>
             </Col>
-            <Col xs={12} sm={6} md={3}>
+            <Col xs={12} sm={6} md={3} styles={{ lineHeight: 0 }}>
                 <IconExample
                     markup={`<Icon slug="loading" width={40} height={10} />`}>
                     <Icon
@@ -155,7 +152,7 @@ import { Icon } from '@ingresse/aphrodite';
                     />
                 </IconExample>
             </Col>
-            <Col xs={12} sm={6} md={3}>
+            <Col xs={12} sm={6} md={3} styles={{ lineHeight: 0 }}>
                 <IconExample
                     markup={`<Icon slug="loading" width={80} height={20} color="primary" />`}>
                     <Icon
@@ -166,7 +163,7 @@ import { Icon } from '@ingresse/aphrodite';
                     />
                 </IconExample>
             </Col>
-            <Col xs={12} sm={6} md={3}>
+            <Col xs={12} sm={6} md={3} styles={{ lineHeight: 0 }}>
                 <IconExample
                     markup={`<Icon slug="loading" width={120} height={30} />`}>
                     <Icon

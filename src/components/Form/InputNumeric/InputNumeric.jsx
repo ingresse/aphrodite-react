@@ -2,7 +2,7 @@
 import React, { memo, forwardRef, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 
-import { formatNumberRound } from '../../../utils';
+import { formatNumberRound, patterns } from '../../../utils';
 
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled from '../FormControlWrapperStyled';
@@ -14,6 +14,7 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 /* Component Itself */
 const InputNumeric = memo(forwardRef(({
     id,
+    accept,
     className,
     label,
     labelProps,
@@ -42,7 +43,7 @@ const InputNumeric = memo(forwardRef(({
             return newValue;
         }
 
-        const parsed = parseFloat(newValue, 10);
+        const parsed    = parseFloat(newValue, 10);
         const parsedMin = parseFloat(props.min, 10);
         const parsedMax = parseFloat(props.max, 10);
 
@@ -57,24 +58,36 @@ const InputNumeric = memo(forwardRef(({
         return newValue;
     }
 
-    function handleChange(evt, shouldRound = false) {
-        const { target, ...evtProps } = evt;
-        const { value, ...targetProps } = target;
+    function handleEvt(evt, shouldRound = false) {
+        const { target } = evt;
+        const { value }  = target;
         const rangeValue = getInRange(value);
-        const newValue = (shouldRound && doubleDecimal ? formatNumberRound(parseFloat(rangeValue, 10)) : rangeValue);
+        const filtered   = patterns.numeric(rangeValue, accept);
+        const newValue   = (shouldRound && doubleDecimal ? formatNumberRound(parseFloat(filtered, 10)) : filtered);
 
-        onChange(evt, newValue);
+        return Object.assign({}, evt, {
+            target: Object.assign({}, evt.target, {
+                id,
+                value: newValue,
+            }),
+        });
+    }
+
+    function handleChange(evt, shouldRound = false) {
+        const newEvt = handleEvt(evt, shouldRound);
+
+        onChange(newEvt, newEvt.target.value);
     }
 
     function handleBlur(evt) {
         setInFocus(false);
-        onBlur(evt);
+        onBlur(handleEvt(evt, true));
         handleChange(evt, true);
     }
 
     function handleFocus(evt) {
         setInFocus(true);
-        onFocus(evt);
+        onFocus(handleEvt(evt));
     }
 
     return (
@@ -159,6 +172,7 @@ InputNumeric.defaultProps = {
     id: '',
     label: '',
     labelProps: {},
+    accept: [],
     min: undefined,
     max: undefined,
     onChange: () => {},
@@ -167,7 +181,8 @@ InputNumeric.defaultProps = {
     step: 0.1,
     styles: {},
     suggestions: [],
-    type: 'number',
+    type: 'text',
+    inputMode: 'numeric',
     value: undefined,
     before: '',
     after: '',
@@ -185,6 +200,7 @@ InputNumeric.propTypes = {
     id: propTypes.string.isRequired,
     label: propTypes.string,
     labelProps: propTypes.object,
+    accept: propTypes.array,
     min: valueTypes,
     max: valueTypes,
     onChange: propTypes.func.isRequired,

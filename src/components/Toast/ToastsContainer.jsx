@@ -59,6 +59,7 @@ const ToastsContainer = (props = { styles: {} }) => {
                 padding : 0,
                 margin  : '0 !important',
                 opacity : 1,
+                lineHeight: 0,
 
                 color : 'transparent',
                 cursor: 'pointer',
@@ -83,17 +84,10 @@ const ToastsContainer = (props = { styles: {} }) => {
                     background: 'rgba(42, 42, 42, 0.15)',
                 },
 
-                '&:before': {
-                    position: 'absolute',
-                    content : '"×"',
-                    width   : '100%',
-                    display : 'block',
-                    color   : COLORS.BLACK,
-
-                    fontSize  : '20px',
-                    lineHeight: '16px',
-                    textAlign : 'center',
-                },
+                svg: {
+                    width: '15px',
+                    height: '15px',
+                }
             },
 
             '.Toastify__progress-bar': {
@@ -104,8 +98,8 @@ const ToastsContainer = (props = { styles: {} }) => {
             '&.Toastify__toast--success': {
                 color: COLORS.SUCCESS,
 
-                '.Toastify__close-button--success:before': {
-                    color: COLORS.SUCCESS,
+                '.Toastify__close-button--success svg path': {
+                    fill: COLORS.SUCCESS,
                 },
 
                 '.Toastify__progress-bar--success': {
@@ -116,8 +110,8 @@ const ToastsContainer = (props = { styles: {} }) => {
             '&.Toastify__toast--info': {
                 color: COLORS.INFO,
 
-                '.Toastify__close-button--info:before': {
-                    color: COLORS.INFO,
+                '.Toastify__close-button--info svg path': {
+                    fill: COLORS.INFO,
                 },
 
                 '.Toastify__progress-bar--info': {
@@ -128,8 +122,8 @@ const ToastsContainer = (props = { styles: {} }) => {
             '&.Toastify__toast--warning': {
                 color: COLORS.WARNING,
 
-                '.Toastify__close-button--warning:before': {
-                    color: COLORS.WARNING,
+                '.Toastify__close-button--warning svg path': {
+                    fill: COLORS.WARNING,
                 },
 
                 '.Toastify__progress-bar--warning': {
@@ -140,8 +134,8 @@ const ToastsContainer = (props = { styles: {} }) => {
             '&.Toastify__toast--error': {
                 color: COLORS.ERROR,
 
-                '.Toastify__close-button--error:before': {
-                    color: COLORS.ERROR,
+                '.Toastify__close-button--error svg path': {
+                    fill: COLORS.ERROR,
                 },
 
                 '.Toastify__progress-bar--error': {

@@ -1,0 +1,55 @@
+---
+name : Form | Input Fake
+menu : › Components
+route: /components/form/input-fake
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    InputFake,
+    Button,
+    Container,
+    Styled,
+} from '../../';
+
+
+# From | Input Fake
+### Looks like an input element, but isn't. "Styled" as base.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ visible, visibleSet ] = useState(true);
+
+        return (
+            <Container xs>
+                <Styled lineHeight="20px" padding="15px 0" textAlign="center">
+                    {visible ? (
+                        <InputFake
+                            label="Hello"
+                            value="World"
+                            disabled
+                            onRemove={() => visibleSet(false)}
+                        />
+                    ) : (
+                        <Button
+                            color="success"
+                            onClick={() => visibleSet(true)}
+                        >
+                            Show Again
+                        </Button>
+                    )}
+                </Styled>
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={InputFake} />
+<Props of={Styled} />

@@ -2,11 +2,6 @@
 import React, { memo, forwardRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 
-/* Component Variations */
-import Checkbox from '../Checkbox/Checkbox';
-import InputNumber from '../InputNumber/InputNumber';
-import InputCurrency from '../InputCurrency/InputCurrency';
-
 /* Component Helpers/Styles */
 import AphFormControlWrapperStyled  from '../FormControlWrapperStyled';
 import AphFormControlLabelStyled    from '../FormControlLabelStyled';
@@ -16,40 +11,6 @@ import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
 /* Component Itself */
 const Input = memo(forwardRef((props, ref) => {
-    const {
-        color,
-        error,
-        type,
-    } = (props || {});
-
-    if (type === 'checkbox') {
-        return (
-            <Checkbox
-                {...props}
-                color={error ? 'error' : color}
-                ref={ref}
-            />
-        );
-    }
-
-    if (type === 'number') {
-        return (
-            <InputNumber
-                {...props}
-                ref={ref}
-            />
-        );
-    }
-
-    if (type === 'currency') {
-        return (
-            <InputCurrency
-                {...props}
-                ref={ref}
-            />
-        );
-    }
-
     const {
         id,
         className,
@@ -65,13 +26,13 @@ const Input = memo(forwardRef((props, ref) => {
         errorMessage,
     } = props;
 
-    const [ hasValue, setHasValue ] = useState(value ? true : false);
+    const [ hasValue, setHasValue ] = useState(!!value);
 
     /**
      * Trigger
      */
     useEffect(() => {
-        setHasValue(value ? true : false);
+        setHasValue(!!value);
     }, [ value ]);
 
     /**
@@ -83,7 +44,7 @@ const Input = memo(forwardRef((props, ref) => {
         const { target } = evt;
         const inputValue = target.value;
 
-        setHasValue(inputValue ? true : false);
+        setHasValue(!!inputValue);
 
         if (typeof onChange === 'function') {
             onChange(Object.assign({}, evt), inputValue);
@@ -110,13 +71,13 @@ const Input = memo(forwardRef((props, ref) => {
 
     return (
         <AphFormControlWrapperStyled
-            hasButton={(btn || button) ? true : false}
+            hasButton={!!(btn || button)}
             buttonAlign={((btn && btn.align) ? btn.align : (button && button.align) ? button.align : '')}>
             <AphFormControlStyled
                 name={id}
                 {...props}
                 ref={ref}
-                hasLabel={label ? true : false}
+                hasLabel={!!label}
                 onChange={handleChange}
                 onPaste={handlePaste}
                 className={`aph-form-control ${(!label || (!label && hasValue)) ? 'aph-form-control--middle' : ''} ${className || ''}`}

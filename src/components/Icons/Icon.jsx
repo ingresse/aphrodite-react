@@ -87,7 +87,6 @@ const ICONS = {
     filter: Filter,
     flash: Flash,
     "flash-off": FlashOff,
-    facebook: Facebook,
     help: Help,
     info: Info,
     items: Items,
@@ -115,6 +114,8 @@ const ICONS = {
     refresh: Refresh,
     delete: Delete,
     user: User,
+
+    facebook: Facebook,
 
     amex: PaymentAmex,
     "payment-amex": PaymentAmex,
@@ -153,6 +154,17 @@ const IconWrapper = styled.svg`
     display: inline-block;
     line-height: 0;
     vertical-align: middle;
+    color: ${({ color, ...props }) => (!color ? null : colors.getFromTheme(props, color))};
+
+    .aph-icon {
+        &-fill {
+            fill: ${({ color, fill, ...props }) => fill || (!color ? 'currentColor' : colors.getFromTheme(props, color))};
+        }
+
+        &-stroke {
+            stroke: ${({ color, stroke, ...props }) => stroke || (!color ? 'currentColor' : colors.getFromTheme(props, color))};
+        }
+    }
 
     ${props => props.aphStyles};
 `;
@@ -174,7 +186,6 @@ const Icon = forwardRef((props, ref) => {
      * Props
      */
     const {
-        color,
         className,
         styles,
 
@@ -190,7 +201,6 @@ const Icon = forwardRef((props, ref) => {
             ref={ref}
             as={SelectedIcon}
             aphStyles={styles}
-            color={colors.getFromTheme(props, color)}
             className={`aph-icon aph-icon-wrapper ${className || ""}`}
         />
     );
@@ -202,7 +212,9 @@ Icon.defaultProps = {
     direction: "",
     shape: "",
     size: 20,
-    color: "secondary",
+    color: "",
+    fill: "",
+    stroke: "",
     width: undefined,
     height: undefined,
     styles: {},
@@ -216,6 +228,8 @@ Icon.propTypes = {
     shape: propTypes.string,
     size: propTypes.number,
     color: propTypes.string,
+    fill: propTypes.string,
+    stroke: propTypes.string,
     width: propTypes.number,
     height: propTypes.number,
     toEncode: propTypes.bool,

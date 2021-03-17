@@ -1,5 +1,5 @@
 /* Core Packages */
-import React from 'react';
+import React, { Fragment } from 'react';
 
 /* Utilites */
 import { colors } from '../../utils';
@@ -21,7 +21,7 @@ function IconExample (props) {
             styled
             styles={{ display: 'block', width: 'auto' }}
             actions={(
-                <>
+                <Fragment>
                     {(!slug) ? (null) : (
                         <Clipboard
                             styled
@@ -34,7 +34,7 @@ function IconExample (props) {
                         data-clipboard-text={markup}>
                         Copy Markup
                     </Clipboard>
-                </>
+                </Fragment>
             )}>
             <Card
                 hover
@@ -44,7 +44,7 @@ function IconExample (props) {
                     backgroundColor: ((color === 'translucid') ? colors.get('oil') : null),
                 }}>
                 <Row vertical="middle" horizontal="center">
-                    <Col xs={!slug ? 12 : 4} sm={!slug ? 12 : 4} lg={!slug ? 12 : 3} styles={{ textAlign: 'center' }}>
+                    <Col xs={!slug ? 12 : 4} sm={!slug ? 12 : 4} lg={!slug ? 12 : 3} styles={{ textAlign: 'center', color: colors.get(color) }}>
                         {children}
                     </Col>
                     {(!slug) ? (null) : (
@@ -60,5 +60,4 @@ function IconExample (props) {
     );
 }
 
-/* Exporting */
 export default IconExample;

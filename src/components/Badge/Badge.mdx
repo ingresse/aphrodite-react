@@ -29,14 +29,22 @@ import { Badge } from '@ingresse/aphrodite';
     <Container>
         <Row>
             <Col xs={6}>
-                <Badge>
-                    Hello, you
+                <Badge prefix="Hello,">
+                    you
                 </Badge>
             </Col>
             <Col xs={6}>
                 <Badge
-                    background="success">
-                    Hi, there
+                    background="success"
+                    prefix={{
+                        children: 'When',
+                        styles: {
+                            color: 'pink',
+                        },
+                    }}
+                    suffix={<strong>why</strong>}
+                >
+                    and
                 </Badge>
             </Col>
         </Row>

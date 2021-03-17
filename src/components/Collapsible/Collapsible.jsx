@@ -1,33 +1,29 @@
-/* Packages */
 import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import propTypes from 'prop-types';
-
-/* Utils */
-import { colors } from '../../utils';
-
-/* Composition Components */
-import { H2, H3, Card, Icon } from '../';
-
-/* Component Styles */
+import Styled from '../Styled/Styled';
+import Icon from '../Icons/Icon';
 import CollapsibleChildrenStyled from './CollapsibleChildrenStyled';
 
-/* Component Itself */
 const Collapsible = forwardRef((props, ref) => {
     const {
+        after,
+        before,
+        borderRadius,
+        className,
         header,
         headerProps,
         children,
+        childrenProps,
         disabled,
         delay,
         icon,
         iconSize,
+        radius,
     } = props;
 
-    const timerDelay = (delay * 1000);
-
-    const wrapperRef        = useRef(null);
-    const wrapperContentRef = useRef(null);
-
+    const timerDelay                  = (delay * 1000);
+    const wrapperRef                  = useRef(null);
+    const wrapperContentRef           = useRef(null);
     const [opened, setOpened]         = useState(props.opened || false);
     const [openTimer, setOpenTimer]   = useState(null);
     const [closeTimer, setCloseTimer] = useState(null);
@@ -44,15 +40,10 @@ const Collapsible = forwardRef((props, ref) => {
         display       : 'flex',
         alignItems    : 'center',
         justifyContent: 'space-between',
-
-        margin : '-10px',
-        padding: ((headerProps && headerProps.lg) ? '15px 10px' : '10px'),
-        cursor : 'pointer',
-        color  : colors.get(disabled ? 'mercury' : 'secondary'),
+        cursor        : 'pointer',
+        borderRadius  : (borderRadius || radius),
+        padding       : '10px 15px',
     }, headerProps && headerProps.styles ? headerProps.styles : {});
-
-    /* Header Title */
-    const HeaderTitle = (headerProps && headerProps.lg ? H2 : H3);
 
     /**
      * Handle with Collapsible Opening event
@@ -116,17 +107,6 @@ const Collapsible = forwardRef((props, ref) => {
     }
 
     /**
-     * Handle with Collapsible Toggle event
-     */
-    function handleToggle(isOpened) {
-        if (isOpened) {
-            handleClose();
-        } else {
-            handleOpen();
-        }
-    }
-
-    /**
      * Toggle Collapsible visibility
      */
     function toggle() {
@@ -134,7 +114,12 @@ const Collapsible = forwardRef((props, ref) => {
             return;
         }
 
-        handleToggle(opened);
+        if (opened) {
+            handleClose();
+        } else {
+            handleOpen();
+        }
+
         setOpened(!opened);
     }
 
@@ -149,87 +134,89 @@ const Collapsible = forwardRef((props, ref) => {
     }, []);
 
     return (
-        <Card
+        <Styled
             {...props}
             ref={ref}
-            hover
-            className={`aph-collapsible ${opened ? 'active' : ''}`}
-            styles={Object.assign(
-                {
-                    position: 'relative',
-                    overflow: 'hidden',
-                },
-                props.styles,
-            )}>
-            {!header ? null : (
-                <HeaderTitle
+            className={`${className || ''} aph-collapsible ${opened ? 'active' : ''}`}
+            styles={{
+                position: 'relative',
+                overflow: 'hidden',
+                ...(props.styles || {}),
+            }}
+        >
+            {before}
+            {header && (
+                <Styled
+                    margin="0"
+                    role="button"
                     {...headerProps}
-                    styles={Object.assign(headerStyles, {
-                        paddingRight: (!icon ? null : `${iconSize}px`),
-                    })}
                     onClick={toggle}
-                    role="button">
-                        {header}
-                        {(!icon) ? (null) : (
-                            <Icon
-                                slug="arrow-down"
-                                size={iconSize}
-                                color={colors.get('mercury', 'light')}
-                                styles={{
-                                    position  : 'absolute',
-                                    top       : '50%',
-                                    right     : 0,
-                                    transform : `translateY(-50%)${opened ? ' rotate(180deg)' : ''}`,
-                                    transition: `transform ${delay}s linear`,
-                                }}
-                            />
-                        )}
-                </HeaderTitle>
+                    className="aph-collapsible__header"
+                    styles={{
+                        ...headerStyles,
+                        paddingRight: (!icon ? null : `${iconSize}px`),
+                    }}
+                >
+                    {header}
+                    {icon && (
+                        <Icon
+                            className="aph-collapsible__header__item"
+                            slug="arrow-down"
+                            size={iconSize}
+                            styles={{
+                                position  : 'absolute',
+                                top       : '50%',
+                                right     : '5px',
+                                transform : `translateY(-50%)${opened ? ' rotate(180deg)' : ''}`,
+                                transition: `transform ${delay}s linear`,
+                            }}
+                        />
+                    )}
+                </Styled>
             )}
-
             <CollapsibleChildrenStyled
+                {...childrenProps}
                 ref={wrapperRef}
-                styles={styles}
-                visible={opened}>
-                <div ref={wrapperContentRef}>{children}</div>
+                visible={opened}
+                styles={Object.assign({}, (childrenProps.styles || {}), styles)}
+                className="aph-collapsible__content"
+            >
+                <div ref={wrapperContentRef}>
+                    {children}
+                </div>
             </CollapsibleChildrenStyled>
-        </Card>
+            {after}
+        </Styled>
     );
 });
 
-/* Default Properties */
 Collapsible.defaultProps = {
     opened        : false,
-    hover         : false,
-    delay         : 0.35,
-    styles        : {},
+    delay         : 0.2,
+    childrenProps : {},
     childrenStyles: {},
+    header        : '',
+    headerProps   : null,
     icon          : true,
     iconSize      : 40,
-
-    header     : '',
-    headerProps: null,
+    padding       : '0',
+    radius        : 10,
+    shadow        : true,
+    shadowSpread  : '5px',
+    styles        : {},
 };
 
-/* Properties Types */
 Collapsible.propTypes = {
+    after         : propTypes.oneOfType([ propTypes.element, propTypes.string ]),
+    before        : propTypes.oneOfType([ propTypes.element, propTypes.string ]),
     opened        : propTypes.bool,
-    hover         : propTypes.bool,
     delay         : propTypes.number,
     icon          : propTypes.bool,
     iconSize      : propTypes.number,
-    styles        : propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-    ]),
-    childrenStyles: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-    ]),
-
-    header     : propTypes.any,
-    headerProps: propTypes.object,
+    childrenProps : propTypes.object,
+    childrenStyles: propTypes.oneOfType([ propTypes.string, propTypes.object ]),
+    header        : propTypes.any,
+    headerProps   : propTypes.object,
 };
 
-/* Exporting */
 export default Collapsible;

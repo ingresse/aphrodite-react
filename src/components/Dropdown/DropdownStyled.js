@@ -15,6 +15,7 @@ const DropdownStyled = styled.div`
     position: relative;
     display : block;
     width   : 100%;
+    z-index : 1${props => props.opened ? 0 : null};
 
     -webkit-box-orient   : vertical;
     -webkit-box-direction: normal;
@@ -32,13 +33,17 @@ const DropdownStyled = styled.div`
                 cursor    : pointer;
                 border    : 0;
                 outline   : 0;
+                margin    : 0;
+                padding   : 0;
                 color     : inherit;
                 background: transparent;
+                z-index   : 4;
             }
 
             &__content {
                 display  : none;
                 position : absolute;
+                z-index  : ${props => props.opened ? 6 : 3};
                 top      : ${props => (props.up ? null : DISTANCE)};
                 bottom   : ${props => (props.up ? DISTANCE : null)};
                 left     : ${props => (props.center ? '50%' : props.right ? null : '0')};
@@ -47,7 +52,6 @@ const DropdownStyled = styled.div`
                 transform: ${props => (props.center ? 'translateX(-50%)' : null)};
 
                 opacity: 0;
-                z-index: 901;
                 width  : ${props => (props.contentWidth || null)};
 
                 will-change: z-index, opacity;

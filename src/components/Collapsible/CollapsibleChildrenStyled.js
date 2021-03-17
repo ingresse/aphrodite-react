@@ -1,23 +1,17 @@
-/* Packages */
 import styled from '@emotion/styled';
+import Styled from '../Styled/Styled';
 
-/* Component Itself */
-const AphCollapsibleChildrenStyled = styled.div`
-    display : block;
+const AphCollapsibleChildrenStyled = styled(Styled)`
     opacity : 1;
     overflow: hidden;
     position: relative;
 
-    margin-right: -10px;
-    margin-left : -10px;
-
-    transition-timing-function: linear;
+    transition-timing-function: ease;
     transition-property       : max-height, opacity;
 
     will-change: max-height, opacity;
 
-    ${props => props.styles};
+    ${({ styles}) => styles};
 `;
 
-/* Exporting */
 export default AphCollapsibleChildrenStyled;

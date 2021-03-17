@@ -1,64 +1,57 @@
-/* Packages */
 import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
-
-/* Constants Helpers */
 import { ICONS } from '../../../constants';
-
-/* Utils */
 import { colors } from '../../../utils';
-
-/* Components Helpers */
 import IconCheckThin from '../../Icons/IconCheckThin';
 
-/* Wrapper Styles */
 const AphCheckboxWrapperStyled = styled.div`
     box-sizing: border-box;
     display   : block;
     position  : relative;
 `;
 
-/* Mask Styles */
 const AphCheckboxMaskStyled = styled.label`
     box-sizing: border-box;
     display   : block;
     position  : relative;
     cursor    : pointer;
 
+    min-height    : 30px;
     padding-top   : 5px;
     padding-bottom: 5px;
     padding-right : ${props => props.labelRight ? '40px' : null};
     padding-left  : ${props => !props.labelRight ? '40px' : null};
 
     text-align: ${props => props.right ? 'right' : null};
+    transition: all 0.15s ease;
 
     &:before {
-        box-sizing: border-box;
-        content   : " ";
-        position  : absolute;
-        display   : block;
-        width     : 30px;
-        height    : 30px;
-        border    : 1px solid ${props => colors.getFromTheme(props, 'helper')};
+        box-sizing  : border-box;
+        content     : " ";
+        position    : absolute;
+        display     : block;
+        width       : 30px;
+        height      : 30px;
+        border      : ${({ borderWidth }) => borderWidth}px solid;
+        border-color: ${(props) => colors.getFullColor(props, (props.color || props.borderColor || 'border'))};
 
-        top: 0;
+        top: calc(50% - 15px);
 
-        border-radius: 5px;
+        border-radius: 7.5px;
 
         transition-timing-function: ease;
         transition-duration       : 0.15s;
-        transition-property       : background-color, background-image;
+        transition-property       : background-color, background-image, border-color;
 
         background-image   : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
-        background-color   : ${props => colors.getFromTheme(props, 'inverse')};
+        background-color   : transparent;
         background-size    : 20px;
         background-position: center;
         background-repeat  : no-repeat;
     }
 `;
 
-/* Component Styles */
 const AphCheckboxStyled = styled.input`
     box-sizing: border-box;
 
@@ -75,16 +68,35 @@ const AphCheckboxStyled = styled.input`
 
     vertical-align: middle;
 
-    + .aph-form-control-mask:before {
-        right: ${props => (props.labelRight || props.right) ? '0' : null};
-        left : ${props => (!props.labelRight && !props.right) ? '0' : null};
+    + .aph-form-control-mask {
+        &:active,
+        &:focus,
+        &:hover {
+            color: ${props => colors.getFullColor(props, (props.color || 'secondary'))};
+        }
+
+        &:before {
+            right: ${props => (props.labelRight || props.right) ? '0' : null};
+            left : ${props => (!props.labelRight && !props.right) ? '0' : null};
+
+            &:active,
+            &:focus,
+            &:hover {
+                border-color: ${props => colors.getFullColor(props, (props.color || 'secondary'))};
+            }
+        }
     }
 
-    &:focus,
     &:active,
-    &:checked {
-        + .aph-form-control-mask:before {
-            border-color: ${props => colors.getFromTheme(props, (props.color || 'secondary'))};
+    &:checked,
+    &:focus,
+    &:hover {
+        + .aph-form-control-mask {
+            color: ${props => colors.getFullColor(props, (props.color || 'secondary'))};
+
+            &:before {
+                border-color: ${props => colors.getFullColor(props, (props.color || 'secondary'))};
+            }
         }
     }
 
@@ -92,32 +104,52 @@ const AphCheckboxStyled = styled.input`
         background-image: url('${props => ICONS.ENCODE_SVG(
             <IconCheckThin
                 size={20}
-                color={colors.getFromTheme(props, (props.color || 'secondary'))}
+                color={colors.getFullColor(props, (props.color || 'secondary'))}
             />
         )}');
     }
 
     &.disabled,
     &:disabled {
-        + .aph-form-control-mask:before {
-            border-color    : ${props => colors.getFromTheme(props, 'disabled')};
-            background-color: ${props => colors.getFromTheme(props, 'background')};
+        + .aph-form-control-mask {
+            color: ${props => colors.getFullColor(props, (props.color || 'disabled'))};
+
+            &:active,
+            &:focus,
+            &:hover {
+                color: ${props => colors.getFullColor(props, (props.color || 'disabled'))};
+            }
+
+            &:before {
+                color           : ${props => colors.getFullColor(props, 'disabled')};
+                border-color    : ${props => colors.getFullColor(props, 'disabled')};
+                background-color: ${props => colors.getFullColor(props, 'background')};
+            }
         }
 
         &:checked + .aph-form-control-mask:before {
             background-image: url('${props => ICONS.ENCODE_SVG(
                 <IconCheckThin
                     size={20}
-                    color={colors.getFromTheme(props, 'disabled')}
+                    color={colors.getFullColor(props, 'disabled')}
                 />
             )}');
         }
     }
 `;
 
-/* Component Itself */
 const Checkbox = forwardRef((props, ref) => {
-    const { className, children, color, id, right, labelProps, labelRight } = props;
+    const {
+        borderColor,
+        borderWidth,
+        className,
+        children,
+        color,
+        labelProps,
+        labelRight,
+        id,
+        right,
+    } = props;
     let newProps = Object.assign({}, props);
 
     delete newProps.children;
@@ -136,33 +168,37 @@ const Checkbox = forwardRef((props, ref) => {
                 color={color}
                 right={right}
                 labelRight={labelRight || right}
-                {...labelProps}>
+                borderColor={borderColor}
+                borderWidth={borderWidth}
+                {...labelProps}
+            >
                 {children}
             </AphCheckboxMaskStyled>
         </AphCheckboxWrapperStyled>
     );
 });
 
-/* Default Properties */
 Checkbox.defaultProps = {
-    id        : `formControlRandomID${Math.random()}`,
-    labelProps: {},
-    labelRight: false,
-    right     : false,
-    styles    : {},
+    id         : `formControlRandomID${Math.random()}`,
+    labelProps : {},
+    labelRight : false,
+    right      : false,
+    borderColor: '',
+    borderWidth : 2,
+    styles     : {},
 };
 
-/* Properties Types */
 Checkbox.propTypes = {
-    id        : propTypes.string.isRequired,
-    labelProps: propTypes.object,
-    labelRight: propTypes.bool,
-    right     : propTypes.bool,
-    styles    : propTypes.oneOfType([
+    id         : propTypes.string.isRequired,
+    labelProps : propTypes.object,
+    labelRight : propTypes.bool,
+    right      : propTypes.bool,
+    borderColor: propTypes.string,
+    borderWidth: propTypes.number,
+    styles     : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),
 };
 
-/* Exporting */
 export default Checkbox;

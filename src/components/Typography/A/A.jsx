@@ -57,7 +57,7 @@ A.defaultProps = {
     upper : false,
     small : false,
     helper: false,
-    color : '',
+    color : 'link',
     styles: {},
 };
 

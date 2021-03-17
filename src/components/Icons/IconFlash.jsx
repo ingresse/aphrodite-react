@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
 const IconFlash = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <g
                 id="aph-icon-flash-group"
                 stroke="none"
@@ -32,8 +14,9 @@ const IconFlash = (props) => {
                 fillRule="evenodd"
                 strokeLinejoin="round">
                 <polygon
+
                     id="aph-icon-flash-polygon"
-                    stroke={color}
+                    className="aph-icon-stroke"
                     strokeWidth="2"
                     points="17 5 9 17 15 17 13 25 21 13 15 13"
                 />
@@ -42,5 +25,4 @@ const IconFlash = (props) => {
     );
 };
 
-/* Exporting */
 export default IconFlash;

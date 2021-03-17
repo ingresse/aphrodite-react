@@ -1,0 +1,36 @@
+---
+name : SectionTitle
+menu : › Components
+route: /components/section-title
+---
+
+import { Playground, Props } from 'docz';
+import { SectionTitle, Styled } from '../';
+
+# SectionTitle
+### A secondary title with scroll behavior. "Styled" as base.
+
+```jsx
+import { SectionTitle } from '@ingresse/aphrodite';
+
+<SectionTitle id="welcome">
+    Hello
+</SectionTitle>
+```
+
+
+## Example
+
+<Playground>
+    <section>
+        <SectionTitle id="welcome">
+            Hello
+        </SectionTitle>
+    </section>
+</Playground>
+
+
+## Properties
+
+<Props of={SectionTitle} />
+<Props of={Styled} />

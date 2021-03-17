@@ -2,7 +2,7 @@
 import { colors as palette } from '../src/utils';
 
 /* Theme Primary Color */
-const themeColor = 'secondary';
+const themeColor = 'primary';
 
 /* Theme Colors */
 const colors = {
@@ -10,7 +10,7 @@ const colors = {
     black     : palette.get('oil'),
     blackDark : palette.get('oil', 'dark'),
 
-    grey: palette.get('disabled'),
+    grey: palette.get('mercury'),
 
     whiteLight: palette.get('smoke'),
     white     : palette.get('white'),
@@ -22,8 +22,8 @@ const colors = {
 
     secondary: palette.get(themeColor, 'light'),
 
-    highlight: palette.get(themeColor, 'crystal', 0.5),
-    error    : palette.get('error', 'regular', 0.8),
+    highlight: palette.get(themeColor, 'crystal', 0.25),
+    error    : palette.get('error', 'regular', 0.25),
 };
 
 /* Exporting */

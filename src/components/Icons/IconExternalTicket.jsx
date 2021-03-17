@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
 const IconExternalTicket = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <g
                 id="aph-icon-external-ticket-group"
                 stroke="none"
@@ -33,9 +15,10 @@ const IconExternalTicket = (props) => {
                 strokeLinecap="round"
                 strokeLinejoin="round">
                 <g
+
                     id="aph-icon-external-ticket-subgroup"
                     transform="translate(15.000000, 15.500000) rotate(-270.000000) translate(-15.000000, -15.500000) translate(4.000000, 4.500000)"
-                    stroke={color}
+                    className="aph-icon-stroke"
                     strokeWidth="2.3">
                     <path
                         id="aph-icon-external-ticket-path-one"
@@ -52,5 +35,4 @@ const IconExternalTicket = (props) => {
     );
 };
 
-/* Exporting */
 export default IconExternalTicket;

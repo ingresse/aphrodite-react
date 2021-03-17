@@ -7,11 +7,6 @@ import AphFormControlLabelStyled    from '../FormControlLabelStyled';
 import AphFormControlStyled         from '../FormControlStyled';
 import AphFormControlErrorMsgStyled from '../FormControlErrorMsgStyled';
 
-/* Utilities */
-import {
-    colors,
-} from '../../../utils';
-
 /* Component Itself */
 const TextArea = memo(forwardRef((props, ref) => {
     const {
@@ -22,59 +17,54 @@ const TextArea = memo(forwardRef((props, ref) => {
         value,
         onChange,
         errorMessage,
+        styles,
     } = props;
 
     const [hasValue, setHasValue] = useState(value ? true : false);
     const inputId                 = `${id || 'formControl'}`;
-    const styles                  = `
-        max-width : 100%;
-        min-width : 100%;
-        min-height: 90px;
-        padding-bottom: 10px;
+    const customStyles            = {
+        maxWidth : '100%',
+        minWidth : '100%',
+        minHeight: '100px',
+        paddingTop   : '27.5px',
+        paddingBottom: '10px',
 
-        &[rows="4"] {
-            min-height: 110px;
-        }
+        '&[rows="4"]': {
+            minHeight: '120px',
+        },
 
-        &[rows="5"] {
-            min-height: 130px;
-        }
+        '&[rows="5"]': {
+            minHeight: '140px',
+        },
 
-        &[rows="6"] {
-            min-height: 150px;
-        }
+        '&[rows="6"]': {
+            minHeight: '160px',
+        },
 
-        &[rows="7"] {
-            min-height: 170px;
-        }
+        '&[rows="7"]': {
+            minHeight: '180px',
+        },
 
-        &[rows="8"] {
-            min-height: 190px;
-        }
+        '&[rows="8"]': {
+            minHeight: '200px',
+        },
 
-        &[rows="9"] {
-            min-height: 210px;
-        }
+        '&[rows="9"]': {
+            minHeight: '220px',
+        },
 
-        &[rows="10"] {
-            min-height: 230px;
-        }
+        '&[rows="10"]': {
+            minHeight: '240px',
+        },
 
-        + .aph-form-label {
-            display: block;
-            top    : 0;
+        ' + .aph-form-label': {
+            display: 'block',
+            top    : '0',
+            backgroundColor: 'transparent',
+        },
 
-            background-color: ${props => colors.getFromTheme(props, 'background')};
-        }
-
-        &:disabled {
-            + .aph-form-label {
-                background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
-            }
-        }
-
-        ${props => props.styles};
-    `;
+        ...(styles || {}),
+    };
 
     /**
      * Trigger
@@ -103,10 +93,11 @@ const TextArea = memo(forwardRef((props, ref) => {
         <AphFormControlWrapperStyled>
             <AphFormControlStyled
                 {...props}
+                ref={ref}
                 as="textarea"
-                hasLabel={label ? true : false}
+                hasLabel={!!label}
                 onChange={handleChange}
-                styles={styles}
+                styles={customStyles}
             />
             {(!label) ? (null) : (
                 <AphFormControlLabelStyled

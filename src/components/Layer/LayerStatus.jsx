@@ -1,23 +1,16 @@
 import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import styled from '@emotion/styled';
-
-/* Utilities */
 import { colors } from '../../utils';
-
-/* Composition */
-import { Segment } from '../';
-
-/* Media */
 import { MEDIA_QUERIES } from '../../constants';
+import Styled from '../Styled/Styled';
 
-/* Styles */
-const Wrapper = styled(Segment)`
+const Wrapper = styled(Styled)`
     position: absolute;
     z-index : 10;
     top     : 26.93%;
     bottom  : 26.93%;
-    left    : 10px;
+    left    : ${({ hasInput }) => !hasInput ? 1 : 4}0px;
 
     display: block;
     padding: 0;
@@ -103,8 +96,7 @@ const Wrapper = styled(Segment)`
     }
 
     ${MEDIA_QUERIES.LT.SM} {
-        left : 0;
-        width: 40px;
+        left: ${({ hasInput }) => !hasInput ? '5px' : '40px'};
 
         .aph-layer__status__description {
             left: 30px;
@@ -118,16 +110,20 @@ const LayerStatus = forwardRef(({
     color,
     label,
     text,
+    checkbox,
+    radio,
     ...props
 }, ref) => {
     return (
         <Wrapper
             as="button"
             type="button"
-            tabIndex="-10"
+            tabIndex="-1"
             textColor={color}
             ref={ref}
-            {...props}>
+            hasInput={!!(checkbox || radio)}
+            {...props}
+        >
             {(children || label || text) && (
                 <span className="aph-layer__status__description">
                     {children || label || text}

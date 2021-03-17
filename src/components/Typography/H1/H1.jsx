@@ -50,7 +50,7 @@ const H1 = forwardRef((props, ref) => {
 /* Default Properties */
 H1.defaultProps = {
     link  : false,
-    bold  : false,
+    bold  : true,
     center: false,
     upper : false,
     helper: false,

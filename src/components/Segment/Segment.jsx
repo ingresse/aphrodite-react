@@ -4,7 +4,6 @@ import propTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 /* Helpers */
-import { RADIUS } from '../../constants';
 import { colors, text } from '../../utils';
 
 /* Component Itself */

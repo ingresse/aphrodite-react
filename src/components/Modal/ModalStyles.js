@@ -91,6 +91,8 @@ const ModalStyled = styled.dialog`
             &__container {
                 &__title {
                     padding: 25px 0 15px;
+                    font-size: 28px;
+                    line-height: 30px;
                 }
 
                 &__header {

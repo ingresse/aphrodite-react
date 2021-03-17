@@ -1,27 +1,21 @@
-/* Core Package */
 import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
-
-/* Composition */
-import {
-    Dropdown,
-    Icon,
-    List,
-    ListItem,
-} from '../';
-
-/* Media */
 import { MEDIA_QUERIES } from '../../constants';
+import Dropdown from '../Dropdown/Dropdown';
+import Icon from '../Icons/Icon';
+import List from '../Lists/List';
+import ListItem from '../Lists/ListItem';
 
-/* Component Itself */
 const LayerMenu = forwardRef(({
     children,
+    disabled,
     icon,
     loading,
     options,
     right,
     styles: originalStyles,
     toggle,
+    toggleProps,
     top,
     width,
     ...props
@@ -30,16 +24,19 @@ const LayerMenu = forwardRef(({
 
     return (
         <Dropdown
+            ref={ref}
             thin
             right
             width={width}
+            toggleTabIndex={null}
             toggleBlock
+            toggleProps={!loading ? toggleProps : { onClick: () => {} }}
             toggle={toggle || (
                 <Icon
+                    {...icon}
                     size={icon.size || 40}
                     slug={icon.slug || 'arrow-down'}
                     color={loading ? 'disabled' : icon.color}
-                    {...icon}
                 />
             )}
             styles={{
@@ -47,11 +44,11 @@ const LayerMenu = forwardRef(({
                 width   : '40px',
                 height  : '40px',
                 top     : `${top || 'calc(50% - 20px)'}`,
-                right   : `${right || '10px'}`,
+                right   : `${right || '5px'}`,
 
                 '.aph-dropdown__content': {
                     top  : '90%',
-                    right: '5px',
+                    right: '0',
                 },
 
                 [MEDIA_QUERIES.LT.SM]: {
@@ -65,7 +62,8 @@ const LayerMenu = forwardRef(({
 
                 ...styles
             }}
-            {...props}>
+            {...props}
+        >
             {options && options.length && (
                 <List styles={{ overflow: 'hidden' }}>
                     {options.map((option, index) => {
@@ -74,7 +72,8 @@ const LayerMenu = forwardRef(({
                         return (
                             <ListItem
                                 key={index}
-                                {...option}>
+                                {...option}
+                            >
                                 {children || option}
                             </ListItem>
                         );

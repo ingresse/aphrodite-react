@@ -3,39 +3,34 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 /* Components */
+import Styled from '../Styled/Styled';
 import DropdownStyled from './DropdownStyled';
 
 /* Component it self */
-const Dropdown = forwardRef((props, ref) => {
-    /**
-     * Properties values
-     */
-    const {
-        className,
-        children,
-
-        toggle,
-        toggleBlock,
-
-        width,
-
-        center,
-        up,
-        right,
-        left,
-        thin,
-
-        opened,
-
-        styles,
-    } = props;
+const Dropdown = forwardRef(({
+    className,
+    children,
+    toggle,
+    toggleBlock,
+    toggleProps = {},
+    toggleTag = 'button',
+    toggleTabIndex = '-1',
+    width,
+    center,
+    up,
+    right,
+    left,
+    thin,
+    opened,
+    styles,
+}, ref) => {
 
     /**
      * State values
      */
+    let unmounted = false;
     const [ active, setActive ]             = useState(opened);
     const [ visible, setVisible ]           = useState(opened);
-    const [ unmounted, setUnmounted ]       = useState(false);
     const [ activeTimer, setActiveTimer ]   = useState(null);
     const [ visibleTimer, setVisibleTimer ] = useState(null);
 
@@ -150,18 +145,14 @@ const Dropdown = forwardRef((props, ref) => {
             handleOpen();
         }
 
-        return function cleanup() {
-            removeClickListener();
-        };
+        return removeClickListener;
     }, [ opened ]);
 
     /**
      * Mount
      */
     useEffect(() => {
-        return function cleanup() {
-            removeClickListener();
-        };
+        return removeClickListener;
     }, []);
 
     /**
@@ -169,6 +160,7 @@ const Dropdown = forwardRef((props, ref) => {
      */
     return (
         <DropdownStyled
+            opened={visible}
             center={center}
             up={up}
             right={right}
@@ -178,17 +170,26 @@ const Dropdown = forwardRef((props, ref) => {
             contentWidth={width}
             styles={styles}
             ref={dropdownRef}
-            className={`aph-dropdown ${className || ''}`}>
+            className={`aph-dropdown ${className || ''}`}
+        >
             {(!toggle) ? (null) : (
-                <span role="button"
-                      onClick={handleToggle}
-                      className="aph-dropdown__toggle">
+                <Styled
+                    as={toggleTag}
+                    role="button"
+                    type="button"
+                    tabIndex={toggleTabIndex}
+                    onClick={handleToggle}
+                    className="aph-dropdown__toggle"
+                    {...toggleProps}
+                >
                     {toggle}
-                </span>
+                </Styled>
             )}
             {(!visible) ? (null) : (
-                <div className={`aph-dropdown__content${active ? ' active' : ''}${visible ? ' visible' : ''}`}
-                     onClick={() => handleClose()}>
+                <div
+                    className={`aph-dropdown__content${active ? ' active' : ''}${visible ? ' visible' : ''}`}
+                    onClick={() => handleClose()}
+                >
                     {children}
                 </div>
             )}

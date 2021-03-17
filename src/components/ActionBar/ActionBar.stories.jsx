@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 /* Composition Components */
 import {
@@ -40,7 +40,7 @@ export const example = () => {
      * Render
      */
     return (
-        <>
+        <Fragment>
             <Segment
                 textAlign="center"
                 styles={{
@@ -71,6 +71,6 @@ export const example = () => {
                 </Button>
             </ActionBar>
             {/* Component Usage Example */}
-        </>
+        </Fragment>
     );
 };

@@ -49,26 +49,28 @@ const H3 = forwardRef((props, ref) => {
 
 /* Default Properties */
 H3.defaultProps = {
-    link  : false,
-    bold  : false,
-    center: false,
-    upper : false,
-    helper: false,
-    margin: '15px 0 5px',
-    color: '',
-    styles: {},
+    fontWeight: 'normal',
+    link      : false,
+    bold      : false,
+    center    : false,
+    upper     : false,
+    helper    : false,
+    margin    : '15px 0 5px',
+    color     : '',
+    styles    : {},
 };
 
 /* Properties Types */
 H3.propTypes = {
-    link  : propTypes.bool,
-    bold  : propTypes.bool,
-    center: propTypes.bool,
-    upper : propTypes.bool,
-    helper: propTypes.bool,
-    margin: propTypes.string,
-    color : propTypes.string,
-    styles: propTypes.oneOfType([
+    fontWeight: propTypes.string,
+    link      : propTypes.bool,
+    bold      : propTypes.bool,
+    center    : propTypes.bool,
+    upper     : propTypes.bool,
+    helper    : propTypes.bool,
+    margin    : propTypes.string,
+    color     : propTypes.string,
+    styles    : propTypes.oneOfType([
         propTypes.string,
         propTypes.object,
     ]),

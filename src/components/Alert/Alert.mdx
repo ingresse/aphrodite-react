@@ -1,0 +1,39 @@
+---
+name : Alert
+menu : › Components
+route: /components/alert
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { Alert, Styled } from '../';
+
+
+# Alert
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [alert, setAlert] = useState(true);
+
+        return (
+            <Styled padding="15px">
+                <Alert
+                    color="primary"
+                    opened={alert}
+                    openedCallback={setAlert}
+                >
+                    Content here
+                </Alert>
+            </Styled>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={Alert} />
+<Props of={Styled} />

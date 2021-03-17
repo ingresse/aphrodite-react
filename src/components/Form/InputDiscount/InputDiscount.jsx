@@ -49,6 +49,7 @@ const InputDiscount = memo(forwardRef(({
         value: customValue,
         onBlur: handleBlur,
         onFocus: handleFocus,
+        accept: ['.', ','],
         ...props,
     };
 

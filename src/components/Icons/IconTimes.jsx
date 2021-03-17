@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
 const IconTimes = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <g
                 id="aph-icon-times-group"
                 stroke="none"
@@ -33,10 +15,11 @@ const IconTimes = (props) => {
                 strokeLinecap="round"
                 strokeLinejoin="round">
                 <g
+
                     id="aph-icon-times-subgroup"
                     transform="translate(9.000000, 9.000000)"
-                    stroke={color}
-                    strokeWidth="4">
+                    className="aph-icon-stroke"
+                    strokeWidth="2">
                     <path
                         id="aph-icon-times-path-one"
                         d="M0,12 L12,0 L0,12 Z"
@@ -53,5 +36,4 @@ const IconTimes = (props) => {
     );
 };
 
-/* Exporting */
 export default IconTimes;

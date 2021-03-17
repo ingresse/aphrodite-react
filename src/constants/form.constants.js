@@ -1,5 +1,7 @@
 /* Helper Constants */
-import { COLORS, MEDIA_QUERIES, RADIUS } from './';
+import { COLORS } from './colors.constants';
+import { MEDIA_QUERIES } from './media-queries.constants';
+import { RADIUS } from './radius.constants';
 
 /* Form Constants */
 export const FORM = {

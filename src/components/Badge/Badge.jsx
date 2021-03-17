@@ -3,14 +3,10 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 /* Hooks */
-import {
-    useWindowSize,
-} from '../../hooks';
+import { useWindowSize } from '../../hooks';
 
 /* Base Components */
-import {
-    Segment,
-} from '../';
+import Segment from '../Segment/Segment';
 
 /* Component Itself */
 function Badge({
@@ -29,6 +25,18 @@ function Badge({
      * Local values
      */
     const { xs } = useWindowSize();
+    const {
+        children : prefixChildren  = null,
+        className: prefixClassName = '',
+        styles   : prefixStyles    = {},
+        ...prefixProps
+    } = (prefix || {});
+    const {
+        children : suffixChildren  = null,
+        className: suffixClassName = '',
+        styles   : suffixStyles    = {},
+        ...suffixProps
+    } = (suffix || {});
 
     /**
      * Render
@@ -46,20 +54,36 @@ function Badge({
                 lineHeight: '20px',
                 ...styles,
             }}>
-            {(!prefix) ? (null) : (
+            {prefix && (
                 <Segment
                     padding="0"
-                    {...prefix}
-                    className={`aph-badge__prefix ${prefix.className || ''}`}
-                />
+                    {...prefixProps}
+                    className={`aph-badge__prefix ${prefixClassName}`}
+                    styles={{
+                        display     : 'inline-block',
+                        marginRight : '5px',
+                        paddingRight: '5px',
+                        ...prefixStyles,
+                    }}
+                >
+                    {prefixChildren || prefix}
+                </Segment>
             )}
             {children}
-            {(!suffix) ? (null) : (
+            {suffix && (
                 <Segment
                     padding="0"
-                    {...suffix}
-                    className={`aph-badge__suffix ${suffix.className || ''}`}
-                />
+                    {...suffixProps}
+                    className={`aph-badge__suffix ${suffixClassName}`}
+                    styles={{
+                        display    : 'inline-block',
+                        marginLeft : '5px',
+                        paddingLeft: '5px',
+                        ...prefixStyles,
+                    }}
+                >
+                    {suffixChildren || suffix}
+                </Segment>
             )}
         </Segment>
     );
@@ -97,8 +121,8 @@ Badge.defaultProps = {
 Badge.propTypes = {
     color     : propTypes.string,
     background: propTypes.string,
-    prefix    : propTypes.object,
-    suffix    : propTypes.object,
+    prefix    : propTypes.oneOfType([ propTypes.object, propTypes.string, propTypes.node ]),
+    suffix    : propTypes.oneOfType([ propTypes.object, propTypes.string, propTypes.node ]),
     styles    : propTypes.object,
 };
 

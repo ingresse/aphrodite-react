@@ -1,33 +1,21 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
 /**
  * Icon
  * By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL
  */
 const IconLoading = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        color,
-        width,
-        height,
-        size,
-        className,
-    } = props;
+    const { color, height, width, size, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
         <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
+            {...rest}
             width={(width || size || 120)}
             height={(height || size || 30)}
             viewBox="0 0 120 30"
-            fill={color}>
+            className="aph-icon-fill"
+        >
             <circle cx="15" cy="15" r="15">
                 <animate
                     attributeName="r"
@@ -98,5 +86,4 @@ const IconLoading = (props) => {
     );
 };
 
-/* Exporting */
 export default IconLoading;

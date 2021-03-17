@@ -1,11 +1,12 @@
 /* Packages */
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Paginator from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/pt_BR';
 
 /* Helper Components */
-import { Icon, Placeholder } from '../';
+import Icon from '../Icons/Icon';
+import Placeholder from '../Placeholder/Placeholder';
 
 /* Styled Component */
 import PaginationStyled from './PaginationStyled';
@@ -32,13 +33,13 @@ function Pagination (props) {
             showLessItems={true}
             {...rest}
             as={(!loading) ? Paginator : Placeholder}
-            jumpPrevIcon={<>•••</>}
-            jumpNextIcon={<>•••</>}
+            jumpPrevIcon={<Fragment>•••</Fragment>}
+            jumpNextIcon={<Fragment>•••</Fragment>}
             prevIcon={<Icon slug="arrow" direction="left" color="inverse" size={25} />}
             nextIcon={<Icon slug="arrow" direction="right" color="inverse" size={25} />}
             className={`aph-pagination ${className || ''}`}>
             {(!loading) ? (null) : (
-                <>
+                <Fragment>
                     <Placeholder
                         width={30}
                         height={30}
@@ -57,7 +58,7 @@ function Pagination (props) {
                         height={30}
                         className="rc-pagination-next"
                     />
-                </>
+                </Fragment>
             )}
         </PaginationStyled>
     );

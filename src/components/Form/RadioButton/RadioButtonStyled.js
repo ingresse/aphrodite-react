@@ -3,32 +3,24 @@ import { css } from '@emotion/core';
 import { colors } from '../../../utils';
 
 export const RadioButtonWrapper = styled.label`
-    display: flex;
+    display    : ${({ hasChildren }) => hasChildren ? 'flex' : 'block'};
     align-items: center;
-    cursor: pointer;
+    cursor     : pointer;
 
-    position: relative;
-    padding-top: 5px;
-    padding-left: 40px;
-    padding-bottom: 5px;
-
-    span {
-        ${(props) => props.disabled &&
-            css`
-                color: ${colors.get('disabled')};
-                text-decoration: line-through;
-            `
-        }
-    }
+    position      : relative;
+    padding-top   : ${({ hasChildren }) => hasChildren ? 5 : 0}px;
+    padding-left  : 40px;
+    padding-bottom: ${({ hasChildren }) => hasChildren ? 5 : 0}px;
 `;
 
 export const RadioButtonInput = styled.input`
     position: absolute;
-    left: 0;
-
-    display: none;
-    width : 30px;
-    height: 30px;
+    left    : 0;
+    margin  : 0;
+    padding : 0;
+    opacity : 0;
+    width   : 30px;
+    height  : 30px;
 
     ~ i {
         position: absolute;
@@ -43,11 +35,29 @@ export const RadioButtonInput = styled.input`
         height: 30px;
 
         border-radius: 100%;
-        border: 1px solid ${colors.get('mercury', 'original')};
+        border: 2px solid ${(props) => colors.getFromTheme(props, 'border')};
+        transition: all ease 0.2s;
+
+        ~ span {
+            color: inherit;
+            transition: all ease 0.2s;
+        }
+    }
+
+    &:active, &:focus, &:hover {
+        &:not(:disabled) {
+            ~ i {
+                border-color: ${(props) => colors.getFromTheme(props, 'secondary')};
+
+                ~ span {
+                    color: ${(props) => colors.getFromTheme(props, 'secondary')};
+                }
+            }
+        }
     }
 
     &:checked ~ i {
-        border: 1px solid ${colors.get('secondary')};
+        border-color: ${(props) => colors.getFromTheme(props, 'secondary')};
 
         &:before {
             content   : " ";
@@ -56,12 +66,17 @@ export const RadioButtonInput = styled.input`
             width     : 14px;
             height    : 14px;
 
-            background-color:  ${(props) => props.disabled ? colors.get('disabled') : colors.get('secondary')};
+            background-color:  ${(props) => props.disabled ? colors.getFromTheme(props, 'disabled') : colors.getFromTheme(props, 'secondary')};
             border-radius: 100%;
         }
     }
 
     &:disabled ~ i {
-        border: 1px solid ${colors.get('disabled')};
+        border-color: ${(props) => colors.getFromTheme(props, 'disabled')};
+
+        ~ span {
+            color: ${(props) => colors.getFromTheme(props, 'disabled')};
+            text-decoration: line-through;
+        }
     }
 `;

@@ -1,24 +1,11 @@
-/* Packages */
-import React from "react";
+import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
-const IconFacebook = props => {
-    /**
-     * Inherit props
-     */
-    const { size, width, height, className } = props;
-    /**
-     * Render
-     */
+const IconFacebook = (props) => {
+    const { color, ...rest } = getFilteredProps(props);
+
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={width || size}
-            height={height || size}
-            viewBox="0 0 20 20"
-            id="aph-icon-facebook"
-        >
+        <svg {...rest} viewBox="0 0 20 20" id="aph-icon-facebook">
             <g
                 id="aph-icon-facebook-group"
                 stroke="none"
@@ -47,5 +34,4 @@ const IconFacebook = props => {
     );
 };
 
-/* Exporting */
 export default IconFacebook;

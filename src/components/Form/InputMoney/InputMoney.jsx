@@ -20,6 +20,7 @@ InputMoney.defaultProps = {
     onBlur: () => {},
     onFocus: () => {},
     type: 'number',
+    inputMode: 'decimal',
     styles: {},
     suggestions: [],
     value: undefined,

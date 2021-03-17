@@ -5,7 +5,7 @@ route: /components/avatar
 ---
 
 import { Playground, Props } from 'docz';
-import { Avatar, Col, Row, Segment } from '../';
+import { Avatar, Col, Row, Styled } from '../';
 
 
 # Avatar
@@ -19,10 +19,10 @@ import { Avatar, Col, Row, Segment } from '../';
         const size = '140px';
 
         return (
-            <Segment padding="30px 20px">
+            <Styled padding="30px 20px">
                 <Row horizontal="center">
                     <Col xs={6} sm={4} md={3}>
-                        <Segment padding="10px 0">
+                        <Styled padding="10px 0">
                             <Avatar
                                 center
                                 circle
@@ -31,20 +31,20 @@ import { Avatar, Col, Row, Segment } from '../';
                                 color="ocean"
                                 alt="My Awesome Circle Avatar"
                             />
-                        </Segment>
+                        </Styled>
                     </Col>
                     <Col xs={6} sm={4} md={3}>
-                        <Segment padding="10px 0">
+                        <Styled padding="10px 0">
                             <Avatar
                                 center
                                 size={size}
                                 color="tangerine"
                                 alt="My Awesome Regular Avatar"
                             />
-                        </Segment>
+                        </Styled>
                     </Col>
                     <Col xs={6} sm={4} md={3}>
-                        <Segment padding="10px 0">
+                        <Styled padding="10px 0">
                             <Avatar
                                 center
                                 circle
@@ -53,10 +53,10 @@ import { Avatar, Col, Row, Segment } from '../';
                                 color="bamboo"
                                 name="My Awesome Circle Initials"
                             />
-                        </Segment>
+                        </Styled>
                     </Col>
                     <Col xs={6} sm={4} md={3}>
-                        <Segment padding="10px 0">
+                        <Styled padding="10px 0">
                             <Avatar
                                 center
                                 size={size.replace('px', '')}
@@ -64,10 +64,10 @@ import { Avatar, Col, Row, Segment } from '../';
                                 alt="My Awesome Regular Placeholder"
                                 src={`https://placehold.it/200?text=size=${size}`}
                             />
-                        </Segment>
+                        </Styled>
                     </Col>
                 </Row>
-            </Segment>
+            </Styled>
         );
     }}
 </Playground>

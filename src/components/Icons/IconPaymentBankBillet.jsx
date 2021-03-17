@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
 const IconPaymentBankBillet = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30" xmlnsXlink="http://www.w3.org/1999/xlink">
             <defs>
                 <rect
                     id="aph-icon-defs-rect-payment-bank-billet"
@@ -62,5 +44,4 @@ const IconPaymentBankBillet = (props) => {
     );
 };
 
-/* Exporting */
 export default IconPaymentBankBillet;

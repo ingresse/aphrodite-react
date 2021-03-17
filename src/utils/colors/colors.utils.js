@@ -137,24 +137,36 @@ const aliasKeys = [
     'link',
 ];
 let alias = {
-    primary  : Object.assign({}, tangerine),
-    secondary: Object.assign({}, ocean),
+    primary  : tangerine,
+    secondary: ocean,
 
-    info: Object.assign({}, supernova),
-    success: Object.assign({}, bamboo),
-    warning: Object.assign({}, sunflower),
-    error: Object.assign({}, ruby),
+    info: supernova,
+    success: bamboo,
+    warning: sunflower,
+    error: ruby,
 
-    link: Object.assign({}, ocean),
+    link: ocean,
 
-    approved: Object.assign({}, bamboo),
-    authorized: Object.assign({}, mint),
-    declined: Object.assign({}, ruby),
-    cancelled: Object.assign({}, mercury),
-    refund: Object.assign({}, supernova),
-    limitExceeded: Object.assign({}, tangerine),
-    'manual review': Object.assign({}, poison),
-    pending: Object.assign({}, ocean),
+    approved: bamboo,
+    authorized: mint,
+    cancelled: mercury,
+    complete: mint,
+    created: tangerine,
+    declined: ruby,
+    draft: mercury,
+    finished: mercury,
+    refund: supernova,
+    limitExceeded: tangerine,
+    'manual review': poison,
+    notStarted: sunflower,
+    outOfStock: tangerine,
+    pending: ocean,
+    'partially-approved': sunflower,
+    private: ocean,
+    published: bamboo,
+    scheduled: tangerine,
+    soldout: supernova,
+    unavailable: mercury,
 };
 
 /**
@@ -163,13 +175,24 @@ let alias = {
 const statusKeys = [
     'approved',
     'authorized',
-    'declined',
     'cancelled',
+    'complete',
+    'created',
+    'declined',
+    'draft',
+    'finished',
     'refund',
-    'limitexceeded',
     'limitExceeded',
     'manual review',
+    'notStarted',
+    'outOfStock',
     'pending',
+    'partially-approved',
+    'private',
+    'published',
+    'scheduled',
+    'soldout',
+    'unavailable',
 ];
 
 /**
@@ -194,21 +217,33 @@ let stock = {
     warning: sunflower.original,
     error: ruby.original,
 
-    approved: bamboo.original,
-    authorized: mint.original,
-    declined: ruby.original,
-    cancelled: mercury.original,
-    refund: supernova.original,
-    limitexceeded: tangerine.original,
-    limitExceeded: tangerine.original,
-    'manual review': poison.original,
-    pending: ocean.original,
+    approved: alias.approved.original,
+    authorized: alias.authorized.original,
+    cancelled: alias.cancelled.original,
+    complete: alias.complete.original,
+    created: alias.created.original,
+    declined: alias.declined.original,
+    draft: alias.draft.original,
+    finished: alias.finished.original,
+    refund: alias.refund.original,
+    limitExceeded: alias.limitExceeded.original,
+    'manual review': alias['manual review'].original,
+    notStarted: alias.notStarted.original,
+    outOfStock: alias.outOfStock.original,
+    pending: alias.pending.original,
+    'partially-approved': alias['partially-approved'].original,
+    private: alias.private.original,
+    published: alias.published.original,
+    scheduled: alias.scheduled,
+    soldout: alias.soldout,
+    unavailable: alias.unavailable,
 
     base: 'rgb(0, 0, 0)',
     inverse: 'rgb(255, 255, 255)',
     background: 'rgb(248, 248, 248)',
     translucid: translucid.original,
     shadow: shadow.original,
+    border: mercury.crystal,
 
     disabled: mercury.crystal,
     helper: mercury.original,
@@ -264,7 +299,7 @@ const getOpacity = (opacity = 1, color = all.shades.mercury.original) => {
  */
 const get = (color = 'primary', shade = 'original', opacity = 1) => {
     const _color   = (color + '').toLowerCase();
-    const selected = (all.shades[_color] ? all.shades[_color][shade] : all[_color]);
+    const selected = (all.shades[_color] ? all.shades[_color][shade] : (all[_color] || _color));
 
     if (typeof color !== 'string' || !selected) {
         return getOpacity(opacity, (selected || _color));
@@ -350,12 +385,45 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
 };
 
 /**
+ * Get Full Color from string sentence like:
+ *
+ * const myColor            = colors.getFullColor('ocean');
+ * const myShadedColor      = colors.getFullColor('ocean,dark');
+ * const myShadedAlphaColor = colors.getFullColor('ocean,dark,0.5');
+ *
+ * @param {object} componentProps
+ * @param {string} colorString
+ *
+ * @returns {string}
+ */
+function getFullColor(componentProps = {}, colorString) {
+    if (!colorString) {
+        return colorString;
+    }
+
+    const normalized       = String(colorString);
+    const isRgbOrHsl       = normalized.includes(')');
+    const colorSplitted    = String(normalized).split(isRgbOrHsl ? ')' : ',');
+    const colorNameOrValue = colorSplitted[0] || '';
+    const colorArgs        = (!isRgbOrHsl ? colorSplitted.slice(1) : String(colorSplitted[1]).split(',')).filter((param) => param && param.trim());
+    const colorKey         = colorNameOrValue.concat(isRgbOrHsl ? ')' : '');
+
+    return getFromTheme(
+        componentProps = {},
+        colorKey,
+        colorArgs[0],
+        colorArgs[1]
+    );
+}
+
+/**
  * Colors reference override
  */
 colors = {
     ...colors,
     aliasKeys,
     statusKeys,
+    getFullColor,
     getFromTheme,
     getOpacity,
     get,

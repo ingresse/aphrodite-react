@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 
 /* Utilities */
@@ -128,9 +128,9 @@ function Avatar({
             {...rest}>
             <figcaption className="aph-avatar__initials">
                 {initials ? initials : (
-                    <>
+                    <Fragment>
                         {firstLetter}{lastLetter}
-                    </>
+                    </Fragment>
                 )}
             </figcaption>
         </AvatarStyled>

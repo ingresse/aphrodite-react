@@ -25,52 +25,159 @@ import {
         <Col xs={6} sm={3}>
             <Segment padding="10px 0">
                 <RadioButton
-                    id="regularRadioButton"
-                    name="selectByGroup"
-                    onChange={(evt) => alert(evt.target.value)}
-                    value="regularRadioButtonValue">
-                    Regular Radio Button
+                    name="exampleRadioGroup1"
+                    id="option1a"
+                    value="option1a"
+                    onChange={(evt) => console.log(evt.target.value)}
+                    checked
+                    autoFocus
+                >
+                    Option 1A
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup1"
+                    id="option1b"
+                    value="option1b"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 1B
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup1"
+                    id="option1c"
+                    value="option1c"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 1C
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup1"
+                    id="option1d"
+                    value="option1d"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 1D
                 </RadioButton>
             </Segment>
         </Col>
     </Row>
+
+    <hr style={{ margin: '20px 0' }} />
+
     <Row>
         <Col xs={6} sm={3}>
             <Segment padding="10px 0">
                 <RadioButton
-                    id="mascRadioButton"
-                    name="gender">
-                    Gender (MASC)
+                    name="exampleRadioGroup2"
+                    id="option2a"
+                    value="option2a"
+                    onChange={(evt) => console.log(evt.target.value)}
+                    disabled
+                >
+                    Option 2A
                 </RadioButton>
             </Segment>
         </Col>
         <Col xs={6} sm={3}>
             <Segment padding="10px 0">
                 <RadioButton
-                    id="femRadioButton"
-                    name="gender">
-                    Gender (FEM)
+                    name="exampleRadioGroup2"
+                    id="option2b"
+                    value="option2b"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 2B
                 </RadioButton>
             </Segment>
         </Col>
         <Col xs={6} sm={3}>
             <Segment padding="10px 0">
                 <RadioButton
-                    id="disbledRadioButton"
-                    name="disbledRadioButton"
-                    disabled={true}>
-                    Disabled Radio Button
+                    name="exampleRadioGroup2"
+                    id="option2c"
+                    value="option2c"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 2C
                 </RadioButton>
             </Segment>
         </Col>
         <Col xs={6} sm={3}>
             <Segment padding="10px 0">
                 <RadioButton
-                    id="disbledCheckedRadioButton"
-                    name="disbledCheckedRadioButton"
-                    checked={true}
-                    disabled={true}>
-                    Disabled Checked
+                    name="exampleRadioGroup2"
+                    id="option2d"
+                    value="option2d"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 2D
+                </RadioButton>
+            </Segment>
+        </Col>
+    </Row>
+
+    <hr style={{ margin: '20px 0' }} />
+
+    <Row>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup3"
+                    id="option3a"
+                    value="option3a"
+                    onChange={(evt) => console.log(evt.target.value)}
+               >
+                    Option 2A
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup3"
+                    id="option3b"
+                    value="option3b"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 3B
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup3"
+                    id="option3c"
+                    value="option3c"
+                    onChange={(evt) => console.log(evt.target.value)}
+                >
+                    Option 3C
+                </RadioButton>
+            </Segment>
+        </Col>
+        <Col xs={6} sm={3}>
+            <Segment padding="10px 0">
+                <RadioButton
+                    name="exampleRadioGroup3"
+                    id="option3d"
+                    value="option3d"
+                    onChange={(evt) => console.log(evt.target.value)}
+                    disabled
+                    checked
+                >
+                    Option 3D
                 </RadioButton>
             </Segment>
         </Col>

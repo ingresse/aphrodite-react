@@ -8,7 +8,7 @@ import { Playground, Props } from 'docz';
 import {
     Card,
     Container,
-    Segment
+    Styled
 } from '../';
 
 
@@ -30,16 +30,17 @@ import { Card } from '@ingresse/aphrodite';
 ## Example
 
 <Playground>
-    <Segment padding="45px 0">
+    <Styled padding="45px 0">
         <Container xs>
             <Card>
                 A simple card
             </Card>
         </Container>
-    </Segment>
+    </Styled>
 </Playground>
 
 
 ## Properties
 
+<Props of={Styled} />
 <Props of={Card} />

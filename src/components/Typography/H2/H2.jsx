@@ -20,14 +20,12 @@ const H2 = forwardRef((props, ref) => {
     const {
         className,
         color,
-
         align,
         center,
         left,
         right,
         lower,
         upper,
-
         ...rest
     } = props;
 
@@ -50,7 +48,7 @@ const H2 = forwardRef((props, ref) => {
 /* Default Properties */
 H2.defaultProps = {
     link  : false,
-    bold  : false,
+    bold  : true,
     center: false,
     upper : false,
     helper: false,

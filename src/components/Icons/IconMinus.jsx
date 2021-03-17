@@ -1,42 +1,26 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
 const IconMinus = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <g
                 id="aph-icon-group-minus"
                 stroke="none"
                 strokeWidth="1"
                 fill="none"
-                fillRule="evenodd">
+                fillRule="evenodd"
+            >
                 <rect
+
                     id="aph-icon-rect-minus"
-                    fill={color}
+                    className="aph-icon-fill"
                     rx="2.5"
-                    x="12.5"
+                    x="14.5"
                     y="5"
-                    width="5"
+                    width="2"
                     height="20"
                     transform="translate(15.000000, 15.000000) rotate(-270.000000) translate(-15.000000, -15.000000) "
                 />
@@ -45,5 +29,4 @@ const IconMinus = (props) => {
     );
 };
 
-/* Exporting */
 export default IconMinus;

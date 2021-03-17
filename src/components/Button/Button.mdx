@@ -7,7 +7,7 @@ route: /components/button
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { colors } from '../../utils';
-import { Button, Container, Segment, Row, Col } from '../';
+import { Button, Container, Styled, Row, Col } from '../';
 
 
 # Button
@@ -23,33 +23,33 @@ import { Button } from '@ingresse/aphrodite';
 ## Regular
 
 <Playground>
-    <Segment textAlign="center">
+    <Styled textAlign="center">
         <Button>
             Hello
         </Button>
-    </Segment>
+    </Styled>
 </Playground>
 
 
 ## Link
 
 <Playground>
-    <Segment textAlign="center">
+    <Styled textAlign="center">
         <Button link>
             Hello
         </Button>
-    </Segment>
+    </Styled>
 </Playground>
 
 
 ## Small
 
 <Playground>
-    <Segment textAlign="center">
+    <Styled textAlign="center">
         <Button small>
             Hello
         </Button>
-    </Segment>
+    </Styled>
 </Playground>
 
 
@@ -58,25 +58,25 @@ import { Button } from '@ingresse/aphrodite';
 <Playground>
     <Row horizontal="center">
         <Col xs={12} sm={4}>
-            <Segment padding="10px 20px" background={colors.get('info')}>
+            <Styled padding="10px 20px" background="info">
                 <Button block margin="10px 0" color="black">
                     black
                 </Button>
-            </Segment>
+            </Styled>
         </Col>
         <Col xs={12} sm={4}>
-            <Segment padding="10px 20px" background={colors.get('secondary')}>
+            <Styled padding="10px 20px" background="secondary">
                 <Button block margin="10px 0" color="white">
                     white
                 </Button>
-            </Segment>
+            </Styled>
         </Col>
         <Col xs={12} sm={4}>
-            <Segment padding="10px 20px" background={colors.get('success')}>
+            <Styled padding="10px 20px" background="success">
                 <Button block margin="10px 0" color="smoke">
                     smoke
                 </Button>
-            </Segment>
+            </Styled>
         </Col>
     </Row>
 </Playground>
@@ -90,7 +90,7 @@ import { Button } from '@ingresse/aphrodite';
 
         return (
             <section>
-                <Segment padding="20px 0">
+                <Styled padding="20px 0">
                     <Row horizontal="center" vertical="middle">
                         {colorsAlias.map((colorKey) => (
                             <Col xs={6} sm={4} md={4} lg={3} key={`color-${colorKey}`}>
@@ -103,8 +103,8 @@ import { Button } from '@ingresse/aphrodite';
                             </Col>
                         ))}
                     </Row>
-                </Segment>
-                <Segment padding="20px 0">
+                </Styled>
+                <Styled padding="20px 0">
                     <Row horizontal="center" vertical="middle">
                         {colorsAlias.map((colorKey) => (
                             <Col xs={6} sm={4} md={4} lg={3} key={`color-${colorKey}`}>
@@ -117,7 +117,7 @@ import { Button } from '@ingresse/aphrodite';
                             </Col>
                         ))}
                     </Row>
-                </Segment>
+                </Styled>
             </section>
         );
     }}
@@ -167,12 +167,12 @@ import { Button } from '@ingresse/aphrodite';
 
 <Playground>
     <Row horizontal="center">
-        <Col xs={12} sm={4} md={3}>
-            <Segment padding="10px 20px" background={colors.get('success')}>
+        <Col xs={12} sm={4}>
+            <Styled padding="10px 20px" background="success">
                 <Button block margin="10px 0" color="translucid">
                     translucid
                 </Button>
-            </Segment>
+            </Styled>
         </Col>
     </Row>
 </Playground>
@@ -224,11 +224,11 @@ import { Button } from '@ingresse/aphrodite';
         );
 
         return (
-            <Segment textAlign="center">
+            <Styled textAlign="center">
                 <Button as={Span}>
                     Custom Component
                 </Button>
-            </Segment>
+            </Styled>
         );
     }}
 </Playground>
@@ -257,18 +257,18 @@ import { Button } from '@ingresse/aphrodite';
         return (
             <Row horizontal="center">
                 <Col xs={12} sm={6}>
-                    <Segment textAlign="center">
+                    <Styled textAlign="center">
                         <Button onClick={toggleLoading} loading={loading}>
                             {btnText}
                         </Button>
-                    </Segment>
+                    </Styled>
                 </Col>
                 <Col xs={12} sm={6}>
-                    <Segment textAlign="center">
+                    <Styled textAlign="center">
                         <Button small onClick={toggleLoading} loading={loading}>
                             {btnText}
                         </Button>
-                    </Segment>
+                    </Styled>
                 </Col>
             </Row>
         );
@@ -280,7 +280,7 @@ import { Button } from '@ingresse/aphrodite';
 Ignore `color` attribute
 
 <Playground>
-    <Segment textAlign="center">
+    <Styled textAlign="center">
         <Row horizontal="center">
             <Col xs={6} sm={4}>
                 <Button disabled block color="success">
@@ -298,7 +298,7 @@ Ignore `color` attribute
                 </Button>
             </Col>
         </Row>
-    </Segment>
+    </Styled>
 </Playground>
 
 

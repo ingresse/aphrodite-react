@@ -1,0 +1,114 @@
+---
+name : Layer Condensed
+menu : › Components
+route: /components/layer-condensed
+---
+
+import { Playground, Props } from 'docz';
+import { Layer, LayerCondensed, LayerMenu, LayerStatus, ItemContent, Container, A, Row, Styled, Col } from '../';
+
+
+# Layer Condensed
+### Organizing information with an alternative to lists. "Layer" as base.
+
+## Advanced Example
+
+<Playground>
+    {() => {
+        const list = [
+            {
+                loading: true,
+            },
+            {
+                menu: {
+                    options: [
+                        {
+                            children: (<A target='_blank' href='https://www.ingresse.com'>Visit ingresse.com</A>),
+                            withLink: true,
+                        },
+                    ],
+                },
+            },
+            {
+                status: {
+                    children: 'Parcialmente Aprovado',
+                    color: 'partially-approved',
+                },
+                menu: {
+                    options: [
+                        {
+                            children: (<A target='_blank' href='https://www.ingresse.com'>Visit ingresse.com</A>),
+                            withLink: true,
+                        },
+                    ],
+                },
+            },
+            {
+                status: {
+                    children: 'Aprovado',
+                    color: 'approved',
+                },
+            },
+        ];
+
+        return (
+            <Container styles={{ lineHeight: '20px' }}>
+                {list.map(({ status, menu, loading }, index) => (
+                    <LayerCondensed
+                        key={`layer-condensed-example-${index}`}
+                        withLink
+                        menu={menu}
+                        status={status}
+                        checkbox={index === 0 ? null : { id: `chatuba-de-mesquita-${index}` }}
+                        loading={loading || index === 1}
+                    >
+                        <A
+                            target="_blank"
+                            href="https://github.com/ingresse/aphrodite-react"
+                        >
+                            <Row>
+                                <Col xs={6} sm={3}>
+                                    <ItemContent loading={loading || index === 1} label="# | Data">
+                                        {index + 1} | 18/03/2021
+                                    </ItemContent>
+                                </Col>
+                                <Col xs={6} sm={3}>
+                                    <ItemContent loading={loading || index === 1} label="Valor">
+                                        R$ {index + 1}0,00
+                                    </ItemContent>
+                                </Col>
+                                <Col xs={6} sm={3}>
+                                    <ItemContent loading={loading || index === 1} label="Evento">
+                                        O melhor
+                                    </ItemContent>
+                                </Col>
+                                <Col xs={6} sm={3}>
+                                    <ItemContent loading={loading || index === 1} label="Q+">
+                                        Sei ñ
+                                    </ItemContent>
+                                </Col>
+                            </Row>
+                        </A>
+                    </LayerCondensed>
+                ))}
+            </Container>
+        );
+    }}
+</Playground>
+
+
+## LayerCondensed properties
+
+<Props of={LayerCondensed} />
+<Props of={Layer} />
+
+
+## LayerStatus properties
+
+<Props of={LayerStatus} />
+
+
+## LayerMenu properties
+
+<Props of={LayerMenu} />
+

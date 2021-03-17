@@ -5,11 +5,11 @@ route: /components/layer
 ---
 
 import { Playground, Props } from 'docz';
-import { Layer, LayerMenu, LayerStatus, Container, Link } from '../';
+import { Layer, LayerMenu, LayerStatus, Container, Link, Styled } from '../';
 
 
 # Layer
-### Organizing information with an alternative to lists.
+### Organizing information with an alternative to lists. "Styled" as base.
 
 ## Examples
 
@@ -17,6 +17,14 @@ import { Layer, LayerMenu, LayerStatus, Container, Link } from '../';
     <Container styles={{ lineHeight: '20px' }}>
         <Layer>
             regular
+        </Layer>
+        <Layer isLoading>
+            isLoading prop
+        </Layer>
+        <Layer withLink>
+            <a target="_blank" href="https://www.ingresse.com">
+                withLink prop
+            </a>
         </Layer>
         <Layer
             menu={{
@@ -44,8 +52,30 @@ import { Layer, LayerMenu, LayerStatus, Container, Link } from '../';
         <Layer
             status={{
                 children: 'disabled status example',
-            }}>
+            }}
+        >
             status prop
+        </Layer>
+        <Layer
+            status={{
+                children: 'disabled status example',
+            }}
+            radio={{
+                id: 'layer-radio-value-1',
+                name: 'layer-radio',
+            }}
+        >
+            radio & status props
+        </Layer>
+        <Layer
+            status={{
+                children: 'disabled status example',
+            }}
+            checkbox={{
+                id: 'layer-checkbox',
+            }}
+        >
+            checkbox & status props
         </Layer>
     </Container>
 </Playground>
@@ -79,6 +109,7 @@ import { Layer, LayerMenu, LayerStatus, Container, Link } from '../';
 
 ## Layer properties
 
+<Props of={Styled} />
 <Props of={Layer} />
 
 

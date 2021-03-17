@@ -14,7 +14,7 @@ const AphButtonItemStyled = styled.span`
 
     text-align: center;
 
-    transition-timing-function: linear;
+    transition-timing-function: ease;
     transition-duration       : 0.25s;
     transition-property       : opacity;
 `;

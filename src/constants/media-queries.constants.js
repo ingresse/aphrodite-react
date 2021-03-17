@@ -1,5 +1,5 @@
 /* Constants */
-import { SCREEN_SIZES } from './';
+import { SCREEN_SIZES } from './screen-sizes.constants';
 
 /* Media Queries */
 export const MEDIA_QUERIES = {

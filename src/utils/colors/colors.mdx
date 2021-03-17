@@ -20,8 +20,11 @@ import { colors } from '@ingresse/aphrodite';
 colors.get('primary', 'dark', 0.1);
 ```
 
+-
 
 ## Palette Shades
+#### You'll see the same color multiple times with different names.
+-
 
 <Playground>
     {() => {
@@ -62,13 +65,13 @@ colors.get('primary', 'dark', 0.1);
         let colorsShades = [];
 
         for (const colorKey in colors.shades) {
-            const colorShades = colors.shades[colorKey];
+            const _colorShades = colors.shades[colorKey];
 
-            for (const colorShadeKey in colorShades) {
+            for (const colorShadeKey in _colorShades) {
                 colorsShades.push({
                     name : colorKey,
                     shade: colorShadeKey,
-                    value: colorShades[colorShadeKey],
+                    value: _colorShades[colorShadeKey],
                 });
             }
         }

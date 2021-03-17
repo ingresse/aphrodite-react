@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
 const IconTicketbooth = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <defs>
                 <path
                     id="aph-icon-defs-path-ticketbooth"
@@ -37,15 +19,17 @@ const IconTicketbooth = (props) => {
                 fill="none"
                 fillRule="evenodd">
                 <mask
+
                     id="aph-icon-mask-ticketbooth"
-                    fill={color}>
+                    className="aph-icon-fill">
                     <use
                         xlinkHref="#aph-icon-defs-path-ticketbooth"
                     />
                 </mask>
                 <use
+
                     id="aph-icon-use-ticketbooth"
-                    fill={color}
+                    className="aph-icon-fill"
                     xlinkHref="#aph-icon-defs-path-ticketbooth"
                     transform="translate(15.000000, 15.000000) rotate(-45.000000) translate(-15.000000, -15.000000)"
                 />
@@ -54,5 +38,4 @@ const IconTicketbooth = (props) => {
     );
 };
 
-/* Exporting */
 export default IconTicketbooth;

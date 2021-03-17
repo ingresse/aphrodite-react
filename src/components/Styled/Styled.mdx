@@ -1,0 +1,93 @@
+---
+name : Styled
+menu : › Components
+route: /components/styled
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { Styled, Container, Row, Col, Card, Switch } from '../';
+
+# Styled
+### A simple component block which accepts custom props and styles.
+
+.
+
+<Playground component={Container} sm>
+    <Styled
+        background="supernova,crystal,0.5"
+        color="supernova"
+        padding="15px"
+        radius="15px"
+        shadow
+        shadowColor="supernova,dark"
+        shadowSpread="10px"
+    >
+        Styled with custom props.
+    </Styled>
+</Playground>
+
+.
+
+## Simple example
+
+<Playground>
+    <Styled as="section">
+        "Styled" renderized with "section" tag instead of "div".
+    </Styled>
+</Playground>
+
+.
+
+.
+
+## Borders example
+
+<Playground>
+    <Styled
+        borderTop
+        borderBottom
+        margin="30px 0"
+        padding="15px"
+    >
+        Hello, borders.
+        <br />
+        Or should I'd say "shadows as borders"?!
+    </Styled>
+
+    <Styled
+        borderTop
+        borderRight="tangerine"
+        borderBottom="ocean"
+        borderLeft="ruby"
+        margin="30px 0"
+        padding="15px"
+        radius={10}
+    >
+        Too many borders combined.
+        <br />
+        Check the 4 corners
+    </Styled>
+</Playground>
+
+.
+
+## Mixing styles example
+
+<Playground>
+    <Styled
+        as={Container}
+        background="mercury,crystal"
+        padding="15px"
+        radius={5}
+        xs // this is a "Container" prop and you can use all others
+    >
+        "Styled" mixed up with "Container" component styles.
+    </Styled>
+</Playground>
+
+.
+
+## Properties
+
+<Props of={Styled} />

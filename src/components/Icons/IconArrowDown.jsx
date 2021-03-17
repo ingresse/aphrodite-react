@@ -1,29 +1,11 @@
-/* Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon */
 const IconArrowDown = (props) => {
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        width,
-        height,
-        color,
-        className,
-    } = props;
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <g
                 id="aph-icon-arrow-down-group"
                 stroke="none"
@@ -31,11 +13,12 @@ const IconArrowDown = (props) => {
                 fill="none"
                 fillRule="evenodd"
                 strokeLinecap="round"
-                strokeLinejoin="round">
+                strokeLinejoin="round"
+            >
                 <polyline
-                    id="aph-icon-arrow-down-polyline"
-                    stroke={color}
+                    className="aph-icon-stroke"
                     strokeWidth="2"
+                    id="aph-icon-arrow-down-polyline"
                     points="10 12 15 17.7142857 20 12"
                 />
             </g>
@@ -43,5 +26,4 @@ const IconArrowDown = (props) => {
     );
 };
 
-/* Exporting Component */
 export default IconArrowDown;

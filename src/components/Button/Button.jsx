@@ -1,38 +1,27 @@
-/* Core Packages */
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { Fragment, forwardRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-
-/* Component Helpers */
-import { Icon } from '../';
-
-/* Component Styles */
+import Icon from '../Icons/Icon';
 import AphButtonStyled from './ButtonStyled';
 import AphButtonItemStyled from './ButtonItemStyled';
 
-/* Component Itself */
-const Button = forwardRef((props, ref) => {
-    /**
-     * Component props
-     */
-    const {
-        block,
-        circle,
-        className,
-        color,
-        children,
-        loading,
-        disabled,
-
-        margin,
-        link,
-        radius,
-        sm,
-        small,
-        styles,
-        translucid,
-
-        ...rest
-    } = props;
+const Button = forwardRef(({
+    block,
+    circle,
+    className,
+    color,
+    children,
+    loading,
+    disabled,
+    margin,
+    link,
+    radius,
+    sm,
+    small,
+    styles,
+    translucid,
+    weight,
+    ...rest
+}, ref) => {
 
     /**
      * Local values
@@ -71,13 +60,16 @@ const Button = forwardRef((props, ref) => {
             aphradius={radius}
             aphstyles={styles}
             aphtranslucid={translucid ? 1 : 0}
+            aphweight={weight}
             disabled={disabled}
-            className={`aph-btn${loading ? ' aph-btn--loading' : ''} ${className}`}>
+            className={`aph-btn${loading ? ' aph-btn--loading' : ''} ${className}`}
+        >
             {(typeof loading !== 'boolean') ? (children) : (
-                <>
+                <Fragment>
                     <AphButtonItemStyled
                         className="aph-btn__loader"
-                        childrenWidth={childrenWidth ? `${childrenWidth}px` : null}>
+                        childrenWidth={childrenWidth ? `${childrenWidth}px` : null}
+                    >
                         {(!loading) ? (null) : (
                             <Icon
                                 size={30}
@@ -91,13 +83,12 @@ const Button = forwardRef((props, ref) => {
                         className="aph-btn__content">
                         {children}
                     </AphButtonItemStyled>
-                </>
+                </Fragment>
             )}
         </AphButtonStyled>
     );
 });
 
-/* Default Properties */
 Button.defaultProps = {
     as       : 'button',
     type     : 'button',
@@ -108,11 +99,11 @@ Button.defaultProps = {
     small    : false,
     block    : false,
     disabled : false,
-    loading  : undefined,
+    loading  : false,
     styles   : {},
+    weight   : 'bold',
 };
 
-/* Properties Types */
 Button.propTypes = {
     /**
      * Button Type:
@@ -173,6 +164,11 @@ Button.propTypes = {
         PropTypes.string,
         PropTypes.object,
     ]),
+
+    /**
+     * Font Weight
+     */
+    weight: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
 };
 
 /* Exporting */

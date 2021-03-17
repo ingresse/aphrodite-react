@@ -1,30 +1,11 @@
-/* Core Packages */
 import React from 'react';
+import { getFilteredProps } from './settings';
 
-/* Icon Itself */
-function IconSearch (props) {
+const IconSearch = (props) => {
+    const { color, ...rest } = getFilteredProps(props);
 
-    /**
-     * Inherit props
-     */
-    const {
-        size,
-        color,
-        width,
-        height,
-        className,
-    } = props;
-
-    /**
-     * Render
-     */
     return (
-        <svg
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-            width={(width || size)}
-            height={(height || size)}
-            viewBox="0 0 30 30">
+        <svg {...rest} viewBox="0 0 30 30">
             <g
                 id="IconSearchGroup"
                 stroke="none"
@@ -34,18 +15,20 @@ function IconSearch (props) {
                 strokeLinecap="round"
                 strokeLinejoin="round">
                 <circle
+
+                    className="aph-icon-stroke"
                     id="IconSearchCircle"
-                    stroke={color}
-                    strokeWidth="3.5"
+                    strokeWidth="2"
                     cx="12.5"
                     cy="12.9"
                     r="6"
                 />
                 <path
+
+                    className="aph-icon-stroke"
                     d="M17.5,17.9 L23,23.4"
                     id="IconSearchLiner"
-                    stroke={color}
-                    strokeWidth="3.5"
+                    strokeWidth="2"
                 />
             </g>
         </svg>

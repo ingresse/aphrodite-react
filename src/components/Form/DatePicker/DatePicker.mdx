@@ -1,0 +1,109 @@
+---
+name : Form | DatePicker
+menu : › Components
+route: /components/form/date-picker
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import dayjs from 'dayjs';
+import {
+    DatePicker,
+    Styled,
+    Row,
+    Col,
+} from '../../';
+
+
+# Form | DatePicker
+### Uses browser's datepicker and do some validations. Have a simple fallback to older browsers who doesn't have picker (Safari Desktop).
+
+
+## Example
+<Playground>
+    {() => {
+        const [example, setExample] = useState('');
+
+        function handleChange({ target }) {
+            const { value } = target || {};
+
+            setExample(value);
+        }
+
+        return (
+            <>
+                <DatePicker
+                    dateLib={dayjs}
+                    value={example}
+                    onChange={handleChange}
+                    label="Choose a date"
+                />
+                <br />
+                <div>
+                    <strong>date: </strong>
+                    {example}
+                </div>
+            </>
+        );
+    }}
+</Playground>
+
+
+## Minimum Date
+<Playground>
+    {() => {
+        const min = dayjs().format('YYYY-MM-DD');
+        const minInstance = dayjs();
+        const [examples, setExamples] = useState({});
+        const [errors, setErrors] = useState({});
+
+        function handleChange({ target }) {
+            const { id, value, invalid } = target || {};
+
+            setExamples({ [id]: value });
+            setErrors({ [id]: !!invalid });
+        }
+
+        return (
+            <Row>
+                <Col xs={12} sm={6} styles={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                    <strong>Minimum date, in "YYYY-MM-DD" format.<br />(Browser's default format).</strong>
+                    <br />
+                    <br />
+                    <DatePicker
+                        dateLib={dayjs}
+                        id="min"
+                        error={errors.min}
+                        value={examples.min}
+                        onChange={handleChange}
+                        label="Choose a future date"
+                        min={min}
+                    />
+                    <br />
+                    <div><strong>min: </strong>{JSON.stringify(min)}</div>
+                    <div><strong>date: </strong>{examples.min}</div>
+                    <div><strong>error: </strong>{errors.min}</div>
+                </Col>
+                <Col xs={12} sm={6} styles={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                    <DatePicker
+                        dateLib={dayjs}
+                        id="minInstance"
+                        error={errors.minInstance}
+                        value={examples.minInstance}
+                        onChange={handleChange}
+                        label="Choose a future date"
+                        min={minInstance}
+                    />
+                    <br />
+                    <div><strong>min: </strong>{JSON.stringify(minInstance)}</div>
+                    <div><strong>date: </strong>{examples.minInstance}</div>
+                    <div><strong>error: </strong>{errors.minInstance}</div>
+                </Col>
+            </Row>
+        );
+    }}
+</Playground>
+
+## Properties
+
+<Props of={DatePicker} />

@@ -12,7 +12,7 @@ import {
     Segment,
     Button,
     Card,
-    InputNumber,
+    InputNumeric,
     Select,
     Row,
     Col,
@@ -58,26 +58,26 @@ function countdownFinished() {
         }
 
         return (
-            <Segment
-                padding="45px 0">
+            <Segment padding="45px 0">
                 <Container xs>
                     <Card padding="10px 20px">
                         {(counting) ? (
                             <Segment
                                 padding="10px 0"
-                                textAlign="center">
+                                textAlign="center"
+                            >
                                 <Countdown
                                     size={size}
                                     seconds={seconds}
                                     color={color}
                                     onFinishCallback={countdownFinished}
                                 />
-                                <Segment
-                                    padding="20px 0 0">
+                                <Segment padding="20px 0 0">
                                     <Button
                                         link
                                         color={btnColor}
-                                        onClick={() => setCounting(false)}>
+                                        onClick={() => setCounting(false)}
+                                    >
                                         Cancel
                                     </Button>
                                 </Segment>
@@ -87,19 +87,19 @@ function countdownFinished() {
                                 <Row horizontal="center">
                                     <Col xs={6} sm={6}>
                                         <Segment padding="10px 0">
-                                            <InputNumber
+                                            <InputNumeric
                                                 label="Size"
                                                 value={size}
-                                                onChange={setSize}
+                                                onChange={(evt, n) => setSize(parseInt(n, 10))}
                                             />
                                         </Segment>
                                     </Col>
                                     <Col xs={6} sm={6}>
                                         <Segment padding="10px 0">
-                                            <InputNumber
+                                            <InputNumeric
                                                 label="Seconds"
                                                 value={seconds}
-                                                onChange={setSeconds}
+                                                onChange={(evt, n) => setSeconds(parseInt(n, 10))}
                                             />
                                         </Segment>
                                     </Col>
@@ -108,7 +108,8 @@ function countdownFinished() {
                                             <Select
                                                 label="Color"
                                                 value={color}
-                                                onChange={({ target }) => setColor(target.value)}>
+                                                onChange={({ target }) => setColor(target.value)}
+                                            >
                                                 <option value={Countdown.color}>
                                                     default
                                                 </option>
@@ -125,11 +126,13 @@ function countdownFinished() {
                                 </Row>
                                 <Segment
                                     padding="10px 0"
-                                    textAlign="center">
+                                    textAlign="center"
+                                >
                                     <Button
                                         link
                                         color={btnColor}
-                                        onClick={() => setCounting(true)}>
+                                        onClick={() => setCounting(true)}
+                                    >
                                         Start
                                     </Button>
                                 </Segment>

@@ -6,8 +6,6 @@ import colors from '../colors/colors.utils';
  */
 let palette    = {};
 const excluded = [
-    ...colors.aliasKeys,
-    ...colors.statusKeys,
     'poison',
     'translucid',
 ];

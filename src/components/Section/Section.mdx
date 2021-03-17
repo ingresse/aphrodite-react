@@ -1,0 +1,80 @@
+---
+name : Section
+menu : › Components
+route: /components/section
+---
+
+import { Playground, Props } from 'docz';
+import { Section, SectionTitle, Styled, Layer, ItemContent } from '../';
+
+# Section
+### A section block with some predefinitions. "Styled" as base. "SectionTitle" as element title.
+
+```jsx
+import { Section } from '@ingresse/aphrodite';
+
+<Section title="Hello">
+    World
+</Section>
+```
+
+<Playground>
+    <Section title="Hello">
+        World
+    </Section>
+</Playground>
+
+
+## Advanced
+
+<Playground>
+    <Styled
+        fontSize="16px"
+        lineHeight="20px"
+    >
+        <Section title={(<u>Title can be an element</u>)}>
+            big news... <strong>kkkry</strong>
+        </Section>
+        <Section
+            padding="10px 15px"
+            title={{
+                id: 'with-hash-example',
+                children: `Title as 'SectionTitle' props object`,
+            }}
+        >
+            <ItemContent>
+                Passing the prop "id" inside the title object, will put the id as URL hash when users click over the title element.
+            </ItemContent>
+        </Section>
+        <Section
+            loading
+            padding="10px 15px"
+            title="Loading state"
+        >
+            <ItemContent loading />
+            <ItemContent>
+                The "loading" prop changes text color, if your app have some loading state case like this.
+            </ItemContent>
+            <ItemContent loading placeholderWidth={180} />
+        </Section>
+        <Section
+            withLayer={false}
+            title="A section without 'Layer' as content's wrapper"
+        >
+            Won't maded to use in this way, but can be necessary in some cases.
+        </Section>
+    </Styled>
+</Playground>
+
+
+## Section Properties
+
+<Props of={Section} />
+<Props of={Layer} />
+<Props of={Styled} />
+
+
+## SectionTitle Properties
+
+<Props of={SectionTitle} />
+<Props of={Styled} />
