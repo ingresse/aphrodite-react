@@ -4,7 +4,7 @@ menu : › Components
 route: /components/form/date-picker
 ---
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Playground, Props } from 'docz';
 import dayjs from 'dayjs';
 import {
@@ -14,36 +14,36 @@ import {
     Col,
 } from '../../';
 
-
 # Form | DatePicker
-### Uses browser's datepicker and do some validations. Have a simple fallback to older browsers who doesn't have picker (Safari Desktop).
+### Uses browser's datepicker and do some validations.
+### Disabled in browsers who doesn't have picker (Safari Desktop).
+### This component works with [Day.js](https://day.js.org/), which is a project dependency.
 
-
-## Example
+## Examples
 <Playground>
     {() => {
-        const [example, setExample] = useState('');
-
-        function handleChange({ target }) {
-            const { value } = target || {};
-
-            setExample(value);
-        }
+        const [example, setExample] = useState();
 
         return (
-            <>
-                <DatePicker
-                    dateLib={dayjs}
-                    value={example}
-                    onChange={handleChange}
-                    label="Choose a date"
-                />
-                <br />
-                <div>
-                    <strong>date: </strong>
-                    {example}
-                </div>
-            </>
+            <Row>
+                <Col as={Styled} xs={12} sm={6} padding="10px">
+                    <div>
+                        Regular DatePicker
+                    </div>
+                    <br />
+                    <DatePicker
+                        id="example"
+                        value={example}
+                        onChange={({ target }) => setExample(target.value)}
+                        label="Pick a date"
+                    />
+                    <br />
+                    <div>
+                        <strong>date: </strong>
+                        {JSON.stringify(example)}
+                    </div>
+                </Col>
+            </Row>
         );
     }}
 </Playground>
@@ -52,58 +52,110 @@ import {
 ## Minimum Date
 <Playground>
     {() => {
-        const min = dayjs().format('YYYY-MM-DD');
-        const minInstance = dayjs();
-        const [examples, setExamples] = useState({});
-        const [errors, setErrors] = useState({});
-
-        function handleChange({ target }) {
-            const { id, value, invalid } = target || {};
-
-            setExamples({ [id]: value });
-            setErrors({ [id]: !!invalid });
-        }
+        const min                   = dayjs().add(30, 'days');
+        const today                 = dayjs();
+        const [example, setExample] = useState(today);
 
         return (
-            <Row>
-                <Col xs={12} sm={6} styles={{ paddingTop: '10px', paddingBottom: '10px' }}>
-                    <strong>Minimum date, in "YYYY-MM-DD" format.<br />(Browser's default format).</strong>
-                    <br />
+            <Row vertical="start">
+                <Col as={Styled} xs={12} sm={6} padding="10px">
+                    <div>
+                        Minimum: {min.format('YYYY-MM-DD')}
+                    </div>
                     <br />
                     <DatePicker
-                        dateLib={dayjs}
-                        id="min"
-                        error={errors.min}
-                        value={examples.min}
-                        onChange={handleChange}
-                        label="Choose a future date"
+                        id="example2"
+                        value={example.value}
+                        onChange={({ target }) => setExample(target.value)}
+                        label="Pick a date"
                         min={min}
                     />
                     <br />
-                    <div><strong>min: </strong>{JSON.stringify(min)}</div>
-                    <div><strong>date: </strong>{examples.min}</div>
-                    <div><strong>error: </strong>{errors.min}</div>
-                </Col>
-                <Col xs={12} sm={6} styles={{ paddingTop: '10px', paddingBottom: '10px' }}>
-                    <DatePicker
-                        dateLib={dayjs}
-                        id="minInstance"
-                        error={errors.minInstance}
-                        value={examples.minInstance}
-                        onChange={handleChange}
-                        label="Choose a future date"
-                        min={minInstance}
-                    />
-                    <br />
-                    <div><strong>min: </strong>{JSON.stringify(minInstance)}</div>
-                    <div><strong>date: </strong>{examples.minInstance}</div>
-                    <div><strong>error: </strong>{errors.minInstance}</div>
+                    <div>
+                        <strong>date: </strong>
+                        {JSON.stringify(example)}
+                    </div>
                 </Col>
             </Row>
         );
     }}
 </Playground>
 
-## Properties
 
+## Maximum Date
+<Playground>
+    {() => {
+        const max                   = dayjs().subtract(30, 'days');
+        const today                 = dayjs();
+        const [example, setExample] = useState(today);
+
+        return (
+            <Row vertical="start">
+                <Col as={Styled} xs={12} sm={6} padding="10px">
+                    <div>
+                        Maximum: {max.format('YYYY-MM-DD')}
+                    </div>
+                    <br />
+                    <DatePicker
+                        id="example3"
+                        value={example.value}
+                        onChange={({ target }) => setExample(target.value)}
+                        label="Pick a date"
+                        max={max}
+                    />
+                    <br />
+                    <div>
+                        <strong>date: </strong>
+                        {JSON.stringify(example.value)}
+                    </div>
+                </Col>
+            </Row>
+        );
+    }}
+</Playground>
+
+
+## Minimum and Maximum
+<Playground>
+    {() => {
+        const [min, setMin] = useState(dayjs().subtract(2, 'days').format('YYYY-MM-DD'));
+        const [max, setMax] = useState(dayjs().add(2, 'days').format('YYYY-MM-DD'));
+
+        return (
+            <Row vertical="start">
+                <Col as={Styled} xs={12} sm={6} padding="10px">
+                    <DatePicker
+                        id="exampleFrom"
+                        value={min}
+                        onChange={({ target }) => setMin(target.value)}
+                        label="From"
+                        max={max}
+                    />
+                    <br />
+                    <div>
+                        <strong>date: </strong>
+                        {JSON.stringify(min)}
+                    </div>
+                </Col>
+                <Col as={Styled} xs={12} sm={6} padding="10px">
+                    <DatePicker
+                        id="exampleTo"
+                        value={max}
+                        onChange={({ target }) => setMax(target.value)}
+                        label="To"
+                        min={min}
+                    />
+                    <br />
+                    <div>
+                        <strong>date: </strong>
+                        {JSON.stringify(max)}
+                    </div>
+                </Col>
+            </Row>
+        );
+    }}
+</Playground>
+
+
+## Properties
 <Props of={DatePicker} />

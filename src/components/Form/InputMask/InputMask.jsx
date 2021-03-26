@@ -7,16 +7,28 @@ import LibInputMask from 'react-input-mask';
 import Input from '../Input/Input';
 
 /* Component Itself */
-function InputMask(props) {
+function InputMask({
+    mask,
+    value,
+    onChange,
+    ref,
+    inputRef,
+    ...props
+}) {
     /**
      * Render
      */
     return (
         <LibInputMask
-            {...props}>
+            mask={mask}
+            value={value}
+            onChange={onChange}
+            {...props}
+        >
             {(inputProps) => (
                 <Input
                     {...inputProps}
+                    inputRef={ref || inputRef}
                 />
             )}
         </LibInputMask>

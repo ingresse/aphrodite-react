@@ -1,29 +1,21 @@
-/* Core Packages */
 import styled from '@emotion/styled';
+import { colors, styling } from '../../utils';
 
-/* UI Library definitions */
-import { colors } from '../../utils';
-
-/* Component Itself */
 const AphButtonStyled = styled.button`
-    box-sizing: border-box;
     position  : relative;
     overflow  : hidden;
-
     cursor    : pointer;
     display   : ${props => props.aphblock ? '' : 'inline-'}block;
 
-    width    : ${props => props.aphblock ? '100%' : 'auto'};
-    min-width: ${props => props.aphcircle ? ((props.aphsm || props.aphsmall) ? '30px' : '40px') : '140px'};
-    padding  : ${props => ((props.aphsm || props.aphsmall) ? `5px ${props.aphcircle ? 0 : '15px'}` : `10px  ${props.aphcircle ? 0 : '20px'}`)};
-    margin   : ${props => props.aphmargin};
+    ${props => styling(props)};
+
+    width: ${props => props.aphblock ? '100%' : 'auto'};
 
     font-weight: ${({ aphweight }) => aphweight};
     font-size  : 16px;
     line-height: 20px;
-    text-align : center;
-
-    border-radius: ${props => ((props.aphradius || 25) + ((props.aphradius + '').includes('px') ? '' : 'px'))};
+    text-align  : center;
+    text-decoration: none;
 
     border : 0;
     outline: 0;
@@ -40,10 +32,6 @@ const AphButtonStyled = styled.button`
             'transparent' :
             colors.getFromTheme(props, (props.aphcolor || 'secondary'))
     };
-
-    transition-timing-function: ease;
-    transition-duration       : 0.2s;
-    transition-property       : background-color, color, width;
 
     &:hover {
         background-color: ${props =>

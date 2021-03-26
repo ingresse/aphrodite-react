@@ -218,19 +218,11 @@ import { Button } from '@ingresse/aphrodite';
 ## Custom Component
 
 <Playground>
-    {() => {
-        const Span = (props) => (
-            <span {...props} />
-        );
-
-        return (
-            <Styled textAlign="center">
-                <Button as={Span}>
-                    Custom Component
-                </Button>
-            </Styled>
-        );
-    }}
+    <Styled textAlign="center">
+        <Button as="a" target="_blank" href="https://www.ingresse.com">
+            Custom Component
+        </Button>
+    </Styled>
 </Playground>
 
 

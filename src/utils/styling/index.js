@@ -1,16 +1,16 @@
 import { css } from '@emotion/core';
 import { colorfull } from './colorfull';
 import { flex } from './flex';
-import { radius } from './radius';
+import { sizes } from './sizes';
 
 const styling = (props) => css`
   ${colorfull(props)};
   ${flex(props)};
-  ${radius(props)};
+  ${sizes(props)};
 `;
 
 styling.colorfull = colorfull;
-styling.flex = flex;
-styling.radius = radius;
+styling.flex      = flex;
+styling.sizes     = sizes;
 
 export { styling };

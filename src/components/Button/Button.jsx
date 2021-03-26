@@ -30,6 +30,12 @@ const Button = forwardRef(({
     const [ childrenWidth, setChildrenWidth ] = useState(140);
 
     /**
+     * Styling values
+     */
+    const padding  = (circle ? '50%' : (sm || small) ? '5px 15px' : '10px 20px');
+    const minWidth = (circle ? ((sm || small) ? '30px' : '40px') : '140px');
+
+    /**
      * Children Did Update
      */
     useEffect(() => {
@@ -57,6 +63,8 @@ const Button = forwardRef(({
             aphcolor={color}
             aphlink={link ? 1 : 0}
             aphmargin={margin}
+            aphminwidth={minWidth}
+            aphpadding={padding}
             aphradius={radius}
             aphstyles={styles}
             aphtranslucid={translucid ? 1 : 0}
@@ -64,13 +72,13 @@ const Button = forwardRef(({
             disabled={disabled}
             className={`aph-btn${loading ? ' aph-btn--loading' : ''} ${className}`}
         >
-            {(typeof loading !== 'boolean') ? (children) : (
+            {(typeof loading !== 'boolean') ? children : (
                 <Fragment>
                     <AphButtonItemStyled
                         className="aph-btn__loader"
                         childrenWidth={childrenWidth ? `${childrenWidth}px` : null}
                     >
-                        {(!loading) ? (null) : (
+                        {loading && (
                             <Icon
                                 size={30}
                                 slug="loader"
@@ -80,7 +88,8 @@ const Button = forwardRef(({
                     </AphButtonItemStyled>
                     <AphButtonItemStyled
                         ref={childrenRef}
-                        className="aph-btn__content">
+                        className="aph-btn__content"
+                    >
                         {children}
                     </AphButtonItemStyled>
                 </Fragment>
@@ -99,7 +108,8 @@ Button.defaultProps = {
     small    : false,
     block    : false,
     disabled : false,
-    loading  : false,
+    loading  : undefined,
+    radius   : 25,
     styles   : {},
     weight   : 'bold',
 };

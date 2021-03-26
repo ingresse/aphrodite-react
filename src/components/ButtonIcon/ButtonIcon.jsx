@@ -4,10 +4,9 @@ import Icon from '../Icons/Icon';
 
 export default function ButtonIcon({
   icon,
-  radius = '50%',
-  size = 40,
-  shadow = false,
-  styles = {},
+  size,
+  shadow,
+  styles,
   ...props
 }) {
   const btnSize = `${size}px`;
@@ -24,7 +23,6 @@ export default function ButtonIcon({
         width: btnSize,
         height: btnSize,
         minWidth: 'auto',
-        borderRadius: radius,
         boxShadow: !shadow ? null : (typeof shadow === 'string' ? shadow : '0 2px 10px 0 rgba(0,0,0,0.1)'),
         ...styles,
       }}
@@ -37,3 +35,10 @@ export default function ButtonIcon({
     </Button>
   );
 }
+
+ButtonIcon.defaultProps = {
+  radius: '50%',
+  size: 40,
+  shadow: false,
+  styles: {},
+};

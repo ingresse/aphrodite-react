@@ -25,7 +25,7 @@ export {
 export {
     Button,
     Container,
-    Segment,
+    Styled,
 } from '@ingresse/aphrodite';
 ```
 
@@ -38,7 +38,7 @@ import React from 'react';
 import {
     Button,
     Container,
-    Segment,
+    Styled,
 } from './components';
 
 function App() {
@@ -47,17 +47,19 @@ function App() {
     }
 
     return (
-        <Container>
-            <Segment
+        <Container sm>
+            <Styled
                 as="section"
                 textAlign="center"
-                background="helper">
+                backgroundColor="mercury,crystal,0.5"
+            >
                 <Button
-                    color="bamboo"
-                    onClick={handleClick}>
-                    Aphrodite Button
+                    color="success"
+                    onClick={handleClick}
+                >
+                    Hello World
                 </Button>
-            </Segment>
+            </Styled>
         </Container>
     );
 }
@@ -70,26 +72,10 @@ export default App;
 
 ## [Documentation](http://ingresse.github.io/aphrodite)
 
-We try, but isn't the most complete and readeable documentation (yet):
+We try, but isn't the most complete and readeable documentation:
 
 **[http://ingresse.github.io/aphrodite-react](http://ingresse.github.io/aphrodite-react)**
 
-
----
-
-
-## Development
-```
-yarn dev
-```
-
----
-
-
-## Build
-```
-yarn build
-```
-Distribution files will be in `dist` folder.
+:-)
 
 ---
