@@ -10,5 +10,5 @@ export const colorfull = ({
 }) => css`
   background: ${utility.getFullColor(componentProps, background)};
   background-color: ${utility.getFullColor(componentProps, backgroundColor)};
-  color: ${(!color && !textColor) ? null : utility.getFullColor(componentProps, (color || textColor))};
+  color: ${(!color && !textColor) ? null : utility.getFullColor(componentProps, (textColor || color))};
 `;

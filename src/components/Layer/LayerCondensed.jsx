@@ -1,5 +1,4 @@
 import React from 'react';
-import { colors } from '../../utils';
 import Layer from './Layer';
 
 export default function LayerCondensed({
@@ -18,10 +17,9 @@ export default function LayerCondensed({
   withLink,
   ...rest
 }) {
-  const hasInput        = !!(checkbox || radio);
-  const hasStatus       = !!status;
-  const backgroundName  = (!isLoading && (backgroundColor || backgroundColor) ? (background || backgroundColor) : (isLoading ? 'background' : 'transparent'));
-  const backgroundHover = colors.getFullColor(rest, 'background');
+  const hasInput       = !!(checkbox || radio);
+  const hasStatus      = !!status;
+  const backgroundName = (!isLoading && (backgroundColor || backgroundColor) ? (background || backgroundColor) : (isLoading ? 'background' : null));
 
   return (
     <Layer
@@ -37,11 +35,6 @@ export default function LayerCondensed({
       status={status}
       withLink={withLink}
       wrapperStyles={{
-        '&:active, &:focus, &:hover': {
-          '.aph-layer': {
-            backgroundColor: backgroundHover,
-          },
-        },
         '.aph-layer': {
           borderRadius: 0,
           paddingTop,

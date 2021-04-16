@@ -396,7 +396,7 @@ const set = (colorKey, shadeOriginal, shadeDark, shadeLight, shadeCrystal) => {
  *
  * @returns {string}
  */
-function getFullColor(componentProps = {}, colorString) {
+function getFullColor(componentProps, colorString) {
     if (!colorString) {
         return colorString;
     }
@@ -409,7 +409,7 @@ function getFullColor(componentProps = {}, colorString) {
     const colorKey         = colorNameOrValue.concat(isRgbOrHsl ? ')' : '');
 
     return getFromTheme(
-        componentProps = {},
+        componentProps || {},
         colorKey,
         colorArgs[0],
         colorArgs[1]

@@ -1,7 +1,7 @@
 # Aphrodite React
 ### React UI Library from ingresse.com
 
-A front-end library with Ingresse's styles, using `React` 16.
+A front-end library with Ingresse's styles, using `React` 16, based on [Emotion](https://emotion.sh).
 
 ---
 

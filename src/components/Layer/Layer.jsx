@@ -9,7 +9,7 @@ import { colors } from '../../utils';
 import { MEDIA_QUERIES } from '../../constants';
 
 const defaultClassName = 'aph-layer';
-const Wrapper = styled.div`
+const Wrapper = styled(Styled)`
   box-sizing: border-box;
   position  : relative;
   margin    : ${({ margin }) => margin};

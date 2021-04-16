@@ -1,0 +1,70 @@
+---
+name : Form | Input From To
+menu : › Components
+route: /components/form/input-from-to
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+    InputFromTo,
+    Col,
+    Container,
+    Row,
+    Styled,
+} from '../../';
+
+
+# From | Input From To
+### ...
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ form, setForm ] = useState({ from: '', to: '' });
+
+        function handleChange(evt) {
+            const { target } = evt;
+            const { id, value } = (target || {});
+            console.log('INPUT FROM TO CHANGED', id, value, evt)
+
+            setForm({
+                ...form,
+                [id]: value,
+            });
+        }
+
+        return (
+            <Container xs>
+                <Styled padding="10px 0">
+                    <InputFromTo
+                        from={{
+                            id: 'from',
+                            label: 'From date',
+                            value: form.from,
+                            max: form.to,
+                            onChange: handleChange,
+                        }}
+                        to={{
+                            id: 'to',
+                            label: 'To date',
+                            value: form.to,
+                            min: form.from,
+                            onChange: handleChange,
+                        }}
+                    />
+                </Styled>
+                <Row>
+                    <Col xs={6}>
+                        <strong>from</strong>: {form.from}
+                    </Col>
+                    <Col xs={6}>
+                        <strong>to</strong>: {form.to}
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }}
+</Playground>

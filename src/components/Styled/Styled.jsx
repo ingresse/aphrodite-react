@@ -13,24 +13,19 @@ const StyledStyled = styled.div`
     margin : ${({ customMargin }) => customMargin};
     padding: ${({ customPadding, withLink }) => (!customPadding || withLink) ? null : customPadding};
 
+    &:active, &:hover, &:focus {
+      background-color: ${({ hoverable, ...props }) => !hoverable ? null :
+        colors.getFullColor(props, (typeof hoverable === 'string' ? hoverable : 'background'))
+      };
+    }
+
     ${({
-      background,
-      backgroundColor,
       color,
       customPadding,
-      hoverable,
       textColor,
       withLink,
       ...props
     }) => !withLink ? null : css`
-      backround-color: ${background || backgroundColor ? null : 'transparent'};
-
-      ${hoverable && `
-        &:active, &:hover, &:focus {
-          background-color: ${colors.getFullColor(props, (typeof hoverable === 'string' ? hoverable : 'background'))};
-        }
-      `};
-
       a:first-of-type {
         color: ${color || textColor ? colors.getFullColor(props, (color || textColor)) : 'inherit'};
         display: block;
