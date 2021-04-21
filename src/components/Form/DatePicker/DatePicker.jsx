@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import dayjs from 'dayjs';
 import { MEDIA_QUERIES } from '../../../constants';
@@ -6,6 +6,7 @@ import { hasDatePickerSupport } from '../../../utils';
 import Input from '../Input/Input';
 import ButtonIcon from '../../ButtonIcon/ButtonIcon';
 import Styled from '../../Styled/Styled';
+import InputDateFallback from '../InputDateFallback/InputDateFallback';
 
 const formatBR  = 'DD/MM/YYYY';
 const formatSYS = 'YYYY-MM-DD';
@@ -31,37 +32,54 @@ function DatePicker({
     dateLib = dayjs,
     ...props
 }) {
-    const [ evt, setEvt ] = useState(null);
-    const [ value, setValue ] = useState('');
-    const [ display, setDisplay ] = useState(null);
-    const [ , setErased ] = useState(false);
-
     const asNativeDP = hasDatePickerSupport();
-    const type = (asNativeDP ? 'date' : 'tel');
+
+    if (!asNativeDP) {
+        return (
+            <InputDateFallback
+                id={id}
+                min={dateMin}
+                max={dateMax}
+                value={original}
+                onChange={onChange}
+                formatDisplay={formatDisplay}
+                formatReturn={formatReturn}
+                placeholder={placeholder}
+                label={label}
+                disabled={disabled}
+                erasable={erasable}
+                messageErase={messageErase}
+                messageInvalid={messageInvalid}
+                messageMin={messageMin}
+                messageMax={messageMax}
+                styles={css}
+                {...props}
+            />
+        );
+    }
+
+    const type = 'date';
     const minRef = (!dateMin ? null : dateLib(dateMin).set('second', 0).set('minute', 0).set('hour', 0));
     const maxRef = (!dateMax ? null : dateLib(dateMax).set('second', 59).set('minute', 59).set('hour', 23));
-    const dateRef = (!value ? null : dateLib(value));
     const min = minRef && minRef.isValid() ? minRef.format(formatSYS) : '';
     const max = maxRef && maxRef.isValid() ? maxRef.format(formatSYS) : '';
+    const [value, setValue] = useState(!original ? '' : dateLib(original).format(formatSYS));
 
-    const {
-        isInvalid,
-        isInvalidMin,
-        isInvalidMax,
-        isInvalidValue,
-    } = useMemo(() => {
-        const displayStriped = (asNativeDP ? '' : (display || '').replace(/_| /g, ''));
-        const isInvalidValue = (
-            (asNativeDP ? (!dateRef ? false : !dateRef.isValid()) : !!(
-                (displayStriped.length === formatDisplay.length) &&
-                !dateLib(display, formatDisplay).isValid()
-            ))
-        );
+    const validate = useCallback((newValue = '') => {
+        const dateRef = dateLib(newValue).isValid() ? dateLib(newValue) : null;
+        const dateMinRef = (!min || !dateLib(min).isValid()) ? null : dateLib(min).set('second', 0).set('minute', 0).set('hour', 0);
+        const dateMaxRef = (!max || !dateLib(max).isValid()) ? null : dateLib(max).set('second', 59).set('minute', 59).set('hour', 23);
+        const dateInvalid = !!(!dateRef || !dateRef.isValid());
+        const isInvalidValue = !!(newValue && dateInvalid);
         const isInvalidMin = (
-            (isInvalidValue || !dateRef || !minRef) ? false : !minRef.subtract(1, 'days').isBefore(dateRef)
+            (dateInvalid || isInvalidValue || !dateRef || !dateMinRef) ? false : (
+                dateRef.set('second', 1).set('minute', 0).set('hour', 0).isBefore(dateMinRef)
+            )
         );
         const isInvalidMax = (
-            (isInvalidValue || !dateRef || isInvalidMin || !maxRef) ? false : !maxRef.isAfter(dateRef)
+            (dateInvalid || isInvalidValue || !dateRef || !dateMaxRef) ? false : (
+                dateRef.set('second', 58).set('minute', 59).set('hour', 23).isAfter(dateMaxRef)
+            )
         );
         const isInvalid = !!(isInvalidValue || isInvalidMin || isInvalidMax);
 
@@ -71,16 +89,60 @@ function DatePicker({
             isInvalidMax,
             isInvalidValue
         };
+    }, [min, max]);
 
-        // eslint-disable-next-line
-    }, [ value, display ]);
+    const handleChange = useCallback((evt) => {
+        const { target, ...srcEvt } = evt;
+        const { value: targetValue, ...srcTarget } = target;
+        const normalized = dateLib(targetValue);
+        const newValue = normalized.isValid() ? normalized.format(formatSYS) : '';
+        const returnValue = normalized.isValid() ? normalized.format(formatReturn) : '';
+        const { isInvalid } = validate(newValue);
+
+        setValue(newValue);
+
+        if (original !== returnValue) {
+            onChange(Object.assign({}, srcEvt, {
+                target: Object.assign({}, srcTarget, {
+                    id,
+                    value: isInvalid ? '' : returnValue,
+                }),
+            }));
+        }
+    }, [onChange, id, formatReturn, validate, original]);
+
+    const handleErase = useCallback((btnEvt) => {
+        handleChange(Object.assign((btnEvt || {}), {
+            target: Object.assign((btnEvt || {}).target, {
+                id,
+                value: '',
+            }),
+        }));
+    }, [id, handleChange]);
+
+    useEffect(() => {
+        const normalized = dateLib(original);
+
+        if (!original || !normalized.isValid()) {
+            return;
+        }
+
+        setValue(normalized.format(formatSYS));
+    }, [original]);
+
+    const {
+        isInvalid,
+        isInvalidMin,
+        isInvalidMax,
+        isInvalidValue,
+    } = validate(value);
 
     const styles = {
         lineHeight: (!label ? '50px' : '30px'),
         '&.aph-form-control, &.aph-form-control--middle': {
             padding: (!label ? '0 10px' : '18px 10px 0'),
         },
-        ...(!label || (label && !asNativeDP) ? {} : {
+        ...(!label? {} : {
             '+ .aph-form-label': {
                 top: '0',
                 fontSize: '14px',
@@ -93,97 +155,33 @@ function DatePicker({
         type,
         label,
         styles,
+        placeholder,
         onChange: handleChange,
         error: !!isInvalid,
-        disabled: !asNativeDP || disabled,
-        placeholder: (!asNativeDP ? 'Navegador incompatível' : placeholder || ''),
+        disabled: disabled,
         ...props,
         min,
         max,
     };
 
-    function dateFormat(_date = '', _format = '') {
-        if (!_date) {
-            return '';
-        }
-
-        const _sys     = dateLib(_date);
-        const _display = dateLib(_date, formatDisplay);
-
-        if (_display.isValid()) {
-            return _display.format(_format);
-        }
-
-        if (_sys.isValid()) {
-            return _sys.format(_format);
-        }
-
-        return '';
-    }
-
-    function handleChange(evt) {
-        const { target } = evt || {};
-        const { value } = target || {};
-        const newValue = !value ? '' : dateLib(value);
-        const valueReturn = !newValue ? '' : newValue.format(formatReturn);
-
-        setErased(!newValue);
-        setValue(newValue.format(formatSYS));
-        setEvt(Object.assign(evt, {
-            target: Object.assign(target, {
-                value: valueReturn,
-            }),
-        }));
-    }
-
-    const handleErase = useCallback((btnEvt) => {
-        onChange(Object.assign((evt || btnEvt || {}), {
-            target: Object.assign((evt || btnEvt || {}).target, {
-                id,
-                value: '',
-            }),
-        }));
-
-        setValue('');
-        setDisplay('');
-        setErased(true);
-    }, [id, handleChange]);
-
-    useEffect(() => {
-        if (!evt ||
-            (original === value) ||
-            (value && (value || '').length !== formatReturn.length)
-        ) {
-            return;
-        }
-
-        onChange(evt);
-    }, [ original, value, isInvalid, evt, formatReturn ]);
-
-    useEffect(() => {
-        setEvt(null);
-        setValue(!original ? '' : dateFormat(original, formatReturn));
-        setDisplay(!original ? null : dateFormat(original, formatDisplay));
-    }, [ original ]);
-
     return (
         <Styled styles={{ position: 'relative' }}>
             <Input
-                value={!asNativeDP ? '' : value}
+                value={value}
                 {...inputProps}
             />
-            {erasable && ((value || display) && !disabled) && (
+            {erasable && value && !disabled && (
                 <ButtonIcon
                     type="button"
                     tabIndex="-1"
-                    radius="0 10px 10px 0"
+                    radius="10px"
                     title={messageErase}
                     onClick={handleErase}
                     size={30}
                     styles={{
                         position: 'absolute',
                         top: '19px',
-                        right: asNativeDP ? '40px' : 0,
+                        right: '40px',
                         [MEDIA_QUERIES.LT.SM]: {
                             top: '15px',
                             right: 0,
@@ -223,11 +221,48 @@ const valueTypes = propTypes.oneOfType([
     propTypes.instanceOf(dayjs),
 ]);
 
+DatePicker.defaultProps = {
+    formatDisplay: 'DD/MM/YYYY',
+    formatReturn: 'YYYY-MM-DD',
+    onChange: () => {},
+    value: '',
+    min: '',
+    max: '',
+    maskChar: '_',
+    disabled: false,
+    erasable: true,
+    messageErase: 'Limpar data',
+    messageInvalid: 'Data inválida',
+    messageMin: 'Data mínima: #min',
+    messageMax: 'Data máxima: #max',
+};
+
 DatePicker.propTypes = {
+    /**
+     * Date instance, DayJS instance or a String with date format 'YYYY-MM-DD'
+     */
+    value: valueTypes.isRequired,
+    onChange: propTypes.func.isRequired,
     min: valueTypes,
     max: valueTypes,
-    value: valueTypes,
-    onChange: propTypes.func,
+    disabled: propTypes.bool,
+    erasable: propTypes.bool,
+    messageErase: propTypes.string,
+    messageInvalid: propTypes.string,
+    messageMin: propTypes.string,
+    messageMax: propTypes.string,
+    /**
+     * `InputDateFallback` prop
+     */
+    formatDisplay: propTypes.string,
+    /**
+     * `InputDateFallback` prop
+     */
+    formatReturn: propTypes.string,
+    /**
+     * `InputDateFallback` prop
+     */
+    maskChar: propTypes.string,
 };
 
 export default DatePicker;

@@ -72,6 +72,7 @@ export { default as DatePicker } from './Form/DatePicker/DatePicker';
 export { default as Input } from './Form/Input/Input';
 export { default as InputCnpjOrCpf } from './Form/InputCnpjOrCpf/InputCnpjOrCpf';
 export { default as InputCpf } from './Form/InputCpf/InputCpf';
+export { default as InputDateFallback } from './Form/InputDateFallback/InputDateFallback';
 export { default as InputDiscount } from './Form/InputDiscount/InputDiscount';
 export { default as InputFake } from './Form/InputFake/InputFake';
 export { default as InputFromTo } from './Form/InputFromTo/InputFromTo';
