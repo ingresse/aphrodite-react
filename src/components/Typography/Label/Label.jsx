@@ -5,17 +5,11 @@ import React from 'react';
 import P from '../P/P';
 
 /* Component Itself */
-function Label(props) {
-    /**
-     * Inherit props
-     */
-    const {
-        className,
-        styles,
-
-        ...rest
-    } = props;
-
+function Label({
+    className,
+    styles,
+    ...rest
+}) {
     /**
      * Render
      */
@@ -26,7 +20,7 @@ function Label(props) {
             margin="5px 0"
             color="helper"
             as="label"
-            textSize="sm"
+            textSmall
             className={`aph-label ${className || ''}`}
             styles={Object.assign({ display: 'block' }, (styles || {}))}
             {...rest}

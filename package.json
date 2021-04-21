@@ -1,6 +1,6 @@
 {
     "name": "@ingresse/aphrodite",
-    "version": "3.0.0-rc19",
+    "version": "3.0.0-rc20",
     "private": false,
     "license": "MIT",
     "description": "React UI library from ingresse.com",
