@@ -15,11 +15,9 @@ import {
 } from '../../';
 
 # Form | Input Date (Fallback)
-### A simple alternative to manage input date.
+### A simple alternative to manage input date. It's used as fallback of DatePicker component.
 
-It's used as fallback of DatePicker component.
-
-This component works with [Day.js](https://day.js.org/), which is a project dependency.
+This component works with [Day.js](https://day.js.org/) to validations and [react-input-mask](https://www.npmjs.com/package/react-input-mask) to mask pattern.
 
 ## Examples
 <Playground>
@@ -36,7 +34,7 @@ This component works with [Day.js](https://day.js.org/), which is a project depe
                     <InputDateFallback
                         id="example"
                         value={example}
-                        onChange={({ target }) => setExample(target.value)}
+                        onChange={({ target }) => { setExample(target.value); console.log('InputDateFallback target', target) }}
                         label="Type a date"
                     />
                     <br />

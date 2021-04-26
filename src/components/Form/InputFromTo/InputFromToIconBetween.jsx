@@ -5,10 +5,10 @@ import { colors } from '../../../utils';
 
 const IconFromToIconBetweenWrapper = styled.div`
   position: absolute;
-  top: 50%;
+  top: 10px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2.5px;
+  transform: translateX(-50%);
+  padding: 2.5px 0;
   background-color: ${({ disabled, ...props }) => colors.getFullColor(props, (disabled ? 'disabled' : 'background'))};
 `;
 

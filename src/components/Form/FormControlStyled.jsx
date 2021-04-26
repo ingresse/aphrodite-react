@@ -71,12 +71,9 @@ const FormControlStyled = styled.input`
     }
 
     &.disabled,
-    &:disabled {
+    &:disabled,
+    &[readonly] {
         cursor : not-allowed;
-        opacity: 1;
-
-        color           : ${props => colors.getFromTheme(props, 'base')};
-        background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
 
         &:hover,
         &:active,
@@ -85,6 +82,17 @@ const FormControlStyled = styled.input`
                 color: ${props => colors.getFromTheme(props, 'helper')};
             }
         }
+    }
+
+    &.disabled,
+    &:disabled {
+        opacity         : 1;
+        color           : ${props => colors.getFromTheme(props, 'base')};
+        background-color: ${props => colors.getFromTheme(props, 'disabled', 'crystal')};
+    }
+
+    &[readonly] {
+        opacity: 0.5;
     }
 
     &.aph-form-control--middle {

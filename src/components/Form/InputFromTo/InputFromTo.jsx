@@ -13,7 +13,7 @@ export default function InputFromTo({
 }) {
   return (
     <Styled styles={{ position: 'relative' }}>
-      <Row>
+      <Row vertical="start">
         <Col xs={6}>
           <DatePicker
             disabled={disabled}
@@ -33,7 +33,7 @@ export default function InputFromTo({
         className="icon-between-dates"
         color="helper"
         slug="transfer"
-        size={25}
+        size={20}
         disabled={disabled}
       />
     </Styled>

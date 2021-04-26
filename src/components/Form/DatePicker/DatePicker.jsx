@@ -32,9 +32,7 @@ function DatePicker({
     dateLib = dayjs,
     ...props
 }) {
-    const asNativeDP = hasDatePickerSupport();
-
-    if (!asNativeDP) {
+    if (!hasDatePickerSupport()) {
         return (
             <InputDateFallback
                 id={id}

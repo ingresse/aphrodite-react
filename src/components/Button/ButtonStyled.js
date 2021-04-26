@@ -20,6 +20,8 @@ const AphButtonStyled = styled.button`
     border : 0;
     outline: 0;
 
+    transition: all ease 0.25s;
+
     -webkit-tap-highlight-color: ${props => colors.getFromTheme(props, (props.aphcolor || 'secondary'), 'crystal', 0.5)};
 
     color: ${props =>

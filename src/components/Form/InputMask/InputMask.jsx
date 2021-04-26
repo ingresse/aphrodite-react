@@ -9,10 +9,12 @@ import Input from '../Input/Input';
 /* Component Itself */
 function InputMask({
     mask,
+    maskProps,
     value,
     onChange,
     ref,
     inputRef,
+    disabled,
     ...props
 }) {
     /**
@@ -23,11 +25,14 @@ function InputMask({
             mask={mask}
             value={value}
             onChange={onChange}
-            {...props}
+            disabled={disabled}
+            {...maskProps}
         >
             {(inputProps) => (
                 <Input
                     {...inputProps}
+                    {...props}
+                    disabled={disabled}
                     inputRef={ref || inputRef}
                 />
             )}
@@ -38,6 +43,7 @@ function InputMask({
 /* Default props */
 InputMask.defaultProps = {
     mask: '',
+    maskProps: {},
     defaultPadding: '10px',
 };
 
@@ -49,6 +55,11 @@ InputMask.propTypes = {
      * Visit https://www.npmjs.com/package/react-input-mask for more details
      */
     mask: PropTypes.string,
+
+    /**
+     * InputMask lib component props
+     */
+    maskProps: PropTypes.object,
 };
 
 /* Exporting */

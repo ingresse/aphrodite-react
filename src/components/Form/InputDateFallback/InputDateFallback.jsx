@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import dayjsCustomParsePlugin from 'dayjs/plugin/customParseFormat';
 import propTypes from 'prop-types';
@@ -9,7 +9,7 @@ import { MEDIA_QUERIES } from '../../../constants';
 
 dayjs.extend(dayjsCustomParsePlugin);
 
-const InputDateFallback = forwardRef(({
+function InputDateFallback({
     id,
     formatDisplay,
     formatReturn,
@@ -27,7 +27,7 @@ const InputDateFallback = forwardRef(({
     error,
     errorMessage,
     ...props
-}, ref) => {
+}) {
     const minRef = !min || !dayjs(min).isValid() ? null : dayjs(min).set('second', 0).set('minute', 0).set('hour', 0);
     const maxRef = !max || !dayjs(max).isValid() ? null : dayjs(max).set('second', 59).set('minute', 59).set('hour', 23);
     const maskFormat = formatDisplay.replace(/D|M|Y/g, '9');
@@ -73,13 +73,14 @@ const InputDateFallback = forwardRef(({
         setValue(targetValue);
 
         if (props.value !== newValue) {
-            onChange(Object.assign({}, srcEvt, {
-                target: Object.assign({}, srcTarget, {
+            onChange(Object.assign(srcEvt, {
+                target: Object.assign(srcTarget, {
+                    id,
                     value: isInvalid ? '' : newValue,
                 }),
             }));
         }
-    }, [onChange, formatDisplay, formatReturn, validate, props.value]);
+    }, [id, onChange, formatDisplay, formatReturn, validate, props.value]);
 
     const handleErase = useCallback((btnEvt) => {
         handleChange(Object.assign((btnEvt || {}), {
@@ -123,7 +124,6 @@ const InputDateFallback = forwardRef(({
                 type="text"
                 {...props}
                 id={id}
-                ref={ref}
                 mask={maskFormat}
                 disabled={disabled}
                 value={value || ''}
@@ -157,7 +157,7 @@ const InputDateFallback = forwardRef(({
             )}
         </Styled>
     );
-});
+}
 
 const valueTypes = propTypes.oneOfType([
     propTypes.string,
