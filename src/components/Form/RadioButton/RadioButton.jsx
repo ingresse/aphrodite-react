@@ -29,10 +29,11 @@ function RadioButton({
             <RadioButtonInput
                 id={id}
                 name={name}
-                defaultChecked={checked}
+                checked={checked}
                 type={type}
                 value={value}
                 disabled={disabled}
+                {...rest}
             />
             <i />
             {children && (
