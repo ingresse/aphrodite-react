@@ -81,6 +81,7 @@ export { default as InputMoney } from './Form/InputMoney/InputMoney';
 export { default as InputNumeric } from './Form/InputNumeric/InputNumeric';
 export { default as InputOneTimePassword } from './Form/InputOneTimePassword/InputOneTimePassword';
 export { default as RadioButton } from './Form/RadioButton/RadioButton';
+export { default as RichTextEditor } from './Form/RichTextEditor/RichTextEditor';
 export { default as Select } from './Form/Select/Select';
 export { default as Switch } from './Form/Switch/Switch';
 export { default as TextArea } from './Form/TextArea/TextArea';
