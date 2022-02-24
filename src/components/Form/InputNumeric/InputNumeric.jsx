@@ -38,6 +38,11 @@ const InputNumeric = memo(forwardRef(({
         list: `${id}-suggestions`,
     };
 
+    const acceptedChars = [
+        ...(accept || []),
+        ...(((typeof props.min === 'number') && (props.min < 0)) ? ['-'] : []),
+    ];
+
     function getInRange(newValue) {
         if (!newValue) {
             return newValue;
@@ -62,7 +67,7 @@ const InputNumeric = memo(forwardRef(({
         const { target } = evt;
         const { value }  = target;
         const rangeValue = getInRange(value);
-        const filtered   = patterns.numeric(rangeValue, accept);
+        const filtered   = patterns.numeric(rangeValue, acceptedChars);
         const newValue   = (shouldRound && doubleDecimal ? formatNumberRound(parseFloat(filtered, 10)) : filtered);
 
         return Object.assign({}, evt, {

@@ -13894,6 +13894,7 @@ var InputNumeric = /*#__PURE__*/React.memo( /*#__PURE__*/React.forwardRef(functi
   var list = !hasSuggestions ? {} : {
     list: id + "-suggestions"
   };
+  var acceptedChars = [].concat(accept || [], typeof props.min === 'number' && props.min < 0 ? ['-'] : []);
 
   function getInRange(newValue) {
     if (!newValue) {
@@ -13923,7 +13924,7 @@ var InputNumeric = /*#__PURE__*/React.memo( /*#__PURE__*/React.forwardRef(functi
     var target = evt.target;
     var value = target.value;
     var rangeValue = getInRange(value);
-    var filtered = patterns.numeric(rangeValue, accept);
+    var filtered = patterns.numeric(rangeValue, acceptedChars);
     var newValue = shouldRound && doubleDecimal ? formatNumberRound(parseFloat(filtered, 10)) : filtered;
     return Object.assign({}, evt, {
       target: Object.assign({}, evt.target, {
