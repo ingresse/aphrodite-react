@@ -1,20 +1,20 @@
 ---
-name : Form | Radio
+name : Form | Input Radio
 menu : › Components
 route: /components/form/radio
 ---
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Playground, Props } from 'docz';
 import {
     RadioButton,
-    Segment,
+    Styled,
     Row,
     Col,
 } from '../../';
 
 
-# Form | Radio Button
+# Form | Input Radio
 ### Form input radio styled.
 
 
@@ -22,166 +22,68 @@ import {
 
 <Playground>
     <Row>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup1"
-                    id="option1a"
-                    value="option1a"
-                    onChange={(evt) => console.log(evt.target.value)}
-                    checked
-                    autoFocus
-                >
-                    Option 1A
-                </RadioButton>
-            </Segment>
+        <Col xs={12} sm={6}>
+            <RadioButton
+                name="ticket_transfer"
+                id="ticket_transfer_enabled"
+                value={true}
+                defaultChecked={true}
+            >
+                Ticket Transfer Enabled
+            </RadioButton>
         </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup1"
-                    id="option1b"
-                    value="option1b"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 1B
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup1"
-                    id="option1c"
-                    value="option1c"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 1C
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup1"
-                    id="option1d"
-                    value="option1d"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 1D
-                </RadioButton>
-            </Segment>
+        <Col xs={12} sm={6}>
+            <RadioButton
+                name="ticket_transfer"
+                id="ticket_transfer_disabled"
+                value={false}
+            >
+                Ticket Transfer Enabled
+            </RadioButton>
         </Col>
     </Row>
+</Playground>
 
-    <hr style={{ margin: '20px 0' }} />
 
-    <Row>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup2"
-                    id="option2a"
-                    value="option2a"
-                    onChange={(evt) => console.log(evt.target.value)}
-                    disabled
-                >
-                    Option 2A
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup2"
-                    id="option2b"
-                    value="option2b"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 2B
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup2"
-                    id="option2c"
-                    value="option2c"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 2C
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup2"
-                    id="option2d"
-                    value="option2d"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 2D
-                </RadioButton>
-            </Segment>
-        </Col>
-    </Row>
+## Example - Controlled Inputs
 
-    <hr style={{ margin: '20px 0' }} />
+<Playground>
+    {() => {
+        const eventTypes = ['In-person', 'Live', 'Hybrid', 'Invalid'];
+        const colSizeSM = parseInt((12 / eventTypes.length), 10);
+        const [selectedType, setSelectedType] = useState(eventTypes[0]);
 
-    <Row>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup3"
-                    id="option3a"
-                    value="option3a"
-                    onChange={(evt) => console.log(evt.target.value)}
-               >
-                    Option 2A
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup3"
-                    id="option3b"
-                    value="option3b"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 3B
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup3"
-                    id="option3c"
-                    value="option3c"
-                    onChange={(evt) => console.log(evt.target.value)}
-                >
-                    Option 3C
-                </RadioButton>
-            </Segment>
-        </Col>
-        <Col xs={6} sm={3}>
-            <Segment padding="10px 0">
-                <RadioButton
-                    name="exampleRadioGroup3"
-                    id="option3d"
-                    value="option3d"
-                    onChange={(evt) => console.log(evt.target.value)}
-                    disabled
-                    checked
-                >
-                    Option 3D
-                </RadioButton>
-            </Segment>
-        </Col>
-    </Row>
+        return (
+            <Styled as="section" padding="20px 0">
+                <Row>
+                    {eventTypes.map((eventType) => {
+                        const inputRadioId = `event-type-${eventType}`;
+
+                        return (
+                            <Col
+                                id={colSizeSM}
+                                key={inputRadioId}
+                                xs={12}
+                                sm={colSizeSM}
+                            >
+                                <RadioButton
+                                    name="event-type"
+                                    id={inputRadioId}
+                                    value={eventType}
+                                    checked={eventType === selectedType}
+                                    onChange={({ target }) => setSelectedType(target.value)}
+                                    disabled={eventType === eventTypes[eventTypes.length - 1]}
+                                    description="controlled input"
+                                >
+                                    {eventType}
+                                </RadioButton>
+                            </Col>
+                        );
+                    })}
+                </Row>
+            </Styled>
+        );
+    }}
 </Playground>
 
 

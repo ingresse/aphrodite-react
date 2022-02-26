@@ -39,7 +39,7 @@ export const RadioButtonInput = styled.input`
 
         ~ span {
             color: inherit;
-            transition: all ease 0.2s;
+            transition: all ease 0.1s;
         }
     }
 

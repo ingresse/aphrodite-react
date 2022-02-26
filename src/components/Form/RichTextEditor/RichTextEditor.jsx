@@ -1,5 +1,5 @@
 /* Core Packages */
-import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import React, { useCallback, useState, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import ReactQuill, { Quill } from 'react-quill';
 import RichTextEditorPlainClipboard from './RichTextEditorPlainClipboard';
@@ -25,28 +25,45 @@ const RichTextEditor = forwardRef(({
     disabled,
 
     ...rest
-}, fRef) => {
+}, ref) => {
     /**
      * Local values
      */
-    const ref                           = useRef(fRef || null);
     const [ localValue, setLocalValue ] = useState('');
 
     /**
      * Handle Changes
      *
      * @param {string} htmlAsString
+     * @param {any} delta
+     * @param {any} source
+     * @param {any} editor
      */
-    function handleChange(htmlAsString) {
-        setLocalValue(htmlAsString);
-        onChange({
-            target: {
-                id: rest.id,
-                name: rest.name,
-                value: htmlAsString,
-            },
-        });
-    }
+    const handleChange = useCallback((
+        htmlAsString,
+        delta,
+        source,
+        editor,
+    ) => {
+        const newValue = htmlAsString === '<p><br></p>' ? '' : htmlAsString;
+
+        setLocalValue(newValue);
+
+        if (onChange) {
+            onChange(
+                {
+                    target: {
+                        id: rest.id,
+                        name: rest.name,
+                        value: newValue,
+                    },
+                },
+                delta,
+                source,
+                editor,
+            );
+        }
+    }, []);
 
     /**
      * Did Update
@@ -66,7 +83,7 @@ const RichTextEditor = forwardRef(({
                 background={disabled ? 'disabled' : 'background'}
             >
                 <ReactQuill
-                    ref={ref}
+                    inputRef={ref}
                     value={localValue}
                     onChange={handleChange}
                     disabled={disabled}
@@ -113,7 +130,7 @@ RichTextEditor.defaultProps = {
      * Quill whitelist of available formats in Toolbar
      */
     formats: [
-        'bold', 'italic', 'underline',
+        'bold', 'italic', 'underline', 'link',
     ],
 };
 
@@ -121,7 +138,7 @@ RichTextEditor.defaultProps = {
  * Prop Types
  */
 RichTextEditor.propTypes = {
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     value   : PropTypes.string,
     height  : PropTypes.number,
     modules : PropTypes.object,

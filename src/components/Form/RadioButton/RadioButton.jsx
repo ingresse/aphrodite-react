@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-/* Styled Components */
-import {
-    RadioButtonWrapper,
-    RadioButtonInput,
-} from './RadioButtonStyled.js';
+/**
+ * Helper Components
+ */
+import Styled from '../../Styled/Styled';
+
+/* Component Styles */
+import { RadioButtonWrapper, RadioButtonInput, } from './RadioButtonStyled.js';
 
 /* Component it self */
-function RadioButton({
+const RadioButton = forwardRef(({
     id,
     name,
     children,
-    checked,
     type,
     value,
     disabled,
-
+    description,
     ...rest
-}) {
+}, ref) => {
     return (
         <RadioButtonWrapper
             htmlFor={id}
@@ -29,33 +30,33 @@ function RadioButton({
             <RadioButtonInput
                 id={id}
                 name={name}
-                checked={checked}
                 type={type}
                 value={value}
                 disabled={disabled}
+                ref={ref}
                 {...rest}
             />
             <i />
-            {children && (
-                <span>
-                    {children}
-                </span>
-            )}
+            <span>
+                {children}
+                {description && (
+                <Styled
+                    textColor={disabled ? 'disabled' : 'helper'}
+                    textSize="sm"
+                >
+                    {description}
+                </Styled>
+                )}
+            </span>
         </RadioButtonWrapper>
     );
-}
+});
 
 /* Default props */
 RadioButton.defaultProps = {
-    id      : null,
-    type    : 'radio',
-    name    : null,
-    value   : '',
-    children: '',
-    onChange: () => null,
-
-    checked : false,
-    disabled: false,
+    type       : 'radio',
+    disabled   : false,
+    description: '',
 };
 
 /* Prop Types */
@@ -67,8 +68,9 @@ RadioButton.propTypes = {
     children: PropTypes.any,
     onChange: PropTypes.func,
 
-    checked : PropTypes.bool,
-    disabled: PropTypes.bool,
+    checked    : PropTypes.bool,
+    disabled   : PropTypes.bool,
+    description: PropTypes.string,
 };
 
 export default RadioButton;
