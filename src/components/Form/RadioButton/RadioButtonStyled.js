@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 import { colors } from '../../../utils';
 
 export const RadioButtonWrapper = styled.label`
@@ -40,7 +39,7 @@ export const RadioButtonInput = styled.input`
 
         ~ span {
             color: inherit;
-            transition: all ease 0.2s;
+            transition: all ease 0.1s;
         }
     }
 

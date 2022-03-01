@@ -1,0 +1,76 @@
+---
+name : Form | RichTextEditor
+menu : › Components
+route: /components/form/rich-text-editor
+---
+
+import { useEffect, useState } from 'react';
+import { Playground, Props } from 'docz';
+import { RichTextEditor, Styled, } from '../../';
+
+
+# Form | RichTextEditor
+### Form Rich Text Editor component styled.
+
+
+## Example
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        function handleChange(evt) {
+            setValue(evt.target.value);
+
+            console.log('RichTextEditor example');
+            console.log(evt.target.value);
+        }
+
+        return (
+            <Styled padding="10px 0">
+                <RichTextEditor
+                    placeholder="Your text content goes here"
+                    value={value}
+                    onChange={handleChange}
+                />
+            </Styled>
+        );
+    }}
+</Playground>
+
+
+## Delayed
+
+<Playground>
+    {() => {
+        const [ value, setValue ] = useState('');
+
+        useEffect(() => {
+            setTimeout(() => {
+                setValue('aphrodite');
+            }, 2500);
+        }, []);
+
+        function handleChange(evt) {
+            setValue(evt.target.value);
+
+            console.log('RichTextEditor example delayed');
+            console.log(evt.target.value);
+        }
+
+        return (
+            <Styled padding="10px 0">
+                <RichTextEditor
+                    placeholder="Placeholder"
+                    value={value}
+                    onChange={handleChange}
+                />
+            </Styled>
+        );
+    }}
+</Playground>
+
+
+## Properties
+
+<Props of={RichTextEditor} />
