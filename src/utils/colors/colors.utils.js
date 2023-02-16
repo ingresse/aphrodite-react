@@ -106,9 +106,9 @@ const translucid = getShadesFormat(
 
 const shadow = getShadesFormat(
     'rgba(0, 0, 0, 0.4)',
-    'rgba(0, 0, 0, 0.3)',
-    'rgba(0, 0, 0, 0.2)',
-    'rgba(0, 0, 0, 0.1)',
+    'rgba(33, 43, 54, 0.1)',
+    'rgba(33, 43, 54, 0.05)',
+    'rgba(33, 43, 54, 0.01)',
 );
 
 let shades = {

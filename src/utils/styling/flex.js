@@ -14,15 +14,15 @@ export const flex = ({
   justifyContent,
   order,
 }) => css`
-  align-content: ${alignContent || null};
-  align-items: ${alignItems || null};
-  align-self: ${alignSelf || null};
-  display: ${display || (!flexDisplay ? null : 'flex')};
-  flex: ${!flex ? null : (typeof flex === 'boolean' ? '1 auto' : flex)};
-  flex-direction: ${flexDirection || null};
-  flex-grow: ${flexGrow || null};
-  flex-shrink: ${flexShrink || null};
-  flex-wrap: ${flexWrap || null};
+  align-content  : ${alignContent || null};
+  align-items    : ${alignItems || null};
+  align-self     : ${alignSelf || null};
+  display        : ${display || (!flexDisplay ? null : 'flex')};
+  flex           : ${!flex ? null : (typeof flex === 'boolean' ? '1 auto' : flex)};
+  flex-direction : ${flexDirection || null};
+  flex-grow      : ${flexGrow || null};
+  flex-shrink    : ${flexShrink || null};
+  flex-wrap      : ${flexWrap || null};
   justify-content: ${justifyContent || null};
-  order: ${order || null};
+  order          : ${order || null};
 `;

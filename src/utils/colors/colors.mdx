@@ -5,7 +5,7 @@ route: /utils/colors
 ---
 
 import { Playground } from 'docz';
-import { Row, Col, Segment } from '../../components';
+import { Row, Col, Segment, Styled } from '../../components';
 import { colors } from '../';
 
 
@@ -100,7 +100,7 @@ colors.get('primary', 'dark', 0.1);
                                                 padding="0"
                                                 styles={{
                                                     ...colorBoxStyles,
-                                                    backgroundColor: color.value
+                                                    backgroundColor: value
                                                 }}
                                             />
                                         </Col>
@@ -130,30 +130,51 @@ colors.get('primary', 'dark', 0.1);
 ## Example
 
 ```
-import { colors } from '@ingresse/aphrodite';
+import { colors, Styled } from '@ingresse/aphrodite';
 
 ...
 
 return (
-    <div style={{ color: colors.get('ocean', 'dark'), background: colors.get('ocean', 'crystal') }}>
-        Element customized with Color Utils from Aphrodite React.
-    </div>
+    <>
+        <div style={{ color: colors.get('ocean', 'dark'), backgroundColor: colors.get('ocean', 'crystal') }}>
+            Element customized with Color Utils from Aphrodite React.
+        </div>
+
+        <hr />
+
+        <Styled textColor="ocean,dark" backgroundColor="ocean,crystal">
+            Element customized with Color Utils from Aphrodite React.
+        </Styled>
+    </>
 );
 ```
 
 <Playground>
     <Row horizontal="center">
         <Col xs={12} sm={6}>
-            <Segment
-                padding="25px 20px"
-                styles={{
-                    borderRadius: '5px',
-                    textAlign   : 'center',
-                    color       : colors.get('ocean', 'dark'),
-                    background  : colors.get('ocean', 'crystal'),
-                }}>
+            <div
+                style={{
+                    color          : colors.get('ocean', 'dark'),
+                    backgroundColor: colors.get('ocean', 'crystal'),
+                    padding        : '25px 20px',
+                    borderRadius   : '5px',
+                    textAlign      : 'center',
+                }}
+            >
                 Element customized with Color Utils from Aphrodite React.
-            </Segment>
+            </div>
+
+            <hr />
+
+            <Styled
+                textColor="ocean,dark"
+                backgroundColor="ocean,crystal"
+                padding="25px 20px"
+                borderRadius="5px"
+                textAlign="center"
+            >
+                Element customized with Color Utils from Aphrodite React.
+            </Styled>
         </Col>
     </Row>
 </Playground>

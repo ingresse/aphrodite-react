@@ -74,6 +74,7 @@ const Img = forwardRef((props, ref) => {
      */
     return (
         <ImgStyled
+            as="img"
             {...rest}
             center={center}
             ref={ref}

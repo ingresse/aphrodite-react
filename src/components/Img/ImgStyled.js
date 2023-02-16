@@ -1,6 +1,9 @@
 /* Core Packages */
 import styled from '@emotion/styled';
 
+/* Base Component */
+import Styled from '../Styled/Styled';
+
 /* Constants */
 import {
     MEDIA_QUERIES,
@@ -8,7 +11,7 @@ import {
 } from '../../constants';
 
 /* Styled */
-const ImgStyled = styled('img')((props) => {
+const ImgStyled = styled(Styled)((props) => {
     const {
         center,
         circle,

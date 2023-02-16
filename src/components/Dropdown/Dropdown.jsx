@@ -37,7 +37,7 @@ const Dropdown = forwardRef(({
     /**
      * State reference
      */
-    const dropdownRef = useRef(null);
+    const dropdownRef = useRef(ref || null);
 
     /**
      * Add click listener

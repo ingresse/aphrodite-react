@@ -13,6 +13,8 @@ const StyledStyled = styled.div`
     margin : ${({ customMargin }) => customMargin};
     padding: ${({ customPadding, withLink }) => (!customPadding || withLink) ? null : customPadding};
 
+    transition: all 0.2s ease;
+
     &:active, &:hover, &:focus {
       background-color: ${({ hoverable, ...props }) => !hoverable ? null :
         colors.getFullColor(props, (typeof hoverable === 'string' ? hoverable : 'background'))
@@ -34,12 +36,52 @@ const StyledStyled = styled.div`
       }
     `};
 
-    transition: all 0.2s ease;
-
+    /**
+     * Apply general styles based on props
+     */
     ${(props) => styling(props)};
+
+    /**
+     * Applies Text styling based on Props
+     */
     ${(props) => text(props, props.textSize)};
+
+    /**
+     * Additional CSS passed as object to prop 'styles'
+     */
     ${({ customStyles }) => customStyles};
-    ${({ stylesXS }) => stylesXS ? null : css`
+
+    ${({ stylesGTXL }) => !stylesGTXL ? null : css`
+      ${MEDIA_QUERIES.GT.XL} {
+        ${stylesGTXL};
+      }
+    `};
+
+    ${({ stylesGTLG }) => !stylesGTLG ? null : css`
+      ${MEDIA_QUERIES.GT.LG} {
+        ${stylesGTLG};
+      }
+    `};
+
+    ${({ stylesGTMD }) => !stylesGTMD ? null : css`
+      ${MEDIA_QUERIES.GT.MD} {
+        ${stylesGTMD};
+      }
+    `};
+
+    ${({ stylesGTSM }) => !stylesGTSM ? null : css`
+      ${MEDIA_QUERIES.GT.SM} {
+        ${stylesGTSM};
+      }
+    `};
+
+    ${({ stylesGTXS }) => !stylesGTXS ? null : css`
+      ${MEDIA_QUERIES.GT.XSM} {
+        ${stylesGTXS};
+      }
+    `};
+
+    ${({ stylesXS }) => !stylesXS ? null : css`
       ${MEDIA_QUERIES.LT.SM} {
         ${stylesXS};
       }
@@ -60,20 +102,22 @@ const Styled = forwardRef(({
   radius,
   shadow,
   shadowColor,
+  shadowPosX,
+  shadowPosY,
   shadowSpread,
   styles,
   ...props
 }, ref) => {
   const getColorNotBool    = (desired) => (typeof desired !== 'string' ? '' : desired);
   const getSpacement       = (size) => ((typeof size === 'number') ? `${size}px` : size);
-  const shadowColorDefault = colors.getFullColor(props, (shadowColor || 'shadow'));
+  const shadowColorDefault = colors.getFullColor(props, shadowColor);
   const borderColorDefault = (borderColor || 'border');
   const boxShadow          = [
     (!border && !borderTop) ? ''    : `inset 0 1px 0 0 ${colors.getFullColor(props, (getColorNotBool(borderTop || border) || borderColorDefault))}`,
     (!border && !borderRight) ? ''  : `inset -1px 0 0 0 ${colors.getFullColor(props, (getColorNotBool(borderRight || border) || borderColorDefault))}`,
     (!border && !borderBottom) ? '' : `inset 0 -1px 0 0 ${colors.getFullColor(props, (getColorNotBool(borderBottom || border) || borderColorDefault))}`,
     (!border && !borderLeft) ? ''   : `inset 1px 0 0 0 ${colors.getFullColor(props, (getColorNotBool(borderLeft || border) || borderColorDefault))}`,
-    !shadow ? ''       : (typeof shadow === 'string' ? shadow : `0 0 ${shadowSpread || '10px'} ${shadowColorDefault}`),
+    !shadow ? ''                    : (typeof shadow === 'string' ? shadow : `${shadowPosX} ${shadowPosY} ${shadowSpread} ${shadowColorDefault}`),
   ].filter((border) => border);
 
   return (
@@ -89,6 +133,14 @@ const Styled = forwardRef(({
     />
   );
 });
+
+Styled.defaultProps = {
+    shadow      : false,
+    shadowColor : 'shadow',
+    shadowPosX  : '0px',
+    shadowPosY  : '8px',
+    shadowSpread: '16px',
+};
 
 Styled.propTypes = {
   /**
@@ -176,6 +228,16 @@ Styled.propTypes = {
   shadowColor: propTypes.string,
 
   /**
+   * Box Shadow position X axis. Ex.: shadowPosX="5px"
+   */
+  shadowPosX: propTypes.string,
+
+  /**
+   * Box Shadow position Y axis. Ex.: shadowPosY="5px"
+   */
+  shadowPosY: propTypes.string,
+
+  /**
    * Box Shadow spread. Ex.: shadowSpread="5px"
    */
   shadowSpread: propTypes.string,
@@ -184,6 +246,31 @@ Styled.propTypes = {
    * Custom Styles
    */
   styles: propTypes.object,
+
+  /**
+   * Custom Styles to screens greater than 1440px
+   */
+  stylesGTXL: propTypes.object,
+
+  /**
+   * Custom Styles to screens greater than 1280px
+   */
+  stylesGTLG: propTypes.object,
+
+  /**
+   * Custom Styles to screens greater than 1024px
+   */
+  stylesGTMD: propTypes.object,
+
+  /**
+   * Custom Styles to screens greater than 768px
+   */
+  stylesGTSM: propTypes.object,
+
+  /**
+   * Custom Styles to screens greater than 475px
+   */
+  stylesGTXS: propTypes.object,
 
   /**
    * Custom Styles to screens smaller than 768px
@@ -245,18 +332,22 @@ Styled.propTypes = {
    */
   textTruncate: propTypes.bool,
 
-  alignContent: propTypes.string,
-  alignItems: propTypes.string,
-  alignSelf: propTypes.string,
-  display: propTypes.string,
-  flex: propTypes.oneOfType([ propTypes.bool, propTypes.number, propTypes.string ]),
-  flexDirection: propTypes.string,
-  flexDisplay: propTypes.string,
-  flexGrow: propTypes.string,
-  flexShrink: propTypes.string,
-  flexWrap: propTypes.string,
+  /**
+   * Flex properties
+   */
+
+  alignContent  : propTypes.string,
+  alignItems    : propTypes.string,
+  alignSelf     : propTypes.string,
+  display       : propTypes.string,
+  flex          : propTypes.oneOfType([ propTypes.bool, propTypes.number, propTypes.string ]),
+  flexDirection : propTypes.string,
+  flexDisplay   : propTypes.string,
+  flexGrow      : propTypes.string,
+  flexShrink    : propTypes.string,
+  flexWrap      : propTypes.string,
   justifyContent: propTypes.string,
-  order: propTypes.oneOfType([ propTypes.number, propTypes.string ]),
+  order         : propTypes.oneOfType([ propTypes.number, propTypes.string ]),
 };
 
 export default Styled;

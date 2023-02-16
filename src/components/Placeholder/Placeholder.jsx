@@ -35,8 +35,8 @@ const Placeholder = forwardRef((props, ref) => {
     const isDarkMode = ((props.theme && props.theme.isDarkMode) ? true : false);
     const colorTheme = colors.getFromTheme(props, 'helper');
     const colorBase  = chroma(colorTheme);
-    const colorStart = colorBase.alpha(isDarkMode ? 0.5 : 0.05).css();
-    const colorEnd   = colorBase.alpha(isDarkMode ? 0.75 : 0.15).css();
+    const colorStart = colorBase.alpha(isDarkMode ? 0.5 : 0.01).css();
+    const colorEnd   = colorBase.alpha(isDarkMode ? 0.75 : 0.2).css();
 
     const StyledPlaceholder = styled('div')({
         fontSize  : '0',
@@ -57,7 +57,7 @@ const Placeholder = forwardRef((props, ref) => {
         background    : `linear-gradient(90deg, ${colorStart}, ${colorEnd})`,
         backgroundSize: '200% 100%',
 
-        animation: `${bgPlaceholder} .9s ease infinite`,
+        animation: `${bgPlaceholder} 1.8s ease infinite`,
 
         ...styles,
     });
