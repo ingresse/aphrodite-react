@@ -200,9 +200,8 @@ Collapsible.defaultProps = {
     icon          : true,
     iconSize      : 40,
     padding       : '0',
-    radius        : 10,
+    radius        : 12,
     shadow        : true,
-    shadowSpread  : '5px',
     styles        : {},
 };
 

@@ -17,11 +17,11 @@ import { Styled, Container, Row, Col, Card, Switch } from '../';
     <Styled
         background="supernova,crystal,0.5"
         color="supernova"
-        padding="15px"
-        radius="15px"
+        padding="16px"
+        radius="12px"
         shadow
-        shadowColor="supernova,dark"
-        shadowSpread="10px"
+        shadowColor="supernova,crystal"
+        shadowSpread="24px"
     >
         Styled with custom props.
     </Styled>
@@ -45,8 +45,8 @@ import { Styled, Container, Row, Col, Card, Switch } from '../';
     <Styled
         borderTop
         borderBottom
-        margin="30px 0"
-        padding="15px"
+        margin="32px 0"
+        padding="16px"
     >
         Hello, borders.
         <br />
@@ -58,9 +58,9 @@ import { Styled, Container, Row, Col, Card, Switch } from '../';
         borderRight="tangerine"
         borderBottom="ocean"
         borderLeft="ruby"
-        margin="30px 0"
-        padding="15px"
-        radius={10}
+        margin="32px 0"
+        padding="16px"
+        radius={12}
     >
         Too many borders combined.
         <br />
@@ -76,11 +76,52 @@ import { Styled, Container, Row, Col, Card, Switch } from '../';
     <Styled
         as={Container}
         background="mercury,crystal"
-        padding="15px"
-        radius={5}
+        padding="16px"
+        radius={8}
         xs // this is a "Container" prop and you can use all others
     >
         "Styled" mixed up with "Container" component styles.
+    </Styled>
+</Playground>
+
+.
+
+## "Responsive" using `styles` and `stylesXS` or `stylesGTXS`
+
+<Playground>
+    <Styled
+        shadow
+        shadowColor="secondary,light"
+        radius={12}
+        padding={16}
+        margin="32px 0"
+        textColor="white"
+        styles={{
+            // General Styles
+            background: 'blue',
+        }}
+        stylesXS={{
+            // Styles to screens less than SM (767px or less)
+            background: 'orange',
+        }}
+    >
+        "Styled" renderized with "section" tag instead of "div".
+    </Styled>
+    <Styled
+        margin="32px 0"
+        padding={16}
+        radius={24}
+        textColor="white"
+        styles={{
+            // General Styles
+            background: 'lightgreen',
+        }}
+        stylesGTXS={{
+            // Styles to screens greater than XSM (476px or less)
+            background: 'gray',
+        }}
+    >
+        "Styled" renderized with "section" tag instead of "div".
     </Styled>
 </Playground>
 

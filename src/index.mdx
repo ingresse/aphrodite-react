@@ -19,21 +19,22 @@ npm i --save @ingresse/aphrodite
 ---
 
 ## Usage Example
-#### Re-export the Aphrodite tools through your React application folder structure.
+
+#### Re-export the Aphrodite components/tools through your React application folder structure.
 
 `src/utils/index.js`:
 ```js
 export {
-    colors,
+  colors,
 } from '@ingresse/aphrodite';
 ```
 
 `src/components/index.js`:
 ```js
 export {
-    Button,
-    Container,
-    Segment,
+  Button,
+  Container,
+  Styled,
 } from '@ingresse/aphrodite';
 ```
 
@@ -45,27 +46,26 @@ import React from 'react';
 
 /* Components */
 import {
-    Button,
-    Container,
-    Segment,
+  Button,
+  Container,
+  Styled,
 } from './components';
 
 /* Component Itself */
 function App() {
-    function handleClick(evt) {
-        console.log('button click', evt);
-    }
+  function handleClick(evt) {
+    console.log('button click', evt);
+  }
 
-    return (
-        <Container>
-            <Segment
-                textAlign="center">
-                <Button onClick={handleClick}>
-                    Aphrodite Button
-                </Button>
-            </Segment>
-        </Container>
-    );
+  return (
+    <Container>
+      <Styled textAlign="center">
+        <Button onClick={handleClick}>
+          Aphrodite Button
+        </Button>
+      </Styled>
+    </Container>
+  );
 }
 
 /* Exporting */

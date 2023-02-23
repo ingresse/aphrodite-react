@@ -1,7 +1,7 @@
 ---
 name : Tooltip
-menu : Utilities
-route: /utils/tooltip
+menu : › Components
+route: /components/tooltip
 ---
 
 import { Playground, Props } from 'docz';
@@ -9,8 +9,8 @@ import { Tooltip, Icon } from '../';
 import { COLORS } from '../../constants';
 
 # Tooltip
-#### Just an implementation of awesome library [**React Tooltip**](https://github.com/wwayne/react-tooltip), with Aphrodite's definitions.
-#### So, it's just consult the [documentation](https://github.com/wwayne/react-tooltip) for more options.
+#### Just an implementation of awesome library [**React Tooltip**](https://github.com/ReactTooltip/react-tooltip/tree/v4.2.21#react-tooltip), with Aphrodite's definitions.
+#### So, it's just consult the [documentation](https://github.com/ReactTooltip/react-tooltip/tree/v4.2.21#react-tooltip) for more options.
 ```jsx
 import { Tooltip } from '@ingresse/aphrodite';
 
@@ -20,55 +20,15 @@ import { Tooltip } from '@ingresse/aphrodite';
 ## Properties
 <Props of={Tooltip} />
 
-## Examples
+## Example
 
-### Top
 <Playground>
-    <Tooltip tip="Placed at top of relative element/word, if fits to screen" place="top">Some text</Tooltip>
+    <Tooltip
+        tip="Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie."
+    >
+        Some text
+    </Tooltip>
 </Playground>
-
-### Bottom
-<Playground>
-    <Tooltip tip="Placed at bottom of wrapped element" place="bottom">Some text</Tooltip>
-</Playground>
-
-### Right
-<Playground>
-    <Tooltip tip="At the right, if fits to screen" place="right">Some text</Tooltip>
-</Playground>
-
-### Left
-<Playground>
-    <Tooltip tip="At the left, if fits to screen" place="left">Some text</Tooltip>
-</Playground>
-
-### SVG Icon nested
-<Playground>
-    <div>
-        TIMES
-
-        <Tooltip tip="It works?" place="top">
-            <Icon slug="times-circle" color={COLORS.ERROR} />
-        </Tooltip>
-    </div>
-    <div>
-        Question
-
-        <Tooltip tip="I don't know. Maybe..." place="right">
-            <Icon slug="question-circle" color={COLORS.WARNING} size={30} />
-        </Tooltip>
-    </div>
-    <div>
-        Info
-
-        <Tooltip tip="Well, seems legit" place="bottom">
-            <Icon slug="info-circle" color={COLORS.SUCCESS} size={40} />
-        </Tooltip>
-    </div>
-</Playground>
-
-
-## Variations
 
 ### Error
 <Playground>

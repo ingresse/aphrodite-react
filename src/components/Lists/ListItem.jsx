@@ -16,7 +16,7 @@ const AphListItemStyled = styled.li`
 
     ${props => text(props, props.textSize)};
 
-    box-shadow: ${props => ((!props.borderTop && !props.borderBottom) ? null : `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'shadow', 'crystal')}`)};
+    box-shadow: ${props => ((!props.borderTop && !props.borderBottom) ? null : `inset 0 ${props.borderBottom ? '-' : ''}1px 0 0 ${colors.getFromTheme(props, 'shadow')}`)};
     color: ${props => ((!props.disabled && !props.aphColor) ? null : colors.getFromTheme(props, (props.disabled ? 'helper' : (props.aphColor || 'secondary'))))};
     cursor: ${props => (!props.disabled ? null : 'not-allowed')};
 
